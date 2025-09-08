@@ -28,6 +28,18 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+            - name: Show repo tree (debug)
+        run: |
+          echo "===== GIT BRANCH ====="
+          git rev-parse --abbrev-ref HEAD
+          echo "===== TOP LEVEL ====="
+          ls -la
+          echo "===== Data/ ====="
+          ls -la Data || true
+          echo "===== Data/* (one level) ====="
+          find Data -maxdepth 2 -type d -print || true
+          echo "===== CSV preview ====="
+          find Data -name "*.csv" | head -n 10
 
       - name: Build site
         run: |
