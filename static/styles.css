@@ -1,0 +1,18 @@
+:root{--bg:#0b1220;--card:#111a2b;--muted:#9fb3c8;--text:#e8f0fe;--accent:#61dafb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,Segoe UI,Inter,Arial}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.grid{display:grid;gap:16px}
+.card{background:var(--card);border-radius:16px;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.h1{font-size:28px;margin:0 0 8px}
+.h2{font-size:22px;margin:16px 0 8px}
+.h3{font-size:18px;margin:12px 0 6px}
+.small{color:var(--muted);font-size:14px}
+.table{width:100%;border-collapse:collapse;margin-top:12px}
+.table th,.table td{border-bottom:1px solid #1f2a44;padding:10px;text-align:left}
+.kv{display:flex;gap:12px;flex-wrap:wrap}
+.kv div{background:#0e1729;padding:8px 10px;border-radius:10px}
+.hero{padding:24px;border-radius:16px;background:linear-gradient(135deg,#0f1b33,#0d233d)}
+.footer{margin-top:32px;color:var(--muted);font-size:13px}
