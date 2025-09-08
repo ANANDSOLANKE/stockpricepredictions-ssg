@@ -4,15 +4,17 @@ import os, re, json, shutil, datetime
 from pathlib import Path
 import pandas as pd
 
+# ---------- Paths & Config ----------
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "Data"
 DIST = ROOT / "dist"
 
-# Read site config (base_url, keywords, author, etc.)
 CFG = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
+BASE_URL = CFG.get("base_url", "").rstrip("/")  # e.g. https://anandsolanke.github.io/stockpricepredictions-ssg
 
+# ---------- Helpers ----------
 def find_latest_date_folder():
-    # expects folders like '03.09.2025'
+    """Find latest Data/DD.MM.YYYY folder."""
     if not DATA_DIR.exists():
         raise SystemExit("Missing Data/ directory at repo root.")
     candidates = []
@@ -34,6 +36,7 @@ def next_business_day(d: datetime.date):
     return d + datetime.timedelta(days=1)
 
 def classify(o,h,l,c):
+    """Simple candle heuristic → (signal, confidence, reason)."""
     rng = max(h,l) - min(h,l)
     body = abs(c-o)
     if rng <= 0: return "Sideways", 0.5, "No range"
@@ -62,13 +65,13 @@ def write_html(path: Path, html: str):
     path.write_text(html, encoding="utf-8")
 
 def tpl_base(title, description, body, canonical):
-    # very small inline template so you don’t have to touch Jinja now
+    """Minimal HTML template (no Jinja)."""
     meta_kw = ", ".join(CFG.get("keywords", []))
     author = CFG.get("author", {})
     site_title = CFG.get("site_title", "")
     site_tagline = CFG.get("site_tagline", "")
     build_time = datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z"
-    css = "/static/styles.css"  # absolute for GH Pages root
+    css = f"{BASE_URL}/static/styles.css"
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -84,7 +87,7 @@ def tpl_base(title, description, body, canonical):
 <body>
 <div class="container">
 <header class="hero card">
-  <div class="breadcrumbs"><a href="/index.html">Home</a></div>
+  <div class="breadcrumbs"><a href="{BASE_URL}/index.html">Home</a></div>
   <h1 class="h1">{title}</h1>
   <p class="small">{site_tagline}</p>
   <div class="kv">
@@ -103,45 +106,56 @@ def tpl_base(title, description, body, canonical):
 </body>
 </html>"""
 
+# ---------- Build ----------
 def main():
     date_dir, date_obj = find_latest_date_folder()
 
     # reset dist
-    if DIST.exists(): shutil.rmtree(DIST)
+    if DIST.exists():
+        shutil.rmtree(DIST)
     (DIST / "static").mkdir(parents=True, exist_ok=True)
 
-    # copy CSS if present
+    # copy CSS (fallback if missing)
     css_src = ROOT / "static" / "styles.css"
     if css_src.exists():
         shutil.copy2(css_src, DIST / "static" / "styles.css")
     else:
-        # minimal fallback
-        (DIST / "static" / "styles.css").write_text("body{font-family:system-ui;background:#0b1220;color:#e8f0fe;margin:0} .container{max-width:1100px;margin:0 auto;padding:24px} .card{background:#111a2b;border-radius:16px;padding:16px} .h1{font-size:28px} .h2{font-size:22px} .h3{font-size:18px} .grid{display:grid;gap:16px} .table{width:100%;border-collapse:collapse} .table td,.table th{border-bottom:1px solid #1f2a44;padding:8px} .small{color:#9fb3c8}", encoding="utf-8")
+        (DIST / "static" / "styles.css").write_text(
+            "body{font-family:system-ui;background:#0b1220;color:#e8f0fe;margin:0}"
+            " .container{max-width:1100px;margin:0 auto;padding:24px}"
+            " .card{background:#111a2b;border-radius:16px;padding:16px}"
+            " .h1{font-size:28px} .h2{font-size:22px} .h3{font-size:18px}"
+            " .grid{display:grid;gap:16px}"
+            " .table{width:100%;border-collapse:collapse}"
+            " .table td,.table th{border-bottom:1px solid #1f2a44;padding:8px}"
+            " .small{color:#9fb3c8}",
+            encoding="utf-8"
+        )
 
-    base_url = CFG.get("base_url","").rstrip("/")
-
-    # Build homepage stub; we’ll list regions we actually find
-    regions = []
-    for region in sorted([p for p in date_dir.iterdir() if p.is_dir()], key=lambda x: x.name.lower()):
-        regions.append(region.name)
+    # Home: list regions discovered
+    regions = [p for p in date_dir.iterdir() if p.is_dir()]
+    regions.sort(key=lambda x: x.name.lower())
 
     home_body = ["<section class='card'><h2 class='h2'>Browse Regions</h2><ul>"]
     for r in regions:
-        r_slug = slug(r)
-        home_body.append(f"<li><a href='/{r_slug}/index.html'>{r}</a></li>")
+        r_slug = slug(r.name)
+        home_body.append(f"<li><a href='{BASE_URL}/{r_slug}/index.html'>{r.name}</a></li>")
     home_body.append("</ul></section>")
-    write_html(DIST / "index.html", tpl_base(
-        f"{CFG.get('site_title','') } — {CFG.get('site_tagline','')}",
-        "Daily static stock prediction pages built from your uploaded CSVs.",
-        "\n".join(home_body),
-        f"{base_url}/"
-    ))
+    write_html(
+        DIST / "index.html",
+        tpl_base(
+            f"{CFG.get('site_title','')} — {CFG.get('site_tagline','')}",
+            "Daily static stock prediction pages built from your uploaded CSVs.",
+            "\n".join(home_body),
+            f"{BASE_URL}/"
+        )
+    )
 
-    # For each region -> each country CSV -> build country index + per-stock pages
-    for region in [p for p in date_dir.iterdir() if p.is_dir()]:
+    # Region → Countries → Stocks
+    for region in regions:
         r_slug = slug(region.name)
 
-        # Collect country links
+        # Collect countries (CSV files directly under region folder)
         country_links = []
         for csv in sorted([p for p in region.glob("*.csv")], key=lambda x: x.name.lower()):
             country_name = csv.stem.replace("-", " ").title()
@@ -149,15 +163,19 @@ def main():
             country_links.append((country_name, c_slug))
 
             df = read_csv_safe(csv)
-            rows = []
+            rows_html = []
+
             for _, row in df.iterrows():
+                # read row values
                 try:
                     o = float(row["open"]); h = float(row["high"]); l = float(row["low"]); c = float(row["close"])
                 except Exception:
-                    o=h=l=c=None
-                sig, conf, reason = ("",0,"")
-                if None not in (o,h,l,c):
-                    sig, conf, reason = classify(o,h,l,c)
+                    o = h = l = c = None
+
+                sig, conf, reason = ("", 0, "")
+                if None not in (o, h, l, c):
+                    sig, conf, reason = classify(o, h, l, c)
+
                 sym = str(row["symbol"]).strip()
                 name = str(row["description"]).strip() or sym
                 exch = str(row["exchange"]).strip()
@@ -165,8 +183,8 @@ def main():
                 ind  = str(row["industry"]).strip()
                 s_slug = slug(name or sym)
 
-                # Stock page
-                if None not in (o,h,l,c):
+                # Per-stock page (only if we have OHLC)
+                if None not in (o, h, l, c):
                     pred = next_business_day(date_obj)
                     body = f"""
 <article class="card">
@@ -178,45 +196,78 @@ def main():
     <p><strong>{sig}</strong> — {reason} (confidence {int(conf*100)}%).</p>
   </div>
 </article>"""
-                    write_html(DIST / r_slug / c_slug / s_slug / "index.html", tpl_base(
-                        f"{name} prediction tomorrow — {CFG.get('site_title','')}",
-                        f"{name} ({sym}) next-day prediction and OHLC snapshot.",
-                        body,
-                        f"{base_url}/{r_slug}/{c_slug}/{s_slug}/"
-                    ))
+                    write_html(
+                        DIST / r_slug / c_slug / s_slug / "index.html",
+                        tpl_base(
+                            f"{name} prediction tomorrow — {CFG.get('site_title','')}",
+                            f"{name} ({sym}) next-day prediction and OHLC snapshot.",
+                            body,
+                            f"{BASE_URL}/{r_slug}/{c_slug}/{s_slug}/"
+                        )
+                    )
 
-                # For country listing table
-                row_html = f"<tr><td><a href='/{r_slug}/{c_slug}/{s_slug}/index.html'>{sym}</a></td><td><a href='/{r_slug}/{c_slug}/{s_slug}/index.html'>{name}</a></td><td>{exch}</td><td>{sec}</td><td>{ind}</td><td>{'' if c is None else f'{c:.2f}'}</td><td>{sig}</td></tr>"
-                rows.append(row_html)
+                # Row in country table (links must use BASE_URL)
+                rows_html.append(
+                    (
+                        f"<tr>"
+                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{s_slug}/index.html'>{sym}</a></td>"
+                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{s_slug}/index.html'>{name}</a></td>"
+                        f"<td>{exch}</td><td>{sec}</td><td>{ind}</td>"
+                        f"<td>{'' if c is None else f'{c:.2f}'}</td><td>{sig}</td>"
+                        f"</tr>"
+                    )
+                )
 
-            # Country index
-            table = "<table class='table'><thead><tr><th>Symbol</th><th>Name</th><th>Exchange</th><th>Sector</th><th>Industry</th><th>Close</th><th>Signal</th></tr></thead><tbody>" + "\n".join(rows) + "</tbody></table>"
+            # Country index page
+            table = (
+                "<table class='table'>"
+                "<thead><tr><th>Symbol</th><th>Name</th><th>Exchange</th><th>Sector</th>"
+                "<th>Industry</th><th>Close</th><th>Signal</th></tr></thead>"
+                "<tbody>" + "\n".join(rows_html) + "</tbody></table>"
+            )
             body = f"<section class='card'><h2 class='h2'>{country_name} — Stocks</h2>{table}</section>"
-            write_html(DIST / r_slug / c_slug / "index.html", tpl_base(
-                f"{country_name} stocks — {CFG.get('site_title','')}",
-                f"Browse stocks listed in {country_name}.",
-                body,
-                f"{base_url}/{r_slug}/{c_slug}/"
-            ))
+            write_html(
+                DIST / r_slug / c_slug / "index.html",
+                tpl_base(
+                    f"{country_name} stocks — {CFG.get('site_title','')}",
+                    f"Browse stocks listed in {country_name}.",
+                    body,
+                    f"{BASE_URL}/{r_slug}/{c_slug}/"
+                )
+            )
 
-        # Region index
-        lis = "".join([f"<li><a href='/{r_slug}/{c_slug}/index.html'>{cn}</a></li>" for (cn, c_slug) in country_links])
+        # Region index page (links must use BASE_URL)
+        lis = "".join(
+            [f"<li><a href='{BASE_URL}/{r_slug}/{c_slug}/index.html'>{cn}</a></li>"
+             for (cn, c_slug) in country_links]
+        )
         body = f"<section class='card'><h2 class='h2'>Countries in {region.name}</h2><ul>{lis}</ul></section>"
-        write_html(DIST / r_slug / "index.html", tpl_base(
-            f"{region.name} Markets — {CFG.get('site_title','')}",
-            f"Browse stock markets in {region.name}.",
-            body,
-            f"{base_url}/{r_slug}/"
-        ))
+        write_html(
+            DIST / r_slug / "index.html",
+            tpl_base(
+                f"{region.name} Markets — {CFG.get('site_title','')}",
+                f"Browse stock markets in {region.name}.",
+                body,
+                f"{BASE_URL}/{r_slug}/"
+            )
+        )
 
-    # Minimal robots + sitemap for now (optional)
-    (DIST / "robots.txt").write_text(f"Sitemap: {base_url}/sitemap.xml\nUser-agent: *\nAllow: /\n", encoding="utf-8")
-    # naive sitemap: home + region + country + stock pages discovered on disk
+    # robots.txt + sitemap.xml
+    (DIST / "robots.txt").write_text(
+        f"Sitemap: {BASE_URL}/sitemap.xml\nUser-agent: *\nAllow: /\n",
+        encoding="utf-8"
+    )
+
     urls = []
     for p in DIST.rglob("index.html"):
         rel = "/" + str(p.relative_to(DIST)).replace("\\", "/")
-        urls.append(f"{base_url}{rel[:-10]}")
-    sm = "<?xml version='1.0' encoding='UTF-8'?><urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>" + "".join([f"<url><loc>{u}</loc></url>" for u in urls]) + "</urlset>"
+        urls.append(f"{BASE_URL}{rel[:-10]}")  # drop 'index.html'
+    sm = (
+        "<?xml version='1.0' encoding='UTF-8'?>"
+        "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>"
+        + "".join([f"<url><loc>{u}</loc></url>" for u in urls])
+        + "</urlset>"
+    )
     (DIST / "sitemap.xml").write_text(sm, encoding="utf-8")
 
     print("Build complete →", DIST)
