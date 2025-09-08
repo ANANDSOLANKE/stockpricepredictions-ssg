@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os, re, json, shutil, datetime
+import re, json, shutil, datetime
 from pathlib import Path
 import pandas as pd
 
@@ -40,7 +40,7 @@ def classify(o,h,l,c):
     rng = max(h,l) - min(h,l)
     body = abs(c-o)
     if rng <= 0: return "Sideways", 0.5, "No range"
-    ratio = body/rng
+    ratio = body/rng if rng else 0.0
     if ratio < 0.2: return "Sideways", 0.5, "Small body vs range — indecision"
     if c > o: return "Bullish", min(0.9, 0.6 + ratio/2), "Close above open"
     if c < o: return "Bearish", min(0.9, 0.6 + ratio/2), "Close below open"
@@ -50,6 +50,7 @@ def read_csv_safe(p: Path):
     df = pd.read_csv(p, low_memory=False)
     cols = {c: c.strip().lower() for c in df.columns}
     df = df.rename(columns=cols)
+    # Ensure required columns exist
     for c in ["symbol","description","exchange","sector","industry","open","high","low","close"]:
         if c not in df.columns:
             df[c] = "" if c not in ["open","high","low","close"] else None
@@ -65,10 +66,9 @@ def write_html(path: Path, html: str):
     path.write_text(html, encoding="utf-8")
 
 def tpl_base(title, description, body, canonical):
-    """Minimal HTML template (no Jinja)."""
+    """Minimal HTML template (no Jinja) with correct BASE_URL links."""
     meta_kw = ", ".join(CFG.get("keywords", []))
     author = CFG.get("author", {})
-    site_title = CFG.get("site_title", "")
     site_tagline = CFG.get("site_tagline", "")
     build_time = datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z"
     css = f"{BASE_URL}/static/styles.css"
@@ -132,7 +132,7 @@ def main():
             encoding="utf-8"
         )
 
-    # Home: list regions discovered
+    # Home: list regions discovered (exact folder names you upload)
     regions = [p for p in date_dir.iterdir() if p.is_dir()]
     regions.sort(key=lambda x: x.name.lower())
 
@@ -151,6 +151,8 @@ def main():
         )
     )
 
+    sitemap_urls = [f"{BASE_URL}/"]  # collect for sitemap
+
     # Region → Countries → Stocks
     for region in regions:
         r_slug = slug(region.name)
@@ -158,6 +160,7 @@ def main():
         # Collect countries (CSV files directly under region folder)
         country_links = []
         for csv in sorted([p for p in region.glob("*.csv")], key=lambda x: x.name.lower()):
+            # country name from filename
             country_name = csv.stem.replace("-", " ").title()
             c_slug = slug(country_name)
             country_links.append((country_name, c_slug))
@@ -186,7 +189,9 @@ def main():
                 # Per-stock page (only if we have OHLC)
                 if None not in (o, h, l, c):
                     pred = next_business_day(date_obj)
-                    body = f"""
+
+                    # Base stock page
+                    stock_body = f"""
 <article class="card">
   <h2 class="h2">{name} ({sym})</h2>
   <p class="small">Region: {region.name} · Country: {country_name} · Exchange: {exch}</p>
@@ -196,15 +201,46 @@ def main():
     <p><strong>{sig}</strong> — {reason} (confidence {int(conf*100)}%).</p>
   </div>
 </article>"""
+
+                    # Write main page
+                    stock_url = f"{BASE_URL}/{r_slug}/{c_slug}/{s_slug}/"
                     write_html(
                         DIST / r_slug / c_slug / s_slug / "index.html",
                         tpl_base(
                             f"{name} prediction tomorrow — {CFG.get('site_title','')}",
                             f"{name} ({sym}) next-day prediction and OHLC snapshot.",
-                            body,
-                            f"{BASE_URL}/{r_slug}/{c_slug}/{s_slug}/"
+                            stock_body,
+                            stock_url
                         )
                     )
+                    sitemap_urls.append(stock_url.rstrip("/"))
+
+                    # ---- SEO aliases ----
+                    # /prediction/
+                    alias1_url = f"{BASE_URL}/{r_slug}/{c_slug}/{s_slug}/prediction/"
+                    write_html(
+                        DIST / r_slug / c_slug / s_slug / "prediction" / "index.html",
+                        tpl_base(
+                            f"{name} prediction — {CFG.get('site_title','')}",
+                            f"{name} ({sym}) prediction based on yesterday’s OHLC.",
+                            stock_body,
+                            alias1_url
+                        )
+                    )
+                    sitemap_urls.append(alias1_url.rstrip("/"))
+
+                    # /tomorrow-prediction/
+                    alias2_url = f"{BASE_URL}/{r_slug}/{c_slug}/{s_slug}/tomorrow-prediction/"
+                    write_html(
+                        DIST / r_slug / c_slug / s_slug / "tomorrow-prediction" / "index.html",
+                        tpl_base(
+                            f"{name} tomorrow prediction — {CFG.get('site_title','')}",
+                            f"{name} ({sym}) forecast for the next trading day.",
+                            stock_body,
+                            alias2_url
+                        )
+                    )
+                    sitemap_urls.append(alias2_url.rstrip("/"))
 
                 # Row in country table (links must use BASE_URL)
                 rows_html.append(
@@ -226,15 +262,17 @@ def main():
                 "<tbody>" + "\n".join(rows_html) + "</tbody></table>"
             )
             body = f"<section class='card'><h2 class='h2'>{country_name} — Stocks</h2>{table}</section>"
+            country_url = f"{BASE_URL}/{r_slug}/{c_slug}/"
             write_html(
                 DIST / r_slug / c_slug / "index.html",
                 tpl_base(
                     f"{country_name} stocks — {CFG.get('site_title','')}",
                     f"Browse stocks listed in {country_name}.",
                     body,
-                    f"{BASE_URL}/{r_slug}/{c_slug}/"
+                    country_url
                 )
             )
+            sitemap_urls.append(country_url.rstrip("/"))
 
         # Region index page (links must use BASE_URL)
         lis = "".join(
@@ -242,15 +280,17 @@ def main():
              for (cn, c_slug) in country_links]
         )
         body = f"<section class='card'><h2 class='h2'>Countries in {region.name}</h2><ul>{lis}</ul></section>"
+        region_url = f"{BASE_URL}/{r_slug}/"
         write_html(
             DIST / r_slug / "index.html",
             tpl_base(
                 f"{region.name} Markets — {CFG.get('site_title','')}",
                 f"Browse stock markets in {region.name}.",
                 body,
-                f"{BASE_URL}/{r_slug}/"
+                region_url
             )
         )
+        sitemap_urls.append(region_url.rstrip("/"))
 
     # robots.txt + sitemap.xml
     (DIST / "robots.txt").write_text(
@@ -258,14 +298,10 @@ def main():
         encoding="utf-8"
     )
 
-    urls = []
-    for p in DIST.rglob("index.html"):
-        rel = "/" + str(p.relative_to(DIST)).replace("\\", "/")
-        urls.append(f"{BASE_URL}{rel[:-10]}")  # drop 'index.html'
     sm = (
         "<?xml version='1.0' encoding='UTF-8'?>"
         "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>"
-        + "".join([f"<url><loc>{u}</loc></url>" for u in urls])
+        + "".join([f"<url><loc>{u}</loc></url>" for u in sorted(set(sitemap_urls))])
         + "</urlset>"
     )
     (DIST / "sitemap.xml").write_text(sm, encoding="utf-8")
