@@ -1,0 +1,23 @@
+{
+  "site_title": "StockPricePredictions.com",
+  "site_tagline": "Fast, transparent next\u2011day stock movement signals from yesterday\u2019s OHLC",
+  "base_url": "https://stockpricepredictions.com",
+  "default_region": "Asia - Pacific",
+  "default_country": "india",
+  "keywords": [
+    "stock prediction tomorrow",
+    "next day price forecast",
+    "technical analysis",
+    "OHLC",
+    "trend",
+    "support resistance",
+    "NSE BSE NASDAQ LSE"
+  ],
+  "author": {
+    "name": "StockPricePredictions Research",
+    "org": "SPP Labs",
+    "contact_email": "hello@stockpricepredictions.com"
+  },
+  "logo_base": "/logos",
+  "time_zone_hint": "Exchange local time for session date; prediction is for next business day (holidays not applied)"
+}
