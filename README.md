@@ -1,4 +1,4 @@
-# SSG Starter for StockPricePredictions.com
+ # SSG Starter for StockPricePredictions.com
 
 **Goal:** Push CSVs under `Data/` to GitHub; GitHub Actions builds SEO pages into `gh-pages` automatically.
 
