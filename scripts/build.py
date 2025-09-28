@@ -4,7 +4,6 @@ import re, json, shutil, datetime
 from pathlib import Path
 import pandas as pd
 
-# ---------- Paths & Config ----------
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "Data"
 DIST = ROOT / "dist"
@@ -12,26 +11,23 @@ DIST = ROOT / "dist"
 CFG = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
 BASE_URL = CFG.get("base_url", "").rstrip("/")
 
-# ---------- Helpers ----------
 def find_latest_date_folder():
     if not DATA_DIR.exists():
         raise SystemExit("Missing Data/ directory at repo root.")
-    candidates = []
+    cand = []
     for p in DATA_DIR.iterdir():
         if p.is_dir() and re.match(r"^\d{2}\.\d{2}\.\d{4}$", p.name):
             d = datetime.datetime.strptime(p.name, "%d.%m.%Y").date()
-            candidates.append((d, p))
-    if not candidates:
+            cand.append((d, p))
+    if not cand:
         raise SystemExit("No dated folder like DD.MM.YYYY inside Data/.")
-    candidates.sort(key=lambda x: x[0], reverse=True)
-    return candidates[0][1], candidates[0][0]
+    cand.sort(key=lambda x: x[0], reverse=True)
+    return cand[0][1], cand[0][0]
 
 def next_business_day(d: datetime.date):
     wd = d.weekday()
-    if wd == 4:
-        return d + datetime.timedelta(days=3)
-    if wd == 5:
-        return d + datetime.timedelta(days=2)
+    if wd == 4: return d + datetime.timedelta(days=3)
+    if wd == 5: return d + datetime.timedelta(days=2)
     return d + datetime.timedelta(days=1)
 
 def classify(o,h,l,c):
@@ -103,28 +99,20 @@ def tpl_base(title, description, body, canonical):
   <div>Data provenance: Uploaded CSVs (OHLC). Session date = exchange local date. Prediction = next business day (holidays not applied).</div>
 </footer>
 </div>
-<script>window.SPP_INDEX_URL="{BASE_URL}/static/index.json";</script>
+<script>window.SPP_BASE="{BASE_URL}";window.SPP_INDEX_URL="{BASE_URL}/static/index.json";</script>
 <script src="{js}" defer></script>
 </body>
 </html>"""
 
-def stock_title(symbol, name):
-    return f"AI Analysis of {symbol} Tomorrow | {name} Stock Prediction"
-def stock_h1(symbol, name):
-    return f"AI Analysis of {symbol} ({name}) Stock for Tomorrow"
-def stock_meta_desc(symbol, name, exchange):
-    return f"Get AI prediction and analysis of {symbol} stock ({name}) for tomorrow. Forecast, price target, bullish or bearish trend insights for {exchange}."
-
-# ---------- Build ----------
 def main():
     date_dir, date_obj = find_latest_date_folder()
 
-    # reset dist
+    # clean dist
     if DIST.exists():
         shutil.rmtree(DIST)
     (DIST / "static").mkdir(parents=True, exist_ok=True)
 
-    # copy CSS (fallback if missing)
+    # CSS (fallback)
     css_src = ROOT / "static" / "styles.css"
     if css_src.exists():
         shutil.copy2(css_src, DIST / "static" / "styles.css")
@@ -140,9 +128,47 @@ def main():
               " .small{color:#9fb3c8}"
         )
 
-    # JS drilldown data
-    site_index = {"regions": []}
-    sitemap_urls = [f"{BASE_URL}/"]
+    # JS (fallback) – we always provide app.js so no 404
+    js_src = ROOT / "static" / "app.js"
+    if js_src.exists():
+        shutil.copy2(js_src, DIST / "static" / "app.js")
+    else:
+        write(DIST / "static" / "app.js", r"""
+(function(){
+  const $ = s => document.querySelector(s);
+  const regionsEl = $("#regions"), countriesEl=$("#countries"), exchangesEl=$("#exchanges"), tableEl=$("#stocks_table");
+  const BASE = (window.SPP_BASE||"").replace(/\/$/,"");
+  function chip(label, onClick, url){ const a=document.createElement("a"); a.className="chip"; a.textContent=label; a.href=url||"javascript:void(0)"; if(onClick){a.addEventListener("click", e=>{e.preventDefault(); onClick();});} return a; }
+  function renderTable(rows){ if(!rows||!rows.length){ tableEl.innerHTML="No stocks found for this exchange."; return; }
+    const head = "<thead><tr><th>Symbol</th><th>Name</th><th>Sector</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Signal</th></tr></thead>";
+    const body = rows.map(r=>`<tr>
+      <td><a href="${r.url}">${r.symbol}</a></td>
+      <td><a href="${r.url}">${r.name}</a></td>
+      <td>${r.sector||""}</td>
+      <td>${r.open ?? ""}</td><td>${r.high ?? ""}</td><td>${r.low ?? ""}</td><td>${r.close ?? ""}</td>
+      <td>${r.signal||""}</td></tr>`).join("");
+    tableEl.innerHTML = `<table class="table">${head}<tbody>${body}</tbody></table>`;
+  }
+  function loadExchangeJSON(r,c,e){
+    const url = `${BASE}/static/exchanges/${r}/${c}/${e}.json`;
+    fetch(url).then(r=>r.json()).then(data=>renderTable(data.rows||[])).catch(()=>{tableEl.innerHTML="Could not load stocks for this exchange.";});
+  }
+  function renderExchanges(region, country){
+    exchangesEl.innerHTML=""; tableEl.innerHTML="Pick an exchange.";
+    (country.exchanges||[]).forEach(ex=>{
+      exchangesEl.appendChild(chip(ex.name, ()=>loadExchangeJSON(region.slug, country.slug, ex.slug), ex.url));
+    });
+  }
+  function renderCountries(region, all){
+    countriesEl.innerHTML=""; exchangesEl.innerHTML=""; tableEl.innerHTML="Pick a country.";
+    (region.countries||[]).forEach(c=>{ countriesEl.appendChild(chip(c.name, ()=>renderExchanges(region,c), c.url)); });
+  }
+  function renderRegions(all){
+    regionsEl.innerHTML=""; (all.regions||[]).forEach(r=>{ regionsEl.appendChild(chip(r.name, ()=>renderCountries(r,all), r.url)); });
+  }
+  fetch(window.SPP_INDEX_URL).then(r=>r.json()).then(data=>{ renderRegions(data); }).catch(()=>{ regionsEl.innerHTML="Could not load regions."; });
+})();
+""")
 
     # Home content
     home_body = """
@@ -162,22 +188,26 @@ def main():
     write(DIST / "index.html", tpl_base(
         f"{CFG.get('site_title','')} — {CFG.get('site_tagline','')}",
         "Interactive drilldown: region → country → exchange → stocks.",
-        home_body,
-        f"{BASE_URL}/"
+        home_body, f"{BASE_URL}/"
     ))
 
-    # Regions
+    # Build JSON index + pages
+    regions = [p for p in (find_latest_date_folder()[0]).iterdir() if p.is_dir()]
+    # we already called find_latest_date_folder above; reuse results properly
+    date_dir, date_obj = find_latest_date_folder()
     regions = [p for p in date_dir.iterdir() if p.is_dir()]
     regions.sort(key=lambda x: x.name.lower())
+
+    site_index = {"regions": []}
+    sitemap_urls = [f"{BASE_URL}/"]
 
     for region in regions:
         r_name = region.name
         r_slug = slug(r_name)
         r_entry = {"name": r_name, "slug": r_slug, "url": f"{BASE_URL}/{r_slug}/", "countries": []}
-        site_index["regions"].append(r_entry)   # <-- FIX: add the region to the JSON index
+        site_index["regions"].append(r_entry)
         sitemap_urls.append(r_entry["url"].rstrip("/"))
 
-        # Countries
         country_links = []
         for csv in sorted(region.glob("*.csv"), key=lambda x: x.name.lower()):
             country_name = csv.stem.replace("-", " ").title()
@@ -187,20 +217,18 @@ def main():
             country_links.append((country_name, c_slug))
             sitemap_urls.append(c_url.rstrip("/"))
 
-        # Region landing
         lis = "".join([f"<li><a href='{BASE_URL}/{r_slug}/{slug(cn)}/'>{cn}</a></li>" for (cn, _) in country_links])
-        region_body = f"<section class='card'><h2 class='h2'>Countries in {r_name}</h2><ul>{lis}</ul></section>"
-        write(DIST / r_slug / "index.html", tpl_base(
-            f"{r_name} Markets — {CFG.get('site_title','')}",
-            f"Browse stock markets in {r_name}.",
-            region_body, f"{BASE_URL}/{r_slug}/"
-        ))
+        write(DIST / r_slug / "index.html",
+              tpl_base(f"{r_name} Markets — {CFG.get('site_title','')}",
+                       f"Browse stock markets in {r_name}.",
+                       f"<section class='card'><h2 class='h2'>Countries in {r_name}</h2><ul>{lis}</ul></section>",
+                       f"{BASE_URL}/{r_slug}/"))
 
-        # Build countries (exchanges + pages + JSON)
+        # Build each country
         for c in r_entry["countries"]:
             country_name, c_slug = c["name"], c["slug"]
             csv = region / f"{country_name.lower().replace(' ', '-')}.csv"
-            if not csv.exists():
+            if not csv.exists():  # skip if missing
                 continue
             df = read_csv_safe(csv)
 
@@ -227,10 +255,8 @@ def main():
                 sitemap_urls.append(e_url.rstrip("/"))
                 exch_links.append(f"<li><a href='{e_url}'>{exch}</a></li>")
 
-                # Build stock pages + exchange JSON + exchange HTML
-                table_rows_html = []
-                json_rows = []
-
+                # Build stock pages + exchange HTML + exchange JSON
+                table_rows_html, json_rows = [], []
                 for rowd in rows:
                     sym,name,sec,ind,o,h,l,cclose = rowd["sym"],rowd["name"],rowd["sec"],rowd["ind"],rowd["o"],rowd["h"],rowd["l"],rowd["c"]
                     s_slug = slug(sym)
@@ -311,7 +337,7 @@ def main():
                            "</ul></section>",
                            f"{BASE_URL}/{r_slug}/{c_slug}/"))
 
-    # Write the homepage index JSON (now with regions)
+    # Write index.json for the drilldown
     write(DIST / "static" / "index.json", json.dumps(site_index, ensure_ascii=False), kind="text")
 
     # robots + sitemap
