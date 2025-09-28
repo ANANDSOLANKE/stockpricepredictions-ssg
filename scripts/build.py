@@ -28,9 +28,9 @@ def find_latest_date_folder():
 
 def next_business_day(d: datetime.date):
     wd = d.weekday()
-    if wd == 4:  # Fri
+    if wd == 4:
         return d + datetime.timedelta(days=3)
-    if wd == 5:  # Sat
+    if wd == 5:
         return d + datetime.timedelta(days=2)
     return d + datetime.timedelta(days=1)
 
@@ -140,11 +140,11 @@ def main():
               " .small{color:#9fb3c8}"
         )
 
-    # JS will drive the drilldown; we produce JSON: regions -> countries -> exchanges -> (json_url for stocks)
+    # JS drilldown data
     site_index = {"regions": []}
     sitemap_urls = [f"{BASE_URL}/"]
 
-    # Home content: drilldown rows
+    # Home content
     home_body = """
 <section class='card'>
   <h2 class='h2'>Browse Markets</h2>
@@ -166,7 +166,7 @@ def main():
         f"{BASE_URL}/"
     ))
 
-    # iterate regions
+    # Regions
     regions = [p for p in date_dir.iterdir() if p.is_dir()]
     regions.sort(key=lambda x: x.name.lower())
 
@@ -174,9 +174,10 @@ def main():
         r_name = region.name
         r_slug = slug(r_name)
         r_entry = {"name": r_name, "slug": r_slug, "url": f"{BASE_URL}/{r_slug}/", "countries": []}
+        site_index["regions"].append(r_entry)   # <-- FIX: add the region to the JSON index
         sitemap_urls.append(r_entry["url"].rstrip("/"))
 
-        # Countries (CSV per country)
+        # Countries
         country_links = []
         for csv in sorted(region.glob("*.csv"), key=lambda x: x.name.lower()):
             country_name = csv.stem.replace("-", " ").title()
@@ -195,11 +196,11 @@ def main():
             region_body, f"{BASE_URL}/{r_slug}/"
         ))
 
-        # Build countries fully (exchanges + stock pages + exchange JSON)
+        # Build countries (exchanges + pages + JSON)
         for c in r_entry["countries"]:
             country_name, c_slug = c["name"], c["slug"]
             csv = region / f"{country_name.lower().replace(' ', '-')}.csv"
-            if not csv.exists():  # defensive, skip if missing
+            if not csv.exists():
                 continue
             df = read_csv_safe(csv)
 
@@ -218,7 +219,6 @@ def main():
                     dict(sym=sym,name=name,sec=sec,ind=ind,o=o,h=h,l=l,c=cclose)
                 )
 
-            # exchanges for this country
             exch_links = []
             for exch, rows in sorted(by_exch.items(), key=lambda kv: kv[0].lower()):
                 e_slug = slug(exch)
@@ -227,9 +227,9 @@ def main():
                 sitemap_urls.append(e_url.rstrip("/"))
                 exch_links.append(f"<li><a href='{e_url}'>{exch}</a></li>")
 
-                # Build stock pages and exchange index + JSON
+                # Build stock pages + exchange JSON + exchange HTML
                 table_rows_html = []
-                json_rows = []  # for app.js
+                json_rows = []
 
                 for rowd in rows:
                     sym,name,sec,ind,o,h,l,cclose = rowd["sym"],rowd["name"],rowd["sec"],rowd["ind"],rowd["o"],rowd["h"],rowd["l"],rowd["c"]
@@ -237,12 +237,11 @@ def main():
                     sig, conf, reason = ("",0,"")
                     if None not in (o,h,l,cclose): sig, conf, reason = classify(o,h,l,cclose)
 
-                    # Stock page
                     if None not in (o,h,l,cclose):
                         pred = next_business_day(date_obj)
-                        title = stock_title(sym, name)
-                        h1    = stock_h1(sym, name)
-                        mdesc = stock_meta_desc(sym, name, exch)
+                        title = f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
+                        h1    = f"AI Analysis of {sym} ({name}) Stock for Tomorrow"
+                        mdesc = f"Get AI prediction and analysis of {sym} stock ({name}) for tomorrow. Forecast, price target, bullish or bearish trend insights for {exch}."
                         stock_body = f"""
 <article class="card">
   <h2 class="h2">{h1}</h2>
@@ -258,7 +257,6 @@ def main():
                               tpl_base(title, mdesc, stock_body, stock_url))
                         sitemap_urls.append(stock_url.rstrip("/"))
 
-                    # Table row (exchange page)
                     table_rows_html.append(
                         f"<tr>"
                         f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{sym}</a></td>"
@@ -284,7 +282,6 @@ def main():
                         "url": f"{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/"
                     })
 
-                # Exchange HTML page (for direct navigation)
                 exch_table = (
                     "<table class='table'>"
                     "<thead><tr>"
@@ -293,29 +290,28 @@ def main():
                     "</tr></thead><tbody>"
                     + "\n".join(table_rows_html) + "</tbody></table>"
                 )
-                exch_body = f"<section class='card'><h2 class='h2'>{country_name} — {exch}</h2>{exch_table}</section>"
                 write(DIST / r_slug / c_slug / e_slug / "index.html",
                       tpl_base(f"{country_name} {exch} — {CFG.get('site_title','')}",
                                f"Browse {exch} listings in {country_name}.",
-                               exch_body, e_url))
+                               exch_table, e_url))
 
-                # Exchange JSON for the homepage drilldown
                 exch_json_path = DIST / "static" / "exchanges" / r_slug / c_slug / f"{e_slug}.json"
                 write(exch_json_path, json.dumps({
                     "region": r_name, "country": country_name, "exchange": exch,
                     "rows": json_rows
                 }, ensure_ascii=False), kind="text")
 
-            # Country HTML landing (links to exchanges)
-            country_body = (
-                f"<section class='card'><h2 class='h2'>{country_name} — Exchanges</h2><ul>{''.join(exch_links)}</ul></section>"
-            )
+            # Country landing
             write(DIST / r_slug / c_slug / "index.html",
                   tpl_base(f"{country_name} — {CFG.get('site_title','')}",
                            f"Browse exchanges in {country_name}.",
-                           country_body, f"{BASE_URL}/{r_slug}/{c_slug}/"))
+                           "<section class='card'><h2 class='h2'>Exchanges</h2><ul>" +
+                           "".join([f"<li><a href='{BASE_URL}/{r_slug}/{c_slug}/{e['slug']}/'>{e['name']}</a></li>"
+                                    for e in c['exchanges']]) +
+                           "</ul></section>",
+                           f"{BASE_URL}/{r_slug}/{c_slug}/"))
 
-    # Write the homepage index JSON
+    # Write the homepage index JSON (now with regions)
     write(DIST / "static" / "index.json", json.dumps(site_index, ensure_ascii=False), kind="text")
 
     # robots + sitemap
