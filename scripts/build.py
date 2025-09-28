@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import re, json, shutil, datetime
+import re, json, shutil, datetime, os
 from pathlib import Path
 import pandas as pd
 
@@ -10,6 +10,8 @@ DIST = ROOT / "dist"
 
 CFG = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
 BASE_URL = CFG.get("base_url", "").rstrip("/")
+
+IMG_EXTS = {".png", ".jpg", ".jpeg", ".svg", ".webp"}
 
 # ---------- Helpers ----------
 def find_latest_date_folder():
@@ -105,9 +107,8 @@ def tpl_base(title, description, body, canonical):
 </body>
 </html>"""
 
-# ---------- Logos ----------
+# ---------- Logos: index + fallback scan ----------
 def ensure_placeholder_logo():
-    """Create a tiny placeholder SVG in dist/static if not present."""
     placeholder = (DIST / "static" / "logo-placeholder.svg")
     if not placeholder.exists():
         svg = """<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'>
@@ -117,7 +118,6 @@ def ensure_placeholder_logo():
         placeholder.write_text(svg, encoding="utf-8")
 
 def copy_logos_folder():
-    """Copy /logos into dist so URLs /logos/... work on Pages."""
     src = ROOT / "logos"
     dst = DIST / "logos"
     if dst.exists():
@@ -125,17 +125,69 @@ def copy_logos_folder():
     if src.exists():
         shutil.copytree(src, dst)
 
-def logo_url_for(exch: str, sym: str):
-    """
-    Prefer an existing logo file in repo: /logos/<exchange>/<symbol>.(png|jpg|svg)
-    If not present, return placeholder.
-    """
-    exch_dir = ROOT / "logos" / exch
-    for ext in (".png", ".jpg", ".jpeg", ".svg"):
-        p = exch_dir / f"{sym}{ext}"
+def normalize_symbol(s: str) -> str:
+    # Uppercase; keep only letters/numbers; strip size suffixes like -600/_128 etc.
+    s = (s or "").upper()
+    s = re.sub(r"[\W_]+", "", s)  # remove non-alnum
+    s = re.sub(r"(?:[0-9]{2,4})$", "", s)  # drop trailing size numbers if any
+    return s
+
+def load_logos_index():
+    # Try repo root first, then logos/
+    for p in [ROOT / "logos_index.json", ROOT / "logos" / "logos_index.json"]:
         if p.exists():
-            return f"{BASE_URL}/logos/{exch}/{sym}{ext}"
-    return f"{BASE_URL}/static/logo-placeholder.svg"
+            try:
+                data = json.loads(p.read_text(encoding="utf-8"))
+                # Flatten to {(EXCH,SYMBOL)->relative_path}
+                flat = {}
+                for exch, mp in data.items():
+                    for sym, rel in mp.items():
+                        flat[(exch.upper(), normalize_symbol(sym))] = str(rel).lstrip("/\\")
+                return flat
+            except Exception:
+                pass
+    return {}
+
+def build_logo_scan_index():
+    """
+    Walk logos/ once and build a best-effort index:
+    key: (EXCHANGE_UPPER, BASENAME_NORMALIZED) -> relative path under logos/
+    Uses the *last* directory as 'exchange' (works for logos/argentina/BCBA/*.png and logos/NSE/*.png)
+    """
+    base = ROOT / "logos"
+    idx = {}
+    if not base.exists():
+        return idx
+    for root, dirs, files in os.walk(base):
+        for f in files:
+            ext = os.path.splitext(f)[1].lower()
+            if ext not in IMG_EXTS: continue
+            full = Path(root) / f
+            rel = full.relative_to(base)
+            exchange = full.parent.name  # last folder name = exchange
+            name = os.path.splitext(f)[0]
+            # also try to remove common size suffixes like --600, _600, -128
+            name_norm = normalize_symbol(re.sub(r"(--|_|-)?\d{2,4}$", "", name))
+            idx[(exchange.upper(), name_norm)] = str(rel).replace("\\", "/")
+    return idx
+
+class LogoResolver:
+    def __init__(self):
+        self.index = load_logos_index()
+        self.scan = {} if self.index else build_logo_scan_index()  # only scan if no explicit index
+        ensure_placeholder_logo()
+        copy_logos_folder()
+
+    def url_for(self, exchange: str, symbol: str) -> str:
+        if not exchange or not symbol:
+            return f"{BASE_URL}/static/logo-placeholder.svg"
+        key = (exchange.upper(), normalize_symbol(symbol))
+        rel = self.index.get(key)
+        if not rel:
+            rel = self.scan.get(key)
+        if rel:
+            return f"{BASE_URL}/logos/{rel}"
+        return f"{BASE_URL}/static/logo-placeholder.svg"
 
 # ---------- Build ----------
 def main():
@@ -150,19 +202,13 @@ def main():
     css_src = ROOT / "static" / "styles.css"
     if css_src.exists():
         shutil.copy2(css_src, DIST / "static" / "styles.css")
-    else:
-        write(DIST / "static" / "styles.css",
-              "body{font-family:system-ui;background:#0b1220;color:#e8f0fe;margin:0}"
-              " .container{max-width:1100px;margin:0 auto;padding:24px}"
-              " .card{background:#111a2b;border:1px solid #1f2a44;border-radius:16px;padding:16px}"
-        )
     js_src = ROOT / "static" / "app.js"
     if js_src.exists():
         shutil.copy2(js_src, DIST / "static" / "app.js")
-    ensure_placeholder_logo()
-    copy_logos_folder()
 
-    # Home shell (drilldown UI; JS fills content)
+    resolver = LogoResolver()
+
+    # Home (JS drilldown page)
     home_body = """
 <section class='card'>
   <h2 class='h2'>Browse Markets</h2>
@@ -183,7 +229,7 @@ def main():
         home_body, f"{BASE_URL}/"
     ))
 
-    # Discover regions
+    # Regions
     regions = [p for p in date_dir.iterdir() if p.is_dir()]
     regions.sort(key=lambda x: x.name.lower())
 
@@ -195,7 +241,7 @@ def main():
         r_entry = {"name": r_name, "slug": r_slug, "url": f"{BASE_URL}/{r_slug}/", "countries": []}
         site_index["regions"].append(r_entry)
 
-        # Region page (simple links, for SEO)
+        # Region HTML
         country_links = []
         for csv in sorted(region.glob("*.csv"), key=lambda x: x.name.lower()):
             country_name = csv.stem.replace("-", " ").title()
@@ -209,11 +255,11 @@ def main():
                        f"<section class='card'><h2 class='h2'>Countries in {r_name}</h2><ul>{lis}</ul></section>",
                        f"{BASE_URL}/{r_slug}/"))
 
-        # Build each country fully
+        # Countries
         for c in r_entry["countries"]:
             country_name, c_slug = c["name"], c["slug"]
             csv = region / f"{country_name.lower().replace(' ', '-')}.csv"
-            if not csv.exists():  # defensive
+            if not csv.exists():
                 continue
             df = read_csv_safe(csv)
 
@@ -239,7 +285,7 @@ def main():
                 c["exchanges"].append({"name": exch, "slug": e_slug, "url": e_url})
                 exch_links.append(f"<li><a href='{e_url}'>{exch}</a></li>")
 
-                # Build stock pages + exchange HTML + exchange JSON (with logo)
+                # Table + JSON
                 table_rows_html, json_rows = [], []
                 for rowd in rows:
                     sym,name,sec,ind,o,h,l,cclose,exch_name = rowd["sym"],rowd["name"],rowd["sec"],rowd["ind"],rowd["o"],rowd["h"],rowd["l"],rowd["c"],rowd["exch"]
@@ -247,7 +293,7 @@ def main():
                     sig, conf, reason = ("",0,"")
                     if None not in (o,h,l,cclose): sig, conf, reason = classify(o,h,l,cclose)
 
-                    # Per-stock page
+                    # per-stock page
                     if None not in (o,h,l,cclose):
                         pred = next_business_day(date_obj)
                         title = f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
@@ -267,7 +313,7 @@ def main():
                         write(DIST / r_slug / c_slug / e_slug / s_slug / "prediction-tomorrow" / "index.html",
                               tpl_base(title, mdesc, stock_body, stock_url))
 
-                    # Exchange HTML row
+                    # HTML table row
                     table_rows_html.append(
                         f"<tr>"
                         f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{sym}</a></td>"
@@ -281,10 +327,8 @@ def main():
                         f"</tr>"
                     )
 
-                    # Build logo URL (or placeholder)
-                    logo_url = logo_url_for(exch_name, sym)
+                    logo_url = resolver.url_for(exch_name, sym)
 
-                    # JSON row for drilldown table
                     json_rows.append({
                         "symbol": sym,
                         "name": name,
@@ -312,14 +356,11 @@ def main():
                                f"Browse {exch} listings in {country_name}.",
                                exch_table, e_url))
 
-                # Exchange JSON (for homepage drilldown)
-                exch_json_path = DIST / "static" / "exchanges" / r_slug / c_slug / f"{e_slug}.json"
-                write(exch_json_path, json.dumps({
-                    "region": r_name, "country": country_name, "exchange": exch,
-                    "rows": json_rows
-                }, ensure_ascii=False), kind="text")
+                # JSON for drilldown
+                write(DIST / "static" / "exchanges" / r_slug / c_slug / f"{e_slug}.json",
+                      json.dumps({"region": r_name, "country": country_name, "exchange": exch, "rows": json_rows}, ensure_ascii=False))
 
-            # Country landing (links)
+            # Country landing
             write(DIST / r_slug / c_slug / "index.html",
                   tpl_base(f"{country_name} — {CFG.get('site_title','')}",
                            f"Browse exchanges in {country_name}.",
@@ -329,8 +370,8 @@ def main():
                            "</ul></section>",
                            f"{BASE_URL}/{r_slug}/{c_slug}/"))
 
-    # Write the homepage index JSON (regions/countries/exchanges)
-    write(DIST / "static" / "index.json", json.dumps(site_index, ensure_ascii=False), kind="text")
+    # Homepage index JSON
+    write(DIST / "static" / "index.json", json.dumps(site_index, ensure_ascii=False))
 
     # robots + sitemap
     write(DIST / "robots.txt", f"Sitemap: {BASE_URL}/sitemap.xml\nUser-agent: *\nAllow: /\n")
