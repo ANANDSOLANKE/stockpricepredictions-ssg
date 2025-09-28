@@ -14,7 +14,6 @@ BASE_URL = CFG.get("base_url", "").rstrip("/")  # e.g. https://anandsolanke.gith
 
 # ---------- Helpers ----------
 def find_latest_date_folder():
-    """Find latest Data/DD.MM.YYYY folder."""
     if not DATA_DIR.exists():
         raise SystemExit("Missing Data/ directory at repo root.")
     candidates = []
@@ -36,7 +35,6 @@ def next_business_day(d: datetime.date):
     return d + datetime.timedelta(days=1)
 
 def classify(o,h,l,c):
-    """Simple candle heuristic → (signal, confidence, reason)."""
     rng = max(h,l) - min(h,l)
     body = abs(c-o)
     if rng <= 0: return "Sideways", 0.5, "No range"
@@ -50,7 +48,6 @@ def read_csv_safe(p: Path):
     df = pd.read_csv(p, low_memory=False)
     cols = {c: c.strip().lower() for c in df.columns}
     df = df.rename(columns=cols)
-    # Ensure required columns exist
     for c in ["symbol","description","exchange","sector","industry","open","high","low","close"]:
         if c not in df.columns:
             df[c] = "" if c not in ["open","high","low","close"] else None
@@ -66,7 +63,6 @@ def write_html(path: Path, html: str):
     path.write_text(html, encoding="utf-8")
 
 def tpl_base(title, description, body, canonical):
-    """Minimal HTML template (no Jinja) with correct BASE_URL links."""
     meta_kw = ", ".join(CFG.get("keywords", []))
     author = CFG.get("author", {})
     site_tagline = CFG.get("site_tagline", "")
@@ -87,7 +83,7 @@ def tpl_base(title, description, body, canonical):
 <body>
 <div class="container">
 <header class="hero card">
-  <div class="breadcrumbs"><a href="{BASE_URL}/index.html">Home</a></div>
+  <div class="breadcrumbs"><a href="{BASE_URL}/">Home</a></div>
   <h1 class="h1">{title}</h1>
   <p class="small">{site_tagline}</p>
   <div class="kv">
@@ -106,16 +102,14 @@ def tpl_base(title, description, body, canonical):
 </body>
 </html>"""
 
+# ---------- SEO text helpers ----------
 def stock_title(symbol, name):
-    # Title example: "AI Analysis of TCS Tomorrow | Tata Consultancy Services Stock Prediction"
     return f"AI Analysis of {symbol} Tomorrow | {name} Stock Prediction"
 
 def stock_h1(symbol, name):
-    # H1 example: "AI Analysis of TCS (Tata Consultancy Services) Stock for Tomorrow"
     return f"AI Analysis of {symbol} ({name}) Stock for Tomorrow"
 
 def stock_meta_desc(symbol, name, exchange):
-    # Meta example: "Get AI prediction and analysis of TCS stock (Tata Consultancy Services) for tomorrow. Forecast, price target, bullish or bearish trend insights for NSE/BSE."
     return f"Get AI prediction and analysis of {symbol} stock ({name}) for tomorrow. Forecast, price target, bullish or bearish trend insights for {exchange}."
 
 # ---------- Build ----------
@@ -144,15 +138,15 @@ def main():
             encoding="utf-8"
         )
 
-    # Discover regions
+    # Regions
     regions = [p for p in date_dir.iterdir() if p.is_dir()]
     regions.sort(key=lambda x: x.name.lower())
 
-    # Home page: list regions
+    # Home
     home_body = ["<section class='card'><h2 class='h2'>Browse Regions</h2><ul>"]
     for r in regions:
         r_slug = slug(r.name)
-        home_body.append(f"<li><a href='{BASE_URL}/{r_slug}/index.html'>{r.name}</a></li>")
+        home_body.append(f"<li><a href='{BASE_URL}/{r_slug}/'>{r.name}</a></li>")
     home_body.append("</ul></section>")
     write_html(
         DIST / "index.html",
@@ -166,12 +160,11 @@ def main():
 
     sitemap_urls = [f"{BASE_URL}/"]
 
-    # Build Region → Country → Exchange → Stock
+    # Region → Country → Exchange → Stock
     for region in regions:
         r_slug = slug(region.name)
-
-        # Collect countries (CSV files directly under region folder)
         country_links = []
+
         for csv in sorted([p for p in region.glob("*.csv")], key=lambda x: x.name.lower()):
             country_name = csv.stem.replace("-", " ").title()
             c_slug = slug(country_name)
@@ -179,49 +172,37 @@ def main():
 
             df = read_csv_safe(csv)
 
-            # Build exchange index pages and sector collections
-            # exchange -> list of row dicts
-            by_exch = {}
-            # sector -> list of row dicts
-            by_sector = {}
-
+            # groupings
+            by_exch, by_sector = {}, {}
             for _, row in df.iterrows():
                 sym = str(row["symbol"]).strip()
                 name = str(row["description"]).strip() or sym
                 exch = str(row["exchange"]).strip()
                 sec  = str(row["sector"]).strip() or "Unknown"
                 ind  = str(row["industry"]).strip()
-
-                # OHLC
                 try:
                     o = float(row["open"]); h = float(row["high"]); l = float(row["low"]); c = float(row["close"])
                 except Exception:
-                    o = h = l = c = None
+                    o=h=l=c=None
+                item = dict(sym=sym,name=name,exch=exch,sec=sec,ind=ind,o=o,h=h,l=l,c=c)
+                by_exch.setdefault(exch or "UNKNOWN", []).append(item)
+                by_sector.setdefault(sec or "Unknown", []).append(item)
 
-                rowd = dict(
-                    sym=sym, name=name, exch=exch, sec=sec, ind=ind,
-                    o=o, h=h, l=l, c=c
-                )
-                by_exch.setdefault(exch or "UNKNOWN", []).append(rowd)
-                by_sector.setdefault(sec or "Unknown", []).append(rowd)
-
-            # ---- Exchange indexes & stock pages ----
+            # Exchanges
             for exch, rows in sorted(by_exch.items(), key=lambda kv: kv[0].lower()):
                 e_slug = slug(exch)
 
-                # Exchange index under country
-                table_rows = []
+                # Build stock pages + table rows
+                table_rows_html = []
                 for rowd in rows:
-                    sym, name, sec, ind, o, h, l, c = rowd["sym"], rowd["name"], rowd["sec"], rowd["ind"], rowd["o"], rowd["h"], rowd["l"], rowd["c"]
-                    s_slug = slug(sym)  # URL uses symbol like /nse/tcs/
-                    sig, conf, reason = ("", 0, "")
-                    if None not in (o, h, l, c):
-                        sig, conf, reason = classify(o, h, l, c)
+                    sym,name,sec,ind,o,h,l,c = rowd["sym"],rowd["name"],rowd["sec"],rowd["ind"],rowd["o"],rowd["h"],rowd["l"],rowd["c"]
+                    s_slug = slug(sym)
+                    sig, conf, reason = ("",0,"")
+                    if None not in (o,h,l,c): sig, conf, reason = classify(o,h,l,c)
 
-                    # Stock page at /{region}/{country}/{exchange}/{symbol}/prediction-tomorrow/
-                    if None not in (o, h, l, c):
+                    # Stock page (prediction-tomorrow)
+                    if None not in (o,h,l,c):
                         pred = next_business_day(date_obj)
-
                         title = stock_title(sym, name)
                         h1    = stock_h1(sym, name)
                         mdesc = stock_meta_desc(sym, name, exch)
@@ -244,21 +225,31 @@ def main():
                         )
                         sitemap_urls.append(stock_url.rstrip("/"))
 
-                    table_rows.append(
+                    # Row in exchange table (new columns)
+                    table_rows_html.append(
                         f"<tr>"
-                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/index.html'>{sym}</a></td>"
-                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/index.html'>{name}</a></td>"
-                        f"<td>{sec}</td><td>{ind}</td>"
-                        f"<td>{'' if c is None else f'{c:.2f}'}</td><td>{sig}</td>"
+                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{sym}</a></td>"
+                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{name}</a></td>"
+                        f"<td>{sec}</td>"
+                        f"<td>{'' if o is None else f'{o:.2f}'}</td>"
+                        f"<td>{'' if h is None else f'{h:.2f}'}</td>"
+                        f"<td>{'' if l is None else f'{l:.2f}'}</td>"
+                        f"<td>{'' if c is None else f'{c:.2f}'}</td>"
+                        f"<td>{sig}</td>"
                         f"</tr>"
                     )
 
+                # Exchange table (new headers)
                 exch_table = (
                     "<table class='table'>"
-                    "<thead><tr><th>Symbol</th><th>Name</th><th>Sector</th>"
-                    "<th>Industry</th><th>Close</th><th>Signal</th></tr></thead>"
-                    "<tbody>" + "\n".join(table_rows) + "</tbody></table>"
+                    "<thead><tr>"
+                    "<th>Symbol</th><th>Name</th><th>Sector</th>"
+                    "<th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Signal</th>"
+                    "</tr></thead><tbody>"
+                    + "\n".join(table_rows_html) +
+                    "</tbody></table>"
                 )
+
                 exch_body = f"<section class='card'><h2 class='h2'>{country_name} — {exch}</h2>{exch_table}</section>"
                 exch_url = f"{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/"
                 write_html(
@@ -272,37 +263,43 @@ def main():
                 )
                 sitemap_urls.append(exch_url.rstrip("/"))
 
-            # ---- Sector listing pages (country level) ----
-            # /{region}/{country}/sectors/{sector-slug}/prediction-tomorrow/
+            # Sector pages
             for sec, rows in sorted(by_sector.items(), key=lambda kv: kv[0].lower()):
-                s_slug_sector = slug(sec or "Unknown")
-                table_rows = []
+                sec_slug = slug(sec or "Unknown")
+                table_rows_html = []
                 for rowd in rows:
-                    sym, name, exch, ind, o, h, l, c = rowd["sym"], rowd["name"], rowd["exch"], rowd["ind"], rowd["o"], rowd["h"], rowd["l"], rowd["c"]
+                    sym,name,exch,ind,o,h,l,c = rowd["sym"],rowd["name"],rowd["exch"],rowd["ind"],rowd["o"],rowd["h"],rowd["l"],rowd["c"]
                     e_slug = slug(exch or "UNKNOWN")
                     s_slug = slug(sym)
-                    sig, conf, reason = ("", 0, "")
-                    if None not in (o, h, l, c):
-                        sig, conf, reason = classify(o, h, l, c)
-                    table_rows.append(
+                    sig, conf, reason = ("",0,"")
+                    if None not in (o,h,l,c): sig, conf, reason = classify(o,h,l,c)
+                    table_rows_html.append(
                         f"<tr>"
-                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/index.html'>{sym}</a></td>"
-                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/index.html'>{name}</a></td>"
-                        f"<td>{exch}</td><td>{ind}</td>"
-                        f"<td>{'' if c is None else f'{c:.2f}'}</td><td>{sig}</td>"
+                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{sym}</a></td>"
+                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{name}</a></td>"
+                        f"<td>{exch}</td><td>{sec}</td>"
+                        f"<td>{'' if o is None else f'{o:.2f}'}</td>"
+                        f"<td>{'' if h is None else f'{h:.2f}'}</td>"
+                        f"<td>{'' if l is None else f'{l:.2f}'}</td>"
+                        f"<td>{'' if c is None else f'{c:.2f}'}</td>"
+                        f"<td>{sig}</td>"
                         f"</tr>"
                     )
 
                 sector_table = (
                     "<table class='table'>"
-                    "<thead><tr><th>Symbol</th><th>Name</th><th>Exchange</th>"
-                    "<th>Industry</th><th>Close</th><th>Signal</th></tr></thead>"
-                    "<tbody>" + "\n".join(table_rows) + "</tbody></table>"
+                    "<thead><tr>"
+                    "<th>Symbol</th><th>Name</th><th>Exchange</th><th>Sector</th>"
+                    "<th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Signal</th>"
+                    "</tr></thead><tbody>"
+                    + "\n".join(table_rows_html) +
+                    "</tbody></table>"
                 )
+
                 sector_body = f"<section class='card'><h2 class='h2'>{country_name} — {sec} (Prediction Tomorrow)</h2>{sector_table}</section>"
-                sector_url = f"{BASE_URL}/{r_slug}/{c_slug}/sectors/{s_slug_sector}/prediction-tomorrow/"
+                sector_url = f"{BASE_URL}/{r_slug}/{c_slug}/sectors/{sec_slug}/prediction-tomorrow/"
                 write_html(
-                    DIST / r_slug / c_slug / "sectors" / s_slug_sector / "prediction-tomorrow" / "index.html",
+                    DIST / r_slug / c_slug / "sectors" / sec_slug / "prediction-tomorrow" / "index.html",
                     tpl_base(
                         f"{country_name} {sec} — AI Stock Predictions",
                         f"All {sec} stocks in {country_name} with next-day AI predictions.",
@@ -312,12 +309,11 @@ def main():
                 )
                 sitemap_urls.append(sector_url.rstrip("/"))
 
-            # ---- Country landing (links to exchanges + sectors root) ----
+            # Country landing
             exch_links = "".join(
-                [f"<li><a href='{BASE_URL}/{r_slug}/{c_slug}/{slug(ex)}/index.html'>{ex}</a></li>"
+                [f"<li><a href='{BASE_URL}/{r_slug}/{c_slug}/{slug(ex)}/'>{ex}</a></li>"
                  for ex in sorted(by_exch.keys(), key=lambda s: s.lower())]
             )
-            # sectors hub page
             sectors_hub_url = f"{BASE_URL}/{r_slug}/{c_slug}/sectors/"
             sectors_hub_body = f"<section class='card'><h2 class='h2'>{country_name} — Sectors</h2><p class='small'>Choose a sector, then open Prediction Tomorrow pages.</p></section>"
             write_html(
@@ -333,7 +329,7 @@ def main():
 
             country_body = (
                 f"<section class='card'><h2 class='h2'>{country_name} — Exchanges</h2><ul>{exch_links}</ul></section>"
-                f"<section class='card'><h2 class='h2'>Sectors</h2><a href='{BASE_URL}/{r_slug}/{c_slug}/sectors/index.html'>Browse sectors</a></section>"
+                f"<section class='card'><h2 class='h2'>Sectors</h2><a href='{BASE_URL}/{r_slug}/{c_slug}/sectors/'>Browse sectors</a></section>"
             )
             country_url = f"{BASE_URL}/{r_slug}/{c_slug}/"
             write_html(
@@ -348,7 +344,7 @@ def main():
             sitemap_urls.append(country_url.rstrip("/"))
 
         # Region index
-        lis = "".join([f"<li><a href='{BASE_URL}/{r_slug}/{slug(cn)}/index.html'>{cn}</a></li>" for (cn, _) in country_links])
+        lis = "".join([f"<li><a href='{BASE_URL}/{r_slug}/{slug(cn)}/'>{cn}</a></li>" for (cn, _) in country_links])
         region_url = f"{BASE_URL}/{r_slug}/"
         region_body = f"<section class='card'><h2 class='h2'>Countries in {region.name}</h2><ul>{lis}</ul></section>"
         write_html(
@@ -362,7 +358,7 @@ def main():
         )
         sitemap_urls.append(region_url.rstrip("/"))
 
-    # robots.txt + sitemap.xml
+    # robots + sitemap
     (DIST / "robots.txt").write_text(
         f"Sitemap: {BASE_URL}/sitemap.xml\nUser-agent: *\nAllow: /\n",
         encoding="utf-8"
