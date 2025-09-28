@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write  # needed for gh-pages push
 
 jobs:
   build:
@@ -17,43 +17,56 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Show repo tree (top 3 levels)
+      - name: Show repo tree (quick)
         run: |
-          pwd
+          echo "PWD: $(pwd)"
           ls -la
-          find . -maxdepth 3 -type d -print | sort
+          echo "--- top folders ---"
+          find . -maxdepth 2 -type d | sort
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install deps
+      - name: Install dependencies
         run: |
+          set -euxo pipefail
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then
+            cat requirements.txt
             pip install -r requirements.txt
           else
             pip install pandas
           fi
+          python -V
+          python -c "import pandas,sys;print('pandas',pandas.__version__)"
 
-      - name: Sanity check data folder
+      - name: Sanity checks (Data/ & build.py)
         run: |
-          test -d Data || (echo "ERROR: Data/ folder not found at repo root" && exit 1)
-          ls -la Data || true
-          find Data -maxdepth 2 -type d -print | sort || true
+          set -euxo pipefail
+          test -d Data
+          test -f scripts/build.py
+          echo "Data subdirs:"
+          find Data -maxdepth 2 -type d | sort || true
+          echo "CSV samples:"
+          find Data -name "*.csv" | head -n 10 || true
 
       - name: Build site
         run: |
-          set -e
+          set -euxo pipefail
           python scripts/build.py
-          echo "---- built files ----"
-          find dist -maxdepth 3 -type f | sort | sed 's/^/dist: /'
+          echo "---- built files (first 200) ----"
+          find dist -maxdepth 4 -type f | sort | head -n 200
 
-      - name: Verify key outputs
+      - name: Verify outputs exist
         run: |
-          test -f dist/index.html || (echo "ERROR: dist/index.html missing" && exit 1)
-          test -f dist/data/index.json || (echo "ERROR: dist/data/index.json missing" && exit 1)
+          set -euxo pipefail
+          test -f dist/index.html
+          test -f dist/data/index.json
+          stat dist/index.html
+          stat dist/data/index.json
+          echo "Sizes OK"
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
