@@ -1,9 +1,16 @@
 {
   "site_title": "StockPricePredictions.com",
-  "site_tagline": "Fast, transparent next-day stock signals from yesterday’s OHLC.",
-  "base_url": "https://stockpricepredictions.com",
-  "author": { "name": "StockPricePredictions Research", "org": "SPP Labs", "contact_email": "hello@stockpricepredictions.com" },
-  "keywords": ["stock prediction","AI forecast","price target","tomorrow","NSE","BSE"],
-  "default_region": "asia-pacific",
-  "default_country": "india"
+  "site_tagline": "Fast, transparent next-day stock movement signals from yesterday’s OHLC",
+  "base_url": "https://anandsolanke.github.io/stockpricepredictions-ssg",
+  "keywords": [
+    "AI stock prediction",
+    "tomorrow forecast",
+    "NSE BSE predictions",
+    "global stock markets"
+  ],
+  "author": {
+    "name": "StockPricePredictions Research",
+    "org": "SPP Labs",
+    "contact_email": "hello@stockpricepredictions.com"
+  }
 }
