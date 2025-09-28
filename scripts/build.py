@@ -102,6 +102,7 @@ def tpl_base(title, description, body, canonical):
 </body>
 </html>"""
 
+# ---------- SEO text helpers ----------
 def stock_title(symbol, name):
     return f"AI Analysis of {symbol} Tomorrow | {name} Stock Prediction"
 
@@ -116,7 +117,8 @@ def main():
     date_dir, date_obj = find_latest_date_folder()
 
     # reset dist
-    if DIST.exists(): shutil.rmtree(DIST)
+    if DIST.exists():
+        shutil.rmtree(DIST)
     (DIST / "static").mkdir(parents=True, exist_ok=True)
 
     # copy CSS (fallback if missing)
@@ -136,28 +138,41 @@ def main():
             encoding="utf-8"
         )
 
-    # Regions (folders inside latest date)
+    # Regions
     regions = [p for p in date_dir.iterdir() if p.is_dir()]
     regions.sort(key=lambda x: x.name.lower())
 
-    # Collect data for the interactive homepage JSON
-    site_json = {"regions": []}
+    # Home
+    home_body = ["<section class='card'><h2 class='h2'>Browse Regions</h2><ul>"]
+    for r in regions:
+        r_slug = slug(r.name)
+        home_body.append(f"<li><a href='{BASE_URL}/{r_slug}/'>{r.name}</a></li>")
+    home_body.append("</ul></section>")
+    write_html(
+        DIST / "index.html",
+        tpl_base(
+            f"{CFG.get('site_title','')} — {CFG.get('site_tagline','')}",
+            "Daily static stock prediction pages built from your uploaded CSVs.",
+            "\n".join(home_body),
+            f"{BASE_URL}/"
+        )
+    )
+
     sitemap_urls = [f"{BASE_URL}/"]
 
+    # Region → Country → Exchange → Stock
     for region in regions:
-        r_name = region.name
-        r_slug = slug(r_name)
-        reg_entry = {"key": r_slug, "name": r_name, "countries": []}
+        r_slug = slug(region.name)
+        country_links = []
 
-        # Countries (CSV files under region)
-        country_csvs = sorted([p for p in region.glob("*.csv")], key=lambda x: x.name.lower())
-
-        for csv in country_csvs:
+        for csv in sorted([p for p in region.glob("*.csv")], key=lambda x: x.name.lower()):
             country_name = csv.stem.replace("-", " ").title()
             c_slug = slug(country_name)
+            country_links.append((country_name, c_slug))
+
             df = read_csv_safe(csv)
 
-            # group rows
+            # groupings
             by_exch, by_sector = {}, {}
             for _, row in df.iterrows():
                 sym = str(row["symbol"]).strip()
@@ -173,36 +188,36 @@ def main():
                 by_exch.setdefault(exch or "UNKNOWN", []).append(item)
                 by_sector.setdefault(sec or "Unknown", []).append(item)
 
-            # Build exchange pages + rows, and also collect JSON for homepage
-            exch_entries = []
+            # Exchanges
             for exch, rows in sorted(by_exch.items(), key=lambda kv: kv[0].lower()):
                 e_slug = slug(exch)
-                # Build stock pages and exchange table
-                table_rows_html = []
-                stocks_for_json = []
 
+                # Build stock pages + table rows
+                table_rows_html = []
                 for rowd in rows:
                     sym,name,sec,ind,o,h,l,c = rowd["sym"],rowd["name"],rowd["sec"],rowd["ind"],rowd["o"],rowd["h"],rowd["l"],rowd["c"]
                     s_slug = slug(sym)
-                    sig = ""
-                    if None not in (o,h,l,c):
-                        sig, conf, reason = classify(o,h,l,c)
+                    sig, conf, reason = ("",0,"")
+                    if None not in (o,h,l,c): sig, conf, reason = classify(o,h,l,c)
 
-                        # Stock SEO page
+                    # Stock page (prediction-tomorrow)
+                    if None not in (o,h,l,c):
                         pred = next_business_day(date_obj)
                         title = stock_title(sym, name)
                         h1    = stock_h1(sym, name)
                         mdesc = stock_meta_desc(sym, name, exch)
+
                         stock_body = f"""
 <article class="card">
   <h2 class="h2">{h1}</h2>
-  <p class="small">Region: {r_name} · Country: {country_name} · Exchange: {exch}</p>
+  <p class="small">Region: {region.name} · Country: {country_name} · Exchange: {exch}</p>
   <p class="small">Session Date: {date_obj.isoformat()} · OHLC: O {o}, H {h}, L {l}, C {c}</p>
   <div class="card">
     <h3 class="h3">Prediction for {pred.isoformat()}</h3>
-    <p><strong>{sig}</strong> — confidence {int(conf*100)}%.</p>
+    <p><strong>{sig}</strong> — {reason} (confidence {int(conf*100)}%).</p>
   </div>
 </article>"""
+
                         stock_url = f"{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/"
                         write_html(
                             DIST / r_slug / c_slug / e_slug / s_slug / "prediction-tomorrow" / "index.html",
@@ -210,7 +225,7 @@ def main():
                         )
                         sitemap_urls.append(stock_url.rstrip("/"))
 
-                    # exchange table row (Symbol | Name | Sector | O | H | L | C | Signal)
+                    # Row in exchange table (new columns)
                     table_rows_html.append(
                         f"<tr>"
                         f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{sym}</a></td>"
@@ -224,52 +239,44 @@ def main():
                         f"</tr>"
                     )
 
-                    # for homepage JSON (drill-down)
-                    stocks_for_json.append({
-                        "symbol": sym,
-                        "name": name,
-                        "sector": sec,
-                        "open": o, "high": h, "low": l, "close": c,
-                        "signal": sig,
-                        "url": f"{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/"
-                    })
-
-                # exchange page
+                # Exchange table (new headers)
                 exch_table = (
                     "<table class='table'>"
                     "<thead><tr>"
                     "<th>Symbol</th><th>Name</th><th>Sector</th>"
                     "<th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Signal</th>"
                     "</tr></thead><tbody>"
-                    + "\n".join(table_rows_html) + "</tbody></table>"
+                    + "\n".join(table_rows_html) +
+                    "</tbody></table>"
                 )
+
                 exch_body = f"<section class='card'><h2 class='h2'>{country_name} — {exch}</h2>{exch_table}</section>"
                 exch_url = f"{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/"
                 write_html(
                     DIST / r_slug / c_slug / e_slug / "index.html",
-                    tpl_base(f"{country_name} {exch} — {CFG.get('site_title','')}",
-                             f"Browse {exch} listings in {country_name}.",
-                             exch_body,
-                             exch_url)
+                    tpl_base(
+                        f"{country_name} {exch} — {CFG.get('site_title','')}",
+                        f"Browse {exch} listings in {country_name}.",
+                        exch_body,
+                        exch_url
+                    )
                 )
                 sitemap_urls.append(exch_url.rstrip("/"))
 
-                exch_entries.append({"key": e_slug, "name": exch, "stocks": stocks_for_json})
-
-            # sector pages (listing)
+            # Sector pages
             for sec, rows in sorted(by_sector.items(), key=lambda kv: kv[0].lower()):
                 sec_slug = slug(sec or "Unknown")
                 table_rows_html = []
                 for rowd in rows:
                     sym,name,exch,ind,o,h,l,c = rowd["sym"],rowd["name"],rowd["exch"],rowd["ind"],rowd["o"],rowd["h"],rowd["l"],rowd["c"]
-                    e_slug2 = slug(exch or "UNKNOWN")
-                    s_slug2 = slug(sym)
-                    sig = ""
-                    if None not in (o,h,l,c): sig = classify(o,h,l,c)[0]
+                    e_slug = slug(exch or "UNKNOWN")
+                    s_slug = slug(sym)
+                    sig, conf, reason = ("",0,"")
+                    if None not in (o,h,l,c): sig, conf, reason = classify(o,h,l,c)
                     table_rows_html.append(
                         f"<tr>"
-                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug2}/{s_slug2}/prediction-tomorrow/'>{sym}</a></td>"
-                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug2}/{s_slug2}/prediction-tomorrow/'>{name}</a></td>"
+                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{sym}</a></td>"
+                        f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{name}</a></td>"
                         f"<td>{exch}</td><td>{sec}</td>"
                         f"<td>{'' if o is None else f'{o:.2f}'}</td>"
                         f"<td>{'' if h is None else f'{h:.2f}'}</td>"
@@ -278,68 +285,78 @@ def main():
                         f"<td>{sig}</td>"
                         f"</tr>"
                     )
+
                 sector_table = (
                     "<table class='table'>"
                     "<thead><tr>"
                     "<th>Symbol</th><th>Name</th><th>Exchange</th><th>Sector</th>"
                     "<th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Signal</th>"
                     "</tr></thead><tbody>"
-                    + "\n".join(table_rows_html) + "</tbody></table>"
+                    + "\n".join(table_rows_html) +
+                    "</tbody></table>"
                 )
+
                 sector_body = f"<section class='card'><h2 class='h2'>{country_name} — {sec} (Prediction Tomorrow)</h2>{sector_table}</section>"
                 sector_url = f"{BASE_URL}/{r_slug}/{c_slug}/sectors/{sec_slug}/prediction-tomorrow/"
                 write_html(
                     DIST / r_slug / c_slug / "sectors" / sec_slug / "prediction-tomorrow" / "index.html",
-                    tpl_base(f"{country_name} {sec} — AI Stock Predictions",
-                             f"All {sec} stocks in {country_name} with next-day AI predictions.",
-                             sector_body,
-                             sector_url)
+                    tpl_base(
+                        f"{country_name} {sec} — AI Stock Predictions",
+                        f"All {sec} stocks in {country_name} with next-day AI predictions.",
+                        sector_body,
+                        sector_url
+                    )
                 )
                 sitemap_urls.append(sector_url.rstrip("/"))
 
-            # country landing (links)
-            exch_links = "".join([f"<li><a href='{BASE_URL}/{r_slug}/{c_slug}/{e['key']}/'>{e['name']}</a></li>" for e in exch_entries])
+            # Country landing
+            exch_links = "".join(
+                [f"<li><a href='{BASE_URL}/{r_slug}/{c_slug}/{slug(ex)}/'>{ex}</a></li>"
+                 for ex in sorted(by_exch.keys(), key=lambda s: s.lower())]
+            )
             sectors_hub_url = f"{BASE_URL}/{r_slug}/{c_slug}/sectors/"
+            sectors_hub_body = f"<section class='card'><h2 class='h2'>{country_name} — Sectors</h2><p class='small'>Choose a sector, then open Prediction Tomorrow pages.</p></section>"
             write_html(
                 DIST / r_slug / c_slug / "sectors" / "index.html",
-                tpl_base(f"{country_name} sectors — {CFG.get('site_title','')}",
-                         f"Browse sectors in {country_name}.",
-                         "<section class='card'><h2 class='h2'>Choose a sector, then open Prediction Tomorrow pages.</h2></section>",
-                         sectors_hub_url)
+                tpl_base(
+                    f"{country_name} sectors — {CFG.get('site_title','')}",
+                    f"Browse sectors in {country_name}.",
+                    sectors_hub_body,
+                    sectors_hub_url
+                )
             )
             sitemap_urls.append(sectors_hub_url.rstrip("/"))
 
+            country_body = (
+                f"<section class='card'><h2 class='h2'>{country_name} — Exchanges</h2><ul>{exch_links}</ul></section>"
+                f"<section class='card'><h2 class='h2'>Sectors</h2><a href='{BASE_URL}/{r_slug}/{c_slug}/sectors/'>Browse sectors</a></section>"
+            )
             country_url = f"{BASE_URL}/{r_slug}/{c_slug}/"
             write_html(
                 DIST / r_slug / c_slug / "index.html",
-                tpl_base(f"{country_name} — {CFG.get('site_title','')}",
-                         f"Browse exchanges and sectors in {country_name}.",
-                         f"<section class='card'><h2 class='h2'>{country_name} — Exchanges</h2><ul>{exch_links}</ul></section>"
-                         f"<section class='card'><h2 class='h2'>Sectors</h2><a href='{BASE_URL}/{r_slug}/{c_slug}/sectors/'>Browse sectors</a></section>",
-                         country_url)
+                tpl_base(
+                    f"{country_name} — {CFG.get('site_title','')}",
+                    f"Browse exchanges and sectors in {country_name}.",
+                    country_body,
+                    country_url
+                )
             )
             sitemap_urls.append(country_url.rstrip("/"))
 
-            # add to JSON
-            reg_entry["countries"].append({
-                "key": c_slug,
-                "name": country_name,
-                "exchanges": exch_entries
-            })
-
-        # region index and JSON
+        # Region index
+        lis = "".join([f"<li><a href='{BASE_URL}/{r_slug}/{slug(cn)}/'>{cn}</a></li>" for (cn, _) in country_links])
         region_url = f"{BASE_URL}/{r_slug}/"
+        region_body = f"<section class='card'><h2 class='h2'>Countries in {region.name}</h2><ul>{lis}</ul></section>"
         write_html(
             DIST / r_slug / "index.html",
-            tpl_base(f"{r_name} Markets — {CFG.get('site_title','')}",
-                     f"Browse stock markets in {r_name}.",
-                     f"<section class='card'><h2 class='h2'>Countries in {r_name}</h2><ul>"
-                     + "".join([f"<li><a href='{BASE_URL}/{r_slug}/{c['key']}/'>{c['name']}</a></li>" for c in reg_entry["countries"]])
-                     + "</ul></section>",
-                     region_url)
+            tpl_base(
+                f"{region.name} Markets — {CFG.get('site_title','')}",
+                f"Browse stock markets in {region.name}.",
+                region_body,
+                region_url
+            )
         )
         sitemap_urls.append(region_url.rstrip("/"))
-        site_json["regions"].append(reg_entry)
 
     # robots + sitemap
     (DIST / "robots.txt").write_text(
@@ -353,146 +370,6 @@ def main():
         + "</urlset>"
     )
     (DIST / "sitemap.xml").write_text(sm, encoding="utf-8")
-
-    # --------- NEW: write interactive homepage + JSON ---------
-    # site-data.json
-    (DIST / "site-data.json").write_text(json.dumps(site_json, ensure_ascii=False), encoding="utf-8")
-
-    # interactive index.html (uses Tailwind + client-side filtering)
-    interactive_index = f"""<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Explore Markets — {CFG.get('site_title','')}</title>
-  <meta name="description" content="Browse regions, countries, exchanges and stocks. Next-day signals based on OHLC.">
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-950 text-gray-100">
-  <div class="max-w-7xl mx-auto p-6">
-    <div class="flex items-baseline justify-between gap-4 mb-6">
-      <h1 class="text-3xl font-bold">Explore Markets</h1>
-      <a class="text-sm text-blue-400 hover:underline" href="{BASE_URL}/sitemap.xml">Sitemap</a>
-    </div>
-
-    <!-- Row 1: Regions -->
-    <div class="mb-4">
-      <h2 class="text-lg font-semibold mb-2">Regions</h2>
-      <div id="regions" class="flex flex-wrap gap-2"></div>
-    </div>
-
-    <!-- Row 2: Countries -->
-    <div class="mb-4">
-      <h2 class="text-lg font-semibold mb-2">Countries</h2>
-      <div id="countries" class="flex flex-wrap gap-2"></div>
-    </div>
-
-    <!-- Row 3: Exchanges -->
-    <div class="mb-4">
-      <h2 class="text-lg font-semibold mb-2">Exchanges</h2>
-      <div id="exchanges" class="flex flex-wrap gap-2"></div>
-    </div>
-
-    <!-- Stocks Table -->
-    <div id="stocks" class="overflow-x-auto"></div>
-  </div>
-
-  <script>
-    let DATA = null;
-    let sel = {{ region:null, country:null, exch:null }};
-
-    const btn = (label, active=false) =>
-      `<button class="px-3 py-1 rounded border ${active?'bg-blue-600 border-blue-500':'bg-gray-800 border-gray-700 hover:bg-gray-700'}" data-label="\${label}">\${label}</button>`;
-
-    const regionsEl = document.getElementById('regions');
-    const countriesEl = document.getElementById('countries');
-    const exchangesEl = document.getElementById('exchanges');
-    const stocksEl = document.getElementById('stocks');
-
-    async function load() {{
-      const res = await fetch('site-data.json');
-      DATA = await res.json();
-
-      // Regions row
-      regionsEl.innerHTML = DATA.regions.map(r => btn(r.name)).join('');
-      regionsEl.onclick = (e) => {{
-        const b = e.target.closest('button'); if (!b) return;
-        const name = b.dataset.label;
-        sel.region = DATA.regions.find(r => r.name === name);
-        sel.country = null; sel.exch = null;
-        renderCountries(); renderExchanges(); renderStocks(); highlight(regionsEl, name);
-      }};
-    }}
-
-    function renderCountries() {{
-      if (!sel.region) {{ countriesEl.innerHTML = ''; return; }}
-      countriesEl.innerHTML = sel.region.countries.map(c => btn(c.name)).join('');
-      countriesEl.onclick = (e) => {{
-        const b = e.target.closest('button'); if (!b) return;
-        const name = b.dataset.label;
-        sel.country = sel.region.countries.find(c => c.name === name);
-        sel.exch = null;
-        renderExchanges(); renderStocks(); highlight(countriesEl, name);
-      }};
-    }}
-
-    function renderExchanges() {{
-      if (!sel.country) {{ exchangesEl.innerHTML = ''; return; }}
-      exchangesEl.innerHTML = sel.country.exchanges.map(x => btn(x.name)).join('');
-      exchangesEl.onclick = (e) => {{
-        const b = e.target.closest('button'); if (!b) return;
-        const name = b.dataset.label;
-        sel.exch = sel.country.exchanges.find(x => x.name === name);
-        renderStocks(); highlight(exchangesEl, name);
-      }};
-    }}
-
-    function renderStocks() {{
-      if (!sel.exch) {{ stocksEl.innerHTML = ''; return; }}
-      const rows = sel.exch.stocks.map(s => `
-        <tr class="border-b border-gray-800">
-          <td class="px-2 py-1"><a class="text-blue-400 hover:underline" href="\${s.url}">\${s.symbol}</a></td>
-          <td class="px-2 py-1"><a class="text-blue-400 hover:underline" href="\${s.url}">\${s.name}</a></td>
-          <td class="px-2 py-1">\${s.sector||''}</td>
-          <td class="px-2 py-1">\${fmt(s.open)}</td>
-          <td class="px-2 py-1">\${fmt(s.high)}</td>
-          <td class="px-2 py-1">\${fmt(s.low)}</td>
-          <td class="px-2 py-1">\${fmt(s.close)}</td>
-          <td class="px-2 py-1 font-semibold">\${s.signal||''}</td>
-        </tr>`).join('');
-      stocksEl.innerHTML = `
-        <table class="table-auto w-full text-sm">
-          <thead class="bg-gray-900">
-            <tr>
-              <th class="text-left px-2 py-1">Symbol</th>
-              <th class="text-left px-2 py-1">Name</th>
-              <th class="text-left px-2 py-1">Sector</th>
-              <th class="text-left px-2 py-1">Open</th>
-              <th class="text-left px-2 py-1">High</th>
-              <th class="text-left px-2 py-1">Low</th>
-              <th class="text-left px-2 py-1">Close</th>
-              <th class="text-left px-2 py-1">Signal</th>
-            </tr>
-          </thead>
-          <tbody>\${rows}</tbody>
-        </table>`;
-    }}
-
-    function highlight(container, label) {{
-      Array.from(container.querySelectorAll('button')).forEach(b => {{
-        const active = b.dataset.label === label;
-        b.className = "px-3 py-1 rounded border " + (active ? "bg-blue-600 border-blue-500" : "bg-gray-800 border-gray-700 hover:bg-gray-700");
-      }});
-    }}
-
-    const fmt = (v) => (v===null||v===undefined||v==="") ? "" : Number(v).toFixed(2);
-
-    load();
-  </script>
-</body>
-</html>
-"""
-    write_html(DIST / "index.html", interactive_index)
 
     print("Build complete →", DIST)
 
