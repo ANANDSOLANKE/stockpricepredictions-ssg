@@ -1,171 +1,294 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Static Site Generator for StockPricePredictions
-- Reads CSVs from Data/<date>/<region>/<country>.csv
-- Generates HTML pages per stock, exchange, country, region
-- Copies static assets (styles.css, app.js, favicon.ico) into dist/
+Static Site Generator for StockPricePredictions (robust columns)
+- Reads CSVs from Data/<DD.MM.YYYY>/<Region>/<country>.csv
+- Normalizes CSV headers to lowercase; tolerates missing/variant columns
+- Generates HTML pages per stock, and an interactive homepage powered by static/app.js
+- Produces /data/index.json for the homepage Regions→Countries→Exchanges→Stocks explorer
+- Copies static assets: styles.css, app.js, favicon.ico
 """
 
-import os, sys, shutil, json
 from pathlib import Path
+import shutil, json
 import pandas as pd
 from datetime import datetime
 
-ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / "Data"
-DIST = ROOT / "dist"
+# ------------------------------
+# Paths
+# ------------------------------
+ROOT   = Path(__file__).resolve().parent.parent  # repo root
+DATA   = ROOT / "Data"
+DIST   = ROOT / "dist"
 STATIC = ROOT / "static"
 
 # ------------------------------
 # Helpers
 # ------------------------------
 def slugify(s: str) -> str:
-    return (
-        s.lower()
-        .replace("&", "and")
-        .replace(" ", "-")
-        .replace("/", "-")
-        .replace("_", "-")
-    )
+    s = (s or "").strip().lower()
+    out = []
+    prev_dash = False
+    for ch in s:
+        if ch.isalnum():
+            out.append(ch)
+            prev_dash = False
+        else:
+            if not prev_dash:
+                out.append("-")
+            prev_dash = True
+    res = "".join(out).strip("-")
+    return res or "item"
 
-def latest_date_folder():
+def latest_date_folder() -> Path:
+    """Pick the most recent 'DD.MM.YYYY' folder under Data/."""
     if not DATA.exists():
-        raise FileNotFoundError("Data/ folder not found")
-    subs = [p for p in DATA.iterdir() if p.is_dir()]
-    if not subs:
-        raise FileNotFoundError("No dated subfolder in Data/")
-    # Expect names like DD.MM.YYYY
-    def parse_date(name):
+        raise FileNotFoundError("ERROR: Data/ folder not found at repo root.")
+    dated = []
+    for p in DATA.iterdir():
+        if p.is_dir():
+            try:
+                _ = datetime.strptime(p.name, "%d.%m.%Y")
+                dated.append(p)
+            except Exception:
+                # ignore non-date folders
+                pass
+    if not dated:
+        raise FileNotFoundError("ERROR: No dated subfolder in Data/ (expected DD.MM.YYYY).")
+    # newest by parsed date
+    dated.sort(key=lambda x: datetime.strptime(x.name, "%d.%m.%Y"), reverse=True)
+    return dated[0]
+
+def read_csv_robust(path: Path) -> pd.DataFrame:
+    """Read CSV and normalize headers to lowercase, trimmed.
+       Ensure canonical columns exist, even if missing in source."""
+    df = pd.read_csv(path, low_memory=False)
+    # normalize headers
+    df.columns = [str(c).strip().lower() for c in df.columns]
+
+    # map common variants to canonical names
+    aliases = {
+        "description": ["name", "company", "companyname", "securityname"],
+        "exchange":    ["exch", "market", "exchange_name"],
+        "sector":      ["sectorname", "industrysector"],
+        "industry":    ["industryname"],
+        "open":        ["o", "opn"],
+        "high":        ["h", "hi"],
+        "low":         ["l", "lo"],
+        "close":       ["c", "cls", "closing"],
+        "signal":      ["prediction", "trend"],
+    }
+
+    def ensure(col):
+        if col not in df.columns:
+            # look for an alias
+            for alt in aliases.get(col, []):
+                if alt in df.columns:
+                    df.rename(columns={alt: col}, inplace=True)
+                    return
+            # not found → create
+            df[col] = "" if col in ("symbol","description","exchange","sector","industry","signal") else None
+
+    # canonical set (symbol must exist; if not, create empty)
+    for need in ["symbol","description","exchange","sector","industry","open","high","low","close","signal"]:
+        ensure(need)
+
+    # coerce numeric OHLC (where present)
+    for c in ["open","high","low","close"]:
         try:
-            return datetime.strptime(name, "%d.%m.%Y")
+            df[c] = pd.to_numeric(df[c], errors="coerce")
         except Exception:
-            return datetime.min
-    latest = max(subs, key=lambda p: parse_date(p.name))
-    return latest
+            pass
 
-# ------------------------------
-# Core Build
-# ------------------------------
-def build():
-    if DIST.exists():
-        shutil.rmtree(DIST)
-    DIST.mkdir(parents=True)
+    # fill strings
+    for c in ["symbol","description","exchange","sector","industry","signal"]:
+        df[c] = df[c].fillna("").astype(str)
 
-    date_folder = latest_date_folder()
-    site_index = {"data": {}}
+    return df
 
-    # Walk regions/countries
-    for region in sorted(date_folder.iterdir()):
-        if not region.is_dir():
-            continue
-        rslug = slugify(region.name)
-        site_index["data"][rslug] = {"label": region.name, "countries": {}}
-        for country_file in sorted(region.glob("*.csv")):
-            cslug = slugify(country_file.stem)
-            df = pd.read_csv(country_file)
-            countries = site_index["data"][rslug]["countries"]
-            countries[cslug] = {"label": country_file.stem, "exchanges": {}}
+def copy_static():
+    (DIST / "static").mkdir(parents=True, exist_ok=True)
 
-            for exch in df["exchange"].unique():
-                eslug = slugify(str(exch))
-                exch_df = df[df["exchange"] == exch]
-                exchanges = countries[cslug]["exchanges"]
-                exchanges[eslug] = {"label": exch, "stocks": []}
-
-                for _, row in exch_df.iterrows():
-                    stock_slug = slugify(str(row["description"]))
-                    stock_dir = DIST / rslug / cslug / eslug / stock_slug
-                    stock_dir.mkdir(parents=True, exist_ok=True)
-                    # stock page
-                    html = f"""
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>{row['description']} — Stock Prediction</title>
-  <link rel="stylesheet" href="/static/styles.css">
-</head>
-<body>
-  <h1>{row['description']}</h1>
-  <p>Symbol: {row['symbol']}</p>
-  <p>Exchange: {row['exchange']}</p>
-  <p>Sector: {row.get('sector','')}</p>
-  <p>Open: {row['open']}, High: {row['high']}, Low: {row['low']}, Close: {row['Close']}</p>
-  <p>Signal: {row.get('signal','')}</p>
-  <p><a href="/">Home</a></p>
-</body>
-</html>
-"""
-                    (stock_dir / "index.html").write_text(html, encoding="utf-8")
-
-                    exchanges[eslug]["stocks"].append(
-                        {
-                            "symbol": row["symbol"],
-                            "description": row["description"],
-                            "sector": row.get("sector", ""),
-                            "open": row.get("open", ""),
-                            "high": row.get("high", ""),
-                            "low": row.get("low", ""),
-                            "close": row.get("Close", ""),
-                            "signal": row.get("signal", ""),
-                        }
-                    )
-
-    # Write site index JSON
-    data_dir = DIST / "data"
-    data_dir.mkdir(parents=True, exist_ok=True)
-    (data_dir / "index.json").write_text(json.dumps(site_index, indent=2), encoding="utf-8")
-
-    # Copy static assets
-    static_out = DIST / "static"
-    static_out.mkdir(parents=True, exist_ok=True)
-
-    # CSS
+    # styles.css
     css_src = STATIC / "styles.css"
     if css_src.exists():
-        shutil.copy2(css_src, static_out / "styles.css")
+        shutil.copy2(css_src, DIST / "static" / "styles.css")
     else:
-        (static_out / "styles.css").write_text("body{font-family:sans-serif}", encoding="utf-8")
+        # minimal fallback so page is readable
+        (DIST / "static" / "styles.css").write_text(
+            "body{font-family:system-ui;background:#0b1220;color:#e8f0fe;margin:0}"
+            ".container{max-width:1100px;margin:0 auto;padding:24px}"
+            "h1,h2{margin:.5rem 0} .hidden{display:none}"
+            "table{border-collapse:collapse;width:100%}"
+            "th,td{border-bottom:1px solid #1f2a44;padding:6px 8px}",
+            encoding="utf-8"
+        )
 
-    # JS
-    js_src = STATIC / "app.js"
-    if js_src.exists():
-        shutil.copy2(js_src, static_out / "app.js")
+    # app.js
+    app_src = STATIC / "app.js"
+    if app_src.exists():
+        shutil.copy2(app_src, DIST / "static" / "app.js")
     else:
-        (static_out / "app.js").write_text("console.error('app.js missing');", encoding="utf-8")
+        (DIST / "static" / "app.js").write_text(
+            "console.error('Missing static/app.js at build time.');",
+            encoding="utf-8"
+        )
 
-    # Favicon (optional)
-    fav_src = STATIC / "favicon.ico"
-    if fav_src.exists():
-        shutil.copy2(fav_src, DIST / "favicon.ico")
+    # favicon (optional)
+    fav = STATIC / "favicon.ico"
+    if fav.exists():
+        shutil.copy2(fav, DIST / "favicon.ico")
 
-    # Home index
-    home = f"""
-<!DOCTYPE html>
-<html>
+def write_home():
+    html = """<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Stock Predictions Explorer</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-  <div id="app" class="container">
-    <h1>🌍 Stock Predictions Explorer</h1>
-    <p>AI forecast for tomorrow’s prices — browse by Region → Country → Exchange</p>
-    <h2>Regions</h2>
-    <div id="regions"></div>
-    <div id="countries-section" class="hidden"><h2>Countries</h2><div id="countries"></div></div>
-    <div id="exchanges-section" class="hidden"><h2>Exchanges</h2><div id="exchanges"></div></div>
-    <div id="stocks-section" class="hidden"><h2>Stocks</h2><div id="stocks"></div></div>
+  <div class="container">
+    <header style="text-align:center;margin-bottom:16px;">
+      <h1>🌍 Stock Predictions Explorer</h1>
+      <p style="color:#9fb3c8">AI forecast for tomorrow’s prices — browse by Region → Country → Exchange</p>
+    </header>
+
+    <section>
+      <h2>Regions</h2>
+      <div id="regions"></div>
+    </section>
+
+    <section id="countries-section" class="hidden" style="margin-top:16px;">
+      <h2>Countries</h2>
+      <div id="countries"></div>
+    </section>
+
+    <section id="exchanges-section" class="hidden" style="margin-top:16px;">
+      <h2>Exchanges</h2>
+      <div id="exchanges"></div>
+    </section>
+
+    <section id="stocks-section" class="hidden" style="margin-top:16px;">
+      <h2>Stocks</h2>
+      <div id="stocks"></div>
+    </section>
   </div>
   <script src="/static/app.js"></script>
 </body>
-</html>
-"""
-    (DIST / "index.html").write_text(home, encoding="utf-8")
+</html>"""
+    (DIST / "index.html").write_text(html, encoding="utf-8")
 
+# ------------------------------
+# Build
+# ------------------------------
+def build():
+    # clean dist
+    if DIST.exists():
+        shutil.rmtree(DIST)
+    DIST.mkdir(parents=True, exist_ok=True)
+
+    # copy static assets (css/js/favicon)
+    copy_static()
+
+    # pick date folder
+    date_dir = latest_date_folder()
+
+    # JSON structure for app.js
+    site = {"data": {}}
+
+    # iterate regions
+    for region_dir in sorted([p for p in date_dir.iterdir() if p.is_dir()], key=lambda x: x.name.lower()):
+        r_name = region_dir.name
+        r_slug = slugify(r_name)
+        site["data"][r_slug] = {"label": r_name, "countries": {}}
+
+        # each country is a CSV file
+        for csv_path in sorted(region_dir.glob("*.csv"), key=lambda x: x.name.lower()):
+            country_name = csv_path.stem.replace("-", " ").title()
+            c_slug = slugify(country_name)
+            site["data"][r_slug]["countries"][c_slug] = {"label": country_name, "exchanges": {}}
+
+            # read CSV robustly
+            df = read_csv_robust(csv_path)
+
+            # group by exchange (fill 'unknown' if blank)
+            if "exchange" not in df.columns:
+                df["exchange"] = ""
+
+            for exch, df_ex in df.groupby(df["exchange"].replace("", "unknown"), dropna=False):
+                e_name = exch or "unknown"
+                e_slug = slugify(e_name)
+                exch_obj = {"label": e_name, "stocks": []}
+                site["data"][r_slug]["countries"][c_slug]["exchanges"][e_slug] = exch_obj
+
+                # create stock pages and build JSON array
+                for _, row in df_ex.iterrows():
+                    sym = str(row.get("symbol", "")).strip()
+                    desc = str(row.get("description", "")).strip() or sym
+                    sec = str(row.get("sector", "")).strip()
+                    o = row.get("open", None)
+                    h = row.get("high", None)
+                    l = row.get("low",  None)
+                    c = row.get("close", None)
+                    sig = str(row.get("signal", "")).strip()
+
+                    s_slug = slugify(desc or sym)
+                    stock_dir = DIST / r_slug / c_slug / e_slug / s_slug
+                    stock_dir.mkdir(parents=True, exist_ok=True)
+
+                    # very simple stock page (SEO pages are separate from JS explorer)
+                    stock_html = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{desc} — Stock Prediction</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>{desc}</h1>
+    <p><strong>Symbol:</strong> {sym} · <strong>Exchange:</strong> {e_name} · <strong>Sector:</strong> {sec}</p>
+    <table>
+      <thead><tr><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Signal</th></tr></thead>
+      <tbody><tr>
+        <td>{'' if pd.isna(o) else f'{float(o):.2f}'}</td>
+        <td>{'' if pd.isna(h) else f'{float(h):.2f}'}</td>
+        <td>{'' if pd.isna(l) else f'{float(l):.2f}'}</td>
+        <td>{'' if pd.isna(c) else f'{float(c):.2f}'}</td>
+        <td>{sig}</td>
+      </tr></tbody>
+    </table>
+    <p><a href="/">← Back to Home</a></p>
+  </div>
+</body>
+</html>"""
+                    (stock_dir / "index.html").write_text(stock_html, encoding="utf-8")
+
+                    # add to JSON list for the exchange
+                    exch_obj["stocks"].append({
+                        "symbol": sym,
+                        "name": desc,            # app.js reads name/description
+                        "description": desc,
+                        "sector": sec,
+                        "open": None if pd.isna(o) else float(o),
+                        "high": None if pd.isna(h) else float(h),
+                        "low":  None if pd.isna(l) else float(l),
+                        "close": None if pd.isna(c) else float(c),
+                        "signal": sig,
+                    })
+
+    # write JSON for the explorer
+    data_dir = DIST / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+    (data_dir / "index.json").write_text(json.dumps(site, ensure_ascii=False), encoding="utf-8")
+
+    # write interactive homepage (uses static/app.js to read /data/index.json)
+    write_home()
+
+    print("Build complete →", DIST)
 
 if __name__ == "__main__":
     build()
-    print("Build complete.")
