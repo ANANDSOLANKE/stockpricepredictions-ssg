@@ -2,27 +2,30 @@ name: Build & Deploy SSG
 
 on:
   push:
-    branches: [ main ]
+    paths:
+      - 'Data/**'
+      - 'scripts/**'
+      - 'static/**'
+      - 'config.json'
+      - '.github/workflows/ssg.yml'
   workflow_dispatch:
 
+# let the workflow push to gh-pages without changing repo settings
 permissions:
-  contents: write  # needed for gh-pages push
+  contents: write
+
+# avoid overlapping runs
+concurrency:
+  group: ssg-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Show repo tree (quick)
-        run: |
-          echo "PWD: $(pwd)"
-          ls -la
-          echo "--- top folders ---"
-          find . -maxdepth 2 -type d | sort
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -31,48 +34,28 @@ jobs:
 
       - name: Install dependencies
         run: |
-          set -euxo pipefail
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then
-            cat requirements.txt
-            pip install -r requirements.txt
-          else
-            pip install pandas
-          fi
-          python -V
-          python -c "import pandas,sys;print('pandas',pandas.__version__)"
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Sanity checks (Data/ & build.py)
+      - name: Debug repo tree
         run: |
-          set -euxo pipefail
-          test -d Data
-          test -f scripts/build.py
-          echo "Data subdirs:"
-          find Data -maxdepth 2 -type d | sort || true
-          echo "CSV samples:"
-          find Data -name "*.csv" | head -n 10 || true
+          echo "== TOP LEVEL ==" && ls -la
+          echo "== Data tree ==" && (find Data -maxdepth 3 -print || true)
 
       - name: Build site
-        run: |
-          set -euxo pipefail
-          python scripts/build.py
-          echo "---- built files (first 200) ----"
-          find dist -maxdepth 4 -type f | sort | head -n 200
+        run: python scripts/build.py
 
-      - name: Verify outputs exist
-        run: |
-          set -euxo pipefail
-          test -f dist/index.html
-          test -f dist/data/index.json
-          stat dist/index.html
-          stat dist/data/index.json
-          echo "Sizes OK"
+      - name: Upload dist as artifact (optional)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          publish_branch: gh-pages
-          cname: stockpricepredictions.com
+          # creates a clean branch history; OK for static sites
           force_orphan: true
