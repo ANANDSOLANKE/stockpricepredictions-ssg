@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import re, json, shutil, datetime, os
+import re, json, shutil, datetime, os, unicodedata
 from pathlib import Path
 import pandas as pd
 
+# ----------------- Paths & Config -----------------
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "Data"
 DIST = ROOT / "dist"
@@ -13,7 +14,7 @@ BASE_URL = CFG.get("base_url", "").rstrip("/")
 
 IMG_EXTS = {".png", ".jpg", ".jpeg", ".svg", ".webp"}
 
-# ---------- Helpers ----------
+# ----------------- Generic helpers -----------------
 def find_latest_date_folder():
     if not DATA_DIR.exists():
         raise SystemExit("Missing Data/ directory at repo root.")
@@ -107,7 +108,7 @@ def tpl_base(title, description, body, canonical):
 </body>
 </html>"""
 
-# ---------- Logos: index + fallback scan ----------
+# ----------------- Logos: smarter resolver -----------------
 def ensure_placeholder_logo():
     placeholder = (DIST / "static" / "logo-placeholder.svg")
     if not placeholder.exists():
@@ -125,71 +126,136 @@ def copy_logos_folder():
     if src.exists():
         shutil.copytree(src, dst)
 
-def normalize_symbol(s: str) -> str:
-    # Uppercase; keep only letters/numbers; strip size suffixes like -600/_128 etc.
-    s = (s or "").upper()
-    s = re.sub(r"[\W_]+", "", s)  # remove non-alnum
-    s = re.sub(r"(?:[0-9]{2,4})$", "", s)  # drop trailing size numbers if any
-    return s
+def _norm(s: str) -> str:
+    """Uppercase, strip accents, keep only A-Z0-9."""
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode("ascii")
+    s = s.upper()
+    return re.sub(r"[^A-Z0-9]", "", s)
+
+STOP_WORDS = {
+    "LTD","LIMITED","CO","COMPANY","PLC","INC","LLC","SA","SAA","SAS",
+    "BSC","BSC.","B.S.C","ORD","PREF","THE","OF","AND","HOLDINGS","HOLDING",
+    "GROUP","CORP","CORPORATION","BANK","INDUSTRIES","INDUSTRY"
+}
+
+def name_tokens(name: str):
+    toks = re.split(r"[^A-Za-z0-9]+", name or "")
+    toks = [t for t in toks if t and t.upper() not in STOP_WORDS]
+    return toks[:3]
 
 def load_logos_index():
-    # Try repo root first, then logos/
+    """Optional curated index {EXCH: {SYMBOL: 'relative/under/logos.png'}}."""
     for p in [ROOT / "logos_index.json", ROOT / "logos" / "logos_index.json"]:
         if p.exists():
             try:
                 data = json.loads(p.read_text(encoding="utf-8"))
-                # Flatten to {(EXCH,SYMBOL)->relative_path}
                 flat = {}
                 for exch, mp in data.items():
                     for sym, rel in mp.items():
-                        flat[(exch.upper(), normalize_symbol(sym))] = str(rel).lstrip("/\\")
+                        flat[(exch.upper(), _norm(sym))] = str(rel).lstrip("/\\")
                 return flat
             except Exception:
                 pass
     return {}
 
-def build_logo_scan_index():
+def build_scan_index():
     """
-    Walk logos/ once and build a best-effort index:
-    key: (EXCHANGE_UPPER, BASENAME_NORMALIZED) -> relative path under logos/
-    Uses the *last* directory as 'exchange' (works for logos/argentina/BCBA/*.png and logos/NSE/*.png)
+    Walk logos/ once. For each exchange (last folder name), keep a list of
+    (stem_norm, relpath, stem_raw) to enable fuzzy name matching.
+    Works with logos/argentina/BCBA/*.png and logos/NSE/*.png
     """
     base = ROOT / "logos"
     idx = {}
     if not base.exists():
         return idx
-    for root, dirs, files in os.walk(base):
+    for root, _, files in os.walk(base):
         for f in files:
             ext = os.path.splitext(f)[1].lower()
             if ext not in IMG_EXTS: continue
             full = Path(root) / f
-            rel = full.relative_to(base)
-            exchange = full.parent.name  # last folder name = exchange
-            name = os.path.splitext(f)[0]
-            # also try to remove common size suffixes like --600, _600, -128
-            name_norm = normalize_symbol(re.sub(r"(--|_|-)?\d{2,4}$", "", name))
-            idx[(exchange.upper(), name_norm)] = str(rel).replace("\\", "/")
+            rel = full.relative_to(base).as_posix()
+            exch = full.parent.name  # last dir is the exchange
+            stem = os.path.splitext(f)[0]
+            stem_clean = re.sub(r"(--|_|-)?\d{2,4}$", "", stem)  # drop size suffixes
+            stem_norm = _norm(stem_clean)
+            idx.setdefault(exch.upper(), []).append((stem_norm, rel, stem_clean))
     return idx
 
 class LogoResolver:
+    """
+    Resolve (exchange, symbol, company name) → logo URL.
+    Strategy order:
+      1) curated index exact match
+      2) filename exact match on symbol
+      3) filename contains symbol (or symbol contains filename)
+      4) best company-name token match
+    """
     def __init__(self):
-        self.index = load_logos_index()
-        self.scan = {} if self.index else build_logo_scan_index()  # only scan if no explicit index
         ensure_placeholder_logo()
         copy_logos_folder()
+        self.curated = load_logos_index()          # {(EXCH,NORM_SYM): rel}
+        self.scan = build_scan_index()             # {EXCH: [(stem_norm, rel, stem_raw), ...]}
+        self.cache = {}
 
-    def url_for(self, exchange: str, symbol: str) -> str:
+    def url_for(self, exchange: str, symbol: str, name: str = "") -> str:
+        key = (exchange or "", symbol or "")
+        if key in self.cache:
+            return self.cache[key]
+
+        placeholder = f"{BASE_URL}/static/logo-placeholder.svg"
         if not exchange or not symbol:
-            return f"{BASE_URL}/static/logo-placeholder.svg"
-        key = (exchange.upper(), normalize_symbol(symbol))
-        rel = self.index.get(key)
-        if not rel:
-            rel = self.scan.get(key)
-        if rel:
-            return f"{BASE_URL}/logos/{rel}"
-        return f"{BASE_URL}/static/logo-placeholder.svg"
+            self.cache[key] = placeholder
+            return placeholder
 
-# ---------- Build ----------
+        exch = (exchange or "").upper()
+        symn = _norm(symbol)
+
+        # 1) curated exact
+        rel = self.curated.get((exch, symn))
+        if rel:
+            url = f"{BASE_URL}/logos/{rel}"
+            self.cache[key] = url
+            return url
+
+        candidates = self.scan.get(exch, [])
+        if not candidates:
+            self.cache[key] = placeholder
+            return placeholder
+
+        # 2) exact filename == symbol
+        for stem_norm, rel, _raw in candidates:
+            if stem_norm == symn:
+                url = f"{BASE_URL}/logos/{rel}"
+                self.cache[key] = url
+                return url
+
+        # 3) filename contains symbol, or symbol contains filename
+        for stem_norm, rel, _raw in candidates:
+            if symn and (symn in stem_norm or stem_norm in symn):
+                url = f"{BASE_URL}/logos/{rel}"
+                self.cache[key] = url
+                return url
+
+        # 4) name tokens scoring
+        toks = [_norm(t) for t in name_tokens(name)]
+        best = (0.0, None)  # (score, rel)
+        for stem_norm, rel, _raw in candidates:
+            hits = sum(1 for t in toks if t and t in stem_norm)
+            if hits == 0: 
+                continue
+            score = hits * (10.0 / (1.0 + len(stem_norm)))  # prefer shorter stems & more hits
+            if score > best[0]:
+                best = (score, rel)
+
+        if best[1]:
+            url = f"{BASE_URL}/logos/{best[1]}"
+            self.cache[key] = url
+            return url
+
+        self.cache[key] = placeholder
+        return placeholder
+
+# ----------------- Build process -----------------
 def main():
     date_dir, date_obj = find_latest_date_folder()
 
@@ -208,7 +274,7 @@ def main():
 
     resolver = LogoResolver()
 
-    # Home (JS drilldown page)
+    # Home (JS drilldown shell)
     home_body = """
 <section class='card'>
   <h2 class='h2'>Browse Markets</h2>
@@ -241,7 +307,7 @@ def main():
         r_entry = {"name": r_name, "slug": r_slug, "url": f"{BASE_URL}/{r_slug}/", "countries": []}
         site_index["regions"].append(r_entry)
 
-        # Region HTML
+        # Region HTML index
         country_links = []
         for csv in sorted(region.glob("*.csv"), key=lambda x: x.name.lower()):
             country_name = csv.stem.replace("-", " ").title()
@@ -255,7 +321,7 @@ def main():
                        f"<section class='card'><h2 class='h2'>Countries in {r_name}</h2><ul>{lis}</ul></section>",
                        f"{BASE_URL}/{r_slug}/"))
 
-        # Countries
+        # Countries & Exchanges
         for c in r_entry["countries"]:
             country_name, c_slug = c["name"], c["slug"]
             csv = region / f"{country_name.lower().replace(' ', '-')}.csv"
@@ -313,7 +379,7 @@ def main():
                         write(DIST / r_slug / c_slug / e_slug / s_slug / "prediction-tomorrow" / "index.html",
                               tpl_base(title, mdesc, stock_body, stock_url))
 
-                    # HTML table row
+                    # HTML row
                     table_rows_html.append(
                         f"<tr>"
                         f"<td><a href='{BASE_URL}/{r_slug}/{c_slug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{sym}</a></td>"
@@ -327,8 +393,10 @@ def main():
                         f"</tr>"
                     )
 
-                    logo_url = resolver.url_for(exch_name, sym)
+                    # LOGO (smart resolver uses exchange, symbol, and name)
+                    logo_url = resolver.url_for(exch_name, sym, name)
 
+                    # JSON row for drilldown table
                     json_rows.append({
                         "symbol": sym,
                         "name": name,
