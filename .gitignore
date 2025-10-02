@@ -1,0 +1,7 @@
+# Local Python env
+.venv/
+__pycache__/
+
+# Build output
+dist/
+logs/
