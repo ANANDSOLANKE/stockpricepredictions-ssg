@@ -27,7 +27,7 @@ jobs:
 
       - name: Download data (headless CLI)
         run: |
-          python downloader/run_headless.py --mode hourly --data-folder data --window-mins 120
+          python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 120
 
       - name: Build site
         run: python scripts/build.py
