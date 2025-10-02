@@ -1,3 +1,13 @@
+# For static site generator
 pandas==2.2.2
 jinja2==3.1.4
 python-slugify==8.0.4
+
+# Downloader needs
+yfinance
+requests
+pytz
+python-dateutil
+pandas-market-calendars
+beautifulsoup4
+lxml
