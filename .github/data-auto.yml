@@ -1,0 +1,29 @@
+name: Auto download market data
+on:
+  schedule:
+    - cron: "5 * * * *"   # every hour at :05 UTC
+  workflow_dispatch: {}
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Download data (decides which markets just closed)
+        run: python scripts/download_all.py --mode hourly
+      - name: Build run log + summary
+        run: |
+          python scripts/report_runs.py
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Auto: data + report update" || echo "No changes"
+          git push
