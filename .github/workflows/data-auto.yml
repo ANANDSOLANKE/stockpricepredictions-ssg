@@ -2,8 +2,8 @@ name: Auto download market data
 
 on:
   schedule:
-    - cron: '5 * * * *'   # every hour at :05 UTC
-  workflow_dispatch:
+    - cron: "5 * * * *"   # every hour at :05 UTC
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -11,33 +11,24 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Install system deps for headless GUI (Xvfb)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y xvfb
+      - name: Install Xvfb (headless display for Tkinter)
+        run: sudo apt-get update && sudo apt-get install -y xvfb
 
       - name: Install Python deps
         run: |
           python -m pip install -U pip
           pip install -r requirements.txt
 
-      # Runs your existing Tkinter app headless (no code changes needed)
       - name: Download data (headless)
-        env:
-          # FINNHUB_TOKEN: ${{ secrets.FINNHUB_TOKEN }}
-          # YF_PROXY: ${{ secrets.YF_PROXY }}
         run: |
           set -e
           mkdir -p logs
@@ -47,29 +38,24 @@ jobs:
           echo "[INFO] Starting ${RUN_ID}" | tee -a "$LOG_FILE"
           echo "[INFO] Python $(python --version)" | tee -a "$LOG_FILE"
 
-          # If your app.py doesn't support --mode, remove the two args.
+          # If your app.py does NOT support --mode, remove '--mode hourly' below.
           xvfb-run -a python downloader/app.py --mode hourly 2>&1 | tee -a "$LOG_FILE"
           EXIT_CODE=${PIPESTATUS[0]}
           echo "[INFO] Exit code: $EXIT_CODE" | tee -a "$LOG_FILE"
 
           CREATED=$(grep -c "CREATED:" "$LOG_FILE" || true)
           UPDATED=$(grep -c "UPDATED:" "$LOG_FILE" || true)
-          START_UTC="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          END_UTC="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 
           if [ ! -f DATA_LOG.md ]; then
-            echo "# Data Update Log" > DATA_LOG.md
-            echo >> DATA_LOG.md
+            printf "# Data Update Log\n\n" > DATA_LOG.md
           fi
-          echo "- ${RUN_ID} | created=${CREATED} updated=${UPDATED} | ${START_UTC} → ${END_UTC} | log: ${LOG_FILE}" >> DATA_LOG.md
+          printf -- "- %s | created=%s updated=%s | log: %s\n" "$RUN_ID" "$CREATED" "$UPDATED" "$LOG_FILE" >> DATA_LOG.md
 
           {
             echo "## Auto Update Summary — ${RUN_ID}"
             echo
-            echo "- **Start (UTC):** ${START_UTC}"
-            echo "- **End (UTC):** ${END_UTC}"
-            echo "- **Files:** +${CREATED} created, Δ${UPDATED} updated"
-            echo "- **Log:** \`${LOG_FILE}\`"
+            echo "- Files: +${CREATED} created, Δ${UPDATED} updated"
+            echo "- Log: \`${LOG_FILE}\`"
           } >> "$GITHUB_STEP_SUMMARY"
 
           exit $EXIT_CODE
