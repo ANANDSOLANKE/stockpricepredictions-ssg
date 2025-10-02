@@ -1,41 +1,156 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Headless entry point for CI.
-
-It imports your GUI module (downloader.app) WITHOUT starting Tk, then tries to
-call a sensible function to start the download automatically.
+Headless runner for TradingView World Downloader.
+- Reuses helpers/constants from downloader/app.py (no Tk required).
+- Writes exactly like the GUI: data/LastTradingDay and data/Historical/<date>/<group>.
+- Modes:
+    --mode hourly  -> only markets that just closed (default window=120 min after close)
+    --mode all     -> run all slugs due today (ignores time window/holiday)
+    --mode force   -> run ALL slugs unconditionally
+Args:
+    --data-folder <path>  (default: data)
+    --window-mins <int>   (default: 120)
 """
 
-import sys
-import importlib
+import os, sys, argparse, time
+from datetime import datetime, timedelta
+from pytz import timezone
+
+# Import helpers & constants from your GUI module (safe: doesn't create Tk)
+from downloader.app import (
+    LINK_GROUPS, INDICES_GROUP, INDICES_SLUG, PAGE_EXCHANGES, TZ_OPEN_CLOSE,
+    is_weekend_local, is_holiday, most_recent_trading_day, aware_dt,
+    resolve_region, fetch_all, fetch_indices_df, make_stock_snapshot_df
+)
+
+def _rows_from_links():
+    rows=[]
+    for group, links in LINK_GROUPS.items():
+        seen=set()
+        for url in links:
+            slug = url.split("/markets/stocks-")[-1].split("/")[0]
+            if slug in seen: continue
+            seen.add(slug)
+            tz, op, cl = TZ_OPEN_CLOSE.get(slug, ("UTC","09:00","16:00"))
+            rows.append({"group":group,"slug":slug,"tz":tz,"open":op,"close":cl})
+    tz, op, cl = TZ_OPEN_CLOSE.get("indices", ("UTC","00:00","23:59"))
+    rows.append({"group":INDICES_GROUP,"slug":INDICES_SLUG,"tz":tz,"open":op,"close":cl})
+    return rows
+
+def _target_date(slug, tzname):
+    tz = timezone(tzname)
+    if slug == INDICES_SLUG:
+        # use US trading day for indices (matches your GUI)
+        ny = timezone("America/New_York")
+        return most_recent_trading_day("usa", ny, datetime.now(ny))
+    return most_recent_trading_day(slug, tz, datetime.now(tz))
+
+def _is_due_hourly(slug, tzname, close_s, window_mins):
+    tz = timezone(tzname)
+    now_local = datetime.now(tz)
+    if slug == INDICES_SLUG:
+        # special: indices tied to NY close
+        ny = timezone("America/New_York")
+        ny_now = datetime.now(ny)
+        close_t = aware_dt(ny, ny_now.date(), "16:00")
+        return close_t <= ny_now <= close_t + timedelta(minutes=window_mins)
+
+    holiday,_ = is_holiday(slug, now_local)
+    if holiday or is_weekend_local(slug, now_local):
+        return False
+    close_t = aware_dt(tz, now_local.date(), close_s)
+    return close_t <= now_local <= close_t + timedelta(minutes=window_mins)
+
+def _write_two_paths(df, data_folder, group, slug, for_date_str):
+    """Write LastTradingDay/<Group>/<slug>.csv and Historical/<date>/<Group>/<slug>.csv"""
+    last_dir = os.path.join(data_folder, "LastTradingDay", group.replace("/", "-"))
+    os.makedirs(last_dir, exist_ok=True)
+    last_path = os.path.join(last_dir, f"{slug}.csv")
+    df.to_csv(last_path, index=False, encoding="utf-8")
+
+    hist_dir = os.path.join(data_folder, "Historical", for_date_str, group.replace("/", "-"))
+    os.makedirs(hist_dir, exist_ok=True)
+    hist_path = os.path.join(hist_dir, f"{slug}.csv")
+    df.to_csv(hist_path, index=False, encoding="utf-8")
+    return last_path, hist_path
+
+def run_slug(group, slug, data_folder, mode, window_mins):
+    tzname, open_s, close_s = TZ_OPEN_CLOSE.get(slug, ("UTC","09:00","16:00"))
+
+    # Decide if this slug should run in this mode
+    if mode == "hourly" and not _is_due_hourly(slug, tzname, close_s, window_mins):
+        return "SKIP", 0, None, None, "not due now"
+
+    # Compute trading date to file under
+    d = _target_date(slug, tzname).strftime("%Y-%m-%d")
+
+    # Fetch data
+    if slug == INDICES_SLUG:
+        df, err = fetch_indices_df()
+        if err or df.empty:
+            return "ERR", 0, None, None, err or "empty result"
+        out_df = df[["symbol","name","price","currency","change_percent","change_points","day_high","day_low","tech_rating"]]
+    else:
+        region, columns = resolve_region(slug, group)
+        if not region:
+            return "ERR", 0, None, None, "region not found"
+        exchanges = PAGE_EXCHANGES.get(slug)
+        df, err = fetch_all(region, columns, exchanges=exchanges)
+        if err or df.empty:
+            return "ERR", 0, None, None, err or "empty result"
+        out_df = make_stock_snapshot_df(df)
+
+    # Write exactly like the GUI
+    last_path, hist_path = _write_two_paths(out_df, data_folder, group, slug, d)
+    return "OK", len(out_df), last_path, hist_path, None
 
 def main():
-    mode = "hourly"
-    if len(sys.argv) >= 3 and sys.argv[1] in ("--mode", "mode"):
-        mode = sys.argv[2]
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--mode", default="hourly", choices=["hourly","all","force"])
+    ap.add_argument("--data-folder", default="data")
+    ap.add_argument("--window-mins", type=int, default=120)
+    args = ap.parse_args()
 
-    try:
-        mod = importlib.import_module("downloader.app")
-    except Exception as e:
-        print(f"ERROR: cannot import downloader.app: {e}")
-        return 1
+    rows = _rows_from_links()
+    start = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    print(f"[START] {start}")
+    print(f"[INFO] mode={args.mode} data={args.data_folder} window_mins={args.window_mins}")
 
-    # --- Direct fix: detect fetch_all and call with defaults ---
-    if hasattr(mod, "fetch_all"):
-        try:
-            print(f"[INFO] Calling fetch_all with default args (mode={mode})")
-            # ⚠️ Adjust these defaults as needed for your app
-            region = "all"          # or "world"
-            columns = ["open","high","low","close"]  # basic OHLC
-            res = mod.fetch_all(region, columns)
-            return 0 if res in (None, 0, True) else 0
-        except Exception as e:
-            print("ERROR running fetch_all:", e)
-            return 2
+    total_ok = total_err = total_rows = 0
+    for r in rows:
+        group, slug = r["group"], r["slug"]
 
-    print("ERROR: No suitable headless entry found.")
-    return 2
+        if args.mode == "force":
+            due = True
+        elif args.mode == "all":
+            due = True  # ignore time windows/holidays
+        else:
+            due = _is_due_hourly(slug, r["tz"], r["close"], args.window_mins)
+
+        if not due and args.mode == "hourly":
+            print(f"SKIP: {slug} ({group}) not due now")
+            continue
+
+        status, nrows, last_p, hist_p, err = run_slug(group, slug, args.data_folder, args.mode, args.window_mins)
+        if status == "OK":
+            total_ok += 1; total_rows += nrows
+            print(f"UPDATED: {slug:15s} rows={nrows}  LastTradingDay={last_p}  Historical={hist_p}")
+        elif status == "SKIP":
+            print(f"SKIP   : {slug:15s} {err}")
+        else:
+            total_err += 1
+            print(f"ERROR  : {slug:15s} {err}")
+
+        # small pause to be polite
+        time.sleep(0.2)
+
+    end = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    print(f"[END]   {end}")
+    print(f"[SUMMARY] ok={total_ok} err={total_err} rows={total_rows}")
+
+    # exit 0 even if some slugs fail, so the job can still build the site/commit
+    return 0
 
 if __name__ == "__main__":
     sys.exit(main())
