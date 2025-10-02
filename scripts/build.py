@@ -2,26 +2,22 @@
 # -*- coding: utf-8 -*-
 
 """
-SGG-1 build.py — LastTradingDay + Logos + Per-stock SEO pages (safe filenames)
+SGG-1 build.py — LastTradingDay + Logos copied into dist + Per-stock SEO pages
 -------------------------------------------------------------------------------
-Input:
+Reads:
   Data/LastTradingDay/<Group>/<country_slug>.csv
+  logos/ (optional), logos/groups/, logos/stocks/, logos_index.json (optional)
 
-Optional logos:
-  logos/<country_slug>.(png|svg|jpg|webp)
-  logos/groups/<group_slug>.(png|svg|jpg|webp)
-  logos/stocks/<SYMBOL>.(png|svg|jpg|webp)
-  logos_index.json  # optional explicit mapping
-
-Output (dist/):
+Emits (dist/):
   index.html
   groups/<group_slug>/index.html
   groups/<group_slug>/<country_slug>/index.html
   stocks/<group_slug>/<country_slug>/<SAFE_SYMBOL>.html
   sitemap.html
+  logos/...  (copied from repo logos/)
 """
 
-import csv, html, json, os, re, sys, pathlib
+import csv, html, json, os, re, sys, pathlib, shutil
 from datetime import datetime
 from typing import Dict, List, Tuple, Optional
 
@@ -29,8 +25,9 @@ from typing import Dict, List, Tuple, Optional
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA_LAST = ROOT / "Data" / "LastTradingDay"
 DIST = ROOT / "dist"
-LOGOS = ROOT / "logos"
+LOGOS_SRC = ROOT / "logos"
 LOGOS_INDEX = ROOT / "logos_index.json"
+LOGOS_DIST = DIST / "logos"
 
 # ---------- utils ----------
 def log(m: str): print(m, flush=True)
@@ -42,7 +39,6 @@ def slugify(s: str) -> str:
 
 INVALID_FILENAME_CHARS = re.compile(r'[\\/:*?"<>|]+')
 def safe_filename(name: str) -> str:
-    """Replace filesystem-unsafe characters with underscores."""
     return INVALID_FILENAME_CHARS.sub("_", (name or "").strip())
 
 def read_csv_rows(path: pathlib.Path) -> List[Dict[str,str]]:
@@ -62,41 +58,74 @@ def try_read_json(p: pathlib.Path) -> dict:
         log(f"[WARN] logos_index.json parse error: {e}")
         return {}
 
-def find_logo_from_index(index: dict, kind: str, key: str) -> Optional[pathlib.Path]:
+# ---------- logos: find + copy into dist ----------
+def copy_logos_to_dist() -> None:
+    if LOGOS_DIST.exists():
+        shutil.rmtree(LOGOS_DIST)
+    if LOGOS_SRC.exists():
+        shutil.copytree(LOGOS_SRC, LOGOS_DIST, dirs_exist_ok=True)
+        log(f"[LOGOS] Copied {LOGOS_SRC} → {LOGOS_DIST}")
+    else:
+        log("[LOGOS] No logos/ folder found; proceeding without images.")
+
+def find_logo_from_index(index: dict, kind: str, key: str) -> Optional[str]:
     try:
         rel = (index.get(kind) or {}).get(key)
         if rel:
-            p = ROOT / rel
-            return p if p.exists() else None
+            # normalize to posix and make sure the file exists in source or dist
+            p_src = ROOT / rel
+            p_dist = DIST / rel
+            if p_src.exists():
+                # ensure it is present in dist (copy once)
+                target = DIST / "logos" / pathlib.Path(rel).name if "logos/" not in rel else DIST / rel
+                target.parent.mkdir(parents=True, exist_ok=True)
+                try:
+                    shutil.copy2(p_src, target)
+                except Exception:
+                    pass
+                return target.relative_to(DIST).as_posix()  # path relative to dist
+            if p_dist.exists():
+                return p_dist.relative_to(DIST).as_posix()
     except Exception:
         pass
     return None
 
-def find_logo_fallbacks(folder: pathlib.Path, stem: str) -> Optional[pathlib.Path]:
+def find_logo_fallbacks(folder_rel: str, stem: str) -> Optional[str]:
+    """Look inside dist/logos/... for a file; copy from source if needed."""
     for ext in ("png","svg","jpg","jpeg","webp"):
-        p = folder / f"{stem}.{ext}"
-        if p.exists(): return p
+        rel = f"logos/{folder_rel}/{stem}.{ext}" if folder_rel else f"logos/{stem}.{ext}"
+        p_dist = DIST / rel
+        p_src = ROOT / rel
+        if p_dist.exists():
+            return rel
+        if p_src.exists():
+            p_dist.parent.mkdir(parents=True, exist_ok=True)
+            try:
+                shutil.copy2(p_src, p_dist)
+            except Exception:
+                pass
+            return rel
     return None
 
 def logo_src_for(group_slug: str, country_slug: Optional[str], symbol: Optional[str], index: dict) -> Optional[str]:
-    # 1) explicit index mapping wins
+    # 1) explicit mapping
     if country_slug:
         p = find_logo_from_index(index, "countries", country_slug)
-        if p: return p.relative_to(ROOT).as_posix()
+        if p: return p
     if symbol:
         p = find_logo_from_index(index, "stocks", symbol.upper())
-        if p: return p.relative_to(ROOT).as_posix()
+        if p: return p
     p = find_logo_from_index(index, "groups", group_slug)
-    if p: return p.relative_to(ROOT).as_posix()
-    # 2) fallback folders
+    if p: return p
+    # 2) fallbacks (look under dist/logos/, copy from repo logos/ if needed)
     if symbol:
-        p = find_logo_fallbacks(LOGOS / "stocks", symbol.upper())
-        if p: return p.relative_to(ROOT).as_posix()
+        p = find_logo_fallbacks("stocks", symbol.upper())
+        if p: return p
     if country_slug:
-        p = find_logo_fallbacks(LOGOS, country_slug)
-        if p: return p.relative_to(ROOT).as_posix()
-    p = find_logo_fallbacks(LOGOS / "groups", group_slug)
-    if p: return p.relative_to(ROOT).as_posix()
+        p = find_logo_fallbacks("", country_slug)
+        if p: return p
+    p = find_logo_fallbacks("groups", group_slug)
+    if p: return p
     return None
 
 # ---------- load data ----------
@@ -177,7 +206,7 @@ def render_index(groups: List[Tuple[str,str]], logo_index: dict) -> str:
     items = []
     for gslug, gname in groups:
         g_logo = logo_src_for(gslug, None, None, logo_index)
-        icon = f'<img class="logo" src="/{g_logo}" alt="">' if g_logo else ""
+        icon = f'<img class="logo" src="{g_logo}" alt="">' if g_logo else ""
         items.append(f'<li><a class="pill flex" href="groups/{gslug}/index.html">{icon}<span>{html.escape(gname)}</span></a></li>')
     return page("World markets — groups", f'<div class="card"><h1>Groups</h1><ul class="grid">{"".join(items)}</ul></div>')
 
@@ -185,10 +214,10 @@ def render_group(gslug: str, gname: str, countries: List[Tuple[str,str]], logo_i
     items = []
     for cslug, cname in countries:
         c_logo = logo_src_for(gslug, cslug, None, logo_index)
-        icon = f'<img class="logo" src="/{c_logo}" alt="">' if c_logo else ""
+        icon = f'<img class="logo" src="{c_logo}" alt="">' if c_logo else ""
         items.append(f'<li><a class="pill flex" href="./{cslug}/index.html">{icon}<span>{html.escape(cname)}</span></a></li>')
     head_logo = logo_src_for(gslug, None, None, logo_index)
-    head = f'<div class="flex"><h1>{html.escape(gname)}</h1>' + (f'<img class="logo" src="/{head_logo}" alt="">' if head_logo else "") + '</div>'
+    head = f'<div class="flex"><h1>{html.escape(gname)}</h1>' + (f'<img class="logo" src="{head_logo}" alt="">' if head_logo else "") + '</div>'
     return page(f"{gname} — countries", f'<div class="card">{head}<ul class="grid">{"".join(items)}</ul></div>')
 
 def render_country(gslug: str, gname: str, cslug: str, cname: str, rows: List[Dict[str,str]], logo_index: dict) -> str:
@@ -208,7 +237,7 @@ def render_country(gslug: str, gname: str, cslug: str, cname: str, rows: List[Di
         trs.append("<tr>" + "".join(tds) + "</tr>")
     body_table = "\n".join(trs) if trs else '<tr><td class="mut" colspan="99">No rows</td></tr>'
     c_logo = logo_src_for(gslug, cslug, None, logo_index)
-    head = f'<div class="flex"><h1>{html.escape(cname)}</h1>' + (f'<img class="logo" src="/{c_logo}" alt="">' if c_logo else "") + f'<span class="mut">{html.escape(gname)}</span></div>'
+    head = f'<div class="flex"><h1>{html.escape(cname)}</h1>' + (f'<img class="logo" src="{c_logo}" alt="">' if c_logo else "") + f'<span class="mut">{html.escape(gname)}</span></div>'
     html_table = f"""<div class="card">{head}
 <div style="overflow:auto">
 <table><thead>{thead}</thead><tbody>{body_table}</tbody></table>
@@ -217,7 +246,7 @@ def render_country(gslug: str, gname: str, cslug: str, cname: str, rows: List[Di
 
 def render_stock(gslug: str, gname: str, cslug: str, cname: str, symbol: str, row: Dict[str,str], logo_index: dict) -> str:
     s_logo = logo_src_for(gslug, cslug, symbol, logo_index)
-    icon = f'<img class="logo" src="/{s_logo}" alt="">' if s_logo else ""
+    icon = f'<img class="logo" src="{s_logo}" alt="">' if s_logo else ""
     title = f"{symbol} price prediction tomorrow | AI analysis"
     h1 = f"{symbol} — {cname} ({gname})"
     facts = []
@@ -234,11 +263,13 @@ def render_stock(gslug: str, gname: str, cslug: str, cname: str, symbol: str, ro
 
 # ---------- main ----------
 def main() -> int:
-    log("== Build from Data/LastTradingDay with logos & stock pages (safe filenames) ==")
+    log("== Build from Data/LastTradingDay with logos copied into dist ==")
+
+    ensure_dir(DIST)
+    copy_logos_to_dist()  # make sure dist/logos/ exists & filled
 
     logo_index = try_read_json(LOGOS_INDEX)
     tree = load_last_trading_day()
-    ensure_dir(DIST)
 
     if not tree:
         (DIST / "index.html").write_text(page("No data","<div class='card'><h1>No data</h1></div>"), encoding="utf-8")
@@ -254,7 +285,7 @@ def main() -> int:
     # index.html
     (DIST / "index.html").write_text(render_index(groups, logo_index), encoding="utf-8")
 
-    # group & country pages + per-stock SEO pages
+    # group & country pages + per-stock pages
     for gslug, gname in groups:
         countries = sorted(
             ((cslug, info["country_name"]) for cslug, info in tree[gslug].items()),
@@ -295,7 +326,6 @@ def main() -> int:
         links.append(f'<li><a class="pill" href="groups/{gslug}/index.html">{html.escape(gname)}</a></li>')
         for cslug, info in sorted(tree[gslug].items(), key=lambda kv: kv[1]["country_name"].lower()):
             links.append(f'<li><a class="pill" href="groups/{gslug}/{cslug}/index.html">{html.escape(info["country_name"])} ({html.escape(info["group_name"])})</a></li>')
-            # list stock pages (safe filenames)
             for r in info["rows"][:3000]:
                 sym = (r.get("symbol") or r.get("ticker") or "").strip()
                 if sym:
