@@ -2,22 +2,32 @@
 # -*- coding: utf-8 -*-
 """
 Headless runner for TradingView World Downloader.
-- Reuses helpers/constants from downloader/app.py (no Tk required).
-- Writes exactly like the GUI: data/LastTradingDay and data/Historical/<date>/<group>.
-- Modes:
-    --mode hourly  -> only markets that just closed (default window=120 min after close)
-    --mode all     -> run all slugs due today (ignores time window/holiday)
-    --mode force   -> run ALL slugs unconditionally
-Args:
-    --data-folder <path>  (default: data)
-    --window-mins <int>   (default: 120)
+Writes exactly like the GUI does:
+
+Data/LastTradingDay/<Group>/<slug>.csv
+Data/Historical/<YYYY-MM-DD>/<Group>/<slug>.csv
+
+Modes:
+  --mode hourly  -> only markets that just closed (window controlled by --window-mins)
+  --mode all     -> run all slugs due today (ignore close windows/holidays)
+  --mode force   -> run ALL slugs unconditionally
+
+CLI:
+  python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 120
 """
 
 import os, sys, argparse, time
 from datetime import datetime, timedelta
+from pathlib import Path
 from pytz import timezone
 
-# Import helpers & constants from your GUI module (safe: doesn't create Tk)
+# --- Make sure repo root is importable (robust on GitHub Actions) -------------
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+# -----------------------------------------------------------------------------
+
+# Import helpers & constants from your GUI module (no Tk used here)
 from downloader.app import (
     LINK_GROUPS, INDICES_GROUP, INDICES_SLUG, PAGE_EXCHANGES, TZ_OPEN_CLOSE,
     is_weekend_local, is_holiday, most_recent_trading_day, aware_dt,
@@ -29,11 +39,14 @@ def _rows_from_links():
     for group, links in LINK_GROUPS.items():
         seen=set()
         for url in links:
+            # expects ".../markets/stocks-<slug>/..."
             slug = url.split("/markets/stocks-")[-1].split("/")[0]
-            if slug in seen: continue
+            if slug in seen: 
+                continue
             seen.add(slug)
             tz, op, cl = TZ_OPEN_CLOSE.get(slug, ("UTC","09:00","16:00"))
             rows.append({"group":group,"slug":slug,"tz":tz,"open":op,"close":cl})
+    # indices (special)
     tz, op, cl = TZ_OPEN_CLOSE.get("indices", ("UTC","00:00","23:59"))
     rows.append({"group":INDICES_GROUP,"slug":INDICES_SLUG,"tz":tz,"open":op,"close":cl})
     return rows
@@ -41,7 +54,6 @@ def _rows_from_links():
 def _target_date(slug, tzname):
     tz = timezone(tzname)
     if slug == INDICES_SLUG:
-        # use US trading day for indices (matches your GUI)
         ny = timezone("America/New_York")
         return most_recent_trading_day("usa", ny, datetime.now(ny))
     return most_recent_trading_day(slug, tz, datetime.now(tz))
@@ -50,7 +62,6 @@ def _is_due_hourly(slug, tzname, close_s, window_mins):
     tz = timezone(tzname)
     now_local = datetime.now(tz)
     if slug == INDICES_SLUG:
-        # special: indices tied to NY close
         ny = timezone("America/New_York")
         ny_now = datetime.now(ny)
         close_t = aware_dt(ny, ny_now.date(), "16:00")
@@ -64,12 +75,13 @@ def _is_due_hourly(slug, tzname, close_s, window_mins):
 
 def _write_two_paths(df, data_folder, group, slug, for_date_str):
     """Write LastTradingDay/<Group>/<slug>.csv and Historical/<date>/<Group>/<slug>.csv"""
-    last_dir = os.path.join(data_folder, "LastTradingDay", group.replace("/", "-"))
+    safe_group = group.replace("/", "-")
+    last_dir = os.path.join(data_folder, "LastTradingDay", safe_group)
     os.makedirs(last_dir, exist_ok=True)
     last_path = os.path.join(last_dir, f"{slug}.csv")
     df.to_csv(last_path, index=False, encoding="utf-8")
 
-    hist_dir = os.path.join(data_folder, "Historical", for_date_str, group.replace("/", "-"))
+    hist_dir = os.path.join(data_folder, "Historical", for_date_str, safe_group)
     os.makedirs(hist_dir, exist_ok=True)
     hist_path = os.path.join(hist_dir, f"{slug}.csv")
     df.to_csv(hist_path, index=False, encoding="utf-8")
@@ -78,14 +90,11 @@ def _write_two_paths(df, data_folder, group, slug, for_date_str):
 def run_slug(group, slug, data_folder, mode, window_mins):
     tzname, open_s, close_s = TZ_OPEN_CLOSE.get(slug, ("UTC","09:00","16:00"))
 
-    # Decide if this slug should run in this mode
     if mode == "hourly" and not _is_due_hourly(slug, tzname, close_s, window_mins):
         return "SKIP", 0, None, None, "not due now"
 
-    # Compute trading date to file under
-    d = _target_date(slug, tzname).strftime("%Y-%m-%d")
+    for_date = _target_date(slug, tzname).strftime("%Y-%m-%d")
 
-    # Fetch data
     if slug == INDICES_SLUG:
         df, err = fetch_indices_df()
         if err or df.empty:
@@ -101,14 +110,13 @@ def run_slug(group, slug, data_folder, mode, window_mins):
             return "ERR", 0, None, None, err or "empty result"
         out_df = make_stock_snapshot_df(df)
 
-    # Write exactly like the GUI
-    last_path, hist_path = _write_two_paths(out_df, data_folder, group, slug, d)
+    last_path, hist_path = _write_two_paths(out_df, data_folder, group, slug, for_date)
     return "OK", len(out_df), last_path, hist_path, None
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", default="hourly", choices=["hourly","all","force"])
-    ap.add_argument("--data-folder", default="data")
+    ap.add_argument("--data-folder", default="Data")     # matches your repo convention
     ap.add_argument("--window-mins", type=int, default=120)
     args = ap.parse_args()
 
@@ -124,7 +132,7 @@ def main():
         if args.mode == "force":
             due = True
         elif args.mode == "all":
-            due = True  # ignore time windows/holidays
+            due = True
         else:
             due = _is_due_hourly(slug, r["tz"], r["close"], args.window_mins)
 
@@ -142,15 +150,12 @@ def main():
             total_err += 1
             print(f"ERROR  : {slug:15s} {err}")
 
-        # small pause to be polite
         time.sleep(0.2)
 
     end = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
     print(f"[END]   {end}")
     print(f"[SUMMARY] ok={total_ok} err={total_err} rows={total_rows}")
-
-    # exit 0 even if some slugs fail, so the job can still build the site/commit
-    return 0
+    return 0  # don't fail whole job if a few slugs fail
 
 if __name__ == "__main__":
     sys.exit(main())
