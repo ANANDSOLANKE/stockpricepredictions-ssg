@@ -3,7 +3,7 @@ name: Auto download market data
 on:
   schedule:
     - cron: "5 * * * *"   # every hour at :05 UTC
-  workflow_dispatch: {}
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -11,54 +11,31 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install Xvfb (headless display for Tkinter)
-        run: sudo apt-get update && sudo apt-get install -y xvfb
+      - name: Install system deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
 
       - name: Install Python deps
         run: |
           python -m pip install -U pip
           pip install -r requirements.txt
 
-      - name: Download data (headless)
+      - name: Run downloader headless
         run: |
-          set -e
-          mkdir -p logs
-          RUN_ID="run-$(date -u +'%Y%m%d-%H%M%S-UTC')"
-          LOG_FILE="logs/${RUN_ID}.log"
-
-          echo "[INFO] Starting ${RUN_ID}" | tee -a "$LOG_FILE"
-          echo "[INFO] Python $(python --version)" | tee -a "$LOG_FILE"
-
-          # If your app.py does NOT support --mode, remove '--mode hourly' below.
-          xvfb-run -a python downloader/app.py --mode hourly 2>&1 | tee -a "$LOG_FILE"
-          EXIT_CODE=${PIPESTATUS[0]}
-          echo "[INFO] Exit code: $EXIT_CODE" | tee -a "$LOG_FILE"
-
-          CREATED=$(grep -c "CREATED:" "$LOG_FILE" || true)
-          UPDATED=$(grep -c "UPDATED:" "$LOG_FILE" || true)
-
-          if [ ! -f DATA_LOG.md ]; then
-            printf "# Data Update Log\n\n" > DATA_LOG.md
-          fi
-          printf -- "- %s | created=%s updated=%s | log: %s\n" "$RUN_ID" "$CREATED" "$UPDATED" "$LOG_FILE" >> DATA_LOG.md
-
-          {
-            echo "## Auto Update Summary — ${RUN_ID}"
-            echo
-            echo "- Files: +${CREATED} created, Δ${UPDATED} updated"
-            echo "- Log: \`${LOG_FILE}\`"
-          } >> "$GITHUB_STEP_SUMMARY"
-
-          exit $EXIT_CODE
+          xvfb-run -a python downloader/app.py --mode hourly
 
       - name: Build site
         run: python scripts/build.py
