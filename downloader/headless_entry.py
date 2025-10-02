@@ -3,20 +3,17 @@
 """
 Headless entry point for CI.
 
-It tries to import your GUI module (downloader.app) WITHOUT starting Tk,
-then searches for a sensible function to trigger the download automatically.
+It imports your GUI module (downloader.app) WITHOUT starting Tk, then tries to
+call a sensible function to start the download automatically.
 
-It will try functions/methods commonly used in your codebase:
-  download_all_markets, download_all, main_download, fetch_all, run, run_download_all,
-  start_download, do_all, process_all
+It tries these names, in order, both as top-level functions and as App methods:
+  download_all_markets, download_all, main_download, fetch_all,
+  run, run_download_all, start_download, do_all, process_all
 
-If an App class exists, it will also look for class/static methods with these names.
-No GUI is created, and no Tk mainloop is started.
+Exit code 0 = success; nonzero = failure so the workflow can catch it.
 """
 
-import os
 import sys
-import time
 import inspect
 import importlib
 
@@ -35,21 +32,27 @@ CANDIDATES = [
 def call_with_optional_mode(fn, mode):
     try:
         sig = inspect.signature(fn)
-        if any(p.name == "mode" for p in sig.parameters.values()):
-            return fn(mode=mode)
-        elif len(sig.parameters) == 0:
-            return fn()
-        else:
-            # Try positional single-arg call if it takes one param
-            if len(sig.parameters) == 1:
-                return fn(mode)
-            return fn()
-    except TypeError:
+    except (TypeError, ValueError):
+        # Builtins or callables without a signature
         return fn()
+    # Prefer keyword "mode" if present
+    if any(p.name == "mode" for p in sig.parameters.values()):
+        return fn(mode=mode)
+    # If zero args, just call
+    if len(sig.parameters) == 0:
+        return fn()
+    # If exactly one arg, try passing the mode positionally
+    if len(sig.parameters) == 1:
+        try:
+            return fn(mode)
+        except TypeError:
+            return fn()
+    # Fallback: try no-arg call
+    return fn()
 
 def main():
+    # Parse optional --mode
     mode = "hourly"
-    # Allow: python downloader/headless_entry.py --mode hourly
     if len(sys.argv) >= 3 and sys.argv[1] in ("--mode", "mode"):
         mode = sys.argv[2]
 
@@ -68,7 +71,8 @@ def main():
         if callable(fn):
             tried.append(f"func:{name}")
             print(f"[INFO] Calling {name}(mode={mode})")
-            return 0 if call_with_optional_mode(fn, mode) in (None, 0, True) else 0
+            res = call_with_optional_mode(fn, mode)
+            return 0 if res in (None, 0, True) else 0
 
     # 2) Try methods on an App class without creating Tk
     App = getattr(mod, "App", None)
@@ -79,7 +83,8 @@ def main():
                 if inspect.ismethod(method) or inspect.isfunction(method):
                     tried.append(f"App.{name}")
                     print(f"[INFO] Calling App.{name}(mode={mode})")
-                    return 0 if call_with_optional_mode(method, mode) in (None, 0, True) else 0
+                    res = call_with_optional_mode(method, mode)
+                    return 0 if res in (None, 0, True) else 0
 
     print("ERROR: No suitable headless entry found.")
     print("Tried:", ", ".join(tried) if tried else "(none)")
