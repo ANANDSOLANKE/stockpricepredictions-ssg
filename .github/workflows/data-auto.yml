@@ -1,3 +1,4 @@
+
 name: Auto download market data
 
 on:
@@ -11,7 +12,7 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 45    # hard stop if something hangs
+    timeout-minutes: 45
 
     steps:
       - name: Checkout
@@ -42,10 +43,13 @@ jobs:
           LOG_FILE="logs/${RUN_ID}.log"
           echo "[START] ${RUN_ID}" | tee -a "$LOG_FILE"
 
+          # Make repo root importable so "import downloader" works
+          export PYTHONPATH="$PWD"
+
           # Try non-GUI shim first (imports downloader.app and calls a download function)
           python downloader/headless_entry.py --mode hourly 2>&1 | tee -a "$LOG_FILE" || {
             echo "[WARN] headless_entry failed; falling back to GUI under xvfb" | tee -a "$LOG_FILE"
-            # Fallback: run original GUI script under xvfb for up to 20 minutes
+            # Fallback: run original GUI app under virtual display with a timeout
             timeout 20m xvfb-run -a python downloader/app.py 2>&1 | tee -a "$LOG_FILE"
           }
 
