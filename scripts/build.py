@@ -2,22 +2,22 @@
 # -*- coding: utf-8 -*-
 
 """
-SGG-1 build.py — LastTradingDay + Logos + Per-stock SEO pages
--------------------------------------------------------------
+SGG-1 build.py — LastTradingDay + Logos + Per-stock SEO pages (safe filenames)
+-------------------------------------------------------------------------------
 Input:
   Data/LastTradingDay/<Group>/<country_slug>.csv
 
-Optional logos (any that exist will be used):
+Optional logos:
   logos/<country_slug>.(png|svg|jpg|webp)
   logos/groups/<group_slug>.(png|svg|jpg|webp)
   logos/stocks/<SYMBOL>.(png|svg|jpg|webp)
-  logos_index.json  # optional dict overrides, e.g. {"countries":{"india":"logos/india.svg"}}
+  logos_index.json  # optional explicit mapping
 
 Output (dist/):
   index.html
   groups/<group_slug>/index.html
   groups/<group_slug>/<country_slug>/index.html
-  stocks/<group_slug>/<country_slug>/<SYMBOL>.html
+  stocks/<group_slug>/<country_slug>/<SAFE_SYMBOL>.html
   sitemap.html
 """
 
@@ -25,6 +25,7 @@ import csv, html, json, os, re, sys, pathlib
 from datetime import datetime
 from typing import Dict, List, Tuple, Optional
 
+# ---------- paths ----------
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA_LAST = ROOT / "Data" / "LastTradingDay"
 DIST = ROOT / "dist"
@@ -38,6 +39,11 @@ def ensure_dir(p: pathlib.Path): p.mkdir(parents=True, exist_ok=True)
 _slug_re = re.compile(r"[^a-z0-9]+")
 def slugify(s: str) -> str:
     return _slug_re.sub("-", (s or "").strip().lower()).strip("-")
+
+INVALID_FILENAME_CHARS = re.compile(r'[\\/:*?"<>|]+')
+def safe_filename(name: str) -> str:
+    """Replace filesystem-unsafe characters with underscores."""
+    return INVALID_FILENAME_CHARS.sub("_", (name or "").strip())
 
 def read_csv_rows(path: pathlib.Path) -> List[Dict[str,str]]:
     rows: List[Dict[str,str]] = []
@@ -73,7 +79,7 @@ def find_logo_fallbacks(folder: pathlib.Path, stem: str) -> Optional[pathlib.Pat
     return None
 
 def logo_src_for(group_slug: str, country_slug: Optional[str], symbol: Optional[str], index: dict) -> Optional[str]:
-    # 1) explicit index.json wins
+    # 1) explicit index mapping wins
     if country_slug:
         p = find_logo_from_index(index, "countries", country_slug)
         if p: return p.relative_to(ROOT).as_posix()
@@ -82,8 +88,7 @@ def logo_src_for(group_slug: str, country_slug: Optional[str], symbol: Optional[
         if p: return p.relative_to(ROOT).as_posix()
     p = find_logo_from_index(index, "groups", group_slug)
     if p: return p.relative_to(ROOT).as_posix()
-
-    # 2) folder fallbacks
+    # 2) fallback folders
     if symbol:
         p = find_logo_fallbacks(LOGOS / "stocks", symbol.upper())
         if p: return p.relative_to(ROOT).as_posix()
@@ -192,7 +197,7 @@ def render_country(gslug: str, gname: str, cslug: str, cname: str, rows: List[Di
     trs = []
     for r in rows:
         symbol = (r.get("symbol") or r.get("ticker") or "").strip()
-        link = f'stocks/{gslug}/{cslug}/{symbol}.html' if symbol else None
+        link = f'stocks/{gslug}/{cslug}/{safe_filename(symbol)}.html' if symbol else None
         tds = []
         for c in cols:
             val = r.get(c,"")
@@ -208,14 +213,13 @@ def render_country(gslug: str, gname: str, cslug: str, cname: str, rows: List[Di
 <div style="overflow:auto">
 <table><thead>{thead}</thead><tbody>{body_table}</tbody></table>
 </div></div>"""
-    return page(f"{cname} — stocks", html_table, meta_desc=f"Browse {cname} stocks, prices, and basic fundamentals.")
+    return page(f"{cname} — stocks", html_table, meta_desc=f"Browse {cname} stocks, prices, and key facts.")
 
 def render_stock(gslug: str, gname: str, cslug: str, cname: str, symbol: str, row: Dict[str,str], logo_index: dict) -> str:
     s_logo = logo_src_for(gslug, cslug, symbol, logo_index)
     icon = f'<img class="logo" src="/{s_logo}" alt="">' if s_logo else ""
     title = f"{symbol} price prediction tomorrow | AI analysis"
     h1 = f"{symbol} — {cname} ({gname})"
-    # simple key facts block
     facts = []
     for k in ("name","exchange","price","currency","sector","industry","tech_rating","change_percent","change_points","day_high","day_low"):
         v = row.get(k) or row.get(k.lower())
@@ -223,14 +227,14 @@ def render_stock(gslug: str, gname: str, cslug: str, cname: str, symbol: str, ro
     fact_html = "<ul>" + "".join(facts) + "</ul>" if facts else "<p class='mut'>No key facts available.</p>"
     body = f"""<div class="card">
 <div class="flex"><h1>{html.escape(h1)}</h1>{icon}</div>
-<p class="mut">SEO stub — replace this section with your model output (signal, confidence, last close, support/resistance).</p>
+<p class="mut">SEO stub — plug in your model output here (signal, confidence, support/resistance).</p>
 {fact_html}
 </div>"""
     return page(title, body, meta_desc=f"AI prediction and key facts for {symbol} listed in {cname} ({gname}).")
 
 # ---------- main ----------
 def main() -> int:
-    log("== Build from Data/LastTradingDay with logos & stock pages ==")
+    log("== Build from Data/LastTradingDay with logos & stock pages (safe filenames) ==")
 
     logo_index = try_read_json(LOGOS_INDEX)
     tree = load_last_trading_day()
@@ -263,17 +267,27 @@ def main() -> int:
         for cslug, cname in countries:
             info = tree[gslug][cslug]
             rows = info["rows"]
+
             # country table
             cdir = gdir / cslug
             ensure_dir(cdir)
-            (cdir / "index.html").write_text(render_country(gslug, gname, cslug, cname, rows, logo_index), encoding="utf-8")
+            (cdir / "index.html").write_text(
+                render_country(gslug, gname, cslug, cname, rows, logo_index),
+                encoding="utf-8"
+            )
+
             # per-stock pages
             sdir = DIST / "stocks" / gslug / cslug
             ensure_dir(sdir)
             for r in rows:
                 sym = (r.get("symbol") or r.get("ticker") or "").strip()
-                if not sym: continue
-                (sdir / f"{sym}.html").write_text(render_stock(gslug, gname, cslug, cname, sym, r, logo_index), encoding="utf-8")
+                if not sym:
+                    continue
+                fname = safe_filename(sym) + ".html"
+                (sdir / fname).write_text(
+                    render_stock(gslug, gname, cslug, cname, sym, r, logo_index),
+                    encoding="utf-8"
+                )
 
     # sitemap
     links = ['<li><a class="pill" href="index.html">Home</a></li>']
@@ -281,12 +295,16 @@ def main() -> int:
         links.append(f'<li><a class="pill" href="groups/{gslug}/index.html">{html.escape(gname)}</a></li>')
         for cslug, info in sorted(tree[gslug].items(), key=lambda kv: kv[1]["country_name"].lower()):
             links.append(f'<li><a class="pill" href="groups/{gslug}/{cslug}/index.html">{html.escape(info["country_name"])} ({html.escape(info["group_name"])})</a></li>')
-            # list stock pages too (lightweight)
-            for r in info["rows"][:3000]:  # limit to keep sitemap manageable
+            # list stock pages (safe filenames)
+            for r in info["rows"][:3000]:
                 sym = (r.get("symbol") or r.get("ticker") or "").strip()
                 if sym:
-                    links.append(f'<li><a class="pill" href="stocks/{gslug}/{cslug}/{sym}.html">{html.escape(sym)}</a></li>')
-    (DIST / "sitemap.html").write_text(page("Sitemap", f"<div class='card'><h1>Sitemap</h1><ul class='grid'>{''.join(links)}</ul></div>"), encoding="utf-8")
+                    links.append(f'<li><a class="pill" href="stocks/{gslug}/{cslug}/{safe_filename(sym)}.html">{html.escape(sym)}</a></li>')
+
+    (DIST / "sitemap.html").write_text(
+        page("Sitemap", f"<div class='card'><h1>Sitemap</h1><ul class='grid'>{''.join(links)}</ul></div>"),
+        encoding="utf-8"
+    )
 
     log(f"[OK] Build complete → {DIST / 'index.html'}")
     return 0
