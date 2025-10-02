@@ -1,27 +1,89 @@
 name: Auto download market data
+
 on:
   schedule:
-    - cron: "5 * * * *"    # every hour at :05 UTC
-  workflow_dispatch: {}     # manual run button
+    - cron: "5 * * * *"   # every hour at :05 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
-      - uses: actions/setup-python@v5
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install deps
+
+      - name: Install system deps for headless GUI (Xvfb)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
+
+      - name: Install Python deps
         run: |
           python -m pip install -U pip
           pip install -r requirements.txt
-      - name: Download data (calls your downloader)
+
+      # Run your existing GUI downloader in a virtual display (no code changes).
+      # We also tee output to logs/<run-id>.log and summarize CREATED/UPDATED counts.
+      - name: Download data (headless)
+        env:
+          # add your API keys here if needed:
+          # FINNHUB_TOKEN: ${{ secrets.FINNHUB_TOKEN }}
+          # YF_PROXY: ${{ secrets.YF_PROXY }}
         run: |
-          python scripts/download_all.py --mode hourly
+          set -e
+          mkdir -p logs
+          RUN_ID="run-$(date -u +'%Y%m%d-%H%M%S-UTC')"
+          LOG_FILE="logs/${RUN_ID}.log"
+
+          echo "[INFO] Starting ${RUN_ID}" | tee -a "$LOG_FILE"
+          echo "[INFO] Python $(python --version)" | tee -a "$LOG_FILE"
+
+          # Launch your GUI script under Xvfb (headless display)
+          # If your app supports --mode, keep it; otherwise remove the two args.
+          xvfb-run -a python downloader/app.py --mode hourly 2>&1 | tee -a "$LOG_FILE"
+          EXIT_CODE=${PIPESTATUS[0]}
+
+          echo "[INFO] Exit code: $EXIT_CODE" | tee -a "$LOG_FILE"
+
+          # Build a one-line summary for DATA_LOG.md
+          CREATED=$(grep -c "CREATED:" "$LOG_FILE" || true)
+          UPDATED=$(grep -c "UPDATED:" "$LOG_FILE" || true)
+          START_UTC=$(head -n 1 "$LOG_FILE" | sed -n 's/^\[INFO\] Starting //p')
+          END_UTC="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+
+          if [ ! -f DATA_LOG.md ]; then
+            echo "# Data Update Log" > DATA_LOG.md
+            echo >> DATA_LOG.md
+          fi
+          echo "- ${RUN_ID} | created=${CREATED} updated=${UPDATED} | ${START_UTC} → ${END_UTC} | log: ${LOG_FILE}" >> DATA_LOG.md
+
+          # Post a nice Job Summary (shows at top of the run)
+          {
+            echo "## Auto Update Summary — ${RUN_ID}"
+            echo ""
+            echo "- **Start (UTC):** ${START_UTC}"
+            echo "- **End (UTC):** ${END_UTC}"
+            echo "- **Files:** +${CREATED} created, Δ${UPDATED} updated"
+            echo "- **Log:** \`${LOG_FILE}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          exit $EXIT_CODE
+
       - name: Build site
         run: |
           python scripts/build.py
+
       - name: Commit & push if changed
         run: |
           git config user.name  "github-actions[bot]"
