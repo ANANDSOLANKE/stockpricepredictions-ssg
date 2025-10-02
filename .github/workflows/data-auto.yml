@@ -2,8 +2,8 @@ name: Auto download market data
 
 on:
   schedule:
-    - cron: "5 * * * *"   # every hour at :05 UTC
-  workflow_dispatch: {}
+    - cron: '5 * * * *'   # every hour at :05 UTC
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -21,7 +21,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Install system deps for headless GUI (Xvfb)
         run: |
@@ -33,11 +33,9 @@ jobs:
           python -m pip install -U pip
           pip install -r requirements.txt
 
-      # Run your existing GUI downloader in a virtual display (no code changes).
-      # We also tee output to logs/<run-id>.log and summarize CREATED/UPDATED counts.
+      # Runs your existing Tkinter app headless (no code changes needed)
       - name: Download data (headless)
         env:
-          # add your API keys here if needed:
           # FINNHUB_TOKEN: ${{ secrets.FINNHUB_TOKEN }}
           # YF_PROXY: ${{ secrets.YF_PROXY }}
         run: |
@@ -49,17 +47,14 @@ jobs:
           echo "[INFO] Starting ${RUN_ID}" | tee -a "$LOG_FILE"
           echo "[INFO] Python $(python --version)" | tee -a "$LOG_FILE"
 
-          # Launch your GUI script under Xvfb (headless display)
-          # If your app supports --mode, keep it; otherwise remove the two args.
+          # If your app.py doesn't support --mode, remove the two args.
           xvfb-run -a python downloader/app.py --mode hourly 2>&1 | tee -a "$LOG_FILE"
           EXIT_CODE=${PIPESTATUS[0]}
-
           echo "[INFO] Exit code: $EXIT_CODE" | tee -a "$LOG_FILE"
 
-          # Build a one-line summary for DATA_LOG.md
           CREATED=$(grep -c "CREATED:" "$LOG_FILE" || true)
           UPDATED=$(grep -c "UPDATED:" "$LOG_FILE" || true)
-          START_UTC=$(head -n 1 "$LOG_FILE" | sed -n 's/^\[INFO\] Starting //p')
+          START_UTC="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
           END_UTC="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 
           if [ ! -f DATA_LOG.md ]; then
@@ -68,10 +63,9 @@ jobs:
           fi
           echo "- ${RUN_ID} | created=${CREATED} updated=${UPDATED} | ${START_UTC} → ${END_UTC} | log: ${LOG_FILE}" >> DATA_LOG.md
 
-          # Post a nice Job Summary (shows at top of the run)
           {
             echo "## Auto Update Summary — ${RUN_ID}"
-            echo ""
+            echo
             echo "- **Start (UTC):** ${START_UTC}"
             echo "- **End (UTC):** ${END_UTC}"
             echo "- **Files:** +${CREATED} created, Δ${UPDATED} updated"
@@ -81,12 +75,14 @@ jobs:
           exit $EXIT_CODE
 
       - name: Build site
-        run: |
-          python scripts/build.py
+        run: python scripts/build.py
 
       - name: Commit & push if changed
         run: |
-          git config user.name  "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || (git commit -m "Auto-update: $(date -u +'%Y-%m-%d %H:%M UTC')" && git push)
+          if ! git diff --staged --quiet; then
+            git commit -m "Auto-update: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
