@@ -2,20 +2,25 @@
 # -*- coding: utf-8 -*-
 
 """
-SGG-1 build.py — LastTradingDay + Logos + Drilldown UI + Change% column
------------------------------------------------------------------------
-Reads:
-  Data/LastTradingDay/<Group>/<country_slug>.csv
+SGG-1 build.py — uses Data/LastTradingDay with your original UI (styles.css + app.js)
+- Keeps your drilldown structure (regions → countries → exchanges → stocks)
+- Writes JSON that app.js expects under dist/static/exchanges/...
+- Copies logos/ into dist/logos and resolves smartly per symbol
+- Generates per-stock SEO page at .../<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/
+- Robots + XML sitemap
+
+Inputs
+  Data/LastTradingDay/<Group>/<country-slug>.csv
   logos/ (optional), logos_index.json (optional)
   static/styles.css, static/app.js, config.json
 
-Emits (dist/):
+Outputs (dist/)
   index.html (drilldown shell)
-  <region>/<country>/<exchange>/index.html (tables inc. Change%)
+  <region>/<country>/<exchange>/index.html (tables)
   <region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
-  static/index.json
-  static/exchanges/<region>/<country>/<exchange>.json (rows inc. change_percent)
-  logos/ (copied)
+  static/index.json (top-level index used by app.js)
+  static/exchanges/<region>/<country>/<exchange>.json (rows for tables)
+  logos/... (copied)
   robots.txt, sitemap.xml
 """
 
@@ -71,10 +76,10 @@ def read_csv_safe(p: Path) -> List[Dict[str,str]]:
         for r in rdr:
             rows.append({(k or "").strip().lower(): (v or "").strip() for k, v in r.items()})
     # guarantee keys used downstream
-    need = ["symbol","description","exchange","sector","industry","open","high","low","close","change_percent"]
+    need = ["symbol","description","exchange","sector","industry","open","high","low","close"]
     for r in rows:
         for k in need:
-            r.setdefault(k, "")
+            r.setdefault(k, "" if k not in ["open","high","low","close"] else "")
     return rows
 
 # ----------------- Assets (css/js/logos) -----------------
@@ -134,7 +139,7 @@ def build_scan_index():
 
 class LogoResolver:
     def __init__(self):
-        copy_logos_folder()
+        copy_logos_folder()  # ensure dist/logos exists
         self.curated = load_logos_index()      # {(EXCH, NORM_SYM): rel}
         self.scan = build_scan_index()         # {EXCH: [(stem_norm, rel), ...]}
         self.cache = {}
@@ -147,21 +152,24 @@ class LogoResolver:
         exch = (exchange or "").upper()
         symn = _norm(symbol)
 
+        # curated exact
         rel = self.curated.get((exch, symn))
         if rel:
             url = f"{BASE_URL}/logos/{rel}"
             self.cache[key] = url; return url
 
         candidates = self.scan.get(exch, [])
+        # exact filename == symbol
         for stem_norm, rel in candidates:
             if stem_norm == symn:
                 url = f"{BASE_URL}/logos/{rel}"
                 self.cache[key] = url; return url
+        # contains relationship
         for stem_norm, rel in candidates:
             if symn and (symn in stem_norm or stem_norm in symn):
                 url = f"{BASE_URL}/logos/{rel}"
                 self.cache[key] = url; return url
-
+        # name tokens score
         toks = [_norm(t) for t in name_tokens(name)]
         best = (0.0, None)
         for stem_norm, rel in candidates:
@@ -187,6 +195,11 @@ def ensure_placeholder_logo():
 
 # ----------------- Load Data/LastTradingDay -----------------
 def load_tree_from_last_trading_day():
+    """
+    Returns tree[group_slug][country_slug] = {
+        group_name, group_slug, country_name, country_slug, csv_path, rows
+    }
+    """
     tree: Dict[str, Dict[str, Dict]] = {}
     if not DATA_LAST.exists():
         return tree
@@ -334,17 +347,6 @@ def main():
                     sym = (r.get("symbol") or "").strip()
                     name = (r.get("description") or sym or "").strip()
                     sec  = (r.get("sector") or "").strip()
-                    chg_str = (r.get("change_percent") or r.get("change%") or "").strip()
-                    # normalize change% to float if possible
-                    chg_pct = None
-                    try:
-                        chg_pct = float(chg_str)
-                    except Exception:
-                        try:
-                            chg_pct = float(chg_str.replace("%",""))
-                        except Exception:
-                            chg_pct = None
-
                     try:
                         o = float(r.get("open") or "")
                         h = float(r.get("high") or "")
@@ -380,17 +382,7 @@ def main():
                         write_text(DIST / gslug / cslug / e_slug / s_slug / "prediction-tomorrow" / "index.html",
                                    tpl_base(title, mdesc, body, stock_url))
 
-                    logo_url = LogoResolver().url_for(exch, sym, name)
-
-                    # format Change% badge
-                    if chg_pct is None:
-                        chg_html = "<span class='badge sideways'>—</span>"
-                    elif chg_pct > 0:
-                        chg_html = f"<span class='badge bullish'>+{chg_pct:.2f}%</span>"
-                    elif chg_pct < 0:
-                        chg_html = f"<span class='badge bearish'>{chg_pct:.2f}%</span>"
-                    else:
-                        chg_html = "<span class='badge sideways'>0.00%</span>"
+                    logo_url = resolver.url_for(exch, sym, name)
 
                     # table row + JSON row
                     table_rows_html.append(
@@ -402,8 +394,7 @@ def main():
                         f"<td>{'' if h is None else f'{h:.2f}'}</td>"
                         f"<td>{'' if l is None else f'{l:.2f}'}</td>"
                         f"<td>{'' if cclose is None else f'{cclose:.2f}'}</td>"
-                        f"<td>{chg_html}</td>"
-                        f"<td><span class='badge {sig.lower()}'>{html.escape(sig or '')}</span></td>"
+                        f"<td>{html.escape(sig)}</td>"
                         "</tr>"
                     )
 
@@ -415,7 +406,6 @@ def main():
                         "high": None if h is None else round(h,2),
                         "low":  None if l is None else round(l,2),
                         "close":None if cclose is None else round(cclose,2),
-                        "change_percent": None if chg_pct is None else round(chg_pct,4),
                         "signal": sig,
                         "logo": logo_url,
                         "url": f"{BASE_URL}/{gslug}/{cslug}/{e_slug}/{s_slug}/prediction-tomorrow/"
@@ -425,7 +415,7 @@ def main():
                     "<table class='table'>"
                     "<thead><tr>"
                     "<th>Symbol</th><th>Name</th><th>Sector</th>"
-                    "<th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Change%</th><th>Signal</th>"
+                    "<th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Signal</th>"
                     "</tr></thead><tbody>"
                     + "\n".join(table_rows_html) + "</tbody></table>"
                 )
