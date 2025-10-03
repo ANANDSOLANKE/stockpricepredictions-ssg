@@ -2,345 +2,460 @@
 # -*- coding: utf-8 -*-
 
 """
-SGG-1 build.py — LastTradingDay + Logos copied into dist + Per-stock SEO pages
--------------------------------------------------------------------------------
-Reads:
-  Data/LastTradingDay/<Group>/<country_slug>.csv
-  logos/ (optional), logos/groups/, logos/stocks/, logos_index.json (optional)
+SGG-1 build.py — uses Data/LastTradingDay with your original UI (styles.css + app.js)
+- Keeps your drilldown structure (regions → countries → exchanges → stocks)
+- Writes JSON that app.js expects under dist/static/exchanges/...
+- Copies logos/ into dist/logos and resolves smartly per symbol
+- Generates per-stock SEO page at .../<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/
+- Robots + XML sitemap
 
-Emits (dist/):
-  index.html
-  groups/<group_slug>/index.html
-  groups/<group_slug>/<country_slug>/index.html
-  stocks/<group_slug>/<country_slug>/<SAFE_SYMBOL>.html
-  sitemap.html
-  logos/...  (copied from repo logos/)
+Inputs
+  Data/LastTradingDay/<Group>/<country-slug>.csv
+  logos/ (optional), logos_index.json (optional)
+  static/styles.css, static/app.js, config.json
+
+Outputs (dist/)
+  index.html (drilldown shell)
+  <region>/<country>/<exchange>/index.html (tables)
+  <region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+  static/index.json (top-level index used by app.js)
+  static/exchanges/<region>/<country>/<exchange>.json (rows for tables)
+  logos/... (copied)
+  robots.txt, sitemap.xml
 """
 
-import csv, html, json, os, re, sys, pathlib, shutil
-from datetime import datetime
+import csv, html, json, os, re, unicodedata, shutil
+from pathlib import Path
+from datetime import datetime, timedelta
 from typing import Dict, List, Tuple, Optional
 
-# ---------- paths ----------
-ROOT = pathlib.Path(__file__).resolve().parents[1]
+# ----------------- Paths & Config -----------------
+ROOT = Path(__file__).resolve().parents[1]
 DATA_LAST = ROOT / "Data" / "LastTradingDay"
 DIST = ROOT / "dist"
-LOGOS_SRC = ROOT / "logos"
-LOGOS_INDEX = ROOT / "logos_index.json"
-LOGOS_DIST = DIST / "logos"
 
-# ---------- utils ----------
-def log(m: str): print(m, flush=True)
-def ensure_dir(p: pathlib.Path): p.mkdir(parents=True, exist_ok=True)
+CFG = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
+BASE_URL = CFG.get("base_url", "").rstrip("/")
 
-_slug_re = re.compile(r"[^a-z0-9]+")
-def slugify(s: str) -> str:
-    return _slug_re.sub("-", (s or "").strip().lower()).strip("-")
+IMG_EXTS = {".png", ".jpg", ".jpeg", ".svg", ".webp"}
+
+# ----------------- Helpers -----------------
+def ensure_dir(p: Path): p.mkdir(parents=True, exist_ok=True)
+def write_text(p: Path, s: str): p.parent.mkdir(parents=True, exist_ok=True); p.write_text(s, encoding="utf-8")
+def write_json(p: Path, obj): p.parent.mkdir(parents=True, exist_ok=True); p.write_text(json.dumps(obj, ensure_ascii=False), encoding="utf-8")
+
+def slug(s: str) -> str:
+    s = (s or "").strip().lower()
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    return s.strip("-") or "item"
 
 INVALID_FILENAME_CHARS = re.compile(r'[\\/:*?"<>|]+')
 def safe_filename(name: str) -> str:
     return INVALID_FILENAME_CHARS.sub("_", (name or "").strip())
 
-def read_csv_rows(path: pathlib.Path) -> List[Dict[str,str]]:
+def classify(o,h,l,c):
+    rng = max(h,l) - min(h,l)
+    body = abs(c-o)
+    if rng <= 0: return "Sideways", 0.5, "No range"
+    ratio = body/rng if rng else 0.0
+    if ratio < 0.2: return "Sideways", 0.5, "Small body vs range — indecision"
+    if c > o: return "Bullish", min(0.9, 0.6 + ratio/2), "Close above open"
+    if c < o: return "Bearish", min(0.9, 0.6 + ratio/2), "Close below open"
+    return "Sideways", 0.5, "Flat"
+
+def next_business_day(d: datetime.date):
+    wd = d.weekday()
+    if wd == 4: return d + timedelta(days=3)
+    if wd == 5: return d + timedelta(days=2)
+    return d + timedelta(days=1)
+
+def read_csv_safe(p: Path) -> List[Dict[str,str]]:
     rows: List[Dict[str,str]] = []
-    with open(path, "r", encoding="utf-8", newline="") as f:
+    with open(p, "r", encoding="utf-8", newline="") as f:
         rdr = csv.DictReader(f)
         for r in rdr:
-            rows.append({(k or "").strip().lower(): (v or "").strip() for k,v in r.items()})
+            rows.append({(k or "").strip().lower(): (v or "").strip() for k, v in r.items()})
+    # guarantee keys used downstream
+    need = ["symbol","description","exchange","sector","industry","open","high","low","close"]
+    for r in rows:
+        for k in need:
+            r.setdefault(k, "" if k not in ["open","high","low","close"] else "")
     return rows
 
-def try_read_json(p: pathlib.Path) -> dict:
-    if not p.exists(): return {}
-    try:
-        with open(p, "r", encoding="utf-8") as f:
-            return json.load(f) or {}
-    except Exception as e:
-        log(f"[WARN] logos_index.json parse error: {e}")
-        return {}
+# ----------------- Assets (css/js/logos) -----------------
+def copy_static_assets():
+    ensure_dir(DIST / "static")
+    css_src = ROOT / "static" / "styles.css"
+    if css_src.exists(): shutil.copy2(css_src, DIST / "static" / "styles.css")
+    js_src = ROOT / "static" / "app.js"
+    if js_src.exists(): shutil.copy2(js_src, DIST / "static" / "app.js")
 
-# ---------- logos: find + copy into dist ----------
-def copy_logos_to_dist() -> None:
-    if LOGOS_DIST.exists():
-        shutil.rmtree(LOGOS_DIST)
-    if LOGOS_SRC.exists():
-        shutil.copytree(LOGOS_SRC, LOGOS_DIST, dirs_exist_ok=True)
-        log(f"[LOGOS] Copied {LOGOS_SRC} → {LOGOS_DIST}")
-    else:
-        log("[LOGOS] No logos/ folder found; proceeding without images.")
+def copy_logos_folder():
+    src = ROOT / "logos"
+    dst = DIST / "logos"
+    if dst.exists(): shutil.rmtree(dst)
+    if src.exists(): shutil.copytree(src, dst)
 
-def find_logo_from_index(index: dict, kind: str, key: str) -> Optional[str]:
-    try:
-        rel = (index.get(kind) or {}).get(key)
-        if rel:
-            # normalize to posix and make sure the file exists in source or dist
-            p_src = ROOT / rel
-            p_dist = DIST / rel
-            if p_src.exists():
-                # ensure it is present in dist (copy once)
-                target = DIST / "logos" / pathlib.Path(rel).name if "logos/" not in rel else DIST / rel
-                target.parent.mkdir(parents=True, exist_ok=True)
-                try:
-                    shutil.copy2(p_src, target)
-                except Exception:
-                    pass
-                return target.relative_to(DIST).as_posix()  # path relative to dist
-            if p_dist.exists():
-                return p_dist.relative_to(DIST).as_posix()
-    except Exception:
-        pass
-    return None
+def _norm(s: str) -> str:
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^A-Z0-9]", "", s.upper())
 
-def find_logo_fallbacks(folder_rel: str, stem: str) -> Optional[str]:
-    """Look inside dist/logos/... for a file; copy from source if needed."""
-    for ext in ("png","svg","jpg","jpeg","webp"):
-        rel = f"logos/{folder_rel}/{stem}.{ext}" if folder_rel else f"logos/{stem}.{ext}"
-        p_dist = DIST / rel
-        p_src = ROOT / rel
-        if p_dist.exists():
-            return rel
-        if p_src.exists():
-            p_dist.parent.mkdir(parents=True, exist_ok=True)
+def name_tokens(name: str):
+    toks = re.split(r"[^A-Za-z0-9]+", name or "")
+    STOP = {"LTD","LIMITED","CO","COMPANY","PLC","INC","LLC","SA","SAA","SAS",
+            "BSC","BSC.","B.S.C","ORD","PREF","THE","OF","AND","HOLDINGS",
+            "HOLDING","GROUP","CORP","CORPORATION","BANK","INDUSTRIES","INDUSTRY"}
+    toks = [t for t in toks if t and t.upper() not in STOP]
+    return toks[:3]
+
+def load_logos_index() -> Dict[Tuple[str,str], str]:
+    for p in [ROOT / "logos_index.json", ROOT / "logos" / "logos_index.json"]:
+        if p.exists():
             try:
-                shutil.copy2(p_src, p_dist)
+                raw = json.loads(p.read_text(encoding="utf-8"))
+                flat = {}
+                for exch, mp in raw.items():
+                    for sym, rel in (mp or {}).items():
+                        flat[(exch.upper(), _norm(sym))] = str(rel).lstrip("/\\")
+                return flat
             except Exception:
                 pass
-            return rel
-    return None
+    return {}
 
-def logo_src_for(group_slug: str, country_slug: Optional[str], symbol: Optional[str], index: dict) -> Optional[str]:
-    # 1) explicit mapping
-    if country_slug:
-        p = find_logo_from_index(index, "countries", country_slug)
-        if p: return p
-    if symbol:
-        p = find_logo_from_index(index, "stocks", symbol.upper())
-        if p: return p
-    p = find_logo_from_index(index, "groups", group_slug)
-    if p: return p
-    # 2) fallbacks (look under dist/logos/, copy from repo logos/ if needed)
-    if symbol:
-        p = find_logo_fallbacks("stocks", symbol.upper())
-        if p: return p
-    if country_slug:
-        p = find_logo_fallbacks("", country_slug)
-        if p: return p
-    p = find_logo_fallbacks("groups", group_slug)
-    if p: return p
-    return None
+def build_scan_index():
+    base = ROOT / "logos"
+    idx = {}
+    if not base.exists(): return idx
+    for root, _, files in os.walk(base):
+        for f in files:
+            if os.path.splitext(f)[1].lower() not in IMG_EXTS: continue
+            full = Path(root) / f
+            rel = full.relative_to(base).as_posix()
+            exch = full.parent.name  # last folder name as exchange
+            stem = os.path.splitext(f)[0]
+            stem = re.sub(r"(--|_|-)?\d{2,4}$", "", stem)  # drop size suffixes
+            idx.setdefault(exch.upper(), []).append((_norm(stem), rel))
+    return idx
 
-# ---------- load data ----------
-# tree[group][country] = {group_name, group_slug, country_slug, country_name, csv_path, rows}
-def load_last_trading_day() -> Dict[str, Dict[str, Dict]]:
+class LogoResolver:
+    def __init__(self):
+        copy_logos_folder()  # ensure dist/logos exists
+        self.curated = load_logos_index()      # {(EXCH, NORM_SYM): rel}
+        self.scan = build_scan_index()         # {EXCH: [(stem_norm, rel), ...]}
+        self.cache = {}
+
+    def url_for(self, exchange: str, symbol: str, name: str = "") -> str:
+        key = (exchange or "", symbol or "")
+        if key in self.cache: return self.cache[key]
+        placeholder = f"{BASE_URL}/static/logo-placeholder.svg"
+
+        exch = (exchange or "").upper()
+        symn = _norm(symbol)
+
+        # curated exact
+        rel = self.curated.get((exch, symn))
+        if rel:
+            url = f"{BASE_URL}/logos/{rel}"
+            self.cache[key] = url; return url
+
+        candidates = self.scan.get(exch, [])
+        # exact filename == symbol
+        for stem_norm, rel in candidates:
+            if stem_norm == symn:
+                url = f"{BASE_URL}/logos/{rel}"
+                self.cache[key] = url; return url
+        # contains relationship
+        for stem_norm, rel in candidates:
+            if symn and (symn in stem_norm or stem_norm in symn):
+                url = f"{BASE_URL}/logos/{rel}"
+                self.cache[key] = url; return url
+        # name tokens score
+        toks = [_norm(t) for t in name_tokens(name)]
+        best = (0.0, None)
+        for stem_norm, rel in candidates:
+            hits = sum(1 for t in toks if t and t in stem_norm)
+            if hits:
+                score = hits * (10.0 / (1.0 + len(stem_norm)))
+                if score > best[0]: best = (score, rel)
+        if best[1]:
+            url = f"{BASE_URL}/logos/{best[1]}"
+            self.cache[key] = url; return url
+
+        self.cache[key] = placeholder
+        return placeholder
+
+def ensure_placeholder_logo():
+    svg = """<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'>
+<rect width='64' height='64' rx='12' fill='#0e1729' stroke='#223157'/>
+<path d='M20 36h24M20 28h24' stroke='#4f8cff' stroke-width='3' stroke-linecap='round'/>
+</svg>"""
+    p = DIST / "static" / "logo-placeholder.svg"
+    if not p.exists():
+        ensure_dir(p.parent); p.write_text(svg, encoding="utf-8")
+
+# ----------------- Load Data/LastTradingDay -----------------
+def load_tree_from_last_trading_day():
+    """
+    Returns tree[group_slug][country_slug] = {
+        group_name, group_slug, country_name, country_slug, csv_path, rows
+    }
+    """
     tree: Dict[str, Dict[str, Dict]] = {}
     if not DATA_LAST.exists():
-        log(f"[WARN] {DATA_LAST} not found")
         return tree
 
     for group_dir in sorted([d for d in DATA_LAST.iterdir() if d.is_dir()]):
         group_name = group_dir.name
-        group_slug = slugify(group_name)
+        group_slug = slug(group_name)
         tree.setdefault(group_slug, {})
-        for csv_path in sorted(group_dir.glob("*.csv")):
-            country_slug = csv_path.stem
+        for csv in sorted(group_dir.glob("*.csv")):
+            country_slug = csv.stem
             country_name = country_slug.replace("-", " ").title()
-            try:
-                rows = read_csv_rows(csv_path)
-            except Exception as e:
-                log(f"[WARN] read fail {csv_path}: {e}")
-                rows = []
+            rows = read_csv_safe(csv)
             tree[group_slug][country_slug] = {
                 "group_name": group_name,
                 "group_slug": group_slug,
-                "country_slug": country_slug,
                 "country_name": country_name,
-                "csv_path": csv_path,
-                "rows": rows,
+                "country_slug": country_slug,
+                "csv_path": csv,
+                "rows": rows
             }
     return tree
 
-# ---------- HTML ----------
-BASE_CSS = """
-:root { --bg:#0b1220; --card:#0f172a; --ink:#e5e7eb; --mut:#93c5fd; --line:#1f2a44; }
-*{box-sizing:border-box} body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:var(--ink)}
-a{color:var(--mut);text-decoration:none} a:hover{text-decoration:underline}
-.wrap{max-width:1200px;margin:0 auto;padding:24px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-h1,h2{margin:0 0 12px}
-ul.grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.pill{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:12px}
-.flex{display:flex;gap:16px;align-items:center}
-.logo{width:32px;height:32px;object-fit:contain;background:#fff1;border-radius:8px;padding:4px;border:1px solid #20304d}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-.mut{opacity:.75}
-footer{opacity:.7;margin-top:18px;font-size:13px}
-"""
-
-def page(title: str, body_html: str, meta_desc: Optional[str]=None) -> str:
-    md = meta_desc or title
-    return f"""<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+# ----------------- Templating -----------------
+def tpl_base(title, description, body, canonical):
+    meta_kw = ", ".join(CFG.get("keywords", []))
+    author = CFG.get("author", {})
+    site_tagline = CFG.get("site_tagline", "")
+    build_time = datetime.utcnow().isoformat(timespec="seconds") + "Z"
+    css = f"{BASE_URL}/static/styles.css"
+    js  = f"{BASE_URL}/static/app.js"
+    return f"""<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title>
-<meta name="description" content="{html.escape(md)}">
-<style>{BASE_CSS}</style></head>
-<body><div class="wrap">
-{body_html}
-<footer>Generated {datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")}</footer>
-</div></body></html>"""
+<link rel="canonical" href="{canonical}">
+<meta name="description" content="{html.escape(description)}">
+<meta name="keywords" content="{html.escape(meta_kw)}">
+<meta name="author" content="{html.escape(author.get('name',''))}">
+<link rel="stylesheet" href="{css}">
+</head>
+<body>
+<div class="container">
+<header class="hero card">
+  <div class="breadcrumbs"><a href="{BASE_URL}/">Home</a></div>
+  <h1 class="h1">{html.escape(title)}</h1>
+  <p class="small">{html.escape(site_tagline)}</p>
+  <div class="kv">
+    <div><strong>Purpose:</strong> Transparent, reproducible SSG for daily stock pages.</div>
+    <div><strong>Last build:</strong> {build_time}</div>
+  </div>
+</header>
+<main class="grid">
+{body}
+</main>
+<footer class="footer">
+  <div>E-E-A-T: Author <strong>{html.escape(author.get('name',''))}</strong> · Org: {html.escape(author.get('org','',))} · Contact: <a href="mailto:{html.escape(author.get('contact_email',''))}">{html.escape(author.get('contact_email',''))}</a></div>
+  <div>Data provenance: Trading day snapshots. Prediction target = next business day.</div>
+</footer>
+</div>
+<script>window.SPP_BASE="{BASE_URL}";window.SPP_INDEX_URL="{BASE_URL}/static/index.json";</script>
+<script src="{js}" defer></script>
+</body></html>"""
 
-PREF_COLS = ["symbol","name","exchange","price","currency","change_percent","change_points","day_high","day_low","sector","industry","tech_rating"]
+# ----------------- Build -----------------
+def main():
+    # Clean dist
+    if DIST.exists(): shutil.rmtree(DIST)
+    ensure_dir(DIST / "static")
+    copy_static_assets()
+    copy_logos_folder()
+    ensure_placeholder_logo()
 
-def columns_for(rows: List[Dict[str,str]]) -> List[str]:
-    if not rows: return ["symbol","name"]
-    seen, cols = set(), []
-    for r in rows[:400]:
-        for k in r:
-            k = k.lower()
-            if k not in seen:
-                seen.add(k); cols.append(k)
-    cols.sort(key=lambda k: (PREF_COLS.index(k) if k in PREF_COLS else 999, k))
-    return cols
+    # Load data from LastTradingDay
+    tree = load_tree_from_last_trading_day()
 
-# ---------- renderers ----------
-def render_index(groups: List[Tuple[str,str]], logo_index: dict) -> str:
-    items = []
-    for gslug, gname in groups:
-        g_logo = logo_src_for(gslug, None, None, logo_index)
-        icon = f'<img class="logo" src="{g_logo}" alt="">' if g_logo else ""
-        items.append(f'<li><a class="pill flex" href="groups/{gslug}/index.html">{icon}<span>{html.escape(gname)}</span></a></li>')
-    return page("World markets — groups", f'<div class="card"><h1>Groups</h1><ul class="grid">{"".join(items)}</ul></div>')
+    # Home (JS drilldown shell)
+    home_body = """
+<section class='card'>
+  <h2 class='h2'>Browse Markets</h2>
+  <div class="picker">
+    <div class="row"><div class="row-title">Regions</div><div id="regions" class="chips"></div></div>
+    <div class="row"><div class="row-title">Countries</div><div id="countries" class="chips"></div></div>
+    <div class="row"><div class="row-title">Exchanges</div><div id="exchanges" class="chips"></div></div>
+  </div>
+</section>
+<section class='card'>
+  <h2 class='h2'>Stocks</h2>
+  <div id="stocks_table">Pick a region → country → exchange</div>
+</section>
+"""
+    write_text(DIST / "index.html", tpl_base(
+        f"{CFG.get('site_title','')} — {CFG.get('site_tagline','')}",
+        "Interactive drilldown: region → country → exchange → stocks.",
+        home_body, f"{BASE_URL}/"
+    ))
 
-def render_group(gslug: str, gname: str, countries: List[Tuple[str,str]], logo_index: dict) -> str:
-    items = []
-    for cslug, cname in countries:
-        c_logo = logo_src_for(gslug, cslug, None, logo_index)
-        icon = f'<img class="logo" src="{c_logo}" alt="">' if c_logo else ""
-        items.append(f'<li><a class="pill flex" href="./{cslug}/index.html">{icon}<span>{html.escape(cname)}</span></a></li>')
-    head_logo = logo_src_for(gslug, None, None, logo_index)
-    head = f'<div class="flex"><h1>{html.escape(gname)}</h1>' + (f'<img class="logo" src="{head_logo}" alt="">' if head_logo else "") + '</div>'
-    return page(f"{gname} — countries", f'<div class="card">{head}<ul class="grid">{"".join(items)}</ul></div>')
+    # Build site_index for app.js
+    site_index = {"regions": []}
+    resolver = LogoResolver()
 
-def render_country(gslug: str, gname: str, cslug: str, cname: str, rows: List[Dict[str,str]], logo_index: dict) -> str:
-    cols = columns_for(rows)
-    thead = "<tr>" + "".join(f"<th>{html.escape(c)}</th>" for c in cols) + "</tr>"
-    trs = []
-    for r in rows:
-        symbol = (r.get("symbol") or r.get("ticker") or "").strip()
-        link = f'stocks/{gslug}/{cslug}/{safe_filename(symbol)}.html' if symbol else None
-        tds = []
-        for c in cols:
-            val = r.get(c,"")
-            if c == "symbol" and symbol:
-                tds.append(f'<td><a href="/{link}">{html.escape(symbol)}</a></td>')
-            else:
-                tds.append(f'<td>{html.escape(val)}</td>')
-        trs.append("<tr>" + "".join(tds) + "</tr>")
-    body_table = "\n".join(trs) if trs else '<tr><td class="mut" colspan="99">No rows</td></tr>'
-    c_logo = logo_src_for(gslug, cslug, None, logo_index)
-    head = f'<div class="flex"><h1>{html.escape(cname)}</h1>' + (f'<img class="logo" src="{c_logo}" alt="">' if c_logo else "") + f'<span class="mut">{html.escape(gname)}</span></div>'
-    html_table = f"""<div class="card">{head}
-<div style="overflow:auto">
-<table><thead>{thead}</thead><tbody>{body_table}</tbody></table>
-</div></div>"""
-    return page(f"{cname} — stocks", html_table, meta_desc=f"Browse {cname} stocks, prices, and key facts.")
-
-def render_stock(gslug: str, gname: str, cslug: str, cname: str, symbol: str, row: Dict[str,str], logo_index: dict) -> str:
-    s_logo = logo_src_for(gslug, cslug, symbol, logo_index)
-    icon = f'<img class="logo" src="{s_logo}" alt="">' if s_logo else ""
-    title = f"{symbol} price prediction tomorrow | AI analysis"
-    h1 = f"{symbol} — {cname} ({gname})"
-    facts = []
-    for k in ("name","exchange","price","currency","sector","industry","tech_rating","change_percent","change_points","day_high","day_low"):
-        v = row.get(k) or row.get(k.lower())
-        if v: facts.append(f"<li><strong>{html.escape(k)}:</strong> {html.escape(v)}</li>")
-    fact_html = "<ul>" + "".join(facts) + "</ul>" if facts else "<p class='mut'>No key facts available.</p>"
-    body = f"""<div class="card">
-<div class="flex"><h1>{html.escape(h1)}</h1>{icon}</div>
-<p class="mut">SEO stub — plug in your model output here (signal, confidence, support/resistance).</p>
-{fact_html}
-</div>"""
-    return page(title, body, meta_desc=f"AI prediction and key facts for {symbol} listed in {cname} ({gname}).")
-
-# ---------- main ----------
-def main() -> int:
-    log("== Build from Data/LastTradingDay with logos copied into dist ==")
-
-    ensure_dir(DIST)
-    copy_logos_to_dist()  # make sure dist/logos/ exists & filled
-
-    logo_index = try_read_json(LOGOS_INDEX)
-    tree = load_last_trading_day()
-
-    if not tree:
-        (DIST / "index.html").write_text(page("No data","<div class='card'><h1>No data</h1></div>"), encoding="utf-8")
-        (DIST / "sitemap.html").write_text(page("Sitemap","<div class='card'><h1>Empty</h1></div>"), encoding="utf-8")
-        return 0
-
-    # groups (slug, name)
-    groups: List[Tuple[str,str]] = []
-    for gslug in sorted(tree.keys()):
+    # groups (regions)
+    groups = sorted(tree.keys())
+    for gslug in groups:
         any_country = next(iter(tree[gslug].values()))
-        groups.append((gslug, any_country["group_name"]))
+        gname = any_country["group_name"]
 
-    # index.html
-    (DIST / "index.html").write_text(render_index(groups, logo_index), encoding="utf-8")
+        region_entry = {"name": gname, "slug": gslug, "url": f"{BASE_URL}/{gslug}/", "countries": []}
+        site_index["regions"].append(region_entry)
 
-    # group & country pages + per-stock pages
-    for gslug, gname in groups:
-        countries = sorted(
-            ((cslug, info["country_name"]) for cslug, info in tree[gslug].items()),
-            key=lambda x: x[1].lower()
-        )
-        gdir = DIST / "groups" / gslug
-        ensure_dir(gdir)
-        (gdir / "index.html").write_text(render_group(gslug, gname, countries, logo_index), encoding="utf-8")
+        # country list
+        countries = sorted(tree[gslug].keys())
+        # region page with links
+        links = []
+        for cslug in countries:
+            cname = tree[gslug][cslug]["country_name"]
+            region_entry["countries"].append({"name": cname, "slug": cslug, "url": f"{BASE_URL}/{gslug}/{cslug}/", "exchanges": []})
+            links.append(f"<li><a href='{BASE_URL}/{gslug}/{cslug}/'>{html.escape(cname)}</a></li>")
+        write_text(DIST / gslug / "index.html",
+                   tpl_base(f"{gname} Markets — {CFG.get('site_title','')}",
+                           f"Browse stock markets in {gname}.",
+                           f"<section class='card'><h2 class='h2'>Countries in {html.escape(gname)}</h2><ul>{''.join(links)}</ul></section>",
+                           f"{BASE_URL}/{gslug}/"))
 
-        for cslug, cname in countries:
-            info = tree[gslug][cslug]
-            rows = info["rows"]
+        # country pages + exchanges
+        for c in region_entry["countries"]:
+            cslug, cname = c["slug"], c["name"]
+            rows = tree[gslug][cslug]["rows"]
 
-            # country table
-            cdir = gdir / cslug
-            ensure_dir(cdir)
-            (cdir / "index.html").write_text(
-                render_country(gslug, gname, cslug, cname, rows, logo_index),
-                encoding="utf-8"
-            )
-
-            # per-stock pages
-            sdir = DIST / "stocks" / gslug / cslug
-            ensure_dir(sdir)
+            # group by exchange
+            by_exch: Dict[str, List[Dict[str,str]]] = {}
             for r in rows:
-                sym = (r.get("symbol") or r.get("ticker") or "").strip()
-                if not sym:
-                    continue
-                fname = safe_filename(sym) + ".html"
-                (sdir / fname).write_text(
-                    render_stock(gslug, gname, cslug, cname, sym, r, logo_index),
-                    encoding="utf-8"
+                exch = (r.get("exchange") or "UNKNOWN").strip()
+                by_exch.setdefault(exch, []).append(r)
+
+            # write exchange pages + JSON
+            e_links = []
+            for exch, erows in sorted(by_exch.items(), key=lambda kv: kv[0].lower()):
+                e_slug = slug(exch)
+                e_url  = f"{BASE_URL}/{gslug}/{cslug}/{e_slug}/"
+                c["exchanges"].append({"name": exch, "slug": e_slug, "url": e_url})
+                e_links.append(f"<li><a href='{e_url}'>{html.escape(exch)}</a></li>")
+
+                table_rows_html, json_rows = [], []
+                for r in erows:
+                    sym = (r.get("symbol") or "").strip()
+                    name = (r.get("description") or sym or "").strip()
+                    sec  = (r.get("sector") or "").strip()
+                    try:
+                        o = float(r.get("open") or "")
+                        h = float(r.get("high") or "")
+                        l = float(r.get("low")  or "")
+                        cclose = float(r.get("close") or "")
+                        have_ohlc = True
+                    except Exception:
+                        o=h=l=cclose=None
+                        have_ohlc = False
+
+                    s_slug = slug(sym)
+                    sig, conf, reason = ("",0,"")
+                    if have_ohlc:
+                        sig, conf, reason = classify(o,h,l,cclose)
+
+                    # per-stock SEO page
+                    if have_ohlc and sym:
+                        pred = next_business_day(datetime.utcnow().date())
+                        title = f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
+                        h1    = f"AI Analysis of {sym} ({name}) Stock for Tomorrow"
+                        mdesc = f"Get AI prediction and analysis of {sym} ({name}) for tomorrow. Forecast and trend insights for {exch}."
+                        body  = f"""
+<article class="card">
+  <h2 class="h2">{html.escape(h1)}</h2>
+  <p class="small">Region: {html.escape(gname)} · Country: {html.escape(cname)} · Exchange: {html.escape(exch)}</p>
+  <p class="small">OHLC: O {o}, H {h}, L {l}, C {cclose}</p>
+  <div class="card">
+    <h3 class="h3">Prediction for {pred.isoformat()}</h3>
+    <p><strong>{html.escape(sig)}</strong> — {html.escape(reason)} (confidence {int(conf*100)}%).</p>
+  </div>
+</article>"""
+                        stock_url = f"{BASE_URL}/{gslug}/{cslug}/{e_slug}/{s_slug}/prediction-tomorrow/"
+                        write_text(DIST / gslug / cslug / e_slug / s_slug / "prediction-tomorrow" / "index.html",
+                                   tpl_base(title, mdesc, body, stock_url))
+
+                    logo_url = resolver.url_for(exch, sym, name)
+
+                    # table row + JSON row
+                    table_rows_html.append(
+                        "<tr>"
+                        f"<td><a href='{BASE_URL}/{gslug}/{cslug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{html.escape(sym)}</a></td>"
+                        f"<td><a href='{BASE_URL}/{gslug}/{cslug}/{e_slug}/{s_slug}/prediction-tomorrow/'>{html.escape(name)}</a></td>"
+                        f"<td>{html.escape(sec)}</td>"
+                        f"<td>{'' if o is None else f'{o:.2f}'}</td>"
+                        f"<td>{'' if h is None else f'{h:.2f}'}</td>"
+                        f"<td>{'' if l is None else f'{l:.2f}'}</td>"
+                        f"<td>{'' if cclose is None else f'{cclose:.2f}'}</td>"
+                        f"<td>{html.escape(sig)}</td>"
+                        "</tr>"
+                    )
+
+                    json_rows.append({
+                        "symbol": sym,
+                        "name": name,
+                        "sector": sec,
+                        "open": None if o is None else round(o,2),
+                        "high": None if h is None else round(h,2),
+                        "low":  None if l is None else round(l,2),
+                        "close":None if cclose is None else round(cclose,2),
+                        "signal": sig,
+                        "logo": logo_url,
+                        "url": f"{BASE_URL}/{gslug}/{cslug}/{e_slug}/{s_slug}/prediction-tomorrow/"
+                    })
+
+                table_html = (
+                    "<table class='table'>"
+                    "<thead><tr>"
+                    "<th>Symbol</th><th>Name</th><th>Sector</th>"
+                    "<th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Signal</th>"
+                    "</tr></thead><tbody>"
+                    + "\n".join(table_rows_html) + "</tbody></table>"
                 )
 
-    # sitemap
-    links = ['<li><a class="pill" href="index.html">Home</a></li>']
-    for gslug, gname in groups:
-        links.append(f'<li><a class="pill" href="groups/{gslug}/index.html">{html.escape(gname)}</a></li>')
-        for cslug, info in sorted(tree[gslug].items(), key=lambda kv: kv[1]["country_name"].lower()):
-            links.append(f'<li><a class="pill" href="groups/{gslug}/{cslug}/index.html">{html.escape(info["country_name"])} ({html.escape(info["group_name"])})</a></li>')
-            for r in info["rows"][:3000]:
-                sym = (r.get("symbol") or r.get("ticker") or "").strip()
-                if sym:
-                    links.append(f'<li><a class="pill" href="stocks/{gslug}/{cslug}/{safe_filename(sym)}.html">{html.escape(sym)}</a></li>')
+                write_text(DIST / gslug / cslug / e_slug / "index.html",
+                           tpl_base(f"{cname} {exch} — {CFG.get('site_title','')}",
+                                    f"Browse {exch} listings in {cname}.",
+                                    table_html, f"{BASE_URL}/{gslug}/{cslug}/{e_slug}/"))
 
-    (DIST / "sitemap.html").write_text(
-        page("Sitemap", f"<div class='card'><h1>Sitemap</h1><ul class='grid'>{''.join(links)}</ul></div>"),
-        encoding="utf-8"
+                write_json(DIST / "static" / "exchanges" / gslug / cslug / f"{e_slug}.json",
+                           {"region": gname, "country": cname, "exchange": exch, "rows": json_rows})
+
+            # country landing (list exchanges)
+            write_text(DIST / gslug / cslug / "index.html",
+                       tpl_base(f"{cname} — {CFG.get('site_title','')}",
+                                f"Browse exchanges in {cname}.",
+                                "<section class='card'><h2 class='h2'>Exchanges</h2><ul>"
+                                + "".join([f"<li><a href='{BASE_URL}/{gslug}/{cslug}/{e['slug']}/'>{html.escape(e['name'])}</a></li>"
+                                           for e in c['exchanges']]) +
+                                "</ul></section>",
+                                f"{BASE_URL}/{gslug}/{cslug}/"))
+
+    # top-level index.json for the drilldown
+    write_json(DIST / "static" / "index.json", site_index)
+
+    # robots + sitemap
+    write_text(DIST / "robots.txt", f"Sitemap: {BASE_URL}/sitemap.xml\nUser-agent: *\nAllow: /\n")
+    urls = []
+    for p in DIST.rglob("index.html"):
+        rel = "/" + str(p.relative_to(DIST)).replace("\\", "/")
+        urls.append(f"{BASE_URL}{rel[:-10]}")
+    urls = sorted(set(urls))
+    write_text(
+        DIST / "sitemap.xml",
+        "<?xml version='1.0' encoding='UTF-8'?>"
+        "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>"
+        + "".join([f"<url><loc>{u}</loc></url>" for u in urls]) + "</urlset>"
     )
 
-    log(f"[OK] Build complete → {DIST / 'index.html'}")
-    return 0
+    print("Build complete →", DIST)
 
 if __name__ == "__main__":
-    try:
-        sys.exit(main())
-    except KeyboardInterrupt:
-        sys.exit(130)
+    main()
