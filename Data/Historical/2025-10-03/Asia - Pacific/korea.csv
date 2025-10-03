@@ -573,8 +573,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0103T0,Hana 1Q K Sovereign AI ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,10275,10325,10155,10180,0.39447731755424065,,234162.0,KRW
 010400,"Woojin I & S Co., Ltd.",KRX,Industrial Services,Engineering & Construction,3025,3175,3010,3040,0.49586776859504134,20328238809.0,8670.0,KRW
 010470,"ORICOM, Inc.",KRX,Commercial Services,Advertising/Marketing Services,6030,6040,5990,6010,0.16666666666666669,69628412247.0,13868.0,KRW
-0104G0,PLUS Korea Defense Leverage ETF,KRX,,,10440,10530,10060,10480,0.38314176245210724,,163641.0,KRW
-0104H0,KoAct US Nasdaq Balanced 50 Active,KRX,,,10080,10080,10030,10060,0.199203187250996,,289006.0,KRW
+0104G0,PLUS Korea Defense Leverage ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,10440,10530,10060,10480,0.38314176245210724,,163641.0,KRW
+0104H0,KoAct US Nasdaq Balanced 50 Active,KRX,Miscellaneous,Investment Trusts/Mutual Funds,10080,10080,10030,10060,0.199203187250996,,289006.0,KRW
 0104N0,MiraeAsset TIGER 200 Target Weekly Covered Call ETF Units,KRX,,,10345,10490,10330,10400,2.5135534746180386,,342685.0,KRW
 0104P0,MiraeAsset TIGER Korea Dividend Dow Jones Weekly Covered Call ETF Units,KRX,,,9710,9790,9655,9730,0.5684754521963824,,266291.0,KRW
 010580,SM BEXEL CO. LTD.,KRX,Consumer Durables,Tools & Hardware,2290,2305,2100,2135,-5.739514348785872,251655683899.0,1554185.0,KRW
@@ -599,7 +599,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 011150,CJ Seafood Corporation,KRX,Consumer Non-Durables,Food: Meat/Fish/Dairy,2775,2805,2765,2790,0.5405405405405406,103163899813.0,69959.0,KRW
 011155,CJ Seafood Corporation Pfd Registered Shs Non-Voting,KRX,Consumer Non-Durables,Food: Meat/Fish/Dairy,17000,17280,17000,17280,0.0,103163899813.0,281.0,KRW
 011170,Lotte Chemical Corporation,KRX,Process Industries,Chemicals: Specialty,68000,68400,67000,67200,-1.0309278350515463,2863149389267.0,103348.0,KRW
-0111P0,1Q Nasdaq100 Blend 50 Active ETF,KRX,,,9990,10005,9970,9975,0.20090406830738325,,568446.0,KRW
+0111P0,1Q Nasdaq100 Blend 50 Active ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,9990,10005,9970,9975,0.20090406830738325,,568446.0,KRW
 011200,"HMM CO.,LTD",KRX,Transportation,Marine Shipping,20100,20550,20100,20400,2.0,20500791015625.0,2130538.0,KRW
 011210,Hyundai Wia Corporation,KRX,Producer Manufacturing,Auto Parts: OEM,48350,49600,48300,49600,2.904564315352697,1280275450516.0,110104.0,KRW
 011230,"Samwha Electronics Co., Ltd.",KRX,Electronic Technology,Electronic Production Equipment,3560,3615,3505,3540,0.7112375533428165,59406689920.0,134097.0,KRW
@@ -642,7 +642,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 012800,"DAECHANG Co., Ltd.",KRX,Producer Manufacturing,Metal Fabrication,1277,1300,1276,1289,1.018808777429467,97384475372.0,410691.0,KRW
 012860,"MOBASE ELECTRONICS CO., LTD.",KRX,Producer Manufacturing,Auto Parts: OEM,1310,1334,1307,1330,1.5267175572519083,95674875336.0,104642.0,KRW
 013000,"Sewoo Global Co., Ltd",KRX,Distribution Services,Wholesale Distributors,1036,1060,1036,1050,1.253616200578592,29764992281.0,26111.0,KRW
-013030,Hy-Lok Corp.,KRX,Producer Manufacturing,Industrial Machinery,36350,36400,35150,36100,0.2777777777777778,415377342224.0,109203.0,KRW
+013030,Hy-Lok Corp.,KRX,Producer Manufacturing,Industrial Machinery,36350,36400,35150,36100,0.2777777777777778,396394615173.0,109203.0,KRW
 013120,"Dongwon Development Co., Ltd.",KRX,Finance,Real Estate Development,2715,2745,2680,2715,0.0,246543964920.0,25038.0,KRW
 013310,"A-JIN INDUSTRY CO.,LTD",KRX,Producer Manufacturing,Auto Parts: OEM,3095,3170,3095,3140,1.4539579967689822,120098193741.0,152655.0,KRW
 013360,"ILSUNG Construction Co., Ltd.",KRX,Industrial Services,Engineering & Construction,1318,1354,1315,1340,1.669195751138088,71204791122.0,216328.0,KRW
@@ -878,7 +878,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 032680,"Softcen Co., Ltd.",KRX,Technology Services,Information Technology Services,286,290,268,280,-2.097902097902098,32511232080.0,994777.0,KRW
 032685,"Softcen Co., Ltd. Pfd Registered Shs -1- Non-voting",KRX,Technology Services,Information Technology Services,6460,6560,6430,6430,-0.46439628482972134,32511232080.0,44.0,KRW
 032750,"Samjin Co., Ltd.",KRX,Consumer Durables,Electronics/Appliances,4025,4205,4025,4065,1.2453300124533,36259955664.0,13181.0,KRW
-032790,MGEN SOLUTIONS CO. LTD.,KRX,Electronic Technology,Computer Peripherals,1018,1041,1002,1028,0.9823182711198428,46507777985.0,337084.0,KRW
+032790,MGEN SOLUTIONS CO. LTD.,KRX,Electronic Technology,Computer Peripherals,1018,1041,1002,1028,0.9823182711198428,47430717171.0,337084.0,KRW
 032800,Fantagio Corp.,KRX,Commercial Services,Miscellaneous Commercial Services,493,503,493,497,-0.2008032128514056,16660773285.0,85638.0,KRW
 032820,Woori Technology Inc.,KRX,Consumer Durables,Electronics/Appliances,4010,4100,3950,4045,1.125,665081420898.0,4621227.0,KRW
 032830,"Samsung Life Insurance Co., Ltd.",KRX,Finance,Life/Health Insurance,156500,162400,154900,159100,2.5789813023855577,27852048893738.0,471758.0,KRW
@@ -912,7 +912,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 034020,"Doosan Enerbility Co., Ltd.",KRX,Producer Manufacturing,Trucks/Construction/Farm Machinery,65200,66300,63800,64800,0.30959752321981426,41374052563477.0,6999933.0,KRW
 034120,"Seoul Broadcasting System Co., Ltd.",KRX,Consumer Services,Broadcasting,19540,19650,19410,19500,-0.35769034236075625,362992093220.0,66392.0,KRW
 034220,"LG Display Co., Ltd",KRX,Electronic Technology,Electronic Production Equipment,14650,14840,14500,14580,1.0395010395010396,7215000000000.0,2782665.0,KRW
-034230,"Paradise Co., Ltd",KRX,Consumer Services,Casinos/Gaming,21150,21450,20650,21350,1.9093078758949882,1820136262131.0,1260007.0,KRW
+034230,"Paradise Co., Ltd",KRX,Consumer Services,Casinos/Gaming,21150,21450,20650,21350,1.9093078758949882,1822529643631.0,1260007.0,KRW
 034310,"NICE Holdings Co., Ltd.",KRX,Finance,Finance/Rental/Leasing,13540,13930,13440,13770,2.2271714922048997,469852523689.0,85067.0,KRW
 034590,"Incheon City Gas Co., Ltd.",KRX,Utilities,Gas Distributors,25900,26050,25900,26000,-0.19193857965451055,107378068399.0,898.0,KRW
 034730,SK Inc.,KRX,Finance,Financial Conglomerates,213000,229500,212000,222000,6.220095693779904,11395098663330.0,490829.0,KRW
@@ -965,7 +965,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 036830,"Soulbrain Holdings Co., Ltd.",KRX,Process Industries,Chemicals: Specialty,43500,44400,43150,43150,0.23228803716608595,889481638527.0,47768.0,KRW
 036890,"Jinsung T.E.C. Co., Ltd.",KRX,Producer Manufacturing,Industrial Machinery,12640,12740,12460,12460,-0.3996802557953637,249753275642.0,90351.0,KRW
 036930,"Jusung Engineering Co., Ltd",KRX,Producer Manufacturing,Industrial Machinery,32150,32300,30700,31050,-0.64,1477135062218.0,1676257.0,KRW
-037030,Powernet Technologies Corp.,KRX,Electronic Technology,Electronic Production Equipment,3070,3115,3070,3075,0.16286644951140067,77289917793.0,99927.0,KRW
+037030,Powernet Technologies Corp.,KRX,Electronic Technology,Electronic Production Equipment,3070,3115,3070,3075,0.16286644951140067,77346453228.0,99927.0,KRW
 037070,"Paseco Co., Ltd",KRX,Consumer Durables,Electronics/Appliances,5830,5960,5800,5920,1.1965811965811968,116886545563.0,53391.0,KRW
 037230,"Hankuk Package Co., Ltd",KRX,Process Industries,Containers/Packaging,2105,2150,2090,2110,0.23752969121140144,62729684954.0,59311.0,KRW
 037270,"YG PLUS, INC.",KRX,Commercial Services,Advertising/Marketing Services,7540,7540,7420,7470,-1.0596026490066226,480656471634.0,1140533.0,KRW
@@ -1016,7 +1016,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 039980,Polaris AI Corp.,KRX,Technology Services,Information Technology Services,2550,2650,2540,2550,0.39370078740157477,182741481323.0,2276816.0,KRW
 040160,NuriFlex Co.Ltd.,KRX,Electronic Technology,Electronic Equipment/Instruments,3780,3845,3715,3835,3.2301480484522207,41972014561.0,27039.0,KRW
 040300,"YTN Co., Ltd.",KRX,Consumer Services,Broadcasting,2705,2740,2705,2705,-0.18450184501845018,129204613266.0,42372.0,KRW
-040350,"CreoSG Co.,Ltd.",KRX,Technology Services,Packaged Software,346,365,282,338,-2.0289855072463765,66519059601.0,3155376.0,KRW
+040350,"CreoSG Co.,Ltd.",KRX,Technology Services,Packaged Software,346,365,282,338,-2.0289855072463765,67209059601.0,3155376.0,KRW
 040420,"JLS Co., Ltd.",KRX,Technology Services,Internet Software/Services,6390,6390,6300,6320,-0.1579778830963665,94562240896.0,15084.0,KRW
 040610,SG & G Corporation,KRX,Technology Services,Internet Software/Services,1835,1850,1830,1842,0.2721829069134458,61991560204.0,46856.0,KRW
 040910,"ICD Co., Ltd.",KRX,Electronic Technology,Electronic Components,4500,4575,4455,4485,1.1273957158962795,76287239561.0,48579.0,KRW
@@ -1492,7 +1492,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 088800,ACE TECHNOLOGIES Corporation,KRX,Electronic Technology,Telecommunications Equipment,2025,2040,2000,2025,0.24752475247524752,151866020203.0,63737.0,KRW
 088910,DONGWOO FARM TO TABLE CO. LTD.,KRX,Process Industries,Agricultural Commodities/Milling,2165,2175,2140,2150,-0.4629629629629629,55559009399.0,16223.0,KRW
 088980,Macquarie Korea Infrastructure Fund,KRX,Miscellaneous,Investment Trusts/Mutual Funds,11490,11510,11470,11490,0.0,5502813780000.0,764132.0,KRW
-089010,"Chemtronics Co., Ltd.",KRX,Process Industries,Chemicals: Specialty,35900,36400,34000,34100,-4.748603351955307,538984408760.0,1677096.0,KRW
+089010,"Chemtronics Co., Ltd.",KRX,Process Industries,Chemicals: Specialty,35900,36400,34000,34100,-4.748603351955307,553304429245.0,1677096.0,KRW
 089030,"Techwing, Inc.",KRX,Producer Manufacturing,Industrial Machinery,62000,64600,59800,61000,2.5210084033613445,2187088027954.0,1395149.0,KRW
 089140,NEXTURNBIOSCIENCE Co. LTD,KRX,Producer Manufacturing,Industrial Machinery,2725,2730,2550,2580,-3.3707865168539324,38527431135.0,238483.0,KRW
 089150,"Korea Computer Terminal, Inc.",KRX,Electronic Technology,Electronic Equipment/Instruments,3775,3875,3775,3835,1.5894039735099337,64741248560.0,76133.0,KRW
@@ -1569,7 +1569,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 094940,"Puloon Technology, Inc.",KRX,Electronic Technology,Electronic Equipment/Instruments,8200,8310,8110,8200,0.0,64414589596.0,115871.0,KRW
 094970,"JMT Co., Ltd.",KRX,Electronic Technology,Electronic Production Equipment,3005,3045,2965,3010,0.6688963210702341,49969284592.0,180995.0,KRW
 095190,"EMKOREA Co., Ltd.",KRX,Producer Manufacturing,Industrial Machinery,2195,2220,2155,2195,0.6880733944954129,142267802582.0,128026.0,KRW
-095270,"Wave Electronics Co., Ltd.",KRX,Electronic Technology,Telecommunications Equipment,6350,6470,6190,6240,-1.7322834645669292,94113084173.0,41644.0,KRW
+095270,"Wave Electronics Co., Ltd.",KRX,Electronic Technology,Telecommunications Equipment,6350,6470,6190,6240,-1.7322834645669292,90310391140.0,41644.0,KRW
 095340,"ISC Co., Ltd.",KRX,Electronic Technology,Semiconductors,81800,82400,80900,81000,1.376720901126408,1635088895798.0,245053.0,KRW
 095500,"MNtech Co., Ltd.",KRX,Electronic Technology,Electronic Components,9350,9430,9250,9250,-0.10799136069114472,245499416389.0,99730.0,KRW
 095570,"AJ Networks Co., Ltd.",KRX,Finance,Finance/Rental/Leasing,4275,4280,4210,4245,-0.7017543859649122,191310734653.0,210051.0,KRW
@@ -1610,7 +1610,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 099440,"SMEC CO.,LTD",KRX,Communications,Specialty Telecommunications,4095,4150,4060,4110,0.8588957055214724,266038379669.0,847813.0,KRW
 099750,"ezCaretech Co., LTD",KRX,Technology Services,Packaged Software,16200,16580,16130,16370,-0.06105006105006105,109842871656.0,15291.0,KRW
 100030,"Inzisoft Co., Ltd.",KRX,Technology Services,Packaged Software,19300,19480,19120,19380,0.9375,52254373169.0,12757.0,KRW
-100090,"SK oceanplant Co.,Ltd",KRX,Non-Energy Minerals,Steel,25050,25100,23450,24050,-4.183266932270916,1535244108200.0,1850560.0,KRW
+100090,"SK oceanplant Co.,Ltd",KRX,Non-Energy Minerals,Steel,25050,25100,23450,24050,-4.183266932270916,1568201071548.0,1850560.0,KRW
 100120,"Vieworks Co., Ltd",KRX,Health Technology,Medical Specialties,19940,20200,19920,20100,1.0558069381598794,180242331877.0,13850.0,KRW
 100130,"Dongkuk Structures & Construction Co., Ltd.",KRX,Non-Energy Minerals,Steel,2335,2390,2335,2380,1.9271948608137044,130138242474.0,101065.0,KRW
 100220,Visang Education Inc.,KRX,Consumer Services,Publishing: Books/Magazines,5470,5570,5380,5510,0.0,67505844536.00001,21994.0,KRW
@@ -1971,7 +1971,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 170030,"Hyundai Industrial Co., Ltd.",KRX,Producer Manufacturing,Auto Parts: OEM,5920,6050,5920,6020,1.6891891891891893,90054994202.0,52348.0,KRW
 170790,"Piolink, Inc.",KRX,Electronic Technology,Computer Peripherals,11700,12010,11630,11630,-2.0219039595619206,77661467566.0,263626.0,KRW
 170900,"Dong-A ST Co., Ltd.",KRX,Health Technology,Pharmaceuticals: Major,45450,46250,45100,45650,0.772626931567329,414884832573.0,14281.0,KRW
-170920,"LTC Co., Ltd.",KRX,Process Industries,Chemicals: Specialty,21000,21150,19930,20100,0.0,188677800751.0,463961.0,KRW
+170920,"LTC Co., Ltd.",KRX,Process Industries,Chemicals: Specialty,21000,21150,19930,20100,0.0,197134984016.0,463961.0,KRW
 171010,"RAM TECHNOLOGY Co., Ltd.",KRX,Electronic Technology,Semiconductors,4465,4745,4455,4570,3.6281179138321997,63057495575.0,525837.0,KRW
 171090,"SUNIC SYSTEM Co., Ltd.",KRX,Producer Manufacturing,Industrial Machinery,47450,47450,45100,46100,-2.330508474576271,416280398560.0,79463.0,KRW
 171120,"Lion Chemtech Co., Ltd.",KRX,Non-Energy Minerals,Other Metals/Minerals,2180,2200,2160,2200,0.9174311926605505,76210752258.0,30840.0,KRW
@@ -2148,7 +2148,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 214430,"i3system, Inc.",KRX,Health Technology,Medical Specialties,77000,79600,75000,79300,2.987012987012987,534509540080.99994,69533.0,KRW
 214450,"PharmaResearch Co., Ltd.",KRX,Health Technology,Pharmaceuticals: Major,559000,569000,541000,550000,-2.9982363315696645,5813808571815.0,168266.0,KRW
 214610,"BioMed Co., Ltd.",KRX,Health Technology,Medical Specialties,4290,4395,4120,4300,0.2331002331002331,35934404125.0,17950.0,KRW
-214680,DRTECH Corp.,KRX,Health Technology,Medical Specialties,2060,2125,2060,2095,0.9638554216867471,153725613213.0,168657.0,KRW
+214680,DRTECH Corp.,KRX,Health Technology,Medical Specialties,2060,2125,2060,2095,0.9638554216867471,158654355621.0,168657.0,KRW
 214980,Samsung KODEX KRW CASH PLUS ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,115045,115110,115045,115095,0.04780945757997219,,39101.0,KRW
 215000,"GOLFZON Co., Ltd.",KRX,Consumer Durables,Recreational Products,61000,61900,60600,61900,1.4754098360655739,382620669842.0,13274.0,KRW
 215090,"SolDefense Co., Ltd.",KRX,Electronic Technology,Aerospace & Defense,3350,3450,3300,3305,-1.0479041916167664,77189599876.0,141520.0,KRW
@@ -2197,7 +2197,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 222110,"PanGen Biotech, Inc.",KRX,Health Technology,Biotechnology,5940,6050,5910,5940,0.0,80155529537.0,8253.0,KRW
 222420,"CENOTEC Co., Ltd",KRX,Process Industries,Industrial Specialties,796,813,787,800,0.37641154328732745,36231801689.0,34962.0,KRW
 222670,"Plumbline Life Sciences, Inc.",KRX,Health Technology,Pharmaceuticals: Major,5990,6600,5940,6600,10.92436974789916,21451653862.0,1256.0,KRW
-222800,"Simmtech Co., Ltd.",KRX,Electronic Technology,Semiconductors,50900,52000,49500,51000,7.822410147991543,1582320723343.0,1454348.0,KRW
+222800,"Simmtech Co., Ltd.",KRX,Electronic Technology,Semiconductors,50900,52000,49500,51000,7.822410147991543,1587180564499.0,1454348.0,KRW
 222980,"Mcnulty Korea Co., Ltd.",KRX,Consumer Non-Durables,Food: Specialty/Candy,3550,3610,3540,3565,-0.27972027972027974,39231589651.0,71347.0,KRW
 223190,Samsung KODEX 200 Intrinsic Value ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,15180,15405,15180,15350,2.0611702127659575,,1273.0,KRW
 223220,"Logis Mon, Inc.",KRX,Technology Services,Packaged Software,287,287,286,286,-2.054794520547945,14791456802.0,2.0,KRW
@@ -2346,7 +2346,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 251280,"AngioLab, Inc.",KRX,Health Technology,Biotechnology,4170,4180,4100,4140,2.096177558569667,14159533519.0,582.0,KRW
 251340,SAMSUNG KODEX KOSDAQ150 INVERSE ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,3225,3250,3215,3240,-0.9174311926605505,,15827156.0,KRW
 251350,KODEX MSCI World ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,34695,35465,34695,34715,0.8424110384894699,,210092.0,KRW
-251370,"YMT Co., Ltd.",KRX,Process Industries,Chemicals: Specialty,16110,18000,16110,16750,4.166666666666666,262336590271.0,889253.0,KRW
+251370,"YMT Co., Ltd.",KRX,Process Industries,Chemicals: Specialty,16110,18000,16110,16750,4.166666666666666,268035659180.00003,889253.0,KRW
 251590,Hanwha PLUS High Dividend Low Vol 50 ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,15500,15620,15470,15545,0.2903225806451613,,6762.0,KRW
 251600,Hanwha PLUS High Dividend Conservative Balanced ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,13735,13890,13715,13770,0.437636761487965,,563449.0,KRW
 251630,"V-ONE TECH Co., Ltd.",KRX,Electronic Technology,Electronic Equipment/Instruments,5450,5800,5450,5580,2.385321100917431,83181413984.0,31489.0,KRW
@@ -2565,7 +2565,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 290650,"L&C BIO Co., Ltd.",KRX,Health Technology,Medical Specialties,51100,51200,48700,49850,-1.8700787401574805,1250637519073.0,504724.0,KRW
 290660,"NEOFECT CO.,LTD",KRX,Health Technology,Medical Specialties,933,974,933,965,3.429796355841372,47096547615.0,94698.0,KRW
 290670,"DAEBO MAGNETIC CO.,LTD.",KRX,Producer Manufacturing,Industrial Machinery,14760,15150,14760,14990,1.2153950033760972,111883728404.0,6623.0,KRW
-290690,"SOLUX Co., Ltd.",KRX,Producer Manufacturing,Electrical Products,5050,5140,4995,5010,-0.199203187250996,244676397858.0,350663.0,KRW
+290690,"SOLUX Co., Ltd.",KRX,Producer Manufacturing,Electrical Products,5050,5140,4995,5010,-0.199203187250996,244745873260.0,350663.0,KRW
 290720,"FOODNAMOO., INC.",KRX,Consumer Non-Durables,Food: Meat/Fish/Dairy,2080,2080,2015,2020,-3.8095238095238098,61566039276.0,14739.0,KRW
 290740,"Actro Co., Ltd.",KRX,Distribution Services,Wholesale Distributors,5310,5420,5310,5350,0.0,50742360353.0,6715.0,KRW
 291130,KIM ACE MSCI MEXICO ETF(Synth),KRX,Miscellaneous,Investment Trusts/Mutual Funds,16160,16745,15750,16430,-1.7931858936043037,,5031.0,KRW
@@ -2610,7 +2610,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 298050,HS HYOSUNG ADVANCED MATERIALS,KRX,Process Industries,Textiles,182100,183600,181000,181900,0.9994447529150472,804690738726.0,10843.0,KRW
 298060,"SCM LIFESCIENCE CO., LTD",KRX,Health Technology,Biotechnology,1207,1207,1173,1188,-1.5741507870753937,47630263222.0,28912.0,KRW
 298340,Hanwha ARIRANG KTB 3Y Futures ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,57160,57160,57120,57120,-0.05249343832020997,,6.0,KRW
-298380,"ABL Bio, Inc.",KRX,Health Technology,Pharmaceuticals: Major,96300,96700,93500,95400,0.42105263157894735,5184633769989.0,502156.0,KRW
+298380,"ABL Bio, Inc.",KRX,Health Technology,Pharmaceuticals: Major,96300,96700,93500,95400,0.42105263157894735,5236890583038.0,502156.0,KRW
 298540,"Nature Holdings Co., Ltd.",KRX,Consumer Non-Durables,Apparel/Footwear,10150,10150,9950,9980,-0.2,148482561111.0,11100.0,KRW
 298690,"Air Busan Co., Ltd.",KRX,Transportation,Airlines,1918,1935,1915,1917,-0.05213764337851929,223604248138.0,154459.0,KRW
 298770,Samsung KODEX Korea Taiwan IT Premier ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,34105,34975,34105,34930,2.8563015312131923,,28553.0,KRW
@@ -2677,7 +2677,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 309930,OHEIM & Company Co.Ltd.,KRX,Retail Trade,Specialty Stores,2870,2975,2830,2960,2.2452504317789295,70890007153.0,44807.0,KRW
 309960,LB Investment Inc.,KRX,Finance,Investment Managers,5240,5330,5110,5240,0.0,120496123123.0,118197.0,KRW
 310080,KB RISE MSCI China ETF(H),KRX,Miscellaneous,Investment Trusts/Mutual Funds,11850,11850,11670,11845,0.38135593220338987,,15730.0,KRW
-310200,"AniPlus, Inc.",KRX,Consumer Services,Cable/Satellite TV,3895,3995,3850,3855,-1.2804097311139564,201229873867.0,412353.0,KRW
+310200,"AniPlus, Inc.",KRX,Consumer Services,Cable/Satellite TV,3895,3995,3850,3855,-1.2804097311139564,203695867424.0,412353.0,KRW
 310210,"Voronoi, Inc.",KRX,Health Technology,Pharmaceuticals: Major,166200,176700,160500,171100,3.8228155339805823,2964425686646.0,130746.0,KRW
 310870,"DYC Co., Ltd.",KRX,Finance,Finance/Rental/Leasing,1199,1239,1199,1213,1.1676396997497915,24804038071.0,144524.0,KRW
 310960,MIRAE ASSET TIGER 200 Total Return ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,28570,29060,28570,28760,2.8980322003577816,,46818.0,KRW
@@ -2705,7 +2705,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 317240,TS Trillion Co. Ltd.,KRX,Consumer Non-Durables,Household/Personal Care,206,222,205,213,3.3980582524271843,23757809067.0,2777955.0,KRW
 317330,Duksan Techopia Co. Ltd.,KRX,Electronic Technology,Electronic Equipment/Instruments,16720,17280,16720,16750,0.8428657435279951,338018448582.0,71812.0,KRW
 317400,Xi S&D Inc.,KRX,Commercial Services,Miscellaneous Commercial Services,3330,3335,3270,3300,0.6097560975609756,125009060059.0,32834.0,KRW
-317450,"Myung in Pharm Co., Ltd.",KRX,Health Technology,Pharmaceuticals: Other,128500,134500,115800,115800,-5.004101722723544,383253600000.0,3263297.0,KRW
+317450,"Myung in Pharm Co., Ltd.",KRX,Health Technology,Pharmaceuticals: Other,128500,134500,115800,115800,-5.004101722723544,1779740000000.0,3263297.0,KRW
 317530,"CARRIESOFT Co., Ltd.",KRX,Commercial Services,Miscellaneous Commercial Services,4555,4710,4460,4560,-0.6535947712418301,45602492380.0,4888.0,KRW
 317690,"QuantaMatrix, Inc.",KRX,Electronic Technology,Electronic Components,4205,4495,4185,4355,5.83232077764277,80559439955.0,283361.0,KRW
 317770,Xperix Inc.,KRX,Electronic Technology,Computer Peripherals,3650,3730,3650,3715,1.7808219178082192,121454409981.0,302214.0,KRW
@@ -2735,7 +2735,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 322400,NH-Amundi HANARO e-Commerce ETF,KRX,Miscellaneous,Investment Trusts/Mutual Funds,12050,12120,11970,12070,-0.24793388429752067,,4315.0,KRW
 322410,NH-Amundi HANARO K High Dividend ETF Units,KRX,Miscellaneous,Investment Trusts/Mutual Funds,17050,17175,16930,17105,0.9144542772861357,,25585.0,KRW
 322510,"JLK, Inc.",KRX,Technology Services,Packaged Software,5770,5900,5700,5890,2.7923211169284468,144378189926.0,48137.0,KRW
-322780,"COPUS KOREA Co., Ltd.",KRX,Consumer Services,Movies/Entertainment,1376,1700,1376,1599,17.31474688187821,52931609806.0,7998688.0,KRW
+322780,"COPUS KOREA Co., Ltd.",KRX,Consumer Services,Movies/Entertainment,1376,1700,1376,1599,17.31474688187821,53454537518.0,7998688.0,KRW
 322970,Moogene Medi Co. Ltd.,KRX,Commercial Services,Miscellaneous Commercial Services,2075,2075,2075,2075,0.0,20857852602.0,62.0,KRW
 323280,"TAESUNG CO., LTD.",KRX,Producer Manufacturing,Industrial Machinery,24550,25200,24200,24850,3.112033195020747,735067605400.0,181720.0,KRW
 323350,DAWON NEXVIEW CO. LTD.,KRX,Producer Manufacturing,Industrial Machinery,6330,6470,6330,6430,1.9017432646592711,50547969751.0,17114.0,KRW
@@ -2764,7 +2764,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 331380,FOCUS AI Co. Ltd.,KRX,Technology Services,Information Technology Services,2157,2190,2135,2160,-0.4608294930875576,51636056595.0,13774.0,KRW
 331520,"VALOFE Co.,Ltd.",KRX,Technology Services,Packaged Software,583,585,577,584,0.17152658662092624,29653924576.0,119025.0,KRW
 331660,"Korea Miracle People Co., Ltd.",KRX,Consumer Non-Durables,Household/Personal Care,6660,6660,6660,6660,-14.83375959079284,7326000159.0,20.0,KRW
-331740,"Autocrypt Co., Ltd.",KRX,Technology Services,Packaged Software,13450,13640,13130,13620,1.3392857142857142,129415534080.0,52250.0,KRW
+331740,"Autocrypt Co., Ltd.",KRX,Technology Services,Packaged Software,13450,13640,13130,13620,1.3392857142857142,129476914560.0,52250.0,KRW
 331920,"Celemics, Inc.",KRX,Electronic Technology,Electronic Equipment/Instruments,2920,3000,2920,2950,0.0,24084237576.0,5737.0,KRW
 332190,"OceansBio Co., Ltd.",KRX,Technology Services,Packaged Software,5000,5000,5000,5000,-1.768172888015717,,220.0,KRW
 332290,"NOUSBO CO., LTD.",KRX,Finance,Financial Conglomerates,1224,1243,1181,1226,0.16339869281045752,46306191467.0,428372.0,KRW
@@ -3228,7 +3228,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 439580,BLUEMTEC CO. LTD.,KRX,Distribution Services,Medical Distributors,5640,5840,5625,5630,1.0771992818671454,186654409027.0,589767.0,KRW
 439860,SAMSUNG KODEX ESG Korea Total Bond Market(A-) Active ETF Units,KRX,Miscellaneous,Investment Trusts/Mutual Funds,116410,116680,116405,116525,0.10308835531119796,,190.0,KRW
 439870,SAMSUNG KODEX 30-Years Treasury Bond Active ETF Units,KRX,Miscellaneous,Investment Trusts/Mutual Funds,119815,120010,119670,119885,0.058423402745899924,,6742.0,KRW
-440110,"FADU, Inc.",KRX,Electronic Technology,Semiconductors,22500,23350,22300,22750,6.308411214953271,1058053114318.9999,917991.0,KRW
+440110,"FADU, Inc.",KRX,Electronic Technology,Semiconductors,22500,23350,22300,22750,6.308411214953271,1058264955902.0,917991.0,KRW
 440290,"HB Investment, Inc.",KRX,Finance,Investment Managers,2180,2210,2170,2200,1.3824884792626728,58822211700.0,67020.0,KRW
 440320,Openknowl Co. Ltd.,KRX,Commercial Services,Miscellaneous Commercial Services,4355,4450,4335,4360,0.1148105625717566,42809650000.0,30010.0,KRW
 440340,MIRAE ASSET TIGER Global Multi Asset TIF Active ETF Units,KRX,Miscellaneous,Investment Trusts/Mutual Funds,11735,11735,11500,11610,0.2590673575129534,,2119.0,KRW
