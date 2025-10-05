@@ -45,7 +45,6 @@
     if (!isFinite(n)) return "";
     return n.toFixed(2);
   }
-
   function formatPct(x) {
     if (x === null || x === undefined || x === "") return "";
     const n = Number(x);
@@ -105,13 +104,13 @@
       $tableWrap.textContent = "Pick a region → country → exchange";
       return;
     }
-    // Build table: Symbol, Name, Sector, Open, High, Low, Close, Change%, Signal (AI button)
+
+    // Columns: Symbol, Name (with logo), Sector, Open, High, Low, Close, Change%, Signal (AI button)
     const table = a("table", { class: "table" });
     const thead = a("thead");
     const trh = a("tr");
-    ["Symbol","Name","Sector","Open","High","Low","Close","Change%","Signal"].forEach(h =>
-      trh.appendChild(a("th", {}, h))
-    );
+    ["Symbol","Name","Sector","Open","High","Low","Close","Change%","Signal"]
+      .forEach(h => trh.appendChild(a("th", {}, h)));
     thead.appendChild(trh);
 
     const tbody = a("tbody");
@@ -126,10 +125,22 @@
       const close = formatNum(row.close);
       const chg = formatPct(row.change_percent);
       const url = row.url || "#";
+      const logo = row.logo || ""; // build.py provides this
 
-      // Symbol & Name link to the prediction page
+      // Symbol
       tr.appendChild(a("td", {}, a("a", { href: url }, sym)));
-      tr.appendChild(a("td", {}, a("a", { href: url }, name)));
+
+      // Name with logo thumbnail (clickable)
+      const nameCell = a("td");
+      const link = a("a", { href: url, class: "name-with-logo" });
+      if (logo) {
+        const img = a("img", { src: logo, alt: "", class: "logo-ico", loading: "lazy" });
+        link.appendChild(img);
+      }
+      link.appendChild(document.createTextNode(name));
+      nameCell.appendChild(link);
+      tr.appendChild(nameCell);
+
       tr.appendChild(a("td", {}, sector));
       tr.appendChild(a("td", {}, open));
       tr.appendChild(a("td", {}, high));
@@ -137,26 +148,21 @@
       tr.appendChild(a("td", {}, close));
       tr.appendChild(a("td", {}, chg));
 
-      // AI Prediction button in Signal column
-      const btn = a("a", { href: url, class: "btn" }, "AI Prediction");
-      tr.appendChild(a("td", {}, btn));
+      // AI Prediction button
+      tr.appendChild(a("td", {}, a("a", { href: url, class: "btn" }, "AI Prediction")));
 
       tbody.appendChild(tr);
     });
 
     table.appendChild(thead);
     table.appendChild(tbody);
-    // wrap in scroll container if needed
-    const wrap = a("div", { class: "table-wrap" }, table);
-    $tableWrap.appendChild(wrap);
+    $tableWrap.appendChild(a("div", { class: "table-wrap" }, table));
   }
 
-  // boot
   (async function init() {
     try {
       SITE = await fetchJSON(INDEX_URL);
       renderRegions();
-      // optionally preselect the first region/country/exchange for convenience
       if (SITE.regions && SITE.regions.length) {
         sel.region = SITE.regions[0];
         renderCountries();
@@ -169,7 +175,7 @@
           }
         }
       }
-    } catch (e) {
+    } catch {
       $tableWrap.textContent = "Failed to load site index.";
     }
   })();
