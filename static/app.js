@@ -1,122 +1,176 @@
-/* Drilldown with logos + fallback, search & sort */
+// static/app.js
 (function () {
-  const $ = (sel) => document.querySelector(sel);
-  const regionsEl    = $("#regions");
-  const countriesEl  = $("#countries");
-  const exchangesEl  = $("#exchanges");
-  const tableMountEl = $("#stocks_table");
+  const BASE = (window.SPP_BASE || "").replace(/\/+$/, "");
+  const INDEX_URL = window.SPP_INDEX_URL || (BASE + "/static/index.json");
 
-  const BASE = (window.SPP_BASE || "").replace(/\/$/, "");
-  const INDEX_URL = window.SPP_INDEX_URL;
-  const PLACEHOLDER = `${BASE}/static/logo-placeholder.svg`;
+  const $regions = document.getElementById("regions");
+  const $countries = document.getElementById("countries");
+  const $exchanges = document.getElementById("exchanges");
+  const $tableWrap = document.getElementById("stocks_table");
 
-  const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html!=null) n.innerHTML = html; return n; };
-  const chip = (label, onClick, url) => { const a = el("a","chip",label); a.href=url||"javascript:void(0)"; if(onClick){a.addEventListener("click",e=>{e.preventDefault(); onClick(a);});} return a; };
-  const match = (row, q) => (row.symbol + " " + row.name + " " + (row.sector||"")).toLowerCase().includes(q);
+  let SITE = null;
+  let sel = { region: null, country: null, exchange: null };
 
-  let state = { regions:[], selectedRegion:null, selectedCountry:null, selectedExchange:null, rows:[], sort:{key:"symbol", dir:1}, filter:"" };
+  function a(tag, attrs = {}, children = []) {
+    const el = document.createElement(tag);
+    Object.entries(attrs).forEach(([k, v]) => {
+      if (k === "class") el.className = v;
+      else if (k === "html") el.innerHTML = v;
+      else el.setAttribute(k, v);
+    });
+    (Array.isArray(children) ? children : [children])
+      .filter(Boolean)
+      .forEach(ch => el.appendChild(typeof ch === "string" ? document.createTextNode(ch) : ch));
+    return el;
+  }
 
-  function setActive(container, a){ [...container.querySelectorAll(".chip")].forEach(x=>x.classList.remove("active")); if(a) a.classList.add("active"); }
+  async function fetchJSON(url) {
+    const res = await fetch(url, { cache: "no-cache" });
+    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+    return await res.json();
+  }
 
-  function renderRegions(){
-    regionsEl.innerHTML="";
-    state.regions.forEach(r=>{
-      regionsEl.appendChild(chip(r.name,(a)=>{ state.selectedRegion=r; state.selectedCountry=null; state.selectedExchange=null; setActive(regionsEl,a); renderCountries(); exchangesEl.innerHTML=""; tableMountEl.innerHTML="Pick an exchange."; }, r.url));
+  function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
+
+  function chip(text, active, onclick) {
+    const c = a("div", { class: "chip" }, text);
+    if (active) c.classList.add("active");
+    c.onclick = onclick;
+    return c;
+  }
+
+  function formatNum(x) {
+    if (x === null || x === undefined || x === "") return "";
+    const n = Number(x);
+    if (!isFinite(n)) return "";
+    return n.toFixed(2);
+  }
+
+  function formatPct(x) {
+    if (x === null || x === undefined || x === "") return "";
+    const n = Number(x);
+    if (!isFinite(n)) return "";
+    return n.toFixed(2) + "%";
+  }
+
+  function renderRegions() {
+    clear($regions);
+    SITE.regions.forEach(r => {
+      $regions.appendChild(chip(r.name, sel.region && sel.region.slug === r.slug, () => {
+        sel.region = r; sel.country = null; sel.exchange = null;
+        renderCountries(); renderExchanges(); renderTable(null);
+      }));
     });
   }
-  function renderCountries(){
-    countriesEl.innerHTML="";
-    const region=state.selectedRegion; if(!region) return;
-    (region.countries||[]).forEach(c=>{
-      countriesEl.appendChild(chip(c.name,(a)=>{ state.selectedCountry=c; state.selectedExchange=null; setActive(countriesEl,a); renderExchanges(); tableMountEl.innerHTML="Pick an exchange."; }, c.url));
-    });
-  }
-  function renderExchanges(){
-    exchangesEl.innerHTML="";
-    const c=state.selectedCountry; if(!c) return;
-    (c.exchanges||[]).forEach(ex=>{
-      exchangesEl.appendChild(chip(ex.name,(a)=>{ state.selectedExchange=ex; setActive(exchangesEl,a); loadExchangeJSON(state.selectedRegion.slug, c.slug, ex.slug); }, ex.url));
+
+  function renderCountries() {
+    clear($countries);
+    if (!sel.region) return;
+    sel.region.countries.forEach(c => {
+      $countries.appendChild(chip(c.name, sel.country && sel.country.slug === c.slug, () => {
+        sel.country = c; sel.exchange = null;
+        renderExchanges(); renderTable(null);
+      }));
     });
   }
 
-  function renderToolbar(){
-    const bar=el("div","toolbar");
-    const input=el("input","input"); input.type="search"; input.placeholder="Search symbols, names, sectors…"; input.value=state.filter;
-    input.addEventListener("input",()=>{ state.filter=input.value.trim().toLowerCase(); renderTable(); });
-    const sel=el("select","select");
-    ["symbol","name","sector","open","high","low","close","signal"].forEach(k=>{ const o=el("option",null,k.toUpperCase()); o.value=k; if(k===state.sort.key) o.selected=true; sel.appendChild(o); });
-    sel.addEventListener("change",()=>{ state.sort.key=sel.value; renderTable(); });
-    bar.appendChild(input); bar.appendChild(sel); return bar;
-  }
-
-  function renderTable(){
-    tableMountEl.innerHTML="";
-    tableMountEl.appendChild(renderToolbar());
-    let rows=state.rows;
-    if(state.filter) rows=rows.filter(r=>match(r,state.filter));
-    const {key,dir}=state.sort;
-    rows=rows.slice().sort((a,b)=>{ const va=a[key], vb=b[key]; if(va==null&&vb!=null) return -1*dir; if(vb==null&&va!=null) return 1*dir; if(typeof va==="number"&&typeof vb==="number") return (va-vb)*dir; return String(va).localeCompare(String(vb))*dir; });
-
-    const wrap=el("div","table-wrap"); const tbl=el("table","table");
-    const head=el("thead"); head.innerHTML=`<tr>
-      <th data-k="symbol">Symbol</th><th data-k="name">Name</th><th data-k="sector">Sector</th>
-      <th data-k="open">Open</th><th data-k="high">High</th><th data-k="low">Low</th><th data-k="close">Close</th><th data-k="signal">Signal</th>
-    </tr>`;
-    head.querySelectorAll("th").forEach(th=>{
-      th.addEventListener("click",()=>{ const k=th.getAttribute("data-k"); if(state.sort.key===k) state.sort.dir*=-1; else {state.sort.key=k; state.sort.dir=1;} renderTable(); });
+  function renderExchanges() {
+    clear($exchanges);
+    if (!sel.country) return;
+    sel.country.exchanges.forEach(e => {
+      $exchanges.appendChild(chip(e.name, sel.exchange && sel.exchange.slug === e.slug, async () => {
+        sel.exchange = e;
+        await loadAndRenderExchange(sel.region.slug, sel.country.slug, sel.exchange.slug);
+      }));
     });
-    tbl.appendChild(head);
-
-    const body=el("tbody");
-    rows.forEach(r=>{
-      const tr=el("tr");
-      const logo = r.logo || PLACEHOLDER;
-      tr.innerHTML =
-        `<td>
-           <a href="${r.url}">
-             <img src="${logo}" alt="${r.symbol}" style="height:20px;width:20px;object-fit:contain;margin-right:6px;vertical-align:middle;"
-                  onerror="this.onerror=null;this.src='${PLACEHOLDER}';">
-             ${r.symbol}
-           </a>
-         </td>
-         <td><a href="${r.url}">${r.name}</a></td>
-         <td>${r.sector||""}</td>
-         <td>${r.open ?? ""}</td>
-         <td>${r.high ?? ""}</td>
-         <td>${r.low ?? ""}</td>
-         <td>${r.close ?? ""}</td>
-         <td><span class="badge ${String(r.signal||'').toLowerCase()}">${r.signal||""}</span></td>`;
-      body.appendChild(tr);
-    });
-    tbl.appendChild(body); wrap.appendChild(tbl); tableMountEl.appendChild(wrap);
   }
 
-  function loadExchangeJSON(r,c,e){
-    const url = `${BASE}/static/exchanges/${r}/${c}/${e}.json`;
-    fetch(url).then(r=>r.json()).then(data=>{ state.rows=data.rows||[]; state.filter=""; state.sort={key:"symbol",dir:1}; renderTable(); })
-      .catch(()=>{ tableMountEl.innerHTML="Could not load stocks for this exchange."; });
-  }
-
-  // Boot
-  fetch(INDEX_URL).then(r=>r.json()).then(data=>{
-    state.regions=data.regions||[]; renderRegions();
-
-    // light geo default
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone||"";
-    const hints=[
-      {re:/^Asia\/Kolkata/, region:"Asia - Pacific", country:"India"},
-      {re:/^Australia\//, region:"Asia - Pacific", country:"Australia"},
-      {re:/^Asia\/(Tokyo|Seoul)/, region:"Asia - Pacific", country:"Japan"},
-      {re:/^Europe\//, region:"Europe", country:"United Kingdom"},
-      {re:/^America\/(New|Los|Chicago|Toronto)/, region:"North America", country:"USA"},
-    ];
-    const hit=hints.find(h=>h.re.test(tz));
-    if(hit){
-      const region=state.regions.find(r=>r.name===hit.region);
-      if(region){ state.selectedRegion=region; renderCountries();
-        const c=(region.countries||[]).find(x=>x.name.toLowerCase()===hit.country.toLowerCase());
-        if(c){ state.selectedCountry=c; renderExchanges(); }
-      }
+  async function loadAndRenderExchange(rslug, cslug, eslug) {
+    const url = `${BASE}/static/exchanges/${rslug}/${cslug}/${eslug}.json`;
+    try {
+      const data = await fetchJSON(url);
+      renderTable(data);
+    } catch (e) {
+      renderTable(null, `Failed to load ${url}`);
     }
-  }).catch(()=>{ regionsEl.innerHTML="Could not load regions."; });
+  }
+
+  function renderTable(data, errMsg) {
+    clear($tableWrap);
+    if (errMsg) {
+      $tableWrap.textContent = errMsg;
+      return;
+    }
+    if (!data) {
+      $tableWrap.textContent = "Pick a region → country → exchange";
+      return;
+    }
+    // Build table: Symbol, Name, Sector, Open, High, Low, Close, Change%, Signal (AI button)
+    const table = a("table", { class: "table" });
+    const thead = a("thead");
+    const trh = a("tr");
+    ["Symbol","Name","Sector","Open","High","Low","Close","Change%","Signal"].forEach(h =>
+      trh.appendChild(a("th", {}, h))
+    );
+    thead.appendChild(trh);
+
+    const tbody = a("tbody");
+    (data.rows || []).forEach(row => {
+      const tr = a("tr");
+      const sym = row.symbol || "";
+      const name = row.name || sym;
+      const sector = row.sector || "";
+      const open = formatNum(row.open);
+      const high = formatNum(row.high);
+      const low  = formatNum(row.low);
+      const close = formatNum(row.close);
+      const chg = formatPct(row.change_percent);
+      const url = row.url || "#";
+
+      // Symbol & Name link to the prediction page
+      tr.appendChild(a("td", {}, a("a", { href: url }, sym)));
+      tr.appendChild(a("td", {}, a("a", { href: url }, name)));
+      tr.appendChild(a("td", {}, sector));
+      tr.appendChild(a("td", {}, open));
+      tr.appendChild(a("td", {}, high));
+      tr.appendChild(a("td", {}, low));
+      tr.appendChild(a("td", {}, close));
+      tr.appendChild(a("td", {}, chg));
+
+      // AI Prediction button in Signal column
+      const btn = a("a", { href: url, class: "btn" }, "AI Prediction");
+      tr.appendChild(a("td", {}, btn));
+
+      tbody.appendChild(tr);
+    });
+
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    // wrap in scroll container if needed
+    const wrap = a("div", { class: "table-wrap" }, table);
+    $tableWrap.appendChild(wrap);
+  }
+
+  // boot
+  (async function init() {
+    try {
+      SITE = await fetchJSON(INDEX_URL);
+      renderRegions();
+      // optionally preselect the first region/country/exchange for convenience
+      if (SITE.regions && SITE.regions.length) {
+        sel.region = SITE.regions[0];
+        renderCountries();
+        if (sel.region.countries && sel.region.countries.length) {
+          sel.country = sel.region.countries[0];
+          renderExchanges();
+          if (sel.country.exchanges && sel.country.exchanges.length) {
+            sel.exchange = sel.country.exchanges[0];
+            await loadAndRenderExchange(sel.region.slug, sel.country.slug, sel.exchange.slug);
+          }
+        }
+      }
+    } catch (e) {
+      $tableWrap.textContent = "Failed to load site index.";
+    }
+  })();
 })();
