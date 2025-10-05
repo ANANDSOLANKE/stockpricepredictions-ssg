@@ -144,3 +144,11 @@ a:hover{color:var(--brand-2); text-decoration:underline}
   .row-title{width:100%}
   .table thead th, .table tbody td{padding:10px}
 }
+/* Name cell logo thumbnail */
+.name-with-logo { display: inline-flex; align-items: center; gap: 8px; }
+.logo-ico{
+  width: 20px; height: 20px; object-fit: contain;
+  background: #0e1729; border:1px solid var(--chip-border);
+  border-radius: 4px; padding: 2px;
+}
+
