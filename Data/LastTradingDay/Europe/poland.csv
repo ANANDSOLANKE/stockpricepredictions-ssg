@@ -1,6 +1,6 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
 06N,Magna Polonia S.A.,GPW,Miscellaneous,Investment Trusts/Mutual Funds,2.85,2.86,2.81,2.85,0.0,39164627.0,7250,PLN
-08N,Octava SA,GPW,Miscellaneous,Investment Trusts/Mutual Funds,0.735,0.735,0.735,0.735,0.0,31448333.0,505,PLN
+08N,Octava SA,GPW,Miscellaneous,Investment Trusts/Mutual Funds,0.735,0.735,0.735,0.735,0.0,31448333.0,0,PLN
 11B,11 Bit Studios SA,GPW,Technology Services,Packaged Software,194.0,198.6,193.2,195.9,0.979381443298972,468936586.0,8758,PLN
 1AT,ATAL S.A.,GPW,Consumer Durables,Homebuilding,57.8,58.2,56.7,58.2,1.217391304347831,2487481709.0,3181,PLN
 3RG,3R Games SA,GPW,Retail Trade,Internet Retail,0.884,0.884,0.87,0.88,0.9174311926605512,69095434.0,32030,PLN
@@ -45,7 +45,7 @@ AOL,Analizy Online S.A.,NEWCONNECT,Finance,Finance/Rental/Leasing,24.0,24.0,22.2
 APA,APANET SA Class D,NEWCONNECT,Producer Manufacturing,Electrical Products,1.15,1.15,1.05,1.05,-7.894736842105251,3705000.0,219,PLN
 APC,Apollo Capital S.A.,NEWCONNECT,Finance,Investment Managers,1.8,1.8,1.8,1.8,-10.89108910891089,,600,PLN
 APE,APS Energia SA,GPW,Producer Manufacturing,Electrical Products,3.25,3.25,3.15,3.2,0.31347962382445865,89911726.0,655,PLN
-APL,LC Spolka Akcyjna,GPW,Distribution Services,Wholesale Distributors,0.97,0.97,0.97,0.97,0.0,3183540.0,447,PLN
+APL,LC Spolka Akcyjna,GPW,Distribution Services,Wholesale Distributors,0.97,0.97,0.97,0.97,0.0,3183540.0,0,PLN
 APN,Aplisens S.A.,GPW,Electronic Technology,Electronic Equipment/Instruments,17.85,18.05,17.85,18.05,1.1204481792717045,198761784.0,450,PLN
 APR,Auto Partner SA,GPW,Distribution Services,Wholesale Distributors,18.88,19.12,18.6,18.68,-0.3201707577374532,2447818679.0,150973,PLN
 APS,Automatyka-Pomiary-Sterowanie SA,NEWCONNECT,Producer Manufacturing,Electrical Products,14.5,14.5,13.2,13.6,-3.546099290780142,74685429.0,925,PLN
@@ -62,8 +62,8 @@ ASA,APIS Spolka Akcyjna,NEWCONNECT,Consumer Durables,Homebuilding,0.024,0.024,0.
 ASB,ASBISc Enterprises Plc,GPW,Distribution Services,Electronics Distributors,27.98,28.04,27.46,27.48,-1.8571428571428554,1554000000.0,64143,PLN
 ASE,Asseco South Eastern Europe S.A.,GPW,Technology Services,Information Technology Services,70.5,72.0,70.5,70.5,0.42735042735042333,3642976387.0,1728,PLN
 ASM,ASM Group SA,GPW,Commercial Services,Advertising/Marketing Services,0.24,0.24,0.24,0.24,0.0,13684714.0,0,PLN
-ASML,ASML Holding NV,GPW,Electronic Technology,Semiconductors,3687.5,3687.5,3627.0,3627.0,-4.552631578947368,1386033787200.3958,5,PLN
-ASR,Astro S.A.,NEWCONNECT,Consumer Services,Movies/Entertainment,0.091,0.091,0.091,0.091,-2.1505376344086042,5776201.0,115,PLN
+ASML,ASML Holding NV,GPW,Electronic Technology,Semiconductors,3627.0,3627.0,3627.0,3627.0,0.0,1386033787200.3958,0,PLN
+ASR,Astro S.A.,NEWCONNECT,Consumer Services,Movies/Entertainment,0.091,0.091,0.091,0.091,0.0,5776201.0,0,PLN
 AST,ASTARTA HOLDING PLC,GPW,Process Industries,Agricultural Commodities/Milling,43.3,44.0,43.1,43.7,-1.0192525481313608,1073291060.9999999,2961,PLN
 ATA,ATC Cargo S.A.,NEWCONNECT,Transportation,Other Transportation,15.5,15.85,15.5,15.75,1.6129032258064515,102779510.0,224,PLN
 ATC,Arctic Paper S.A.,GPW,Process Industries,Pulp & Paper,8.4,8.43,8.34,8.39,-0.2378121284185443,582710226.0,23863,PLN
@@ -101,7 +101,7 @@ BLF,BeLeaf Spolka Akcyjna,NEWCONNECT,Consumer Services,Other Consumer Services,3
 BLO,Bloober Team spolka akcyjna,GPW,Technology Services,Packaged Software,25.95,26.25,25.5,26.0,2.362204724409455,490349762.0,19631,PLN
 BLT,Balticon SA,NEWCONNECT,Producer Manufacturing,Trucks/Construction/Farm Machinery,17.7,19.9,17.7,19.9,4.73684210526315,58995000.0,99,PLN
 BMC,Bumech S.A.,GPW,Producer Manufacturing,Trucks/Construction/Farm Machinery,37.95,39.2,37.0,38.3,2.818791946308717,558750000.0,335446,PLN
-BMW,Bayerische Motoren Werke AG,GPW,Consumer Durables,Motor Vehicles,362.4,362.4,339.5,342.9,-9.020960466967367,201590123005.23575,30,PLN
+BMW,Bayerische Motoren Werke AG,GPW,Consumer Durables,Motor Vehicles,342.9,342.9,342.9,342.9,0.0,201590123005.23575,0,PLN
 BMX,Biomaxima SA,GPW,Health Technology,Medical Specialties,12.75,12.95,12.7,12.95,0.3875968992247979,54091222.0,3842,PLN
 BNP,BNP Paribas Bank Polska Spolka Akcyjna,GPW,Finance,Regional Banks,104.5,107.0,103.5,103.5,-2.358490566037736,15675330658.0,2152,PLN
 BOEG,Boeing Company,GPW,Electronic Technology,Aerospace & Defense,826.2,826.2,810.0,810.0,-0.5158437730287454,624161856053.7788,4,PLN
@@ -109,7 +109,7 @@ BOS,Bank Ochrony Srodowiska S.A.,GPW,Finance,Regional Banks,11.3,11.44,11.2,11.3
 BOW,Bowim S.A.,GPW,Distribution Services,Wholesale Distributors,5.58,5.74,5.54,5.6,0.35842293906809275,95216656.0,7133,PLN
 BPC,Black Pearl SA,NEWCONNECT,Finance,Investment Banks/Brokers,0.14,0.14,0.131,0.131,-5.755395683453242,34101982.0,5567,PLN
 BPHFIZBI2,BPH Fundusz Inwestycyjny Zamkniety Bezpieczna Inwestycja 2 Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,165.15,165.15,165.15,165.15,0.0,,0,PLN
-BPHFIZBI4,Rockbridge Fundusz Inwestycyjny Zamkniety Bezpieczna Inwestycja 4,GPW,Miscellaneous,Investment Trusts/Mutual Funds,141.99,141.99,141.99,141.99,2.7795874049945732,,47,PLN
+BPHFIZBI4,Rockbridge Fundusz Inwestycyjny Zamkniety Bezpieczna Inwestycja 4,GPW,Miscellaneous,Investment Trusts/Mutual Funds,141.99,141.99,141.99,141.99,0.0,,0,PLN
 BPHFIZBI5,Rockbridge Fundusz Inwestycyjny Zamkniety Bezpieczna Inwestycja 5,GPW,,,138.15,138.15,138.15,138.15,0.0,,0,PLN
 BPHFIZMLI,BPH Fundusz Inwestycyjny Zamkniety Multi Inwestycja Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,116.8,116.8,116.8,116.8,0.0,,20,PLN
 BPN,Black Point SA,NEWCONNECT,Electronic Technology,Computer Peripherals,0.366,0.366,0.366,0.366,-0.5434782608695657,4416000.0,12,PLN
@@ -122,7 +122,7 @@ BRS,Boryszew S.A.,GPW,Non-Energy Minerals,Other Metals/Minerals,6.4,6.48,6.3,6.4
 BSA,BRAS S.A.,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,0.179,0.179,0.17,0.17,0.0,,17385,PLN
 BSH,Bridge Solutions Hub S.A.,NEWCONNECT,Technology Services,Information Technology Services,19.5,19.9,19.3,19.9,0.0,,951,PLN
 BSN,Brainscan SA,NEWCONNECT,Technology Services,Information Technology Services,22.8,22.8,22.8,22.8,-0.8695652173913012,27581600.0,490,PLN
-BST,BEST S.A.,GPW,Commercial Services,Miscellaneous Commercial Services,28.2,28.2,27.2,27.6,-1.4285714285714235,786063159.0,1004,PLN
+BST,BEST S.A.,GPW,Commercial Services,Miscellaneous Commercial Services,27.6,27.6,27.6,27.6,0.0,786063159.0,0,PLN
 BTC,BTC Studios SA,NEWCONNECT,Technology Services,Data Processing Services,0.374,0.374,0.374,0.374,0.0,,0,PLN
 BTF,Vakomtek SA,NEWCONNECT,Electronic Technology,Telecommunications Equipment,7.75,7.75,7.05,7.05,-11.875000000000002,128000000.0,3111,PLN
 BTK,BizTech Konsulting SA,NEWCONNECT,Technology Services,Information Technology Services,0.185,0.197,0.185,0.197,2.072538860103629,4889333.0,5281,PLN
@@ -171,9 +171,9 @@ CRJ,Creepy Jar S.A.,GPW,Technology Services,Packaged Software,425.0,430.0,425.0,
 CRM,PZ Cormay S.A.,GPW,Health Technology,Medical Specialties,0.428,0.438,0.424,0.436,1.8691588785046744,36039744.0,17734,PLN
 CRP,Cereal Planet PLC,NEWCONNECT,Consumer Non-Durables,Food: Specialty/Candy,11.0,11.0,11.0,11.0,0.0,19580000.0,0,PLN
 CSR,Caspar Asset Management SA,GPW,Finance,Investment Managers,4.08,4.08,3.8,3.92,0.0,38658530.4,7009,PLN
-CTE,CTE Group SA,NEWCONNECT,Commercial Services,Personnel Services,0.0348,0.0386,0.0348,0.0386,12.209302325581401,9446386.0,21523,PLN
+CTE,CTE Group SA,NEWCONNECT,Commercial Services,Personnel Services,0.0386,0.0386,0.0386,0.0386,0.0,9446386.0,0,PLN
 CTF,Centurion Finance ASI SA,NEWCONNECT,Technology Services,Packaged Software,2.06,2.06,2.04,2.04,2.0000000000000018,174158600.0,171,PLN
-CTS,City Service SE,GPW,Commercial Services,Miscellaneous Commercial Services,5.65,5.65,5.6,5.6,0.9009009009008978,177016000.0,777,PLN
+CTS,City Service SE,GPW,Commercial Services,Miscellaneous Commercial Services,5.6,5.6,5.6,5.6,0.0,177016000.0,0,PLN
 CTX,Captor Therapeutics SA,GPW,Health Technology,Pharmaceuticals: Major,38.8,39.2,38.1,38.2,-1.2919896640826873,213961040.0,3930,PLN
 CWA,Consoleway SA,NEWCONNECT,Technology Services,Packaged Software,8.2,9.5,8.0,8.78,4.028436018957344,,14668,PLN
 CZT,Czerwona Torebka SA,GPW,Finance,Real Estate Development,0.47,0.47,0.47,0.47,0.0,29557184.0,0,PLN
@@ -198,7 +198,7 @@ DMG,Dr. Miele Cosmed Group S.A.,GPW,Consumer Non-Durables,Household/Personal Car
 DNP,Dino Polska SA,GPW,Retail Trade,Food Retail,43.7,43.79,43.0,43.64,-0.13729977116705325,42843481815.0,1614146,PLN
 DNS,DANKS Europejskie Centrum Doradztwa Podatkowego S.A.,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,0.695,0.695,0.695,0.695,0.0,,16,PLN
 DOM,Dom Development S.A.,GPW,Finance,Real Estate Development,239.5,244.5,236.0,236.0,-0.8403361344537815,6140024403.0,3890,PLN
-DPG,Dark Point Games SA,NEWCONNECT,Technology Services,Packaged Software,19.3,19.3,19.3,19.3,0.0,,29,PLN
+DPG,Dark Point Games SA,NEWCONNECT,Technology Services,Packaged Software,19.3,19.3,19.3,19.3,0.0,,0,PLN
 DRF,Dr. Finance SA,NEWCONNECT,Finance,Finance/Rental/Leasing,3.86,3.88,3.32,3.5,-3.314917127071826,,40548,PLN
 DRG,Drageus Games S.A.,NEWCONNECT,Technology Services,Packaged Software,1.625,1.695,1.585,1.69,3.680981595092028,,2168,PLN
 DTR,Digitree Group S.A.,GPW,Commercial Services,Advertising/Marketing Services,12.0,12.0,12.0,12.0,-3.2258064516129057,30823609.0,640,PLN
@@ -239,7 +239,7 @@ END,Eneida Games S.A.,NEWCONNECT,Technology Services,Packaged Software,8.85,8.85
 ENE,Centrum Medyczne ENEL-MED S.A.,GPW,Finance,Life/Health Insurance,18.0,19.0,18.0,18.5,2.7777777777777777,509045025.0,97,PLN
 ENG,Energa SA,GPW,Utilities,Electric Utilities,14.12,14.48,14.1,14.48,2.4045261669024036,5854909483.0,20915,PLN
 ENI,Energoinstal SA,GPW,Producer Manufacturing,Industrial Machinery,3.16,3.16,3.03,3.12,2.2950819672131244,54899999.0,37754,PLN
-ENP,Energoaparatura SA,GPW,Industrial Services,Engineering & Construction,2.92,2.92,2.92,2.92,0.6896551724137937,57456034.0,902,PLN
+ENP,Energoaparatura SA,GPW,Industrial Services,Engineering & Construction,2.92,2.92,2.92,2.92,0.0,57456034.0,0,PLN
 ENT,Enter Air SA,GPW,Transportation,Airlines,56.4,57.5,56.0,56.9,0.3527336860670119,994730682.0,3325,PLN
 EON,eo Networks SA,NEWCONNECT,Technology Services,Packaged Software,27.8,30.2,26.4,26.4,-5.0359712230215905,51102349.0,93,PLN
 EPR,EKOPARK S.A.,NEWCONNECT,Industrial Services,Engineering & Construction,7.05,7.05,7.05,7.05,0.0,,0,PLN
@@ -267,10 +267,10 @@ ETFDAX,Multi Units Luxembourg SICAV - Amundi DAX II Acc Capitalisation,GPW,Misce
 ETFNATO,Future of Defence UCITS ETF Accum USD,GPW,Miscellaneous,Investment Trusts/Mutual Funds,74.0,74.85,73.98,74.3,0.40540540540540154,,11128,PLN
 ETFSP500,Amundi Core S&P 500 Swap UCITS ETF EUR Dist,GPW,Miscellaneous,Investment Trusts/Mutual Funds,256.0,257.95,255.5,255.5,-0.17581558898221866,,4623,PLN
 ETL,Eurotel S.A.,GPW,Distribution Services,Electronics Distributors,31.5,32.3,30.7,31.5,0.0,118070025.0,5159,PLN
-ETX,Euro-Tax.pl S.A.,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,2.0,2.0,1.94,1.94,-3.0000000000000027,9700000.0,2668,PLN
+ETX,Euro-Tax.pl S.A.,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,1.94,1.94,1.94,1.94,0.0,9700000.0,0,PLN
 EUC,Europejskie Centrum Odszkodowan S.A.,GPW,Finance,Insurance Brokers/Services,1.945,2.01,1.91,1.91,-1.0362694300518145,10808000.0,123424,PLN
 EUR,Eurocash S.A.,GPW,Distribution Services,Food Distributors,8.1,8.245,8.06,8.085,0.06188118811882155,1124439327.0,233252,PLN
-EXA,Examobile SA,NEWCONNECT,Technology Services,Packaged Software,3.48,3.5,3.48,3.5,0.5747126436781614,,20,PLN
+EXA,Examobile SA,NEWCONNECT,Technology Services,Packaged Software,3.5,3.5,3.5,3.5,0.0,,0,PLN
 EXC,EXCELLENCE S.A,NEWCONNECT,Consumer Non-Durables,Food: Specialty/Candy,0.2605,0.261,0.254,0.257,-1.3435700575815752,41088666.0,279362,PLN
 EXM,e-Xim IT Spolka Akcyjna,NEWCONNECT,Technology Services,Information Technology Services,145.0,145.0,145.0,145.0,0.0,,0,PLN
 F51,Farm 51 Group SA,NEWCONNECT,Consumer Durables,Recreational Products,7.26,7.3,7.08,7.26,1.6806722689075646,49433633.0,9348,PLN
@@ -290,7 +290,7 @@ FOR,Forever Entertainment SA,NEWCONNECT,Technology Services,Packaged Software,2.
 FOX,Space Fox Games SA Class A,NEWCONNECT,Technology Services,Packaged Software,4.78,4.8,4.5,4.8,0.0,8083200.0,343,PLN
 FPO,Forposta SA,NEWCONNECT,Transportation,Air Freight/Couriers,1.89,1.89,1.89,1.89,-0.5263157894736847,,1570,PLN
 FRB,Forbuild SA Class C,NEWCONNECT,Industrial Services,Engineering & Construction,4.5,4.5,4.5,4.5,0.0,54000000.0,291,PLN
-FRM,FREEMIND S.A.,NEWCONNECT,Technology Services,Packaged Software,8.08,8.08,7.7,7.7,-4.702970297029702,,109,PLN
+FRM,FREEMIND S.A.,NEWCONNECT,Technology Services,Packaged Software,7.7,7.7,7.7,7.7,0.0,,0,PLN
 FRO,FERRO S.A.,GPW,Producer Manufacturing,Building Products,31.4,31.4,31.1,31.3,-0.31847133757961105,667019413.0,12139,PLN
 FRW,Frozen Way S.A.,NEWCONNECT,Technology Services,Packaged Software,40.0,40.1,40.0,40.0,0.0,,283,PLN
 FSG,Fabryki Sprzetu i Narzedzi Gorniczych FASING SA,GPW,Consumer Durables,Tools & Hardware,12.6,12.9,12.6,12.9,1.574803149606308,39462062.0,1763,PLN
@@ -309,7 +309,7 @@ GHY,Global Hydrogen Spolka Akcyjna,NEWCONNECT,Consumer Non-Durables,Beverages: A
 GIF,Gaming Factory SA,GPW,Technology Services,Packaged Software,7.9,7.9,7.2,7.48,-5.316455696202531,48013830.0,51924,PLN
 GIG,GI GROUP POLAND S.A.,GPW,Commercial Services,Personnel Services,2.05,2.05,2.05,2.05,0.0,388272043.0,0,PLN
 GKI,Grupa Kapitalowa IMMOBILE S.A.,GPW,Industrial Services,Engineering & Construction,3.27,3.27,3.16,3.25,-0.3067484662576622,244333408.0,8572,PLN
-GKS,GKS GieKSa Katowice SA,NEWCONNECT,Consumer Services,Movies/Entertainment,0.12,0.12,0.12,0.12,-1.6393442622950833,,500,PLN
+GKS,GKS GieKSa Katowice SA,NEWCONNECT,Consumer Services,Movies/Entertainment,0.12,0.12,0.12,0.12,0.0,,0,PLN
 GME,Gremi Media SA,NEWCONNECT,Consumer Services,Publishing: Newspapers,59.5,59.5,53.0,53.0,-10.92436974789916,106510473.0,162,PLN
 GMT,Genomtec SA,GPW,Health Technology,Medical Specialties,6.66,6.7,6.41,6.59,-2.9455081001472783,102288860.0,9365,PLN
 GMV,Gamivo SA,NEWCONNECT,Retail Trade,Internet Retail,14.5,15.05,14.5,14.55,-2.3489932885906017,26051935.0,380,PLN
@@ -356,7 +356,7 @@ HUB,Hub.Tech SA,NEWCONNECT,Process Industries,Chemicals: Specialty,0.274,0.279,0
 HUG,"Huuuge, Inc.",GPW,Technology Services,Packaged Software,23.0,23.2,23.0,23.15,-0.4301075268817265,1340388256.0,12692,PLN
 IBC,IBC Polska F&P SA,NEWCONNECT,Producer Manufacturing,Building Products,3.2,3.2,3.04,3.17,-0.9375000000000078,,535,PLN
 IBS,WISE FINANCE Spolka Akcyjna,GPW,Finance,Real Estate Development,65.4,65.4,63.0,64.8,-0.9174311926605634,25295018.0,17,PLN
-ICD,Intercapital Property Development REIT,NEWCONNECT,Finance,Real Estate Investment Trusts,1.23,1.23,1.23,1.23,0.0,41703544.16118694,10,PLN
+ICD,Intercapital Property Development REIT,NEWCONNECT,Finance,Real Estate Investment Trusts,1.23,1.23,1.23,1.23,0.0,41703544.16118694,0,PLN
 ICE,MediNice SA,GPW,Health Technology,Medical Specialties,12.2,12.58,11.9,11.94,-1.322314049586778,93117340.0,33205,PLN
 ICG,ICE CODE GAMES SA,NEWCONNECT,Technology Services,Packaged Software,0.406,0.406,0.406,0.406,0.0,52338067.0,6028,PLN
 IDG,IndygoTech Minerals SA,GPW,Finance,Financial Conglomerates,0.25,0.25,0.25,0.25,0.0,,0,PLN
@@ -387,14 +387,14 @@ INVFIZ,INVESTOR FUNDUSZ INWESTYCYJNY ZAMKNIETY Units,GPW,Miscellaneous,Investmen
 INVGLDFIZ,Investor Gold Fundusz Inwestycyjny Zamkniety Units,GPW,,,3099.0,3100.0,3099.0,3100.0,2.31023102310231,,5,PLN
 IPE,IPOPEMA Securities S.A.,GPW,Finance,Investment Managers,3.03,3.14,3.03,3.14,4.666666666666671,89813507.0,94116,PLN
 IPO,INTERSPORT Polska S.A.,GPW,Retail Trade,Specialty Stores,0.536,0.556,0.53,0.538,-3.928571428571432,68118024.0,168354,PLN
-IPOBENE3A,IPOPEMA BENEFIT 3 Fundusz Inwestycyjny ZamknietyAktywow Niepublicznych Series A,GPW,,,161.0,161.0,161.0,161.0,1.89873417721519,,140,PLN
+IPOBENE3A,IPOPEMA BENEFIT 3 Fundusz Inwestycyjny ZamknietyAktywow Niepublicznych Series A,GPW,,,161.0,161.0,161.0,161.0,0.0,,0,PLN
 IPOEKO,Trigon Polskie Perly Fundusz Inwestycyjny Zamkniety Series 001 Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,29.15,29.15,29.15,29.15,0.0,,0,PLN
 IPW,Image Power S.A.,NEWCONNECT,Technology Services,Information Technology Services,4.6,4.6,4.6,4.6,0.0,7144872.0,2,PLN
 IRL,INTER RAO Lietuva AB,GPW,Utilities,Electric Utilities,9.8,9.8,9.8,9.8,0.0,230799999.0,0,PLN
 ISD,Inside Park SA,NEWCONNECT,Finance,Real Estate Development,0.75,0.75,0.72,0.72,-1.3698630136986314,,1513,PLN
 ITB,Interbud-Lublin S.A.,GPW,Consumer Durables,Homebuilding,2.22,2.22,2.08,2.08,-2.803738317757012,24130641.0,2594,PLN
 ITX,"Industria de Diseno Textil, S.A.",GPW,Retail Trade,Apparel/Footwear Retail,207.0,207.0,207.0,207.0,0.0,637328334357.5999,0,PLN
-IVE,Investeko SA,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,2.4,2.4,2.3,2.4,-2.4390243902439046,,153,PLN
+IVE,Investeko SA,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,2.4,2.4,2.4,2.4,0.0,,0,PLN
 IVO,Incuvo S.A.,NEWCONNECT,Technology Services,Packaged Software,0.652,0.688,0.652,0.688,-0.2898550724637684,9879490.0,365,PLN
 IWS,Iron Wolf Studio S.A.,NEWCONNECT,Technology Services,Packaged Software,2.22,2.3,2.22,2.3,-5.737704918032792,,288,PLN
 IZB,IZOBLOK spolka Akcyjna,GPW,Process Industries,Industrial Specialties,26.2,26.2,25.6,25.6,-3.7593984962406015,33702199.0,455,PLN
@@ -402,11 +402,11 @@ IZO,IZOLACJA-JAROCIN SPOLKA AKCYJNA,GPW,Process Industries,Pulp & Paper,3.75,3.7
 IZS,Izostal S.A.,GPW,Non-Energy Minerals,Steel,3.59,3.65,3.49,3.5,-2.2346368715083815,117223516.0,85903,PLN
 JJB,Jujubee S.A.,NEWCONNECT,Technology Services,Packaged Software,2.47,2.59,2.11,2.22,7.246376811594221,14683647.0,274681,PLN
 JMT,"Jeronimo Martins, SGPS S.A.",GPW,Retail Trade,Food Retail,85.9,85.9,85.9,85.9,0.0,55757913308.46027,0,PLN
-JPM,JPMorgan Chase & Co.,GPW,Finance,Major Banks,1125.0,1125.0,1125.0,1125.0,0.5541651769753347,3062635463728.615,4,PLN
+JPM,JPMorgan Chase & Co.,GPW,Finance,Major Banks,1125.0,1125.0,1125.0,1125.0,0.0,3062635463728.615,0,PLN
 JRC,JRC Group Spolka Akcyjna,NEWCONNECT,Consumer Durables,Electronics/Appliances,0.14,0.14,0.14,0.14,0.0,,100,PLN
 JRH,JR Holding ASI SA,GPW,Finance,Real Estate Development,8.0,8.12,7.5,7.5,-5.06329113924051,358498848.0,97787,PLN
 JSW,Jastrzebska Spolka Weglowa S.A.,GPW,Energy Minerals,Coal,25.2,27.81,25.2,27.0,7.569721115537842,2947031160.0,2908729,PLN
-JWW,JWW Invest S.A.,GPW,Industrial Services,Engineering & Construction,3.05,3.1,3.05,3.1,1.6393442622950907,34099999.0,5600,PLN
+JWW,JWW Invest S.A.,GPW,Industrial Services,Engineering & Construction,3.1,3.1,3.1,3.1,0.0,34099999.0,0,PLN
 K2P,Kool2Play SA,NEWCONNECT,Technology Services,Packaged Software,1.0,1.0,1.0,1.0,0.0,7674981.0,25,PLN
 KBJ,KBJ SA,NEWCONNECT,Technology Services,Information Technology Services,22.9,22.9,22.0,22.0,-4.3478260869565215,,695,PLN
 KBT,Klabater S.A.,NEWCONNECT,Technology Services,Packaged Software,1.53,1.61,1.39,1.42,-5.3333333333333375,,288346,PLN
@@ -421,7 +421,7 @@ KLE,GRUPA KLEPSYDRA Spolka Akcyjna,NEWCONNECT,Finance,Financial Conglomerates,6.
 KLK,Kolejkowo SA,NEWCONNECT,Consumer Services,Other Consumer Services,77.2,77.6,75.0,77.6,0.5181347150258957,,326,PLN
 KLN,Klon SA,NEWCONNECT,Non-Energy Minerals,Forest Products,1.42,1.42,1.42,1.42,0.0,,15,PLN
 KME,Kancelaria Medius SA,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,0.302,0.346,0.302,0.346,16.891891891891888,13669373.0,1674,PLN
-KMP,Kompap S.A.,GPW,Consumer Services,Publishing: Books/Magazines,24.0,24.0,23.0,23.0,-4.166666666666666,103355002.0,361,PLN
+KMP,Kompap S.A.,GPW,Consumer Services,Publishing: Books/Magazines,23.0,23.0,23.0,23.0,0.0,103355002.0,0,PLN
 KOM,Komputronik S.A.,GPW,Retail Trade,Electronics/Appliance Stores,7.4,7.9,6.94,6.98,0.5763688760806921,67970180.0,414805,PLN
 KOR,Korbank S.A.,NEWCONNECT,Communications,Specialty Telecommunications,8.75,8.75,8.75,8.75,-2.7777777777777777,,21,PLN
 KPC,Kupiec SA,NEWCONNECT,Transportation,Other Transportation,0.875,0.875,0.875,0.875,0.0,,0,PLN
@@ -445,13 +445,13 @@ LET,Letus Capital S.A.,NEWCONNECT,Finance,Investment Banks/Brokers,1.09,1.09,1.0
 LGT,Logintrade SA Class C,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,3.1,3.2,3.1,3.2,3.2258064516129057,,760,PLN
 LHD,Lichthund Spolka Akcyjna,NEWCONNECT,Technology Services,Packaged Software,44.0,44.0,44.0,44.0,4.761904761904762,,46,PLN
 LKD,Lokum Deweloper SA,GPW,Consumer Durables,Homebuilding,24.9,24.9,24.3,24.8,-0.4016064257028027,448199993.0,278,PLN
-LMASFIZ,Legg Mason Akcji Skoncentrowany Fundusz Inwestycyjny Zamkniety Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,1525.0,1525.0,1525.0,1525.0,8.928571428571429,,4,PLN
+LMASFIZ,Legg Mason Akcji Skoncentrowany Fundusz Inwestycyjny Zamkniety Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,1525.0,1525.0,1525.0,1525.0,0.0,,0,PLN
 LMG,Live Motion Games SA,NEWCONNECT,Technology Services,Packaged Software,1.0,1.0,1.0,1.0,-5.660377358490571,,830,PLN
 LPP,LPP S.A.,GPW,Retail Trade,Apparel/Footwear Retail,17430.0,17700.0,17380.0,17445.0,-1.3849632560768796,32830694730.000004,2616,PLN
 LRQ,LARQ S.A.,GPW,Commercial Services,Advertising/Marketing Services,2.33,2.33,2.27,2.27,0.0,30605777.0,3352,PLN
 LSI,LSI Software S.A.,GPW,Technology Services,Packaged Software,27.2,27.6,27.0,27.2,-1.4492753623188481,88603649.0,2184,PLN
 LTM,Longterm Games SA,NEWCONNECT,Technology Services,Packaged Software,10.4,10.4,9.8,10.4,0.9708737864077635,,1372,PLN
-LTX,Lentex SA,GPW,Process Industries,Textiles,7.42,7.56,7.42,7.5,-1.315789473684206,300000000.0,18830,PLN
+LTX,Lentex SA,GPW,Process Industries,Textiles,7.5,7.5,7.5,7.5,0.0,300000000.0,0,PLN
 LUD,LUDUS S.A.,NEWCONNECT,Finance,Investment Banks/Brokers,0.284,0.284,0.284,0.284,0.0,23686111.2,0,PLN
 LUG,LUG S.A.,NEWCONNECT,Producer Manufacturing,Electrical Products,3.3,3.46,3.3,3.46,0.0,24907052.0,840,PLN
 LUK,Lukardi SA,NEWCONNECT,Technology Services,Information Technology Services,0.442,0.442,0.442,0.442,0.0,,0,PLN
@@ -479,14 +479,14 @@ MDG,Medicalgorithmics SA,GPW,Health Technology,Medical Specialties,36.4,36.8,35.
 MDI,MDI Energia SA,GPW,Industrial Services,Engineering & Construction,0.89,0.892,0.84,0.892,0.2247191011235957,37476600.0,16617,PLN
 MDP,MEDCAMP S.A.,NEWCONNECT,Finance,Real Estate Development,0.835,0.86,0.81,0.86,0.0,22489000.0,7338,PLN
 MDT,MedTech Solutions S.A.,NEWCONNECT,Health Technology,Pharmaceuticals: Major,0.256,0.27,0.256,0.27,-0.7352941176470594,20536001.0,1005,PLN
-MEG,MEGARON S.A.,GPW,Non-Energy Minerals,Construction Materials,4.9,4.9,4.9,4.9,-8.411214953271015,13230000.0,393,PLN
+MEG,MEGARON S.A.,GPW,Non-Energy Minerals,Construction Materials,4.9,4.9,4.9,4.9,0.0,13230000.0,0,PLN
 MER,Mera S.A.,NEWCONNECT,Non-Energy Minerals,Forest Products,1.27,1.27,1.27,1.27,0.0,12817474.0,0,PLN
 META,Meta Platforms Inc Class A,GPW,Technology Services,Internet Software/Services,2637.5,2637.5,2637.5,2637.5,0.0,6605807079012.346,0,PLN
 MEX,Mex Polska SA,GPW,Consumer Services,Restaurants,3.5,3.63,3.5,3.51,0.28571428571427965,26829027.0,19,PLN
 MFD,M FOOD S.A.,NEWCONNECT,Finance,Real Estate Development,0.7,0.7,0.685,0.7,0.0,6797826.0,6625,PLN
 MFO,MFO SA,GPW,Non-Energy Minerals,Steel,37.2,38.4,37.1,37.6,1.0752688172042972,245798635.0,1343,PLN
 MGRNFIZ,MOUNT GLOBALNEGO RYNKU NIERUCHOMOSCI FUNDUSZ INWESTYCYJNY ZAMKNIETY,GPW,,,925.0,925.0,925.0,925.0,0.0,,0,PLN
-MGS,Madnetic Games SA,NEWCONNECT,Technology Services,Packaged Software,5.26,5.26,5.2,5.2,-1.886792452830182,,1127,PLN
+MGS,Madnetic Games SA,NEWCONNECT,Technology Services,Packaged Software,5.2,5.2,5.2,5.2,0.0,,0,PLN
 MGT,Mangata Holding SA,GPW,Producer Manufacturing,Auto Parts: OEM,57.4,59.2,57.4,59.2,1.0238907849829375,391263642.0,190,PLN
 MIG,MILITARY GROUP S.A.,NEWCONNECT,Consumer Services,Other Consumer Services,0.508,0.52,0.492,0.506,-1.9379844961240327,165635991.0,178834,PLN
 MIL,Bank Millennium SA,GPW,Finance,Regional Banks,15.03,15.2,14.88,15.1,1.0033444816053536,18136094422.0,601633,PLN
@@ -498,7 +498,7 @@ MLM,Milisystem S.A.,NEWCONNECT,Technology Services,Packaged Software,0.477,0.486
 MLP,MILKPOL S.A.,NEWCONNECT,Process Industries,Agricultural Commodities/Milling,0.82,0.82,0.82,0.82,0.0,10419870.0,0,PLN
 MLS,ML System SA,GPW,Electronic Technology,Semiconductors,15.1,15.4,14.64,14.72,-3.4120734908136456,112487820.0,13938,PLN
 MLT,Moonlit S.A.,NEWCONNECT,Technology Services,Packaged Software,0.36,0.36,0.36,0.36,2.85714285714286,,1561,PLN
-MMC,MM Conferences SA,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,10.4,10.4,10.4,10.4,-0.952380952380949,,76,PLN
+MMC,MM Conferences SA,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,10.4,10.4,10.4,10.4,0.0,,0,PLN
 MMS,Madmind Studio SA,NEWCONNECT,Technology Services,Packaged Software,1.09,1.125,1.09,1.125,4.16666666666666,,6100,PLN
 MNC,Mennica Polska S.A.,GPW,Producer Manufacturing,Miscellaneous Manufacturing,32.4,32.4,31.9,32.3,-0.3086419753086464,1653575725.0,9284,PLN
 MND,MINERAL MIDRANGE S.A.,NEWCONNECT,Technology Services,Information Technology Services,1.06,1.06,1.06,1.06,0.0,4673231.0,96,PLN
@@ -517,7 +517,7 @@ MRD,MEDARD Spolka Akcyjna,NEWCONNECT,Commercial Services,Miscellaneous Commercia
 MRG,MERLIN GROUP Spolka Akcyjna,NEWCONNECT,Commercial Services,Advertising/Marketing Services,0.17,0.17,0.17,0.17,0.0,69940090.0,0,PLN
 MRH,Mr Hamburger SA,NEWCONNECT,Consumer Services,Restaurants,0.398,0.398,0.398,0.398,0.0,4992000.0,0,PLN
 MRK,Marka SA,NEWCONNECT,Finance,Finance/Rental/Leasing,0.32,0.32,0.32,0.32,-3.030303030303033,,1100,PLN
-MSFT,Microsoft Corporation,GPW,Technology Services,Packaged Software,1932.0,1932.0,1932.0,1932.0,-0.4944375772558668,14292036700373.668,1,PLN
+MSFT,Microsoft Corporation,GPW,Technology Services,Packaged Software,1932.0,1932.0,1932.0,1932.0,0.0,14292036700373.668,0,PLN
 MSM,Massmedica S.A.,NEWCONNECT,Distribution Services,Medical Distributors,3.88,4.38,3.85,4.1,5.670103092783499,,5699,PLN
 MSOKFIZ,Michael / Strom Obligacji Korporacyjnych FIZ Units Series W,GPW,,,1555.0,1555.0,1555.0,1555.0,0.0,,0,PLN
 MSP,Mostostal Plock S.A.,GPW,Industrial Services,Engineering & Construction,16.45,16.45,15.95,16.0,-1.2345679012345634,32400002.0,2473,PLN
@@ -610,8 +610,8 @@ PKN,ORLEN Spolka Akcyjna,GPW,Energy Minerals,Oil Refining/Marketing,88.1,89.5,87
 PKO,PKO Bank Polski SA,GPW,Finance,Major Banks,74.0,74.5,73.18,73.18,-0.5976636783482718,92025003433.0,1413100,PLN
 PKOASZEWZ,PKO Absolutnej Stopy Zwrotu Europa Wschod - Zachod - FIZ Units Series A,GPW,,,109.37,109.37,109.37,109.37,0.0,,0,PLN
 PKOGD,PKO Globalnego Dochodu - fundusz inwestycyjny zamkniety Units,GPW,,,110.9,110.9,110.9,110.9,0.0,,0,PLN
-PKOGS,PKO Globalnej Strategii - fundusz inwestycyjny zamkniety Series A Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,109.6,109.6,109.6,109.6,-0.7336292002536023,,480,PLN
-PKOSO,PKO Strategii Obligacyjnych - fundusz inwestycyjny zamkniety Series A Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,133.41,133.41,133.41,133.41,0.28564985341651916,,10,PLN
+PKOGS,PKO Globalnej Strategii - fundusz inwestycyjny zamkniety Series A Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,109.6,109.6,109.6,109.6,0.0,,0,PLN
+PKOSO,PKO Strategii Obligacyjnych - fundusz inwestycyjny zamkniety Series A Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,133.41,133.41,133.41,133.41,0.0,,0,PLN
 PKP,PKP CARGO Spolka Akcyjna,GPW,Transportation,Marine Shipping,16.99,17.19,16.83,17.0,0.8902077151335227,754659532.0,130330,PLN
 PLG,PL Group Spolka Akcyjna,NEWCONNECT,Retail Trade,Specialty Stores,0.292,0.292,0.292,0.292,0.0,,0,PLN
 PLI,Platige Image SA,NEWCONNECT,Consumer Services,Movies/Entertainment,11.5,11.5,11.2,11.35,-1.3043478260869596,41220830.0,73,PLN
@@ -627,7 +627,7 @@ PPS,PEPEES Spolka Akcyjna,GPW,Consumer Non-Durables,Food: Major Diversified,0.9,
 PRA,Prime Alternatywna Spolka Inwestycyjna Spolka Akcyjna,NEWCONNECT,Finance,Investment Managers,1.16,1.16,1.16,1.16,-7.200000000000006,142124996.0,10,PLN
 PRE,President Studio S.A.,NEWCONNECT,Technology Services,Packaged Software,111.6,112.0,110.0,111.0,1.7601760176017618,,426,PLN
 PRH,Polish Development Holding S.A.,NEWCONNECT,Technology Services,Packaged Software,4.0,4.12,3.9,4.06,4.639175257731951,,21585,PLN
-PRI,NPL Nova S.A.,GPW,Commercial Services,Miscellaneous Commercial Services,3.0,3.1,3.0,3.06,-1.2903225806451624,11260800.0,4417,PLN
+PRI,NPL Nova S.A.,GPW,Commercial Services,Miscellaneous Commercial Services,3.06,3.06,3.06,3.06,0.0,11260800.0,0,PLN
 PRM,Prochem S.A.,GPW,Industrial Services,Engineering & Construction,21.2,21.2,20.0,20.9,-0.476190476190483,29924999.0,2976,PLN
 PRN,Partner-Nieruchomosci SA,NEWCONNECT,Finance,Real Estate Development,0.12,0.122,0.118,0.12,-7.692307692307699,,19194,PLN
 PRO,APN Promise SA,NEWCONNECT,Technology Services,Information Technology Services,8.85,8.85,8.8,8.8,-0.5649717514124173,100833191.0,247,PLN
@@ -659,13 +659,13 @@ RBS,Robinson Europe SA,NEWCONNECT,Producer Manufacturing,Industrial Machinery,3.
 RBW,Rainbow Tours S.A.,GPW,Consumer Services,Other Consumer Services,129.4,129.5,124.2,126.7,-1.247077162899461,1867021650.0,137058,PLN
 RCA,Rocca S.A.,NEWCONNECT,Non-Energy Minerals,Construction Materials,4.22,4.22,4.22,4.22,0.0,43655899.0,5,PLN
 RCM,Red Carpet Media Group SA,NEWCONNECT,Consumer Services,Broadcasting,30.8,30.8,30.8,30.8,0.0,,0,PLN
-RCW,Ruch Chorzow SA,NEWCONNECT,Consumer Services,Movies/Entertainment,0.378,0.378,0.378,0.378,2.7173913043478284,29393292.0,447,PLN
+RCW,Ruch Chorzow SA,NEWCONNECT,Consumer Services,Movies/Entertainment,0.378,0.378,0.378,0.378,0.0,29393292.0,0,PLN
 RDG,Read-Gene SA,NEWCONNECT,Health Technology,Biotechnology,6.3,6.3,6.1,6.3,-0.31645569620253894,74512862.0,778,PLN
 RDN,Redan SA,GPW,Distribution Services,Wholesale Distributors,0.05,0.05,0.05,0.05,0.0,1785462.0,0,PLN
 REG,Regnon S.A.,GPW,Distribution Services,Electronics Distributors,0.795,0.795,0.795,0.795,0.0,3793772.0,0,PLN
 RENTIERFIZ,Fundusz Dlugu Korporacyjnego Rentier Fundusz Inwestycyjny Zamkniety,GPW,Miscellaneous,Investment Trusts/Mutual Funds,154.49,154.5,154.49,154.5,0.06476683937823466,,408,PLN
 RGL,Robs Group Logistic SA,NEWCONNECT,Producer Manufacturing,Office Equipment/Supplies,0.23,0.23,0.23,0.23,0.0,4766902.26,0,PLN
-RHD,Reinhold Europe AB Class B,GPW,Finance,Real Estate Development,0.059,0.059,0.059,0.059,-14.492753623188417,8414859.0,656,PLN
+RHD,Reinhold Europe AB Class B,GPW,Finance,Real Estate Development,0.059,0.059,0.059,0.059,0.0,8414859.0,0,PLN
 RHM,Rheinmetall AG,GPW,Electronic Technology,Aerospace & Defense,7982.0,7982.0,7982.0,7982.0,0.0,377891782966.13257,0,PLN
 RLP,Relpol S.A.,GPW,Electronic Technology,Electronic Components,5.2,5.32,5.2,5.26,1.1538461538461462,49967806.0,3761,PLN
 RMK,Remak-Energomontaz Spolka Akcyjna,GPW,Industrial Services,Engineering & Construction,13.05,13.2,13.0,13.2,0.38022813688212115,39449999.0,1007,PLN
@@ -679,7 +679,7 @@ RSG,Red Square Games Spolka Akcyjna,NEWCONNECT,Technology Services,Packaged Soft
 RSP,REMOR SOLAR POLSKA SA,NEWCONNECT,Consumer Non-Durables,Beverages: Alcoholic,7.06,7.28,6.6,7.06,5.688622754491016,,283,PLN
 RST,Road Studio S.A.,NEWCONNECT,Technology Services,Packaged Software,6.16,6.16,6.16,6.16,0.0,9074604.0,0,PLN
 RVU,Ryvu Therapeutics SA,GPW,Health Technology,Pharmaceuticals: Major,28.45,28.45,27.35,27.6,-1.9538188277086934,650832149.0,29571,PLN
-RWE,RWE AG,GPW,Utilities,Electric Utilities,171.1,171.1,171.1,171.1,9.503999999999996,128329159003.52129,10,PLN
+RWE,RWE AG,GPW,Utilities,Electric Utilities,171.1,171.1,171.1,171.1,0.0,128329159003.52129,0,PLN
 RWL,Rawlplug Spolka Akcyjna,GPW,Producer Manufacturing,Metal Fabrication,14.3,14.75,14.25,14.25,-0.3496503496503546,422690897.0,685,PLN
 S4E,S4E S.A.,NEWCONNECT,Electronic Technology,Computer Peripherals,34.0,34.0,34.0,34.0,0.0,59063816.0,0,PLN
 SAN,"Banco Santander, S.A.",GPW,Finance,Major Banks,36.0,37.435,36.0,36.625,-1.026888258343474,554525011813.5181,927,PLN
@@ -703,7 +703,7 @@ SHD,Soho Development SA,GPW,Miscellaneous,Investment Trusts/Mutual Funds,0.422,0
 SHG,STARHEDGE S.A.,GPW,Industrial Services,Engineering & Construction,0.3,0.3,0.3,0.3,0.0,32681702.0,0,PLN
 SHO,Shoper Spolka Akcyjna,GPW,Technology Services,Packaged Software,49.3,50.0,48.2,48.2,-2.2312373225152013,1387033808.0,8724,PLN
 SHY,Sheepyard Spolka Akcyjna,NEWCONNECT,Technology Services,Packaged Software,0.42,0.42,0.42,0.42,0.0,10790297.0,0,PLN
-SIE,Siemens Aktiengesellschaft,GPW,Producer Manufacturing,Industrial Machinery,1029.2,1029.2,1029.2,1029.2,0.7045009784735856,818213600925.315,1,PLN
+SIE,Siemens Aktiengesellschaft,GPW,Producer Manufacturing,Industrial Machinery,1029.2,1029.2,1029.2,1029.2,0.0,818213600925.315,0,PLN
 SIM,SimFabric SA,GPW,Technology Services,Packaged Software,1.838,1.94,1.802,1.878,2.1762785636561377,,87060,PLN
 SIN,Solar Innovation Spolka Akcyjna,NEWCONNECT,Distribution Services,Wholesale Distributors,0.0766,0.0766,0.068,0.0702,-1.6806722689075724,19904178.0,9791,PLN
 SKA,Fabryka Farb i Lakierow Sniezka S.A.,GPW,Process Industries,Industrial Specialties,82.6,82.6,80.6,81.8,-1.2077294685990339,1044752121.0,53,PLN
@@ -746,19 +746,19 @@ TGS,True Games Syndicate SA,NEWCONNECT,Distribution Services,Medical Distributor
 THD,Dust SA,NEWCONNECT,Technology Services,Packaged Software,0.87,0.97,0.87,0.97,0.0,1962213.0,5980,PLN
 THG,TenderHut SA,GPW,Technology Services,Packaged Software,6.66,6.7,6.66,6.7,0.0,15351509.0,21,PLN
 TLG,Przedsiebiorstwo Telekomunikacyjne Telgam S.A.,NEWCONNECT,Communications,Specialty Telecommunications,0.449,0.48,0.431,0.479,6.4444444444444375,,113042,PLN
-TLO,Telesto SA,NEWCONNECT,Producer Manufacturing,Industrial Conglomerates,17.0,18.45,17.0,18.45,0.0,30258000.0,13,PLN
+TLO,Telesto SA,NEWCONNECT,Producer Manufacturing,Industrial Conglomerates,18.45,18.45,18.45,18.45,0.0,30258000.0,0,PLN
 TLS,Telestrada S.A.,NEWCONNECT,Communications,Wireless Telecommunications,22.8,22.8,22.8,22.8,0.0,35795247.0,0,PLN
 TLX,Talex S.A.,GPW,Technology Services,Information Technology Services,21.0,21.0,20.2,20.2,0.9999999999999963,60001841.0,110,PLN
 TME,Termoexpert SA,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,17.8,17.8,15.7,17.8,-6.315789473684206,,277,PLN
 TMP,Telemedycyna Polska S.A.,NEWCONNECT,Health Services,Medical/Nursing Services,0.66,0.66,0.66,0.66,0.0,7049887.0,105,PLN
 TMR,Tatry mountain resorts as,GPW,Consumer Services,Movies/Entertainment,97.0,97.0,97.0,97.0,-2.0202020202020203,1054033356.9930763,68,PLN
-TNT,T&T Proenergy Spolka Akcyjna,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,1.04,1.04,1.04,1.04,-3.255813953488365,17045158.0,6992,PLN
+TNT,T&T Proenergy Spolka Akcyjna,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,1.04,1.04,1.04,1.04,0.0,17045158.0,0,PLN
 TOA,TOYA S.A.,GPW,Consumer Durables,Tools & Hardware,10.22,10.38,10.12,10.2,-0.19569471624267468,756660603.0,87363,PLN
 TOR,TORPOL S.A.,GPW,Industrial Services,Engineering & Construction,48.7,49.1,47.5,48.1,-1.2320328542094483,1118638984.0,9376,PLN
 TOS,TAMEX Obiekty Sportowe S.A.,NEWCONNECT,Industrial Services,Engineering & Construction,1.98,2.04,1.98,2.0,1.010101010101011,38511002.0,2674,PLN
 TOW,Tower Investments SA,GPW,Finance,Real Estate Development,2.35,2.35,2.35,2.35,0.0,3641616.0,0,PLN
 TPE,TAURON Polska Energia S.A.,GPW,Utilities,Electric Utilities,8.61,8.72,8.57,8.66,0.3708854891052391,15120995957.0,2355624,PLN
-TRI,Triton Development S.A.,GPW,Finance,Real Estate Development,3.0,3.0,3.0,3.0,-6.250000000000005,19093569.0,104,PLN
+TRI,Triton Development S.A.,GPW,Finance,Real Estate Development,3.0,3.0,3.0,3.0,0.0,19093569.0,0,PLN
 TRK,Trakcja SA,GPW,Industrial Services,Engineering & Construction,2.635,2.73,2.63,2.7,2.6615969581749157,1213616073.0,462482,PLN
 TRN,TransPolonia S.A.,GPW,Transportation,Trucking,3.65,3.86,3.65,3.75,-3.8461538461538445,73227187.0,4391,PLN
 TRR,Termo-Rex SA,GPW,Producer Manufacturing,Metal Fabrication,0.7,0.7,0.695,0.695,0.724637681159421,78315000.0,2646,PLN
@@ -796,7 +796,7 @@ VOLV,Volvo AB Class B,GPW,Producer Manufacturing,Trucks/Construction/Farm Machin
 VOT,Votum S.A.,GPW,Finance,Insurance Brokers/Services,48.35,48.9,48.2,48.4,-0.10319917440661354,581400009.0,19547,PLN
 VOW,Volkswagen AG Pref,GPW,Consumer Durables,Motor Vehicles,397.0,397.0,397.0,397.0,0.0,196678577533.5312,7,PLN
 VOX,Voxel S.A.,GPW,Health Services,Hospital/Nursing Management,170.0,173.0,169.6,173.0,1.1695906432748537,1795944551.0,2702,PLN
-VRB,Verbicom SA,NEWCONNECT,Technology Services,Information Technology Services,0.99,0.99,0.99,0.99,-1.0000000000000009,,500,PLN
+VRB,Verbicom SA,NEWCONNECT,Technology Services,Information Technology Services,0.99,0.99,0.99,0.99,0.0,,0,PLN
 VRC,Vercom SA,GPW,Technology Services,Information Technology Services,124.6,124.8,123.0,123.0,-1.44230769230769,2757697589.0,2007,PLN
 VRF,VR Factory Games S.A.,NEWCONNECT,Technology Services,Information Technology Services,0.28,0.28,0.266,0.266,-5.0000000000000036,,59292,PLN
 VRG,VRG S.A.,GPW,Consumer Non-Durables,Apparel/Footwear,4.64,4.69,4.62,4.63,-2.1141649048625903,1108976133.0,8069,PLN
@@ -816,14 +816,13 @@ WRL,Wierzyciel S.A.,NEWCONNECT,Finance,Finance/Rental/Leasing,0.574,0.574,0.552,
 WTN,Wittchen SA,GPW,Consumer Non-Durables,Consumer Sundries,16.4,16.42,16.06,16.2,-1.3398294762484921,303329316.0,20230,PLN
 WWL,Wawel S.A.,GPW,Consumer Non-Durables,Food: Specialty/Candy,684.0,684.0,662.0,680.0,-0.5847953216374269,1025832437.0,32,PLN
 WXF,Warimpex Finanz- und Beteiligungs AG,GPW,Finance,Real Estate Development,2.69,2.75,2.66,2.69,0.0,118868029.77909662,10672,PLN
-XBS,XBS PRO-LOG SA,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,90.5,90.5,86.5,86.5,-4.41988950276243,86500000.0,87,PLN
+XBS,XBS PRO-LOG SA,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,86.5,86.5,86.5,86.5,0.0,86500000.0,0,PLN
 XDD,Mentzen Spolka Akcyjna,NEWCONNECT,Consumer Services,Other Consumer Services,35.3,36.0,35.3,35.35,0.14164305949009706,36041300.0,838,PLN
 XPL,XPLUS S.A.,GPW,Technology Services,Information Technology Services,2.85,2.85,2.68,2.84,-0.3508771929824642,198493387.0,1339,PLN
 XTB,XTB Spolka Akcyjna,GPW,Finance,Investment Banks/Brokers,68.08,69.32,67.64,68.6,1.5393724097098758,7942978379.0,443747,PLN
 XTP,XTPL SA,GPW,Electronic Technology,Semiconductors,70.2,71.0,69.9,70.8,-1.392757660167131,184195874.0,609,PLN
 YAN,Neptis SA,GPW,Electronic Technology,Aerospace & Defense,136.0,138.0,136.0,138.0,4.545454545454546,132000000.0,32,PLN
 YBS,Yellow Boson S.A.,NEWCONNECT,Commercial Services,Miscellaneous Commercial Services,0.169,0.169,0.169,0.169,0.0,10985000.0,0,PLN
-YOL,BluGo S.A.,GPW,Commercial Services,Miscellaneous Commercial Services,0.336,0.336,0.336,0.336,0.0,2970091.0,0,PLN
 YOS,Yoshi Innovation Spolka Akcyjna,NEWCONNECT,Technology Services,Information Technology Services,2.36,2.38,2.28,2.34,-1.2658227848101369,57199950.0,1490,PLN
 YRL,Yarrl S.A.,GPW,Technology Services,Information Technology Services,7.08,7.08,6.82,6.96,-1.6949152542372896,48412309.0,10769,PLN
 YTF,YetiForce SA,NEWCONNECT,Technology Services,Packaged Software,4.1,4.1,4.08,4.08,2.0000000000000018,315618000.0,1060,PLN
