@@ -1,114 +1,37 @@
 name: Update & Build SSG
-
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
-  schedule:
-    - cron: "5 * * * *"   # hourly at :05
-
-# prevent overlapping runs on the same branch
-concurrency:
-  group: ssg-${{ github.ref }}
-  cancel-in-progress: false
 
 jobs:
   update:
-    name: Update repository assets (build.py, data, etc.)
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     permissions:
       contents: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      # OPTIONAL: run any updater step you have; skipped if file not present
-      - name: Run updater (optional)
-        shell: bash
-        run: |
-          set -e
-          if [ -f scripts/update_build_py.py ]; then
-            python -u scripts/update_build_py.py | tee -a update.log
-          else
-            echo "No scripts/update_build_py.py; skipping." | tee -a update.log
-          fi
-
-      - name: Commit & push if changed
-        shell: bash
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      # …your steps that modify/commit build.py…
+      - name: Commit updated build.py
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add -A
-          git commit -m "CI: update phase" || echo "No changes to commit"
-          git push || true
-
-      - name: Upload update logs
-        uses: actions/upload-artifact@v4
-        with:
-          name: update-logs
-          path: update.log
-          if-no-files-found: ignore
+          git add build.py
+          git commit -m "CI: update build.py" || echo "No changes"
+          git push
 
   build:
-    name: Build site
-    needs: update          # <-- ensures update finishes first
+    needs: update          # ← ensures update finishes first (and succeeds)
     runs-on: ubuntu-latest
-    timeout-minutes: 60
     steps:
-      - name: Checkout (post-update)
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
       - name: Install deps
         run: |
           python -m pip install -U pip
           pip install -r requirements.txt
-
-      # If you download data first, cap it. Safe if script doesn't exist.
-      - name: Download data (capped)
-        shell: bash
-        run: |
-          set -euo pipefail
-          export PYTHONUNBUFFERED=1
-          if [ -f downloader/run_headless.py ]; then
-            timeout 20m python -u downloader/run_headless.py --mode hourly --data-folder data --window-mins 120 2>&1 | tee -a build.log
-          else
-            echo "No downloader/run_headless.py; skipping." | tee -a build.log
-          fi
-
-      - name: Build site (verbose, capped)
-        shell: bash
-        run: |
-          set -euo pipefail
-          export PYTHONUNBUFFERED=1
-          timeout 35m python -u scripts/build.py 2>&1 | tee -a build.log
-
-      - name: Show repo tree (debug)
-        run: |
-          echo "=== TOP ==="
-          ls -la
-          echo "=== dist/ preview ==="
-          [ -d dist ] && find dist -maxdepth 2 -type f | head -n 200 || echo "dist/ missing"
-
-      - name: Upload build log & dist snapshot
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-logs-and-dist
-          path: |
-            build.log
-            dist/**
-          if-no-files-found: warn
+      - name: Build site
+        run: python scripts/build.py
