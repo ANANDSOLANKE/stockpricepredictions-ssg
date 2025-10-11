@@ -2,12 +2,24 @@ name: Build & Deploy SSG
 
 on:
   workflow_run:
-    workflows: ["Auto download market data"]   # 👈 must match the name line in data-auto.yml
+    workflows: ["Auto download market data"]  # must match the 'name:' in data-auto.yml
     types: [completed]
+  workflow_dispatch:
+
+# Needed for GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ssg-build-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # Only run when the upstream workflow succeeded, or when manually dispatched
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +29,8 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -26,9 +39,26 @@ jobs:
           python -m pip install -U pip
           pip install -r requirements.txt
 
-      - name: Build site
-        run: python scripts/build.py
-
-      - name: Deploy to GitHub Pages
+      - name: Build static site
         run: |
-          # Replace this with your deploy command (e.g. move dist → gh-pages branch)
+          # This should produce the final site in ./dist
+          python scripts/build.py
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact (dist/)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
