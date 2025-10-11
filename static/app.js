@@ -39,13 +39,13 @@
     return c;
   }
 
-  function formatNum(x) {
+  function fmtNum(x) {
     if (x === null || x === undefined || x === "") return "";
     const n = Number(x);
     if (!isFinite(n)) return "";
     return n.toFixed(2);
   }
-  function formatPct(x) {
+  function fmtPct(x) {
     if (x === null || x === undefined || x === "") return "";
     const n = Number(x);
     if (!isFinite(n)) return "";
@@ -61,7 +61,6 @@
       }));
     });
   }
-
   function renderCountries() {
     clear($countries);
     if (!sel.region) return;
@@ -72,7 +71,6 @@
       }));
     });
   }
-
   function renderExchanges() {
     clear($exchanges);
     if (!sel.country) return;
@@ -96,59 +94,47 @@
 
   function renderTable(data, errMsg) {
     clear($tableWrap);
-    if (errMsg) {
-      $tableWrap.textContent = errMsg;
-      return;
-    }
-    if (!data) {
-      $tableWrap.textContent = "Pick a region → country → exchange";
-      return;
-    }
+    if (errMsg) { $tableWrap.textContent = errMsg; return; }
+    if (!data) { $tableWrap.textContent = "Pick a region → country → exchange"; return; }
 
-    // Columns: Symbol, Name (with logo), Sector, Open, High, Low, Close, Change%, Signal (AI button)
     const table = a("table", { class: "table" });
     const thead = a("thead");
     const trh = a("tr");
     ["Symbol","Name","Sector","Open","High","Low","Close","Change%","Signal"]
       .forEach(h => trh.appendChild(a("th", {}, h)));
     thead.appendChild(trh);
-
     const tbody = a("tbody");
+
     (data.rows || []).forEach(row => {
       const tr = a("tr");
       const sym = row.symbol || "";
       const name = row.name || sym;
-      const sector = row.sector || "";
-      const open = formatNum(row.open);
-      const high = formatNum(row.high);
-      const low  = formatNum(row.low);
-      const close = formatNum(row.close);
-      const chg = formatPct(row.change_percent);
+      const sec = row.sector || "";
+      const open = fmtNum(row.open);
+      const high = fmtNum(row.high);
+      const low  = fmtNum(row.low);
+      const close = fmtNum(row.close);
+      const chg = row.change_percent;
+      const chgTxt = fmtPct(chg);
+      const chgCls = (chg > 0) ? "chg-pos" : (chg < 0 ? "chg-neg" : "muted");
       const url = row.url || "#";
-      const logo = row.logo || ""; // build.py provides this
+      const logo = row.logo || "";
 
-      // Symbol
       tr.appendChild(a("td", {}, a("a", { href: url }, sym)));
 
-      // Name with logo thumbnail (clickable)
       const nameCell = a("td");
       const link = a("a", { href: url, class: "name-with-logo" });
-      if (logo) {
-        const img = a("img", { src: logo, alt: "", class: "logo-ico", loading: "lazy" });
-        link.appendChild(img);
-      }
+      if (logo) link.appendChild(a("img",{src:logo,alt:"",class:"logo-ico",loading:"lazy"}));
       link.appendChild(document.createTextNode(name));
       nameCell.appendChild(link);
       tr.appendChild(nameCell);
 
-      tr.appendChild(a("td", {}, sector));
+      tr.appendChild(a("td", {}, sec));
       tr.appendChild(a("td", {}, open));
       tr.appendChild(a("td", {}, high));
       tr.appendChild(a("td", {}, low));
       tr.appendChild(a("td", {}, close));
-      tr.appendChild(a("td", {}, chg));
-
-      // AI Prediction button
+      tr.appendChild(a("td", { class: chgCls }, chgTxt));
       tr.appendChild(a("td", {}, a("a", { href: url, class: "btn" }, "AI Prediction")));
 
       tbody.appendChild(tr);
@@ -163,13 +149,12 @@
     try {
       SITE = await fetchJSON(INDEX_URL);
       renderRegions();
-      if (SITE.regions && SITE.regions.length) {
-        sel.region = SITE.regions[0];
-        renderCountries();
-        if (sel.region.countries && sel.region.countries.length) {
-          sel.country = sel.region.countries[0];
-          renderExchanges();
-          if (sel.country.exchanges && sel.country.exchanges.length) {
+      // auto-select first items for convenience
+      if (SITE.regions?.length) {
+        sel.region = SITE.regions[0]; renderCountries();
+        if (sel.region.countries?.length) {
+          sel.country = sel.region.countries[0]; renderExchanges();
+          if (sel.country.exchanges?.length) {
             sel.exchange = sel.country.exchanges[0];
             await loadAndRenderExchange(sel.region.slug, sel.country.slug, sel.exchange.slug);
           }
