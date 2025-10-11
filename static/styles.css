@@ -11,8 +11,8 @@
   --chip:#0e1729;
   --chip-border:#223157;
   --chip-active:#16305e;
-  --success:#3ddc97;
-  --danger:#ff6b6b;
+  --success:#22c55e;
+  --danger:#ef4444;
   --warning:#ffd166;
   --shadow:0 10px 24px rgba(0,0,0,.25);
 }
@@ -28,6 +28,8 @@ body{
 }
 a{color:var(--brand); text-decoration:none}
 a:hover{color:var(--brand-2); text-decoration:underline}
+.muted{color:var(--muted)}
+.ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 
 .container{max-width:1200px;margin:0 auto;padding:28px}
 
@@ -48,6 +50,8 @@ a:hover{color:var(--brand-2); text-decoration:underline}
   border-radius:18px; padding:18px; box-shadow:var(--shadow)
 }
 .grid{display:grid; grid-template-columns:1fr; gap:16px; margin-top:18px}
+.grid-2{display:grid; grid-template-columns:1fr; gap:14px}
+@media (min-width:900px){ .grid-2{grid-template-columns:1fr 1fr} }
 .h2{font-size:22px; margin:0 0 10px}
 .h3{font-size:18px; margin:0 0 8px}
 
@@ -65,19 +69,7 @@ a:hover{color:var(--brand-2); text-decoration:underline}
 .chip:hover{background:#12203a; text-decoration:none}
 .chip.active{background:var(--chip-active); border-color:var(--brand); box-shadow:0 0 0 2px rgba(79,140,255,.25)}
 
-/* --------- Controls --------- */
-.toolbar{display:flex; gap:10px; align-items:center; justify-content:space-between; margin-bottom:10px; flex-wrap:wrap}
-.input{
-  background:var(--panel-2); border:1px solid var(--border); color:var(--text);
-  padding:10px 12px; border-radius:12px; min-width:240px; outline:none
-}
-.input::placeholder{color:var(--muted)}
-.select{
-  background:var(--panel-2); border:1px solid var(--border); color:var(--text);
-  padding:10px 12px; border-radius:12px; outline:none
-}
-
-/* --------- Table --------- */
+/* --------- Table (exchange pages) --------- */
 .table-wrap{overflow:auto; border:1px solid var(--border); border-radius:16px}
 .table{width:100%; border-collapse:separate; border-spacing:0}
 .table thead th{
@@ -88,67 +80,69 @@ a:hover{color:var(--brand-2); text-decoration:underline}
 .table tbody td{padding:12px; border-bottom:1px solid var(--border)}
 .table tbody tr:nth-child(odd){background:#0d172c}
 .table tbody tr:hover{background:#12233f}
+.table td:nth-child(4), .table td:nth-child(5), .table td:nth-child(6),
+.table td:nth-child(7), .table td:nth-child(8){text-align:right}
 
-/* Optional: align numeric columns to right for readability */
-.table td:nth-child(4),
-.table td:nth-child(5),
-.table td:nth-child(6),
-.table td:nth-child(7),
-.table td:nth-child(8){
-  text-align:right;
+/* name + logo */
+.name-with-logo{display:inline-flex;align-items:center;gap:8px}
+.logo-ico{
+  width:20px;height:20px;object-fit:contain;
+  background:#0e1729;border:1px solid var(--chip-border);
+  border-radius:4px;padding:2px
 }
 
-/* Signal/AI button cell centered */
-.table tbody td:last-child{ text-align:center; }
+/* %Change colors (both list & prediction pages) */
+.chg-pos{color:var(--success); font-weight:600}
+.chg-neg{color:var(--danger);  font-weight:600}
 
-/* Badges (if you render text signal instead of button) */
-.badge{display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid var(--border)}
-.badge.bullish{background:rgba(61,220,151,.12); color:var(--success); border-color:rgba(61,220,151,.35)}
-.badge.bearish{background:rgba(255,107,107,.12); color:var(--danger); border-color:rgba(255,107,107,.35)}
-.badge.sideways{background:rgba(127,170,255,.12); color:#a7c0ff; border-color:rgba(127,170,255,.35)}
-
-/* --------- AI Prediction Button --------- */
+/* --- AI Prediction Button --- */
 .btn{
-  display:inline-block;
-  padding:6px 12px;
-  font-size:.9rem;
-  font-weight:600;
-  color:#e5e7eb;
-  background:linear-gradient(145deg,#1a2b45,#10233a);
-  border:1px solid #355ea8;
-  border-radius:8px;
-  text-decoration:none;
-  transition:all .2s ease;
-  white-space:nowrap;
+  display:inline-block; padding:6px 12px; font-size:.9rem; font-weight:600;
+  color:#e5e7eb; background:linear-gradient(145deg,#1a2b45,#10233a);
+  border:1px solid #355ea8; border-radius:8px; text-decoration:none;
+  transition:all .2s ease; white-space:nowrap;
 }
-.btn:hover{
-  background:linear-gradient(145deg,#2a4570,#183255);
-  box-shadow:0 0 8px rgba(66,153,255,.3);
-  transform:translateY(-1px);
-}
-.btn:active{
-  background:#0f223a;
-  box-shadow:inset 0 0 4px rgba(66,153,255,.3);
-  transform:translateY(0);
-}
+.btn:hover{background:linear-gradient(145deg,#2a4570,#183255);box-shadow:0 0 8px rgba(66,153,255,.3);transform:translateY(-1px)}
+.btn:active{background:#0f223a;box-shadow:inset 0 0 4px rgba(66,153,255,.3);transform:translateY(0)}
+.table tbody td:last-child{text-align:center}
+
+/* --------- Prediction page --------- */
+.pred-card{display:block}
+.pred-head{display:flex; gap:16px; align-items:flex-start}
+.pred-title{display:flex; flex-direction:column; gap:6px}
+.pred-name{font-size:24px; font-weight:700}
+.now-line{font-size:14px}
+.pred-sig{font-size:28px; font-weight:800; letter-spacing:.5px}
+.pred-sig.bull{color:var(--success)}
+.pred-sig.bear{color:var(--danger)}
+.pred-sig.side{color:#a7c0ff}
+
+.chart-card{margin-top:12px; background:var(--panel-2); border:1px solid var(--border); border-radius:14px; padding:12px}
+.mini-head{font-weight:700; color:#a4b8ee; margin-bottom:8px}
+
+/* inline SVG chart */
+.spark{width:100%; height:240px}
+.spark-bg{fill:#0e162c; stroke:#1f2a44}
+.spark-line{fill:none; stroke:#22c55e; stroke-width:3}
+.spark-area{fill:url(#areaGrad);}
+
+/* mini tables (rising/losing) */
+.mini-card{background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:10px}
+.mini-table-wrap{max-height:360px; overflow:auto; border:1px solid var(--border); border-radius:12px}
+.mini-table{width:100%; border-collapse:collapse; font-size:14px}
+.mini-table thead th{position:sticky; top:0; background:#0e162c; color:#a4b8ee; padding:10px; text-align:left}
+.mini-table tbody td{padding:10px; border-bottom:1px solid var(--border)}
+.mini-table.rise tbody tr:hover{background:#102a1b}
+.mini-table.fall tbody tr:hover{background:#2a1212}
 
 /* --------- Footer --------- */
 .footer{color:var(--muted); font-size:13px}
 .footer a{color:var(--brand-2)}
 
 /* --------- Responsive --------- */
-@media (min-width:900px){
-  .grid{grid-template-columns:1fr}
-}
+@media (min-width:900px){ .grid{grid-template-columns:1fr} }
 @media (max-width:720px){
   .row-title{width:100%}
   .table thead th, .table tbody td{padding:10px}
+  .pred-name{font-size:20px}
 }
-/* Name cell logo thumbnail */
-.name-with-logo { display: inline-flex; align-items: center; gap: 8px; }
-.logo-ico{
-  width: 20px; height: 20px; object-fit: contain;
-  background: #0e1729; border:1px solid var(--chip-border);
-  border-radius: 4px; padding: 2px;
-}
-
