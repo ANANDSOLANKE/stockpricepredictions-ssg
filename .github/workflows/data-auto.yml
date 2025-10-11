@@ -8,15 +8,21 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: ssg-data-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
-  fetch:
+  update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -25,17 +31,19 @@ jobs:
           python -m pip install -U pip
           pip install -r requirements.txt
 
-      - name: Download data (headless CLI)
+      - name: Download/refresh data
         run: |
           python downloader/run_headless.py --mode hourly --data-folder data --window-mins 120
 
-      - name: Build site data
-        run: python scripts/build.py
+      # If you also pre-build any data files for the site, do it here:
+      - name: Build site data (optional)
+        run: |
+          python scripts/build.py
 
       - name: Commit & push if changed
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add .
-          git commit -m "Auto-update data" || echo "No changes"
+          git add -A
+          git commit -m "Auto-update data and artifacts" || echo "No changes"
           git push
