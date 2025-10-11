@@ -1,78 +1,41 @@
-name: Auto download market data and build & deploy SSG
+name: Auto download market data
 
 on:
   schedule:
-    - cron: "0 * * * *"     # every hour (UTC)
-  workflow_dispatch:        # allow manual trigger too
+    - cron: "5 * * * *"   # every hour at :05 UTC
+  workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
-  build:
+  fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
         with:
-          python-version: "3.12"
+          fetch-depth: 0
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pandas jinja2 python-slugify
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-      # --- Auto download latest data ---
-      - name: Download latest market data (headless)
+      - name: Install Python deps
         run: |
-          echo "[START] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 120
-          echo "[END] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          python -m pip install -U pip
+          pip install -r requirements.txt
 
-      # --- Ensure logos copied once (fast if exists) ---
-      - name: Ensure logos exist in dist (fast)
+      - name: Download data (headless CLI)
         run: |
-          if [ -d logos ]; then
-            mkdir -p dist
-            if [ ! -d dist/logos ]; then
-              cp -r logos dist/
-              echo "Copied logos → dist/logos (first time)"
-            else
-              echo "Logos already present, skipping copy"
-            fi
-          else
-            echo "No /logos folder found, skipping"
-          fi
+          python downloader/run_headless.py --mode hourly --data-folder data --window-mins 120
 
-      # --- Build site quickly (skip logo rescan) ---
-      - name: Build site (fast; skip logo rescan)
-        env:
-          SKIP_LOGOS: "1"
-        run: |
-          python scripts/build.py
+      - name: Build site data
+        run: python scripts/build.py
 
-      # --- Commit & push updates ---
-      - name: Commit and push updated data + dist
+      - name: Commit & push if changed
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Data dist || true
-          git commit -m "Auto-update: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No changes to commit"
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Auto-update data" || echo "No changes"
           git push
-
-      # --- Deploy to GitHub Pages ---
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
