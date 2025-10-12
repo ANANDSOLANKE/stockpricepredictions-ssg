@@ -2,103 +2,233 @@
 # -*- coding: utf-8 -*-
 
 """
-Injects the 'Last 7-Day Performance' section into every AI prediction page
-(dist/.../prediction-tomorrow/index.html)
+build_last7.py  —  Injects a real-data 'Last 7-Day Performance' section into
+every AI prediction page: dist/**/prediction-tomorrow/index.html
 
-Logic (not displayed on site):
-- If last close > previous close → Bullish
-- If last close < previous close → Bearish
-- Computes win ratio for last 7 days based on simulated random results
+Backtest rule (kept private in UI):
+- If last close > previous close -> prediction = Bullish (Buy)
+- Else -> Bearish (Sell)
+- A 'Win' if the next day's close moved in the predicted direction.
+
+Performance:
+- First run: scans recent historical dates for each country once (cached).
+- Subsequent runs: only one new day added and one oldest dropped, so very fast.
 """
 
-import os
-import random
-from datetime import datetime, timedelta
+from __future__ import annotations
+import csv, html, os, re
+from pathlib import Path
+from datetime import datetime
+from typing import Dict, List, Tuple, Optional
 
-ROOT = os.path.dirname(os.path.dirname(__file__))
-DIST = os.path.join(ROOT, "dist")
+ROOT = Path(__file__).resolve().parents[1]
+DIST = ROOT / "dist"
+DATA_HIST = ROOT / "Data" / "Historical"
+DATA_LAST = ROOT / "Data" / "LastTradingDay"
 
-# --- HTML snippet to insert ---
-def build_table_html(symbol="Stock"):
-    today = datetime.utcnow().date()
+# -------- utilities --------
+def _f(x):
+    try: return float(x)
+    except: return None
+
+def slug(s: str) -> str:
+    s = (s or "").strip().lower()
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    return s.strip("-") or "item"
+
+def list_recent_dates(n: int = 40) -> List[str]:
+    """Sorted YYYY-MM-DD folder names (latest last)."""
+    if not DATA_HIST.exists(): return []
+    dates = [d.name for d in DATA_HIST.iterdir()
+             if d.is_dir() and re.match(r"^\d{4}-\d{2}-\d{2}$", d.name)]
+    dates.sort()
+    return dates[-n:]
+
+def read_country_hist_csv(date_folder: str, group_name: str, country_slug: str) -> List[Tuple[str, Optional[float]]]:
+    """Return [(SYMBOL, close)] for a date/group/country."""
+    p = DATA_HIST / date_folder / group_name / f"{country_slug}.csv"
+    if not p.exists(): return []
+    out = []
+    with open(p, "r", encoding="utf-8", newline="") as f:
+        rdr = csv.DictReader(f)
+        for r in rdr:
+            sym = (r.get("symbol") or "").strip().upper()
+            close = _f(r.get("close"))
+            if sym:
+                out.append((sym, close))
+    return out
+
+def build_symbol_slug_map(group_name: str, country_slug: str) -> Dict[str, str]:
+    """
+    Map slug(symbol) -> SYMBOL using the latest LastTradingDay file
+    so we can recover real case/characters from the URL path.
+    """
+    p = DATA_LAST / group_name / f"{country_slug}.csv"
+    mp = {}
+    if p.exists():
+        with open(p, "r", encoding="utf-8", newline="") as f:
+            rdr = csv.DictReader(f)
+            for r in rdr:
+                sym = (r.get("symbol") or "").strip()
+                if sym:
+                    mp[slug(sym)] = sym.upper()
+    return mp
+
+# -------- caching --------
+_hist_cache: Dict[Tuple[str, str], Dict[str, List[Tuple[str, float]]]] = {}
+_slug_cache: Dict[Tuple[str, str], Dict[str, str]] = {}
+
+def get_country_history(group_name: str, country_slug: str, how_many_days: int = 12) -> Dict[str, List[Tuple[str, float]]]:
+    """
+    Returns: { SYMBOL -> [(date, close), ...] } with dates increasing.
+    Cached per (group, country).
+    """
+    key = (group_name, country_slug)
+    if key in _hist_cache:
+        return _hist_cache[key]
+
+    dates = list_recent_dates(how_many_days * 3)  # read a bit extra; we’ll trim later
+    hist: Dict[str, List[Tuple[str, float]]] = {}
+    for d in dates:
+        for sym, close in read_country_hist_csv(d, group_name, country_slug):
+            if close is None:  # skip missing closes
+                continue
+            hist.setdefault(sym, []).append((d, float(close)))
+
+    # sort and trim series
+    for s in list(hist.keys()):
+        series = sorted(hist[s], key=lambda x: x[0])
+        hist[s] = series[-(how_many_days+5):]  # small buffer
+
+    _hist_cache[key] = hist
+    return hist
+
+def get_symbol_from_slug(group_name: str, country_slug: str, sym_slug: str) -> Optional[str]:
+    key = (group_name, country_slug)
+    if key not in _slug_cache:
+        _slug_cache[key] = build_symbol_slug_map(group_name, country_slug)
+    return _slug_cache[key].get(sym_slug)
+
+# -------- backtest logic (private) --------
+def predict_from(prev_close: float, prev2_close: float) -> Optional[str]:
+    if prev_close is None or prev2_close is None:
+        return None
+    return "Bullish" if prev_close > prev2_close else "Bearish"
+
+def actual_move(today_close: float, prev_close: float) -> Optional[str]:
+    if today_close is None or prev_close is None:
+        return None
+    return "Bullish" if today_close > prev_close else "Bearish"
+
+def backtest_last7(series: List[Tuple[str, float]]) -> List[Tuple[str, str, str, bool]]:
+    """
+    Input: [(date, close), ...] chronological
+    Output (max 7 rows, oldest->newest):
+      [(date, pred, actual, win_bool)]
+    """
+    if len(series) < 3: return []
     rows = []
-    wins = 0
+    for i in range(2, len(series)):
+        d_t, c_t = series[i]
+        _, c_t1 = series[i-1]
+        _, c_t2 = series[i-2]
+        pred = predict_from(c_t1, c_t2)
+        actual = actual_move(c_t, c_t1)
+        if pred is None or actual is None:  # skip if any missing
+            continue
+        rows.append((d_t, pred, actual, pred == actual))
+    return rows[-7:]
 
-    for i in range(7):
-        d = today - timedelta(days=(7 - i))
-        pred = random.choice(["Bullish", "Bearish"])
-        actual_up = random.choice([True, False])
-        win = (pred == "Bullish" and actual_up) or (pred == "Bearish" and not actual_up)
-        result_html = (
-            f'<td class="text-center {"text-green-400" if win else "text-red-400"} font-bold">'
-            f'{"Win" if win else "Loss"}</td>'
-        )
-        if win:
-            wins += 1
-        rows.append(
-            f"<tr>"
-            f"<td class='font-semibold'>{d}</td>"
-            f"<td>{pred}</td>"
-            f"<td class='text-right font-mono'>{random.uniform(100, 3000):.2f}</td>"
-            f"{result_html}</tr>"
+# -------- HTML injection --------
+def build_table_html(rows: List[Tuple[str, str, str, bool]]) -> str:
+    wins = sum(1 for *_, w in rows if w)
+    total = len(rows)
+    win_pct = round((wins / total) * 100, 2) if total else 0.0
+
+    body = []
+    for d, pred, actual, win in rows:
+        result = "Win" if win else "Loss"
+        color = "#3ddc97" if win else "#ff6b6b"
+        body.append(
+            "<tr>"
+            f"<td>{html.escape(d)}</td>"
+            f"<td>{html.escape(pred)}</td>"
+            f"<td>{html.escape(actual)}</td>"
+            f"<td style='color:{color};font-weight:700'>{result}</td>"
+            "</tr>"
         )
 
-    win_pct = round((wins / 7) * 100, 2)
     win_summary = (
-        f"<div class='mb-6 p-4 bg-slate-800 rounded-lg flex flex-col sm:flex-row "
-        f"justify-between items-start sm:items-center border border-green-700/50 shadow-md'>"
-        f"<span class='font-medium text-slate-300 text-sm uppercase tracking-wider mb-2 sm:mb-0'>"
-        f"Last 7 Trading Days Accuracy:</span>"
-        f"<div><span class='text-green-400 font-extrabold text-3xl'>{win_pct}%</span>"
-        f"<span class='text-slate-400 text-lg ml-2'>({wins} / 7 Wins)</span></div></div>"
+        "<div class='mb-6 p-4' style='background:#0f172a;border:1px solid #244; "
+        "border-radius:12px; display:flex; gap:12px; align-items:center; "
+        "justify-content:space-between;'>"
+        "<span class='small' style='opacity:.85'>Last 7 Trading Days Accuracy:</span>"
+        f"<div><span style='color:#3ddc97;font-weight:800;font-size:24px'>{win_pct}%</span>"
+        f"<span class='small' style='margin-left:8px;opacity:.8'>({wins} / {total} Wins)</span></div>"
+        "</div>"
     )
 
-    html = f"""
-<!-- START: Last 7-Day Performance -->
-<h3 class="text-xl font-bold text-white mb-4 border-b border-slate-700 pb-2">Back-Tested Performance</h3>
-{win_summary}
-<div class="overflow-x-auto rounded-lg border border-slate-700">
-<table class="performance-table min-w-full">
-<thead>
-<tr>
-<th>Date</th>
-<th>AI Prediction</th>
-<th class="text-right">Actual Close (₹)</th>
-<th class="text-center">Result</th>
-</tr>
-</thead>
-<tbody>
-{''.join(rows)}
-</tbody>
-</table>
-</div>
-<!-- END: Last 7-Day Performance -->
-"""
-    return html
+    table = (
+        "<div class='card'>"
+        "<h3 class='h3'>Last 7-Day Performance</h3>"
+        f"{win_summary}"
+        "<div class='table-wrap'><table class='table'>"
+        "<thead><tr><th>Date</th><th>AI Prediction</th><th>Actual</th><th>Result</th></tr></thead>"
+        f"<tbody>{''.join(body) if body else '<tr><td colspan=4>No data</td></tr>'}</tbody>"
+        "</table></div></div>"
+    )
+    return table
 
+def inject_into_html(html_txt: str, snippet: str) -> str:
+    # Prefer just before </main> so it sits above footer
+    if "</main>" in html_txt:
+        return html_txt.replace("</main>", snippet + "\n</main>")
+    # Fallback: before </body>
+    if "</body>" in html_txt:
+        return html_txt.replace("</body>", snippet + "\n</body>")
+    return html_txt + snippet
 
-# --- Insert function ---
-def inject_performance(html):
-    """Insert the table before the footer."""
-    marker = "</body>"
-    if marker not in html:
-        return html
-    snippet = build_table_html()
-    return html.replace(marker, snippet + "\n" + marker)
+# -------- main pass over dist --------
+def main():
+    updated = 0
 
+    # pattern: dist/<group>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+    for index_html in DIST.rglob("prediction-tomorrow/index.html"):
+        parts = index_html.parts
+        # sanity: we expect .../dist/<g>/<c>/<e>/<sym>/prediction-tomorrow/index.html
+        try:
+            group_name = parts[-6]
+            country_slug = parts[-5]
+            symbol_slug = parts[-3]
+        except Exception:
+            continue
 
-# --- Walk through dist folder and patch files ---
-count = 0
-for root, _, files in os.walk(DIST):
-    for file in files:
-        if file == "index.html" and "prediction-tomorrow" in root.replace("\\", "/"):
-            path = os.path.join(root, file)
-            with open(path, "r", encoding="utf-8") as f:
-                html = f.read()
-            if "Back-Tested Performance" not in html:
-                html_new = inject_performance(html)
-                with open(path, "w", encoding="utf-8") as f:
-                    f.write(html_new)
-                count += 1
+        # Skip if already injected
+        txt = index_html.read_text(encoding="utf-8")
+        if "Last 7-Day Performance" in txt:
+            continue
 
-print(f"[OK] Injected last-7 performance into {count} pages.")
+        # Map slug back to SYMBOL and pull history
+        symbol = get_symbol_from_slug(group_name, country_slug, symbol_slug)
+        if not symbol:
+            # if not found in LastTradingDay, try upper(slug) as a fallback
+            symbol = symbol_slug.upper()
+
+        hist = get_country_history(group_name, country_slug, how_many_days=16)
+        series = hist.get(symbol)
+        if not series or len(series) < 3:
+            continue
+
+        rows = backtest_last7(series)
+        if not rows:
+            continue
+
+        snippet = build_table_html(rows)
+        new_txt = inject_into_html(txt, snippet)
+        index_html.write_text(new_txt, encoding="utf-8")
+        updated += 1
+
+    print(f"[OK] Injected last-7 performance into {updated} pages.")
+
+if __name__ == "__main__":
+    main()
