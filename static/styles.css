@@ -151,4 +151,17 @@ a:hover{color:var(--brand-2); text-decoration:underline}
   background: #0e1729; border:1px solid var(--chip-border);
   border-radius: 4px; padding: 2px;
 }
+/* Colored percentages */
+.pct { font-weight: 700; }
+.pct.pos { color: #3ddc97; }  /* green */
+.pct.neg { color: #ff6b6b; }  /* red */
+
+/* tiny helpers for the logo in dynamic table (already used) */
+.name-with-logo { display:inline-flex; align-items:center; gap:8px; }
+.logo-ico {
+  width:20px; height:20px; object-fit:contain;
+  background:#0e1729; border:1px solid var(--chip-border);
+  border-radius:4px; padding:2px;
+}
+
 
