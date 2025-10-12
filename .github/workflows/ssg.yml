@@ -18,7 +18,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60   # ⬅️ give first full injection room to finish
+    timeout-minutes: 600   # ⬅️ give first full injection room to finish
 
     steps:
       - name: Checkout repository
