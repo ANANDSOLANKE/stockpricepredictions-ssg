@@ -23,11 +23,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: "pip"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas jinja2 python-slugify
+          pip install -r requirements.txt
+          python -c "import sys, pkgutil; print('OK deps:', len(list(pkgutil.iter_modules())))"
 
       # --- Auto download latest data ---
       - name: Download latest market data (headless)
@@ -36,7 +38,7 @@ jobs:
           python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 120
           echo "[END] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 
-      # --- Ensure logos copied once (fast if exists) ---
+      # --- Ensure logos copied once (fast) ---
       - name: Ensure logos exist in dist (fast)
         run: |
           if [ -d logos ]; then
