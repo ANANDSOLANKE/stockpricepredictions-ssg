@@ -325,7 +325,7 @@ def main():
                                 "<tr>"
                                 f"<td>{html.escape(row['date'])}</td>"
                                 f"<td>{html.escape(row['prediction'])}</td>"
-                                f"<td class='mini'>{'' if row['close'] is None else f'{row['close']:.2f}'}</td>"
+                                f"<td class='mini'>{'' if row['close'] is None else '{:.2f}'.format(row['close'])}</td>"
                                 f"<td class='{cls}'>{html.escape(row['result'])}</td>"
                                 "</tr>"
                             )
