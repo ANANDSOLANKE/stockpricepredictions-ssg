@@ -1,7 +1,7 @@
 name: Build & Deploy SSG
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:        # manual trigger (safe to run anytime)
 
 permissions:
   contents: write
@@ -15,7 +15,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,16 +38,21 @@ jobs:
             mkdir -p dist
             if [ ! -d dist/logos ]; then
               cp -r logos dist/
+              echo "Copied logos → dist/logos (first time)"
+            else
+              echo "Logos already present, skipping copy"
             fi
+          else
+            echo "No /logos folder found, skipping"
           fi
 
+      # 🧱 Build site + inject Last 7-Day Performance
       - name: Build site (fast + last7)
-  env:
-    SKIP_LOGOS: "1"
-  run: |
-    python scripts/build.py
-    python scripts/build_last7.py
-
+        env:
+          SKIP_LOGOS: "1"
+        run: |
+          python scripts/build.py
+          python scripts/build_last7.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
