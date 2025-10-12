@@ -1,8 +1,8 @@
 name: Auto download market data and build & deploy SSG
 
 on:
-  schedule:
-    - cron: "0 * * * *"     # every hour (UTC)
+ # schedule:
+ #   - cron: "0 * * * *"     # every hour (UTC)
   workflow_dispatch:        # allow manual trigger too
 
 permissions:
