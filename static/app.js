@@ -45,11 +45,12 @@
     if (!isFinite(n)) return "";
     return n.toFixed(2);
   }
-  function formatPct(x) {
-    if (x === null || x === undefined || x === "") return "";
-    const n = Number(x);
-    if (!isFinite(n)) return "";
-    return n.toFixed(2) + "%";
+  function pctSpan(val) {
+    if (val === null || val === undefined || val === "") return document.createTextNode("");
+    const n = Number(val);
+    if (!isFinite(n)) return document.createTextNode("");
+    const cls = n > 0 ? "pct pos" : n < 0 ? "pct neg" : "pct";
+    return a("span", { class: cls }, n.toFixed(2) + "%");
   }
 
   function renderRegions() {
@@ -89,23 +90,16 @@
     try {
       const data = await fetchJSON(url);
       renderTable(data);
-    } catch (e) {
+    } catch {
       renderTable(null, `Failed to load ${url}`);
     }
   }
 
   function renderTable(data, errMsg) {
     clear($tableWrap);
-    if (errMsg) {
-      $tableWrap.textContent = errMsg;
-      return;
-    }
-    if (!data) {
-      $tableWrap.textContent = "Pick a region → country → exchange";
-      return;
-    }
+    if (errMsg) { $tableWrap.textContent = errMsg; return; }
+    if (!data) { $tableWrap.textContent = "Pick a region → country → exchange"; return; }
 
-    // Columns: Symbol, Name (with logo), Sector, Open, High, Low, Close, Change%, Signal (AI button)
     const table = a("table", { class: "table" });
     const thead = a("thead");
     const trh = a("tr");
@@ -119,38 +113,28 @@
       const sym = row.symbol || "";
       const name = row.name || sym;
       const sector = row.sector || "";
-      const open = formatNum(row.open);
-      const high = formatNum(row.high);
-      const low  = formatNum(row.low);
-      const close = formatNum(row.close);
-      const chg = formatPct(row.change_percent);
       const url = row.url || "#";
-      const logo = row.logo || ""; // build.py provides this
+      const logo = row.logo || "";
 
-      // Symbol
       tr.appendChild(a("td", {}, a("a", { href: url }, sym)));
 
-      // Name with logo thumbnail (clickable)
       const nameCell = a("td");
       const link = a("a", { href: url, class: "name-with-logo" });
       if (logo) {
-        const img = a("img", { src: logo, alt: "", class: "logo-ico", loading: "lazy" });
-        link.appendChild(img);
+        link.appendChild(a("img", { src: logo, alt: "", class: "logo-ico", loading: "lazy" }));
       }
       link.appendChild(document.createTextNode(name));
       nameCell.appendChild(link);
       tr.appendChild(nameCell);
 
       tr.appendChild(a("td", {}, sector));
-      tr.appendChild(a("td", {}, open));
-      tr.appendChild(a("td", {}, high));
-      tr.appendChild(a("td", {}, low));
-      tr.appendChild(a("td", {}, close));
-      tr.appendChild(a("td", {}, chg));
+      tr.appendChild(a("td", {}, formatNum(row.open)));
+      tr.appendChild(a("td", {}, formatNum(row.high)));
+      tr.appendChild(a("td", {}, formatNum(row.low)));
+      tr.appendChild(a("td", {}, formatNum(row.close)));
+      tr.appendChild(a("td", {}, pctSpan(row.change_percent)));
 
-      // AI Prediction button
       tr.appendChild(a("td", {}, a("a", { href: url, class: "btn" }, "AI Prediction")));
-
       tbody.appendChild(tr);
     });
 
@@ -164,11 +148,9 @@
       SITE = await fetchJSON(INDEX_URL);
       renderRegions();
       if (SITE.regions && SITE.regions.length) {
-        sel.region = SITE.regions[0];
-        renderCountries();
+        sel.region = SITE.regions[0]; renderCountries();
         if (sel.region.countries && sel.region.countries.length) {
-          sel.country = sel.region.countries[0];
-          renderExchanges();
+          sel.country = sel.region.countries[0]; renderExchanges();
           if (sel.country.exchanges && sel.country.exchanges.length) {
             sel.exchange = sel.country.exchanges[0];
             await loadAndRenderExchange(sel.region.slug, sel.country.slug, sel.exchange.slug);
