@@ -40,10 +40,13 @@ jobs:
             fi
           fi
 
-      - name: Build site (fast)
-        env:
-          SKIP_LOGOS: "1"
-        run: python scripts/build.py
+      - name: Build site (fast + last7)
+  env:
+    SKIP_LOGOS: "1"
+  run: |
+    python scripts/build.py
+    python scripts/build_last7.py
+
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
