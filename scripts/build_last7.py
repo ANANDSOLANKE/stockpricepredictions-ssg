@@ -1,28 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-Inject a real-data "Last 7-Day Performance" section into:
-  dist/**/prediction-tomorrow/index.html
-
-Reads historical closes from:
-  Data/Historical/YYYY-MM-DD/<Group Dir>/<country>.csv
-and symbol mapping from:
-  Data/LastTradingDay/<Group Dir>/<country>.csv
-"""
-
 from __future__ import annotations
-import csv, html, os, re, time
+import csv, html, re, time
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 
-# ---- Paths ----
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 DATA_HIST = ROOT / "Data" / "Historical"
 DATA_LAST = ROOT / "Data" / "LastTradingDay"
 
-# ---- Group mapping (slug -> your folder name) ----
 GROUP_DIR_BY_SLUG = {
     "asia-pacific": "Asia - Pacific",
     "europe": "Europe",
@@ -32,14 +20,11 @@ GROUP_DIR_BY_SLUG = {
     "global-indices": "Global Indices",
 }
 def slug_to_title_dir(slug: str) -> str:
-    # Fallback: "asia-pacific" -> "Asia - Pacific"
     parts = [p for p in re.split(r"[^a-z0-9]+", slug.lower()) if p]
     return " ".join(w.capitalize() for w in parts)
 
-# Small delay to ensure build.py finished writing pages
-time.sleep(2)
+time.sleep(2)  # let build.py finish writing
 
-# ---- Utils ----
 def _f(x):
     try: return float(x)
     except: return None
@@ -59,10 +44,9 @@ def list_recent_dates(n: int = 40) -> List[str]:
 def read_country_hist_csv(date_folder: str, group_dir: str, country_slug: str) -> List[Tuple[str, Optional[float]]]:
     p = DATA_HIST / date_folder / group_dir / f"{country_slug}.csv"
     if not p.exists(): return []
-    out: List[Tuple[str, Optional[float]]] = []
+    out = []
     with open(p, "r", encoding="utf-8", newline="") as f:
         rdr = csv.DictReader(f)
-        # headers typically include: symbol, close, ...
         for r in rdr:
             sym = (r.get("symbol") or "").strip().upper()
             close = _f(r.get("close"))
@@ -82,7 +66,6 @@ def build_symbol_slug_map(group_dir: str, country_slug: str) -> Dict[str, str]:
                     mp[slugify(sym)] = sym.upper()
     return mp
 
-# ---- Caches ----
 _hist_cache: Dict[Tuple[str, str], Dict[str, List[Tuple[str, float]]]] = {}
 _slug_cache: Dict[Tuple[str, str], Dict[str, str]] = {}
 
@@ -90,7 +73,6 @@ def get_country_history(group_dir: str, country_slug: str, how_many_days: int = 
     key = (group_dir, country_slug)
     if key in _hist_cache:
         return _hist_cache[key]
-
     dates = list_recent_dates(how_many_days * 3)
     hist: Dict[str, List[Tuple[str, float]]] = {}
     for d in dates:
@@ -98,12 +80,9 @@ def get_country_history(group_dir: str, country_slug: str, how_many_days: int = 
             if close is None:
                 continue
             hist.setdefault(sym, []).append((d, float(close)))
-
-    # sort & trim
     for s in list(hist.keys()):
         series = sorted(hist[s], key=lambda x: x[0])
         hist[s] = series[-(how_many_days+5):]
-
     _hist_cache[key] = hist
     return hist
 
@@ -113,7 +92,6 @@ def get_symbol_from_slug(group_dir: str, country_slug: str, sym_slug: str) -> Op
         _slug_cache[key] = build_symbol_slug_map(group_dir, country_slug)
     return _slug_cache[key].get(sym_slug)
 
-# ---- Backtest logic (hidden on UI) ----
 def predict_from(prev_close: float, prev2_close: float) -> Optional[str]:
     if prev_close is None or prev2_close is None:
         return None
@@ -126,7 +104,7 @@ def actual_move(today_close: float, prev_close: float) -> Optional[str]:
 
 def backtest_last7(series: List[Tuple[str, float]]) -> List[Tuple[str, str, str, bool]]:
     if len(series) < 3: return []
-    rows: List[Tuple[str, str, str, bool]] = []
+    rows = []
     for i in range(2, len(series)):
         d_t, c_t = series[i]
         _, c_t1 = series[i-1]
@@ -137,12 +115,10 @@ def backtest_last7(series: List[Tuple[str, float]]) -> List[Tuple[str, str, str,
             rows.append((d_t, pred, act, pred == act))
     return rows[-7:]
 
-# ---- HTML rendering ----
 def build_table_html(rows: List[Tuple[str, str, str, bool]]) -> str:
     wins = sum(1 for *_, w in rows if w)
     total = len(rows)
     win_pct = round((wins / total) * 100, 2) if total else 0.0
-
     body = []
     for d, pred, act, win in rows:
         color = "#3ddc97" if win else "#ff6b6b"
@@ -154,7 +130,6 @@ def build_table_html(rows: List[Tuple[str, str, str, bool]]) -> str:
             f"<td style='color:{color};font-weight:700'>{'Win' if win else 'Loss'}</td>"
             "</tr>"
         )
-
     summary = (
         "<div class='mb-6 p-4' style='background:#0f172a;border:1px solid #244;"
         "border-radius:12px;display:flex;gap:12px;align-items:center;justify-content:space-between;'>"
@@ -163,7 +138,6 @@ def build_table_html(rows: List[Tuple[str, str, str, bool]]) -> str:
         f"<span class='small' style='margin-left:8px;opacity:.8'>({wins} / {total} Wins)</span></div>"
         "</div>"
     )
-
     return (
         "<div class='card'>"
         "<h3 class='h3'>Last 7-Day Performance</h3>"
@@ -181,71 +155,51 @@ def inject_into_html(html_txt: str, snippet: str) -> str:
         return html_txt.replace("</body>", snippet + "\n</body>")
     return html_txt + snippet
 
-# ---- Main ----
 def main():
-    found_pages = 0
-    skipped_no_group = 0
-    skipped_no_hist = 0
-    skipped_short = 0
+    found = 0
     updated = 0
+    skip_group = skip_hist = skip_short = 0
 
-    # Find all index.html and keep only those under prediction-tomorrow
-    for index_html in DIST.rglob("index.html"):
-        pstr = str(index_html).replace("\\", "/").lower()
-        if "/prediction-tomorrow/" not in pstr:
-            continue
-        found_pages += 1
-
-        # Expected: dist/<group-slug>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+    # FAST: only target the pages we need
+    for index_html in DIST.glob("**/prediction-tomorrow/index.html"):
+        found += 1
         parts = index_html.parts
         try:
             group_slug   = parts[-6].lower()
             country_slug = parts[-5].lower()
             symbol_slug  = parts[-3].lower()
         except Exception:
-            skipped_no_group += 1
+            skip_group += 1
             continue
 
-        # Map slug -> your data folder name, with fallback auto-title
         group_dir = GROUP_DIR_BY_SLUG.get(group_slug) or slug_to_title_dir(group_slug)
-        # Quick sanity: group_dir must exist under Historical
-        if not (DATA_HIST / list_recent_dates(1)[0] / group_dir).parent.exists():
-            # If Historical is empty the line above can raise; guard below:
-            pass
 
         txt = index_html.read_text(encoding="utf-8")
         if "Last 7-Day Performance" in txt:
-            # already injected in a prior run
             continue
 
-        # Resolve real symbol from LastTradingDay mapping
-        sym_map = build_symbol_slug_map(group_dir, country_slug)
-        symbol = sym_map.get(symbol_slug) or symbol_slug.upper()
-
+        symbol = get_symbol_from_slug(group_dir, country_slug, symbol_slug) or symbol_slug.upper()
         hist = get_country_history(group_dir, country_slug, how_many_days=16)
         series = hist.get(symbol)
         if not series:
-            skipped_no_hist += 1
+            skip_hist += 1
             continue
         if len(series) < 3:
-            skipped_short += 1
+            skip_short += 1
             continue
 
         rows = backtest_last7(series)
         if not rows:
-            skipped_short += 1
+            skip_short += 1
             continue
 
         snippet = build_table_html(rows)
-        new_txt = inject_into_html(txt, snippet)
-        index_html.write_text(new_txt, encoding="utf-8")
+        index_html.write_text(inject_into_html(txt, snippet), encoding="utf-8")
         updated += 1
 
-    print(f"[scan] prediction-tomorrow pages found: {found_pages}")
-    print(f"[skip] no-group/parse issues: {skipped_no_group}")
-    print(f"[skip] no history for symbol: {skipped_no_hist}")
-    print(f"[skip] not enough history rows: {skipped_short}")
-    print(f"[OK] Injected last-7 performance into {updated} pages.")
+    print(f"[scan] prediction-tomorrow pages: {found}")
+    print(f"[skip] parse/group: {skip_group}  no-history: {skip_hist}  short: {skip_short}")
+    print(f"[OK] injected: {updated}")
 
 if __name__ == "__main__":
     main()
