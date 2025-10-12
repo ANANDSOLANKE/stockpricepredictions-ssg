@@ -1,19 +1,24 @@
 name: Auto download market data and build & deploy SSG
 
 on:
- # schedule:
- #   - cron: "0 * * * *"     # every hour (UTC)
-  workflow_dispatch:        # allow manual trigger too
+  workflow_dispatch:        # manual trigger only (re-enable cron later if you want)
+  # schedule:
+  #   - cron: "0 * * * *"   # uncomment when you're happy again
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
+# 1) Ensure only one run at a time; cancel older stuck ones
+concurrency:
+  group: stockpricepredictions-ssg-pages
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 25   # run will auto-stop if something goes wrong
 
     steps:
       - name: Checkout repository
@@ -29,16 +34,16 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          python -c "import sys, pkgutil; print('OK deps:', len(list(pkgutil.iter_modules())))"
 
-      # --- Auto download latest data ---
+      - name: Start marker
+        run: echo "Started at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+
       - name: Download latest market data (headless)
         run: |
           echo "[START] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
           python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 120
           echo "[END] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 
-      # --- Ensure logos copied once (fast) ---
       - name: Ensure logos exist in dist (fast)
         run: |
           if [ -d logos ]; then
@@ -53,23 +58,23 @@ jobs:
             echo "No /logos folder found, skipping"
           fi
 
-      # --- Build site quickly (skip logo rescan) ---
       - name: Build site (fast; skip logo rescan)
         env:
           SKIP_LOGOS: "1"
-        run: |
-          python scripts/build.py
+        run: python scripts/build.py
 
-      # --- Commit & push updates ---
       - name: Commit and push updated data + dist
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add Data dist || true
           git commit -m "Auto-update: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No changes to commit"
-          git push
+          git push || echo "No push (possibly no changes)"
 
-      # --- Deploy to GitHub Pages ---
+      # 2) Use official Pages steps to avoid deploy waits
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
