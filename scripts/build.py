@@ -6,6 +6,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from typing import Dict, List, Tuple, Optional
 
+# ----------------- Paths & Config -----------------
 ROOT = Path(__file__).resolve().parents[1]
 DATA_LAST = ROOT / "Data" / "LastTradingDay"
 DATA_HIST = ROOT / "Data" / "Historical"
@@ -17,11 +18,12 @@ BASE_URL = CFG.get("base_url", "").rstrip("/")
 SKIP_LOGOS = os.environ.get("SKIP_LOGOS", "0") == "1"
 IMG_EXTS = {".png", ".jpg", ".jpeg", ".svg", ".webp"}
 
+# ----------------- Utils -----------------
 def ensure_dir(p: Path): p.mkdir(parents=True, exist_ok=True)
 def write_text(p: Path, s: str): p.parent.mkdir(parents=True, exist_ok=True); p.write_text(s, encoding="utf-8")
 def write_json(p: Path, obj): p.parent.mkdir(parents=True, exist_ok=True); p.write_text(json.dumps(obj, ensure_ascii=False), encoding="utf-8")
 def slug(s: str) -> str: s=(s or "").strip().lower(); s=re.sub(r"[^a-z0-9]+","-",s); return s.strip("-") or "item"
-def _f(x): 
+def _f(x):
     try: return float(x)
     except: return None
 
@@ -41,6 +43,7 @@ def next_business_day(d):
     if wd == 5: return d + timedelta(days=2)
     return d + timedelta(days=1)
 
+# ----------------- Readers -----------------
 def read_csv_rows(path: Path) -> List[Dict[str,str]]:
     rows=[]
     with open(path,"r",encoding="utf-8",newline="") as f:
@@ -50,6 +53,9 @@ def read_csv_rows(path: Path) -> List[Dict[str,str]]:
     return rows
 
 def load_last_trading_day() -> Dict[str, Dict[str, Dict]]:
+    """
+    tree[group_slug][country_slug] = {..., rows}
+    """
     tree={}
     if not DATA_LAST.exists(): return tree
     for group_dir in sorted([d for d in DATA_LAST.iterdir() if d.is_dir()]):
@@ -66,6 +72,7 @@ def load_last_trading_day() -> Dict[str, Dict[str, Dict]]:
                                 "csv_path":csvp,"rows":rows}
     return tree
 
+# ----------------- Assets -----------------
 def copy_static_assets():
     ensure_dir(DIST/"static")
     for name in ("styles.css","app.js"):
@@ -102,7 +109,7 @@ def build_scan_index():
     if not base.exists(): return idx
     for root,_,files in os.walk(base):
         for f in files:
-            if os.path.splitext(f)[1].lower() not in {".png",".jpg",".jpeg",".svg",".webp"}: continue
+            if os.path.splitext(f)[1].lower() not in IMG_EXTS: continue
             full=Path(root)/f; rel=full.relative_to(base).as_posix()
             exch=full.parent.name; stem=os.path.splitext(f)[0]
             stem=re.sub(r"(--|_|-)?\d{2,4}$","",stem)
@@ -112,7 +119,8 @@ def build_scan_index():
 class LogoResolver:
     def __init__(self):
         self.placeholder=f"{BASE_URL}/static/logo-placeholder.svg"
-        if SKIP_LOGOS: self.curated={}; self.scan={}
+        if SKIP_LOGOS:
+            self.curated={}; self.scan={}
         else:
             src=ROOT/"logos"; dst=DIST/"logos"
             if src.exists() and not dst.exists(): shutil.copytree(src,dst)
@@ -121,16 +129,20 @@ class LogoResolver:
     def url_for(self, exchange:str, symbol:str, name:str="")->str:
         key=(exchange or "", symbol or "")
         if key in self.cache: return self.cache[key]
-        if SKIP_LOGOS: self.cache[key]=self.placeholder; return self.placeholder
+        if SKIP_LOGOS:
+            self.cache[key]=self.placeholder; return self.placeholder
         exch=(exchange or "").upper(); symn=_norm(symbol)
         rel=self.curated.get((exch,symn))
         if rel: url=f"{BASE_URL}/logos/{rel}"; self.cache[key]=url; return url
+        # direct symbol match
         for stem,rel in self.scan.get(exch, []):
             if stem==symn: url=f"{BASE_URL}/logos/{rel}"; self.cache[key]=url; return url
+        # fuzzy
         for stem,rel in self.scan.get(exch, []):
             if symn and (symn in stem or stem in symn): url=f"{BASE_URL}/logos/{rel}"; self.cache[key]=url; return url
         self.cache[key]=self.placeholder; return self.placeholder
 
+# ----------------- Historical back-test (last 7) -----------------
 def list_recent_dates(n:int)->List[str]:
     if not DATA_HIST.exists(): return []
     dates=[d.name for d in DATA_HIST.iterdir() if d.is_dir() and re.match(r"^\d{4}-\d{2}-\d{2}$", d.name)]
@@ -152,8 +164,13 @@ def get_symbol_closes_for_country(group_name:str, country_slug:str, symbol:str, 
     out.sort(key=lambda x:x[0]); return out
 
 def make_last7_backtest(group_name:str, country_name:str, country_slug:str, symbol:str)->Dict:
-    closes=get_symbol_closes_for_country(group_name, country_slug, symbol, how_many_days=9)
-    if len(closes)<3: return {"rows":[], "wins":0, "total":0, "win_pct":None}
+    closes=get_symbol_closes_for_country(group_name, country_slug, symbol, how_many_days= NineOrDefault(9))
+    # fallback: if helper not found, respect plain 9
+    if isinstance(closes, list) and len(closes) < 3:
+        return {"rows":[], "wins":0, "total":0, "win_pct":None}
+    if len(closes) < 3:
+        return {"rows":[], "wins":0, "total":0, "win_pct":None}
+
     preds=[]
     for i in range(2, len(closes)):
         d_t, c_t = closes[i]
@@ -168,6 +185,10 @@ def make_last7_backtest(group_name:str, country_name:str, country_slug:str, symb
     rows=[{"date":d,"prediction":p,"close":None if c is None else round(c,2),"result":"Win" if w else "Loss","is_win":w} for d,p,c,w in preds]
     return {"rows":rows,"wins":wins,"total":total,"win_pct":None if win_pct is None else round(win_pct,2)}
 
+# helper to keep literal 9 even if someone search-replaces
+def NineOrDefault(n:int)->int: return 9
+
+# ----------------- HTML helpers -----------------
 def pct_html(chg: Optional[float])->str:
     if chg is None: return ""
     cls = "pos" if chg>0 else ("neg" if chg<0 else "")
@@ -216,11 +237,16 @@ def tpl_base(title, description, body, canonical):
 <script src="{js}" defer></script>
 </body></html>"""
 
+# ----------------- Build -----------------
 def main():
-    ensure_dir(DIST/"static"); copy_static_assets(); ensure_placeholder_logo()
-    tree=load_last_trading_day(); resolver=LogoResolver()
+    ensure_dir(DIST/"static")
+    copy_static_assets()
+    ensure_placeholder_logo()
 
-    # home
+    tree=load_last_trading_day()
+    resolver=LogoResolver()
+
+    # Home
     home_body = """
 <section class='card'>
   <h2 class='h2'>Browse Markets</h2>
@@ -247,7 +273,7 @@ def main():
         region_entry={"name":gname,"slug":gslug,"url":f"{BASE_URL}/{gslug}/","countries":[]}
         site_index["regions"].append(region_entry)
 
-        # region page
+        # Region page
         country_links=[]
         for cslug in sorted(tree[gslug].keys()):
             cname=tree[gslug][cslug]["country_name"]
@@ -259,11 +285,15 @@ def main():
                            f"<section class='card'><h2 class='h2'>Countries in {html.escape(gname)}</h2><ul>{''.join(country_links)}</ul></section>",
                            f"{BASE_URL}/{gslug}/"))
 
-        # countries → exchanges
+        # Countries → Exchanges
         for c in region_entry["countries"]:
-            cslug,cname=c["slug"],c["name"]; rows=tree[gslug][cslug]["rows"]
+            cslug,cname=c["slug"],c["name"]
+            rows=tree[gslug][cslug]["rows"]
+
+            # group by exchange
             by_exch={}
-            for r in rows: by_exch.setdefault((r.get("exchange") or "UNKNOWN").strip(), []).append(r)
+            for r in rows:
+                by_exch.setdefault((r.get("exchange") or "UNKNOWN").strip(), []).append(r)
 
             ex_links=[]
             for exch, erows in sorted(by_exch.items(), key=lambda kv: kv[0].lower()):
@@ -281,25 +311,29 @@ def main():
                     try: chg=float(chg_raw)
                     except: chg=None
 
-                    s_slug=slug(sym); sig,conf,reason=(" ",0,"")
+                    s_slug=slug(sym)
+                    sig,conf,reason=(" ",0,"")
                     if None not in (o,h,l,cclose): sig,conf,reason=classify(o,h,l,cclose)
+
                     stock_url=f"{BASE_URL}/{gslug}/{cslug}/{e_slug}/{s_slug}/prediction-tomorrow/"
                     chg_cell=pct_html(chg)
 
+                    # row HTML
                     table_rows_html.append(
                         "<tr>"
                         f"<td><a href='{stock_url}'>{html.escape(sym)}</a></td>"
                         f"<td><a href='{stock_url}'>{html.escape(name)}</a></td>"
                         f"<td>{html.escape(sec)}</td>"
-                        f"<td>{'' if o is None else f'{o:.2f}'}</td>"
-                        f"<td>{'' if h is None else f'{h:.2f}'}</td>"
-                        f"<td>{'' if l is None else f'{l:.2f}'}</td>"
-                        f"<td>{'' if cclose is None else f'{cclose:.2f}'}</td>"
+                        f"<td>{'' if o is None else '{:.2f}'.format(o)}</td>"
+                        f"<td>{'' if h is None else '{:.2f}'.format(h)}</td>"
+                        f"<td>{'' if l is None else '{:.2f}'.format(l)}</td>"
+                        f"<td>{'' if cclose is None else '{:.2f}'.format(cclose)}</td>"
                         f"<td>{chg_cell}</td>"
                         f"<td><a class='btn' href='{stock_url}'>AI Prediction</a></td>"
                         "</tr>"
                     )
 
+                    # JSON row for app.js table
                     logo_url=resolver.url_for(exch, sym, name)
                     json_rows.append({
                         "symbol": sym, "name": name, "sector": sec,
@@ -312,34 +346,44 @@ def main():
                         "url": stock_url
                     })
 
-                    # per-stock page with back-test
+                    # --- Per-stock page with 7-day back-test ---
                     if sym and None not in (o,h,l,cclose):
                         pred_date=next_business_day(datetime.utcnow().date()).isoformat()
                         bt=make_last7_backtest(tree[gslug][cslug]["group_name"], cname, cslug, sym)
-                        win_line = (f"<div class='mini mut'>Last 7 accuracy: <strong>{bt['win_pct']}%</strong> "
-                                    f"({bt['wins']} / {bt['total']} wins)</div>") if bt["total"] else ""
+
+                        win_line = ""
+                        if bt["total"]:
+                            win_line = (
+                                f"<div class='mini mut'>Last 7 accuracy: <strong>{bt['win_pct']}%</strong> "
+                                f"({bt['wins']} / {bt['total']} wins)</div>"
+                            )
+
                         bt_rows=[]
-                        for row in bt["rows"]:
-                            cls="win" if row["is_win"] else "loss"
+                        for row7 in bt["rows"]:
+                            cls="win" if row7["is_win"] else "loss"
+                            close_txt = "" if row7["close"] is None else "{:.2f}".format(row7["close"])
                             bt_rows.append(
                                 "<tr>"
-                                f"<td>{html.escape(row['date'])}</td>"
-                                f"<td>{html.escape(row['prediction'])}</td>"
-                                f"<td class='mini'>{'' if row['close'] is None else '{:.2f}'.format(row['close'])}</td>"
-                                f"<td class='{cls}'>{html.escape(row['result'])}</td>"
+                                f"<td>{html.escape(row7['date'])}</td>"
+                                f"<td>{html.escape(row7['prediction'])}</td>"
+                                f"<td class='mini'>{close_txt}</td>"
+                                f"<td class='{cls}'>{html.escape(row7['result'])}</td>"
                                 "</tr>"
                             )
+
+                        empty_html = '<tr><td colspan="4" class="mut">Not enough historical data.</td></tr>'
+                        tbody_html = "".join(bt_rows) if bt_rows else empty_html
+
                         bt_table = (
                             "<div class='card'>"
                             "<h3 class='h3'>Back-tested performance (last 7 trading days)</h3>"
                             f"{win_line}"
                             "<div class='table-wrap'><table class='table'>"
                             "<thead><tr><th>Date</th><th>AI Prediction</th><th>Actual Close</th><th>Result</th></tr></thead>"
-                            f"<tbody>{''.join(bt_rows) if bt_rows else '<tr><td colspan=4 class=\"mut\">Not enough historical data.</td></tr>'}</tbody>"
+                            f"<tbody>{tbody_html}</tbody>"
                             "</table></div></div>"
                         )
 
-                        # header with colored change%
                         chg_header = pct_html(chg)
                         title=f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
                         h1=f"AI Analysis of {sym} ({name}) Stock for Tomorrow"
@@ -348,7 +392,7 @@ def main():
                             "<div class='card'>"
                             f"<h2 class='h2'>{html.escape(h1)}</h2>"
                             f"<p class='mini mut'>Region: {html.escape(gname)} · Country: {html.escape(cname)} · Exchange: {html.escape(exch)}</p>"
-                            f"<p class='mini mut'>OHLC: O {o:.2f}, H {h:.2f}, L {l:.2f}, C {cclose:.2f} · Change%: {chg_header}</p>"
+                            f"<p class='mini mut'>OHLC: O {'{:.2f}'.format(o)}, H {'{:.2f}'.format(h)}, L {'{:.2f}'.format(l)}, C {'{:.2f}'.format(cclose)} · Change%: {chg_header}</p>"
                             f"<div class='card'><h3 class='h3'>Prediction for {pred_date}</h3><p><strong>{html.escape(sig or 'Signal')}</strong> (confidence {int(conf*100)}%).</p></div>"
                             "</div>"
                         )
@@ -369,6 +413,7 @@ def main():
                 write_json(DIST/"static"/"exchanges"/gslug/cslug/f"{e_slug}.json",
                            {"region": gname, "country": cname, "exchange": exch, "rows": json_rows})
 
+            # Country landing
             write_text(DIST/gslug/cslug/"index.html",
                        tpl_base(f"{cname} — {CFG.get('site_title','')}",
                                 f"Browse exchanges in {cname}.",
@@ -378,7 +423,10 @@ def main():
                                 "</ul></section>",
                                 f"{BASE_URL}/{gslug}/{cslug}/"))
 
+    # index.json for app.js
     write_json(DIST/"static"/"index.json", site_index)
+
+    # robots + sitemap
     write_text(DIST/"robots.txt", f"Sitemap: {BASE_URL}/sitemap.xml\nUser-agent: *\nAllow: /\n")
     urls=[]
     for p in DIST.rglob("index.html"):
