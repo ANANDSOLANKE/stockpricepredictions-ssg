@@ -2,30 +2,21 @@
 # -*- coding: utf-8 -*-
 
 """
-Inject a 7-day backtest table into each prediction page:
-- Scans dist/**/prediction-tomorrow/index.html
-- Resolves group/country/symbol from the path
-- Looks up the symbol in Data/Historical (tolerant to suffixes: .ns, -eq, etc.)
-- Builds (date, prediction, actual, win/loss) rows and injects HTML
+Inject a 7-day backtest table into each prediction-tomorrow page.
 
-Idempotent: skips pages that already contain the table.
+Uses Historical CSV data (symbol + description) to reconstruct
+the last 7 trading days and compare predicted vs. actual movement.
 """
 
 from __future__ import annotations
-import csv
-import html
-import re
-import time
+import csv, html, re, time
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 
-# --- repo layout ---
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 DATA_HIST = ROOT / "Data" / "Historical"
-DATA_LAST = ROOT / "Data" / "LastTradingDay"
 
-# --- mapping: group slug in URL -> directory name under Data/ ---
 GROUP_DIR_BY_SLUG = {
     "asia-pacific": "Asia - Pacific",
     "europe": "Europe",
@@ -35,288 +26,166 @@ GROUP_DIR_BY_SLUG = {
     "global-indices": "Global Indices",
 }
 def slug_to_title_dir(slug: str) -> str:
-    """Fallback for unknown groups: 'latin-america' -> 'Latin America'."""
     parts = [p for p in re.split(r"[^a-z0-9]+", slug.lower()) if p]
     return " ".join(w.capitalize() for w in parts)
 
-# Allow build.py to finish writing pages
 time.sleep(2)
 
-# --- helpers ------------------------------------------------------------
 def _f(x):
-    try:
-        return float(x)
-    except Exception:
-        return None
+    try: return float(x)
+    except Exception: return None
 
 def slugify(s: str) -> str:
     s = (s or "").strip().lower()
     s = re.sub(r"[^a-z0-9]+", "-", s)
-    return s.strip("-") or "item"
+    return s.strip("-")
 
 def list_recent_dates(n: int = 40) -> List[str]:
-    """Newest N historical folders (YYYY-MM-DD), sorted ascending."""
-    if not DATA_HIST.exists():
-        return []
+    if not DATA_HIST.exists(): return []
     dates = [d.name for d in DATA_HIST.iterdir() if d.is_dir() and re.match(r"^\d{4}-\d{2}-\d{2}$", d.name)]
     dates.sort()
     return dates[-n:]
 
-# --- caches -------------------------------------------------------------
 _hist_cache: Dict[Tuple[str, str], Dict[str, List[Tuple[str, float]]]] = {}
-_hist_slug_map_cache: Dict[Tuple[str, str], Dict[str, str]] = {}
-_slug_cache_last: Dict[Tuple[str, str], Dict[str, str]] = {}
+_slugmap_cache: Dict[Tuple[str, str], Dict[str, str]] = {}
 
-# --- Historical readers -------------------------------------------------
-def read_country_hist_csv(date_folder: str, group_dir: str, country_slug: str) -> List[Tuple[str, Optional[float]]]:
+# --- CSV reader -------------------------------------------------------
+def read_country_hist(date_folder: str, group_dir: str, country_slug: str):
     p = DATA_HIST / date_folder / group_dir / f"{country_slug}.csv"
-    if not p.exists():
-        return []
-    out = []
+    if not p.exists(): return []
+    rows = []
     with open(p, "r", encoding="utf-8", newline="") as f:
         rdr = csv.DictReader(f)
         for r in rdr:
             sym = (r.get("symbol") or "").strip().upper()
-            close = _f(r.get("close"))
-            if sym:
-                out.append((sym, close))
-    return out
+            desc = (r.get("description") or "").strip()
+            close = r.get("Close") or r.get("close")
+            if not sym or not close: continue
+            rows.append((sym, _f(close), desc))
+    return rows
 
-def get_country_history(group_dir: str, country_slug: str, how_many_days: int = 16) -> Dict[str, List[Tuple[str, float]]]:
-    """
-    Return: {HIST_SYMBOL: [(YYYY-MM-DD, close), ...]} for last ~how_many_days.
-    Also builds a slug map of historical symbols.
-    """
+# --- Build cache ------------------------------------------------------
+def get_country_history(group_dir: str, country_slug: str, days: int = 16):
     key = (group_dir, country_slug)
-    if key in _hist_cache:
-        return _hist_cache[key]
+    if key in _hist_cache: return _hist_cache[key]
 
-    dates = list_recent_dates(how_many_days * 3)  # read a bit more to ensure we have 7 rows
     hist: Dict[str, List[Tuple[str, float]]] = {}
-    for d in dates:
-        for sym, close in read_country_hist_csv(d, group_dir, country_slug):
-            if close is None:
-                continue
-            hist.setdefault(sym, []).append((d, float(close)))
+    smap: Dict[str, str] = {}
 
-    # sort/trim & build slug map
-    slug_map: Dict[str, str] = {}
-    for s in list(hist.keys()):
-        series = sorted(hist[s], key=lambda x: x[0])
-        hist[s] = series[-(how_many_days + 5):]
-        slug_map[slugify(s)] = s
+    def add_slugs(symbol: str, desc: str):
+        variants = [
+            symbol,
+            re.sub(r"(\.|\-|_)?eq$", "", symbol),
+            re.sub(r"\.[a-z]{1,4}$", "", symbol),
+            desc,
+            desc.replace("Limited","").replace("Ltd","").strip()
+        ]
+        for v in variants:
+            v = slugify(v)
+            if not v: continue
+            smap.setdefault(v, symbol)
+            smap.setdefault(v.replace("-", ""), symbol)
 
+    for d in list_recent_dates(days * 3):
+        for sym, close, desc in read_country_hist(d, group_dir, country_slug):
+            if close is None: continue
+            hist.setdefault(sym, []).append((d, close))
+            add_slugs(sym, desc)
+
+    for s, arr in hist.items():
+        hist[s] = sorted(arr)[-days:]
     _hist_cache[key] = hist
-    _hist_slug_map_cache[key] = slug_map
+    _slugmap_cache[key] = smap
     return hist
 
-def hist_symbol_from_slug(group_dir: str, country_slug: str, sym_slug: str) -> Optional[str]:
-    """
-    Resolve a page symbol slug to the exact historical symbol, allowing suffixes like
-    .ns / -eq / _eq and any '-<suffix>' variations present in historical files.
-    """
+# --- Resolve symbol ---------------------------------------------------
+def resolve_symbol(group_dir: str, country_slug: str, sym_slug: str, name_slug: Optional[str]):
     key = (group_dir, country_slug)
-    if key not in _hist_slug_map_cache:
-        _ = get_country_history(group_dir, country_slug)  # populates slug map
-    slug_map = _hist_slug_map_cache.get(key, {})
+    if key not in _slugmap_cache:
+        _ = get_country_history(group_dir, country_slug)
+    smap = _slugmap_cache.get(key, {})
+    if not smap: return None
 
-    # 1) direct match
-    if sym_slug in slug_map:
-        return slug_map[sym_slug]
-
-    # 2) relaxed variants: strip common suffixes
-    variants = {
-        sym_slug,
-        re.sub(r"(\.|\-|_|\/)?eq$", "", sym_slug),   # strip -eq/_eq/eq
-        re.sub(r"\.[a-z]{1,4}$", "", sym_slug),      # strip .ns/.ax/.to etc.
-    }
-    for c in variants:
-        if c in slug_map:
-            return slug_map[c]
-
-    # 3) prefix match: aeroflex-* (e.g., aeroflex-ns, aeroflex-eq)
-    pref = sym_slug + "-"
-    for key_slug, sym in slug_map.items():
-        if key_slug.startswith(pref):
-            return sym
-
+    candidates = [sym_slug]
+    if name_slug: candidates.append(name_slug)
+    for c in candidates:
+        base = slugify(c)
+        if base in smap: return smap[base]
+        base = base.replace("-", "")
+        if base in smap: return smap[base]
+        for k, v in smap.items():
+            if base in k or k in base: return v
     return None
 
-# --- LastTradingDay symbol map (source for page symbols) ----------------
-def build_symbol_slug_map_last(group_dir: str, country_slug: str) -> Dict[str, str]:
-    """
-    Build slug -> SYMBOL from LastTradingDay CSV for that country (upper-cased symbols).
-    If your CSVs use a 'name' or 'company' field instead of 'symbol', add it here as fallback.
-    """
-    p = DATA_LAST / group_dir / f"{country_slug}.csv"
-    mp: Dict[str, str] = {}
-    if p.exists():
-        with open(p, "r", encoding="utf-8", newline="") as f:
-            rdr = csv.DictReader(f)
-            for r in rdr:
-                sym = (r.get("symbol") or r.get("name") or r.get("company") or "").strip().upper()
-                if sym:
-                    mp[slugify(sym)] = sym
-    return mp
+# --- AI logic ----------------------------------------------------------
+def predict_from(p1: float, p2: float):
+    if p1 is None or p2 is None: return None
+    return "Bullish" if p1 > p2 else "Bearish"
 
-def last_symbol_from_slug(group_dir: str, country_slug: str, sym_slug: str) -> Optional[str]:
-    """
-    Find a matching symbol from LastTradingDay even if only part of it
-    matches (handles full names like 'AEROFLEX INDUSTRIES LTD' vs page slug 'aeroflex').
-    """
-    key = (group_dir, country_slug)
-    if key not in _slug_cache_last:
-        _slug_cache_last[key] = build_symbol_slug_map_last(group_dir, country_slug)
-    mp = _slug_cache_last[key]
+def actual_move(today: float, prev: float):
+    if today is None or prev is None: return None
+    return "Bullish" if today > prev else "Bearish"
 
-    # exact slug match
-    if sym_slug in mp:
-        return mp[sym_slug]
-
-    # relaxed variants
-    variants = {
-        sym_slug,
-        re.sub(r"(\.|\-|_|\/)?eq$", "", sym_slug),
-        re.sub(r"\.[a-z]{1,4}$", "", sym_slug),
-    }
-    for c in variants:
-        if c in mp:
-            return mp[c]
-
-    # substring partial match (either side contains the other)
-    for k, v in mp.items():
-        if sym_slug in k or k in sym_slug:
-            return v
-
-    return None
-
-# --- model/backtest -----------------------------------------------------
-def predict_from(prev_close: float, prev2_close: float) -> Optional[str]:
-    if prev_close is None or prev2_close is None:
-        return None
-    return "Bullish" if prev_close > prev2_close else "Bearish"
-
-def actual_move(today_close: float, prev_close: float) -> Optional[str]:
-    if today_close is None or prev_close is None:
-        return None
-    return "Bullish" if today_close > prev_close else "Bearish"
-
-def backtest_last7(series: List[Tuple[str, float]]) -> List[Tuple[str, str, str, bool]]:
-    """
-    Input: ordered series [(date, close), ...]
-    Output (max 7 rows): [(date, pred, actual, win_bool)]
-    """
-    if len(series) < 3:
-        return []
-    rows: List[Tuple[str, str, str, bool]] = []
+def backtest(series: List[Tuple[str, float]]):
+    if len(series) < 3: return []
+    out = []
     for i in range(2, len(series)):
-        d_t, c_t = series[i]
-        _, c_t1 = series[i - 1]
-        _, c_t2 = series[i - 2]
-        pred = predict_from(c_t1, c_t2)
-        act = actual_move(c_t, c_t1)
-        if pred and act:
-            rows.append((d_t, pred, act, pred == act))
-    return rows[-7:]
+        d, c = series[i]
+        _, p1 = series[i-1]; _, p2 = series[i-2]
+        pred = predict_from(p1, p2)
+        act = actual_move(c, p1)
+        if pred and act: out.append((d, pred, act, pred == act))
+    return out[-7:]
 
-# --- HTML ---------------------------------------------------------------
-def build_table_html(rows: List[Tuple[str, str, str, bool]]) -> str:
+# --- HTML helpers -----------------------------------------------------
+def build_html(rows):
     wins = sum(1 for *_, w in rows if w)
     total = len(rows)
-    win_pct = round((wins / total) * 100, 2) if total else 0.0
-    body = []
-    for d, pred, act, win in rows:
-        color = "#3ddc97" if win else "#ff6b6b"
-        body.append(
-            "<tr>"
-            f"<td>{html.escape(d)}</td>"
-            f"<td>{html.escape(pred)}</td>"
-            f"<td>{html.escape(act)}</td>"
-            f"<td style='color:{color};font-weight:700'>{'Win' if win else 'Loss'}</td>"
-            "</tr>"
-        )
-    summary = (
-        "<div class='mb-6 p-4' style='background:#0f172a;border:1px solid #244;"
-        "border-radius:12px;display:flex;gap:12px;align-items:center;justify-content:space-between;'>"
-        "<span class='small' style='opacity:.85'>Last 7 Trading Days Accuracy:</span>"
-        f"<div><span style='color:#3ddc97;font-weight:800;font-size:24px'>{win_pct}%</span>"
-        f"<span class='small' style='margin-left:8px;opacity:.8'>({wins} / {total} Wins)</span></div>"
-        "</div>"
-    )
-    return (
-        "<div class='card'>"
-        "<h3 class='h3'>Last 7-Day Performance</h3>"
-        f"{summary}"
-        "<div class='table-wrap'><table class='table'>"
-        "<thead><tr><th>Date</th><th>AI Prediction</th><th>Actual</th><th>Result</th></tr></thead>"
-        f"<tbody>{''.join(body) if body else '<tr><td colspan=4>No data</td></tr>'}</tbody>"
-        "</table></div></div>"
-    )
+    winpct = round((wins/total)*100,2) if total else 0
+    trs = []
+    for d,p,a,w in rows:
+        color = "#3ddc97" if w else "#ff6b6b"
+        trs.append(f"<tr><td>{d}</td><td>{p}</td><td>{a}</td><td style='color:{color};font-weight:700'>{'Win' if w else 'Loss'}</td></tr>")
+    summary = f"<div style='margin:10px 0;padding:10px;border:1px solid #244;border-radius:12px;background:#0f172a;display:flex;justify-content:space-between'><span>Last 7-Day Accuracy:</span><b style='color:#3ddc97'>{winpct}% ({wins}/{total})</b></div>"
+    return f"<div class='card'><h3 class='h3'>Last 7-Day Performance</h3>{summary}<div class='table-wrap'><table class='table'><thead><tr><th>Date</th><th>AI Prediction</th><th>Actual</th><th>Result</th></tr></thead><tbody>{''.join(trs)}</tbody></table></div></div>"
 
-def inject_into_html(html_txt: str, snippet: str) -> str:
-    if "</main>" in html_txt:
-        return html_txt.replace("</main>", snippet + "\n</main>")
-    if "</body>" in html_txt:
-        return html_txt.replace("</body>", snippet + "\n</body>")
-    return html_txt + snippet
+def inject_html(page, snippet):
+    if "Last 7-Day Performance" in page: return page
+    if "</main>" in page: return page.replace("</main>", snippet + "\n</main>")
+    if "</body>" in page: return page.replace("</body>", snippet + "\n</body>")
+    return page + snippet
 
-# --- main ---------------------------------------------------------------
+def get_company_from_html(txt):
+    m = re.search(r"\(([^)]+)\)", txt)
+    return m.group(1).strip() if m else None
+
+# --- Main --------------------------------------------------------------
 def main():
-    found = updated = 0
-    skip_group = skip_map = skip_hist = skip_short = 0
-
-    for index_html in DIST.glob("**/prediction-tomorrow/index.html"):
+    found = updated = skip_map = 0
+    for file in DIST.glob("**/prediction-tomorrow/index.html"):
         found += 1
-
-        # Expected path .../<group>/<country>/<symbol>/prediction-tomorrow/index.html
-        parts = index_html.parts
+        parts = file.parts
         try:
-            group_slug   = parts[-6].lower()
-            country_slug = parts[-5].lower()
-            symbol_slug  = parts[-3].lower()
+            group = parts[-6].lower()
+            country = parts[-5].lower()
+            sym = parts[-3].lower()
         except Exception:
-            skip_group += 1
             continue
-
-        group_dir = GROUP_DIR_BY_SLUG.get(group_slug) or slug_to_title_dir(group_slug)
-
-        txt = index_html.read_text(encoding="utf-8")
-        if "Last 7-Day Performance" in txt:
-            # already injected
-            continue
-
-        # 1) resolve page slug -> "plain" symbol from LastTradingDay (lenient)
-        symbol_plain = last_symbol_from_slug(group_dir, country_slug, symbol_slug)
-
-        # 2) resolve to exact Historical symbol (handles .ns/-eq etc.)
-        hist_sym = hist_symbol_from_slug(group_dir, country_slug, symbol_slug)
-        if not hist_sym and symbol_plain:
-            hist_sym = hist_symbol_from_slug(group_dir, country_slug, slugify(symbol_plain))
-        if not hist_sym:
+        group_dir = GROUP_DIR_BY_SLUG.get(group) or slug_to_title_dir(group)
+        txt = file.read_text(encoding="utf-8")
+        comp = get_company_from_html(txt)
+        name_slug = slugify(comp) if comp else None
+        hist = get_country_history(group_dir, country, 16)
+        real_sym = resolve_symbol(group_dir, country, sym, name_slug)
+        if not real_sym or real_sym not in hist:
             skip_map += 1
             continue
-
-        hist = get_country_history(group_dir, country_slug, how_many_days=16)
-        series = hist.get(hist_sym)
-        if not series:
-            skip_hist += 1
-            continue
-
-        if len(series) < 3:
-            skip_short += 1
-            continue
-
-        rows = backtest_last7(series)
-        if not rows:
-            skip_short += 1
-            continue
-
-        index_html.write_text(inject_into_html(txt, build_table_html(rows)), encoding="utf-8")
+        series = hist[real_sym]
+        rows = backtest(series)
+        if not rows: continue
+        file.write_text(inject_html(txt, build_html(rows)), encoding="utf-8")
         updated += 1
-
-    print(f"[scan] prediction-tomorrow pages: {found}")
-    print(f"[skip] parse/group: {skip_group}  map-miss: {skip_map}  no-history: {skip_hist}  short: {skip_short}")
-    print(f"[OK] injected: {updated}")
+    print(f"[scan] {found} pages | [OK] injected {updated} | [skip-map] {skip_map}")
 
 if __name__ == "__main__":
     main()
