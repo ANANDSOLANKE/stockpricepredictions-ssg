@@ -1,21 +1,24 @@
 name: Build & Deploy SSG
 
 on:
-  workflow_dispatch:        # manual trigger (safe to run anytime)
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/**"
+      - "templates/**"
+      - "static/**"
+      - "logos/**"
+      - ".github/workflows/ssg.yml"
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
-concurrency:
-  group: stockpricepredictions-ssg
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 60   # ⬅️ give first full injection room to finish
 
     steps:
       - name: Checkout repository
@@ -25,12 +28,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: "pip"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install pandas jinja2 python-slugify
 
       - name: Ensure logos exist in dist (fast)
         run: |
@@ -38,24 +40,17 @@ jobs:
             mkdir -p dist
             if [ ! -d dist/logos ]; then
               cp -r logos dist/
-              echo "Copied logos → dist/logos (first time)"
+              echo "Copied logos → dist/logos"
             else
-              echo "Logos already present, skipping copy"
+              echo "Logos already present"
             fi
-          else
-            echo "No /logos folder found, skipping"
           fi
 
-      # 🧱 Build site + inject Last 7-Day Performance
-      - name: Build site (fast + last7)
-        env:
-          SKIP_LOGOS: "1"
-        run: |
-          python scripts/build.py
-          python scripts/build_last7.py
+      - name: Build site (fast)
+        run: python -u scripts/build.py
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Inject last-7 performance
+        run: python -u scripts/build_last7.py
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
