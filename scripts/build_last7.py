@@ -8,7 +8,7 @@ Inject a 7-day backtest table into each prediction page:
 - Looks up the symbol in Data/Historical (tolerant to suffixes: .ns, -eq, etc.)
 - Builds (date, prediction, actual, win/loss) rows and injects HTML
 
-This script is idempotent and will skip a page that already has the table.
+Idempotent: skips pages that already contain the table.
 """
 
 from __future__ import annotations
@@ -91,7 +91,7 @@ def get_country_history(group_dir: str, country_slug: str, how_many_days: int = 
     if key in _hist_cache:
         return _hist_cache[key]
 
-    dates = list_recent_dates(how_many_days * 3)  # more days to ensure we have 7 valid rows
+    dates = list_recent_dates(how_many_days * 3)  # read a bit more to ensure we have 7 rows
     hist: Dict[str, List[Tuple[str, float]]] = {}
     for d in dates:
         for sym, close in read_country_hist_csv(d, group_dir, country_slug):
@@ -127,8 +127,8 @@ def hist_symbol_from_slug(group_dir: str, country_slug: str, sym_slug: str) -> O
     # 2) relaxed variants: strip common suffixes
     variants = {
         sym_slug,
-        re.sub(r"(\.|\-|_|\/)?eq$", "", sym_slug),       # strip -eq/_eq/eq
-        re.sub(r"\.[a-z]{1,4}$", "", sym_slug),          # strip .ns/.ax/.to etc.
+        re.sub(r"(\.|\-|_|\/)?eq$", "", sym_slug),   # strip -eq/_eq/eq
+        re.sub(r"\.[a-z]{1,4}$", "", sym_slug),      # strip .ns/.ax/.to etc.
     }
     for c in variants:
         if c in slug_map:
@@ -142,28 +142,38 @@ def hist_symbol_from_slug(group_dir: str, country_slug: str, sym_slug: str) -> O
 
     return None
 
-# --- LastTradingDay symbol map (page symbol source) ---------------------
+# --- LastTradingDay symbol map (source for page symbols) ----------------
 def build_symbol_slug_map_last(group_dir: str, country_slug: str) -> Dict[str, str]:
+    """
+    Build slug -> SYMBOL from LastTradingDay CSV for that country (upper-cased symbols).
+    If your CSVs use a 'name' or 'company' field instead of 'symbol', add it here as fallback.
+    """
     p = DATA_LAST / group_dir / f"{country_slug}.csv"
     mp: Dict[str, str] = {}
     if p.exists():
         with open(p, "r", encoding="utf-8", newline="") as f:
             rdr = csv.DictReader(f)
             for r in rdr:
-                sym = (r.get("symbol") or "").strip().upper()
+                sym = (r.get("symbol") or r.get("name") or r.get("company") or "").strip().upper()
                 if sym:
                     mp[slugify(sym)] = sym
     return mp
 
 def last_symbol_from_slug(group_dir: str, country_slug: str, sym_slug: str) -> Optional[str]:
+    """
+    Find a matching symbol from LastTradingDay even if only part of it
+    matches (handles full names like 'AEROFLEX INDUSTRIES LTD' vs page slug 'aeroflex').
+    """
     key = (group_dir, country_slug)
     if key not in _slug_cache_last:
         _slug_cache_last[key] = build_symbol_slug_map_last(group_dir, country_slug)
     mp = _slug_cache_last[key]
 
+    # exact slug match
     if sym_slug in mp:
         return mp[sym_slug]
 
+    # relaxed variants
     variants = {
         sym_slug,
         re.sub(r"(\.|\-|_|\/)?eq$", "", sym_slug),
@@ -172,6 +182,12 @@ def last_symbol_from_slug(group_dir: str, country_slug: str, sym_slug: str) -> O
     for c in variants:
         if c in mp:
             return mp[c]
+
+    # substring partial match (either side contains the other)
+    for k, v in mp.items():
+        if sym_slug in k or k in sym_slug:
+            return v
+
     return None
 
 # --- model/backtest -----------------------------------------------------
@@ -269,7 +285,7 @@ def main():
             # already injected
             continue
 
-        # 1) resolve page slug -> "plain" symbol from LastTradingDay (if available)
+        # 1) resolve page slug -> "plain" symbol from LastTradingDay (lenient)
         symbol_plain = last_symbol_from_slug(group_dir, country_slug, symbol_slug)
 
         # 2) resolve to exact Historical symbol (handles .ns/-eq etc.)
