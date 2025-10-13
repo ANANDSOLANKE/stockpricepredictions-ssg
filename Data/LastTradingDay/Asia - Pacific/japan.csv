@@ -270,8 +270,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 180A,Global X 25+ Year T-Bond ETF Units,TSE,Miscellaneous,Investment Trusts/Mutual Funds,294.2,295.5,294.2,295.5,0.1694915254237288,,18530,JPY
 1810,"Matsui Construction Co., Ltd.",TSE,Industrial Services,Engineering & Construction,1374.0,1377.0,1353.0,1355.0,-2.867383512544803,41355766211.0,31300,JPY
 1811,Zenitaka Corporation,TSE,Industrial Services,Engineering & Construction,6510.0,6510.0,6350.0,6360.0,-3.048780487804878,45551873875.0,4100,JPY
-1812,Kajima Corporation,TSE,Industrial Services,Engineering & Construction,4581.0,4583.0,4450.0,4450.0,-3.67965367965368,2163095051575.0,1648400,JPY
 1812,Kajima Corporation,NAG,Industrial Services,Engineering & Construction,4211.0,4211.0,4211.0,4211.0,-4.295454545454545,2163095051575.0,200,JPY
+1812,Kajima Corporation,TSE,Industrial Services,Engineering & Construction,4581.0,4583.0,4450.0,4450.0,-3.67965367965368,2163095051575.0,1648400,JPY
 1813,Fudo Tetra Corporation,TSE,Industrial Services,Engineering & Construction,2623.0,2623.0,2583.0,2585.0,-2.819548872180451,39331009593.0,66400,JPY
 1814,"DAISUE CONSTRUCTION CO., LTD.",TSE,Industrial Services,Engineering & Construction,2505.0,2506.0,2437.0,2454.0,-2.5416997617156474,25731862484.0,61300,JPY
 1815,Tekken Corporation,TSE,Industrial Services,Engineering & Construction,3505.0,3505.0,3410.0,3425.0,-3.248587570621469,51062911534.0,53600,JPY
@@ -1624,10 +1624,10 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 4059,"Magmag, Inc.",TSE,Technology Services,Internet Software/Services,615.0,620.0,615.0,616.0,-0.1620745542949757,1741308867.0,2800,JPY
 4060,rakumo Inc.,TSE,Technology Services,Packaged Software,1223.0,1223.0,1183.0,1220.0,-0.24529844644317253,7097312326.0,27200,JPY
 4061,"Denka Co., Ltd.",TSE,Process Industries,Chemicals: Specialty,2345.5,2349.0,2279.0,2279.0,-2.87662476028127,196395440063.0,435700,JPY
-4062,"IBIDEN CO., LTD.",TSE,Electronic Technology,Electronic Components,10035.0,10220.0,9880.0,9950.0,-3.725205611998065,1389103868103.0,2178500,JPY
 4062,"IBIDEN CO., LTD.",NAG,Electronic Technology,Electronic Components,9559.0,9559.0,9559.0,9559.0,6.211111111111111,1389103868103.0,1000,JPY
-4063,Shin-Etsu Chemical Co Ltd,NAG,Process Industries,Chemicals: Specialty,5125.0,5125.0,5125.0,5125.0,5.604780548114569,9907431433105.0,200,JPY
+4062,"IBIDEN CO., LTD.",TSE,Electronic Technology,Electronic Components,10035.0,10220.0,9880.0,9950.0,-3.725205611998065,1389103868103.0,2178500,JPY
 4063,Shin-Etsu Chemical Co Ltd,TSE,Process Industries,Chemicals: Specialty,5140.0,5154.0,5009.0,5020.0,-2.2966134682755937,9907431433105.0,7367400,JPY
+4063,Shin-Etsu Chemical Co Ltd,NAG,Process Industries,Chemicals: Specialty,5125.0,5125.0,5125.0,5125.0,5.604780548114569,9907431433105.0,200,JPY
 4064,"Nippon Carbide Industries Company,Incorporated",TSE,Electronic Technology,Electronic Production Equipment,2132.0,2140.0,2108.0,2122.0,-1.8955154877484977,19973795307.0,56000,JPY
 4068,Basis Corporation,TSE,Industrial Services,Engineering & Construction,1800.0,1800.0,1774.0,1774.0,-1.4444444444444444,3348919941.0,5100,JPY
 4069,BlueMeme Inc.,TSE,Technology Services,Packaged Software,2110.0,2151.0,2100.0,2110.0,0.23752969121140144,7279792883.0,6400,JPY
@@ -1896,8 +1896,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 4496,"Commerce One Holdings, Inc.",TSE,Technology Services,Packaged Software,807.0,807.0,803.0,807.0,-0.2472187886279357,5805073724.0,800,JPY
 4498,Cybertrust Japan Co.Ltd.,TSE,Technology Services,Packaged Software,1460.0,1476.0,1430.0,1447.0,-1.8983050847457625,23790513369.0,63600,JPY
 4499,"Speee, Inc.",TSE,Commercial Services,Miscellaneous Commercial Services,2175.0,2208.0,2130.0,2142.0,-2.147099132023755,24621648325.0,96200,JPY
-4502,Takeda Pharmaceutical Co. Ltd.,NAG,Health Technology,Pharmaceuticals: Major,4300.0,4300.0,4300.0,4300.0,-6.11353711790393,6691764862305.0,200,JPY
 4502,Takeda Pharmaceutical Co. Ltd.,TSE,Health Technology,Pharmaceuticals: Major,4288.0,4294.0,4219.0,4222.0,-2.6291512915129154,6691764862305.0,5953500,JPY
+4502,Takeda Pharmaceutical Co. Ltd.,NAG,Health Technology,Pharmaceuticals: Major,4300.0,4300.0,4300.0,4300.0,-6.11353711790393,6691764862305.0,200,JPY
 4503,Astellas Pharma Inc.,TSE,Health Technology,Pharmaceuticals: Major,1648.0,1650.0,1617.0,1621.0,-2.4962406015037595,2919029007690.0,7060700,JPY
 4506,Sumitomo Pharma Co.Ltd.,TSE,Health Technology,Pharmaceuticals: Major,1890.0,1901.0,1826.0,1826.0,-3.232644409114997,725457406738.0,4983600,JPY
 4507,"Shionogi & Co., Ltd.",TSE,Health Technology,Pharmaceuticals: Major,2526.0,2541.0,2461.5,2484.0,-2.2432113341204247,2184752289551.0,5754700,JPY
@@ -2275,9 +2275,9 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 5388,"Kunimine Industries Co., Ltd",TSE,Industrial Services,Engineering & Construction,1194.0,1194.0,1173.0,1173.0,-0.08517887563884156,15133583376.0,7400,JPY
 5391,A&A Material Corporation,TSE,Distribution Services,Wholesale Distributors,1249.0,1254.0,1236.0,1237.0,-0.9607686148919135,9465003103.0,11400,JPY
 5393,Nichias Corporation,TSE,Producer Manufacturing,Building Products,5597.0,5640.0,5557.0,5600.0,-1.1299435028248588,371465399170.0,123400,JPY
+5401,NIPPON STEEL CORP.,FSE,Non-Energy Minerals,Steel,611.0,611.0,611.0,611.0,2.5167785234899327,3203769859619.0,100,JPY
 5401,NIPPON STEEL CORP.,NAG,Non-Energy Minerals,Steel,620.1,620.1,620.1,620.1,-0.01612383102225455,3203769859619.0,100,JPY
 5401,NIPPON STEEL CORP.,TSE,Non-Energy Minerals,Steel,614.0,614.7,598.0,599.5,-3.8646568313021206,3203769859619.0,25462300,JPY
-5401,NIPPON STEEL CORP.,FSE,Non-Energy Minerals,Steel,611.0,611.0,611.0,611.0,2.5167785234899327,3203769859619.0,100,JPY
 5406,"Kobe Steel, Ltd.",NAG,Non-Energy Minerals,Steel,1750.0,1750.0,1750.0,1750.0,-1.0180995475113122,674189382019.0,100,JPY
 5406,"Kobe Steel, Ltd.",TSE,Non-Energy Minerals,Steel,1760.0,1762.0,1712.5,1715.0,-3.7598204264870936,674189382019.0,2462500,JPY
 5408,"Nakayama Steel Works,Ltd.",TSE,Non-Energy Minerals,Steel,630.0,630.0,615.0,615.0,-3.149606299212598,33294065608.999996,371200,JPY
@@ -3109,8 +3109,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 7095,Macbee Planet Inc,TSE,Technology Services,Data Processing Services,2106.0,2129.0,2080.0,2127.0,0.23562676720075398,31169460237.0,82000,JPY
 7096,StemCell Institute,TSE,Health Technology,Biotechnology,930.0,930.0,914.0,916.0,-1.611170784103115,9385842934.0,24700,JPY
 7097,"Sakurasaku Plus Co., Ltd.",TSE,Consumer Services,Other Consumer Services,2499.0,2525.0,2485.0,2511.0,0.23952095808383234,11556625963.0,2600,JPY
-7102,"Nippon Sharyo,Ltd.",TSE,Producer Manufacturing,Trucks/Construction/Farm Machinery,2700.0,2704.0,2670.0,2689.0,-1.5739385065885798,38809225555.0,42500,JPY
 7102,"Nippon Sharyo,Ltd.",NAG,Producer Manufacturing,Trucks/Construction/Farm Machinery,2760.0,2760.0,2760.0,2760.0,46.96485623003195,38809225555.0,100,JPY
+7102,"Nippon Sharyo,Ltd.",TSE,Producer Manufacturing,Trucks/Construction/Farm Machinery,2700.0,2704.0,2670.0,2689.0,-1.5739385065885798,38809225555.0,42500,JPY
 7105,"Mitsubishi Logisnext Co., Ltd.",TSE,Producer Manufacturing,Industrial Machinery,1562.0,1564.0,1548.0,1555.0,-0.8290816326530612,166078346863.0,262200,JPY
 7110,Kurashicom Inc.,TSE,Retail Trade,Internet Retail,2137.0,2214.0,2137.0,2155.0,-0.5996309963099631,15883113248.0,8500,JPY
 7111,"INEST,Inc.",TSE,Distribution Services,Electronics Distributors,663.0,663.0,626.0,628.0,-5.7057057057057055,4588439451.0,105800,JPY
@@ -3160,8 +3160,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 7199,"Premium Group Co., Ltd.",TSE,Commercial Services,Miscellaneous Commercial Services,2050.0,2056.0,2025.0,2039.0,-1.4499758337361044,81791066029.0,186200,JPY
 7201,"Nissan Motor Co., Ltd.",TSE,Consumer Durables,Motor Vehicles,367.0,368.0,356.8,358.1,-3.7624294544477292,1250195576460.0,25345800,JPY
 7202,Isuzu Motors Limited,TSE,Consumer Durables,Motor Vehicles,1930.5,1943.5,1896.0,1896.5,-1.9896640826873386,1347905195618.0,3119500,JPY
-7203,Toyota Motor Corp.,TSE,Consumer Durables,Motor Vehicles,2926.5,2939.5,2891.0,2898.5,-1.6624257845631891,37777282726562.0,25255700,JPY
 7203,Toyota Motor Corp.,NAG,Consumer Durables,Motor Vehicles,3004.0,3004.0,3004.0,3004.0,-0.23248090335436733,37777282726562.0,100,JPY
+7203,Toyota Motor Corp.,TSE,Consumer Durables,Motor Vehicles,2926.5,2939.5,2891.0,2898.5,-1.6624257845631891,37777282726562.0,25255700,JPY
 7205,"Hino Motors,Ltd.",TSE,Consumer Durables,Motor Vehicles,390.0,390.7,371.4,373.6,-4.229684696231735,214456687537.0,5042100,JPY
 7208,Kanemitsu Corporation,TSE,Producer Manufacturing,Auto Parts: OEM,995.0,996.0,990.0,990.0,-0.6024096385542169,5062153158.0,3000,JPY
 7211,Mitsubishi Motors Corporation,TSE,Consumer Durables,Motor Vehicles,397.0,400.6,391.3,392.7,-2.2404779686333085,572574881800.0,8328500,JPY
@@ -3212,8 +3212,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 7279,Hi-Lex Corporation,TSE,Producer Manufacturing,Auto Parts: OEM,2809.0,2968.0,2790.0,2941.0,4.106194690265487,110222855980.0,162700,JPY
 7280,Mitsuba Corporation,TSE,Producer Manufacturing,Auto Parts: OEM,939.0,939.0,919.0,925.0,-3.4446764091858038,41929113471.0,79200,JPY
 7282,"Toyoda Gosei Co., Ltd.",TSE,Producer Manufacturing,Auto Parts: OEM,3693.0,3704.0,3619.0,3654.0,-2.299465240641711,464170068787.0,398700,JPY
-7283,"Aisan Industry Co., Ltd.",NAG,Producer Manufacturing,Auto Parts: OEM,2050.0,2050.0,2050.0,2050.0,6.493506493506493,125365762840.0,1000,JPY
 7283,"Aisan Industry Co., Ltd.",TSE,Producer Manufacturing,Auto Parts: OEM,2001.0,2011.0,1977.0,1978.0,-3.0392156862745097,125365762840.0,161500,JPY
+7283,"Aisan Industry Co., Ltd.",NAG,Producer Manufacturing,Auto Parts: OEM,2050.0,2050.0,2050.0,2050.0,6.493506493506493,125365762840.0,1000,JPY
 7284,"Meiwa Industry Co., Ltd.",TSE,Producer Manufacturing,Auto Parts: OEM,1189.0,1189.0,1177.0,1177.0,-1.0092514718250631,4119163538.0,3200,JPY
 7287,"Nippon Seiki Co., Ltd.",TSE,Producer Manufacturing,Auto Parts: OEM,1759.0,1762.0,1703.0,1712.0,-2.837684449489217,99102473938.0,121100,JPY
 7291,"Nihon Plast Co., Ltd.",TSE,Producer Manufacturing,Auto Parts: OEM,415.0,415.0,403.0,411.0,-0.9638554216867471,7858041269.0,26200,JPY
@@ -3753,8 +3753,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 8291,"Nissan Tokyo Sales Holdings Co., Ltd.",TSE,Retail Trade,Specialty Stores,509.0,510.0,505.0,505.0,-1.3671875,30021173515.0,40200,JPY
 8301,Bank of Japan,TSE,Government,General Government,25500.0,25500.0,25400.0,25400.0,-2.307692307692308,25400000000.0,300,JPY
 8304,"Aozora Bank, Ltd.",TSE,Finance,Investment Banks/Brokers,2310.5,2313.0,2257.5,2263.0,-1.9497400346620448,313023390701.0,848500,JPY
-8306,"Mitsubishi UFJ Financial Group, Inc.",TSE,Finance,Major Banks,2340.0,2341.5,2279.0,2285.0,-3.1779661016949152,25851081958008.0,46565100,JPY
 8306,"Mitsubishi UFJ Financial Group, Inc.",NAG,Finance,Major Banks,2360.0,2380.5,2360.0,2380.5,1.4273540690242865,25851081958008.0,2900,JPY
+8306,"Mitsubishi UFJ Financial Group, Inc.",TSE,Finance,Major Banks,2340.0,2341.5,2279.0,2285.0,-3.1779661016949152,25851081958008.0,46565100,JPY
 8308,"Resona Holdings, Inc.",TSE,Finance,Regional Banks,1519.5,1519.5,1478.0,1490.0,-1.7798286090969018,3430534384766.0,8920400,JPY
 8309,"Sumitomo Mitsui Trust Group, Inc.",TSE,Finance,Major Banks,4190.0,4203.0,4107.0,4127.0,-2.0877817319098457,2908161684326.0,2474300,JPY
 8316,"Sumitomo Mitsui Financial Group, Inc.",NAG,Finance,Major Banks,4070.0,4070.0,4000.0,4000.0,-1.1124845488257107,15380802458252.0,400,JPY
@@ -3831,8 +3831,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 8595,"JAFCO Group Co., Ltd.",TSE,Finance,Investment Managers,2550.0,2568.0,2518.5,2528.0,-1.9204655674102813,137734552002.0,268200,JPY
 8596,"Kyushu Leasing Service Co., Ltd.",TSE,Finance,Finance/Rental/Leasing,1361.0,1361.0,1345.0,1347.0,-0.9558823529411765,30613229496.0,37000,JPY
 8600,"TOMONY Holdings, Inc.",TSE,Finance,Regional Banks,672.0,673.0,656.0,656.0,-3.5294117647058822,124633513672.0,630600,JPY
-8601,Daiwa Securities Group Inc.,NAG,Finance,Investment Banks/Brokers,1180.5,1180.5,1180.5,1180.5,-1.625,1579304291016.0,100,JPY
 8601,Daiwa Securities Group Inc.,TSE,Finance,Investment Banks/Brokers,1188.0,1191.5,1165.0,1167.0,-1.435810810810811,1579304291016.0,5797700,JPY
+8601,Daiwa Securities Group Inc.,NAG,Finance,Investment Banks/Brokers,1180.5,1180.5,1180.5,1180.5,-1.625,1579304291016.0,100,JPY
 8604,"Nomura Holdings, Inc.",TSE,Finance,Investment Banks/Brokers,1092.0,1094.5,1060.0,1060.0,-4.1157847127996385,3122524243164.0,14004800,JPY
 8609,Okasan Securities Group Inc.,TSE,Finance,Investment Banks/Brokers,682.0,690.0,671.0,675.0,-2.3154848046309695,149172558975.0,276800,JPY
 8613,"Marusan Securities Co., Ltd.",TSE,Finance,Investment Banks/Brokers,943.0,945.0,933.0,934.0,-1.4767932489451476,62124731522.0,203900,JPY
@@ -3957,8 +3957,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 9017,"Niigata Kotsu Co., Ltd.",TSE,Transportation,Other Transportation,2092.0,2095.0,2092.0,2095.0,0.19129603060736491,8048988018.0,400,JPY
 9020,East Japan Railway Company,TSE,Transportation,Railroads,3561.0,3579.0,3533.0,3561.0,-0.6417410714285714,4028744652832.0,2292900,JPY
 9021,West Japan Railway Company,TSE,Transportation,Railroads,3129.0,3138.0,3102.0,3107.0,-2.1109010712035285,1415025917786.0,2300900,JPY
-9022,Central Japan Railway Company,NAG,Transportation,Other Transportation,4288.0,4288.0,4288.0,4288.0,1.9253624910862848,4203627401367.0005,500,JPY
 9022,Central Japan Railway Company,TSE,Transportation,Other Transportation,4298.0,4307.0,4260.0,4272.0,-1.7931034482758619,4203627401367.0005,2788200,JPY
+9022,Central Japan Railway Company,NAG,Transportation,Other Transportation,4288.0,4288.0,4288.0,4288.0,1.9253624910862848,4203627401367.0005,500,JPY
 9023,Tokyo Metro Co Ltd,TSE,Transportation,Other Transportation,1615.0,1623.0,1606.5,1615.0,0.0,938315000000.0,3249300,JPY
 9024,"Seibu Holdings, Inc.",TSE,Consumer Services,Hotels/Resorts/Cruise lines,5615.0,5705.0,5581.0,5647.0,0.0,1554850129303.0,1099800,JPY
 9025,"Konoike Transport Co., Ltd.",TSE,Transportation,Air Freight/Couriers,3150.0,3160.0,3125.0,3150.0,-1.2539184952978055,166686170197.0,93300,JPY
