@@ -7,7 +7,7 @@ ABN,ABN Systems International,BVB,,,0.258,0.258,0.258,0.258,-5.839416058394165,,
 ADISS,Adiss SA,BVB,,,0.32,0.324,0.32,0.324,0.0,,1269,RON
 ADMY,Admet SA Galati,BVB,Non-Energy Minerals,Other Metals/Minerals,9.5,9.5,9.5,9.5,-4.040404040404043,,50,RON
 ADS,adidas AG,BVB,Consumer Non-Durables,Apparel/Footwear,942.6,942.6,942.6,942.6,-5.975062344139649,171276981884.94754,1,RON
-AG,Agroland Business System SA,BVB,,,1.55,1.55,1.535,1.54,-0.6451612903225812,,8377,RON
+AG,Agroland Business System SA,BVB,,,1.55,1.55,1.535,1.55,0.0,,10377,RON
 ALB,Albapam S.A.,BVB,Consumer Non-Durables,Food: Specialty/Candy,1.4,1.4,1.4,1.4,-20.45454545454546,,18,RON
 ALDANI,Aldani Master Capital SA,BVB,Finance,Real Estate Development,1.38,1.38,1.38,1.38,0.0,,1027,RON
 ALR,Alro S.A.,BVB,Non-Energy Minerals,Aluminum,1.54,1.555,1.54,1.555,0.32258064516128343,1106357592.0,4748,RON
@@ -28,7 +28,7 @@ ARO,Aro-Palace SA,BVB,Consumer Services,Hotels/Resorts/Cruise lines,0.39,0.448,0
 AROBS,Arobs Transilvania Software S.A.,BVB,Technology Services,Packaged Software,0.678,0.683,0.672,0.672,-1.6105417276720366,692220153.0,230755,RON
 ARS,Aerostar SA,BVB,Electronic Technology,Aerospace & Defense,9.28,9.28,9.1,9.2,0.0,1400952516.0,404,RON
 ARTE,Artego SA,BVB,Producer Manufacturing,Industrial Machinery,11.0,11.2,11.0,11.2,0.9009009009008978,90885155.0,12,RON
-ASC,Ascendia SA,BVB,Technology Services,Packaged Software,8.82,8.82,8.58,8.78,-0.45351473922903535,,193,RON
+ASC,Ascendia SA,BVB,Technology Services,Packaged Software,8.82,8.82,8.58,8.6,-2.4943310657596443,,208,RON
 AST,Arctic Stream SA,BVB,,,19.8,19.9,19.7,19.9,0.5050505050504942,,768,RON
 ATB,Antibiotice SA,BVB,Health Technology,Pharmaceuticals: Major,2.49,2.51,2.485,2.485,-0.20080321285141917,1671631810.0,26903,RON
 ATRD,Atelierele CFR Grivita SA,BVB,Consumer Services,Other Consumer Services,44.0,44.0,44.0,44.0,-2.2222222222222223,,10,RON
@@ -38,7 +38,7 @@ BCM,Casa de Bucovina Club de Munte SA,BVB,Consumer Services,Hotels/Resorts/Cruis
 BENTO,2B Intelligent Soft S.A.,BVB,Technology Services,Information Technology Services,7.86,7.9,7.82,7.9,1.282051282051289,109200468.0,6184,RON
 BIO,Biofarm SA,BVB,Health Technology,Pharmaceuticals: Major,0.798,0.798,0.792,0.792,0.25316455696202556,778440147.0,32165,RON
 BIOW,Vifrana SA,BVB,,,0.064,0.064,0.064,0.064,-0.7751937984496131,,3,RON
-BKBETETF,BET BRK ETF Open-Ended Investment Fund,BVB,,,25.47,25.59,25.46,25.585,0.13698630136986356,,62,RON
+BKBETETF,BET BRK ETF Open-Ended Investment Fund,BVB,,,25.47,25.59,25.46,25.49,-0.23483365949120263,,62,RON
 BMW,Bayerische Motoren Werke AG,BVB,Consumer Durables,Motor Vehicles,407.6,407.6,402.9,402.9,-1.007371007371013,237189694033.5759,17,RON
 BNET,Bittnet Systems SA,BVB,Technology Services,Information Technology Services,0.1365,0.1395,0.1305,0.132,-5.3763440860215095,88467654.0,583441,RON
 BONA,Bonas Import Export S.A.,BVB,,,0.735,0.74,0.735,0.74,8.029197080291961,,812,RON
@@ -88,7 +88,7 @@ DAI,Mercedes-Benz Group AG,BVB,Consumer Durables,Motor Vehicles,270.05,270.05,26
 DBK,Deutsche Bank Aktiengesellschaft,BVB,Finance,Investment Banks/Brokers,153.1,153.1,153.1,153.1,-0.35147097110127057,301731383172.81067,1,RON
 DENT,Dr Fischer Dental SA,BVB,,,0.95,0.95,0.95,0.95,2.7027027027026933,,17,RON
 DIGI,Digi Communications NV,BVB,Consumer Services,Cable/Satellite TV,94.9,95.0,93.2,94.0,-0.8438818565400814,9043694008.0,4749,RON
-DN,DN Agrar Group S.A,BVB,Consumer Non-Durables,Food: Meat/Fish/Dairy,2.83,2.86,2.83,2.85,0.7067137809187285,450236653.91999996,30301,RON
+DN,DN Agrar Group S.A,BVB,Consumer Non-Durables,Food: Meat/Fish/Dairy,2.83,2.86,2.83,2.85,0.7067137809187285,450236653.91999996,30701,RON
 DTE,Deutsche Telekom AG,BVB,Communications,Major Telecommunications,151.0,151.0,151.0,151.0,0.9358288770053516,731744598852.3475,500,RON
 DTG,Daimler Truck Holding AG,BVB,Consumer Durables,Motor Vehicles,175.1,175.1,174.5,174.5,-2.432205759015932,138199886421.29144,68,RON
 EBS,Erste Group Bank AG,BVB,Finance,Major Banks,432.0,436.6,430.8,436.6,0.4139834406623761,174032928930.04874,362,RON
@@ -113,7 +113,7 @@ FEP,FEPER S.A.,BVB,,,0.278,0.28,0.264,0.264,1.5384615384615397,,8685,RON
 FERO,Iamba Arad S.A. Arad,BVB,Consumer Durables,Tools & Hardware,0.47,0.47,0.47,0.47,-1.6736401673640184,,250,RON
 FOJE,Foraj Sonde SA (Videle),BVB,Industrial Services,Contract Drilling,15.6,15.6,15.5,15.5,-0.6410256410256387,,173,RON
 FOSB,Foraj Sonde Craiova SA,BVB,Industrial Services,Contract Drilling,0.468,0.468,0.468,0.468,4.932735426008973,291983712.0,1,RON
-FP,S.C. Fondul Proprietatea SA,BVB,Miscellaneous,Investment Trusts/Mutual Funds,0.452,0.452,0.451,0.452,0.0,1377314789.076,1103701,RON
+FP,S.C. Fondul Proprietatea SA,BVB,Miscellaneous,Investment Trusts/Mutual Funds,0.452,0.452,0.451,0.452,0.0,1377314789.076,1104701,RON
 FRB,Firebyte Games SA,BVB,,,0.046,0.046,0.046,0.046,0.0,,4026,RON
 GGC,GLISSANDO GARDEN CENTER,BVB,,,0.58,0.665,0.58,0.665,0.0,,1601,RON
 GIBEFETF,FONDUL DESCHIS DE INVESTITII GLOBINVEST ENERGY&FINANCIALS ETF,BVB,,,13.0,13.0,12.91,12.95,0.015446400988561102,,2649,RON
@@ -125,16 +125,16 @@ HEAL,Helios SA (Romania),BVB,Non-Energy Minerals,Construction Materials,20.0,20.
 HUNT,IHUNT TECHNOLOGY IMPORT-EXPORT S.A.,BVB,Distribution Services,Wholesale Distributors,0.3,0.304,0.3,0.3,0.671140939597316,22409600.0,8757,RON
 IAMU,IAMU SA,BVB,Producer Manufacturing,Industrial Machinery,8.6,8.6,8.6,8.6,-21.100917431192666,81701290.0,1,RON
 IARV,IAR SA,BVB,Electronic Technology,Aerospace & Defense,14.55,14.65,14.55,14.65,0.3424657534246624,266871253.00000003,3060,RON
-ICBETNETF,InterCapital BET-TRN UCITS ETF B,BVB,Miscellaneous,Investment Trusts/Mutual Funds,95.94,95.94,95.6,95.75,-0.06262394322096052,,2239,RON
-ICSLOETF,INTERCAPITAL SBITOP TR UCITS ETF,BVB,Miscellaneous,Investment Trusts/Mutual Funds,249.5,251.5,249.0,251.0,0.5005005005005005,,947,RON
+ICBETNETF,InterCapital BET-TRN UCITS ETF B,BVB,Miscellaneous,Investment Trusts/Mutual Funds,95.94,95.94,95.6,95.72,-0.09393591483144079,,2239,RON
+ICSLOETF,INTERCAPITAL SBITOP TR UCITS ETF,BVB,Miscellaneous,Investment Trusts/Mutual Funds,249.5,251.5,249.0,250.75,0.40040040040040037,,947,RON
 IMP,Impact Developer & Contractor SA,BVB,Finance,Real Estate Development,4.22,4.22,4.21,4.22,0.0,495453578.0,2821,RON
-INFINITY,Infinity Capital Investments S.A.,BVB,Miscellaneous,Investment Trusts/Mutual Funds,3.3,3.3,3.24,3.29,0.3048780487804949,,8275,RON
+INFINITY,Infinity Capital Investments S.A.,BVB,Miscellaneous,Investment Trusts/Mutual Funds,3.3,3.3,3.24,3.29,0.3048780487804949,,8619,RON
 INOX,Inox SA,BVB,Producer Manufacturing,Metal Fabrication,0.975,1.0,0.975,1.0,26.58227848101265,,16,RON
 INTA,Independenta SA,BVB,Industrial Services,Oilfield Services/Equipment,25.6,25.6,25.6,25.6,0.0,,29,RON
 IORB,IOR SA,BVB,Electronic Technology,Electronic Equipment/Instruments,0.2,0.2,0.192,0.192,-6.7961165048543615,138776256.0,4933,RON
 IPRO,Iprolam SA,BVB,,,0.565,0.695,0.565,0.695,23.008849557522126,,3506,RON
 IPRU,Iproeb SA,BVB,Producer Manufacturing,Electrical Products,1.42,1.42,1.375,1.4,-1.4084507042253533,177842220.0,21553,RON
-JTG,JT GRUP OIL,BVB,,,4.98,5.02,4.92,4.92,-1.2048192771084436,,637,RON
+JTG,JT GRUP OIL,BVB,,,4.98,5.02,4.92,5.0,0.40160642570280264,,639,RON
 LHA,Deutsche Lufthansa AG,BVB,Transportation,Airlines,37.2,38.09,37.2,38.09,0.8739406779661161,44944773826.62078,1175,RON
 LIH,Life Is Hard S.A.,BVB,Technology Services,Information Technology Services,0.736,0.738,0.724,0.724,0.8356545961002793,28898925.599999998,762,RON
 LION,Lion Capital S.A.,BVB,Miscellaneous,Investment Trusts/Mutual Funds,3.32,3.35,3.32,3.35,-0.2976190476190413,,10581,RON
@@ -165,7 +165,7 @@ NORD,Nord SA,BVB,Consumer Services,Hotels/Resorts/Cruise lines,2.3,2.3,2.3,2.3,7
 NRF,Norofert S.A.,BVB,Process Industries,Chemicals: Agricultural,3.23,3.29,3.23,3.29,0.3048780487804949,57010382.0,2350,RON
 OIL,Oil Terminal SA,BVB,Industrial Services,Oil & Gas Pipelines,0.114,0.114,0.11,0.112,-1.7543859649122824,341678206.0,98473,RON
 OMAL,Comaliment SA Resita,BVB,Retail Trade,Specialty Stores,0.8,0.8,0.8,0.8,26.984126984126988,,10,RON
-ONE,One United Properties S.A.,BVB,Finance,Real Estate Development,27.95,28.3,27.9,28.0,0.0,2946919037.0,23681,RON
+ONE,One United Properties S.A.,BVB,Finance,Real Estate Development,27.95,28.3,27.9,28.0,0.0,2946919037.0,26681,RON
 PBK,Patria Bank SA,BVB,Finance,Regional Banks,0.103,0.103,0.102,0.103,0.0,333550589.0,6217,RON
 PE,Premier Energy PLC,BVB,Utilities,Gas Distributors,20.5,20.55,20.45,20.45,-0.4866180048661869,2568775687.5,4466,RON
 PETY,Petal SA,BVB,Producer Manufacturing,Industrial Machinery,7.85,9.7,7.85,9.7,-13.392857142857142,,9,RON
@@ -176,7 +176,7 @@ PREB,Prebet SA,BVB,Non-Energy Minerals,Construction Materials,2.03,2.05,2.03,2.0
 PREH,Prefab SA,BVB,Non-Energy Minerals,Construction Materials,2.58,2.58,2.58,2.58,7.500000000000007,108202310.0,185,RON
 PRIB,Primcom SA,BVB,Finance,Real Estate Development,7.3,7.3,7.3,7.3,21.666666666666664,8937463.0,1,RON
 PRSN,Prospectiuni SA,BVB,Industrial Services,Engineering & Construction,0.119,0.119,0.119,0.119,0.0,85447831.0,8500,RON
-PTENGETF,Energie Patria-Tradeville ETF,BVB,Miscellaneous,Investment Trusts/Mutual Funds,9.621,9.662,9.615,9.638,0.23920956838273205,,8606,RON
+PTENGETF,Energie Patria-Tradeville ETF,BVB,Miscellaneous,Investment Trusts/Mutual Funds,9.621,9.662,9.601,9.601,-0.14560582423296253,,8606,RON
 PTR,Rompetrol Well Services SA,BVB,Industrial Services,Oilfield Services/Equipment,0.59,0.6,0.576,0.598,1.0135135135135145,164689026.0,44805,RON
 PVBS,PERSEUS FINTECH S.A,BVB,,,0.72,0.745,0.72,0.745,3.472222222222225,,1481,RON
 RANT,Granitul SA,BVB,Finance,Real Estate Development,3.46,3.46,3.4,3.4,-2.2988505747126458,,114,RON
@@ -201,11 +201,11 @@ SEOM,Germina Agribusiness SA,BVB,Distribution Services,Wholesale Distributors,1.
 SERC,SERICO S.A.,BVB,Finance,Real Estate Development,0.98,0.98,0.98,0.98,1.0309278350515474,,2500,RON
 SEVE,Severnav SA,BVB,Producer Manufacturing,Trucks/Construction/Farm Machinery,4.5,4.5,4.5,4.5,0.0,,503,RON
 SFG,Sphera Franchise Group SA,BVB,Consumer Services,Restaurants,37.5,37.5,36.85,37.0,-0.13495276653170624,1437515491.0,748,RON
-SIDG,ArcelorMittal Hunedoara S.A.,BVB,Non-Energy Minerals,Steel,0.3,0.35,0.298,0.348,26.08695652173911,54804216.0,3133,RON
+SIDG,ArcelorMittal Hunedoara S.A.,BVB,Non-Energy Minerals,Steel,0.3,0.35,0.298,0.348,26.08695652173911,54804216.0,4133,RON
 SIE,Siemens Aktiengesellschaft,BVB,Producer Manufacturing,Industrial Machinery,1207.0,1207.0,1207.0,1207.0,-3.44,979565864785.493,2,RON
-SMTL,Simtel Team SA,BVB,Industrial Services,Engineering & Construction,57.3,57.7,57.2,57.7,0.34782608695652667,468149532.5,6796,RON
+SMTL,Simtel Team SA,BVB,Industrial Services,Engineering & Construction,57.3,57.7,57.2,57.7,0.34782608695652667,468149532.5,6866,RON
 SNC,Santierul Naval Constanta SA,BVB,Producer Manufacturing,Trucks/Construction/Farm Machinery,2.92,3.14,2.92,2.92,-6.410256410256415,189793284.0,629,RON
-SNG,Societatea Nationala de Gaze Naturale Romgaz S.A.,BVB,Energy Minerals,Integrated Oil,8.6,8.62,8.57,8.59,-0.11627906976743939,33146328911.999996,146478,RON
+SNG,Societatea Nationala de Gaze Naturale Romgaz S.A.,BVB,Energy Minerals,Integrated Oil,8.6,8.62,8.57,8.59,-0.11627906976743939,33146328911.999996,147241,RON
 SNN,S.N. Nuclearelectrica S.A.,BVB,Utilities,Electric Utilities,47.05,47.05,46.7,46.95,-0.3184713375796148,14207428214.0,5648,RON
 SNO,Santierul Naval Orsova SA,BVB,Producer Manufacturing,Trucks/Construction/Farm Machinery,8.2,8.2,8.2,8.2,-1.796407185628747,95381380.0,150,RON
 SNP,OMV Petrom SA,BVB,Energy Minerals,Integrated Oil,0.879,0.881,0.875,0.876,-0.34129692832764535,54771778103.0,3547616,RON
@@ -220,8 +220,8 @@ STZ,Sinteza SA,BVB,Process Industries,Chemicals: Specialty,0.605,0.665,0.605,0.6
 TBK,Transilvania Broker de Asigurare SA,BVB,Finance,Insurance Brokers/Services,14.8,15.3,14.5,14.5,-2.0270270270270316,74000001.0,789,RON
 TBM,Turbomecanica SA,BVB,Electronic Technology,Aerospace & Defense,0.438,0.438,0.43,0.43,-2.050113895216403,162185250.0,489862,RON
 TEL,C.N.T.E.E. Transelectrica SA,BVB,Utilities,Electric Utilities,63.0,63.5,63.0,63.1,0.158730158730161,4618097740.0,3469,RON
-TGN,S.N.T.G.N. Transgaz SA,BVB,Utilities,Gas Distributors,56.6,56.7,56.0,56.1,-0.7079646017699089,10643554764.0,10296,RON
-TLV,Banca Transilvania SA,BVB,Finance,Major Banks,28.16,28.2,28.08,28.2,0.0,30318446645.0,142758,RON
+TGN,S.N.T.G.N. Transgaz SA,BVB,Utilities,Gas Distributors,56.6,56.7,56.0,56.1,-0.7079646017699089,10643554764.0,10321,RON
+TLV,Banca Transilvania SA,BVB,Finance,Major Banks,28.16,28.2,28.08,28.2,0.0,30318446645.0,167758,RON
 TRANSI,Transilvania Investments Alliance S.A.,BVB,Miscellaneous,Investment Trusts/Mutual Funds,0.483,0.487,0.483,0.484,0.0,,581307,RON
 TRGI,Transporturi Auto Giulesti SA,BVB,Transportation,Trucking,10.0,10.0,10.0,10.0,16.959064327485372,,50,RON
 TRP,Teraplast SA,BVB,Producer Manufacturing,Miscellaneous Manufacturing,0.426,0.4265,0.4215,0.4235,-0.11792452830188689,1272636192.0,1010841,RON
@@ -230,10 +230,10 @@ TSND,Tusnad SA,BVB,Consumer Services,Hotels/Resorts/Cruise lines,0.072,0.073,0.0
 TTS,Transport Trade Services S.A.,BVB,Transportation,Marine Shipping,4.855,5.0,4.855,5.0,1.214574898785417,889200010.0,56013,RON
 TUAA,Turism Covasna SA,BVB,Consumer Services,Hotels/Resorts/Cruise lines,0.0995,0.101,0.0995,0.101,1.5075376884422125,,11206,RON
 TUFE,Turism Felix SA,BVB,Consumer Services,Hotels/Resorts/Cruise lines,0.426,0.426,0.426,0.426,0.47169811320754756,209246070.0,1300,RON
-TVBETETF,Fondul Deschis de Investitii ETF BET PATRIA-TRADEVILLE,BVB,Miscellaneous,Investment Trusts/Mutual Funds,36.0,36.19,35.9,35.945,0.2090883746863754,,50023,RON
+TVBETETF,Fondul Deschis de Investitii ETF BET PATRIA-TRADEVILLE,BVB,Miscellaneous,Investment Trusts/Mutual Funds,36.0,36.19,35.84,35.84,-0.08363534987453033,,50128,RON
 UAM,UAMT SA,BVB,Producer Manufacturing,Auto Parts: OEM,0.394,0.394,0.394,0.394,1.0256410256410264,15397945.0,45,RON
 UARG,Argus SA Constanta,BVB,Process Industries,Agricultural Commodities/Milling,1.63,1.63,1.63,1.63,0.0,58322215.0,120,RON
-UNIR,Unirea SA,BVB,Process Industries,Agricultural Commodities/Milling,1.45,1.45,1.33,1.33,-14.193548387096772,,4111,RON
+UNIR,Unirea SA,BVB,Process Industries,Agricultural Commodities/Milling,1.45,1.45,1.33,1.4,-9.677419354838717,,4120,RON
 UNISEM,UNISEM SA Bucuresti,BVB,Process Industries,Agricultural Commodities/Milling,0.412,0.416,0.412,0.416,3.482587064676606,,8500,RON
 UZC,Uzuc S.A.,BVB,Producer Manufacturing,Industrial Machinery,5.85,5.85,5.85,5.85,-23.026315789473685,,1,RON
 UZIN,Uzinexport SA,BVB,Producer Manufacturing,Trucks/Construction/Farm Machinery,0.555,0.555,0.555,0.555,0.0,,250,RON
