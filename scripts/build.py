@@ -268,7 +268,8 @@ def main():
                     # very light stock page (no charts; fast)
                     if sym and None not in (o,h,l,cl):
                         title=f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
-                        when=next_business_day(datetime.utcnow().date()).isoformat()
+                        from scripts.market_time import get_prediction_date
+                        when = get_prediction_date(exchange)
                         head = (
                             "<div class='card'>"
                             f"<h2 class='h2'>AI Analysis of {html.escape(sym)} ({html.escape(name)})</h2>"
