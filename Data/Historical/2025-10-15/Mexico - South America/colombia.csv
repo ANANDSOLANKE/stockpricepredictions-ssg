@@ -15,7 +15,7 @@ BOGOTA,Banco de Bogota SA,BVC,Finance,Major Banks,35460.0,35460.0,35100.0,35380.
 BRKB,Berkshire Hathaway Inc. Class B,BVC,Finance,Property/Casualty Insurance,1939840.0,1939840.0,1912460.0,1928160.0,-0.72493615619079,4195058252360784.0,163,COP
 BSANTANDCO,BANCO SANTANDER CHILE,BVC,Finance,Regional Banks,265.0,265.0,265.0,265.0,0.0,49266910349126.836,0,COP
 BVC,Bolsa de Valores de Colombia S.A.,BVC,Finance,Investment Banks/Brokers,12400.0,12400.0,12400.0,12400.0,0.0,750367024231.0,1143,COP
-C,Citigroup Inc.,BVC,Finance,Major Banks,393660.0,393660.0,393660.0,393660.0,0.0,720765616945098.0,30,COP
+C,Citigroup Inc.,BVC,Finance,Major Banks,381040.0,393660.0,381040.0,393660.0,0.0,720765616945098.0,30,COP
 CAPCO,CAP SA,BVC,Non-Energy Minerals,Steel,22120.0,22120.0,22120.0,22120.0,0.0,3250603767463.074,0,COP
 CARACOLTV,Caracol Television S.A.,BVC,Consumer Services,Broadcasting,804.0,804.0,804.0,804.0,0.0,369803240479.0,0,COP
 CBU0,iShares USD Treasury Bond 7-10yr UCITS ETF USD (Acc) USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,605140.0,605140.0,605140.0,605140.0,0.0,,0,COP
@@ -87,7 +87,7 @@ IAUP,ISHARES GOLD PRODUCERS UCITS ETF USD (ACC),BVC,Miscellaneous,Investment Tru
 IB01,iShares $ Treasury Bond 0-1yr UCITS ETF USD (Accumulating),BVC,Miscellaneous,Investment Trusts/Mutual Funds,460000.0,460000.0,457580.0,457960.0,-1.1952535059331175,,308,COP
 IBIT,iShares Bitcoin Trust ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,250980.0,250980.0,245900.0,245900.0,-2.0318725099601593,,1668,COP
 IBTA,ISHARES USD TREASURY BOND 1-3YR UCITS ETF USD (ACC),BVC,Miscellaneous,Investment Trusts/Mutual Funds,22960.0,22960.0,22960.0,22960.0,0.0,,0,COP
-ICHN,iShares MSCI China UCITS ETF AccumUSD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,25040.0,25040.0,25040.0,25040.0,0.0,,587,COP
+ICHN,iShares MSCI China UCITS ETF AccumUSD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,24900.0,25040.0,24900.0,25040.0,0.0,,587,COP
 ICOLCAP,Fondo BursAtil iShares COLCAP,BVC,Miscellaneous,Investment Trusts/Mutual Funds,18766.0,18766.0,18754.0,18766.0,-0.2869287991498406,,568695,COP
 ID27CO,ISHARES IBONDS DEC 2027 TERM CORP UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,446900.0,446900.0,446900.0,446900.0,0.0,,0,COP
 ID29CO,ISHARES IBONDS DEC 2029 TERM CORP UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,436560.0,436560.0,436560.0,436560.0,0.0,,0,COP
@@ -107,7 +107,7 @@ ITAUCLCO,ITAU CORPBANCA,BVC,Finance,Major Banks,63580.0,63580.0,63580.0,63580.0,
 IUES,iShares S&P 500 Energy Sector UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,34560.0,34560.0,34560.0,34560.0,0.0,,12,COP
 IUFS,iShares S&P 500 Financials Sector UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,61140.0,61140.0,61140.0,61140.0,0.0,,28,COP
 IUHC,iShares S&P 500 Health Care Sector UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,44580.0,44580.0,44580.0,44580.0,0.6775067750677507,,6569,COP
-IUIT,iShares S&P 500 Information Technology Sector UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,161520.0,161520.0,161520.0,161520.0,0.0,,335,COP
+IUIT,iShares S&P 500 Information Technology Sector UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,162000.0,162000.0,161400.0,161520.0,0.0,,335,COP
 IWVL,iShares Edge MSCI World Value Factor UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,210020.0,210020.0,210020.0,210020.0,0.0,,19,COP
 JETS,U.S. Global Jets ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,97560.0,97560.0,97560.0,97560.0,0.0,,4,COP
 JNJ,Johnson & Johnson,BVC,Health Technology,Pharmaceuticals: Major,747040.0,747040.0,747040.0,747040.0,0.0,1802476421576470.5,15,COP
@@ -168,7 +168,7 @@ SUAS,iShares MSCI USA SRI UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual F
 TERPEL,Organizacion Terpel SA,BVC,Retail Trade,Specialty Stores,15480.0,15480.0,15000.0,15360.0,-0.7751937984496124,2808451488647.0,34047,COP
 TITAN,Manufacturas de Cemento SA,BVC,Non-Energy Minerals,Construction Materials,25500.0,25500.0,25500.0,25500.0,0.0,35660782456.0,0,COP
 TSLACO,"Tesla, Inc.",BVC,Consumer Durables,Motor Vehicles,1714000.0,1725280.0,1710000.0,1725280.0,3.310179640718563,5597206787411765.0,93,COP
-UBER,"Uber Technologies, Inc.",BVC,Transportation,Other Transportation,369920.0,369920.0,369920.0,369920.0,0.0,770787108176470.6,87,COP
+UBER,"Uber Technologies, Inc.",BVC,Transportation,Other Transportation,373980.0,373980.0,369920.0,369920.0,0.0,770787108176470.6,87,COP
 URA,Global X Uranium ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,228200.0,228200.0,228200.0,228200.0,0.0,,0,COP
 VALSIMESA,Valores Simesa S.A.,BVC,Finance,Financial Conglomerates,8000.0,8000.0,8000.0,8000.0,0.0,221825683594.0,0,COP
 VAPORESCO,COMPANIA SUD AMERICANA DE VAPORES SA,BVC,Transportation,Marine Shipping,210.0,210.0,210.0,210.0,0.0,10487528241515.514,0,COP
