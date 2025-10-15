@@ -1,128 +1,119 @@
-# scripts/market_time.py
 from __future__ import annotations
 import csv
-from datetime import datetime, date, time, timedelta
+from datetime import datetime, date, timedelta, time
 from pathlib import Path
-from typing import Dict, Tuple
-import pytz
+from zoneinfo import ZoneInfo
 
-# Where your CSV lives (adjust if you placed it elsewhere)
-CONFIG_PATHS = [
-    Path("markets_config.csv"),
-    Path("Data/markets_config.csv"),
-    Path(".github/markets_config.csv"),
-]
+# markets_config.csv columns (header required):
+# region,country,exchange,tz,open_local,close_local,weekend (e.g. "sat,sun"),holidays_csv(optional)
+# Example:
+# Asia - Pacific,India,NSE,Asia/Kolkata,09:15,15:30,sat,sun
 
-# Cache after first load
-_MARKET_CFG: Dict[str, Dict] = {}
+def _load_markets_cfg() -> list[dict]:
+    cfg_path = Path("markets_config.csv")
+    rows: list[dict] = []
+    if not cfg_path.exists():
+        return rows
+    with cfg_path.open(newline="", encoding="utf-8") as f:
+        r = csv.DictReader(f)
+        for row in r:
+            rows.append({k.strip(): (v or "").strip() for k, v in row.items()})
+    return rows
 
-def _parse_time(s: str) -> time:
-    s = (s or "").strip()
-    # supports "9:15", "09:15", "09:15:00"
-    parts = [int(p) for p in s.split(":")]
-    if len(parts) == 2:
-        return time(parts[0], parts[1], 0)
-    if len(parts) == 3:
-        return time(parts[0], parts[1], parts[2])
-    raise ValueError(f"Bad time value: {s!r}")
+def _find_market_tz(region: str, country: str, exchange: str) -> ZoneInfo:
+    for row in _load_markets_cfg():
+        if (
+            row.get("region") == region
+            and row.get("country") == country
+            and row.get("exchange") == exchange
+        ):
+            tz = row.get("tz") or "UTC"
+            return ZoneInfo(tz)
+    return ZoneInfo("UTC")
 
-def _parse_weekend(s: str) -> Tuple[int, ...]:
-    # Map names to weekday ints (Mon=0 ... Sun=6)
-    m = {
-        "mon": 0, "monday": 0,
-        "tue": 1, "tuesday": 1,
-        "wed": 2, "wednesday": 2,
-        "thu": 3, "thursday": 3,
-        "fri": 4, "friday": 4,
-        "sat": 5, "saturday": 5,
-        "sun": 6, "sunday": 6,
-    }
-    items = []
-    for tok in (s or "").replace("/", ",").replace("|", ",").split(","):
-        tok = tok.strip().lower()
-        if not tok:
-            continue
-        if tok not in m:
-            raise ValueError(f"Bad weekend token: {tok!r}")
-        items.append(m[tok])
-    return tuple(sorted(set(items)))
-
-def _load_config() -> None:
-    global _MARKET_CFG
-    if _MARKET_CFG:
-        return
-
-    path = None
-    for p in CONFIG_PATHS:
-        if p.exists():
-            path = p
+def _weekend_set(region: str, country: str, exchange: str) -> set[int]:
+    # default: Sat/Sun
+    wk = {"sat","sun"}
+    for row in _load_markets_cfg():
+        if (
+            row.get("region") == region
+            and row.get("country") == country
+            and row.get("exchange") == exchange
+        ):
+            s = (row.get("weekend") or "sat,sun").lower()
+            wk = {p.strip() for p in s.split(",") if p.strip()}
             break
-    if path is None:
-        # Minimal safe defaults if CSV is missing
-        _MARKET_CFG = {
-            "nse": {"tz": "Asia/Kolkata", "open": time(9,15), "close": time(15,30), "weekend": (5,6)},
-            "bse": {"tz": "Asia/Kolkata", "open": time(9,15), "close": time(15,30), "weekend": (5,6)},
-        }
-        return
+    # map to weekday(): Mon=0..Sun=6
+    m = {"mon":0,"tue":1,"wed":2,"thu":3,"fri":4,"sat":5,"sun":6}
+    return {m.get(x, 6) for x in wk}
 
-    cfg: Dict[str, Dict] = {}
-    with path.open("r", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            # Accept several common column names
-            exch = (row.get("exchange") or row.get("code") or row.get("exch") or row.get("market") or "").strip().lower()
-            if not exch:
-                continue
-            tz = (row.get("tz") or row.get("timezone") or row.get("time_zone") or "UTC").strip()
-            open_s = (row.get("open_local") or row.get("open") or "09:00").strip()
-            close_s = (row.get("close_local") or row.get("close") or "17:00").strip()
-            weekend_s = (row.get("weekend") or "Sat,Sun").strip()
+def _is_holiday(d: date, region: str, country: str, exchange: str) -> bool:
+    # optional holidays list: YYYY-MM-DD per line in a csv pointed by holidays_csv column
+    for row in _load_markets_cfg():
+        if (
+            row.get("region") == region
+            and row.get("country") == country
+            and row.get("exchange") == exchange
+        ):
+            hp = row.get("holidays_csv") or ""
+            if hp:
+                p = Path(hp)
+                if p.exists():
+                    with p.open(newline="", encoding="utf-8") as f:
+                        rr = csv.reader(f)
+                        for r in rr:
+                            if not r:
+                                continue
+                            try:
+                                if date.fromisoformat(r[0].strip()) == d:
+                                    return True
+                            except Exception:
+                                pass
+    return False
 
-            try:
-                cfg[exch] = {
-                    "tz": tz,
-                    "open": _parse_time(open_s),
-                    "close": _parse_time(close_s),
-                    "weekend": _parse_weekend(weekend_s),
-                }
-            except Exception as e:
-                # Skip malformed rows but keep going
-                print(f"[market_time] Skip row for {exch!r}: {e}")
-
-    # Fallbacks if critical markets not present
-    cfg.setdefault("nse", {"tz": "Asia/Kolkata", "open": time(9,15), "close": time(15,30), "weekend": (5,6)})
-    cfg.setdefault("bse", {"tz": "Asia/Kolkata", "open": time(9,15), "close": time(15,30), "weekend": (5,6)})
-
-    _MARKET_CFG = cfg
-
-def _next_business_day(d: date, weekend: Tuple[int, ...]) -> date:
-    cur = d + timedelta(days=1)
-    while cur.weekday() in weekend:
-        cur += timedelta(days=1)
-    return cur
-
-def get_prediction_date(exchange: str, now_utc: datetime | None = None) -> str:
+def next_business_day_utc(
+    region: str, country: str, exchange: str, now_utc: datetime | None = None
+) -> date:
     """
-    Return ISO date string for the *prediction target day* for a given exchange.
-    Rule:
-      - If local time <= today's local close ⇒ target = today
-      - Else ⇒ target = next business day (skipping that market's weekend)
+    Return the 'target prediction date' (T or T+1) in **local market time**,
+    then convert to a UTC date to display consistently.
+
+    Rule: if 'now' (in market local tz) is before LOCAL close, predict for 'today';
+          otherwise predict for the next business day (skip weekends/holidays).
     """
-    _load_config()
-    exch = (exchange or "").strip().lower()
-    cfg = _MARKET_CFG.get(exch, _MARKET_CFG.get("nse"))  # sensible fallback
+    if now_utc is None:
+        now_utc = datetime.utcnow().replace(tzinfo=ZoneInfo("UTC"))
 
-    tz = pytz.timezone(cfg["tz"])
-    now_utc = now_utc or datetime.utcnow()
-    local_now = now_utc.replace(tzinfo=pytz.utc).astimezone(tz)
-    local_today = local_now.date()
+    tz = _find_market_tz(region, country, exchange)
+    local_now = now_utc.astimezone(tz)
 
-    # Build local datetime objects for today's open/close
-    close_dt = tz.localize(datetime.combine(local_today, cfg["close"]))
-    # If market hasn’t closed yet, we’re still predicting for *today*
-    if local_now <= close_dt and local_today.weekday() not in cfg["weekend"]:
-        return local_today.isoformat()
+    # close time: try to read from config; else 17:00 local
+    close_local = time(17, 0)
+    for row in _load_markets_cfg():
+        if (
+            row.get("region") == region
+            and row.get("country") == country
+            and row.get("exchange") == exchange
+        ):
+            hh, mm = 17, 0
+            c = (row.get("close_local") or "").strip()
+            if c:
+                try:
+                    hh, mm = [int(x) for x in c.split(":")[:2]]
+                except Exception:
+                    pass
+            close_local = time(hh, mm)
+            break
 
-    # Otherwise, predict for the next open day
-    next_day = _next_business_day(local_today, cfg["weekend"])
-    return next_day.isoformat()
+    weekend = _weekend_set(region, country, exchange)
+    target = local_now.date()
+    if local_now.time() >= close_local:
+        target = target + timedelta(days=1)
+
+    # roll forward to next business day
+    while target.weekday() in weekend or _is_holiday(target, region, country, exchange):
+        target += timedelta(days=1)
+
+    # We return a date (no tz) – it’s already the correct *local* T/T+1
+    # You can display it directly; the pages remain under 'prediction-tomorrow/' route.
+    return target
