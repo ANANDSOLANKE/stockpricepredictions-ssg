@@ -128,13 +128,13 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 5OR,Heatec Jietong Holdings Ltd.,SGX,Producer Manufacturing,Industrial Machinery,0.022,0.022,0.022,0.022,-4.347826086956526,4505106.0,100000,SGD
 5OX,Mary Chia Holdings Limited,SGX,Consumer Services,Other Consumer Services,0.024,0.024,0.024,0.024,0.0,7875089.0,1000,SGD
 5PC,Goodland Group Ltd.,SGX,Finance,Real Estate Development,0.115,0.115,0.115,0.115,-4.166666666666659,41338710.0,100000,SGD
-5PF,Jason Marine Group Limited,SGX,Electronic Technology,Telecommunications Equipment,0.144,0.145,0.144,0.145,,15225000.0,39200,SGD
+5PF,Jason Marine Group Limited,SGX,Electronic Technology,Telecommunications Equipment,0.144,0.145,0.144,0.145,0.0,15225000.0,39200,SGD
 5PO,Hiap Tong Corporation Ltd.,SGX,Finance,Finance/Rental/Leasing,0.105,0.106,0.105,0.106,-0.9345794392523372,33957969.0,5100,SGD
 5QY,Net Pacific Financial Holdings Limited,SGX,Finance,Finance/Rental/Leasing,0.017,0.017,0.017,0.017,-10.526315789473676,9986976.0,22800,SGD
 5SO,Duty Free International Limited,SGX,Retail Trade,Specialty Stores,0.086,0.086,0.086,0.086,4.8780487804877914,98252419.0,100,SGD
 5SR,Zhongmin Baihui Retail Group Ltd.,SGX,Retail Trade,Department Stores,0.43,0.43,0.43,0.43,7.499999999999993,76707081.0,2500,SGD
 5SY,OneApex Ltd.,SGX,Finance,Financial Conglomerates,0.265,0.265,0.265,0.265,0.0,22391969.0,100,SGD
-5TJ,Far East Group Limited,SGX,Producer Manufacturing,Industrial Machinery,0.098,0.098,0.098,0.098,,10923276.0,1900,SGD
+5TJ,Far East Group Limited,SGX,Producer Manufacturing,Industrial Machinery,0.098,0.098,0.098,0.098,0.0,10923276.0,1900,SGD
 5TP,CNMC Goldmine Holdings Limited,SGX,Non-Energy Minerals,Precious Metals,1.3,1.31,1.27,1.3,1.5625000000000013,521847020.00000006,7391000,SGD
 5TT,Keong Hong Holdings Limited,SGX,Industrial Services,Engineering & Construction,0.168,0.168,0.168,0.168,1.81818181818182,38776651.0,19900,SGD
 5UA,Luminor Financial Holdings Limited,SGX,Finance,Real Estate Development,0.045,0.045,0.045,0.045,0.0,7534682.0,86600,SGD
@@ -263,7 +263,7 @@ BWM,"Zheneng Jinjiang Environment Holding Co., Ltd.",SGX,Utilities,Electric Util
 BXE,CDW Holding Limited,SGX,Electronic Technology,Electronic Production Equipment,0.129,0.129,0.128,0.129,6.61157024793389,28636375.0,10100,SGD
 BYI,Phillip SGX APAC Dividend Leaders REIT ETF,SGX,Miscellaneous,Investment Trusts/Mutual Funds,0.916,0.916,0.916,0.916,1.2154696132596696,,400,USD
 BYJ,Phillip SGX APAC Dividend Leaders REIT ETF,SGX,Miscellaneous,Investment Trusts/Mutual Funds,1.174,1.174,1.174,1.174,0.25619128949614783,,200,SGD
-C04,Casa Holdings Limited,SGX,Distribution Services,Wholesale Distributors,0.113,0.122,0.113,0.118,,24759485.0,204600,SGD
+C04,Casa Holdings Limited,SGX,Distribution Services,Wholesale Distributors,0.113,0.122,0.113,0.118,0.8547008547008436,24759485.0,204600,SGD
 C05,Chemical Industries Far East Ltd.,SGX,Process Industries,Chemicals: Specialty,0.565,0.59,0.565,0.59,4.424778761061951,44807782.0,58500,SGD
 C06,CSC Holdings Limited,SGX,Industrial Services,Engineering & Construction,0.019,0.019,0.018,0.018,0.0,64220907.99999999,335100,SGD
 C07,Jardine Cycle & Carriage Limited,SGX,Consumer Durables,Motor Vehicles,28.48,29.07,28.47,28.74,0.8421052631578891,11264233612.0,188500,SGD
@@ -560,7 +560,7 @@ T82U,Suntec Real Estate Investment Trust,SGX,Finance,Real Estate Investment Trus
 TADD,"Advanced Info Service Public Co., Ltd. Shs Singapore Depositary Receipt Repr 1 NDVR",SGX,Communications,Wireless Telecommunications,1.18,1.18,1.18,1.18,0.8547008547008554,34935524904.226715,54300,SGD
 TATD,Airports of Thailand Public Co Ltd Shs Singapore Depositary Receipt Repr 1 NDVR,SGX,Transportation,Other Transportation,1.6,1.6,1.6,1.6,1.9108280254777086,22534225620.598442,500,SGD
 TBDD,Bangkok Dusit Medical Services Public Co. Ltd. UnSp Singapore Depositary Receipt Repr 2/1 Sh,SGX,Health Services,Hospital/Nursing Management,1.61,1.61,1.61,1.61,1.8987341772151913,12612831071.925003,3000,SGD
-TCPD,CP ALL Public Company Limited Shs Singapore Depositary Receipt Repr 1 NDVR,SGX,Retail Trade,Food Retail,1.9,1.9,1.88,1.89,,16665250709.566296,11500,SGD
+TCPD,CP ALL Public Company Limited Shs Singapore Depositary Receipt Repr 1 NDVR,SGX,Retail Trade,Food Retail,1.9,1.9,1.88,1.89,-0.5263157894736847,16665250709.566296,11500,SGD
 TCU,Credit Bureau Asia Limited,SGX,Commercial Services,Financial Publishing/Services,1.32,1.33,1.32,1.32,0.0,304114784.0,39300,SGD
 TDED,Delta Electronics (Thailand) Public Co. Ltd. Shs Singapore Depositary Receipt Repr 1 NDVR,SGX,Electronic Technology,Electronic Production Equipment,7.28,7.38,7.28,7.38,3.651685393258424,89347113727.85492,2600,SGD
 TGUD,Gulf Development Public Company Limited Shs UnSp Singapore Depositary Receipt Repr 1 Sh,SGX,Industrial Services,Engineering & Construction,1.78,1.78,1.78,1.78,2.2988505747126458,25937488177.775597,500,SGD
