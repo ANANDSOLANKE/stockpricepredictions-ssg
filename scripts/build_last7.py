@@ -1,140 +1,153 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-# -----------------------------------------------------------------------------
-# Make imports reliable both locally and in GitHub Actions
-# -----------------------------------------------------------------------------
-import sys
+from __future__ import annotations
+import re, json
+from datetime import datetime, timedelta
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+ROOT = Path(__file__).resolve().parents[1]
+DIST = ROOT / "dist"
+DATA = ROOT / "Data"
 
-from scripts.market_time import get_prediction_date  # noqa: E402
+# We keep the page route the same:
+PRED_GLOB = "**/prediction-tomorrow/index.html"
 
-# -----------------------------------------------------------------------------
-# Existing imports (keep)
-# -----------------------------------------------------------------------------
-import json
-from datetime import datetime
-import pandas as pd
-from slugify import slugify
+def _last_7_dates(latest: datetime) -> list[str]:
+    out = []
+    d = latest.date()
+    for i in range(7):
+        out.append((d - timedelta(days=i)).isoformat())
+    return out
 
-DATA_DIR = REPO_ROOT / "Data"
-LAST_DIR = DATA_DIR / "LastTradingDay"
-HIST_DIR = DATA_DIR / "Historical"
-DIST_DIR = REPO_ROOT / "dist"
+def _load_symbol_history(region: str, country: str, sym: str) -> list[dict]:
+    # use Historical/*/<region>/<country>.csv  (your existing structure)
+    # We will scan latest folder by date descending first:
+    hist_root = DATA / "Historical"
+    if not hist_root.exists():
+        return []
 
-def decide_signal(prev_close: float, close: float) -> str:
-    # your private rule; do not display on the site
-    if pd.isna(prev_close) or pd.isna(close):
-        return "Neutral"
-    return "Bullish" if close > prev_close else "Bearish"
-
-def load_history_for(country: str, region: str, symbol: str) -> pd.DataFrame:
-    # scan last 10 calendar days folders (if present) and collate this symbol
-    if not HIST_DIR.exists():
-        return pd.DataFrame()
-    frames = []
-    for day_dir in sorted(HIST_DIR.iterdir(), reverse=True):
-        if not day_dir.is_dir():
-            continue
-        # expect Region / Country / country.csv
-        csv_path = day_dir / region / f"{country}.csv"
+    # collect date folders
+    dates = sorted([p.name for p in hist_root.iterdir() if p.is_dir() and re.match(r"\d{4}-\d{2}-\d{2}", p.name)], reverse=True)
+    rows: list[dict] = []
+    for d in dates[:10]:  # only need a short window
+        csv_path = hist_root / d / region / f"{country.lower().replace(' ','-')}.csv"
         if not csv_path.exists():
             continue
         try:
+            import pandas as pd
             df = pd.read_csv(csv_path)
-            df = df[df["symbol"] == symbol]
-            if not df.empty:
-                df["asof"] = day_dir.name  # folder date
-                frames.append(df)
+            # filter symbol rows only
+            sdf = df[df["symbol"].astype(str) == sym]
+            for _, r in sdf.iterrows():
+                rows.append({
+                    "date": d,
+                    "close": r.get("Close"),
+                    "open": r.get("open"),
+                })
         except Exception:
-            continue
-        if len(frames) >= 10:
+            pass
+        if len(rows) >= 14:
             break
-    if not frames:
-        return pd.DataFrame()
-    out = pd.concat(frames, ignore_index=True)
-    # keep last 8 rows (we need 7 results using prev_close vs close)
-    out = out.sort_values("asof").tail(8).reset_index(drop=True)
-    return out
+    # newest first
+    rows.sort(key=lambda x: x["date"], reverse=True)
+    return rows
+
+def _ai_signal(prev_close, last_close) -> str:
+    try:
+        pc = float(prev_close)
+        lc = float(last_close)
+    except Exception:
+        return ""
+    return "Bullish" if lc > pc else ("Bearish" if lc < pc else "Sideways")
 
 def inject_last7():
-    total_pages = 0
+    pages = list(DIST.glob(PRED_GLOB))
+    print(f"[scan] prediction-tomorrow pages: {len(pages)}")
+
     injected = 0
+    now = datetime.utcnow()
 
-    # walk all prediction pages we just generated
-    pred_roots = list((DIST_DIR).rglob("prediction-tomorrow"))
-    for pred_root in pred_roots:
-        total_pages += 1
-        try:
-            # derive region/country/symbol from path
-            parts = pred_root.parts
-            # ... /dist/<region>/<country>/<symbol>/prediction-tomorrow
-            region = parts[-4]
-            country = parts[-3]
-            symbol_slug = parts[-2]
+    for page in pages:
+        # recover meta (region/country/exchange/symbol) from path parts
+        # /dist/<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+        parts = page.relative_to(DIST).parts
+        if len(parts) < 5:
+            continue
+        region_slug, country_slug, exchange_slug, symbol_slug = parts[0], parts[1], parts[2], parts[3]
 
-            # open last-trading-day csv for metadata (name/exchange) if needed
-            ltd_csv = LAST_DIR / region.replace("-", " ") / country.replace("-", " ") / f"{country}.csv"
-            if not ltd_csv.exists():
+        # crude inverse slugs -> names
+        region = region_slug.replace("-", " ").title()
+        country = country_slug.replace("-", " ").title()
+        symbol = symbol_slug.upper()
+
+        hist = _load_symbol_history(region, country, symbol)
+        if len(hist) < 2:
+            # nothing to show – skip
+            continue
+
+        # Build last-7 performance lines
+        last7_dates = _last_7_dates(now)
+        rows = []
+        wins = 0
+        used = 0
+
+        for i in range(1, len(hist)):
+            d = hist[i-1]["date"]  # last day
+            prev_d = hist[i]["date"]
+            # only take unique dates and up to 7 rows
+            if d not in last7_dates:
                 continue
-            ltd = pd.read_csv(ltd_csv)
-            # map symbol via slug
-            def to_slug(s): return slugify(str(s).lower())
-            row = None
-            for _, r in ltd.iterrows():
-                if to_slug(r["symbol"]) == symbol_slug:
-                    row = r
-                    break
-            if row is None:
-                continue
-            symbol = row["symbol"]
-            exchange = row.get("exchange", "")
-            # load recent history
-            hist = load_history_for(country.replace("-", " "), region.replace("-", " "), symbol)
-            if hist.empty or len(hist) < 2:
-                # write empty note so template won’t crash
-                (pred_root / "_last7.json").write_text(json.dumps(None), encoding="utf-8")
-                continue
+            sig = _ai_signal(hist[i]["close"], hist[i-1]["close"])
+            actual_close = hist[i-1]["close"]
+            # For this simplistic approach, "Win" if direction matched same rule on that day:
+            # If sig was Bullish, day change close-prevclose > 0
+            try:
+                day_up = float(hist[i-1]["close"]) - float(hist[i]["close"])
+                res = "Win" if (sig == "Bullish" and day_up > 0) or (sig == "Bearish" and day_up < 0) else "Loss"
+            except Exception:
+                res = ""
+            if res == "Win":
+                wins += 1
+            used += 1
+            rows.append({
+                "date": d,
+                "ai": sig,
+                "actual": actual_close,
+                "result": res
+            })
+            if len(rows) == 7:
+                break
 
-            # compute last 7 outcomes
-            out_rows = []
-            wins = 0
-            # ensure ordering by date ascending
-            hist = hist.sort_values("asof").reset_index(drop=True)
-            # columns expected in your CSVs
-            close_col = "Close" if "Close" in hist.columns else "close"
-            for i in range(1, min(8, len(hist))):
-                prev_close = hist.loc[i-1, close_col]
-                close = hist.loc[i, close_col]
-                pred = decide_signal(prev_close, close)
-                result = "Win" if ((pred == "Bullish" and close > prev_close) or
-                                   (pred == "Bearish" and close <= prev_close)) else "Loss"
-                if result == "Win":
-                    wins += 1
-                out_rows.append({
-                    "date": str(hist.loc[i, "asof"]),
-                    "pred": pred,
-                    "actual": f"{float(close):.2f}" if not pd.isna(close) else "-",
-                    "result": result
-                })
+        rows.sort(key=lambda x: x["date"], reverse=True)
+        win_pct = (wins/used*100.0) if used else 0.0
 
-            win_pct = f"{(wins/len(out_rows))*100:.2f}%"
-            payload = {"wins": wins, "win_pct": win_pct, "rows": out_rows[-7:]}
-            (pred_root / "_last7.json").write_text(json.dumps(payload), encoding="utf-8")
+        # Inject at marker <!-- LAST7 --> … <!-- /LAST7 -->
+        html = page.read_text(encoding="utf-8")
+        block = [
+            '<section class="card mt-6">',
+            '  <h3 class="h3">Last 7-Day Performance</h3>',
+            f'  <p class="small">Last 7-Day Accuracy: <strong>{win_pct:.2f}%</strong> ({wins}/{used})</p>',
+            '  <div class="table-wrap"><table class="table"><thead><tr>',
+            '    <th>Date</th><th>AI Prediction</th><th class="text-right">Actual Close</th><th class="text-center">Result</th>',
+            '  </tr></thead><tbody>'
+        ]
+        for r in rows:
+            color = "style='color:#3ddc97;'" if r["result"] == "Win" else "style='color:#ff6b6b;'"
+            block.append(
+                f"<tr><td>{r['date']}</td><td>{r['ai']}</td><td class='text-right'>{r['actual']}</td><td class='text-center'><span {color}>{r['result']}</span></td></tr>"
+            )
+        block.append("</tbody></table></div></section>")
+        inject_html = "\n".join(block)
+
+        new_html = re.sub(
+            r"<!-- LAST7 -->.*?<!-- /LAST7 -->",
+            f"<!-- LAST7 -->\n{inject_html}\n<!-- /LAST7 -->",
+            html,
+            flags=re.S
+        )
+        if new_html != html:
+            page.write_text(new_html, encoding="utf-8")
             injected += 1
-        except Exception:
-            # don't fail the build on any single page
-            (pred_root / "_last7.json").write_text(json.dumps(None), encoding="utf-8")
 
-    print(f"[scan] prediction-tomorrow pages: {total_pages}")
     print(f"[OK] injected: {injected}")
 
-def main():
-    inject_last7()
-
 if __name__ == "__main__":
-    main()
+    inject_last7()
