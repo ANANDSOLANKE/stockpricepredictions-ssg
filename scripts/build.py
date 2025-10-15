@@ -8,12 +8,18 @@ SGG-1 build.py — fast build from Data/LastTradingDay
 - Signal column is a clickable “AI Prediction” link
 - Copies static/styles + static/app (no heavy logo work)
 - Logos: copied once if available; use SKIP_LOGOS=1 to skip scanning/copy
+- NEW: market-aware prediction date using markets_config.csv (timezone + close time)
 """
 
 import csv, html, json, os, re, unicodedata, shutil
 from pathlib import Path
-from datetime import datetime, timedelta
-from typing import Dict, List, Optional
+from datetime import datetime, timedelta, time
+from typing import Dict, List, Optional, Tuple
+
+try:
+    import zoneinfo  # py>=3.9
+except Exception:
+    zoneinfo = None  # fallback handled
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_LAST = ROOT / "Data" / "LastTradingDay"
@@ -32,14 +38,79 @@ def write_json(p: Path, obj): p.parent.mkdir(parents=True, exist_ok=True); p.wri
 def slug(s: str) -> str: s=(s or "").strip().lower(); s=re.sub(r"[^a-z0-9]+","-",s); return s.strip("-") or "item"
 
 def _f(x):
-    try: return float(x)
+    try: return float(str(x).replace(",",""))
     except: return None
 
 def next_business_day(d):
-    wd=d.weekday()
-    if wd==4: return d.replace() + timedelta(days=3)
-    if wd==5: return d.replace() + timedelta(days=2)
+    wd = d.weekday()
+    if wd == 4:  # Fri -> Mon
+        return d + timedelta(days=3)
+    if wd == 5:  # Sat -> Mon
+        return d + timedelta(days=2)
     return d + timedelta(days=1)
+
+# ---------- market config (timezone/close) ----------
+class MarketTimes:
+    def __init__(self):
+        self.rows: List[Dict[str,str]] = []
+        self._by_key: Dict[Tuple[str,str,str], Dict[str,str]] = {}
+        self._load()
+
+    def _load(self):
+        p = ROOT / "markets_config.csv"
+        if not p.exists():
+            return
+        with open(p, "r", encoding="utf-8", newline="") as f:
+            rdr = csv.DictReader(f)
+            for r in rdr:
+                row = { (k or "").strip().lower(): (v or "").strip() for k,v in r.items() }
+                region  = row.get("region","")
+                country = row.get("country","")
+                exch    = row.get("exchange","")
+                tz      = row.get("timezone","")
+                close   = row.get("close_local","")
+                if not (region and country and exch and tz and close):
+                    continue
+                key = (region.lower(), country.lower(), exch.lower())
+                self._by_key[key] = {"tz": tz, "close": close}
+
+    def prediction_date(self, *, region: str, country: str, exchange: str) -> str:
+        """
+        If we know the local close time:
+          - before close_local (today local): predict for today
+          - at/after close_local: predict for next business day (local)
+        Else: default to UTC next business day.
+        Returns ISO date (YYYY-MM-DD).
+        """
+        key = (region.lower(), country.lower(), exchange.lower())
+        item = self._by_key.get(key)
+        if not item or not zoneinfo:
+            # Fallback: UTC next business day
+            return next_business_day(datetime.utcnow().date()).isoformat()
+
+        tzname = item["tz"]
+        hhmm = item["close"]
+        try:
+            hh, mm = [int(x) for x in hhmm.split(":", 1)]
+            close_t = time(hour=hh, minute=mm)
+        except Exception:
+            return next_business_day(datetime.utcnow().date()).isoformat()
+
+        try:
+            tz = zoneinfo.ZoneInfo(tzname)
+        except Exception:
+            return next_business_day(datetime.utcnow().date()).isoformat()
+
+        now_local = datetime.now(tz)
+        close_local = datetime.combine(now_local.date(), close_t, tzinfo=tz)
+
+        if now_local < close_local:
+            # market not closed yet -> prediction target is today (local)
+            target = now_local.date()
+        else:
+            # closed -> next business day (local)
+            target = next_business_day(now_local.date())
+        return target.isoformat()
 
 # ---------- data ----------
 def read_csv_rows(p: Path) -> List[Dict[str,str]]:
@@ -48,7 +119,7 @@ def read_csv_rows(p: Path) -> List[Dict[str,str]]:
         rdr=csv.DictReader(f)
         for r in rdr:
             out.append({(k or "").strip().lower():(v or "").strip() for k,v in r.items()})
-    need=["symbol","description","exchange","sector","industry","open","high","low","close","change_percent","change%"]
+    need=["symbol","description","exchange","sector","industry","open","high","low","close","change_percent","change%","currency"]
     for r in out:
         for k in need: r.setdefault(k, "")
     return out
@@ -177,8 +248,9 @@ def main():
 
     tree=load_last_trading_day()
     resolver=LogoResolver()
+    mkt = MarketTimes()
 
-    # Home (drilldown controlled by app.js)
+    # Home
     home = """
 <section class='card'>
   <h2 class='h2'>Browse Markets</h2>
@@ -227,6 +299,9 @@ def main():
                 ex_links.append(f"<li><a href='{e_url}'>{html.escape(exch)}</a></li>")
 
                 table_rows=[]; json_rows=[]
+                # prediction target date for this exchange (market-aware)
+                exch_pred_date = mkt.prediction_date(region=gname, country=cname, exchange=exch)
+
                 for r in erows:
                     sym=(r.get("symbol") or "").strip()
                     name=(r.get("description") or sym or "").strip()
@@ -268,14 +343,13 @@ def main():
                     # very light stock page (no charts; fast)
                     if sym and None not in (o,h,l,cl):
                         title=f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
-                        when=next_business_day(datetime.utcnow().date()).isoformat()
                         head = (
                             "<div class='card'>"
                             f"<h2 class='h2'>AI Analysis of {html.escape(sym)} ({html.escape(name)})</h2>"
                             f"<p class='small'>Region: {html.escape(gname)} · Country: {html.escape(cname)} · Exchange: {html.escape(exch)}</p>"
                             f"<p class='small'>OHLC: O {'{:.2f}'.format(o)}, H {'{:.2f}'.format(h)}, L {'{:.2f}'.format(l)}, C {'{:.2f}'.format(cl)}"
                             f" · Change%: {ch_html}</p>"
-                            f"<div class='card'><h3 class='h3'>Prediction for {when}</h3><p><strong>Model signal</strong> based on the latest day’s action.</p></div>"
+                            f"<div class='card'><h3 class='h3'>Prediction for {exch_pred_date}</h3><p><strong>Model signal</strong> based on the latest day’s action.</p></div>"
                             "</div>"
                         )
                         write_text(DIST/gslug/cslug/e_slug/s_slug/"prediction-tomorrow"/"index.html",
