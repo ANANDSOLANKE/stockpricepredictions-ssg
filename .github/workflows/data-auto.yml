@@ -1,23 +1,19 @@
-name: Auto download + build + deploy SSG
+name: Auto download market data and build & deploy SSG
 
 on:
   schedule:
-    - cron: "0 * * * *"     # every hour (UTC)
-  workflow_dispatch:        # allow manual run
+    - cron: "0 * * * *"        # every hour (UTC)
+  workflow_dispatch: {}
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
@@ -31,56 +27,55 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas jinja2 python-slugify requests pytz python-dateutil beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install pandas jinja2 python-slugify requests pytz python-dateutil beautifulsoup4 lxml
+          fi
 
-      # 1) Auto download latest data
       - name: Download latest market data (headless)
         run: |
           echo "[START] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 180
+          python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 120 || true
           echo "[END] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 
-      # 2) Build the site (fast; reuse logos)
       - name: Ensure logos exist in dist (fast)
         run: |
-          mkdir -p dist
-          if [ -d logos ] && [ ! -d dist/logos ]; then cp -r logos dist/; fi
+          if [ -d logos ]; then
+            mkdir -p dist
+            if [ ! -d dist/logos ]; then
+              cp -r logos dist/
+              echo "Copied logos → dist/logos (first time)"
+            else
+              echo "Logos already present, skipping copy"
+            fi
+          else
+            echo "No /logos folder found, skipping"
+          fi
 
       - name: Build site (fast; skip logo rescan)
         env:
           SKIP_LOGOS: "1"
-        run: python -u scripts/build.py
+        run: |
+          python -u scripts/build.py
 
-      # 3) Inject the last-7 table into every prediction page
       - name: Inject last-7 performance
-        run: python -u scripts/build_last7.py
+        run: |
+          python -u scripts/build_last7.py
 
-      # (Optional) Commit data + dist for audit/history
       - name: Commit and push updated data + dist
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add Data dist || true
-          git commit -m "Auto: data + site $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No changes to commit"
-          git push
+          git commit -m "Auto-update: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No changes to commit"
+          git push || true
 
-      # 4) Publish to GitHub Pages
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      pages: write
-      id-token: write
-    steps:
       - name: Deploy to GitHub Pages
-      
         id: deployment
         uses: actions/deploy-pages@v4
