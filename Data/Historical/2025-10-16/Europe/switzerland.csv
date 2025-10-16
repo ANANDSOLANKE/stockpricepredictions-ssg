@@ -47,8 +47,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 2B79,iShares Digitalisation UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,9.242,9.242,9.242,9.242,1.3377192982456325,,52,CHF
 2CU,Chemours Co.,BX,Process Industries,Chemicals: Specialty,11.382,11.382,11.382,11.382,-6.781326781326791,1720450740.416036,20,CHF
 2FE,Ferrari NV,BX,Consumer Durables,Motor Vehicles,315.303,316.301,309.937,316.301,3.711026516232047,73360199207.81943,124,CHF
-2HQ,"Tilray Brands, Inc.",BX,Process Industries,Agricultural Commodities/Milling,1.397,1.397,1.397,1.397,-13.92483056069008,1503474973.3003907,2857,CHF
 2HQ,"Tilray Brands, Inc.",SIX,Process Industries,Agricultural Commodities/Milling,46.5,46.5,46.5,46.5,0.0,1503474973.3003907,806,CHF
+2HQ,"Tilray Brands, Inc.",BX,Process Industries,Agricultural Commodities/Milling,1.397,1.397,1.397,1.397,-13.92483056069008,1503474973.3003907,2857,CHF
 2HX,Hexagon Composites ASA,BX,Process Industries,Containers/Packaging,0.862,0.862,0.862,0.862,-36.98830409356726,197573499.34409025,1111,CHF
 2M6,Medtronic Plc,BX,Health Technology,Medical Specialties,78.001,78.001,78.001,78.001,4.4050327934680915,97466542006.85423,48,CHF
 2ON,"Peloton Interactive, Inc. Class A",BX,Consumer Services,Other Consumer Services,6.116,6.116,6.116,6.116,-1.386649467913581,2476415178.9272337,4,CHF
@@ -159,8 +159,8 @@ ABL,Abbott Laboratories,BX,Health Technology,Medical Specialties,106.779,106.779
 ABNB,21Shares Binance BNB ETP,BX,Miscellaneous,Investment Trusts/Mutual Funds,71.265,71.265,71.265,71.265,2.4614322890457685,,60,CHF
 ABNB.USD,21Shares Binance BNB ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,80.07,80.29,79.0,79.2,0.25316455696202894,,5739,USD
 ABOLD.USD,Adaptivv Bitcoin Gold ETF 2025-open end Exchange Traded Product,SIX,Miscellaneous,Investment Trusts/Mutual Funds,25.4,25.4,25.37,25.4,-1.397515527950322,,1800,USD
-ABTC,21Shares Bitcoin ETP,BX,Miscellaneous,Investment Trusts/Mutual Funds,32.786,32.805,32.786,32.787,-0.9426266654581638,,2500,CHF
 ABTC,21Shares Bitcoin ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,29.735,29.765,29.28,29.28,-1.2478920741989796,,5029,CHF
+ABTC,21Shares Bitcoin ETP,BX,Miscellaneous,Investment Trusts/Mutual Funds,32.786,32.805,32.786,32.787,-0.9426266654581638,,2500,CHF
 ABTC.EUR,21Shares Bitcoin ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,31.73,31.73,31.73,31.73,-0.8282544147523068,,3648,EUR
 ABTC.GBP,21Shares Bitcoin ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,30.34,30.34,30.34,30.34,0.7304116865869816,,260,GBP
 ABTC.JPY,21Shares Bitcoin ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,5601.0,5601.0,5601.0,5601.0,-1.4428998768256203,,48,JPY
@@ -261,11 +261,11 @@ AMC,Albemarle Corporation,BX,Process Industries,Chemicals: Specialty,74.015,74.0
 AMD,"Advanced Micro Devices, Inc.",BX,Electronic Technology,Semiconductors,191.49,192.638,188.18,189.746,-0.060044243126516544,308608056631.0672,365,CHF
 AME6,Amundi STOXX Europe 600 ESG ETF EUR C,BX,Miscellaneous,Investment Trusts/Mutual Funds,132.531,132.531,132.531,132.531,2.7467671411294123,,23,CHF
 AMG,Amgen Inc.,BX,Health Technology,Biotechnology,238.116,238.116,238.116,238.116,1.4840133995925688,127572931652.18779,12,CHF
-AMINAX,AMINA Crypto Asset Select Index ETP,BX,,,38.342,38.342,38.342,38.342,10.537088822901957,,130,CHF
 AMINAX,AMINA Crypto Asset Select Index ETP,SIX,,,37.715,37.715,37.715,37.715,0.3458826659571706,,130,CHF
+AMINAX,AMINA Crypto Asset Select Index ETP,BX,,,38.342,38.342,38.342,38.342,10.537088822901957,,130,CHF
 AMINAX.USD,AMINA Crypto Asset Select Index ETP,SIX,,,41.475,41.475,41.475,41.475,-0.37232764833053356,,504,USD
-AMRZ,Amrize Ltd,SIX,Non-Energy Minerals,Construction Materials,38.2,39.08,38.15,38.87,-0.5882352941176572,21352604406.63107,949316,CHF
 AMRZ,Amrize Ltd,BX,Non-Energy Minerals,Construction Materials,38.457,38.903,38.457,38.903,-0.7753717448414876,21352604406.63107,2711,CHF
+AMRZ,Amrize Ltd,SIX,Non-Energy Minerals,Construction Materials,38.2,39.08,38.15,38.87,-0.5882352941176572,21352604406.63107,949316,CHF
 AMS,ams-OSRAM AG,SIX,Electronic Technology,Semiconductors,11.06,11.2,10.93,11.15,0.9049773755656076,1093118942.0,219360,CHF
 AMS,ams-OSRAM AG,BX,Electronic Technology,Semiconductors,11.16,11.16,11.16,11.16,0.7129320458442435,1093118942.0,200,CHF
 AMZ,"Amazon.com, Inc.",BX,Retail Trade,Internet Retail,171.711,173.664,171.711,173.664,0.8747778203743075,1832338552267.4744,75,CHF
@@ -293,8 +293,8 @@ ARKK,ARK Innovation UCITS ETF Accum Shs USD,SIX,Miscellaneous,Investment Trusts/
 ARMR,Global X Etfs Icav Accu Shs USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,23.795,23.795,23.685,23.725,-1.0427528675703857,,5009,CHF
 ARMY,HANetf ICAV - Future of European Defence UCITS ETF AccumEUR,SIX,Miscellaneous,Investment Trusts/Mutual Funds,8.899,8.899,8.87,8.87,-2.097130242825621,,5160,CHF
 ARRD,ArcelorMittal SA,BX,Non-Energy Minerals,Steel,30.75,30.75,30.75,30.75,20.815652993870806,25143489701.87232,100,CHF
-ARYN,Aryzta AG,BX,Retail Trade,Food Retail,51.343,51.343,51.187,51.187,0.48488417746368256,1260150926.0,15,CHF
 ARYN,Aryzta AG,SIX,Retail Trade,Food Retail,51.1,51.5,50.65,51.3,0.6869479882237376,1260150926.0,54997,CHF
+ARYN,Aryzta AG,BX,Retail Trade,Food Retail,51.343,51.343,51.187,51.187,0.48488417746368256,1260150926.0,15,CHF
 ASCN,Ascom Holding AG,SIX,Electronic Technology,Telecommunications Equipment,3.755,3.81,3.69,3.81,3.112313937753727,132993554.99999999,39629,CHF
 ASCNE,Ascom Holding AG TEMP,SIX,Electronic Technology,Telecommunications Equipment,3.77,3.815,3.77,3.815,1.1936339522546402,132993554.99999999,12536,CHF
 ASID.USD,iShares USD Asia Investment Grade Corp Bond UCITS ETF AccumUSD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,5.4038,5.4176,5.4036,5.4092,0.011093443774736124,,3813,USD
@@ -359,8 +359,8 @@ AXA,AXA SA,BX,Finance,Multi-Line Insurance,37.161,37.161,37.161,37.161,-2.213041
 AXEE.USD,iShares Asia ex Japan Equity Enhanced Active UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,6.79,6.79,6.79,6.79,0.0,,57700,USD
 AXLM.USD,21Shares Stellar XLM ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,14.91,15.098,14.82,14.82,-1.906274821286737,,3793,USD
 AXQU.USD,AXA IM MSCI Emerging Markets Ex-China Equity PAB UCITS ETF AccumUSD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,12.278,12.278,12.278,12.278,9.196015652792607,,1726,USD
-AXRP,21Shares Ripple XRP ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,52.0,53.76,52.0,53.36,-1.3678373382624807,,1049,CHF
 AXRP,21Shares Ripple XRP ETP,BX,Miscellaneous,Investment Trusts/Mutual Funds,58.346,58.346,58.049,58.172,-11.732216557416848,,200,CHF
+AXRP,21Shares Ripple XRP ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,52.0,53.76,52.0,53.36,-1.3678373382624807,,1049,CHF
 AXRP.USD,21Shares Ripple XRP ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,67.04,67.85,64.84,66.0,-2.3668639053254354,,27923,USD
 AXTZ.USD,21Shares Tezos ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,3.768,3.768,3.768,3.768,-5.445420326223339,,400,USD
 AZ4N,Allreal Holding AG,BX,Finance,Real Estate Development,185.565,185.673,185.565,185.673,0.6903470715835119,3063194302.0,3,CHF
@@ -550,8 +550,8 @@ CBSUSA.USD,UBS (Lux) Fund Solutions - UBS BBG MSCI US Liquid Corp Sustainable UC
 CBSUSE.EUR,UBS (Lux) Fund Solutions - UBS BBG MSCI US Liquid Corp Sustainable UCITS ETF -(hedged to EUR) A-acc- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,15.505,15.505,15.505,15.505,0.4860661049902856,,5266,EUR
 CBSUSH.GBP,UBS (Lux) Fund Solutions - UBS BBG MSCI US Liquid Corp Sustainable UCITS ETF -(hedged to GBP) A-dis- Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,9.1448,9.1448,9.1448,9.1448,0.03719342770253114,,866,GBP
 CBSUST,UBS (Lux) Fund Solutions - UBS BBG MSCI US Liquid Corp Sustainable UCITS ETF -(hedged to CHF) A-dis- Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.732,10.74,10.73,10.736,-0.5004633920296432,,4100,CHF
-CBTC,21Shares Bitcoin Core ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,21.245,21.245,20.98,20.98,-0.4979843490633172,,11409,CHF
 CBTC,21Shares Bitcoin Core ETP,BX,Miscellaneous,Investment Trusts/Mutual Funds,23.32,23.32,23.32,23.32,5.054509415262635,,42,CHF
+CBTC,21Shares Bitcoin Core ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,21.245,21.245,20.98,20.98,-0.4979843490633172,,11409,CHF
 CBTC.USD,21Shares Bitcoin Core ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,26.555,26.625,26.325,26.355,-0.9024252679074956,,18998,USD
 CBUS.USD,UBS (Lux) Fund Sol - UBS Core BBG US Liquid Corp UCITS ETF USD Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,15.1995,15.201,15.1995,15.201,0.2836785855653849,,711,USD
 CBUS5.USD,UBS (Lux) Fund Solutions - Bloomberg US Liquid Corporates 1-5 Year UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,14.0125,14.0125,14.0125,14.0125,0.18231214699363116,,33169,USD
@@ -644,8 +644,8 @@ CLV,Trip.com Group Ltd. Sponsored ADR,BX,Consumer Services,Other Consumer Servic
 CMBN,Cembra Money Bank AG,SIX,Finance,Regional Banks,90.5,90.65,89.4,89.9,-0.991189427312766,2667384829.0,98543,CHF
 CMC,JPMorgan Chase & Co.,BX,Finance,Major Banks,242.724,242.724,242.724,242.724,-1.7025205727985517,669938793084.4027,22,CHF
 CMES,iShares II PLC - iShares J.P. Morgan Advanced USD EM Bond UCITS ETF Accum Hedged CHF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,4.5312,4.5312,4.5225,4.5306,0.19018133569216047,,28415,CHF
-CMOC,Invesco Bloomberg Commodity Carbon Tilted UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,4.5575,4.573,4.5575,4.573,0.6936034349884467,,15,CHF
 CMOC,Invesco Bloomberg Commodity Carbon Tilted UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,4.566,4.566,4.566,4.566,0.21949078138717706,,10,CHF
+CMOC,Invesco Bloomberg Commodity Carbon Tilted UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,4.5575,4.573,4.5575,4.573,0.6936034349884467,,15,CHF
 CMU.EUR,Amundi MSCI EMU ESG Selection -UCITS ETF DR- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,342.3,342.3,342.3,342.3,5.762397651784346,,24,EUR
 CMXUS.USD,UBS MSCI USA NSL UCITS ETF Accum USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,261.3,261.3,261.3,261.3,-0.6274957216200712,,12,USD
 CN1.EUR,Amundi MSCI Nordic,SIX,Miscellaneous,Investment Trusts/Mutual Funds,624.4,625.3,624.4,625.3,-1.2943962115232905,,204,EUR
@@ -739,8 +739,8 @@ CTP2,Comcast Corporation Class A,BX,Consumer Services,Cable/Satellite TV,23.627,
 CTV,"Helix Energy Solutions Group, Inc.",BX,Industrial Services,Oilfield Services/Equipment,5.046,5.046,5.046,5.046,20.978182690002395,736860839.2444409,40,CHF
 CU2USD.USD,Amundi PEA MSCI USA ESG Selection UCITS ETF Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,818.9,818.9,818.9,818.9,0.7380981670562184,,46,USD
 CUCA,"Avis Budget Group, Inc.",BX,Finance,Finance/Rental/Leasing,117.075,117.075,117.075,117.075,-14.774588523050719,4269670258.229059,30,CHF
-CURN,Curatis Holding AG,SIX,Health Technology,Pharmaceuticals: Major,12.7,12.8,12.2,12.5,0.0,62400764.0,3714,CHF
 CURN,Curatis Holding AG,BX,Health Technology,Pharmaceuticals: Major,13.231,13.231,13.201,13.201,-8.173344462993871,62400764.0,300,CHF
+CURN,Curatis Holding AG,SIX,Health Technology,Pharmaceuticals: Major,12.7,12.8,12.2,12.5,0.0,62400764.0,3714,CHF
 CUSDO,Leonteq USD Overnight Return Index,BX,,,9.69,9.69,9.69,9.69,-0.4110996916752407,,207,CHF
 CVC1,Carnival Corporation,BX,Consumer Services,Hotels/Resorts/Cruise lines,23.132,23.132,23.132,23.132,2.110002648538896,29898901235.35507,200,CHF
 CW8E.EUR,Amundi MSCI World Swap -UCITS ETF- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,594.0,594.0,594.0,594.0,-0.2183772887619611,,10,EUR
@@ -786,8 +786,8 @@ DFEA.EUR,WisdomTree Europe SmallCap Dividend UCITS ETF Acc,SIX,Miscellaneous,Inv
 DFEU.EUR,Ishares V Plc - Ishares Europe Defence Ucits ETF Accum Shs EUR,SIX,Miscellaneous,Investment Trusts/Mutual Funds,5.219,5.31,5.2,5.31,-0.3752345215759937,,24001,EUR
 DFND,iShares Global Aerospace & Defence UCITS ETF Accum- USD,BX,Miscellaneous,Investment Trusts/Mutual Funds,7.167,7.167,7.167,7.167,-0.09757457485364596,,3000,CHF
 DFND.USD,iShares Global Aerospace & Defence UCITS ETF Accum- USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,8.956,9.02,8.945,9.009,0.233644859813093,,135354,USD
-DFNS,VanEck Defense UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,49.0,49.46,48.88,49.285,-0.14182960186404678,,19978,CHF
 DFNS,VanEck Defense UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,49.085,49.498,49.013,49.377,-1.9869784429711335,,324,CHF
+DFNS,VanEck Defense UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,49.0,49.46,48.88,49.285,-0.14182960186404678,,19978,CHF
 DG3,Celanese Corporation,BX,Process Industries,Chemicals: Specialty,31.962,31.962,31.962,31.962,-23.059146385498657,3507575104.008927,48,CHF
 DGRA.USD,WisdomTree US Quality Dividend Growth UCITS ETF USD Acc,SIX,Miscellaneous,Investment Trusts/Mutual Funds,51.51,51.51,51.51,51.51,0.0,,20000,USD
 DGRW.USD,WisdomTree US Quality Dividend Growth UCITS ETF USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,45.745,45.745,45.745,45.745,0.0,,11505,USD
@@ -805,8 +805,8 @@ DKSH,DKSH Holding Ltd,SIX,Distribution Services,Medical Distributors,55.2,55.5,5
 DMAT,Global X Disruptive Materials Ucits ETF AccumUSD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,17.062,17.424,17.062,17.424,6.062819576333081,,2036,CHF
 DMFC,iShares STOXX World Equity Multifactor UCITS ETF Accum Shs Hedged CHF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,8.864,8.864,8.864,8.864,0.0,,6039,CHF
 DNQ,Equinor ASA,BX,Energy Minerals,Integrated Oil,18.637,18.637,18.637,18.637,-7.485728468602628,47258250636.6464,300,CHF
-DOCM,DocMorris Ltd,SIX,Distribution Services,Medical Distributors,6.36,6.865,6.24,6.62,7.3803730738037325,296531832.0,943277,CHF
 DOCM,DocMorris Ltd,BX,Distribution Services,Medical Distributors,6.389,6.83,6.389,6.768,8.967960070842047,296531832.0,7657,CHF
+DOCM,DocMorris Ltd,SIX,Distribution Services,Medical Distributors,6.36,6.865,6.24,6.62,7.3803730738037325,296531832.0,943277,CHF
 DOCT,L&G Healthcare Technology & Innovation UCITS ETF Accum Shs USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.46,10.46,10.46,10.46,-2.570789865871831,,4712,CHF
 DOGE.EUR,21Shares Dogecoin ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,5.575,5.627,5.575,5.627,-0.23049645390070747,,500,EUR
 DOGE.USD,21Shares Dogecoin ETP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,6.523,6.56,6.3,6.408,-2.8354814253222047,,29355,USD
@@ -950,7 +950,7 @@ EMUUKD.EUR,UBS Core MSCI EMU UCITS ETF-EUR Ukdis- Distribution,SIX,Miscellaneous
 EMUUSD.USD,UBS ETF SICAV - UBS ETF - MSCI EMU UCITS ETF -(hedged to USD) A-acc- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,22.155,22.23,22.155,22.23,0.6565542223228417,,14847,USD
 EMUV.EUR,UBS ETF SICAV - UBS ETF - MSCI EMU Value UCITS ETF A Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,19.178,19.178,19.178,19.178,0.0,,1530,EUR
 EMVEUA.EUR,UBS MSCI EMU Value UCITS ETF -EUR dis- Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,54.06,54.15,54.06,54.15,0.8567703482957736,,1935,EUR
-EMXC,Amundi MSCI Emerging Ex China ETF Acc Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,25.84,25.84,25.76,25.76,-1.1891062523973868,,1350,CHF
+EMXC,Amundi MSCI Emerging Ex China ETF Acc Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,25.76,25.76,25.76,25.76,0.0,,1900,CHF
 EMXCN.USD,UBS (Lux) Fund Solutions SICAV - MSCI Emerging Markets ex China UCITS ETF -(USD) A-acc- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,25.82,25.82,25.82,25.82,1.1755485893416957,,28,USD
 EMXCNS.USD,UBS (Irl)ETF plc - UBS MSCI EM ex China Socially Responsible UCITS ETF Accum USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,6.89,6.89,6.89,6.89,-1.9217081850533904,,20000,USD
 EMXU.USD,Amundi MSCI Emerging Ex China ESG Selection -UCITS ETF DR- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,55.68,55.68,55.65,55.65,0.68753392437126,,284,USD
@@ -969,8 +969,8 @@ EPIC,EPIC Suisse Ltd.,SIX,Industrial Services,Engineering & Construction,83.0,83
 EPVLD,UBS (Lux) Fund Solutions SICAV - Factor MSCI EMU Prime Value UCITS ETF -(EUR) A-dis- Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,19.716,19.716,19.716,19.716,1.7967781908302487,,428,CHF
 EPVLD.EUR,UBS (Lux) Fund Solutions SICAV - Factor MSCI EMU Prime Value UCITS ETF -(EUR) A-dis- Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,21.14,21.14,21.14,21.14,-0.16528925619834778,,427,EUR
 EQAC.USD,Invesco EQQQ Nasdaq-100 UCITS ETF Acc,SIX,Miscellaneous,Investment Trusts/Mutual Funds,424.9,426.35,424.35,425.15,0.27122641509433426,,4571,USD
-EQCH,Invesco EQQQ Nasdaq-100 UCITS ETF CHF Hdg Acc,BX,Miscellaneous,Investment Trusts/Mutual Funds,404.748,404.748,404.598,404.598,0.012853915253153145,,34,CHF
 EQCH,Invesco EQQQ Nasdaq-100 UCITS ETF CHF Hdg Acc,SIX,Miscellaneous,Investment Trusts/Mutual Funds,403.45,405.55,402.5,403.5,0.13649336145924096,,2528,CHF
+EQCH,Invesco EQQQ Nasdaq-100 UCITS ETF CHF Hdg Acc,BX,Miscellaneous,Investment Trusts/Mutual Funds,404.748,404.748,404.598,404.598,0.012853915253153145,,34,CHF
 EQEU.EUR,Invesco EQQQ Nasdaq-100 UCITS ETF EUR Hdg Acc,SIX,Miscellaneous,Investment Trusts/Mutual Funds,438.45,438.45,438.45,438.45,0.0,,320,EUR
 EQGB.GBP,Invesco EQQQ Nasdaq-100 UCITS ETF GBP Hdg Acc,SIX,Miscellaneous,Investment Trusts/Mutual Funds,474.3,474.3,474.3,474.3,2.0000000000000027,,482,GBP
 EQLTD,UBS (Lux) Fund Solutions SICAV - UBS Factor MSCI EMU Quality Screened UCITS ETF -EUR dis- Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,24.485,24.485,24.485,24.485,-1.4688128772635896,,2974,CHF
@@ -1057,7 +1057,7 @@ EURCHA,UBS (Lux) Fund Solutions SICAV - UBS Core MSCI Europe UCITS ETF EUR dis- 
 EURE.EUR,FTSE EPRA Nareit Developed Europe ex UK Index UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,29.645,29.645,29.475,29.475,-0.33812341504648474,,503,EUR
 EUREA,UBS Core MSCI Europe UCITS ETF Capitalisation A,SIX,Miscellaneous,Investment Trusts/Mutual Funds,9.491,9.491,9.491,9.491,0.01053740779767593,,379,CHF
 EUREA.EUR,UBS Core MSCI Europe UCITS ETF Capitalisation A,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.166,10.17,10.166,10.17,0.25630914826498225,,1397,EUR
-EUREUA,UBS (Lux) Fund Solutions SICAV - UBS Core MSCI Europe UCITS ETF EUR dis- Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,93.67,93.67,93.42,93.55,0.6671688367588403,,7138,CHF
+EUREUA,UBS (Lux) Fund Solutions SICAV - UBS Core MSCI Europe UCITS ETF EUR dis- Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,93.81,94.15,93.81,94.15,0.6413682522715217,,885,CHF
 EUREUA.EUR,UBS (Lux) Fund Solutions SICAV - UBS Core MSCI Europe UCITS ETF EUR dis- Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,93.81,94.15,93.81,94.15,0.6413682522715217,,885,EUR
 EURO,SPDR MSCI EMU UCITS ETF EUR,SIX,Miscellaneous,Investment Trusts/Mutual Funds,82.66,82.66,82.66,82.66,0.0,,2187,CHF
 EUROON.EUR,UBS (Irl) Fund Solutions PLC - EUR Overnight Rate SF UCITS ETF Accum A EUR,SIX,Miscellaneous,Investment Trusts/Mutual Funds,5.0454,5.047,5.0454,5.047,0.2980922098569094,,4000,EUR
@@ -1111,7 +1111,7 @@ FEUI,Fidelity Europe Quality Income UCITS ETF EUR,SIX,Miscellaneous,Investment T
 FGGB.USD,Fidelity Global Government Bond Climate Aware Ucits ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,5.082,5.082,5.082,5.082,0.6336633663366342,,150,USD
 FGLR.USD,Fidelity Global Equity Research Enhanced UCITS ETF Accum Shs USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.748,10.748,10.748,10.748,0.0,,1450,USD
 FGQC,Fidelity Global Quality Income UCITS ETF Hedged CHF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,7.679,7.702,7.679,7.702,1.502372166578807,,8373,CHF
-FGQD,Fidelity Global Quality Income UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,8.059,8.059,8.053,8.053,0.02484163457956363,,1308,CHF
+FGQD,Fidelity Global Quality Income UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,8.053,8.053,8.053,8.053,0.0,,2250,CHF
 FGRD,First Trust Nasdaq Clean Edge Smart Grid Infrastructure UCITS ETF Accum A USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,42.96,42.96,42.96,42.96,0.0,,58,CHF
 FHZN,Flughafen Zurich AG,SIX,Transportation,Other Transportation,238.6,243.2,237.8,242.0,-1.7059301380991019,7557804293.0,59484,CHF
 FICO,Fair Isaac Corporation,BX,Commercial Services,Financial Publishing/Services,1304.62,1304.62,1304.62,1304.62,8.670880382233094,31310739469.195827,6,CHF
@@ -1179,8 +1179,8 @@ G1CE,Invesco Global Clean Energy UCITS ETF AccumUSD,BX,Miscellaneous,Investment 
 G2XJ,VanEck Junior Gold Miners UCITS ETF Accum A USD,BX,Miscellaneous,Investment Trusts/Mutual Funds,78.305,80.017,78.129,79.74,1.8078749808487777,,529,CHF
 G5LN,AEVIS VICTORIA SA,BX,Health Services,Hospital/Nursing Management,13.345,13.345,13.345,13.345,-3.2410092807424533,1100905392.0,150,CHF
 G70,Galenica AG,BX,Distribution Services,Medical Distributors,89.014,89.014,89.014,89.014,0.5705634455253086,4424639416.0,1,CHF
-GALD,Galderma Group AG,SIX,Health Technology,Pharmaceuticals: Major,141.9,142.1,137.8,138.6,-1.910828025477719,33180611080.000004,190184,CHF
 GALD,Galderma Group AG,BX,Health Technology,Pharmaceuticals: Major,141.727,141.98,138.715,138.715,-1.1740985872345249,33180611080.000004,359,CHF
+GALD,Galderma Group AG,SIX,Health Technology,Pharmaceuticals: Major,141.9,142.1,137.8,138.6,-1.910828025477719,33180611080.000004,190184,CHF
 GALE,Galenica AG,SIX,Distribution Services,Medical Distributors,88.7,89.7,88.3,89.55,0.8445945945945946,4424639416.0,89141,CHF
 GAM,GAM Holding AG,SIX,Finance,Investment Managers,0.153,0.165,0.153,0.165,3.1250000000000027,171965113.0,226599,CHF
 GAP,"Gap, Inc.",BX,Retail Trade,Apparel/Footwear Retail,16.669,16.772,16.669,16.772,2.39316239316239,6233900671.873755,10,CHF
@@ -1198,8 +1198,8 @@ GCOR.EUR,Franklin Sustainable Euro Green Corp 1-5 Year UCITS ETF AccumEUR,SIX,Mi
 GCVB,SPDR FTSE Global Convertible Bond UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,47.3,47.3,47.3,47.3,0.18639328984155268,,43,CHF
 GCVC,SPDR FTSE Global Convertible Bond UCITS ETF Accum Shs Hedged CHF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,42.684,42.885,42.684,42.819,0.5093657574761886,,2241,CHF
 GDIG,VanEck S&P Global Mining UCITS ETF A USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,41.165,41.88,41.165,41.88,1.4903671392221058,,1623,CHF
-GDX,VanEck Gold Miners UCITS ETF Accum A USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,73.3,75.49,73.12,75.49,4.023701253961695,,15763,CHF
 GDX,General Dynamics Corporation,BX,Electronic Technology,Aerospace & Defense,274.381,274.381,274.381,274.381,3.32360527950894,71185584834.62183,4,CHF
+GDX,VanEck Gold Miners UCITS ETF Accum A USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,73.3,75.49,73.12,75.49,4.023701253961695,,15763,CHF
 GDXJ,VanEck Junior Gold Miners UCITS ETF Accum A USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,78.16,80.0,78.03,79.83,2.873711340206191,,41363,CHF
 GEBN,Geberit AG,SIX,Producer Manufacturing,Building Products,595.0,608.6,593.4,608.6,1.7725752508361243,18939147079.0,71290,CHF
 GEBNE,Geberit AG TEMP,SIX,Producer Manufacturing,Building Products,595.0,607.2,595.0,607.2,1.2000000000000077,18939147079.0,316,CHF
@@ -1377,8 +1377,8 @@ HUKX.USD,HSBC FTSE 100 UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Fund
 HUT,Hut 8 Corp.,BX,Technology Services,Data Processing Services,44.561,44.561,44.561,44.561,1.1393812841871183,4529478635.718021,100,CHF
 HVX,Helvetia Holding Ltd,BX,Finance,Multi-Line Insurance,199.007,199.007,195.473,195.473,-2.7318461607360462,10668767531.0,17,CHF
 HWDC,HSBC MSCI WORLD UCITS ETF CHF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,34.325,34.325,34.325,34.325,0.18972562755401295,,4301,CHF
-HYDE,Invesco Hydrogen Economy UCITS ETF Accum-USD-,BX,Miscellaneous,Investment Trusts/Mutual Funds,3.36,3.36,3.334,3.351,0.3293413173652731,,218,CHF
 HYDE,Invesco Hydrogen Economy UCITS ETF Accum-USD-,SIX,Miscellaneous,Investment Trusts/Mutual Funds,3.34,3.34,3.34,3.34,0.3605769230769234,,162,CHF
+HYDE,Invesco Hydrogen Economy UCITS ETF Accum-USD-,BX,Miscellaneous,Investment Trusts/Mutual Funds,3.36,3.36,3.334,3.351,0.3293413173652731,,218,CHF
 HYDRO,BNP Paribas Easy SICAV - ECPI Global ESG Hydrogen Economy -UCITS ETF- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.404,10.426,10.404,10.426,0.1152294987516848,,5822,CHF
 HYDRO.EUR,BNP Paribas Easy SICAV - ECPI Global ESG Hydrogen Economy -UCITS ETF- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,11.454,11.454,11.454,11.454,3.1334413830362036,,562,EUR
 HYDUS.USD,BNP Paribas Easy SICAV - ECPI Global ESG Hydrogen Economy Capitalisation -UCITS ETF-,SIX,Miscellaneous,Investment Trusts/Mutual Funds,11.446,11.446,11.446,11.446,-0.24402998082621988,,20,USD
@@ -1472,8 +1472,8 @@ IEUC,iShares Core MSCI Europe UCITS ETF AccumHedged CHF,SIX,Miscellaneous,Invest
 IEUX,iShares MSCI Europe ex-UK UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,45.605,45.605,45.605,45.605,0.2748460861917326,,283,CHF
 IEVL.EUR,iShares Edge MSCI Europe Value Factor UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.752,10.752,10.752,10.752,0.0,,4659,EUR
 IEWQ,Invesco NASDAQ-100 Equal Weight UCITS ETF AccumUSD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,5.512,5.512,5.512,5.512,0.1635471560966646,,5035,CHF
-IFCN,INFICON Holding AG,SIX,Electronic Technology,Electronic Equipment/Instruments,102.4,102.4,99.3,100.2,-2.9069767441860463,2523208313.0,22965,CHF
 IFCN,INFICON Holding AG,BX,Electronic Technology,Electronic Equipment/Instruments,102.07,102.07,101.317,101.317,0.0029610912608327715,2523208313.0,97,CHF
+IFCN,INFICON Holding AG,SIX,Electronic Technology,Electronic Equipment/Instruments,102.4,102.4,99.3,100.2,-2.9069767441860463,2523208313.0,22965,CHF
 IFF,International Flavors & Fragrances Inc.,BX,Consumer Non-Durables,Food: Specialty/Candy,49.677,49.677,49.677,49.677,-0.23897501807374041,12649923385.669882,30,CHF
 IFFF.USD,iShares MSCI AC Far East ex-Japan UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,71.79,71.79,71.79,71.79,0.8853288364249714,,539,USD
 IFLX.EUR,iShares EUR Flexible Income Bond Active UCITS ETF EUR,SIX,Miscellaneous,Investment Trusts/Mutual Funds,5.03,5.03,5.03,5.03,-0.917937202064369,,2000,EUR
@@ -1722,8 +1722,8 @@ KR8,Komax Holding AG,BX,Producer Manufacturing,Industrial Machinery,64.638,64.63
 KRN,Krones AG,BX,Producer Manufacturing,Industrial Machinery,119.568,119.568,119.568,119.568,0.486599601643844,3623372244.127393,150,CHF
 KSBE,Kursaal Bern AG,BX,Consumer Services,Hotels/Resorts/Cruise lines,370.0,370.0,370.0,370.0,-1.3333333333333335,45266910.0,1,CHF
 KTF,"Mondelez International, Inc. Class A",BX,Consumer Non-Durables,Food: Specialty/Candy,49.777,49.777,49.777,49.777,0.8100937683536841,63588646925.958405,1,CHF
-KUD,Kudelski SA,BX,Technology Services,Packaged Software,1.341,1.341,1.341,1.341,1.2839879154078475,72976765.0,1,CHF
 KUD,Kudelski SA,SIX,Technology Services,Packaged Software,1.35,1.35,1.31,1.34,3.0769230769230793,72976765.0,10956,CHF
+KUD,Kudelski SA,BX,Technology Services,Packaged Software,1.341,1.341,1.341,1.341,1.2839879154078475,72976765.0,1,CHF
 KURN,Kuros Biosciences Ltd.,SIX,Health Technology,Biotechnology,31.5,33.76,31.28,32.62,3.5555555555555474,1166498074.0,1026884,CHF
 KY6,"Interactive Brokers Group, Inc. Class A",BX,Finance,Investment Banks/Brokers,55.612,55.612,55.612,55.612,-4.117241379310341,94305755103.55464,200,CHF
 L0CK,iShares Digital Security UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,8.369,8.381,8.369,8.381,2.74610763761187,,6550,CHF
@@ -1791,7 +1791,7 @@ LUXU.USD,Amundi Global Luxury -UCITS ETF USD C- Capitalisation,SIX,Miscellaneous
 LWCR.USD,Amundi MSCI World ESG Broad Transition UCITS ETF Accum EUR,SIX,Miscellaneous,Investment Trusts/Mutual Funds,626.5,626.5,626.5,626.5,4.416666666666667,,5,USD
 LXS,LANXESS AG,BX,Process Industries,Chemicals: Major Diversified,18.947,18.947,18.947,18.947,-5.923535253227414,1613636961.9823701,54,CHF
 LY0,"Lyft, Inc. Class A",BX,Transportation,Other Transportation,15.294,15.294,15.294,15.294,-10.030001764809686,6478704354.028852,50,CHF
-LYAEJ.USD,Amundi MSCI AC Asia Pacific Ex Japan ETF -Acc- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,89.41,90.18,89.41,90.18,-0.26542800265427435,,2753,USD
+LYAEJ.USD,Amundi MSCI AC Asia Pacific Ex Japan ETF -Acc- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,90.18,90.18,90.18,90.18,0.0,,206,USD
 LYASI.USD,Multi Units LU - Amundi MSCI China ESG Leaders Extra -Acc- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,132.12,132.14,132.12,132.14,-4.921571449129374,,4511,USD
 LYBNK.EUR,Amundi STOXX Europe 600 Banks UCITS ETF -Acc- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,51.47,51.47,51.16,51.16,-1.2355212355212368,,183,EUR
 LYBRE.EUR,Multi Units LU - Amundi STOXX Europe 600 Basic Resources,SIX,Miscellaneous,Investment Trusts/Mutual Funds,95.78,96.0,95.78,96.0,-1.1633892721095394,,64,EUR
@@ -1882,8 +1882,8 @@ MLB1,"MercadoLibre, Inc.",BX,Retail Trade,Internet Retail,1688.08,1688.08,1688.0
 MLPD.USD,Invesco Morningstar US Energy Infrastructure MLP UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,48.16,48.16,48.16,48.16,-0.7521895929933066,,200,USD
 MLPS.USD,Invesco Morningstar US Energy Infrastructure MLP UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,132.8,132.8,132.8,132.8,1.1578305911029938,,13,USD
 MMLP,Alerian Midstream Energy Dividend UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,13.518,13.518,13.518,13.518,0.11850096282032302,,50,CHF
-MMM,3M Company,SIX,Producer Manufacturing,Industrial Conglomerates,118.0,118.0,118.0,118.0,-1.6666666666666667,65149183600.86077,4,CHF
 MMM,3M Company,BX,Producer Manufacturing,Industrial Conglomerates,122.144,122.144,122.144,122.144,-0.8490948940660705,65149183600.86077,1,CHF
+MMM,3M Company,SIX,Producer Manufacturing,Industrial Conglomerates,118.0,118.0,118.0,118.0,-1.6666666666666667,65149183600.86077,4,CHF
 MOAT,VanEck Morningstar US ESG Wide Moat UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,49.715,49.715,49.515,49.515,-2.318011442099028,,11,CHF
 MOB,Monster Beverage Corporation,BX,Consumer Non-Durables,Beverages: Non-Alcoholic,55.234,55.234,55.234,55.234,-1.378423740313535,53424559484.3389,2,CHF
 MOBN,Mobimo Holding AG,SIX,Finance,Real Estate Development,330.0,331.5,328.5,331.5,0.1510574018126888,2464710316.0,7908,CHF
@@ -2258,8 +2258,8 @@ SHRQ,Schindler Holding Ltd. Pref,BX,Producer Manufacturing,Industrial Machinery,
 SIE,Siemens Aktiengesellschaft,BX,Producer Manufacturing,Industrial Machinery,224.614,224.614,221.74,222.713,-0.21327215947022438,174886404161.11636,105,CHF
 SIGN,SIG Group AG,SIX,Producer Manufacturing,Industrial Machinery,8.62,8.68,8.445,8.45,-1.3426736719206098,3274096031.0,1744657,CHF
 SII,Wheaton Precious Metals Corp,BX,Non-Energy Minerals,Precious Metals,88.8,88.922,88.8,88.922,2.4340794157287835,39880953550.56134,124,CHF
-SIKA,Sika AG,BX,Process Industries,Chemicals: Major Diversified,175.307,176.645,174.848,176.397,0.46016550011674584,28176161886.0,645,CHF
 SIKA,Sika AG,SIX,Process Industries,Chemicals: Major Diversified,174.45,176.65,174.45,176.55,0.5410022779043377,28176161886.0,412330,CHF
+SIKA,Sika AG,BX,Process Industries,Chemicals: Major Diversified,175.307,176.645,174.848,176.397,0.46016550011674584,28176161886.0,645,CHF
 SILV,Global X Silver Miners UCITS ETF AccumUSD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,29.38,30.415,29.38,30.195,1.1727257497068233,,22198,CHF
 SIX3,Sixt SE Pref,BX,Finance,Finance/Rental/Leasing,52.977,52.977,52.977,52.977,-6.382865928007213,2968439302.158731,20,CHF
 SJNK,SSGA SPDR ETFs Europe I PLC - SPDR Bloomberg U.S. High Yield Corporate Scored UCITS ETF USD Exchange Traded Fund,SIX,Miscellaneous,Investment Trusts/Mutual Funds,33.11,33.11,33.11,33.11,0.2391692652356896,,300,CHF
@@ -2305,7 +2305,7 @@ SOON,Sonova Holding AG,SIX,Health Technology,Medical Specialties,218.6,219.7,216
 SOUN,"SoundHound AI, Inc Class A",BX,Technology Services,Packaged Software,17.178,17.178,17.176,17.176,12.985133535061166,6953444157.1690445,720,CHF
 SP20.USD,iShares S&P 500 Top 20 UCITS ETF AccumUSD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,5.974,5.976,5.974,5.976,0.7077856420626865,,700,USD
 SP500E.EUR,UBS Core S&P 500 UCITS ETF Accum -A- Hedged EUR,SIX,Miscellaneous,Investment Trusts/Mutual Funds,31.575,31.61,31.55,31.57,0.04753604816986395,,871,EUR
-SP500H.GBP,UBS Core S&P 500 UCITS ETF -A- Hedged GBP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,32.72,32.85,32.72,32.85,0.015223017202017228,,3057,GBP
+SP500H.GBP,UBS Core S&P 500 UCITS ETF -A- Hedged GBP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,32.85,32.85,32.85,32.85,0.0,,131,GBP
 SP500S,UBS Core S&P 500 UCITS ETF Accum -A- Hedged CHF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,6.081,6.093,6.07,6.074,-0.06581112207963882,,172226,CHF
 SP5AU,UBS Core S&P 500 UCITS ETF AccumUSD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,103.08,103.26,103.08,103.26,0.7414634146341513,,1108,CHF
 SP5AU.USD,UBS Core S&P 500 UCITS ETF AccumUSD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,128.12,128.12,127.22,127.22,-1.5020130071229467,,79,USD
@@ -2414,12 +2414,12 @@ SW2UKD,UBS ETF SICAV - UBS ETF - MSCI Switzerland 20/35 UCITS ETF -(CHF) A-UKdis
 SW6,"STAG Industrial, Inc.",BX,Finance,Real Estate Investment Trusts,29.093,29.093,29.093,29.093,5.097175059605525,5703340883.079621,30,CHF
 SWCSE,Swisscanto (IE) ESGEN SDG Index Equity EMU UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,9.838,9.88,9.823,9.871,0.2844661180534438,,822,CHF
 SWCSE.EUR,Swisscanto (IE) ESGEN SDG Index Equity EMU UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.624,10.624,10.624,10.624,0.5299015897047781,,330,EUR
-SWCSS,Swisscanto (CH) ESGeneration ETF - Swisscanto (CH) ESGen SDG Index Equity Switzerland ETF Units -EA CHF-,BX,Miscellaneous,Investment Trusts/Mutual Funds,10.054,10.057,9.972,10.008,-0.1894883813703015,,1388,CHF
 SWCSS,Swisscanto (CH) ESGeneration ETF - Swisscanto (CH) ESGen SDG Index Equity Switzerland ETF Units -EA CHF-,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.012,10.012,9.95,9.972,-0.4392971246006438,,2654,CHF
+SWCSS,Swisscanto (CH) ESGeneration ETF - Swisscanto (CH) ESGen SDG Index Equity Switzerland ETF Units -EA CHF-,BX,Miscellaneous,Investment Trusts/Mutual Funds,10.054,10.057,9.972,10.008,-0.1894883813703015,,1388,CHF
 SWCSU,Swisscanto (IE) Esgen SDG Index Equity USA UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,9.573,9.603,9.566,9.593,-0.4255760847000246,,1530,CHF
 SWCSU.USD,Swisscanto (IE) Esgen SDG Index Equity USA UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,11.928,12.032,11.928,12.032,0.30010003334444474,,16251,USD
-SWCSW,Swisscanto (IE) Esgen SDG Index Equity World UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,11.15,11.17,11.148,11.17,0.35938903863431393,,21706,CHF
 SWCSW,Swisscanto (IE) Esgen SDG Index Equity World UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,11.168,11.187,11.108,11.166,-0.1073537305421404,,3412,CHF
+SWCSW,Swisscanto (IE) Esgen SDG Index Equity World UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,11.15,11.17,11.148,11.17,0.35938903863431393,,21706,CHF
 SWDA.USD,iShares Core MSCI World UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,126.92,127.2,126.66,126.98,0.17355632691700762,,36439,USD
 SWEUAH.EUR,UBS MSCI Switzerland hEUR ETF Units -EUR dis-,SIX,Miscellaneous,Investment Trusts/Mutual Funds,29.465,29.56,29.465,29.56,1.1809002224884437,,747,EUR
 SWICHA,UBS MSCI Switzerland ETF -CHF dis-,SIX,Miscellaneous,Investment Trusts/Mutual Funds,21.935,22.0,21.85,21.98,1.594638317541016,,30244,CHF
@@ -2546,10 +2546,10 @@ UFUK,UBS ETF (CHF) - UBS Core SPI(R) ETF Anteile CHF dis,BX,Miscellaneous,Invest
 UFUL,UBS ETF (CH) SXI Real Estate Funds (CHF) A-dis,BX,Miscellaneous,Investment Trusts/Mutual Funds,10.238,10.242,10.228,10.228,-0.40895813047711604,,62,CHF
 UFUM,UBS ETF (CH) - UBS SLI (R) ETF -CHF dis-,BX,Miscellaneous,Investment Trusts/Mutual Funds,209.393,209.393,208.672,208.672,-1.3967905948173158,,6,CHF
 UFUN,UBS ETF (CH) - SMI ETF -CHF dis-,BX,Miscellaneous,Investment Trusts/Mutual Funds,129.751,129.751,128.614,129.35,1.881680201006605,,30,CHF
-UHR,Swatch Group Ltd. Bearer,BX,Consumer Durables,Other Consumer Specialties,171.766,171.766,171.766,171.766,9.393947113669945,8936159016.0,25,CHF
 UHR,Swatch Group Ltd. Bearer,SIX,Consumer Durables,Other Consumer Specialties,171.8,176.45,170.15,174.25,1.308139534883721,8936159016.0,173677,CHF
-UHRN,Swatch Group Ltd. Registered,BX,Consumer Durables,Other Consumer Specialties,34.608,35.633,34.608,35.231,1.4162756556032254,8936159016.0,285,CHF
+UHR,Swatch Group Ltd. Bearer,BX,Consumer Durables,Other Consumer Specialties,171.766,171.766,171.766,171.766,9.393947113669945,8936159016.0,25,CHF
 UHRN,Swatch Group Ltd. Registered,SIX,Consumer Durables,Other Consumer Specialties,34.42,35.72,34.24,35.3,1.7877739331026457,8936159016.0,136382,CHF
+UHRN,Swatch Group Ltd. Registered,BX,Consumer Durables,Other Consumer Specialties,34.608,35.633,34.608,35.231,1.4162756556032254,8936159016.0,285,CHF
 UIM1,UBS ETF SICAV - UBS ETF - EURO STOXX 50 UCITS ETF A Distribution,BX,Miscellaneous,Investment Trusts/Mutual Funds,53.235,53.235,53.235,53.235,4.125102687478,,150,CHF
 UIM5,UBS Core MSCI Japan UCITS ETF JPY dis Distribution,BX,Miscellaneous,Investment Trusts/Mutual Funds,52.132,52.132,52.132,52.132,8.608333333333329,,330,CHF
 UIM9,UBS MSCI Canada UCITS ETF -CAD dis- Distribution,BX,Miscellaneous,Investment Trusts/Mutual Funds,45.075,45.075,45.075,45.075,4.750063907415593,,100,CHF
@@ -2639,7 +2639,7 @@ UT1USA.USD,UBS Core BBG US Treasury 1-3 UCITS ETF -USD dis- Distribution,SIX,Mis
 UT7US.USD,UBS Core BBG US Treasury 1-10 UCITS ETF-USD acc- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,12.275,12.278,12.275,12.278,-0.06918162210556082,,3452,USD
 UT7USA.USD,UBS (LUX) Fund Sol -UBS Core BBG US Treasury 1-10 UCITS ETF-USD dis- Distribution,SIX,Miscellaneous,Investment Trusts/Mutual Funds,38.687,38.71,38.686,38.686,-0.07490636704120746,,286,USD
 UT8,"Uber Technologies, Inc.",BX,Transportation,Other Transportation,75.446,75.446,75.446,75.446,-1.00379210350212,157100317712.60065,2,CHF
-UVAL,SPDR MSCI USA Value UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,55.62,55.62,55.6,55.6,0.0,,220,CHF
+UVAL,SPDR MSCI USA Value UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,55.6,55.6,55.6,55.6,0.0,,80,CHF
 UZAA,Flughafen Zurich AG,BX,Transportation,Other Transportation,239.841,242.502,239.841,242.502,-1.3172512299634958,7557804293.0,108,CHF
 V1L,Valero Energy Corporation,BX,Energy Minerals,Oil Refining/Marketing,129.937,129.937,129.937,129.937,-0.2694031683654665,39857112957.67913,1,CHF
 V3AA,Vanguard ESG Global All CapUCITS ETF AccumUSD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,6.05,6.06,6.046,6.06,0.1652892561983436,,11491,CHF
@@ -2847,8 +2847,8 @@ X500,Xtrackers S&P 500 Swap II UCITS ETF Accum-1C- USD,SIX,,,29.015,29.035,29.01
 X7PS.EUR,Invesco STOXX Europe 600 Optimised Banks UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,176.58,176.58,176.58,176.58,1.7165898617511628,,3,EUR
 XAD1.EUR,Xtrackers Physical Gold EUR Hedged ETC,SIX,Miscellaneous,Investment Trusts/Mutual Funds,243.75,246.3,243.75,246.3,1.5251442704039642,,429,EUR
 XAD2.EUR,Xtrackers Physical Silver EUR Hedged ETC,SIX,Miscellaneous,Investment Trusts/Mutual Funds,280.5,283.65,280.5,283.3,1.3958482462419592,,4185,EUR
-XAIX,Xtrackers Artificial Intelligence & Big Data UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,141.58,142.8,141.5,142.1,0.6801757120589543,,1013,CHF
 XAIX,Xtrackers Artificial Intelligence & Big Data UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,142.108,142.7,141.65,142.7,0.42435800896569253,,224,CHF
+XAIX,Xtrackers Artificial Intelligence & Big Data UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,141.58,142.8,141.5,142.1,0.6801757120589543,,1013,CHF
 XAT1.EUR,Invesco AT1 Capital Bond UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,16.687,16.7055,16.687,16.7055,0.9029958927277103,,700,EUR
 XAXD,Xtrackers MSCI AC Asia ex Japan ESG UCITS ETF -1C- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,48.825,48.825,48.825,48.825,-2.0463436653626164,,2519,CHF
 XBAC,Xtrackers II Global Aggregate Bond Swap UCITS ETF 4C CHF Hedged,SIX,Miscellaneous,Investment Trusts/Mutual Funds,15.542,15.542,15.542,15.542,0.5694318623010172,,4118,CHF
@@ -2892,15 +2892,15 @@ XDG7,Xtrackers MSCI Global SDG 7 Affordable and Clean Energy UCITS ETF,BX,Miscel
 XDGU,Xtrackers USD Corporate Bond UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.5675,10.5675,10.5675,10.5675,0.36089083052376897,,9,CHF
 XDN0,Xtrackers MSCI Nordic UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,44.8,44.8,44.8,44.8,0.0,,47,CHF
 XDPC,Xtrackers S&P 500 UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,61.22,61.22,61.22,61.22,-0.01633186346561818,,22,CHF
-XDPU,Xtrackers S&P 500 UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,10.229,10.3,10.229,10.269,-0.474898236092261,,2842,CHF
 XDPU,Xtrackers S&P 500 UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.254,10.262,10.254,10.262,-0.3882741215297918,,23171,CHF
+XDPU,Xtrackers S&P 500 UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,10.229,10.3,10.229,10.269,-0.474898236092261,,2842,CHF
 XDUD.USD,Xtrackers DAX ESG Screened UCITS ETF 2C USD Hedged,SIX,Miscellaneous,Investment Trusts/Mutual Funds,39.1,39.1,39.1,39.1,-0.2805406783983663,,500,USD
 XDUE,Xtrackers MSCI EMU UCITS ETF Capitalisation 3C-CHF hedged,SIX,Miscellaneous,Investment Trusts/Mutual Funds,25.19,25.38,25.19,25.365,0.6547619047619014,,13291,CHF
-XDW0,Xtrackers MSCI World Energy UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,41.775,41.775,41.775,41.775,-0.5357142857142891,,500,CHF
 XDW0,Xtrackers MSCI World Energy UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,42.496,42.496,42.496,42.496,0.7276778307141722,,115,CHF
+XDW0,Xtrackers MSCI World Energy UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,41.775,41.775,41.775,41.775,-0.5357142857142891,,500,CHF
 XDWC,Xtrackers MSCI World Consumer Discretionary UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,55.18,55.18,55.02,55.02,-0.21762785636561016,,359,CHF
-XDWD,Xtrackers MSCI World UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,110.565,110.806,110.545,110.592,-0.2273465410847636,,150,CHF
 XDWD,Xtrackers MSCI World UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,110.52,110.74,110.4,110.48,-0.32479249368458984,,9874,CHF
+XDWD,Xtrackers MSCI World UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,110.565,110.806,110.545,110.592,-0.2273465410847636,,150,CHF
 XDWF,Xtrackers MSCI World Financials UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,32.305,32.305,32.305,32.305,0.0,,26382,CHF
 XDWH,Xtrackers MSCI World Health Care UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,43.5,43.5,43.5,43.5,-0.12627712088164325,,175,CHF
 XDWI,Xtrackers MSCI World Industrials UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,59.76,59.76,59.76,59.76,-1.8074268813670742,,5,CHF
@@ -2919,11 +2919,11 @@ XEQW,Xtrackers S&P 500 Equal Weight Swap UCITS ETF Accum-IC- USD,SIX,,,27.505,27
 XER2,Xerox Holdings Corporation,BX,Electronic Technology,Computer Peripherals,2.898,2.898,2.898,2.898,-3.2710280373831733,330945254.6425441,150,CHF
 XESC,Xtrackers EURO STOXX 50 UCITS ETF Capitalisation 1C,SIX,Miscellaneous,Investment Trusts/Mutual Funds,90.6,91.35,90.6,91.34,0.2194426157559829,,3685,CHF
 XESX,Xtrackers EURO STOXX 50 UCITS ETF Distribution 1D,SIX,Miscellaneous,Investment Trusts/Mutual Funds,54.16,54.22,54.16,54.22,1.3836948391922252,,8760,CHF
-XETH,Xtrackers Galaxy Physical Ethereum ETC,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.04,10.04,10.04,10.04,-1.972271040812358,,1000,CHF
 XETH,Xtrackers Galaxy Physical Ethereum ETC,BX,Miscellaneous,Investment Trusts/Mutual Funds,9.662,9.715,9.52,9.715,-0.3180792119844098,,240,CHF
+XETH,Xtrackers Galaxy Physical Ethereum ETC,SIX,Miscellaneous,Investment Trusts/Mutual Funds,10.04,10.04,10.04,10.04,-1.972271040812358,,1000,CHF
 XEWC,Xtrackers S&P 500 Equal Weight Scored & Screened UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,8.6,8.6,8.6,8.6,0.0,,1880,CHF
-XFNT,Xtrackers MSCI Fintech Innovation UCITS ETF Accum-IC- USD,BX,Miscellaneous,Investment Trusts/Mutual Funds,41.818,41.818,41.818,41.818,-2.051810558860741,,23,CHF
 XFNT,Xtrackers MSCI Fintech Innovation UCITS ETF Accum-IC- USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,41.795,41.795,41.795,41.795,-1.8551133028061502,,23,CHF
+XFNT,Xtrackers MSCI Fintech Innovation UCITS ETF Accum-IC- USD,BX,Miscellaneous,Investment Trusts/Mutual Funds,41.818,41.818,41.818,41.818,-2.051810558860741,,23,CHF
 XFVT,Xtrackers Vietnam Swap UCITS ETF -1C- Capitalisation,SIX,Miscellaneous,Investment Trusts/Mutual Funds,33.36,33.36,33.355,33.355,0.7095410628019307,,910,CHF
 XG11,Xtrackers MSCI Global SDG 11 Sustainable Cities UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,29.2,29.2,29.2,29.2,1.0380622837370268,,260,CHF
 XG7G,Xtrackers II Global Inflation-Linked Bond UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,90.388,90.524,90.22,90.524,0.1593272847975276,,1108,CHF
@@ -2986,8 +2986,8 @@ XRPL.EUR,CoinShares Physical XRP,SIX,Miscellaneous,Investment Trusts/Mutual Fund
 XRPL.USD,CoinShares Physical XRP,SIX,Miscellaneous,Investment Trusts/Mutual Funds,90.82,91.92,88.0,89.31,-2.775963422599605,,22807,USD
 XRPW,WisdomTree Issuer X Limited 2024-Open end on Compass Crypto Reference Index XRP Exchange Traded Product,SIX,,,80.47,80.47,80.47,80.47,3.1666666666666656,,4,CHF
 XRPW.USD,WisdomTree Issuer X Limited 2024-Open end on Compass Crypto Reference Index XRP Exchange Traded Product,SIX,,,96.13,97.8,95.36,96.0,-1.8705918429929451,,10670,USD
-XRS2,Xtrackers Russell 2000 UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,296.9,297.15,294.7,294.7,-0.8912056499075277,,803,CHF
 XRS2,Xtrackers Russell 2000 UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,291.451,291.451,291.451,291.451,1.4762665775335935,,66,CHF
+XRS2,Xtrackers Russell 2000 UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,296.9,297.15,294.7,294.7,-0.8912056499075277,,803,CHF
 XSDX,Xtrackers ShortDAX Daily Swap UCITS ETF Capitalisation 1C,SIX,Miscellaneous,Investment Trusts/Mutual Funds,8.788,8.788,8.774,8.774,-0.29545454545456334,,400,CHF
 XSGI,Xtrackers S&P Global Infrastructure Swap UCITS ETF Capitalisation 1C,SIX,Miscellaneous,Investment Trusts/Mutual Funds,58.38,58.38,58.38,58.38,-0.03424657534245894,,563,CHF
 XSLI,Xtrackers SLI UCITS ETF Distribution 1D,SIX,Miscellaneous,Investment Trusts/Mutual Funds,213.45,213.9,213.45,213.9,0.7773851590106033,,499,CHF
@@ -3006,8 +3006,8 @@ XUTC,Xtrackers MSCI USA Information Technology UCITS ETF,SIX,Miscellaneous,Inves
 XUTD,Xtrackers II US Treasuries UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,158.565,158.565,158.565,158.565,1.673559680677109,,54,CHF
 XWCH,Xtrackers MSCI World UCITS ETF Accum -3D- Hedged CHF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,11.322,11.33,11.306,11.306,-0.21182700794352083,,381,CHF
 XWTS,Xtrackers MSCI World Communication Services UCITS ETF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,25.52,25.52,25.52,25.52,1.0693069306930676,,2350,CHF
-XXBT,Xtrackers Galaxy Physical Bitcoin ETC,BX,Miscellaneous,Investment Trusts/Mutual Funds,15.564,15.564,15.28,15.284,-0.7339092030915084,,2115,CHF
 XXBT,Xtrackers Galaxy Physical Bitcoin ETC,SIX,Miscellaneous,Investment Trusts/Mutual Funds,15.444,15.444,15.444,15.444,-9.852906840999303,,300,CHF
+XXBT,Xtrackers Galaxy Physical Bitcoin ETC,BX,Miscellaneous,Investment Trusts/Mutual Funds,15.564,15.564,15.28,15.284,-0.7339092030915084,,2115,CHF
 XXXI,Xtrackers MSCI China A UCITS ETF Capitalisation -1C-,SIX,Miscellaneous,Investment Trusts/Mutual Funds,30.565,30.565,30.56,30.56,1.5619807244931834,,40,CHF
 XY6,Xylem Inc.,BX,Producer Manufacturing,Industrial Machinery,117.083,117.083,117.083,117.083,1.9123304841320985,28279134903.96111,23,CHF
 XYLF,Global X ETFs ICAV-Global X S&P 500Covered Call UCITS ETF USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,12.014,12.028,11.98,11.98,-0.5644090305444855,,1572,CHF
@@ -3057,17 +3057,17 @@ ZPDF,SPDR S&P US Financials Select Sector UCITS ETF,BX,Miscellaneous,Investment 
 ZPDH,SPDR S&P US Health Care Select Sector UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,35.045,35.357,35.045,35.357,-0.0452322392785408,,11,CHF
 ZPDT,SPDR S&P US Technology Select Sector UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,121.191,121.191,121.191,121.191,-0.6362376708453896,,12,CHF
 ZPDU,SPDR S&P US Utilities Select Sector UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,45.837,45.837,45.837,45.837,1.1206953605859442,,3,CHF
-ZPLA,Swisscanto (CH) Platinum ETF EA CHF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,388.2,401.0,387.2,400.75,2.637981815853505,,8426,CHF
 ZPLA,Swisscanto (CH) Platinum ETF EA CHF,BX,Miscellaneous,Investment Trusts/Mutual Funds,392.256,396.221,392.256,396.221,1.6091971708903223,,13,CHF
+ZPLA,Swisscanto (CH) Platinum ETF EA CHF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,388.2,401.0,387.2,400.75,2.637981815853505,,8426,CHF
 ZPR1,SPDR Bloomberg 1-3 Month T-Bill UCITS ETF USD,BX,Miscellaneous,Investment Trusts/Mutual Funds,93.456,93.456,93.456,93.456,-9.118668131825382,,20,CHF
 ZPRG,SPDR S&P Global Dividend Aristocrats UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,28.692,28.692,28.692,28.692,-0.5855652957278005,,3,CHF
 ZPRP,FTSE EPRA Nareit Developed Europe ex UK Index UCITS ETF,BX,Miscellaneous,Investment Trusts/Mutual Funds,27.579,27.579,27.579,27.579,1.6662365908504506,,67,CHF
-ZSIL,Swisscanto (CH) Silver ETF EA CHF,BX,Miscellaneous,Investment Trusts/Mutual Funds,120.22,122.742,119.995,122.742,2.097820662119452,,634,CHF
 ZSIL,Swisscanto (CH) Silver ETF EA CHF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,119.98,122.82,119.82,122.64,2.6276150627615067,,141680,CHF
+ZSIL,Swisscanto (CH) Silver ETF EA CHF,BX,Miscellaneous,Investment Trusts/Mutual Funds,120.22,122.742,119.995,122.742,2.097820662119452,,634,CHF
 ZSILEU.EUR,Swisscanto (CH) Silver ETF EA EUR,SIX,Miscellaneous,Investment Trusts/Mutual Funds,407.95,416.65,406.05,416.65,2.8003947693066777,,2225,EUR
 ZSILHC,Swisscanto (CH) Silver ETF EAH CHF,SIX,Miscellaneous,Investment Trusts/Mutual Funds,92.49,94.31,92.32,94.31,2.644754026991736,,115818,CHF
 ZSILHE.EUR,Swisscanto (CH) Silver ETF EAH EUR,SIX,Miscellaneous,Investment Trusts/Mutual Funds,258.6,265.0,257.65,265.0,2.2179363548698166,,2982,EUR
-ZSILUS.USD,Swisscanto (CH) Silver ETF EA USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,475.0,483.35,472.1,481.55,1.3149589732800335,,19908,USD
+ZSILUS.USD,Swisscanto (CH) Silver ETF EA USD,SIX,Miscellaneous,Investment Trusts/Mutual Funds,475.0,483.35,472.1,481.55,1.3149589732800335,,20109,USD
 ZUBN,Zublin Immobilien Holding AG,SIX,Finance,Real Estate Development,43.6,45.2,43.6,45.2,3.6697247706422047,144562199.0,216,CHF
 ZUGER,Zuger Kantonalbank AG,SIX,Finance,Regional Banks,8760.0,8760.0,8660.0,8700.0,0.0,2502972606.0,25,CHF
 ZUGN,Zug Estates Holding AG Class B,SIX,Finance,Real Estate Development,2120.0,2120.0,2090.0,2120.0,-0.4694835680751174,1086299986.0,174,CHF
