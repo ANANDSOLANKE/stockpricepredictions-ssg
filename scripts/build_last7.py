@@ -3,9 +3,7 @@
 
 """
 Inject a 7-day backtest table into each prediction-tomorrow page.
-
-Uses Historical CSV data (symbol + description) to reconstruct
-the last 7 trading days and compare predicted vs. actual movement.
+Deduplicates repeated dates (e.g. India dual-exchange issues).
 """
 
 from __future__ import annotations
@@ -25,6 +23,7 @@ GROUP_DIR_BY_SLUG = {
     "north-america": "North America",
     "global-indices": "Global Indices",
 }
+
 def slug_to_title_dir(slug: str) -> str:
     parts = [p for p in re.split(r"[^a-z0-9]+", slug.lower()) if p]
     return " ".join(w.capitalize() for w in parts)
@@ -49,7 +48,7 @@ def list_recent_dates(n: int = 40) -> List[str]:
 _hist_cache: Dict[Tuple[str, str], Dict[str, List[Tuple[str, float]]]] = {}
 _slugmap_cache: Dict[Tuple[str, str], Dict[str, str]] = {}
 
-# --- CSV reader -------------------------------------------------------
+# ---------------------------------------------------------------
 def read_country_hist(date_folder: str, group_dir: str, country_slug: str):
     p = DATA_HIST / date_folder / group_dir / f"{country_slug}.csv"
     if not p.exists(): return []
@@ -64,7 +63,7 @@ def read_country_hist(date_folder: str, group_dir: str, country_slug: str):
             rows.append((sym, _f(close), desc))
     return rows
 
-# --- Build cache ------------------------------------------------------
+# ---------------------------------------------------------------
 def get_country_history(group_dir: str, country_slug: str, days: int = 16):
     key = (group_dir, country_slug)
     if key in _hist_cache: return _hist_cache[key]
@@ -98,7 +97,7 @@ def get_country_history(group_dir: str, country_slug: str, days: int = 16):
     _slugmap_cache[key] = smap
     return hist
 
-# --- Resolve symbol ---------------------------------------------------
+# ---------------------------------------------------------------
 def resolve_symbol(group_dir: str, country_slug: str, sym_slug: str, name_slug: Optional[str]):
     key = (group_dir, country_slug)
     if key not in _slugmap_cache:
@@ -117,7 +116,7 @@ def resolve_symbol(group_dir: str, country_slug: str, sym_slug: str, name_slug: 
             if base in k or k in base: return v
     return None
 
-# --- AI logic ----------------------------------------------------------
+# ---------------------------------------------------------------
 def predict_from(p1: float, p2: float):
     if p1 is None or p2 is None: return None
     return "Bullish" if p1 > p2 else "Bearish"
@@ -126,18 +125,25 @@ def actual_move(today: float, prev: float):
     if today is None or prev is None: return None
     return "Bullish" if today > prev else "Bearish"
 
+# ------------------- NEW DEDUP FIX ------------------------------
 def backtest(series: List[Tuple[str, float]]):
     if len(series) < 3: return []
-    out = []
+    raw = []
     for i in range(2, len(series)):
         d, c = series[i]
         _, p1 = series[i-1]; _, p2 = series[i-2]
         pred = predict_from(p1, p2)
         act = actual_move(c, p1)
-        if pred and act: out.append((d, pred, act, pred == act))
-    return out[-7:]
+        if pred and act:
+            raw.append((d, pred, act, pred == act))
+    # --- remove duplicates by date (keep latest occurrence) ---
+    dedup = {}
+    for (d, p, a, w) in raw:
+        dedup[d] = (d, p, a, w)
+    out = list(sorted(dedup.values(), key=lambda x: x[0]))[-7:]
+    return out
 
-# --- HTML helpers -----------------------------------------------------
+# ---------------------------------------------------------------
 def build_html(rows):
     wins = sum(1 for *_, w in rows if w)
     total = len(rows)
@@ -149,6 +155,7 @@ def build_html(rows):
     summary = f"<div style='margin:10px 0;padding:10px;border:1px solid #244;border-radius:12px;background:#0f172a;display:flex;justify-content:space-between'><span>Last 7-Day Accuracy:</span><b style='color:#3ddc97'>{winpct}% ({wins}/{total})</b></div>"
     return f"<div class='card'><h3 class='h3'>Last 7-Day Performance</h3>{summary}<div class='table-wrap'><table class='table'><thead><tr><th>Date</th><th>AI Prediction</th><th>Actual</th><th>Result</th></tr></thead><tbody>{''.join(trs)}</tbody></table></div></div>"
 
+# ---------------------------------------------------------------
 def inject_html(page, snippet):
     if "Last 7-Day Performance" in page: return page
     if "</main>" in page: return page.replace("</main>", snippet + "\n</main>")
@@ -159,7 +166,7 @@ def get_company_from_html(txt):
     m = re.search(r"\(([^)]+)\)", txt)
     return m.group(1).strip() if m else None
 
-# --- Main --------------------------------------------------------------
+# ---------------------------------------------------------------
 def main():
     found = updated = skip_map = 0
     for file in DIST.glob("**/prediction-tomorrow/index.html"):
