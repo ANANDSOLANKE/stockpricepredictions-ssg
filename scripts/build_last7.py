@@ -1,191 +1,301 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-"""
-Inject a 7-day backtest table into each prediction-tomorrow page.
-
-Uses Historical CSV data (symbol + description) to reconstruct
-the last 7 trading days and compare predicted vs. actual movement.
-"""
+# scripts/build_last7.py
+# Build/inject "Last 7-Day Performance" blocks into prediction pages.
+# - Reads Data/Historical to compute 7 most-recent *target* trading days
+# - Deduplicates by target date (newest source wins)
+# - Injects HTML into dist/**/prediction-tomorrow/index.html
+#
+# Assumptions:
+#   URL path looks like: dist/<groups or region root>/<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+#   Historical files live at   Data/Historical/YYYY-MM-DD/<Region>/<country>.csv
+#   CSV has at least columns: symbol, Close (case-insensitive OK). Some files also have 'Change%' etc.
+#
+# Safe to run repeatedly; will replace the existing LAST7 block if found.
 
 from __future__ import annotations
-import csv, html, re, time
+import re
 from pathlib import Path
-from typing import Dict, List, Tuple, Optional
+from datetime import date, datetime, timedelta, timezone
+import csv
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1]   # repo root
 DIST = ROOT / "dist"
-DATA_HIST = ROOT / "Data" / "Historical"
+DATA = ROOT / "Data" / "Historical"
 
-GROUP_DIR_BY_SLUG = {
-    "asia-pacific": "Asia - Pacific",
-    "europe": "Europe",
-    "middle-east-africa": "Middle East - Africa",
-    "mexico-south-america": "Mexico - South America",
-    "north-america": "North America",
-    "global-indices": "Global Indices",
-}
-def slug_to_title_dir(slug: str) -> str:
-    parts = [p for p in re.split(r"[^a-z0-9]+", slug.lower()) if p]
-    return " ".join(w.capitalize() for w in parts)
+# ---------- utilities ----------
 
-time.sleep(2)
+def _norm(s: str) -> str:
+    return (s or "").strip().lower()
 
-def _f(x):
-    try: return float(x)
-    except Exception: return None
+def _title_keep_hyphen(s: str) -> str:
+    # "asia-pacific" -> "Asia - Pacific" folder name; leave already-titled alone
+    if " - " in s:
+        return s
+    s = s.replace("-", " - ")
+    return " ".join([w.capitalize() for w in s.split()])
 
-def slugify(s: str) -> str:
-    s = (s or "").strip().lower()
-    s = re.sub(r"[^a-z0-9]+", "-", s)
-    return s.strip("-")
+def next_bday(d: date) -> date:
+    nd = d + timedelta(days=1)
+    while nd.weekday() >= 5:  # 5=Sat, 6=Sun
+        nd += timedelta(days=1)
+    return nd
 
-def list_recent_dates(n: int = 40) -> List[str]:
-    if not DATA_HIST.exists(): return []
-    dates = [d.name for d in DATA_HIST.iterdir() if d.is_dir() and re.match(r"^\d{4}-\d{2}-\d{2}$", d.name)]
-    dates.sort()
-    return dates[-n:]
+def prev_bday(d: date) -> date:
+    pd = d - timedelta(days=1)
+    while pd.weekday() >= 5:
+        pd -= timedelta(days=1)
+    return pd
 
-_hist_cache: Dict[Tuple[str, str], Dict[str, List[Tuple[str, float]]]] = {}
-_slugmap_cache: Dict[Tuple[str, str], Dict[str, str]] = {}
+def list_hist_dates(limit:int=30) -> list[date]:
+    # read available YYYY-MM-DD folders (sorted newest->oldest)
+    dates = []
+    if DATA.exists():
+        for p in DATA.iterdir():
+            if p.is_dir():
+                try:
+                    dates.append(datetime.strptime(p.name, "%Y-%m-%d").date())
+                except ValueError:
+                    pass
+    dates.sort(reverse=True)
+    return dates[:limit]
 
-# --- CSV reader -------------------------------------------------------
-def read_country_hist(date_folder: str, group_dir: str, country_slug: str):
-    p = DATA_HIST / date_folder / group_dir / f"{country_slug}.csv"
-    if not p.exists(): return []
+def read_country_csv(d: date, region: str, country: str) -> list[dict]:
+    # Region folder uses "Asia - Pacific" style; file is lowercase country (e.g., india.csv)
+    region_folder = _title_keep_hyphen(region)
+    f = DATA / d.strftime("%Y-%m-%d") / region_folder / f"{_norm(country)}.csv"
+    if not f.exists():
+        return []
     rows = []
-    with open(p, "r", encoding="utf-8", newline="") as f:
-        rdr = csv.DictReader(f)
-        for r in rdr:
-            sym = (r.get("symbol") or "").strip().upper()
-            desc = (r.get("description") or "").strip()
-            close = r.get("Close") or r.get("close")
-            if not sym or not close: continue
-            rows.append((sym, _f(close), desc))
+    with f.open("r", encoding="utf-8") as fh:
+        reader = csv.DictReader(fh)
+        for r in reader:
+            # normalize keys to match regardless of case
+            nr = {k.strip(): v for k, v in r.items()}
+            rows.append(nr)
     return rows
 
-# --- Build cache ------------------------------------------------------
-def get_country_history(group_dir: str, country_slug: str, days: int = 16):
-    key = (group_dir, country_slug)
-    if key in _hist_cache: return _hist_cache[key]
-
-    hist: Dict[str, List[Tuple[str, float]]] = {}
-    smap: Dict[str, str] = {}
-
-    def add_slugs(symbol: str, desc: str):
-        variants = [
-            symbol,
-            re.sub(r"(\.|\-|_)?eq$", "", symbol),
-            re.sub(r"\.[a-z]{1,4}$", "", symbol),
-            desc,
-            desc.replace("Limited","").replace("Ltd","").strip()
-        ]
-        for v in variants:
-            v = slugify(v)
-            if not v: continue
-            smap.setdefault(v, symbol)
-            smap.setdefault(v.replace("-", ""), symbol)
-
-    for d in list_recent_dates(days * 3):
-        for sym, close, desc in read_country_hist(d, group_dir, country_slug):
-            if close is None: continue
-            hist.setdefault(sym, []).append((d, close))
-            add_slugs(sym, desc)
-
-    for s, arr in hist.items():
-        hist[s] = sorted(arr)[-days:]
-    _hist_cache[key] = hist
-    _slugmap_cache[key] = smap
-    return hist
-
-# --- Resolve symbol ---------------------------------------------------
-def resolve_symbol(group_dir: str, country_slug: str, sym_slug: str, name_slug: Optional[str]):
-    key = (group_dir, country_slug)
-    if key not in _slugmap_cache:
-        _ = get_country_history(group_dir, country_slug)
-    smap = _slugmap_cache.get(key, {})
-    if not smap: return None
-
-    candidates = [sym_slug]
-    if name_slug: candidates.append(name_slug)
-    for c in candidates:
-        base = slugify(c)
-        if base in smap: return smap[base]
-        base = base.replace("-", "")
-        if base in smap: return smap[base]
-        for k, v in smap.items():
-            if base in k or k in base: return v
+def get_close(rows:list[dict], symbol:str) -> float | None:
+    sym = _norm(symbol)
+    for r in rows:
+        if _norm(r.get("symbol","")) == sym:
+            # allow different header cases
+            for k in ("Close", "close", "C", "c", "Close "):
+                if k in r and str(r[k]).strip() != "":
+                    try:
+                        return float(str(r[k]).replace(",",""))
+                    except ValueError:
+                        return None
     return None
 
-# --- AI logic ----------------------------------------------------------
-def predict_from(p1: float, p2: float):
-    if p1 is None or p2 is None: return None
-    return "Bullish" if p1 > p2 else "Bearish"
+def bullish_from_pair(prev_close:float, today_close:float) -> str:
+    return "Bullish" if (today_close is not None and prev_close is not None and today_close > prev_close) else "Bearish"
 
-def actual_move(today: float, prev: float):
-    if today is None or prev is None: return None
-    return "Bullish" if today > prev else "Bearish"
+# ---------- build last-7 rows for one symbol ----------
 
-def backtest(series: List[Tuple[str, float]]):
-    if len(series) < 3: return []
-    out = []
-    for i in range(2, len(series)):
-        d, c = series[i]
-        _, p1 = series[i-1]; _, p2 = series[i-2]
-        pred = predict_from(p1, p2)
-        act = actual_move(c, p1)
-        if pred and act: out.append((d, pred, act, pred == act))
-    return out[-7:]
+def build_last7_for_symbol(region:str, country:str, exchange:str, symbol:str) -> tuple[list[dict], float]:
+    """
+    Returns (rows, accuracy)
+    rows: list of dicts -> {"date": YYYY-MM-DD target, "pred": Bullish/Bearish, "actual": Bullish/Bearish, "result": Win/Loss, "src_date": YYYY-MM-DD }
+    """
+    hist_days = list_hist_dates(limit=40)  # plenty to recover 7 unique targets
+    if not hist_days:
+        return [], 0.0
 
-# --- HTML helpers -----------------------------------------------------
-def build_html(rows):
-    wins = sum(1 for *_, w in rows if w)
-    total = len(rows)
-    winpct = round((wins/total)*100,2) if total else 0
-    trs = []
-    for d,p,a,w in rows:
-        color = "#3ddc97" if w else "#ff6b6b"
-        trs.append(f"<tr><td>{d}</td><td>{p}</td><td>{a}</td><td style='color:{color};font-weight:700'>{'Win' if w else 'Loss'}</td></tr>")
-    summary = f"<div style='margin:10px 0;padding:10px;border:1px solid #244;border-radius:12px;background:#0f172a;display:flex;justify-content:space-between'><span>Last 7-Day Accuracy:</span><b style='color:#3ddc97'>{winpct}% ({wins}/{total})</b></div>"
-    return f"<div class='card'><h3 class='h3'>Last 7-Day Performance</h3>{summary}<div class='table-wrap'><table class='table'><thead><tr><th>Date</th><th>AI Prediction</th><th>Actual</th><th>Result</th></tr></thead><tbody>{''.join(trs)}</tbody></table></div></div>"
+    rows_accum: list[dict] = []
 
-def inject_html(page, snippet):
-    if "Last 7-Day Performance" in page: return page
-    if "</main>" in page: return page.replace("</main>", snippet + "\n</main>")
-    if "</body>" in page: return page.replace("</body>", snippet + "\n</body>")
-    return page + snippet
+    # Build a small cache of (date -> df rows) for this country to avoid re-reading
+    cache: dict[date, list[dict]] = {}
 
-def get_company_from_html(txt):
-    m = re.search(r"\(([^)]+)\)", txt)
-    return m.group(1).strip() if m else None
+    def country_rows(d:date) -> list[dict]:
+        if d not in cache:
+            cache[d] = read_country_csv(d, region, country)
+        return cache[d]
 
-# --- Main --------------------------------------------------------------
-def main():
-    found = updated = skip_map = 0
-    for file in DIST.glob("**/prediction-tomorrow/index.html"):
-        found += 1
-        parts = file.parts
+    # Iterate newest->older source days; compute target and actual
+    for src in hist_days:
+        prev_src = prev_bday(src)
+        tgt = next_bday(src)
+
+        # We need prev_src close (to compute predicted signal), and tgt close + its prev close for actual
+        rows_src_prev = country_rows(prev_src)
+        rows_src_tgt  = country_rows(tgt)
+        rows_tgt_prev = country_rows(prev_bday(tgt))
+
+        if not rows_src_prev or not rows_tgt_prev or not rows_src_tgt:
+            continue
+
+        prev_close = get_close(rows_src_prev, symbol)
+        today_close = get_close(country_rows(src), symbol)  # the close that produced the signal
+
+        tgt_close = get_close(rows_src_tgt, symbol)
+        tgt_prev_close = get_close(rows_tgt_prev, symbol)
+
+        if prev_close is None or today_close is None or tgt_close is None or tgt_prev_close is None:
+            continue
+
+        pred = bullish_from_pair(prev_close, today_close)
+        actual = bullish_from_pair(tgt_prev_close, tgt_close)
+        result = "Win" if pred == actual else "Loss"
+
+        rows_accum.append({
+            "date": tgt.isoformat(),     # target day for the prediction
+            "pred": pred,
+            "actual": actual,
+            "result": result,
+            "src_date": src.isoformat()
+        })
+
+        # stop early if we already have a lot (we'll dedup next)
+        if len(rows_accum) >= 20:
+            break
+
+    # --- De-duplicate by target date (keep newest source day) ---
+    by_date: dict[str, dict] = {}
+    for r in rows_accum:
+        k = r["date"]
+        if k not in by_date or r["src_date"] > by_date[k]["src_date"]:
+            by_date[k] = r
+
+    rows = sorted(by_date.values(), key=lambda x: x["date"], reverse=True)[:7]
+
+    wins = sum(1 for r in rows if r["result"] == "Win")
+    acc = round(100.0 * wins / len(rows), 2) if rows else 0.0
+    return rows, acc
+
+# ---------- HTML injection ----------
+
+START_MARKS = (
+    r"<!--\s*LAST7:START\s*-->",    # your older marker variant (upper)
+    r"<!--\s*last7:start\s*-->",    # lower variant
+)
+END_MARKS = (
+    r"<!--\s*LAST7:END\s*-->",
+    r"<!--\s*last7:end\s*-->",
+)
+
+def render_block(rows:list[dict], acc:float) -> str:
+    # Simple, style-neutral. Your CSS already styles .card/.table etc.
+    # The colors use classes that are in your stylesheet.
+    stat = f"{acc:.2f}% ({sum(1 for r in rows if r['result']=='Win')} / {len(rows) or 1} Wins)"
+    def res_cls(r): return "text-green" if r["result"]=="Win" else "text-red"
+
+    # use light utility classes you already have in styles.css
+    tb_rows = "\n".join(
+        f"""<tr>
+<td>{r['date']}</td>
+<td>{r['pred']}</td>
+<td class="text-right">{r['actual']}</td>
+<td class="text-center {'text-success' if r['result']=='Win' else 'text-danger'}"><strong>{r['result']}</strong></td>
+</tr>"""
+        for r in rows
+    )
+
+    return f"""<!-- LAST7:START -->
+<div class="card mb-8" id="last7">
+  <h2 class="h2">Last 7-Day Performance</h2>
+  <div class="mb-3 small">Last 7-Day Accuracy: <strong class="{'text-success' if acc>=50 else 'text-danger'}">{stat}</strong></div>
+  <div class="table-wrap">
+    <table class="table performance-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>AI Prediction</th>
+          <th class="text-right">Actual</th>
+          <th class="text-center">Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tb_rows}
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- LAST7:END -->"""
+
+def inject_block(html:str, block:str) -> str:
+    # Replace existing block between markers; otherwise append before </body>
+    start_pat = "(" + "|".join(START_MARKS) + ")"
+    end_pat   = "(" + "|".join(END_MARKS) + ")"
+
+    start_re = re.compile(start_pat, flags=re.IGNORECASE)
+    end_re   = re.compile(end_pat,   flags=re.IGNORECASE)
+
+    s = start_re.search(html)
+    e = end_re.search(html) if s else None
+    if s and e:
+        return html[:s.start()] + block + html[e.end():]
+
+    # try single marker pair in any order
+    if s:
+        # remove from start marker to end of file and append block
+        return html[:s.start()] + block + "\n</body>" if "</body>" not in html.lower() else html[:s.start()] + block + html[html.lower().rfind("</body>"):]
+    if e:
+        head = html[:html.lower().rfind("</body>")] if "</body>" in html.lower() else html
+        return head + block + "</body>"
+
+    # No markers: append before </body>
+    idx = html.lower().rfind("</body>")
+    if idx != -1:
+        return html[:idx] + block + html[idx:]
+    return html + block
+
+# ---------- Page scanning & wiring ----------
+
+def parse_page_parts(page_path:Path) -> tuple[str,str,str,str] | None:
+    """
+    From dist/.../<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+    return (region, country, exchange, symbol) all lower-case for lookup,
+    while region is mapped back to folder title via _title_keep_hyphen when needed
+    """
+    parts = [p for p in page_path.parts]
+    # try to find ".../<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html"
+    # Find "prediction-tomorrow" in parts and step back 4
+    try:
+        i = parts.index("prediction-tomorrow")
+    except ValueError:
+        # sometimes it's a directory named 'prediction-tomorrow' then index.html filename
         try:
-            group = parts[-6].lower()
-            country = parts[-5].lower()
-            sym = parts[-3].lower()
-        except Exception:
+            i = parts.index("prediction-tomorrow", 0, len(parts)-1)
+        except ValueError:
+            return None
+    if i < 4:
+        return None
+    symbol = parts[i-1]
+    exchange = parts[i-2]
+    country = parts[i-3]
+    region = parts[i-4]
+    return (region, country, exchange, symbol)
+
+def write_text(p:Path, text:str):
+    p.write_text(text, encoding="utf-8", newline="\n")
+
+def main():
+    if not DIST.exists():
+        print("[skip] no dist directory")
+        return
+
+    # Scan pages
+    pages = list(DIST.glob("**/prediction-tomorrow/index.html"))
+    count_scanned = len(pages)
+    count_injected = 0
+
+    for page in pages:
+        parsed = parse_page_parts(page.relative_to(DIST))
+        if not parsed:
             continue
-        group_dir = GROUP_DIR_BY_SLUG.get(group) or slug_to_title_dir(group)
-        txt = file.read_text(encoding="utf-8")
-        comp = get_company_from_html(txt)
-        name_slug = slugify(comp) if comp else None
-        hist = get_country_history(group_dir, country, 16)
-        real_sym = resolve_symbol(group_dir, country, sym, name_slug)
-        if not real_sym or real_sym not in hist:
-            skip_map += 1
+        region, country, exchange, symbol = parsed
+        rows, acc = build_last7_for_symbol(region, country, exchange, symbol)
+        if not rows:
             continue
-        series = hist[real_sym]
-        rows = backtest(series)
-        if not rows: continue
-        file.write_text(inject_html(txt, build_html(rows)), encoding="utf-8")
-        updated += 1
-    print(f"[scan] {found} pages | [OK] injected {updated} | [skip-map] {skip_map}")
+
+        html = page.read_text(encoding="utf-8", errors="ignore")
+        block = render_block(rows, acc)
+        new_html = inject_block(html, block)
+        if new_html != html:
+            write_text(page, new_html)
+            count_injected += 1
+
+    print(f"[scan] prediction-tomorrow pages: {count_scanned}")
+    print(f"[OK] injected: {count_injected}")
 
 if __name__ == "__main__":
     main()
