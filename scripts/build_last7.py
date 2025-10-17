@@ -1,305 +1,226 @@
 #!/usr/bin/env python3
-import os
+# -*- coding: utf-8 -*-
+
+from __future__ import annotations
+import csv
 import re
 import sys
-import csv
-import glob
 from pathlib import Path
-from datetime import datetime, timedelta
-from collections import OrderedDict, defaultdict
+from datetime import datetime, timezone
+from typing import List, Dict, Tuple, Optional
 
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]           # repo root
+ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
-DATA = ROOT / "Data" / "Historical"
-CONFIG = ROOT / "markets_config.csv"
+HIST = ROOT / "Data" / "Historical"
+MCFG = ROOT / "markets_config.csv"
 
-# ---------- helpers for calendars ----------
+# ---------- small helpers ----------
 
-WKMAP = {"Mon":0,"Tue":1,"Wed":2,"Thu":3,"Fri":4,"Sat":5,"Sun":6}
+def utcnow_iso() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 
-def parse_weekmask(s: str):
+def read_markets_config() -> Dict[str, Dict[str, str]]:
     """
-    Accepts 'Mon-Fri', 'Sun-Thu', or 'Mon,Wed,Fri' (comma list).
-    Returns a set of allowed weekday numbers.
+    markets_config.csv must minimally have columns: region,country,exchange,tz
+    Extra columns are OK and ignored.
     """
-    s = (s or "").strip()
-    if not s:
-        s = "Mon-Fri"
-    if "," in s:
-        days = [d.strip().title()[:3] for d in s.split(",")]
-        return {WKMAP[d] for d in days if d in WKMAP}
-    if "-" in s:
-        a,b = [p.strip().title()[:3] for p in s.split("-")]
-        if a in WKMAP and b in WKMAP:
-            ia, ib = WKMAP[a], WKMAP[b]
-            if ia <= ib:
-                return set(range(ia, ib+1))
-            # wrap week (e.g., Fri-Mon)
-            return set(list(range(ia,7)) + list(range(0,ib+1)))
-    # fallback
-    return {0,1,2,3,4}  # Mon-Fri
+    cfg: Dict[str, Dict[str, str]] = {}
+    if not MCFG.exists():
+        return cfg
+    with MCFG.open(newline="", encoding="utf-8") as f:
+        rdr = csv.DictReader(f)
+        for row in rdr:
+            key = f"{row.get('region','').strip().lower()}|{row.get('country','').strip().lower()}|{row.get('exchange','').strip().lower()}"
+            cfg[key] = {"tz": row.get("tz", "").strip()}
+    return cfg
 
-def load_market_config():
+def hist_dates_latest(n: int = 12) -> List[str]:
+    """Return the latest N YYYY-MM-DD folders under Data/Historical, newest first."""
+    if not HIST.exists():
+        return []
+    dates = []
+    for d in HIST.iterdir():
+        if d.is_dir() and re.fullmatch(r"\d{4}-\d{2}-\d{2}", d.name):
+            dates.append(d.name)
+    dates.sort(reverse=True)
+    return dates[:n]
+
+def load_country_frame(date_str: str, region: str, country: str) -> Optional[pd.DataFrame]:
+    p = HIST / date_str / region / f"{country}.csv"
+    if not p.exists():
+        return None
+    try:
+        df = pd.read_csv(p)
+        # normalize columns that we actually use
+        cols = {c.lower(): c for c in df.columns}
+        need = ["symbol", "exchange", "close", "change%"]
+        for k in need:
+            if k not in cols:
+                # try to be forgiving on case
+                match = [c for c in df.columns if c.lower() == k]
+                if match:
+                    cols[k] = match[0]
+        # minimal required: symbol, exchange, close
+        if not all(k in cols for k in ["symbol", "exchange", "close"]):
+            return None
+        # cast Close to float if possible
+        df = df.rename(columns={cols.get("symbol"): "symbol",
+                                cols.get("exchange"): "exchange",
+                                cols.get("close"): "close"})
+        # some files use 'Close' capitalized; after rename it's 'close'
+        df["exchange"] = df["exchange"].astype(str)
+        return df
+    except Exception:
+        return None
+
+def compute_last7_for_symbol(region: str, country: str, exchange: str, symbol: str) -> List[Tuple[str, str, str, str]]:
     """
-    Build a precedence map:
-      (region,country,exchange)->weekmask
-      (region,country,None)   ->weekmask
-      (region,None,None)      ->weekmask
+    Build rows of (date, ai_pred, actual, result) for the last 7 target trading dates.
+    Logic: if day(D-1).close > day(D-2).close => predict Bullish for D
+           else => Bearish for D.
+    Actual for D: Bullish if close(D) > close(D-1), else Bearish.
+    We dedupe by target date and keep the most recent record.
     """
-    maps = defaultdict(lambda: {0,1,2,3,4})
-    if not CONFIG.exists():
-        return maps
-
-    df = pd.read_csv(CONFIG)
-    # normalize columns
-    cols = {c.lower():c for c in df.columns}
-    region_c = cols.get("region")
-    country_c = cols.get("country")
-    exch_c    = cols.get("exchange")
-    wm_c      = cols.get("weekmask")
-
-    for _, r in df.iterrows():
-        region   = str(r.get(region_c,"")).strip()
-        country  = str(r.get(country_c,"")).strip().lower()
-        exchange = str(r.get(exch_c,"")).strip().lower()
-        wm_raw   = str(r.get(wm_c,"Mon-Fri")).strip()
-        weeks = parse_weekmask(wm_raw)
-        key = (region, country or None, exchange or None)
-        maps[key] = weeks
-    return maps
-
-CFG = load_market_config()
-
-def get_weekset(region: str, country: str, exchange: str):
-    # Try most specific → least specific → default Mon-Fri
-    keys = [
-        (region, country, exchange),
-        (region, country, None),
-        (region, None, None),
-    ]
-    for k in keys:
-        if k in CFG:
-            return CFG[k]
-    return {0,1,2,3,4}
-
-def next_market_day(d: datetime, allowed_weekdays: set[int]):
-    nd = d + timedelta(days=1)
-    while nd.weekday() not in allowed_weekdays:
-        nd += timedelta(days=1)
-    return nd
-
-# ---------- HTML injection ----------
-START_MARK = "<!-- LAST7:START -->"
-END_MARK   = "<!-- LAST7:END -->"
-
-def inject_table(html: str, table_html: str) -> str:
-    block = f"{START_MARK}\n{table_html}\n{END_MARK}"
-    if START_MARK in html and END_MARK in html:
-        return re.sub(
-            rf"{re.escape(START_MARK)}.*?{re.escape(END_MARK)}",
-            block,
-            html,
-            flags=re.S
-        )
-    # append near the end of the page (before footer if possible)
-    # try after the main analysis card
-    ins_at = html.rfind("</main>")
-    if ins_at != -1:
-        return html[:ins_at] + "\n" + block + "\n" + html[ins_at:]
-    return html + "\n" + block + "\n"
-
-# ---------- core logic per page ----------
-
-def collect_history(region, country, exchange, symbol, need_days=20):
-    """
-    Read the country-level CSVs across recent historical folders,
-    filter strictly by (symbol, exchange), return dataframe with
-    columns: date, open, high, low, close, change, exchange, symbol
-    """
-    # newest first folder names YYYY-MM-DD
-    folders = sorted([p for p in DATA.glob("*") if p.is_dir()], reverse=True)
-    rows = []
-    got = 0
-
-    for folder in folders:
-        csv_path = folder / region / f"{country}.csv"
-        if not csv_path.exists():
+    dates = hist_dates_latest(20)  # grab enough to safely derive 7 targets
+    # we need frames for consecutive days (newest..oldest)
+    series = []  # list of tuples (date, close)
+    for d in sorted(dates):  # ascending chronological to compute deltas
+        df = load_country_frame(d, region, country)
+        if df is None:
             continue
+        row = df[(df["symbol"].astype(str) == symbol) & (df["exchange"].str.upper() == exchange.upper())]
+        if not row.empty:
+            c = row.iloc[0]["close"]
+            try:
+                c = float(c)
+                series.append((d, c))
+            except Exception:
+                continue
+
+    # need at least 3 points to get one prediction + actual
+    if len(series) < 3:
+        return []
+
+    # compute predictions for targets
+    out: List[Tuple[str, str, str, str]] = []
+    # index i is the "target" date; we need close at i (actual) and i-1, i-2 for prediction reference
+    for i in range(2, len(series)):
+        d_tgt, close_tgt = series[i]
+        _, close_prev = series[i - 1]
+        _, close_prev2 = series[i - 2]
+
+        ai_pred = "Bullish" if close_prev > close_prev2 else "Bearish"
+        actual = "Bullish" if close_tgt > close_prev else "Bearish"
+        result = "Win" if ai_pred == actual else "Loss"
+        out.append((d_tgt, ai_pred, actual, result))
+
+    # newest 7 targets, dedup by date (keep last occurrence)
+    dedup: Dict[str, Tuple[str, str, str, str]] = {}
+    for row in out:  # chronological; later overwrites earlier
+        dedup[row[0]] = row
+    rows = list(dedup.values())[-7:]  # last 7 in chronological order
+    return rows
+
+def render_last7_html(rows: List[Tuple[str, str, str, str]], win_rate_text: str) -> str:
+    def cls(x: str) -> str:
+        return "text-green-400 font-bold" if x.lower() in ("win", "bullish") else "text-red-400 font-bold"
+
+    body = []
+    for d, pred, actual, res in rows:
+        body.append(
+            f"""<tr>
+  <td class="font-mono">{d}</td>
+  <td class="{cls(pred)}">{pred}</td>
+  <td class="{cls(actual)}">{actual}</td>
+  <td class="{cls(res)}">{res}</td>
+</tr>"""
+        )
+    table = f"""
+<!-- LAST7:START -->
+<h3 class="text-xl font-bold text-white mb-3">Last 7-Day Performance</h3>
+<div class="mb-3 p-3 bg-slate-800 rounded-lg border border-slate-700 flex items-center justify-between">
+  <span class="text-slate-300 text-sm">Last 7-Day Accuracy:</span>
+  <span class="text-green-400 font-extrabold">{win_rate_text}</span>
+</div>
+<div class="overflow-x-auto rounded-lg border border-slate-700">
+<table class="performance-table min-w-full">
+  <thead>
+    <tr>
+      <th>Date</th><th>AI Prediction</th><th class="text-left">Actual</th><th class="text-left">Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    {"".join(body)}
+  </tbody>
+</table>
+</div>
+<!-- LAST7:END -->"""
+    return table.strip()
+
+LAST7_RE = re.compile(r"<!--\s*LAST7:START\s*-->.*?<!--\s*LAST7:END\s*-->", re.S | re.I)
+
+def inject_html(page_html: str, block: str) -> str:
+    if LAST7_RE.search(page_html):
+        return LAST7_RE.sub(block, page_html)
+    # try before </main>, else before </body>
+    for tag in ("</main>", "</body>"):
+        idx = page_html.lower().rfind(tag)
+        if idx != -1:
+            return page_html[:idx] + "\n" + block + "\n" + page_html[idx:]
+    # fallback: append
+    return page_html + "\n" + block + "\n"
+
+def scan_prediction_pages() -> List[Path]:
+    return list(DIST.glob("**/prediction-tomorrow/index.html"))
+
+def parse_parts_from_path(p: Path) -> Tuple[str, str, str, str]:
+    """
+    Expect: dist/<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+    """
+    parts = p.parts
+    # find 'dist' index
+    try:
+        k = parts.index('dist')
+    except ValueError:
+        # safety: assume fixed positions from tail
+        region, country, exchange, symbol = parts[-6], parts[-5], parts[-4], parts[-3]
+        return region, country, exchange, symbol
+
+    region, country, exchange, symbol = parts[k+1], parts[k+2], parts[k+3], parts[k+4]
+    return region, country, exchange, symbol
+
+def main() -> int:
+    pages = scan_prediction_pages()
+    print(f"[scan] prediction-tomorrow pages: {len(pages)}", flush=True)
+    mcfg = read_markets_config()
+
+    injected = 0
+    for page in pages:
         try:
-            df = pd.read_csv(csv_path)
+            region, country, exchange, symbol = parse_parts_from_path(page)
         except Exception:
             continue
 
-        # Normalize columns
-        lower_cols = {c.lower(): c for c in df.columns}
-        sym_c   = lower_cols.get("symbol","symbol")
-        exch_c  = lower_cols.get("exchange","exchange")
-        close_c = lower_cols.get("close","Close")
-        open_c  = lower_cols.get("open","open")
-        high_c  = lower_cols.get("high","high")
-        low_c   = lower_cols.get("low","low")
-        chg_c   = lower_cols.get("change%","Change%")
-        # Strict filter: symbol + exchange
-        m = (
-            df[sym_c].astype(str).str.lower() == symbol
-        ) & (
-            df[exch_c].astype(str).str.lower() == exchange
-        )
-        cut = df.loc[m, [sym_c, exch_c, open_c, high_c, low_c, close_c, chg_c]].copy()
-        if cut.empty:
+        rows = compute_last7_for_symbol(region, country, exchange, symbol)
+        if not rows:
+            # nothing to inject for this page
             continue
-        cut.rename(columns={
-            sym_c:"symbol",
-            exch_c:"exchange",
-            open_c:"open",
-            high_c:"high",
-            low_c:"low",
-            close_c:"close",
-            chg_c:"change"
-        }, inplace=True)
-        cut["date"] = datetime.strptime(folder.name, "%Y-%m-%d")
-        rows.append(cut)
-        got += 1
-        if got >= need_days:
-            break
 
-    if not rows:
-        return pd.DataFrame(columns=["date","open","high","low","close","change","exchange","symbol"])
-    all_ = pd.concat(rows, ignore_index=True)
-    # order by date ascending (oldest → newest)
-    all_.sort_values("date", inplace=True)
-    return all_
+        wins = sum(1 for _, _, _, r in rows if r == "Win")
+        win_rate_text = f"{(wins/len(rows))*100:.2f}% ({wins}/{len(rows)})"
+        block = render_last7_html(rows, win_rate_text)
 
-def make_last7(df: pd.DataFrame, region, country, exchange):
-    """
-    From chronological df (one row per day for this symbol & exchange),
-    produce last 7 unique *target* dates with prediction/actual.
-    """
-    allowed = get_weekset(region, country, exchange)
-    records = []
+        html = page.read_text(encoding="utf-8", errors="ignore")
+        new_html = inject_html(html, block)
 
-    # we need at least 2 days to compute a prediction & actual
-    # Prediction for day t compares close_t vs close_(t-1)
-    # Actual (for target day) compares close_(t+1) vs close_t
-    for i in range(1, len(df)-1):
-        today = df.iloc[i]
-        prev  = df.iloc[i-1]
-        nxt   = df.iloc[i+1]
-
-        # target date = next market day after today.date
-        target = next_market_day(today["date"], allowed)
-
-        pred = "Bullish" if float(today["close"]) > float(prev["close"]) else "Bearish"
-        actual = "Bullish" if float(nxt["close"]) > float(today["close"]) else "Bearish"
-        win = (pred == actual)
-
-        records.append({
-            "target": target.date(),
-            "pred": pred,
-            "actual": actual,
-            "win": win
-        })
-
-    if not records:
-        return [], 0, 0
-
-    # De-duplicate by target date: keep the most recent calculation for a given target
-    dedup = OrderedDict()
-    for r in sorted(records, key=lambda x: x["target"], reverse=True):
-        if r["target"] not in dedup:
-            dedup[r["target"]] = r
-    # Take last 7 (most recent targets), show ascending in the table
-    picked = list(dedup.values())[:7]
-    picked.sort(key=lambda x: x["target"])
-
-    wins = sum(1 for r in picked if r["win"])
-    total = len(picked)
-    return picked, wins, total
-
-def render_table(rows, wins, total):
-    # badge and rows
-    if total == 0:
-        acc_html = '<div class="small">Last 7-Day Accuracy: <span class="muted">n/a</span></div>'
-    else:
-        pct = round(100*wins/total, 2)
-        color = "green" if pct >= 50 else "red"
-        acc_html = f'<div class="small">Last 7-Day Accuracy: <span class="badge" style="color:{ "var(--success)" if color=="green" else "var(--danger)"}">{pct}% ({wins}/{total})</span></div>'
-
-    def row_html(r):
-        res_txt = "Win" if r["win"] else "Loss"
-        res_cls = "green" if r["win"] else "red"
-        return (
-            "<tr>"
-            f"<td>{r['target'].isoformat()}</td>"
-            f"<td>{r['pred']}</td>"
-            f"<td>{r['actual']}</td>"
-            f"<td><span class='{res_cls}'>{res_txt}</span></td>"
-            "</tr>"
-        )
-
-    body = "\n".join(row_html(r) for r in rows)
-
-    table = f"""
-<section class="card" aria-label="Last 7-Day Performance">
-  <h3 class="h3">Last 7-Day Performance</h3>
-  <div class="mb-2">{acc_html}</div>
-  <div class="table-wrap">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>AI Prediction</th>
-          <th>Actual</th>
-          <th>Result</th>
-        </tr>
-      </thead>
-      <tbody>
-        {body}
-      </tbody>
-    </table>
-  </div>
-</section>
-""".strip()
-    return table
-
-def process_page(page_path: Path):
-    # Expect path like: dist/<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
-    parts = page_path.parts
-    try:
-        idx = parts.index("dist")
-        region   = parts[idx+1]
-        country  = parts[idx+2].lower()
-        exchange = parts[idx+3].lower()
-        symbol   = parts[idx+4].lower()
-    except Exception:
-        return False, "skip (path shape)"
-
-    df = collect_history(region, country, exchange, symbol, need_days=40)
-    if df.empty or len(df) < 3:
-        return False, "no history"
-
-    rows, wins, total = make_last7(df, region, country, exchange)
-    table_html = render_table(rows, wins, total)
-
-    html = page_path.read_text(encoding="utf-8")
-    html2 = inject_table(html, table_html)
-    if html2 != html:
-        page_path.write_text(html2, encoding="utf-8")
-        return True, f"injected {total}"
-    return False, "no change"
-
-def main():
-    pages = list(DIST.rglob("prediction-tomorrow/index.html"))
-    injected = 0
-    scanned = 0
-    for p in pages:
-        scanned += 1
-        ok, msg = process_page(p)
-        if ok:
+        if new_html != html:
+            page.write_text(new_html, encoding="utf-8")
             injected += 1
-    print(f"[scan] prediction-tomorrow pages: {scanned}  [OK] injected: {injected}")
+
+    print(f"[OK] injected: {injected}", flush=True)
+    return 0
 
 if __name__ == "__main__":
     sys.exit(main())
