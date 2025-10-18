@@ -166,3 +166,39 @@ a:hover{color:var(--brand-2); text-decoration:underline}
   .logo{width:30px; height:30px}
   .table{min-width:640px}                 /* still scrolls within table-wrap */
 }
+/* --- fix: keep logos small & centered even for large source images --- */
+td.logo, .logo-cell {
+  width: 56px;               /* narrower column */
+  padding: 6px 8px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.logo {
+  width: 42px;               /* smaller frame */
+  height: 42px;
+  border-radius: 8px;
+  background: #0e162c;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto;            /* center within cell */
+}
+
+.logo img {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain;
+  display: block;
+}
+
+/* For extra-small logos (mobile view) */
+@media (max-width: 680px) {
+  td.logo, .logo-cell { width: 40px; }
+  .logo { width: 32px; height: 32px; }
+  .logo img { max-width: 88%; max-height: 88%; }
+}
