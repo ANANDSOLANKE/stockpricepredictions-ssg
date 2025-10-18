@@ -6,14 +6,13 @@
   --border:#1f2a44;
   --text:#e8f0fe;
   --muted:#9fb3c8;
-  --brand:#4f8cff;        /* primary blue */
-  --brand-2:#7aa5ff;      /* lighter blue */
+  --brand:#4f8cff;
+  --brand-2:#7aa5ff;
   --chip:#0e1729;
   --chip-border:#223157;
   --chip-active:#16305e;
   --success:#3ddc97;
   --danger:#ff6b6b;
-  --warning:#ffd166;
   --shadow:0 10px 24px rgba(0,0,0,.25);
 }
 
@@ -25,6 +24,7 @@ body{
   background:linear-gradient(180deg, var(--bg), #0b1325 40%, #091022);
   color:var(--text);
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-x:hidden; /* avoid horizontal scroll if a wide element slips in */
 }
 a{color:var(--brand); text-decoration:none}
 a:hover{color:var(--brand-2); text-decoration:underline}
@@ -34,12 +34,12 @@ a:hover{color:var(--brand-2); text-decoration:underline}
 /* ========= Page layout (2 columns) ========= */
 .layout{
   display:grid;
-  grid-template-columns: 280px 1fr;   /* left rail + main */
+  grid-template-columns: 300px 1fr;
   gap:20px;
   align-items:start;
 }
 
-/* Left column card */
+/* ========= Sidebar (left rail) ========= */
 .sidebar{
   background:var(--panel);
   border:1px solid var(--border);
@@ -47,30 +47,24 @@ a:hover{color:var(--brand-2); text-decoration:underline}
   padding:16px;
   box-shadow:var(--shadow);
 
-  /* IMPORTANT: remove inner scrolling; page scrolls instead */
+  /* no inner scroll; page scroll only */
   overflow:visible;
 }
-
-/* No scrollbars for the sidebar (just in case any browser tries) */
-.sidebar::-webkit-scrollbar{display:none}
-
-/* Headings in the sidebar */
 .sidebar .title{
   font-size:16px; font-weight:700; margin:4px 0 10px; color:#dbe7ff;
   border-bottom:1px solid var(--border); padding-bottom:8px;
 }
-
-/* Section spacing */
 .sidebar .section{margin:12px 0 8px}
 
-/* Chips grid in sidebar (tight and aligned) */
+/* chips grid (two columns so everything fits in the rail) */
 .sidebar .chips{
   display:grid;
-  grid-template-columns: 1fr 1fr;     /* two columns to fit narrow rail */
+  grid-template-columns: 1fr 1fr;
   gap:8px;
 }
+.sidebar .chips.one-col{ grid-template-columns: 1fr; }
 
-/* Chip buttons */
+/* chip button */
 .chip{
   display:inline-flex; align-items:center; justify-content:center;
   padding:8px 10px;
@@ -78,28 +72,26 @@ a:hover{color:var(--brand-2); text-decoration:underline}
   background:var(--chip);
   border:1px solid var(--chip-border);
   color:var(--text);
-  font-size:13px; font-weight:600;
-  line-height:1;
+  font-size:13px; font-weight:600; line-height:1;
   white-space:nowrap;
   transition:transform .04s ease-out, background .15s, border-color .15s, color .15s;
   box-shadow:0 1px 0 rgba(0,0,0,.25);
 }
 .chip:hover{background:#12203a; text-decoration:none; transform:translateY(-1px)}
 
-/* Selected = bright blue */
+/* selected (support multiple ways pages might mark active) */
 .chip.active,
+.chip.selected,
+.chip.is-active,
 .chip[aria-current="true"],
 .chip[aria-selected="true"]{
   background:var(--brand);
-  color:#071023;                 /* readable text on blue */
+  color:#071023;
   border-color:var(--brand-2);
   box-shadow:0 0 0 2px rgba(79,140,255,.25);
 }
 
-/* Full-width single options (like Exchanges) */
-.sidebar .chips.one-col{ grid-template-columns: 1fr; }
-
-/* ========= Main content cards ========= */
+/* ========= Main content ========= */
 .card{
   background:var(--panel);
   border:1px solid var(--border);
@@ -107,18 +99,17 @@ a:hover{color:var(--brand-2); text-decoration:underline}
   padding:18px;
   box-shadow:var(--shadow);
 }
-.h1{font-size:28px; line-height:1.25; margin:6px 0 8px}
-.h2{font-size:22px; margin:0 0 12px}
-.h3{font-size:18px; margin:0 0 8px}
-.small{color:var(--muted)}
 .hero{
   background:radial-gradient(1400px 400px at 50% -250px, rgba(79,140,255,.25), transparent 60%), var(--panel);
   border:1px solid var(--border); border-radius:18px; padding:22px 24px; box-shadow:var(--shadow)
 }
+.h1{font-size:28px; line-height:1.25; margin:6px 0 8px}
+.h2{font-size:22px; margin:0 0 12px}
+.h3{font-size:18px; margin:0 0 8px}
+.small{color:var(--muted)}
 .kv{display:flex; gap:18px; flex-wrap:wrap; margin-top:8px}
 .kv div{color:var(--muted); font-size:14px}
 
-/* ========= Controls on main pane ========= */
 .toolbar{display:flex; gap:10px; align-items:center; justify-content:space-between; margin:0 0 12px; flex-wrap:wrap}
 .input, .select{
   background:var(--panel-2); border:1px solid var(--border); color:var(--text);
@@ -126,7 +117,7 @@ a:hover{color:var(--brand-2); text-decoration:underline}
 }
 .input::placeholder{color:var(--muted)}
 
-/* ========= Table ========= */
+/* ========= Tables ========= */
 .table-wrap{overflow:auto; border:1px solid var(--border); border-radius:16px}
 .table{width:100%; border-collapse:separate; border-spacing:0}
 .table thead th{
@@ -137,6 +128,24 @@ a:hover{color:var(--brand-2); text-decoration:underline}
 .table tbody td{padding:12px; border-bottom:1px solid var(--border)}
 .table tbody tr:nth-child(odd){background:#0d172c}
 .table tbody tr:hover{background:#12233f}
+
+/* ====== LOGO/IMAGE CONSTRAINTS ====== */
+/* Any images inside tables or cells with "logo" naming get constrained */
+.table img,
+td.logo img,
+.logo-cell img,
+.logo img{
+  max-height:44px;        /* small row-friendly height */
+  width:auto;
+  object-fit:contain;
+  display:block;
+  background:#1a263f;     /* subtle pad behind transparent logos */
+  border-radius:8px;
+  padding:4px;
+}
+td.logo, .logo-cell{width:72px}
+
+/* badges / change colors */
 .badge{display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid var(--border)}
 .badge.bullish{background:rgba(61,220,151,.12); color:var(--success); border-color:rgba(61,220,151,.35)}
 .badge.bearish{background:rgba(255,107,107,.12); color:var(--danger); border-color:rgba(255,107,107,.35)}
@@ -150,7 +159,7 @@ a:hover{color:var(--brand-2); text-decoration:underline}
 @media (max-width: 1024px){
   .layout{grid-template-columns: 1fr}
   .sidebar{position:static; max-height:none}
-  .sidebar .chips{grid-template-columns: repeat(3, 1fr)} /* little denser on tablets */
+  .sidebar .chips{grid-template-columns: repeat(3, 1fr)}
 }
 @media (max-width: 640px){
   .sidebar .chips{grid-template-columns: repeat(2, 1fr)}
