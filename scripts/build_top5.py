@@ -1,189 +1,182 @@
-# scripts/build_top5.py
-# Fast “Top Predictions Stocks” injector.
-# Scans built pages, parses the existing "Last 7-Day Accuracy",
-# builds a top-5 list per (region, country, exchange), and injects a small card.
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Inject a Top-5 predictions table into every prediction-tomorrow page, ranked by the
+'Last 7-Day Accuracy' for the same (Region, Country, Exchange).
 
-from pathlib import Path
+Assumptions about the built HTML (already true in your site):
+- Each page has the line:  Region: X · Country: Y · Exchange: Z
+- Each page shows:        Last 7-Day Accuracy: 85.71% (6/7)
+- The Top Predictions card exists and contains:
+     <tbody id="top5-rows"> ... </tbody>
+- File layout: dist/.../<symbol>/prediction-tomorrow/index.html
+"""
+
+import os
 import re
-import html
+from pathlib import Path
+from html import escape
 
 DIST = Path("dist")
 
-# Regex to extract group info and accuracy from already-built pages
-RE_GROUP = re.compile(
-    r"Region:\s*(?P<region>[^·]+?)\s*·\s*Country:\s*(?P<country>[^·]+?)\s*·\s*Exchange:\s*(?P<exchange>[^<]+?)<",
-    re.IGNORECASE,
+# Robust patterns (whitespace-insensitive, tolerant of spans etc.)
+RE_META = re.compile(
+    r"Region:\s*(?P<region>[^<·]+?)\s*·\s*Country:\s*(?P<country>[^<·]+?)\s*·\s*Exchange:\s*(?P<exch>[^<\n\r]+?)\s*<",
+    flags=re.IGNORECASE | re.DOTALL,
 )
 
 RE_ACCURACY = re.compile(
     r"Last\s*7[-\s]?Day\s*Accuracy[:\s]*[^0-9]*(?P<pct>\d{1,3}(?:\.\d+)?)%",
-    re.IGNORECASE,
+    flags=re.IGNORECASE | re.DOTALL,
 )
 
-
-RE_TITLE_NAME = re.compile(
-    r"<h1[^>]*>.*?AI Analysis of\s+([^<\|]+)", re.IGNORECASE | re.DOTALL
+# For writing rows into the existing <tbody id="top5-rows">…</tbody>
+RE_TBODY = re.compile(
+    r'(<tbody[^>]*id=["\']top5-rows["\'][^>]*>)(.*?)(</tbody>)',
+    flags=re.IGNORECASE | re.DOTALL,
 )
 
-# Where to inject — try after Last 7-Day Performance card title
-RE_LAST7_ANCHOR = re.compile(
-    r"(<h2[^>]*>\s*Last\s*7-Day\s*Performance\s*</h2>.*?</div>\s*</div>)",
-    re.IGNORECASE | re.DOTALL,
-)
-
-START_MARK = "<!-- TOP5-START -->"
-END_MARK = "<!-- TOP5-END -->"
+# Get the symbol from path: .../<symbol>/prediction-tomorrow/index.html
+RE_SYMBOL = re.compile(r"/([^/]+)/prediction-tomorrow/index\.html$", re.IGNORECASE)
 
 
-def clean_previous_blocks(html_text: str) -> str:
-    return re.sub(
-        START_MARK + r".*?" + END_MARK, "", html_text, flags=re.DOTALL
-    )
+def norm_key(x: str) -> str:
+    return " ".join(x.strip().split()).lower()
 
 
-def parse_group(html_text: str):
-    m = RE_GROUP.search(html_text)
-    if not m:
-        return None
-    g = {k: v.strip() for k, v in m.groupdict().items()}
-    return (g["region"], g["country"], g["exchange"])
-
-
-def parse_accuracy(html_text: str):
-    m = RE_ACCURACY.search(html_text)
-    if not m:
-        return None
-    try:
-        return float(m.group("pct"))
-    except Exception:
-        return None
-
-
-def parse_stock_display_name(html_text: str, fallback_symbol: str):
-    # Page title header usually: "AI Analysis of <SYMBOL> Tomorrow | <Company> ..."
-    m = RE_TITLE_NAME.search(html_text)
+def extract_symbol(html_path: Path) -> str:
+    m = RE_SYMBOL.search(str(html_path).replace("\\", "/"))
     if m:
-        return html.escape(m.group(1).strip())
-    return html.escape(fallback_symbol)
+        return m.group(1)
+    # fallback to directory name
+    return html_path.parent.parent.name
 
 
-def build_card_html(group_key, rows):
-    region, country, exchange = group_key
-    # rows: list of dicts: { "name", "href", "pct" }
+def scan_pages():
+    """Scan all prediction pages and collect meta + accuracy"""
+    records = []  # dict per page: {path, sym, region, country, exch, acc_pct}
 
-    header = (
-        f"Region: {html.escape(region)} · "
-        f"Country: {html.escape(country)} · "
-        f"Exchange: {html.escape(exchange)}"
-    )
+    for html_path in DIST.rglob("prediction-tomorrow/index.html"):
+        try:
+            html = html_path.read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            continue
 
-    lines = []
-    lines.append(START_MARK)
-    lines.append('<div class="card" id="top-predictions-card">')
-    lines.append('<h2 class="h2">Top Predictions Stocks</h2>')
-    lines.append(f'<div class="small" style="margin-bottom:8px">{header}</div>')
-    lines.append('<div class="table-wrap"><table class="table">')
-    lines.append("<thead><tr><th>Name of Stock</th><th>Last 7-Day Accuracy</th></tr></thead>")
-    lines.append("<tbody>")
+        # Region/Country/Exchange
+        mm = RE_META.search(html)
+        if not mm:
+            # try a looser fallback without the trailing '<'
+            mm2 = re.search(
+                r"Region:\s*([^<·]+?)\s*·\s*Country:\s*([^<·]+?)\s*·\s*Exchange:\s*([^\n\r<]+)",
+                html, re.IGNORECASE | re.DOTALL
+            )
+            if mm2:
+                region, country, exch = mm2.group(1), mm2.group(2), mm2.group(3)
+            else:
+                continue
+        else:
+            region = mm.group("region")
+            country = mm.group("country")
+            exch = mm.group("exch")
+
+        # Last-7 accuracy
+        ma = RE_ACCURACY.search(html)
+        if not ma:
+            # if a page has no last-7 yet, skip (keeps table empty until it exists)
+            continue
+        try:
+            acc = float(ma.group("pct"))
+        except Exception:
+            continue
+
+        sym = extract_symbol(html_path)
+        records.append(
+            dict(
+                path=html_path,
+                symbol=sym,
+                region=region.strip(),
+                country=country.strip(),
+                exch=exch.strip(),
+                acc_pct=acc,
+            )
+        )
+    return records
+
+
+def group_by_exchange(records):
+    by_ex = {}  # key: (region,country,exch) normalized -> list of recs
+    for r in records:
+        key = (norm_key(r["region"]), norm_key(r["country"]), norm_key(r["exch"]))
+        by_ex.setdefault(key, []).append(r)
+    # sort each list by accuracy desc
+    for k in by_ex:
+        by_ex[k].sort(key=lambda x: (-x["acc_pct"], x["symbol"]))
+    return by_ex
+
+
+def build_rows(top_list, current_symbol):
+    """Create HTML rows for the top-5, excluding current symbol when possible."""
+    rows = []
+    count = 0
+
+    # Prefer excluding the current page's symbol, but keep going if list is short.
+    for rec in top_list:
+        sym = rec["symbol"]
+        if count >= 5:
+            break
+        if sym == current_symbol and len(top_list) > 5:
+            continue
+        rows.append(
+            f"<tr><td>{escape(sym.upper())}</td>"
+            f"<td class=\"text-right\">{rec['acc_pct']:.2f}%</td></tr>"
+        )
+        count += 1
 
     if not rows:
-        lines.append('<tr><td colspan="2"><span class="small muted">No data yet</span></td></tr>')
-    else:
-        for r in rows:
-            name = r["name"]
-            href = r["href"]
-            pct = f'{r["pct"]:.2f}%'
-            lines.append(
-                f'<tr><td><a href="{html.escape(href)}">{name}</a></td>'
-                f'<td><span style="color:#3ddc97;font-weight:700">{pct}</span></td></tr>'
-            )
+        rows = ['<tr><td colspan="2">No data yet</td></tr>']
+    return "\n".join(rows)
 
-    lines.append("</tbody></table></div></div>")
-    lines.append(END_MARK)
-    return "\n".join(lines)
+
+def inject_rows(html, rows_html):
+    """Replace inner of <tbody id="top5-rows">…</tbody>"""
+    def repl(m):
+        return f"{m.group(1)}\n{rows_html}\n{m.group(3)}"
+    new_html, n = RE_TBODY.subn(repl, html, count=1)
+    return new_html, n
 
 
 def main():
-    # Gather all stock pages
-    pages = sorted(DIST.glob("**/prediction-tomorrow/index.html"))
+    recs = scan_pages()
+    if not recs:
+        print("[warn] No pages with Last 7-Day Accuracy found. Nothing injected.")
+        return
 
-    # Memo: map[(region,country,exchange)] -> list of (abs_page_path, symbol_path, accuracy, display_name)
-    group_cache = {}
+    by_ex = group_by_exchange(recs)
 
-    # Quickly map page -> HTML (we may open twice otherwise)
-    content_cache = {}
-
-    for p in pages:
-        html_text = p.read_text(encoding="utf-8", errors="ignore")
-        content_cache[p] = html_text
-
-        group = parse_group(html_text)
-        if not group:
-            continue
-
-        # Collect group entries once
-        if group not in group_cache:
-            # Scan sibling stock pages under the same exchange folder
-            # dist/<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
-            # Exchange folder = p.parents[2]
-            exchange_root = p.parents[2]
-            stock_pages = sorted(exchange_root.glob("*/prediction-tomorrow/index.html"))
-            entries = []
-            for sp in stock_pages:
-                sp_html = content_cache.get(sp)
-                if sp_html is None:
-                    try:
-                        sp_html = sp.read_text(encoding="utf-8", errors="ignore")
-                        content_cache[sp] = sp_html
-                    except Exception:
-                        continue
-
-                acc = parse_accuracy(sp_html)
-                if acc is None:
-                    continue
-
-                # Build relative href from /dist root for site link
-                rel = "/" + sp.relative_to(DIST).as_posix()
-                # Display name
-                symbol = sp.parents[1].name  # folder name (symbol)
-                disp = parse_stock_display_name(sp_html, symbol)
-
-                entries.append((sp, rel, acc, disp))
-
-            # Sort desc by accuracy
-            entries.sort(key=lambda x: x[2], reverse=True)
-            group_cache[group] = entries
-
-    # Now inject per page (cheap: because top-5 is already prepared)
     injected = 0
-    for p in pages:
-        html_text = content_cache[p]
-        group = parse_group(html_text)
-        if not group:
+    for r in recs:
+        key = (norm_key(r["region"]), norm_key(r["country"]), norm_key(r["exch"]))
+        leaderboard = by_ex.get(key, [])
+        if not leaderboard:
             continue
 
-        entries = group_cache.get(group) or []
-        top_rows = []
-        for sp, rel, acc, disp in entries[:5]:
-            top_rows.append({"href": rel, "pct": acc, "name": disp})
+        rows_html = build_rows(leaderboard, current_symbol=r["symbol"])
 
-        block = build_card_html(group, top_rows)
+        try:
+            html = r["path"].read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            continue
 
-        # Remove any previous block
-        new_html = clean_previous_blocks(html_text)
+        new_html, n = inject_rows(html, rows_html)
+        if n == 0:
+            # No anchor? skip silently.
+            continue
 
-        # Preferred: insert right after the Last 7-Day Performance card
-        m = RE_LAST7_ANCHOR.search(new_html)
-        if m:
-            end_of_last7 = m.end(1)
-            new_html = new_html[:end_of_last7] + "\n" + block + "\n" + new_html[end_of_last7:]
-        else:
-            # Fallback: inject before </body>
-            new_html = re.sub(r"</body>", block + "\n</body>", new_html, count=1, flags=re.IGNORECASE)
-
-        if new_html != html_text:
-            p.write_text(new_html, encoding="utf-8")
+        try:
+            r["path"].write_text(new_html, encoding="utf-8")
             injected += 1
+        except Exception:
+            pass
 
     print(f"[OK] Top-5 injected into {injected} pages")
 
