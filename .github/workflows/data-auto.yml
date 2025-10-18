@@ -62,6 +62,10 @@ jobs:
       - name: Inject last-7 performance
         run: |
           python -u scripts/build_last7.py
+           
+      - name: Inject Top Predictions (per exchange)
+        run: |
+          python -u scripts/build_top5.py
 
       - name: Commit and push updated data + dist
         run: |
