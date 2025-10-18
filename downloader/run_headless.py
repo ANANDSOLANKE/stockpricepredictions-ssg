@@ -13,7 +13,7 @@ Modes:
   --mode force   -> run ALL slugs unconditionally
 
 CLI:
-  python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 120
+  python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 240
 """
 
 import os, sys, argparse, time
