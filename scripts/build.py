@@ -258,20 +258,38 @@ def main():
 
     # Home (now two columns: left chips, right table placeholder)
     home = """
-<div class='two-col'>
-  <section class='card sidebar'>
-    <h2 class='h2'>Browse Markets</h2>
-    <div class="picker">
-      <div class="row"><div class="group-title">Regions</div><div id="regions" class="chips"></div></div>
-      <div class="row"><div class="group-title">Countries</div><div id="countries" class="chips"></div></div>
-      <div class="row"><div class="group-title">Exchanges</div><div id="exchanges" class="chips"></div></div>
+<div class="two-col">
+  <!-- LEFT: Sidebar -->
+  <aside class="card sidebar">
+    <h2 class="h2 mb-2">Browse Markets</h2>
+
+    <div class="group">
+      <div class="group-title">Regions</div>
+      <!-- Filled by app.js at runtime -->
+      <div id="regions" class="pill-grid"></div>
     </div>
-  </section>
-  <section class='card'>
-    <h2 class='h2'>Stocks</h2>
+
+    <div class="group">
+      <div class="group-title">Countries</div>
+      <!-- Filled by app.js at runtime -->
+      <div id="countries" class="pill-grid"></div>
+    </div>
+
+    <div class="group">
+      <div class="group-title">Exchanges</div>
+      <!-- Filled by app.js at runtime -->
+      <div id="exchanges" class="pill-grid"></div>
+    </div>
+  </aside>
+
+  <!-- RIGHT: Table -->
+  <section class="card">
+    <h2 class="h2">Stocks</h2>
     <div id="stocks_table">Pick a region → country → exchange</div>
   </section>
-</div>"""
+</div>
+"""
+
     write_text(DIST/"index.html", tpl_base(
         f"{CFG.get('site_title','')} — {CFG.get('site_tagline','')}",
         "Browse by region → country → exchange.", home, f"{BASE_URL}/"
