@@ -70,3 +70,48 @@ a{color:var(--brand); text-decoration:none} a:hover{color:var(--brand-2); text-d
 
 /* --------- Responsive --------- */
 @media (min-width:900px){ .grid{grid-template-columns:1fr} }
+
+/* --- Tiny polish for "Last 7-Day Performance" + "Top Predictions" --- */
+
+/* 1) Compact the cards when they appear as siblings */
+#last7-card,
+#top-predictions-card {
+  margin-top: 16px;
+}
+
+/* 2) On wide screens, place them side-by-side (no wrapper needed).
+   Uses :has() so we don't touch templates. Falls back to stacked on older browsers. */
+@media (min-width: 1100px){
+  /* If a container holds both cards as adjacent siblings, make a 2-col grid */
+  .container:has(#last7-card + #top-predictions-card),
+  .container:has(#top-predictions-card + #last7-card) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  /* Remove each card’s outer margin so the grid gap controls spacing */
+  #last7-card,
+  #top-predictions-card {
+    margin: 0;
+  }
+}
+
+/* 3) Table readability: clamp long names & keep the percent tidy */
+#top-predictions-card .table td:first-child a{
+  display: inline-block;
+  max-width: 36ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#top-predictions-card .table td:last-child{
+  font-weight: 700;
+}
+
+/* 4) Subtle hover for stock links */
+#top-predictions-card a:hover{
+  text-decoration: none;
+  filter: brightness(1.2);
+}
+
