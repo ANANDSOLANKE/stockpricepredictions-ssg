@@ -1,14 +1,32 @@
 name: Auto download market data and build & deploy SSG
 
 on:
-  schedule:
-    - cron: "0 * * * *"        # every hour (UTC)
   workflow_dispatch: {}
+  schedule:
+    # --- Regional close-time passes (UTC) ---
+    # APAC ex-India (Japan/Korea/HK/SG/China)
+    - cron: "45 6 * * 1-5"
+
+    # India (NSE/BSE)
+    - cron: "15 10 * * 1-5"
+
+    # Gulf / Middle East (Sun–Thu)
+    - cron: "15 11 * * 0-4"
+
+    # Europe & UK
+    - cron: "15 16 * * 1-5"
+
+    # US & Canada
+    - cron: "15 21 * * 1-5"
 
 permissions:
   contents: write
   pages: write
   id-token: write
+
+concurrency:
+  group: pages-and-data
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -33,12 +51,27 @@ jobs:
             pip install pandas jinja2 python-slugify requests pytz python-dateutil beautifulsoup4 lxml
           fi
 
+      # --- Download data once per region (headless) ---
       - name: Download latest market data (headless)
         run: |
           echo "[START] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 120 || true
-          echo "[END] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 240 || true
+          echo "[END]   $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 
+      # --- Check for Data changes (skip build if unchanged) ---
+      - name: Detect data changes
+        id: diff
+        run: |
+          git add -A
+          if git diff --cached --quiet -- Data; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No Data changes."
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Data changed."
+          fi
+
+      # --- Ensure logos exist in dist (fast) ---
       - name: Ensure logos exist in dist (fast)
         run: |
           if [ -d logos ]; then
@@ -53,17 +86,23 @@ jobs:
             echo "No /logos folder found, skipping"
           fi
 
+      # --- Build site (fast) ---
       - name: Build site (fast; skip logo rescan)
+        if: steps.diff.outputs.changed == 'true'
         env:
           SKIP_LOGOS: "1"
         run: |
           python -u scripts/build.py
 
+      # --- Inject last-7 performance table ---
       - name: Inject last-7 performance
+        if: steps.diff.outputs.changed == 'true'
         run: |
           python -u scripts/build_last7.py
-           
+
+      # --- Commit & push only if Data changed ---
       - name: Commit and push updated data + dist
+        if: steps.diff.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -71,11 +110,14 @@ jobs:
           git commit -m "Auto-update: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No changes to commit"
           git push || true
 
+      # --- Deploy only if Data changed ---
       - name: Upload Pages artifact
+        if: steps.diff.outputs.changed == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
       - name: Deploy to GitHub Pages
+        if: steps.diff.outputs.changed == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
