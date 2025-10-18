@@ -326,7 +326,7 @@ def main():
                         "<tr>"
                         f"<td><a href='{stock_url}'>{html.escape(sym)}</a></td>"
                         f"<td><a href='{stock_url}'>{html.escape(name)}</a></td>"
-                        f"<td>{html.escape(sec)}</td>"
+                        f"<td class='sector'><span class='tag'>{html.escape(sec)}</span></td>"
                         f"<td>{'' if o is None else '{:.2f}'.format(o)}</td>"
                         f"<td>{'' if h is None else '{:.2f}'.format(h)}</td>"
                         f"<td>{'' if l is None else '{:.2f}'.format(l)}</td>"
