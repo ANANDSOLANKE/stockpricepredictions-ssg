@@ -1,177 +1,158 @@
-/* --------- Design tokens --------- */
-:root {
-  --bg:#0b1220; --panel:#0f172a; --panel-2:#0c1426; --border:#1f2a44;
-  --text:#e8f0fe; --muted:#9fb3c8; --brand:#4f8cff; --brand-2:#7aa5ff;
-  --chip:#0e1729; --chip-border:#223157; --chip-active:#16305e;
-  --success:#3ddc97; --danger:#ff6b6b; --warning:#ffd166;
+/* ========= Design tokens ========= */
+:root{
+  --bg:#0b1220;
+  --panel:#0f172a;
+  --panel-2:#0c1426;
+  --border:#1f2a44;
+  --text:#e8f0fe;
+  --muted:#9fb3c8;
+  --brand:#4f8cff;        /* primary blue */
+  --brand-2:#7aa5ff;      /* lighter blue */
+  --chip:#0e1729;
+  --chip-border:#223157;
+  --chip-active:#16305e;
+  --success:#3ddc97;
+  --danger:#ff6b6b;
+  --warning:#ffd166;
   --shadow:0 10px 24px rgba(0,0,0,.25);
 }
 
-/* --------- Base --------- */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+/* ========= Base ========= */
+*{box-sizing:border-box}
+html,body{height:100%}
 body{
-  margin:0;
-  font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
-  background: linear-gradient(180deg, var(--bg), #0b1325 40%, #091022);
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  background:linear-gradient(180deg, var(--bg), #0b1325 40%, #091022);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
-a{ color: var(--brand); text-decoration: none; }
-a:hover{ color: var(--brand-2); text-decoration: underline; }
-.container{ max-width: 1200px; margin: 0 auto; padding: 28px; }
+a{color:var(--brand); text-decoration:none}
+a:hover{color:var(--brand-2); text-decoration:underline}
 
-/* --------- Header --------- */
-.hero{
-  background:
-    radial-gradient(1400px 400px at 50% -250px, rgba(79,140,255,.25), transparent 60%),
-    var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 22px 24px;
-  box-shadow: var(--shadow);
+.container{max-width:1240px;margin:0 auto;padding:28px}
+
+/* ========= Page layout (2 columns) ========= */
+.layout{
+  display:grid;
+  grid-template-columns: 280px 1fr;   /* left rail + main */
+  gap:20px;
+  align-items:start;
 }
-.breadcrumbs a{ color: var(--muted); }
-.h1{ font-size: 28px; line-height: 1.25; margin: 6px 0 8px; }
-.small{ color: var(--muted); }
-.kv{ display: flex; gap: 18px; flex-wrap: wrap; margin-top: 8px; }
-.kv div{ color: var(--muted); font-size: 14px; }
 
-/* --------- Cards & layout --------- */
-.card{
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: var(--shadow);
+/* Left column card */
+.sidebar{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:var(--shadow);
+
+  /* IMPORTANT: remove inner scrolling; page scrolls instead */
+  overflow:visible;
 }
-.grid{ display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 18px; }
-.h2{ font-size: 22px; margin: 0 0 10px; }
-.h3{ font-size: 18px; margin: 0 0 8px; }
 
-/* --------- Drilldown chips --------- */
-.picker .row{ display:flex; align-items:center; gap:12px; margin:10px 0; }
-.row-title{ width:110px; color:var(--muted); }
-.chips{ display:flex; gap:10px; flex-wrap:wrap; }
+/* No scrollbars for the sidebar (just in case any browser tries) */
+.sidebar::-webkit-scrollbar{display:none}
+
+/* Headings in the sidebar */
+.sidebar .title{
+  font-size:16px; font-weight:700; margin:4px 0 10px; color:#dbe7ff;
+  border-bottom:1px solid var(--border); padding-bottom:8px;
+}
+
+/* Section spacing */
+.sidebar .section{margin:12px 0 8px}
+
+/* Chips grid in sidebar (tight and aligned) */
+.sidebar .chips{
+  display:grid;
+  grid-template-columns: 1fr 1fr;     /* two columns to fit narrow rail */
+  gap:8px;
+}
+
+/* Chip buttons */
 .chip{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:8px 12px; border-radius:999px;
-  background:var(--chip); border:1px solid var(--chip-border);
-  color:var(--text); font-size:14px; box-shadow:0 2px 0 rgba(0,0,0,.25);
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:8px 10px;
+  border-radius:10px;
+  background:var(--chip);
+  border:1px solid var(--chip-border);
+  color:var(--text);
+  font-size:13px; font-weight:600;
+  line-height:1;
+  white-space:nowrap;
+  transition:transform .04s ease-out, background .15s, border-color .15s, color .15s;
+  box-shadow:0 1px 0 rgba(0,0,0,.25);
 }
-.chip:hover{ background:#12203a; }
-.chip.active{
-  background:var(--chip-active);
-  border-color:var(--brand);
+.chip:hover{background:#12203a; text-decoration:none; transform:translateY(-1px)}
+
+/* Selected = bright blue */
+.chip.active,
+.chip[aria-current="true"],
+.chip[aria-selected="true"]{
+  background:var(--brand);
+  color:#071023;                 /* readable text on blue */
+  border-color:var(--brand-2);
   box-shadow:0 0 0 2px rgba(79,140,255,.25);
 }
 
-/* --------- Controls --------- */
-.toolbar{
-  display:flex; gap:10px; align-items:center; justify-content:space-between;
-  margin-bottom:10px; flex-wrap:wrap;
-}
-.input{
-  background:var(--panel-2); border:1px solid var(--border); color:var(--text);
-  padding:10px 12px; border-radius:12px; min-width:240px; outline:none;
-}
-.input::placeholder{ color:var(--muted); }
-.select{
-  background:var(--panel-2); border:1px solid var(--border); color:var(--text);
-  padding:10px 12px; border-radius:12px; outline:none;
-}
+/* Full-width single options (like Exchanges) */
+.sidebar .chips.one-col{ grid-template-columns: 1fr; }
 
-/* --------- Table --------- */
-.table-wrap{ overflow:auto; border:1px solid var(--border); border-radius:16px; }
-.table{ width:100%; border-collapse:separate; border-spacing:0; }
+/* ========= Main content cards ========= */
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+.h1{font-size:28px; line-height:1.25; margin:6px 0 8px}
+.h2{font-size:22px; margin:0 0 12px}
+.h3{font-size:18px; margin:0 0 8px}
+.small{color:var(--muted)}
+.hero{
+  background:radial-gradient(1400px 400px at 50% -250px, rgba(79,140,255,.25), transparent 60%), var(--panel);
+  border:1px solid var(--border); border-radius:18px; padding:22px 24px; box-shadow:var(--shadow)
+}
+.kv{display:flex; gap:18px; flex-wrap:wrap; margin-top:8px}
+.kv div{color:var(--muted); font-size:14px}
+
+/* ========= Controls on main pane ========= */
+.toolbar{display:flex; gap:10px; align-items:center; justify-content:space-between; margin:0 0 12px; flex-wrap:wrap}
+.input, .select{
+  background:var(--panel-2); border:1px solid var(--border); color:var(--text);
+  padding:10px 12px; border-radius:12px; outline:none
+}
+.input::placeholder{color:var(--muted)}
+
+/* ========= Table ========= */
+.table-wrap{overflow:auto; border:1px solid var(--border); border-radius:16px}
+.table{width:100%; border-collapse:separate; border-spacing:0}
 .table thead th{
   position:sticky; top:0; background:#0e162c; color:var(--muted);
   font-weight:600; text-align:left; padding:12px; border-bottom:1px solid var(--border);
-  white-space:nowrap;
+  white-space:nowrap
 }
-.table tbody td{ padding:12px; border-bottom:1px solid var(--border); }
-.table tbody tr:nth-child(odd){ background:#0d172c; }
-.table tbody tr:hover{ background:#12233f; }
+.table tbody td{padding:12px; border-bottom:1px solid var(--border)}
+.table tbody tr:nth-child(odd){background:#0d172c}
+.table tbody tr:hover{background:#12233f}
+.badge{display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid var(--border)}
+.badge.bullish{background:rgba(61,220,151,.12); color:var(--success); border-color:rgba(61,220,151,.35)}
+.badge.bearish{background:rgba(255,107,107,.12); color:var(--danger); border-color:rgba(255,107,107,.35)}
+.badge.sideways{background:rgba(127,170,255,.12); color:#a7c0ff; border-color:rgba(127,170,255,.35)}
 
-.badge{
-  display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid var(--border);
+/* ========= Footer ========= */
+.footer{color:var(--muted); font-size:13px}
+.footer a{color:var(--brand-2)}
+
+/* ========= Responsive ========= */
+@media (max-width: 1024px){
+  .layout{grid-template-columns: 1fr}
+  .sidebar{position:static; max-height:none}
+  .sidebar .chips{grid-template-columns: repeat(3, 1fr)} /* little denser on tablets */
 }
-.badge.bullish{ background:rgba(61,220,151,.12); color:var(--success); border-color:rgba(61,220,151,.35); }
-.badge.bearish{ background:rgba(255,107,107,.12); color:var(--danger); border-color:rgba(255,107,107,.35); }
-.badge.sideways{ background:rgba(127,170,255,.12); color:#a7c0ff; border-color:rgba(127,170,255,.35); }
-
-.name-with-logo{ display:inline-flex; align-items:center; gap:8px; }
-.logo-ico{
-  width:20px; height:20px; object-fit:contain;
-  background:#0e1729; border:1px solid var(--chip-border); border-radius:4px; padding:2px;
+@media (max-width: 640px){
+  .sidebar .chips{grid-template-columns: repeat(2, 1fr)}
+  .chip{font-size:12px}
 }
-
-/* Change% colouring */
-.pct{ font-weight:700; }
-.pct.pos{ color:var(--success); }
-.pct.neg{ color:var(--danger); }
-
-/* Button */
-.btn{ display:inline-block; padding:.35rem .7rem; border:1px solid #27406b; border-radius:8px; }
-.btn:hover{ background:#122036; }
-
-/* --------- Footer --------- */
-.footer{ color:var(--muted); font-size:13px; }
-.footer a{ color:var(--brand-2); }
-
-/* --------- Responsive grid (legacy helper) --------- */
-@media (min-width:900px){
-  .grid { grid-template-columns: 1fr; } /* keep 1-col default; override elsewhere if needed */
-}
-
-/* === two-column layout helper (non-breaking) === */
-.grid-2col{
-  display:grid;
-  grid-template-columns: 320px 1fr;
-  gap:16px;
-  margin-top:18px;
-}
-@media (max-width:980px){
-  .grid-2col{ grid-template-columns: 1fr; }
-}
-
-/* ===== Sidebar polish (like your mock) ===== */
-.card.sidebar{
-  position: sticky;
-  top: 16px;
-  max-height: calc(100vh - 140px);
-  overflow: auto;
-}
-
-/* Heading separators inside sidebar */
-.sidebar .group-title{
-  margin:10px 0 6px; padding-bottom:4px;
-  font-size:12px; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--muted); border-bottom:1px dashed var(--border);
-}
-
-/* Make chips stack nicely in sidebar if you want vertical buttons */
-.sidebar .chips{ display:flex; flex-direction:column; gap:8px; }
-.sidebar .chip{
-  width:100%; justify-content:space-between;
-  background:#0f1a33; border-color:#223157;
-  padding:10px 12px; border-radius:10px;
-}
-.sidebar .chip:hover{ background:#122245; }
-
-/* Strong selected state (blue) */
-.sidebar .chip.active{
-  background:var(--brand); border-color:var(--brand);
-  color:#fff; box-shadow:0 0 0 2px rgba(79,140,255,.25);
-}
-
-/* ===== Sector badge in table ===== */
-.table td.sector .tag{
-  display:inline-block; padding:4px 8px;
-  background:#0e1729; border:1px solid var(--chip-border);
-  border-radius:999px; font-size:12px; color:#aecdff;
-}
-
-/* optional: keep left panel tidy if you want */
-.filters { align-self: start; }
