@@ -16,9 +16,10 @@ RE_GROUP = re.compile(
 )
 
 RE_ACCURACY = re.compile(
-    r"Last\s*7-Day\s*Accuracy:\s*<[^>]*>\s*(?P<pct>\d{1,3}(?:\.\d+)?)%\s*\(\d+\s*/\s*\d+\)",
+    r"Last\s*7[-\s]?Day\s*Accuracy[:\s]*[^0-9]*(?P<pct>\d{1,3}(?:\.\d+)?)%",
     re.IGNORECASE,
 )
+
 
 RE_TITLE_NAME = re.compile(
     r"<h1[^>]*>.*?AI Analysis of\s+([^<\|]+)", re.IGNORECASE | re.DOTALL
