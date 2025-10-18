@@ -259,12 +259,12 @@ def main():
     # Home (now two columns: left chips, right table placeholder)
     home = """
 <div class='two-col'>
-  <section class='card'>
+  <section class='card sidebar'>
     <h2 class='h2'>Browse Markets</h2>
     <div class="picker">
-      <div class="row"><div class="row-title">Regions</div><div id="regions" class="chips"></div></div>
-      <div class="row"><div class="row-title">Countries</div><div id="countries" class="chips"></div></div>
-      <div class="row"><div class="row-title">Exchanges</div><div id="exchanges" class="chips"></div></div>
+      <div class="row"><div class="group-title">Regions</div><div id="regions" class="chips"></div></div>
+      <div class="row"><div class="group-title">Countries</div><div id="countries" class="chips"></div></div>
+      <div class="row"><div class="group-title">Exchanges</div><div id="exchanges" class="chips"></div></div>
     </div>
   </section>
   <section class='card'>
