@@ -14,39 +14,61 @@ body{
   background:linear-gradient(180deg, var(--bg), #0b1325 40%, #091022);
   color:var(--text); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
-a{color:var(--brand); text-decoration:none} a:hover{color:var(--brand-2); text-decoration:underline}
+a{color:var(--brand); text-decoration:none}
+a:hover{color:var(--brand-2); text-decoration:underline}
 .container{max-width:1200px;margin:0 auto;padding:28px}
 
 /* --------- Header --------- */
-.hero{background:radial-gradient(1400px 400px at 50% -250px, rgba(79,140,255,.25), transparent 60%), var(--panel);
-  border:1px solid var(--border); border-radius:18px; padding:22px 24px; box-shadow:var(--shadow)}
-.breadcrumbs a{color:var(--muted)} .h1{font-size:28px; line-height:1.25; margin:6px 0 8px}
-.small{color:var(--muted)} .kv{display:flex; gap:18px; flex-wrap:wrap; margin-top:8px} .kv div{color:var(--muted); font-size:14px}
+.hero{
+  background:radial-gradient(1400px 400px at 50% -250px, rgba(79,140,255,.25), transparent 60%), var(--panel);
+  border:1px solid var(--border); border-radius:18px; padding:22px 24px; box-shadow:var(--shadow)
+}
+.breadcrumbs a{color:var(--muted)}
+.h1{font-size:28px; line-height:1.25; margin:6px 0 8px}
+.small{color:var(--muted)}
+.kv{display:flex; gap:18px; flex-wrap:wrap; margin-top:8px}
+.kv div{color:var(--muted); font-size:14px}
 
 /* --------- Cards & layout --------- */
 .card{background:var(--panel); border:1px solid var(--border); border-radius:18px; padding:18px; box-shadow:var(--shadow)}
 .grid{display:grid; grid-template-columns:1fr; gap:16px; margin-top:18px}
-.h2{font-size:22px; margin:0 0 10px} .h3{font-size:18px; margin:0 0 8px}
+.h2{font-size:22px; margin:0 0 10px}
+.h3{font-size:18px; margin:0 0 8px}
 
-/* --------- Drilldown chips --------- */
-.picker .row{display:flex; align-items:center; gap:12px; margin:10px 0}
-.row-title{width:110px; color:var(--muted)}
-.chips{display:flex; gap:10px; flex-wrap:wrap}
-.chip{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:var(--chip);
-  border:1px solid var(--chip-border); color:var(--text); font-size:14px; box-shadow:0 2px 0 rgba(0,0,0,.25)}
-.chip:hover{background:#12203a} .chip.active{background:var(--chip-active); border-color:var(--brand); box-shadow:0 0 0 2px rgba(79,140,255,.25)}
+/* --------- Drilldown picker --------- */
+.picker .row{display:grid; grid-template-columns:120px 1fr; gap:12px; align-items:start; margin:12px 0}
+.row-title{color:var(--muted); font-weight:600; letter-spacing:.2px; padding-top:6px}
+.chips{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));
+  gap:10px;
+}
+.chip{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:9px 12px; border-radius:999px; background:var(--chip);
+  border:1px solid var(--chip-border); color:var(--text); font-size:14px;
+  box-shadow:0 2px 0 rgba(0,0,0,.25); cursor:pointer; white-space:nowrap;
+}
+.chip:hover{background:#12203a}
+.chip.active{background:var(--chip-active); border-color:var(--brand); box-shadow:0 0 0 2px rgba(79,140,255,.25)}
+.chip:focus{outline:2px solid rgba(79,140,255,.5); outline-offset:2px}
 
-/* --------- Controls --------- */
+/* --------- Controls (optional search/sort) --------- */
 .toolbar{display:flex; gap:10px; align-items:center; justify-content:space-between; margin-bottom:10px; flex-wrap:wrap}
 .input{background:var(--panel-2); border:1px solid var(--border); color:var(--text); padding:10px 12px; border-radius:12px; min-width:240px; outline:none}
-.input::placeholder{color:var(--muted)} .select{background:var(--panel-2); border:1px solid var(--border); color:var(--text); padding:10px 12px; border-radius:12px; outline:none}
+.input::placeholder{color:var(--muted)}
+.select{background:var(--panel-2); border:1px solid var(--border); color:var(--text); padding:10px 12px; border-radius:12px; outline:none}
 
 /* --------- Table --------- */
 .table-wrap{overflow:auto; border:1px solid var(--border); border-radius:16px}
 .table{width:100%; border-collapse:separate; border-spacing:0}
-.table thead th{position:sticky; top:0; background:#0e162c; color:var(--muted); font-weight:600; text-align:left; padding:12px; border-bottom:1px solid var(--border); white-space:nowrap}
+.table thead th{
+  position:sticky; top:0; background:#0e162c; color:var(--muted); font-weight:600;
+  text-align:left; padding:12px; border-bottom:1px solid var(--border); white-space:nowrap
+}
 .table tbody td{padding:12px; border-bottom:1px solid var(--border)}
-.table tbody tr:nth-child(odd){background:#0d172c} .table tbody tr:hover{background:#12233f}
+.table tbody tr:nth-child(odd){background:#0d172c}
+.table tbody tr:hover{background:#12233f}
 .badge{display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid var(--border)}
 .badge.bullish{background:rgba(61,220,151,.12); color:var(--success); border-color:rgba(61,220,151,.35)}
 .badge.bearish{background:rgba(255,107,107,.12); color:var(--danger); border-color:rgba(255,107,107,.35)}
@@ -69,4 +91,6 @@ a{color:var(--brand); text-decoration:none} a:hover{color:var(--brand-2); text-d
 .footer a{color:var(--brand-2)}
 
 /* --------- Responsive --------- */
-@media (min-width:900px){ .grid{grid-template-columns:1fr} }
+@media (min-width:900px){
+  .grid{grid-template-columns:1fr}
+}
