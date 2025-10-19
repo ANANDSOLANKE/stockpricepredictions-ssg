@@ -1,187 +1,185 @@
-// static/app.js
+// static/app.js (robust base detection + compact labeled picker)
 (function () {
-  const BASE = (window.SPP_BASE || "").replace(/\/+$/, "");
-  const INDEX_URL = window.SPP_INDEX_URL || (BASE + "/static/index.json");
+  // --- Robust base detection (works on GitHub Pages subpaths) ---
+  function detectRootFromScript() {
+    // Find this script tag's src
+    var scripts = document.getElementsByTagName('script');
+    var me = scripts[scripts.length - 1];
+    var src = (me && me.src) || '';
+    // e.g. https://domain/path/static/app.js?v=123 -> static dir
+    var staticUrl = src.replace(/\/app\.js(?:\?.*)?$/, '/');
+    // Remove trailing "static/"
+    var root = staticUrl.replace(/static\/?$/, '');
+    // Ensure trailing slash
+    if (!/\/$/.test(root)) root += '/';
+    return root;
+  }
 
-  // DOM
-  const $tableWrap  = document.getElementById("stocks_table");
-  const $pickerHost = document.getElementById("markets_picker");
+  var ROOT = (window.SPP_BASE && String(window.SPP_BASE)) || detectRootFromScript();
+  var INDEX_URL = (window.SPP_INDEX_URL && String(window.SPP_INDEX_URL)) || (ROOT + 'static/index.json');
 
-  // State
-  let SITE = null;
-  let sel = { region: null, country: null, exchange: null };
-
-  // helpers
-  function a(tag, attrs = {}, children = []) {
-    const el = document.createElement(tag);
-    for (const [k, v] of Object.entries(attrs || {})) {
-      if (k === "class") el.className = v;
-      else if (k === "html") el.innerHTML = v;
-      else el.setAttribute(k, v);
-    }
-    (Array.isArray(children) ? children : [children])
-      .filter(Boolean)
-      .forEach(ch =>
-        el.appendChild(typeof ch === "string" ? document.createTextNode(ch) : ch)
-      );
+  // --- DOM helpers ---
+  function a(tag, attrs, children) {
+    var el = document.createElement(tag);
+    attrs = attrs || {};
+    Object.keys(attrs).forEach(function (k) {
+      if (k === 'class') el.className = attrs[k];
+      else if (k === 'html') el.innerHTML = attrs[k];
+      else el.setAttribute(k, attrs[k]);
+    });
+    (Array.isArray(children) ? children : (children != null ? [children] : []))
+      .forEach(function (ch) { el.appendChild(typeof ch === 'string' ? document.createTextNode(ch) : ch); });
     return el;
   }
-  function clear(el){ while (el && el.firstChild) el.removeChild(el.firstChild); }
+  function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
 
-  async function fetchJSON(url) {
-    const res = await fetch(url, { cache: "no-cache" });
-    if (!res.ok) throw new Error(`${res.status} ${url}`);
-    return await res.json();
+  // --- small utils ---
+  function formatNum(x) {
+    if (x === null || x === undefined || x === '') return '';
+    var n = Number(x); if (!isFinite(n)) return ''; return n.toFixed(2);
+  }
+  function pctSpan(val) {
+    if (val === null || val === undefined || val === '') return document.createTextNode('');
+    var n = Number(val); if (!isFinite(n)) return document.createTextNode('');
+    var cls = n > 0 ? 'pct pos' : n < 0 ? 'pct neg' : 'pct';
+    return a('span', { class: cls }, n.toFixed(2) + '%');
+  }
+  function chip(text, active, onclick) {
+    var c = a('button', { class: 'chip', type: 'button' }, text);
+    if (active) c.classList.add('active');
+    c.addEventListener('click', onclick);
+    return c;
   }
 
-  // ----- UI: Picker rows (Regions / Countries / Exchanges) -------------------
-  function chip(text, isActive, onClick) {
-    const el = a("button", { class: "chip", type: "button" }, text);
-    if (isActive) el.classList.add("active");
-    el.onclick = onClick;
-    return el;
+  // --- data fetch ---
+  function fetchJSON(url) {
+    return fetch(url, { cache: 'no-cache' }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status + ' for ' + url);
+      return res.json();
+    });
   }
 
-  function makeRow(label, chipsEl) {
-    return a("div", { class: "row" }, [
-      a("div", { class: "row-title" }, label),
-      a("div", { class: "chips" }, chipsEl)
-    ]);
+  // --- state ---
+  var SITE = null;
+  var sel = { region: null, country: null, exchange: null };
+
+  // --- rendering the compact labeled picker ---
+  var $picker = document.getElementById('markets_picker');
+  var $tableWrap = document.getElementById('stocks_table');
+
+  function section(title, items) {
+    var row = a('div', { class: 'row' });
+    var left = a('div', { class: 'row-title' }, title.toUpperCase());
+    var right = a('div', { class: 'chips' });
+    items.forEach(function (el) { right.appendChild(el); });
+    row.appendChild(left);
+    row.appendChild(right);
+    return row;
   }
 
   function renderPicker() {
-    clear($pickerHost);
+    clear($picker);
     if (!SITE) return;
 
-    // Regions
-    const regionChips = SITE.regions.map(r =>
-      chip(r.name, sel.region && sel.region.slug === r.slug, () => {
-        sel.region = r;
-        // default: first country + first exchange
-        sel.country = (r.countries && r.countries[0]) || null;
-        sel.exchange = sel.country && sel.country.exchanges ? sel.country.exchanges[0] : null;
-        renderPicker();
-        loadCurrentExchange();
-      })
-    );
+    var regionChips = SITE.regions.map(function (r) {
+      return chip(r.name, sel.region && sel.region.slug === r.slug, function () {
+        sel.region = r; sel.country = null; sel.exchange = null;
+        renderPicker(); renderTable(null);
+      });
+    });
 
-    // Countries (depends on region)
-    const countryChips = (sel.region ? sel.region.countries : []).map(c =>
-      chip(c.name, sel.country && sel.country.slug === c.slug, () => {
-        sel.country = c;
-        sel.exchange = (c.exchanges && c.exchanges[0]) || null;
-        renderPicker();
-        loadCurrentExchange();
-      })
-    );
+    var countryChips = (sel.region ? sel.region.countries : []).map(function (c) {
+      return chip(c.name, sel.country && sel.country.slug === c.slug, function () {
+        sel.country = c; sel.exchange = null;
+        renderPicker(); renderTable(null);
+      });
+    });
 
-    // Exchanges (depends on country)
-    const exchangeChips = (sel.country ? sel.country.exchanges : []).map(e =>
-      chip(e.name, sel.exchange && sel.exchange.slug === e.slug, () => {
+    var exchangeChips = (sel.country ? sel.country.exchanges : []).map(function (e) {
+      return chip(e.name, sel.exchange && sel.exchange.slug === e.slug, function () {
         sel.exchange = e;
-        renderPicker();
-        loadCurrentExchange();
-      })
-    );
+        loadAndRenderExchange(sel.region.slug, sel.country.slug, sel.exchange.slug);
+      });
+    });
 
-    $pickerHost.appendChild(makeRow("REGIONS", regionChips));
-    $pickerHost.appendChild(makeRow("COUNTRIES", countryChips));
-    $pickerHost.appendChild(makeRow("EXCHANGES", exchangeChips));
+    $picker.appendChild(section('Regions', regionChips));
+    $picker.appendChild(section('Countries', countryChips));
+    $picker.appendChild(section('Exchanges', exchangeChips));
   }
 
-  // ----- Load exchange data and render table --------------------------------
-  function formatNum(x) {
-    if (x === null || x === undefined || x === "") return "";
-    const n = Number(x);
-    if (!isFinite(n)) return "";
-    return n.toFixed(2);
-  }
-  function pctSpan(val) {
-    if (val === null || val === undefined || val === "") return document.createTextNode("");
-    const n = Number(val);
-    if (!isFinite(n)) return document.createTextNode("");
-    const cls = n > 0 ? "pct pos" : n < 0 ? "pct neg" : "pct";
-    return a("span", { class: cls }, n.toFixed(2) + "%");
-  }
-
-  async function loadCurrentExchange() {
+  function renderTable(data, err) {
     clear($tableWrap);
+    if (err) { $tableWrap.textContent = err; return; }
+    if (!data) { return; }
 
-    if (!sel.exchange || !sel.region || !sel.country) {
-      $tableWrap.textContent = "Pick a region → country → exchange";
-      return;
-    }
-
-    const url = `${BASE}/static/exchanges/${sel.region.slug}/${sel.country.slug}/${sel.exchange.slug}.json`;
-    try {
-      const data = await fetchJSON(url);
-      renderTable(data);
-    } catch (e) {
-      $tableWrap.textContent = `Failed to load ${url}`;
-    }
-  }
-
-  function renderTable(data) {
-    clear($tableWrap);
-
-    const table = a("table", { class: "table" });
-    const thead = a("thead");
-    const trh = a("tr");
-    ["Symbol","Name","Sector","Open","High","Low","Close","Change%","Signal"]
-      .forEach(h => trh.appendChild(a("th", {}, h)));
+    var table = a('table', { class: 'table' });
+    var thead = a('thead');
+    var trh = a('tr');
+    ['Symbol','Name','Sector','Open','High','Low','Close','Change%','Signal']
+      .forEach(function (h) { trh.appendChild(a('th', {}, h)); });
     thead.appendChild(trh);
 
-    const tbody = a("tbody");
-    (data.rows || []).forEach(row => {
-      const tr = a("tr");
+    var tbody = a('tbody');
+    (data.rows || []).forEach(function (row) {
+      var tr = a('tr');
+      var sym = row.symbol || '';
+      var name = row.name || sym;
+      var sector = row.sector || '';
+      var url = row.url || '#';
+      var logo = row.logo || '';
 
-      const sym = row.symbol || "";
-      const name = row.name || sym;
-      const sector = row.sector || "";
-      const url = row.url || "#";
-      const logo = row.logo || "";
+      tr.appendChild(a('td', {}, a('a', { href: url }, sym)));
 
-      tr.appendChild(a("td", {}, a("a", { href: url }, sym)));
-
-      const nameCell = a("td");
-      const link = a("a", { href: url, class: "name-with-logo" });
-      if (logo) {
-        link.appendChild(a("img", { src: logo, alt: "", class: "logo-ico", loading: "lazy" }));
-      }
+      var nameCell = a('td');
+      var link = a('a', { href: url, class: 'name-with-logo' });
+      if (logo) link.appendChild(a('img', { src: logo, alt: '', class: 'logo-ico', loading: 'lazy' }));
       link.appendChild(document.createTextNode(name));
       nameCell.appendChild(link);
       tr.appendChild(nameCell);
 
-      tr.appendChild(a("td", {}, sector));
-      tr.appendChild(a("td", {}, formatNum(row.open)));
-      tr.appendChild(a("td", {}, formatNum(row.high)));
-      tr.appendChild(a("td", {}, formatNum(row.low)));
-      tr.appendChild(a("td", {}, formatNum(row.close)));
-      tr.appendChild(a("td", {}, pctSpan(row.change_percent)));
-      tr.appendChild(a("td", {}, a("a", { href: url, class: "btn" }, "AI Prediction")));
-
+      tr.appendChild(a('td', {}, sector));
+      tr.appendChild(a('td', {}, formatNum(row.open)));
+      tr.appendChild(a('td', {}, formatNum(row.high)));
+      tr.appendChild(a('td', {}, formatNum(row.low)));
+      tr.appendChild(a('td', {}, formatNum(row.close)));
+      tr.appendChild(a('td', {}, pctSpan(row.change_percent)));
+      tr.appendChild(a('td', {}, a('a', { href: url, class: 'btn' }, 'AI Prediction')));
       tbody.appendChild(tr);
     });
 
     table.appendChild(thead);
     table.appendChild(tbody);
-    $tableWrap.appendChild(a("div", { class: "table-wrap" }, table));
+    $tableWrap.appendChild(a('div', { class: 'table-wrap' }, table));
   }
 
-  // ----- boot ---------------------------------------------------------------
-  (async function init() {
-    try {
-      SITE = await fetchJSON(INDEX_URL);
-      // defaults: first region → first country → first exchange
+  function loadAndRenderExchange(rslug, cslug, eslug) {
+    var url = ROOT + 'static/exchanges/' + rslug + '/' + cslug + '/' + eslug + '.json';
+    fetchJSON(url).then(function (data) {
+      renderTable(data);
+    }).catch(function () {
+      renderTable(null, 'Failed to load ' + url);
+    });
+  }
+
+  // --- init ---
+  (function init() {
+    fetchJSON(INDEX_URL).then(function (site) {
+      SITE = site;
+      // choose first by default
       if (SITE.regions && SITE.regions.length) {
-        sel.region = SITE.regions[0] || null;
-        sel.country = sel.region && sel.region.countries ? sel.region.countries[0] : null;
-        sel.exchange = sel.country && sel.country.exchanges ? sel.country.exchanges[0] : null;
+        sel.region = SITE.regions[0];
+        if (sel.region.countries && sel.region.countries.length) {
+          sel.country = sel.region.countries[0];
+          if (sel.country.exchanges && sel.country.exchanges.length) {
+            sel.exchange = sel.country.exchanges[0];
+            loadAndRenderExchange(sel.region.slug, sel.country.slug, sel.exchange.slug);
+          }
+        }
       }
       renderPicker();
-      loadCurrentExchange();
-    } catch {
-      $tableWrap.textContent = "Failed to load site index.";
-    }
+    }).catch(function () {
+      clear($picker);
+      $tableWrap.textContent = 'Failed to load site index.';
+    });
   })();
 })();
