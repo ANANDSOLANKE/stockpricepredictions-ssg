@@ -3,8 +3,7 @@
   const BASE = (window.SPP_BASE || "").replace(/\/+$/, "");
   const INDEX_URL = window.SPP_INDEX_URL || (BASE + "/static/index.json");
 
-  // Mount points already in your HTML
-  const $regions = document.getElementById("regions");
+  const $regions   = document.getElementById("regions");
   const $countries = document.getElementById("countries");
   const $exchanges = document.getElementById("exchanges");
   const $tableWrap = document.getElementById("stocks_table");
@@ -12,7 +11,7 @@
   let SITE = null;
   let sel = { region: null, country: null, exchange: null };
 
-  // ---------- small DOM helpers ----------
+  // ---------- tiny DOM helpers ----------
   function a(tag, attrs = {}, children = []) {
     const el = document.createElement(tag);
     for (const [k, v] of Object.entries(attrs)) {
@@ -20,99 +19,43 @@
       else if (k === "html") el.innerHTML = v;
       else el.setAttribute(k, v);
     }
-    (Array.isArray(children) ? children : [children])
-      .filter(Boolean)
-      .forEach(ch => el.appendChild(typeof ch === "string" ? document.createTextNode(ch) : ch));
+    (Array.isArray(children) ? children : [children]).forEach(ch => {
+      if (ch == null) return;
+      el.appendChild(typeof ch === "string" ? document.createTextNode(ch) : ch);
+    });
     return el;
   }
   function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
 
-  // A single chip
+  // keeps ONE title per section and a single chips container
+  function ensureSection($el, title) {
+    if (!$el.dataset.prepared) {
+      $el.innerHTML = "";                                      // remove any static duplicates
+      $el.appendChild(a("div", { class: "section-title" }, title.toUpperCase()));
+      $el.appendChild(a("div", { class: "section-chips" }));   // where chips live
+      $el.dataset.prepared = "1";
+    }
+    return $el.querySelector(".section-chips");
+  }
+
   function chip(text, active, onclick) {
-    const c = a("button", {
-      class: "chip" + (active ? " active" : ""),
-      type: "button",
-      "aria-pressed": active ? "true" : "false"
-    }, text);
+    const c = a("div", { class: "chip" }, text);
+    if (active) c.classList.add("active");
     c.onclick = onclick;
     return c;
   }
 
-  // A labeled row: title + chip grid
-  function renderRow($host, title, items, isActive, onPick) {
-    clear($host);
-    const row = a("div", { class: "row" });
-    row.appendChild(a("div", { class: "row-title" }, title));
-    const chips = a("div", { class: "chips" });
-    items.forEach(item => {
-      chips.appendChild(chip(
-        item.name,
-        isActive(item),
-        () => onPick(item)
-      ));
-    });
-    row.appendChild(chips);
-    $host.appendChild(row);
-  }
-
-  // ---------- networking ----------
+  // ---------- fetch + format ----------
   async function fetchJSON(url) {
     const res = await fetch(url, { cache: "no-cache" });
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-    return await res.json();
-  }
-
-  // ---------- renderers ----------
-  function renderRegions() {
-    renderRow(
-      $regions,
-      "Regions",
-      SITE?.regions || [],
-      (r) => sel.region && sel.region.slug === r.slug,
-      (r) => { sel.region = r; sel.country = null; sel.exchange = null; renderCountries(); renderExchanges(); renderTable(null); }
-    );
-  }
-
-  function renderCountries() {
-    const items = sel.region?.countries || [];
-    renderRow(
-      $countries,
-      "Countries",
-      items,
-      (c) => sel.country && sel.country.slug === c.slug,
-      (c) => { sel.country = c; sel.exchange = null; renderExchanges(); renderTable(null); }
-    );
-  }
-
-  function renderExchanges() {
-    const items = sel.country?.exchanges || [];
-    renderRow(
-      $exchanges,
-      "Exchanges",
-      items,
-      (e) => sel.exchange && sel.exchange.slug === e.slug,
-      async (e) => {
-        sel.exchange = e;
-        await loadAndRenderExchange(sel.region.slug, sel.country.slug, sel.exchange.slug);
-      }
-    );
-  }
-
-  async function loadAndRenderExchange(rslug, cslug, eslug) {
-    const url = `${BASE}/static/exchanges/${rslug}/${cslug}/${eslug}.json`;
-    try {
-      const data = await fetchJSON(url);
-      renderTable(data);
-    } catch {
-      renderTable(null, `Failed to load ${url}`);
-    }
+    return res.json();
   }
 
   function formatNum(x) {
     if (x === null || x === undefined || x === "") return "";
     const n = Number(x);
-    if (!isFinite(n)) return "";
-    return n.toFixed(2);
+    return isFinite(n) ? n.toFixed(2) : "";
   }
   function pctSpan(val) {
     if (val === null || val === undefined || val === "") return document.createTextNode("");
@@ -120,6 +63,57 @@
     if (!isFinite(n)) return document.createTextNode("");
     const cls = n > 0 ? "pct pos" : n < 0 ? "pct neg" : "pct";
     return a("span", { class: cls }, n.toFixed(2) + "%");
+  }
+
+  // ---------- renderers ----------
+  function renderRegions() {
+    const chips = ensureSection($regions, "Regions");
+    clear(chips);
+    (SITE.regions || []).forEach(r => {
+      chips.appendChild(
+        chip(r.name, sel.region && sel.region.slug === r.slug, () => {
+          sel.region = r; sel.country = null; sel.exchange = null;
+          renderCountries(); renderExchanges(); renderTable(null);
+        })
+      );
+    });
+  }
+
+  function renderCountries() {
+    const chips = ensureSection($countries, "Countries");
+    clear(chips);
+    if (!sel.region) return;
+    (sel.region.countries || []).forEach(c => {
+      chips.appendChild(
+        chip(c.name, sel.country && sel.country.slug === c.slug, () => {
+          sel.country = c; sel.exchange = null;
+          renderExchanges(); renderTable(null);
+        })
+      );
+    });
+  }
+
+  function renderExchanges() {
+    const chips = ensureSection($exchanges, "Exchanges");
+    clear(chips);
+    if (!sel.country) return;
+    (sel.country.exchanges || []).forEach(e => {
+      chips.appendChild(
+        chip(e.name, sel.exchange && sel.exchange.slug === e.slug, async () => {
+          sel.exchange = e;
+          await loadAndRenderExchange(sel.region.slug, sel.country.slug, sel.exchange.slug);
+        })
+      );
+    });
+  }
+
+  async function loadAndRenderExchange(rslug, cslug, eslug) {
+    const url = `${BASE}/static/exchanges/${rslug}/${cslug}/${eslug}.json`;
+    try {
+      renderTable(await fetchJSON(url));
+    } catch {
+      renderTable(null, `Failed to load ${url}`);
+    }
   }
 
   function renderTable(data, errMsg) {
@@ -135,36 +129,19 @@
     thead.appendChild(trh);
 
     const tbody = a("tbody");
-    const buildV = window.__BUILD_V__ || Date.now(); // cache-buster for logos
-
     (data.rows || []).forEach(row => {
-      const tr = a("tr");
-      const sym = (row.symbol || "").toUpperCase();
+      const tr   = a("tr");
+      const sym  = row.symbol || "";
       const name = row.name || sym;
+      const url  = row.url || "#";
+      const logo = row.logo || "";
       const sector = row.sector || "";
-      const url = row.url || "#";
-
-      const group = (row.group || row.region || "global").toLowerCase();
-      const country = (row.country || "").toLowerCase().replace(/\s+/g, "-");
-      const exchange = (row.exchange || "").toLowerCase().replace(/\s+/g, "-");
-
-      // Prefer ticker-based logo created by the logo sync; fallback to legacy; then placeholder
-      const tickerLogo = `${BASE}/logos/_ticker/${group}/${country}/${exchange}/${sym}.png?v=${buildV}`;
-      const fallbackLogo = row.logo || `${BASE}/logos/${country}/${exchange}/${(row.slug || row.name || "").toLowerCase().replace(/\s+/g, "-")}--600.png?v=${buildV}`;
-      const placeholderLogo = `${BASE}/logos/placeholder.png?v=${buildV}`;
 
       tr.appendChild(a("td", {}, a("a", { href: url }, sym)));
 
       const nameCell = a("td");
       const link = a("a", { href: url, class: "name-with-logo" });
-      const img = a("img", {
-        src: tickerLogo,
-        alt: "",
-        class: "logo-ico",
-        loading: "lazy",
-        onerror: `this.onerror=null;this.src='${fallbackLogo}';this.onerror=function(){this.onerror=null;this.src='${placeholderLogo}';}`
-      });
-      link.appendChild(img);
+      if (logo) link.appendChild(a("img", { src: logo, alt: "", class: "logo-ico", loading: "lazy" }));
       link.appendChild(document.createTextNode(name));
       nameCell.appendChild(link);
       tr.appendChild(nameCell);
@@ -185,7 +162,7 @@
     $tableWrap.appendChild(a("div", { class: "table-wrap" }, table));
   }
 
-  // ---------- init ----------
+  // ---------- boot ----------
   (async function init() {
     try {
       SITE = await fetchJSON(INDEX_URL);
