@@ -3,58 +3,98 @@
   const BASE = (window.SPP_BASE || "").replace(/\/+$/, "");
   const INDEX_URL = window.SPP_INDEX_URL || (BASE + "/static/index.json");
 
-  let $regions, $countries, $exchanges, $tableWrap;
+  // DOM
+  const $tableWrap  = document.getElementById("stocks_table");
+  const $pickerHost = document.getElementById("markets_picker");
+
+  // State
   let SITE = null;
   let sel = { region: null, country: null, exchange: null };
 
-  // ---------- tiny DOM helpers ----------
+  // helpers
   function a(tag, attrs = {}, children = []) {
     const el = document.createElement(tag);
-    for (const [k, v] of Object.entries(attrs)) {
+    for (const [k, v] of Object.entries(attrs || {})) {
       if (k === "class") el.className = v;
       else if (k === "html") el.innerHTML = v;
       else el.setAttribute(k, v);
     }
-    (Array.isArray(children) ? children : [children]).forEach(ch => {
-      if (ch == null) return;
-      el.appendChild(typeof ch === "string" ? document.createTextNode(ch) : ch);
-    });
+    (Array.isArray(children) ? children : [children])
+      .filter(Boolean)
+      .forEach(ch =>
+        el.appendChild(typeof ch === "string" ? document.createTextNode(ch) : ch)
+      );
     return el;
   }
-  function clear(el) { while (el && el.firstChild) el.removeChild(el.firstChild); }
-
-  // Wipe any static chips that were in the HTML (prevents duplicates)
-  function wipeStaticSections() {
-    [$regions, $countries, $exchanges].forEach(el => { if (el) el.innerHTML = ""; });
-  }
-
-  // Create a section skeleton once (title + chip container)
-  function ensureSection($el, title) {
-    if (!$el.dataset.prepared) {
-      $el.appendChild(a("div", { class: "section-title" }, title.toUpperCase()));
-      $el.appendChild(a("div", { class: "section-chips" }));
-      $el.dataset.prepared = "1";
-    }
-    return $el.querySelector(".section-chips");
-  }
-
-  function chip(text, active, onclick) {
-    const c = a("div", { class: "chip" }, text);
-    if (active) c.classList.add("active");
-    c.onclick = onclick;
-    return c;
-  }
+  function clear(el){ while (el && el.firstChild) el.removeChild(el.firstChild); }
 
   async function fetchJSON(url) {
     const res = await fetch(url, { cache: "no-cache" });
-    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-    return res.json();
+    if (!res.ok) throw new Error(`${res.status} ${url}`);
+    return await res.json();
   }
 
+  // ----- UI: Picker rows (Regions / Countries / Exchanges) -------------------
+  function chip(text, isActive, onClick) {
+    const el = a("button", { class: "chip", type: "button" }, text);
+    if (isActive) el.classList.add("active");
+    el.onclick = onClick;
+    return el;
+  }
+
+  function makeRow(label, chipsEl) {
+    return a("div", { class: "row" }, [
+      a("div", { class: "row-title" }, label),
+      a("div", { class: "chips" }, chipsEl)
+    ]);
+  }
+
+  function renderPicker() {
+    clear($pickerHost);
+    if (!SITE) return;
+
+    // Regions
+    const regionChips = SITE.regions.map(r =>
+      chip(r.name, sel.region && sel.region.slug === r.slug, () => {
+        sel.region = r;
+        // default: first country + first exchange
+        sel.country = (r.countries && r.countries[0]) || null;
+        sel.exchange = sel.country && sel.country.exchanges ? sel.country.exchanges[0] : null;
+        renderPicker();
+        loadCurrentExchange();
+      })
+    );
+
+    // Countries (depends on region)
+    const countryChips = (sel.region ? sel.region.countries : []).map(c =>
+      chip(c.name, sel.country && sel.country.slug === c.slug, () => {
+        sel.country = c;
+        sel.exchange = (c.exchanges && c.exchanges[0]) || null;
+        renderPicker();
+        loadCurrentExchange();
+      })
+    );
+
+    // Exchanges (depends on country)
+    const exchangeChips = (sel.country ? sel.country.exchanges : []).map(e =>
+      chip(e.name, sel.exchange && sel.exchange.slug === e.slug, () => {
+        sel.exchange = e;
+        renderPicker();
+        loadCurrentExchange();
+      })
+    );
+
+    $pickerHost.appendChild(makeRow("REGIONS", regionChips));
+    $pickerHost.appendChild(makeRow("COUNTRIES", countryChips));
+    $pickerHost.appendChild(makeRow("EXCHANGES", exchangeChips));
+  }
+
+  // ----- Load exchange data and render table --------------------------------
   function formatNum(x) {
     if (x === null || x === undefined || x === "") return "";
     const n = Number(x);
-    return isFinite(n) ? n.toFixed(2) : "";
+    if (!isFinite(n)) return "";
+    return n.toFixed(2);
   }
   function pctSpan(val) {
     if (val === null || val === undefined || val === "") return document.createTextNode("");
@@ -64,61 +104,25 @@
     return a("span", { class: cls }, n.toFixed(2) + "%");
   }
 
-  // ---------- renderers ----------
-  function renderRegions() {
-    const chips = ensureSection($regions, "Regions");
-    clear(chips);
-    (SITE.regions || []).forEach(r => {
-      chips.appendChild(
-        chip(r.name, sel.region && sel.region.slug === r.slug, () => {
-          sel.region = r; sel.country = null; sel.exchange = null;
-          renderCountries(); renderExchanges(); renderTable(null);
-        })
-      );
-    });
-  }
+  async function loadCurrentExchange() {
+    clear($tableWrap);
 
-  function renderCountries() {
-    const chips = ensureSection($countries, "Countries");
-    clear(chips);
-    if (!sel.region) return;
-    (sel.region.countries || []).forEach(c => {
-      chips.appendChild(
-        chip(c.name, sel.country && sel.country.slug === c.slug, () => {
-          sel.country = c; sel.exchange = null;
-          renderExchanges(); renderTable(null);
-        })
-      );
-    });
-  }
+    if (!sel.exchange || !sel.region || !sel.country) {
+      $tableWrap.textContent = "Pick a region → country → exchange";
+      return;
+    }
 
-  function renderExchanges() {
-    const chips = ensureSection($exchanges, "Exchanges");
-    clear(chips);
-    if (!sel.country) return;
-    (sel.country.exchanges || []).forEach(e => {
-      chips.appendChild(
-        chip(e.name, sel.exchange && sel.exchange.slug === e.slug, async () => {
-          sel.exchange = e;
-          await loadAndRenderExchange(sel.region.slug, sel.country.slug, sel.exchange.slug);
-        })
-      );
-    });
-  }
-
-  async function loadAndRenderExchange(rslug, cslug, eslug) {
-    const url = `${BASE}/static/exchanges/${rslug}/${cslug}/${eslug}.json`;
+    const url = `${BASE}/static/exchanges/${sel.region.slug}/${sel.country.slug}/${sel.exchange.slug}.json`;
     try {
-      renderTable(await fetchJSON(url));
-    } catch {
-      renderTable(null, `Failed to load ${url}`);
+      const data = await fetchJSON(url);
+      renderTable(data);
+    } catch (e) {
+      $tableWrap.textContent = `Failed to load ${url}`;
     }
   }
 
-  function renderTable(data, errMsg) {
+  function renderTable(data) {
     clear($tableWrap);
-    if (errMsg) { $tableWrap.textContent = errMsg; return; }
-    if (!data) { $tableWrap.textContent = "Pick a region → country → exchange"; return; }
 
     const table = a("table", { class: "table" });
     const thead = a("thead");
@@ -129,18 +133,21 @@
 
     const tbody = a("tbody");
     (data.rows || []).forEach(row => {
-      const tr   = a("tr");
-      const sym  = row.symbol || "";
+      const tr = a("tr");
+
+      const sym = row.symbol || "";
       const name = row.name || sym;
-      const url  = row.url || "#";
-      const logo = row.logo || "";
       const sector = row.sector || "";
+      const url = row.url || "#";
+      const logo = row.logo || "";
 
       tr.appendChild(a("td", {}, a("a", { href: url }, sym)));
 
       const nameCell = a("td");
       const link = a("a", { href: url, class: "name-with-logo" });
-      if (logo) link.appendChild(a("img", { src: logo, alt: "", class: "logo-ico", loading: "lazy" }));
+      if (logo) {
+        link.appendChild(a("img", { src: logo, alt: "", class: "logo-ico", loading: "lazy" }));
+      }
       link.appendChild(document.createTextNode(name));
       nameCell.appendChild(link);
       tr.appendChild(nameCell);
@@ -152,6 +159,7 @@
       tr.appendChild(a("td", {}, formatNum(row.close)));
       tr.appendChild(a("td", {}, pctSpan(row.change_percent)));
       tr.appendChild(a("td", {}, a("a", { href: url, class: "btn" }, "AI Prediction")));
+
       tbody.appendChild(tr);
     });
 
@@ -160,38 +168,20 @@
     $tableWrap.appendChild(a("div", { class: "table-wrap" }, table));
   }
 
-  // ---------- boot after DOM is ready ----------
-  async function init() {
-    $regions   = document.getElementById("regions");
-    $countries = document.getElementById("countries");
-    $exchanges = document.getElementById("exchanges");
-    $tableWrap = document.getElementById("stocks_table");
-
-    // Remove any static badges/legacy chips so we don't see duplicates
-    wipeStaticSections();
-
+  // ----- boot ---------------------------------------------------------------
+  (async function init() {
     try {
       SITE = await fetchJSON(INDEX_URL);
-      renderRegions();
-      if (SITE.regions?.length) {
-        sel.region = SITE.regions[0]; renderCountries();
-        if (sel.region.countries?.length) {
-          sel.country = sel.region.countries[0]; renderExchanges();
-          if (sel.country.exchanges?.length) {
-            sel.exchange = sel.country.exchanges[0];
-            await loadAndRenderExchange(sel.region.slug, sel.country.slug, sel.exchange.slug);
-          }
-        }
+      // defaults: first region → first country → first exchange
+      if (SITE.regions && SITE.regions.length) {
+        sel.region = SITE.regions[0] || null;
+        sel.country = sel.region && sel.region.countries ? sel.region.countries[0] : null;
+        sel.exchange = sel.country && sel.country.exchanges ? sel.country.exchanges[0] : null;
       }
+      renderPicker();
+      loadCurrentExchange();
     } catch {
       $tableWrap.textContent = "Failed to load site index.";
     }
-  }
-
-  // Wait for DOM to exist
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  })();
 })();
