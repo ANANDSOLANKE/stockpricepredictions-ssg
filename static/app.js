@@ -25,12 +25,23 @@
     });
     return el;
   }
+
   function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
 
-  // keeps ONE title per section and a single chips container
+  // ---------- remove old HTML legends ----------
+  function killOldLegends() {
+    document.querySelectorAll('.chip').forEach(el => {
+      const t = (el.textContent || "").trim().toUpperCase();
+      if (t === "REGIONS" || t === "COUNTRIES" || t === "EXCHANGES") {
+        el.remove();
+      }
+    });
+  }
+
+  // ---------- keeps one title per section ----------
   function ensureSection($el, title) {
     if (!$el.dataset.prepared) {
-      $el.innerHTML = "";                                      // remove any static duplicates
+      $el.innerHTML = "";                                      // remove duplicates
       $el.appendChild(a("div", { class: "section-title" }, title.toUpperCase()));
       $el.appendChild(a("div", { class: "section-chips" }));   // where chips live
       $el.dataset.prepared = "1";
@@ -57,6 +68,7 @@
     const n = Number(x);
     return isFinite(n) ? n.toFixed(2) : "";
   }
+
   function pctSpan(val) {
     if (val === null || val === undefined || val === "") return document.createTextNode("");
     const n = Number(val);
@@ -165,6 +177,7 @@
   // ---------- boot ----------
   (async function init() {
     try {
+      killOldLegends();  // remove leftover labels
       SITE = await fetchJSON(INDEX_URL);
       renderRegions();
       if (SITE.regions?.length) {
