@@ -1,70 +1,97 @@
-name: Build logos (mapping)
+#!/usr/bin/env python3
+import csv, os, shutil, sys, re
+from pathlib import Path
 
-on:
-  workflow_dispatch:
+ROOT = Path(__file__).resolve().parents[1]
+MAP_FILE = ROOT / "logos" / "_map" / "logos.csv"
+SRC_ROOT = ROOT / "logos"
+OUT_ROOT = ROOT / "dist" / "logos"
 
-permissions:
-  contents: write
+# Optional: if your ticker symbols sometimes contain characters that
+# are problematic for filenames, normalize them here (keep what the site uses).
+def normalize_ticker(t: str) -> str:
+    # Most exchanges publish tickers in UPPER; keep as-is if you prefer.
+    # If your site uses exact CSV ticker, just return t.strip().
+    return t.strip()
 
-jobs:
-  logos:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+def find_source(path_hint: str) -> Path | None:
+    """
+    Resolve the source logo file:
+    - Try as a direct relative path (logos/<...>/<path_hint>)
+    - Else search anywhere under /logos by filename only
+    """
+    hint = path_hint.strip().lstrip("/").replace("\\", "/")
+    direct = SRC_ROOT / hint
+    if direct.exists():
+        return direct
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+    fname = Path(hint).name
+    matches = list(SRC_ROOT.rglob(fname))
+    if matches:
+        return matches[0]
+    return None
 
-      - name: Build ticker-named logos from mapping
-        run: |
-          python - <<'PY'
-          import sys, csv, pathlib, shutil
-          repo = pathlib.Path(__file__).resolve().parents[2]
-          map_csv = repo/'logos'/'_map'/'logos.csv'
-          src_root = repo/'logos'   # where your source logo files live (by country/exchange)
-          out_root = repo/'logos'   # write canonical/ticker files also under logos/
+def copy_if_changed(src: Path, dst: Path) -> bool:
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    if dst.exists():
+        # cheap “same file” check
+        if dst.stat().st_size == src.stat().st_size:
+            return False
+        dst.unlink()
+    shutil.copy2(src, dst)
+    return True
 
-          # example columns: group,country_slug,country_name,exchange,ticker,company_name,logo_file
-          with map_csv.open(newline='', encoding='utf-8') as f:
-            r = csv.DictReader(f)
-            n = 0
-            for row in r:
-              ex = (row.get('exchange') or '').strip()
-              tk = (row.get('ticker') or '').strip()
-              lf = (row.get('logo_file') or '').strip()
-              if not (ex and tk and lf):
+def main():
+    if not MAP_FILE.exists():
+        print(f"[ERR] mapping file not found: {MAP_FILE}")
+        return 2
+
+    rows = 0
+    copied = 0
+    skipped = 0
+
+    with MAP_FILE.open("r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            rows += 1
+            country = (row.get("country_slug") or "").strip()
+            exch    = (row.get("exchange") or "").strip()
+            ticker  = normalize_ticker(row.get("ticker") or "")
+
+            src_hint = (row.get("logo_file") or "").strip()
+            if not country or not exch or not ticker or not src_hint:
+                skipped += 1
+                print(f"[SKIP] missing fields for row {rows}: {row}")
                 continue
 
-              # find the file under logos/<country>/<exchange>/<logo_file> or logos/<exchange>/<logo_file>
-              candidates = list(src_root.rglob(lf))
-              if not candidates:
-                print(f"[skip] not found: {lf}")
+            src = find_source(src_hint)
+            if not src:
+                skipped += 1
+                print(f"[SKIP] source not found for {ticker}: {src_hint}")
                 continue
 
-              src = candidates[0]
-              # write a clean ticker-named copy alongside your logos tree:
-              # e.g., logos/<exchange>/<TICKER>.png  (or keep .webp/.png extension)
-              ext = src.suffix
-              dst = out_root/ex/f"{tk.upper()}{ext}"
-              dst.parent.mkdir(parents=True, exist_ok=True)
-              if not dst.exists() or src.stat().st_mtime > dst.stat().st_mtime:
-                shutil.copy2(src, dst)
-                n += 1
-                print(f"[ok] {dst.relative_to(repo)}")
-          print(f"[DONE] wrote/updated {n} logo files")
-          PY
+            # Always write to lower-case country/exchange folders (site expects that)
+            country_l = country.lower()
+            exch_l = exch.lower()
 
-      - name: Commit & push dist logos
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          # IMPORTANT: only add 'logos' — do NOT add 'dist' here
-          git add logos
-          git commit -m "Logos: refresh mapping $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No logo changes"
-          git push
+            ext = src.suffix.lower() or ".png"
+            dst = OUT_ROOT / country_l / exch_l / f"{ticker}{ext}"
+
+            try:
+                changed = copy_if_changed(src, dst)
+                rel_in  = src.relative_to(SRC_ROOT)
+                rel_out = dst.relative_to(OUT_ROOT)
+                if changed:
+                    copied += 1
+                    print(f"[COPY] {rel_in} -> {rel_out}")
+                else:
+                    print(f"[OK]   up-to-date: {rel_out}")
+            except Exception as e:
+                skipped += 1
+                print(f"[ERR]  failed for {ticker}: {e}")
+
+    print(f"\n[SUMMARY] rows={rows} copied={copied} skipped={skipped}")
+    return 0
+
+if __name__ == "__main__":
+    raise SystemExit(main())
