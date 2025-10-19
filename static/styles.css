@@ -1,48 +1,222 @@
-/* === Markets picker layout & chips (append at end) === */
-.picker { display:grid; gap:12px; }
+/* =======================================================================
+   StockPricePredictions — FULL STYLES
+   Save as: static/styles.css  (source of truth)
+   -----------------------------------------------------------------------
+   Dark theme, tidy “Browse Markets” picker (Regions/Countries/Exchanges),
+   chips with active state, clean table, and modest responsive behavior.
+   ======================================================================= */
 
-.picker .row {
-  display:grid;
-  grid-template-columns: 160px 1fr;  /* label | chips */
-  align-items:start;
-  gap:8px;
+/* ---------- Theme tokens ---------- */
+:root{
+  --bg: #0b1624;
+  --panel: #0f1c2d;
+  --panel-weak:#0d1a2b;
+  --border: #22395f;
+  --border-strong:#29467a;
+  --text: #cfe0ff;
+  --text-dim:#93a6c7;
+  --accent:#4f7bff;
+  --accent-weak:#1b2b49;
+  --chip-bg:#0f1c2d;
+  --chip-hover:#13233a;
+  --chip-border:#284472;
+  --good:#3ddc97;
+  --bad:#ff6b6b;
 }
 
-.row-title {
+/* ---------- Resets / base ---------- */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+html{ -webkit-text-size-adjust:100%; }
+body{
+  margin:0;
+  font-family:system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.5;
+}
+
+a{ color:var(--text); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:20px 16px;
+}
+
+/* ---------- Panels / blocks ---------- */
+.block{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+}
+
+/* ---------- Headings ---------- */
+h1,h2,h3{
+  margin:0 0 10px;
+  font-weight:700;
+  color:var(--text);
+}
+h1{ font-size:28px; }
+h2{ font-size:22px; }
+h3{ font-size:18px; }
+
+/* =======================================================================
+   BROWSE MARKETS PICKER
+   Expects:
+   <div id="markets_picker" class="picker"></div>
+   ======================================================================= */
+
+.picker{
+  display:grid;
+  gap:14px;
+}
+
+/* Each row = left title + right chips */
+.picker .row{
+  display:grid;
+  grid-template-columns: 170px 1fr; /* label | chips */
+  align-items:start;
+  gap:10px;
+}
+
+.row-title{
   font-size:12px;
-  letter-spacing:.1em;
+  letter-spacing:.12em;
   text-transform:uppercase;
-  color:#8ea4c8;
-  background:#0d1a2b;
-  border:1px solid #243b63;
-  border-radius:10px;
-  padding:.45rem .75rem;
+  color:var(--text-dim);
+  background:var(--panel-weak);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:.5rem .9rem;
   text-align:center;
   white-space:nowrap;
 }
 
-.chips { display:flex; flex-wrap:wrap; gap:8px; }
+/* Chip list */
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
 
-.chip {
+/* Single chip */
+.chip{
   display:inline-flex;
   align-items:center;
-  padding:.45rem .85rem;
-  border:1px solid #284472;
+  padding:.5rem 1rem;
+  background:var(--chip-bg);
+  color:var(--text);
+  border:1px solid var(--chip-border);
   border-radius:999px;
-  background:#0f1c2d;
-  color:#cfe0ff;
   cursor:pointer;
   user-select:none;
-  transition:background .15s, border-color .15s, box-shadow .15s;
+  transition:background .15s, border-color .15s, box-shadow .15s, color .15s;
 }
-.chip:hover  { background:#13233a; border-color:#3a5a96; }
-.chip.active { background:#1b2b49; border-color:#4f7bff; box-shadow:0 0 0 2px rgba(79,123,255,.15) inset; }
+.chip:hover  { background:var(--chip-hover); border-color:var(--border-strong); }
+.chip.active { background:var(--accent-weak); border-color:var(--accent); box-shadow:0 0 0 2px rgba(79,123,255,.15) inset; }
 
-/* name-with-logo in table */
-.name-with-logo { display:inline-flex; align-items:center; gap:8px; }
-.logo-ico { width:20px; height:20px; object-fit:contain; border-radius:4px; }
+/* =======================================================================
+   TABLE (stocks list)
+   Expects:
+   <div id="stocks_table"></div>
+   ======================================================================= */
 
-/* percent colors */
-.pct { font-weight:700; }
-.pct.pos { color:#3ddc97; }
-.pct.neg { color:#ff6b6b; }
+.table-wrap{
+  overflow:auto;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--panel);
+}
+
+table.table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  min-width:900px;
+}
+
+.table thead th{
+  position:sticky;
+  top:0;
+  z-index:1;
+  background:var(--panel-weak);
+  color:var(--text-dim);
+  font-weight:600;
+  letter-spacing:.02em;
+  text-align:left;
+  padding:10px 12px;
+  border-bottom:1px solid var(--border);
+}
+
+.table tbody td{
+  padding:12px;
+  border-bottom:1px solid var(--border);
+  vertical-align:middle;
+}
+
+.table tbody tr:hover{
+  background:rgba(255,255,255,0.02);
+}
+
+/* Name cell with logo */
+.name-with-logo{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.logo-ico{
+  width:20px; height:20px;
+  object-fit:contain;
+  border-radius:4px;
+}
+
+/* Percent coloring */
+.pct{ font-weight:700; }
+.pct.pos{ color:var(--good); }
+.pct.neg{ color:var(--bad); }
+
+/* Small pill button for “AI Prediction” */
+.btn{
+  display:inline-block;
+  font-size:13px;
+  padding:.35rem .7rem;
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:999px;
+  text-decoration:none;
+  transition:background .15s, border-color .15s;
+}
+.btn:hover{
+  background:var(--chip-hover);
+  border-color:var(--border-strong);
+}
+
+/* =======================================================================
+   Utilities
+   ======================================================================= */
+
+.m-top-16{ margin-top:16px; }
+.m-top-24{ margin-top:24px; }
+
+/* =======================================================================
+   Responsive
+   ======================================================================= */
+
+@media (max-width: 900px){
+  .picker .row{
+    grid-template-columns: 140px 1fr;
+  }
+}
+
+@media (max-width: 680px){
+  .picker .row{
+    grid-template-columns: 1fr;  /* stack */
+  }
+  .row-title{
+    justify-self:start;
+  }
+}
