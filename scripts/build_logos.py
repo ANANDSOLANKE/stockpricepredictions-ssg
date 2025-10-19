@@ -1,87 +1,97 @@
-# scripts/build_logos.py
-import csv, os, shutil, sys
+#!/usr/bin/env python3
+import csv, os, shutil, sys, re
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[1]
-LOGOS_ROOT = REPO / "logos"          # canonical logo files live here
-MAP1 = REPO / "logos" / "_map" / "logos.csv"
-MAP2 = REPO / "logos" / "logos.csv"  # your file
-MAP = MAP1 if MAP1.exists() else MAP2
+ROOT = Path(__file__).resolve().parents[1]
+MAP_FILE = ROOT / "logos" / "_map" / "logos.csv"
+SRC_ROOT = ROOT / "logos"
+OUT_ROOT = ROOT / "dist" / "logos"
 
-DIST = REPO / "dist" / "logos"
-DIST.mkdir(parents=True, exist_ok=True)
+# Optional: if your ticker symbols sometimes contain characters that
+# are problematic for filenames, normalize them here (keep what the site uses).
+def normalize_ticker(t: str) -> str:
+    # Most exchanges publish tickers in UPPER; keep as-is if you prefer.
+    # If your site uses exact CSV ticker, just return t.strip().
+    return t.strip()
 
-def find_exchange_dir(country_dir: Path, desired: str) -> Path | None:
+def find_source(path_hint: str) -> Path | None:
     """
-    Find the exchange folder inside country_dir matching 'desired' case-insensitively,
-    but return the actual existing path (to respect your NSE/BSE capitals).
+    Resolve the source logo file:
+    - Try as a direct relative path (logos/<...>/<path_hint>)
+    - Else search anywhere under /logos by filename only
     """
-    for d in country_dir.iterdir():
-        if d.is_dir() and d.name.lower() == desired.lower():
-            return d
+    hint = path_hint.strip().lstrip("/").replace("\\", "/")
+    direct = SRC_ROOT / hint
+    if direct.exists():
+        return direct
+
+    fname = Path(hint).name
+    matches = list(SRC_ROOT.rglob(fname))
+    if matches:
+        return matches[0]
     return None
 
-def copy_logo(row, seen):
-    # CSV columns (your sample):
-    # group,country_slug,country_name,exchange,ticker,company_name,logo_file
-    country_slug = (row.get("country_slug") or "").strip()
-    exchange = (row.get("exchange") or "").strip()
-    ticker = (row.get("ticker") or "").strip()
-    logo_file = (row.get("logo_file") or "").strip()
-
-    if not country_slug or not exchange or not ticker or not logo_file:
-        return "skip:missing-field"
-
-    # where the source image is
-    src_country = LOGOS_ROOT / country_slug
-    if not src_country.is_dir():
-        return f"skip:no-country:{country_slug}"
-
-    src_exchange = find_exchange_dir(src_country, exchange)
-    if not src_exchange:
-        return f"skip:no-exchange:{country_slug}/{exchange}"
-
-    src = src_exchange / logo_file
-    if not src.exists():
-        return f"skip:no-src:{country_slug}/{src_exchange.name}/{logo_file}"
-
-    # where to copy (ticker-named) — keep your exchange’s real casing
-    dst_dir = DIST / country_slug / src_exchange.name
-    dst_dir.mkdir(parents=True, exist_ok=True)
-
-    dst = dst_dir / f"{ticker.upper()}.png"
-
-    # avoid re-copying identical mapping in one run
-    key = (str(src), str(dst))
-    if key in seen:
-        return "dup"
-    seen.add(key)
-
-    shutil.copyfile(src, dst)
-    return "ok"
+def copy_if_changed(src: Path, dst: Path) -> bool:
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    if dst.exists():
+        # cheap “same file” check
+        if dst.stat().st_size == src.stat().st_size:
+            return False
+        dst.unlink()
+    shutil.copy2(src, dst)
+    return True
 
 def main():
-    if not MAP.exists():
-        print(f"ERROR: logos mapping not found at {MAP}", file=sys.stderr)
-        sys.exit(1)
+    if not MAP_FILE.exists():
+        print(f"[ERR] mapping file not found: {MAP_FILE}")
+        return 2
 
-    total, ok, skipped, missing, dup = 0, 0, 0, 0, 0
-    seen = set()
-    with MAP.open(newline="", encoding="utf-8") as fh:
-        reader = csv.DictReader(fh)
+    rows = 0
+    copied = 0
+    skipped = 0
+
+    with MAP_FILE.open("r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
         for row in reader:
-            total += 1
-            res = copy_logo(row, seen)
-            if res == "ok":
-                ok += 1
-            elif res == "dup":
-                dup += 1
-            elif res.startswith("skip:no-"):
-                missing += 1
-                print(res)
-            else:
+            rows += 1
+            country = (row.get("country_slug") or "").strip()
+            exch    = (row.get("exchange") or "").strip()
+            ticker  = normalize_ticker(row.get("ticker") or "")
+
+            src_hint = (row.get("logo_file") or "").strip()
+            if not country or not exch or not ticker or not src_hint:
                 skipped += 1
-    print(f"[logos] total:{total} ok:{ok} dup:{dup} skipped:{skipped} missing:{missing}")
+                print(f"[SKIP] missing fields for row {rows}: {row}")
+                continue
+
+            src = find_source(src_hint)
+            if not src:
+                skipped += 1
+                print(f"[SKIP] source not found for {ticker}: {src_hint}")
+                continue
+
+            # Always write to lower-case country/exchange folders (site expects that)
+            country_l = country.lower()
+            exch_l = exch.lower()
+
+            ext = src.suffix.lower() or ".png"
+            dst = OUT_ROOT / country_l / exch_l / f"{ticker}{ext}"
+
+            try:
+                changed = copy_if_changed(src, dst)
+                rel_in  = src.relative_to(SRC_ROOT)
+                rel_out = dst.relative_to(OUT_ROOT)
+                if changed:
+                    copied += 1
+                    print(f"[COPY] {rel_in} -> {rel_out}")
+                else:
+                    print(f"[OK]   up-to-date: {rel_out}")
+            except Exception as e:
+                skipped += 1
+                print(f"[ERR]  failed for {ticker}: {e}")
+
+    print(f"\n[SUMMARY] rows={rows} copied={copied} skipped={skipped}")
+    return 0
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
