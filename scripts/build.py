@@ -8,10 +8,7 @@ SGG-1 build.py — fast build from Data/LastTradingDay
 - Signal column is a clickable “AI Prediction” link
 - Copies static/styles + static/app (no heavy logo work)
 - Logos: copied once if available; use SKIP_LOGOS=1 to skip scanning/copy
-- Market-aware prediction date using markets_config.csv (timezone + close time)
-
-NOTE: Home page is now a clean two-column layout (sidebar + table) using a tiny
-inline CSS helper `.two-col`.
+- NEW: market-aware prediction date using markets_config.csv (timezone + close time)
 """
 
 import csv, html, json, os, re, unicodedata, shutil
@@ -88,6 +85,7 @@ class MarketTimes:
         key = (region.lower(), country.lower(), exchange.lower())
         item = self._by_key.get(key)
         if not item or not zoneinfo:
+            # Fallback: UTC next business day
             return next_business_day(datetime.utcnow().date()).isoformat()
 
         tzname = item["tz"]
@@ -107,8 +105,10 @@ class MarketTimes:
         close_local = datetime.combine(now_local.date(), close_t, tzinfo=tz)
 
         if now_local < close_local:
+            # market not closed yet -> prediction target is today (local)
             target = now_local.date()
         else:
+            # closed -> next business day (local)
             target = next_business_day(now_local.date())
         return target.isoformat()
 
@@ -209,14 +209,8 @@ def tpl_base(title, description, body, canonical):
     build_time=datetime.utcnow().isoformat(timespec="seconds")+"Z"
     css=f"{BASE_URL}/static/styles.css"; js=f"{BASE_URL}/static/app.js"
     extra_css="""
-    <style>
-      .btn{display:inline-block;padding:.35rem .7rem;border:1px solid #27406b;border-radius:8px}
-      .btn:hover{background:#122036}
-      .pct{font-weight:700}.pct.pos{color:#3ddc97}.pct.neg{color:#ff6b6b}
-      /* NEW: simple two-column helper */
-      .two-col{display:grid;grid-template-columns:300px 1fr;gap:16px;align-items:start}
-      @media (max-width:900px){.two-col{grid-template-columns:1fr}}
-    </style>"""
+    <style>.btn{display:inline-block;padding:.35rem .7rem;border:1px solid #27406b;border-radius:8px}
+    .btn:hover{background:#122036}.pct{font-weight:700}.pct.pos{color:#3ddc97}.pct.neg{color:#ff6b6b}</style>"""
     return f"""<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -256,36 +250,20 @@ def main():
     resolver=LogoResolver()
     mkt = MarketTimes()
 
-    # Home (now two columns: left chips, right table placeholder)
+    # Home
     home = """
-    <div class='layout'>
-    <!-- LEFT: Sidebar with drilldown -->
-    <aside class='sidebar card'>
-    <h2 class='h2'>Browse</h2>
-    <div class="picker">
-      <div class="row">
-        <div class="row-title">Regions</div>
-        <div id="regions" class="chips"></div>
-      </div>
-      <div class="row">
-        <div class="row-title">Countries</div>
-        <div id="countries" class="chips"></div>
-      </div>
-      <div class="row">
-        <div class="row-title">Exchanges</div>
-        <div id="exchanges" class="chips"></div>
-      </div>
-    </div>
-   </aside>
-
-  <!-- RIGHT: Stocks table -->
-  <section class='content card'>
-    <h2 class='h2'>Stocks</h2>
-    <div id="stocks_table">Pick a region → country → exchange</div>
-  </section>
-</div>
-"""
-
+<section class='card'>
+  <h2 class='h2'>Browse Markets</h2>
+  <div class="picker">
+    <div class="row"><div class="row-title">Regions</div><div id="regions" class="chips"></div></div>
+    <div class="row"><div class="row-title">Countries</div><div id="countries" class="chips"></div></div>
+    <div class="row"><div class="row-title">Exchanges</div><div id="exchanges" class="chips"></div></div>
+  </div>
+</section>
+<section class='card'>
+  <h2 class='h2'>Stocks</h2>
+  <div id="stocks_table">Pick a region → country → exchange</div>
+</section>"""
     write_text(DIST/"index.html", tpl_base(
         f"{CFG.get('site_title','')} — {CFG.get('site_tagline','')}",
         "Browse by region → country → exchange.", home, f"{BASE_URL}/"
@@ -321,6 +299,7 @@ def main():
                 ex_links.append(f"<li><a href='{e_url}'>{html.escape(exch)}</a></li>")
 
                 table_rows=[]; json_rows=[]
+                # prediction target date for this exchange (market-aware)
                 exch_pred_date = mkt.prediction_date(region=gname, country=cname, exchange=exch)
 
                 for r in erows:
@@ -340,7 +319,7 @@ def main():
                         "<tr>"
                         f"<td><a href='{stock_url}'>{html.escape(sym)}</a></td>"
                         f"<td><a href='{stock_url}'>{html.escape(name)}</a></td>"
-                        f"<td class='sector'><span class='tag'>{html.escape(sec)}</span></td>"
+                        f"<td>{html.escape(sec)}</td>"
                         f"<td>{'' if o is None else '{:.2f}'.format(o)}</td>"
                         f"<td>{'' if h is None else '{:.2f}'.format(h)}</td>"
                         f"<td>{'' if l is None else '{:.2f}'.format(l)}</td>"
@@ -361,7 +340,7 @@ def main():
                         "url": stock_url
                     })
 
-                    # very light stock page
+                    # very light stock page (no charts; fast)
                     if sym and None not in (o,h,l,cl):
                         title=f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
                         head = (
