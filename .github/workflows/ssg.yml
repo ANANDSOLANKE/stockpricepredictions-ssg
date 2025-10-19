@@ -3,26 +3,42 @@ name: Build & Deploy SSG
 on:
   workflow_dispatch:
   push:
+    branches: [ main ]
     paths:
       - "scripts/**"
-      - "templates/**"
-      - "static/**"
+      - "Data/**"
       - "logos/**"
+      - "static/**"
+      - "config.json"
       - ".github/workflows/ssg.yml"
+  schedule:
+    # Optional: 2x per day top-up
+    - cron: "5 5,17 * * *"
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  PYTHONUNBUFFERED: "1"
+  LOGO_MAP_PATH: "logos/_map/logos.csv"   # if you keep it as logos/logos.csv, change this
+  DIST_DIR: "dist"
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 600   # ⬅️ give first full injection room to finish
+    timeout-minutes: 45
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -32,34 +48,81 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas jinja2 python-slugify
+          pip install -r requirements.txt
 
+      # (Fast) make sure the logos folder is available in dist for the website
       - name: Ensure logos exist in dist (fast)
         run: |
-          if [ -d logos ]; then
-            mkdir -p dist
-            if [ ! -d dist/logos ]; then
-              cp -r logos dist/
-              echo "Copied logos → dist/logos"
-            else
-              echo "Logos already present"
-            fi
-          fi
+          mkdir -p "${DIST_DIR}/logos"
+          rsync -a --delete "logos/" "${DIST_DIR}/logos/"
 
+      # ---------- Build the site ----------
       - name: Build site (fast)
         run: python -u scripts/build.py
 
+      # ---------- Inject Last-7 performance into pages ----------
       - name: Inject last-7 performance
         run: python -u scripts/build_last7.py
 
+      # ---------- Inject logos from mapping into generated JSON/pages ----------
+      # This reads ${LOGO_MAP_PATH} and rewrites logo URLs in dist/static/exchanges/**/*.json
       - name: Inject logos from mapping
-        run: python -u scripts/inject_logos.py
+        run: |
+          python - <<'PY'
+          import os, sys, json, csv, pathlib
+          MAP = os.getenv("LOGO_MAP_PATH", "logos/_map/logos.csv")
+          DIST = pathlib.Path(os.getenv("DIST_DIR", "dist"))
+          exch_root = DIST / "static" / "exchanges"
+          if not exch_root.exists():
+              print("No exchanges folder yet; skipping logo injection.")
+              sys.exit(0)
 
+          # Build { (country_slug, exchange.upper(), symbol.upper()): "/logos/<country>/<EX>/<file>" }
+          mapping = {}
+          with open(MAP, "r", encoding="utf-8-sig", newline="") as f:
+              reader = csv.DictReader(f)
+              for row in reader:
+                  cslug = (row.get("country_slug") or "").strip().lower()
+                  ex    = (row.get("exchange")     or "").strip().upper()
+                  sym   = (row.get("symbol")       or "").strip().upper()
+                  logo  = (row.get("logo_file")    or "").strip()
+                  if cslug and ex and sym and logo:
+                      mapping[(cslug, ex, sym)] = f"/logos/{cslug}/{ex}/{logo}"
+
+          changed = 0
+          for jpath in exch_root.rglob("*.json"):
+              try:
+                  data = json.loads(jpath.read_text(encoding="utf-8"))
+              except Exception:
+                  continue
+              rows = data.get("rows") or []
+              touched = False
+              # Try to recover country/exchange from path: .../<region>/<country>/<exchange>.json
+              parts = jpath.parts
+              try:
+                  country_slug = parts[-2].lower()
+                  exchange = pathlib.Path(jpath).stem.upper()
+              except Exception:
+                  country_slug, exchange = "", ""
+              for r in rows:
+                  sym = (r.get("symbol") or "").upper()
+                  key = (country_slug, exchange, sym)
+                  logo = mapping.get(key)
+                  if logo and r.get("logo") != logo:
+                      r["logo"] = logo
+                      touched = True
+              if touched:
+                  jpath.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+                  changed += 1
+
+          print(f"[logos] updated files: {changed}")
+          PY
+
+      # ---------- Package & Deploy ----------
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
