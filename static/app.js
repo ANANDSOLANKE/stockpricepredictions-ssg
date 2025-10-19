@@ -3,11 +3,7 @@
   const BASE = (window.SPP_BASE || "").replace(/\/+$/, "");
   const INDEX_URL = window.SPP_INDEX_URL || (BASE + "/static/index.json");
 
-  const $regions   = document.getElementById("regions");
-  const $countries = document.getElementById("countries");
-  const $exchanges = document.getElementById("exchanges");
-  const $tableWrap = document.getElementById("stocks_table");
-
+  let $regions, $countries, $exchanges, $tableWrap;
   let SITE = null;
   let sel = { region: null, country: null, exchange: null };
 
@@ -25,25 +21,18 @@
     });
     return el;
   }
+  function clear(el) { while (el && el.firstChild) el.removeChild(el.firstChild); }
 
-  function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
-
-  // ---------- remove old HTML legends ----------
-  function killOldLegends() {
-    document.querySelectorAll('.chip').forEach(el => {
-      const t = (el.textContent || "").trim().toUpperCase();
-      if (t === "REGIONS" || t === "COUNTRIES" || t === "EXCHANGES") {
-        el.remove();
-      }
-    });
+  // Wipe any static chips that were in the HTML (prevents duplicates)
+  function wipeStaticSections() {
+    [$regions, $countries, $exchanges].forEach(el => { if (el) el.innerHTML = ""; });
   }
 
-  // ---------- keeps one title per section ----------
+  // Create a section skeleton once (title + chip container)
   function ensureSection($el, title) {
     if (!$el.dataset.prepared) {
-      $el.innerHTML = "";                                      // remove duplicates
       $el.appendChild(a("div", { class: "section-title" }, title.toUpperCase()));
-      $el.appendChild(a("div", { class: "section-chips" }));   // where chips live
+      $el.appendChild(a("div", { class: "section-chips" }));
       $el.dataset.prepared = "1";
     }
     return $el.querySelector(".section-chips");
@@ -56,7 +45,6 @@
     return c;
   }
 
-  // ---------- fetch + format ----------
   async function fetchJSON(url) {
     const res = await fetch(url, { cache: "no-cache" });
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
@@ -68,7 +56,6 @@
     const n = Number(x);
     return isFinite(n) ? n.toFixed(2) : "";
   }
-
   function pctSpan(val) {
     if (val === null || val === undefined || val === "") return document.createTextNode("");
     const n = Number(val);
@@ -165,7 +152,6 @@
       tr.appendChild(a("td", {}, formatNum(row.close)));
       tr.appendChild(a("td", {}, pctSpan(row.change_percent)));
       tr.appendChild(a("td", {}, a("a", { href: url, class: "btn" }, "AI Prediction")));
-
       tbody.appendChild(tr);
     });
 
@@ -174,10 +160,17 @@
     $tableWrap.appendChild(a("div", { class: "table-wrap" }, table));
   }
 
-  // ---------- boot ----------
-  (async function init() {
+  // ---------- boot after DOM is ready ----------
+  async function init() {
+    $regions   = document.getElementById("regions");
+    $countries = document.getElementById("countries");
+    $exchanges = document.getElementById("exchanges");
+    $tableWrap = document.getElementById("stocks_table");
+
+    // Remove any static badges/legacy chips so we don't see duplicates
+    wipeStaticSections();
+
     try {
-      killOldLegends();  // remove leftover labels
       SITE = await fetchJSON(INDEX_URL);
       renderRegions();
       if (SITE.regions?.length) {
@@ -193,5 +186,12 @@
     } catch {
       $tableWrap.textContent = "Failed to load site index.";
     }
-  })();
+  }
+
+  // Wait for DOM to exist
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
