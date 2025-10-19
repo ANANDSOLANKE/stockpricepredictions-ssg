@@ -1,109 +1,59 @@
 #!/usr/bin/env python3
-"""
-Build ticker-named logo copies from mapping CSVs.
-
-Inputs
-------
-- Source logos live at: logos/<country_slug>/<exchange>/<logo_file>
-- Mapping CSVs live at: logos/_map/*.csv  (combined)
-  Required columns: group,country_slug,country_name,exchange,ticker,company_name,logo_file
-
-Outputs
--------
-- dist/logos/<country_slug>/<exchange>/<TICKER>.png  (upper-cased ticker)
-- dist/logos/manifest.json  mapping "country/exchange/TICKER" -> relative logo path
-
-Notes
------
-- Safe to re-run; only overwrites targeted files.
-- Skips any rows where the source file doesn't exist.
-- No external deps (uses Python stdlib only).
-"""
-
-import csv
-import json
-import sys
-import shutil
+import csv, shutil
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]  # repo root
-SRC_LOGOS = ROOT / "logos"
-MAP_DIR = SRC_LOGOS / "_map"
-OUT = ROOT / "dist" / "logos"
-MANIFEST = OUT / "manifest.json"
+ROOT = Path(__file__).resolve().parents[1]
+SRC_LOGOS = ROOT / "logos"                 # your current logos root
+MAP1 = ROOT / "logos" / "logos.csv"        # you said your CSV is here
+MAP2 = ROOT / "logos" / "_map" / "logos.csv"  # fallback if you move it later
+DIST_TICKER = ROOT / "dist" / "logos" / "_ticker"
 
-REQUIRED_COLS = {
-    "group", "country_slug", "country_name", "exchange", "ticker", "company_name", "logo_file"
-}
-
-def read_mappings():
-    rows = []
-    if not MAP_DIR.exists():
-        print(f"[WARN] mapping folder not found: {MAP_DIR}")
-        return rows
-    for csv_path in sorted(MAP_DIR.glob("*.csv")):
-        print(f"[INFO] reading map: {csv_path.relative_to(ROOT)}")
-        with csv_path.open("r", encoding="utf-8-sig", newline="") as fh:
-            rdr = csv.DictReader(fh)
-            missing = REQUIRED_COLS - set([c.strip() for c in rdr.fieldnames or []])
-            if missing:
-                print(f"[WARN] skip {csv_path.name}: missing columns {sorted(missing)}")
-                continue
-            for r in rdr:
-                # trim whitespace from all fields
-                r = {k:(v.strip() if isinstance(v,str) else v) for k,v in r.items()}
-                rows.append(r)
-    return rows
-
-def copy_logo(row, manifest):
-    ctry = row["country_slug"]
-    exch = row["exchange"]
-    ticker = (row["ticker"] or "").upper()
-    src_name = row["logo_file"]
-
-    # Source path: logos/<country_slug>/<exchange>/<logo_file>
-    src = SRC_LOGOS / ctry / exch / src_name
-    if not src.exists():
-        print(f"[MISS] {src.relative_to(ROOT)}")
-        return False
-
-    # Dest path: dist/logos/<country_slug>/<exchange>/<TICKER>.png
-    dst_dir = OUT / ctry / exch
-    dst_dir.mkdir(parents=True, exist_ok=True)
-    # keep original extension
-    ext = src.suffix.lower() if src.suffix else ".png"
-    dst = dst_dir / f"{ticker}{ext}"
-
-    shutil.copyfile(src, dst)
-    key = f"{ctry}/{exch}/{ticker}"
-    manifest[key] = f"/logos/{ctry}/{exch}/{ticker}{ext}"
-    print(f"[OK]  {key}  <-  {src_name}")
-    return True
+def read_rows():
+    mapfile = MAP1 if MAP1.exists() else MAP2
+    if not mapfile.exists():
+        raise SystemExit(f"Logo mapping CSV not found at {MAP1} or {MAP2}")
+    with mapfile.open(newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for r in reader:
+            # expected headers in your sample:
+            # group,country_slug,country_name,exchange,ticker,company_name,logo_file
+            yield {
+                "group": (r.get("group") or "").strip(),
+                "country": (r.get("country_slug") or "").strip(),
+                "exchange": (r.get("exchange") or "").strip().lower(),
+                "ticker": (r.get("ticker") or "").strip().upper(),
+                "logo_file": (r.get("logo_file") or "").strip()
+            }
 
 def main():
-    OUT.mkdir(parents=True, exist_ok=True)
+    copied, missing = 0, 0
+    for row in read_rows():
+        if not (row["group"] and row["country"] and row["exchange"] and row["ticker"] and row["logo_file"]):
+            continue
 
-    rows = read_mappings()
-    if not rows:
-        print("[INFO] no mapping rows found")
-        return 0
+        # source like: logos/<country>/<exchange>/<logo_file>
+        src = SRC_LOGOS / row["country"] / row["exchange"] / row["logo_file"]
+        # dest like:  dist/logos/_ticker/<group>/<country>/<exchange>/<TICKER>.png
+        dest = DIST_TICKER / row["group"] / row["country"] / row["exchange"] / f"{row['ticker']}.png"
+        dest.parent.mkdir(parents=True, exist_ok=True)
 
-    injected = 0
-    manifest = {}
-    for r in rows:
-        try:
-            if copy_logo(r, manifest):
-                injected += 1
-        except Exception as e:
-            print(f"[ERR] row for {r.get('exchange')}/{r.get('ticker')}: {e}")
+        if src.exists():
+            shutil.copyfile(src, dest)
+            copied += 1
+        else:
+            # sometimes your logos live one level up (only exchange) or in a different suffix
+            # try a couple of fallbacks quickly:
+            alt1 = SRC_LOGOS / row["country"] / row["logo_file"]
+            alt2 = SRC_LOGOS / row["exchange"] / row["logo_file"]
+            src2 = alt1 if alt1.exists() else (alt2 if alt2.exists() else None)
+            if src2 and src2.exists():
+                shutil.copyfile(src2, dest)
+                copied += 1
+            else:
+                missing += 1
+                print(f"[MISS] {row['ticker']} -> {src}")
 
-    # write manifest
-    tmp = MANIFEST.with_suffix(".json.tmp")
-    tmp.write_text(json.dumps(manifest, indent=2, sort_keys=True), encoding="utf-8")
-    tmp.replace(MANIFEST)
-
-    print(f"[DONE] injected: {injected}, manifest: {MANIFEST.relative_to(ROOT)}")
-    return 0
+    print(f"[logos] copied={copied} missing={missing} -> {DIST_TICKER}")
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
