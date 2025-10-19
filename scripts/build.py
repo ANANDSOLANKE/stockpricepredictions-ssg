@@ -6,12 +6,12 @@ SGG-1 build.py — fast build from Data/LastTradingDay
 - Reads Data/LastTradingDay/<Group>/<country>.csv
 - Adds Change% after Close
 - Signal column is a clickable “AI Prediction” link
-- Copies static/styles + static/app (no heavy logo work)
-- Logos: copied once if available; use SKIP_LOGOS=1 to skip scanning/copy
+- Copies static/styles + static/app (no heavy charting)
+- Logos: **rsync-style sync** logos/ -> dist/logos/ (no more stale logos)
 - NEW: market-aware prediction date using markets_config.csv (timezone + close time)
 """
 
-import csv, html, json, os, re, unicodedata, shutil
+import csv, html, json, os, re, unicodedata, shutil, stat
 from pathlib import Path
 from datetime import datetime, timedelta, time
 from typing import Dict, List, Optional, Tuple
@@ -52,7 +52,6 @@ def next_business_day(d):
 # ---------- market config (timezone/close) ----------
 class MarketTimes:
     def __init__(self):
-        self.rows: List[Dict[str,str]] = []
         self._by_key: Dict[Tuple[str,str,str], Dict[str,str]] = {}
         self._load()
 
@@ -85,7 +84,6 @@ class MarketTimes:
         key = (region.lower(), country.lower(), exchange.lower())
         item = self._by_key.get(key)
         if not item or not zoneinfo:
-            # Fallback: UTC next business day
             return next_business_day(datetime.utcnow().date()).isoformat()
 
         tzname = item["tz"]
@@ -105,10 +103,8 @@ class MarketTimes:
         close_local = datetime.combine(now_local.date(), close_t, tzinfo=tz)
 
         if now_local < close_local:
-            # market not closed yet -> prediction target is today (local)
             target = now_local.date()
         else:
-            # closed -> next business day (local)
             target = next_business_day(now_local.date())
         return target.isoformat()
 
@@ -156,6 +152,7 @@ def _norm(s:str)->str:
     return re.sub(r"[^A-Z0-9]","",s.upper())
 
 def load_logos_index():
+    # optional curated mapping: { "NSE": { "TCS": "india/NSE/tcs--600.png", ... }, ... }
     for p in [ROOT/"logos_index.json", ROOT/"logos"/"logos_index.json"]:
         if p.exists():
             try:
@@ -169,25 +166,75 @@ def load_logos_index():
     return {}
 
 def build_scan_index():
+    # gather ticker-named files by exchange (case preserved in folder names)
     base=ROOT/"logos"; idx={}
     if not base.exists(): return idx
     for root,_,files in os.walk(base):
         for f in files:
             if os.path.splitext(f)[1].lower() not in IMG_EXTS: continue
             full=Path(root)/f; rel=full.relative_to(base).as_posix()
-            exch=full.parent.name; stem=os.path.splitext(f)[0]
+            exch=full.parent.name  # e.g., NSE/BSE/ASX/…
+            stem=os.path.splitext(f)[0]
+            # trim trailing id/hash parts like --600
             stem=re.sub(r"(--|_|-)?\d{2,4}$","",stem)
             idx.setdefault(exch.upper(), []).append((_norm(stem), rel))
     return idx
 
+def _same_file(src: Path, dst: Path) -> bool:
+    try:
+        s = src.stat(); d = dst.stat()
+        # compare size + mtime (1s resolution; GH runners often have seconds granularity)
+        return (s.st_size == d.st_size) and (int(s.st_mtime) == int(d.st_mtime))
+    except FileNotFoundError:
+        return False
+
+def sync_tree(src: Path, dst: Path):
+    """
+    Rsync-like sync: copy new/changed files, remove stale files.
+    Only under SKIP_LOGOS==0.
+    """
+    ensure_dir(dst)
+    # copy / update
+    for root, dirs, files in os.walk(src):
+        rel_root = Path(root).relative_to(src)
+        out_root = dst / rel_root
+        ensure_dir(out_root)
+        for f in files:
+            s = Path(root) / f
+            d = out_root / f
+            if not _same_file(s, d):
+                ensure_dir(d.parent)
+                shutil.copy2(s, d)
+    # delete stale
+    for root, dirs, files in os.walk(dst):
+        rel_root = Path(root).relative_to(dst)
+        in_src = src / rel_root
+        # remove files missing in src
+        for f in files:
+            if not (in_src / f).exists():
+                try: (Path(root) / f).unlink()
+                except Exception: pass
+        # remove empty dirs that don’t exist in src
+        for dname in list(dirs):
+            dst_d = Path(root) / dname
+            src_d = in_src / dname
+            if not src_d.exists():
+                try: shutil.rmtree(dst_d)
+                except Exception: pass
+
 class LogoResolver:
     def __init__(self):
         self.placeholder=f"{BASE_URL}/static/logo-placeholder.svg"
-        if SKIP_LOGOS: self.curated={}; self.scan={}
+        if SKIP_LOGOS:
+            self.curated={}; self.scan={}
         else:
-            src=ROOT/"logos"; dst=DIST/"logos"
-            if src.exists() and not dst.exists(): shutil.copytree(src,dst)
-            self.curated=load_logos_index(); self.scan=build_scan_index()
+            src = ROOT / "logos"
+            dst = DIST / "logos"
+            if src.exists():
+                # always sync to avoid stale logos
+                sync_tree(src, dst)
+            self.curated=load_logos_index()
+            self.scan=build_scan_index()
         self.cache={}
     def url_for(self, exchange:str, symbol:str, name:str="")->str:
         key=(exchange or "", symbol or "")
@@ -299,7 +346,6 @@ def main():
                 ex_links.append(f"<li><a href='{e_url}'>{html.escape(exch)}</a></li>")
 
                 table_rows=[]; json_rows=[]
-                # prediction target date for this exchange (market-aware)
                 exch_pred_date = mkt.prediction_date(region=gname, country=cname, exchange=exch)
 
                 for r in erows:
@@ -340,7 +386,7 @@ def main():
                         "url": stock_url
                     })
 
-                    # very light stock page (no charts; fast)
+                    # very light stock page
                     if sym and None not in (o,h,l,cl):
                         title=f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
                         head = (
