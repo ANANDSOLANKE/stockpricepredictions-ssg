@@ -1,166 +1,48 @@
-/* --------- Design tokens --------- */
-:root{
-  --bg:#0b1220; 
-  --panel:#0f172a; 
-  --panel-2:#0c1426; 
-  --border:#1f2a44;
-  --text:#e8f0fe; 
-  --muted:#9fb3c8; 
-  --brand:#4f8cff; 
-  --brand-2:#7aa5ff;
-  --chip:#0e1729; 
-  --chip-border:#223157; 
-  --chip-active:#16305e;
-  --success:#3ddc97; 
-  --danger:#ff6b6b; 
-  --warning:#ffd166;
-  --shadow:0 10px 24px rgba(0,0,0,.25);
-}
-
-/* --------- Base --------- */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0; 
-  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
-  background:linear-gradient(180deg, var(--bg), #0b1325 40%, #091022);
-  color:var(--text); 
-  -webkit-font-smoothing:antialiased; 
-  text-rendering:optimizeLegibility;
-}
-a{color:var(--brand); text-decoration:none}
-a:hover{color:var(--brand-2); text-decoration:underline}
-.container{max-width:1200px;margin:0 auto;padding:28px}
-
-/* --------- Header --------- */
-.hero{
-  background:radial-gradient(1400px 400px at 50% -250px, rgba(79,140,255,.25), transparent 60%), var(--panel);
-  border:1px solid var(--border); 
-  border-radius:18px; 
-  padding:22px 24px; 
-  box-shadow:var(--shadow);
-}
-.breadcrumbs a{color:var(--muted)}
-.h1{font-size:28px; line-height:1.25; margin:6px 0 8px}
-.small{color:var(--muted)}
-.kv{display:flex; gap:18px; flex-wrap:wrap; margin-top:8px}
-.kv div{color:var(--muted); font-size:14px}
-
-/* --------- Cards & layout --------- */
-.card{
-  background:var(--panel); 
-  border:1px solid var(--border);
-  border-radius:18px; 
-  padding:18px; 
-  box-shadow:var(--shadow);
-}
-.grid{display:grid; grid-template-columns:1fr; gap:16px; margin-top:18px}
-.h2{font-size:22px; margin:0 0 10px}
-.h3{font-size:18px; margin:0 0 8px}
-
-/* =========================================================
-   PICKER (Regions / Countries / Exchanges)
-   ======================================================= */
-.picker {
-  margin-top: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
+/* === Markets picker layout & chips (append at end) === */
+.picker { display:grid; gap:12px; }
 
 .picker .row {
-  display: grid;
-  grid-template-columns: 160px 1fr; /* label | chips */
-  gap: 12px;
-  align-items: start;
+  display:grid;
+  grid-template-columns: 160px 1fr;  /* label | chips */
+  align-items:start;
+  gap:8px;
 }
 
-.picker .row-title {
-  font-size: 12px;
-  line-height: 1;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 10px 14px;
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 12px;
-  background: rgba(255,255,255,.04);
-  user-select: none;
+.row-title {
+  font-size:12px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#8ea4c8;
+  background:#0d1a2b;
+  border:1px solid #243b63;
+  border-radius:10px;
+  padding:.45rem .75rem;
+  text-align:center;
+  white-space:nowrap;
 }
 
-.picker .chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 12px; /* row | column gap */
+.chips { display:flex; flex-wrap:wrap; gap:8px; }
+
+.chip {
+  display:inline-flex;
+  align-items:center;
+  padding:.45rem .85rem;
+  border:1px solid #284472;
+  border-radius:999px;
+  background:#0f1c2d;
+  color:#cfe0ff;
+  cursor:pointer;
+  user-select:none;
+  transition:background .15s, border-color .15s, box-shadow .15s;
 }
+.chip:hover  { background:#13233a; border-color:#3a5a96; }
+.chip.active { background:#1b2b49; border-color:#4f7bff; box-shadow:0 0 0 2px rgba(79,123,255,.15) inset; }
 
-.picker .chip {
-  display: inline-flex;
-  align-items: center;
-  height: 38px;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-  color: #e5e7eb;
-  font-size: 14px;
-  line-height: 1;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all .18s ease;
-}
+/* name-with-logo in table */
+.name-with-logo { display:inline-flex; align-items:center; gap:8px; }
+.logo-ico { width:20px; height:20px; object-fit:contain; border-radius:4px; }
 
-.picker .chip:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,.20);
-  border-color: rgba(255,255,255,.24);
-}
-
-.picker .chip.active {
-  color: #fff;
-  background: linear-gradient(180deg, #2f66ff, #1d42d6);
-  border-color: rgba(255,255,255,.28);
-}
-
-/* ---------- Responsive tweaks ---------- */
-@media (max-width: 900px) {
-  .picker .row { grid-template-columns: 130px 1fr; gap: 10px; }
-  .picker .row-title { padding: 8px 12px; font-size: 11px; }
-  .picker .chip { height: 34px; padding: 0 12px; font-size: 13px; }
-}
-@media (max-width: 640px) {
-  .picker .row { grid-template-columns: 1fr; }
-  .picker .row-title { width: fit-content; }
-}
-
-/* --------- Table --------- */
-.table-wrap{overflow:auto; border:1px solid var(--border); border-radius:16px}
-.table{width:100%; border-collapse:separate; border-spacing:0}
-.table thead th{
-  position:sticky; top:0; background:#0e162c; color:var(--muted);
-  font-weight:600; text-align:left; padding:12px; border-bottom:1px solid var(--border); white-space:nowrap;
-}
-.table tbody td{padding:12px; border-bottom:1px solid var(--border)}
-.table tbody tr:nth-child(odd){background:#0d172c}
-.table tbody tr:hover{background:#12233f}
-
-.name-with-logo{display:inline-flex; align-items:center; gap:8px}
-.logo-ico{width:20px; height:20px; object-fit:contain; background:#0e1729; border:1px solid var(--chip-border); border-radius:4px; padding:2px}
-
-/* Change% coloring */
-.pct{font-weight:700}
-.pct.pos{color:var(--success)}
-.pct.neg{color:var(--danger)}
-
-/* Buttons */
-.btn{
-  display:inline-block;
-  padding:.35rem .7rem;
-  border:1px solid #27406b;
-  border-radius:8px;
-}
-.btn:hover{background:#122036}
-
-/* --------- Footer --------- */
-.footer{color:var(--muted); font-size:13px}
-.footer a{color:var(--brand-2)}
+/* percent colors */
+.pct { font-weight:700; }
+.pct.pos { color:#3ddc97; }
+.pct.neg { color:#ff6b6b; }
