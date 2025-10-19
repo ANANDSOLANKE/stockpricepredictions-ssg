@@ -143,3 +143,62 @@ a{color:var(--brand); text-decoration:none} a:hover{color:var(--brand-2); text-d
 @media (min-width:900px){
   .grid{grid-template-columns:1fr}
 }
+/* --------- CLEAN SECTION LAYOUT --------- */
+#regions, #countries, #exchanges {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) 1fr;
+  gap: 8px 16px;
+  align-items: start;
+}
+
+/* Section label style (inserted by JS) */
+.section-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #9fb3ff;
+  opacity: 0.9;
+  margin-top: 6px;
+}
+
+/* Chips container styling */
+.section-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Individual chips */
+.chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d5d5d5;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  background: rgba(100, 150, 255, 0.2);
+  color: #fff;
+}
+
+/* Active (selected) chip */
+.chip.active {
+  background: rgba(90, 140, 255, 0.18);
+  border-color: rgba(90, 140, 255, 0.55);
+  color: #cfe1ff;
+}
+
+/* Responsive stacking for mobile */
+@media (max-width: 720px) {
+  #regions, #countries, #exchanges {
+    grid-template-columns: 1fr;
+    gap: 6px 10px;
+  }
+  .section-title {
+    margin: 8px 0 2px;
+  }
+}
