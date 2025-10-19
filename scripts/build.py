@@ -12,7 +12,6 @@ SGG-1 build.py — fast build from Data/LastTradingDay
 """
 
 import csv, html, json, os, re, unicodedata, shutil, stat
-from scripts.logo_map import LogoMap  # <-- add this import
 from pathlib import Path
 from datetime import datetime, timedelta, time
 from typing import Dict, List, Optional, Tuple
