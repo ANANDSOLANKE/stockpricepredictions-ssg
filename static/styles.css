@@ -190,3 +190,23 @@ a:hover{ color:var(--text); text-decoration:underline; }
   .picker .row{grid-template-columns:1fr;}
   .row-title{justify-self:start;}
 }
+/* --- Constrain logo images in tables --- */
+.table td img {
+  max-width: 64px;        /* never wider than this */
+  max-height: 40px;       /* and never taller than this */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+}
+
+/* If a small inline logo appears with the name, keep it tight */
+.name-with-logo .logo-ico,
+.logo-ico {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
