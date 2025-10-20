@@ -1,121 +1,192 @@
-/* ================================
-   Compact, labeled market picker
-   ================================ */
-.picker { 
-  margin-top: 1rem;
+/* =====================================================
+   StockPricePredictions Unified Stylesheet
+   (Dark theme + Picker + Table)
+   ===================================================== */
+
+/* ---------- Theme tokens ---------- */
+:root{
+  --bg: #0b1624;
+  --panel: #0f1c2d;
+  --panel-weak:#0d1a2b;
+  --border: #22395f;
+  --border-strong:#29467a;
+  --text: #cfe0ff;
+  --text-dim:#93a6c7;
+  --accent:#4f7bff;
+  --accent-weak:#1b2b49;
+  --chip-bg:#0f1c2d;
+  --chip-hover:#13233a;
+  --chip-border:#284472;
+  --good:#3ddc97;
+  --bad:#ff6b6b;
 }
 
-.picker .row {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 12px;
-  align-items: start;
-  margin: 8px 0;
+/* ---------- Base ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ height:100%; }
+body{
+  font-family:Inter,system-ui,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  line-height:1.5;
+}
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ color:var(--text); text-decoration:underline; }
+.container{ max-width:1200px; margin:0 auto; padding:28px; }
+
+/* =====================================================
+   HEADER / HERO
+   ===================================================== */
+.hero{
+  background:radial-gradient(1400px 400px at 50% -250px, rgba(79,140,255,.25), transparent 60%), var(--panel);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px 24px;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+.breadcrumbs a{color:var(--text-dim);}
+.h1{font-size:28px;line-height:1.25;margin:6px 0 8px;}
+.small{color:var(--text-dim);}
+.kv{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;}
+.kv div{color:var(--text-dim);font-size:14px;}
+
+/* =====================================================
+   PICKER (Regions / Countries / Exchanges)
+   ===================================================== */
+.picker{
+  display:grid;
+  gap:14px;
+  margin-top:18px;
 }
 
-/* Add horizontal lines between each section */
+.picker .row{
+  display:grid;
+  grid-template-columns: 160px 1fr;
+  align-items:start;
+  gap:10px;
+  margin:8px 0;
+}
+
+/* Horizontal dividers between sections */
 .picker .row + .row {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: 12px;
   margin-top: 12px;
 }
 
-.picker .row-title {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--muted, #8aa);
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 10px;
-  padding: 10px 12px;
-  text-align: center;
+.row-title{
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--text-dim);
+  background:var(--panel-weak);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:.5rem .9rem;
+  text-align:center;
+  white-space:nowrap;
 }
 
-.picker .chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 12px;
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
-.chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.10);
-  color: #e8f0ff;
-  cursor: pointer;
-  user-select: none;
-  transition: background .15s ease, border-color .15s ease, transform .05s ease;
-  font-size: .95rem;
-  line-height: 1;
+.chip{
+  display:inline-flex;
+  align-items:center;
+  padding:.5rem 1rem;
+  background:var(--chip-bg);
+  color:var(--text);
+  border:1px solid var(--chip-border);
+  border-radius:999px;
+  cursor:pointer;
+  user-select:none;
+  transition:background .15s,border-color .15s,box-shadow .15s,color .15s;
+}
+.chip:hover{background:var(--chip-hover);border-color:var(--border-strong);}
+.chip.active{background:var(--accent-weak);border-color:var(--accent);box-shadow:0 0 0 2px rgba(79,123,255,.15) inset;}
+
+/* =====================================================
+   TABLE STYLES (Stock List)
+   ===================================================== */
+.table-wrap{
+  overflow:auto;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--panel);
+  margin-top:20px;
 }
 
-.chip:hover { 
-  background: rgba(255,255,255,.10); 
-  border-color: rgba(255,255,255,.18); 
-}
-.chip:active { transform: translateY(1px); }
-.chip.active { 
-  background: rgba(64,132,255,.18); 
-  border-color: rgba(64,132,255,.35); 
-  color: #dbe8ff; 
+.table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  min-width:900px;
 }
 
-/* --- Mobile adjustments --- */
-@media (max-width: 720px) {
-  .picker .row { 
-    grid-template-columns: 110px 1fr; 
-    gap: 10px; 
-  }
-  .chip { 
-    padding: 9px 12px; 
-    font-size: .9rem; 
-  }
+.table thead th{
+  position:sticky;
+  top:0;
+  z-index:1;
+  background:var(--panel-weak);
+  color:var(--text-dim);
+  font-weight:600;
+  letter-spacing:.02em;
+  text-align:left;
+  padding:10px 12px;
+  border-bottom:1px solid var(--border);
 }
 
-/* ================================
-   Table styling (keep your old look)
-   ================================ */
-.table-wrap { 
-  overflow-x: auto; 
+.table tbody td{
+  padding:12px;
+  border-bottom:1px solid var(--border);
+  vertical-align:middle;
 }
+.table tbody tr:nth-child(odd){background:#0d172c;}
+.table tbody tr:hover{background:#12233f;}
 
-.table { 
-  width:100%; 
-  border-collapse: collapse; 
+/* name-with-logo */
+.name-with-logo{display:inline-flex;align-items:center;gap:8px;}
+.logo-ico{width:20px;height:20px;object-fit:contain;border-radius:4px;}
+
+/* Percent colors */
+.pct{font-weight:700;}
+.pct.pos{color:var(--good);}
+.pct.neg{color:var(--bad);}
+
+/* AI Prediction button */
+.btn{
+  display:inline-block;
+  font-size:13px;
+  padding:.35rem .7rem;
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:999px;
+  text-decoration:none;
+  transition:background .15s,border-color .15s;
 }
+.btn:hover{background:var(--chip-hover);border-color:var(--border-strong);}
 
-.table th, .table td { 
-  padding: 10px 12px; 
-  border-bottom: 1px solid rgba(255,255,255,.08); 
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.footer{color:var(--text-dim);font-size:13px;text-align:center;margin-top:20px;}
+.footer a{color:var(--accent);}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width:900px){
+  .picker .row{grid-template-columns:140px 1fr;}
+  .table{min-width:600px;}
 }
-
-.pct { 
-  white-space: nowrap; 
-}
-
-.pct.pos { 
-  color: #4ee28c; 
-}
-
-.pct.neg { 
-  color: #ff7b7b; 
-}
-
-.name-with-logo { 
-  display: inline-flex; 
-  align-items: center; 
-  gap: 8px; 
-}
-
-.logo-ico { 
-  width: 18px; 
-  height: 18px; 
-  border-radius: 4px; 
-  object-fit: contain; 
-  background: #111a; 
+@media (max-width:640px){
+  .picker .row{grid-template-columns:1fr;}
+  .row-title{justify-self:start;}
 }
