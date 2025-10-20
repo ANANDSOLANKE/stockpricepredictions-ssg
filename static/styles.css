@@ -1,47 +1,192 @@
-/* static/styles.css */
-:root {
-  --bg: #0b1220;
-  --card: #0e1729;
-  --text: #cfe3ff;
-  --muted: #9fb5d9;
-  --line: #223157;
+/* =====================================================
+   StockPricePredictions Unified Stylesheet
+   (Dark theme + Picker + Table)
+   ===================================================== */
+
+/* ---------- Theme tokens ---------- */
+:root{
+  --bg: #0b1624;
+  --panel: #0f1c2d;
+  --panel-weak:#0d1a2b;
+  --border: #22395f;
+  --border-strong:#29467a;
+  --text: #cfe0ff;
+  --text-dim:#93a6c7;
+  --accent:#4f7bff;
+  --accent-weak:#1b2b49;
+  --chip-bg:#0f1c2d;
+  --chip-hover:#13233a;
+  --chip-border:#284472;
+  --good:#3ddc97;
+  --bad:#ff6b6b;
 }
 
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+/* ---------- Base ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ height:100%; }
+body{
+  font-family:Inter,system-ui,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  line-height:1.5;
+}
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ color:var(--text); text-decoration:underline; }
+.container{ max-width:1200px; margin:0 auto; padding:28px; }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 16px; }
-.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-bottom: 16px; }
-.hero { padding: 20px; }
-.h1 { margin: 8px 0; font-size: 1.4rem; }
-.h2 { margin: 0 0 12px; font-size: 1.1rem; }
-.h3 { margin: 0 0 8px; font-size: 1rem; }
-.small { color: var(--muted); font-size: .9rem; }
+/* =====================================================
+   HEADER / HERO
+   ===================================================== */
+.hero{
+  background:radial-gradient(1400px 400px at 50% -250px, rgba(79,140,255,.25), transparent 60%), var(--panel);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px 24px;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+.breadcrumbs a{color:var(--text-dim);}
+.h1{font-size:28px;line-height:1.25;margin:6px 0 8px;}
+.small{color:var(--text-dim);}
+.kv{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;}
+.kv div{color:var(--text-dim);font-size:14px;}
 
-.grid { display: grid; gap: 16px; }
-.footer { color: var(--muted); font-size: .85rem; }
+/* =====================================================
+   PICKER (Regions / Countries / Exchanges)
+   ===================================================== */
+.picker{
+  display:grid;
+  gap:14px;
+  margin-top:18px;
+}
 
-.picker .row { display: grid; grid-template-columns: 120px 1fr; gap: 8px; align-items: start; margin-bottom: 10px; }
-.row-title { text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+.picker .row{
+  display:grid;
+  grid-template-columns: 160px 1fr;
+  align-items:start;
+  gap:10px;
+  margin:8px 0;
+}
 
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { padding: 6px 10px; border: 1px solid var(--line); background: transparent; color: var(--text); border-radius: 999px; cursor: pointer; }
-.chip:hover { background: #122036; }
+/* Horizontal dividers between sections */
+.picker .row + .row {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 12px;
+  margin-top: 12px;
+}
 
-.table { width: 100%; border-collapse: collapse; overflow: hidden; }
-.table th, .table td { border-top: 1px solid var(--line); padding: 8px; text-align: left; font-size: .95rem; }
-.table thead th { border-top: none; color: var(--muted); font-weight: 600; }
+.row-title{
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--text-dim);
+  background:var(--panel-weak);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:.5rem .9rem;
+  text-align:center;
+  white-space:nowrap;
+}
 
-.logo { width: 24px; height: 24px; border-radius: 6px; display: block; }
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
 
-.btn { display: inline-block; padding: .35rem .7rem; border: 1px solid var(--line); border-radius: 8px; text-decoration: none; color: var(--text); }
-.btn:hover { background: #122036; }
+.chip{
+  display:inline-flex;
+  align-items:center;
+  padding:.5rem 1rem;
+  background:var(--chip-bg);
+  color:var(--text);
+  border:1px solid var(--chip-border);
+  border-radius:999px;
+  cursor:pointer;
+  user-select:none;
+  transition:background .15s,border-color .15s,box-shadow .15s,color .15s;
+}
+.chip:hover{background:var(--chip-hover);border-color:var(--border-strong);}
+.chip.active{background:var(--accent-weak);border-color:var(--accent);box-shadow:0 0 0 2px rgba(79,123,255,.15) inset;}
 
-.pct { font-weight: 700; }
-.pct.pos { color: #3ddc97; }
-.pct.neg { color: #ff6b6b; }
+/* =====================================================
+   TABLE STYLES (Stock List)
+   ===================================================== */
+.table-wrap{
+  overflow:auto;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--panel);
+  margin-top:20px;
+}
 
-@media (max-width: 640px) {
-  .picker .row { grid-template-columns: 90px 1fr; }
-  .h1 { font-size: 1.2rem; }
+.table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  min-width:900px;
+}
+
+.table thead th{
+  position:sticky;
+  top:0;
+  z-index:1;
+  background:var(--panel-weak);
+  color:var(--text-dim);
+  font-weight:600;
+  letter-spacing:.02em;
+  text-align:left;
+  padding:10px 12px;
+  border-bottom:1px solid var(--border);
+}
+
+.table tbody td{
+  padding:12px;
+  border-bottom:1px solid var(--border);
+  vertical-align:middle;
+}
+.table tbody tr:nth-child(odd){background:#0d172c;}
+.table tbody tr:hover{background:#12233f;}
+
+/* name-with-logo */
+.name-with-logo{display:inline-flex;align-items:center;gap:8px;}
+.logo-ico{width:20px;height:20px;object-fit:contain;border-radius:4px;}
+
+/* Percent colors */
+.pct{font-weight:700;}
+.pct.pos{color:var(--good);}
+.pct.neg{color:var(--bad);}
+
+/* AI Prediction button */
+.btn{
+  display:inline-block;
+  font-size:13px;
+  padding:.35rem .7rem;
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:999px;
+  text-decoration:none;
+  transition:background .15s,border-color .15s;
+}
+.btn:hover{background:var(--chip-hover);border-color:var(--border-strong);}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.footer{color:var(--text-dim);font-size:13px;text-align:center;margin-top:20px;}
+.footer a{color:var(--accent);}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width:900px){
+  .picker .row{grid-template-columns:140px 1fr;}
+  .table{min-width:600px;}
+}
+@media (max-width:640px){
+  .picker .row{grid-template-columns:1fr;}
+  .row-title{justify-self:start;}
 }
