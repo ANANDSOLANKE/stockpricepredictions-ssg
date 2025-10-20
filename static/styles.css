@@ -236,3 +236,13 @@ a:hover{ color:var(--text); text-decoration:underline; }
   font-weight: 600;
 }
 
+/* --- Strong highlight for the selected (active) chip --- */
+#regions .chip.active,
+#countries .chip.active,
+#exchanges .chip.active {
+  background: var(--accent-weak, #284cff);
+  color: #fff;
+  border-color: var(--accent, #4f7bff);
+  box-shadow: 0 0 6px rgba(79, 123, 255, 0.45);
+  font-weight: 600;
+}
