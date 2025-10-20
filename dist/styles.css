@@ -22,6 +22,7 @@
 
 .picker .row-title {
   font-size: 0.85rem;
+  font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--muted, #8aa);
