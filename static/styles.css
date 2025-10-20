@@ -209,4 +209,30 @@ a:hover{ color:var(--text); text-decoration:underline; }
   object-fit: contain;
   border-radius: 4px;
 }
+/* --- Highlight selected chip (Region / Country / Exchange) --- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--chip-bg);
+  color: var(--text);
+  border: 1px solid var(--chip-border);
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.chip:hover {
+  background: var(--chip-hover);
+  border-color: var(--border-strong);
+}
+
+.chip.active {
+  background: var(--accent-weak);      /* blue highlight */
+  color: #ffffff;                      /* white text */
+  border-color: var(--accent);         /* bright border */
+  box-shadow: 0 0 6px rgba(79, 123, 255, 0.4);
+  font-weight: 600;
+}
 
