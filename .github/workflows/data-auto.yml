@@ -94,6 +94,10 @@ jobs:
         run: |
           python -u scripts/build.py
 
+      # ✅ NEW STEP — Inject logos from mapping file
+      - name: Inject logos from mapping
+        run: python -u scripts/inject_logos.py
+
       # --- Inject last-7 performance table ---
       - name: Inject last-7 performance
         if: steps.diff.outputs.changed == 'true'
