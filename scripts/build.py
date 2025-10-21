@@ -550,7 +550,7 @@ if __name__ == "__main__":
 # If your workflow already runs `python -u scripts/theme_override.py`, you can
 # set USE_V2_UI=False below or delete this block to avoid running it twice.
 try:
-    USE_V2_UI = True
+    USE_V2_UI = False
     if USE_V2_UI:
         from scripts.theme_override import apply_prediction_template
         apply_prediction_template()
