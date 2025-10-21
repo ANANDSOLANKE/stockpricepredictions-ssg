@@ -104,6 +104,9 @@ jobs:
         run: |
           python -u scripts/build_last7.py
 
+      - name: Apply full v2 rebuild (webpage.html look)
+        run: python -u scripts/theme_rebuild_v2.py
+
       # --- Commit & push only if Data changed ---
       - name: Commit and push updated data + dist
         if: steps.diff.outputs.changed == 'true'
