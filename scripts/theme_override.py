@@ -1,147 +1,158 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-"""
-Non-destructive page template override for prediction pages.
-
-- Scans dist/**/prediction-tomorrow/index.html
-- Parses the page for context (symbol, company, region/country/exchange, OHLC, change%, prediction date)
-- If templates/prediction.html exists, replaces <main>...</main> with rendered template
-- If template is missing or parsing fails, leaves the page unchanged
-
-Safe: If anything goes wrong, we fall back to the original page.
-"""
-
+# scripts/theme_override.py
 from __future__ import annotations
-import re, html
+import re
 from pathlib import Path
-from typing import Dict, Optional
+from html import escape
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
-TPL = ROOT / "templates" / "prediction.html"
+TPL = ROOT / "templates" / "prediction_v2.html"
 
-MAIN_RE = re.compile(r"(<main\b[^>]*>)(.*?)(</main>)", re.DOTALL|re.IGNORECASE)
+# ---------- small helpers ----------
 
-def _find(pat: str, text: str) -> Optional[str]:
-    m = re.search(pat, text, re.IGNORECASE)
-    return (m.group(1).strip() if m else None)
+def _read(p: Path) -> str:
+    return p.read_text("utf-8", errors="ignore")
 
-def _extract_ctx(html_txt: str, path_parts: tuple[str, ...]) -> Optional[Dict[str, str]]:
+def _write(p: Path, s: str) -> None:
+    p.write_text(s, encoding="utf-8")
+
+def _first(rx: str, s: str, flags=re.I|re.S) -> str | None:
+    m = re.search(rx, s, flags)
+    return m.group(1).strip() if m else None
+
+def _extract_last7(html: str) -> list[tuple[str,str,str,str]]:
     """
-    Extract minimal context from the existing page markup.
-    Works with your current pages like:
-      - H1 "AI Analysis of XXXXX Tomorrow | Company …"
-      - Region/Country/Exchange line
-      - OHLC line
-      - "Prediction for YYYY-MM-DD"
+    Very tolerant extraction of the 7-day table from current page.
+    Returns list of (date, ai_pred, actual, resultText) where resultText is 'Win'/'Loss'/''.
     """
-    ctx: Dict[str, str] = {}
+    rows = []
+    # Try to locate the "Last 7-Day" table rows by TRs containing four TDs
+    for m in re.finditer(r"<tr[^>]*>\s*(<td.*?</td>)\s*(<td.*?</td>)\s*(<td.*?</td>)\s*(<td.*?</td>)\s*</tr>", html, re.I|re.S):
+        tds = [re.sub(r"<.*?>", "", x, flags=re.S).strip() for x in m.groups()]
+        if len(tds) == 4:
+            date, ai, actual, result = tds
+            # Heuristic: date like 2025-10-14
+            if re.match(r"\d{4}-\d{2}-\d{2}", date):
+                rows.append((date, ai, actual, result))
+    return rows[:7]
 
-    # symbol from URL (.../<symbol>/prediction-tomorrow/index.html)
-    try:
-        # dist/<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
-        ctx["symbol"] = path_parts[-3].upper()
-    except Exception:
-        ctx["symbol"] = ""
+def _rows_html(rows: list[tuple[str,str,str,str]]) -> str:
+    out = []
+    for d, ai, act, result in rows:
+        cls = "result-win" if result.lower().startswith("win") else ("result-loss" if result.lower().startswith("loss") else "")
+        badge = f'<span class="{cls}">{escape(result)}</span>' if cls else escape(result)
+        out.append(
+            "<tr>"
+            f"<td>{escape(d)}</td>"
+            f"<td>{escape(ai)}</td>"
+            f"<td>{escape(act)}</td>"
+            f"<td>{badge}</td>"
+            "</tr>"
+        )
+    return "\n".join(out) if out else '<tr><td colspan="4" style="color:#94a3b8">Not enough history.</td></tr>'
 
-    # Title section
-    # e.g. <h1>AI Analysis of 360ONE Tomorrow | 360 One Wam Limited Stock Prediction</h1>
-    heading = _find(r"<h1[^>]*>(.*?)</h1>", html_txt) or ""
-    ctx["heading_raw"] = heading
-    # split "AI Analysis of SYMBOL Tomorrow | COMPANY NAME Stock Prediction"
-    company = ""
-    if "|" in heading:
-        company = heading.split("|", 1)[-1]
-        company = re.sub(r"\s*Stock Prediction\s*$", "", company, flags=re.IGNORECASE).strip()
-    ctx["company"] = html.unescape(company)
+def _signal_class(sig: str) -> str:
+    s = (sig or "").strip().lower()
+    if s.startswith("bear"): return "signal signal--bear"
+    return "signal signal--bull"
 
-    # Region/Country/Exchange line (your current page has: Region: AA · Country: BB · Exchange: CC)
-    rce = _find(r"Region:\s*([^<·]+).*?Country:\s*([^<·]+).*?Exchange:\s*([^<·<]+)", html_txt)
-    if rce:
-        m = re.search(r"Region:\s*([^<·]+).*?Country:\s*([^<·]+).*?Exchange:\s*([^<·<]+)", html_txt, re.IGNORECASE|re.DOTALL)
-        if m:
-            ctx["region"] = m.group(1).strip()
-            ctx["country"] = m.group(2).strip()
-            ctx["exchange"] = m.group(3).strip()
-    else:
-        ctx["region"] = ctx["country"] = ctx["exchange"] = ""
+# ---------- main renderer ----------
 
-    # OHLC & Change%
-    # e.g. OHLC: O 121.00, H 124.89, L 115.20, C 117.63 · Change%: -2.00%
-    ohlc_line = _find(r"OHLC:\s*([^<]+)", html_txt) or ""
-    ctx["ohlc_line"] = ohlc_line.strip()
-    change_pct = _find(r"Change%:\s*([+\-]?\d+(?:\.\d+)?%)", html_txt) or ""
-    ctx["change_pct"] = change_pct
+def render_prediction_v2(orig_html: str) -> str | None:
+    """Build the new page HTML. Returns None if we couldn't parse enough."""
+    # Company + symbol from H1 title line:  "AI Analysis of NAME Tomorrow | NAME Stock Prediction"
+    company = _first(r"AI Analysis of\s+(.*?)\s+Tomorrow", orig_html) or _first(r"<h1[^>]*>(.*?)</h1>", orig_html)
+    if not company:
+        return None
 
-    # Prediction date
-    pred_date = _find(r"Prediction for\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", html_txt) or ""
-    ctx["pred_date"] = pred_date
+    symbol = _first(r"Exchange:\s*([A-Z]+)\s*</span>.*?>([A-Z0-9\.-]+)<", orig_html)  # sometimes there is symbol near exchange
+    # Try simpler: it often appears in the page slug (we don't have it here), so symbol stays None gracefully
 
-    # "Last build"
-    last_build = _find(r"Last build:\s*([^<]+)", html_txt) or ""
-    ctx["last_build"] = last_build
+    # Region/Country/Exchange line
+    region  = _first(r"Region:\s*([^·<]+)", orig_html) or ""
+    country = _first(r"Country:\s*([^·<]+)", orig_html) or ""
+    exchg   = _first(r"Exchange:\s*([^·<]+)", orig_html) or _first(r"Exchange:\s*([A-Z]+)", orig_html) or ""
 
-    # Next-day signal word (Bullish/Bearish) if present in the body
-    # We accept the last  occurrence of "Model signal" line
-    signal = ""
-    ms = list(re.finditer(r"\bModel signal\b.*?", html_txt, re.IGNORECASE|re.DOTALL))
-    if ms:
-        # Rough colorization not needed here; we only need word highlight if template wants it
-        if re.search(r"\bBullish\b", html_txt, re.IGNORECASE):
-            signal = "BULLISH"
-        elif re.search(r"\bBearish\b", html_txt, re.IGNORECASE):
-            signal = "BEARISH"
-    ctx["signal"] = signal
+    # Last build
+    last_build = _first(r"Last build:\s*([0-9T:\-]+Z?)", orig_html) or ""
 
-    return ctx
+    # Prediction date & signal
+    pred_date = _first(r"Prediction for\s*([0-9\-]+)", orig_html) or ""
+    signal    = _first(r"Model signal[^<]*based.*?</div>", orig_html)  # not present textually -> fallback
+    # On your page the main "signal" is not explicit text; we infer from change% sign if missing
+    change_pct = _first(r"Change%:\s*([+\-]?\d+(?:\.\d+)?%)", orig_html) or ""
+    if not signal:
+        try:
+            val = float(change_pct.replace("%",""))
+            signal = "Bullish" if val >= 0 else "Bearish"
+        except Exception:
+            signal = "Bullish"
 
-def render_template(tpl: str, ctx: Dict[str, str]) -> str:
-    # very small {var} replacement; make sure to escape where needed in the template itself
-    def rep(m):
-        key = m.group(1)
-        return ctx.get(key, "")
-    return re.sub(r"\{(\w+)\}", rep, tpl)
+    # OHLC
+    o = _first(r"OHLC:\s*O\s*([0-9\.,]+)", orig_html) or ""
+    h = _first(r"OHLC:[^H]*H\s*([0-9\.,]+)", orig_html) or ""
+    l = _first(r"OHLC:[^L]*L\s*([0-9\.,]+)", orig_html) or ""
+    c = _first(r"OHLC:[^C]*C\s*([0-9\.,]+)", orig_html) or ""
 
-def apply_prediction_template() -> None:
-    if not TPL.exists():
-        print("[theme] No templates/prediction.html — skipping.")
+    # 7-day accuracy headline
+    acc_pct = _first(r"Last 7-Day Accuracy:\s*([0-9\.]+%.*?\))", orig_html) or ""
+    acc_note = f"Last 7-Day Accuracy: {acc_pct}" if acc_pct else "Last 7-Day Accuracy unavailable"
+
+    # Extract last 7 rows
+    rows = _extract_last7(orig_html)
+    rows_html = _rows_html(rows)
+
+    # Long text placeholders
+    methodology = ("We analyze price & volume factors (momentum, RSI, MACD, etc.) "
+                   "and key support/resistance levels via our deep learning model.")
+    disclaimer = ("This is <b>not</b> financial advice. For informational purposes only. "
+                  "Trading carries inherent risk.")
+    long_text = (f"{company} appears in a sector monitored by our model; the analysis leverages "
+                 "the latest close data to assess the next-day directional probability.")
+
+    tpl = _read(TPL)
+    html = tpl.format(
+        page_title=f"{company} — Next-day AI Signal",
+        company_name=escape(company),
+        symbol=escape(symbol or ""),
+        region=escape(region), country=escape(country), exchange=escape(exchg),
+        last_build=escape(last_build),
+        pred_date=escape(pred_date),
+        signal_upper=escape(signal.upper()),
+        signal_class=_signal_class(signal),
+        ohlc_open=escape(o), ohlc_high=escape(h), ohlc_low=escape(l), ohlc_close=escape(c),
+        change_pct=escape(change_pct),
+        accuracy_pct=escape(acc_pct or "—"),
+        accuracy_note=escape(acc_note),
+        methodology=methodology,
+        disclaimer=disclaimer,
+        last7_rows=rows_html,
+        long_text=long_text
+    )
+    return html
+
+def apply_prediction_template():
+    if not DIST.exists() or not TPL.exists():
+        print("[v2-ui] dist or template missing; skipping.")
+        return
+    targets = list(DIST.glob("**/prediction-tomorrow/index.html"))
+    if not targets:
+        print("[v2-ui] No prediction-tomorrow pages found; nothing to do.")
         return
 
-    tpl_txt = TPL.read_text(encoding="utf-8")
     changed = 0
-    scanned = 0
-
-    for file in DIST.glob("**/prediction-tomorrow/index.html"):
-        scanned += 1
-        html_txt = file.read_text(encoding="utf-8")
-        parts = file.parts
-
-        ctx = _extract_ctx(html_txt, parts)
-        if not ctx:
-            continue
-
-        # fill in a nice page title fallback
-        if "{page_title}" in tpl_txt:
-            title = f"{ctx.get('company','').strip() or ctx.get('symbol','')} ({ctx.get('symbol','')}) — {ctx.get('pred_date','')}"
-            ctx["page_title"] = title
-
-        rendered = render_template(tpl_txt, ctx)
-
-        # splice it into <main> … </main>; if not found, just append before </body>
-        m = MAIN_RE.search(html_txt)
-        if m:
-            new_html = html_txt[:m.start(2)] + rendered + html_txt[m.end(2):]
-        else:
-            if "</body>" in html_txt.lower():
-                new_html = re.sub(r"</body>", rendered + "\n</body>", html_txt, flags=re.IGNORECASE)
-            else:
-                new_html = html_txt + "\n" + rendered
-
-        file.write_text(new_html, encoding="utf-8")
-        changed += 1
-
-    print(f"[theme] scanned={scanned} updated={changed}")
-
-if __name__ == "__main__":
-    apply_prediction_template()
+    for idx_html in targets:
+        try:
+            orig = _read(idx_html)
+            new_html = render_prediction_v2(orig)
+            if not new_html:
+                continue
+            # backup original once
+            bkp = idx_html.with_suffix(".legacy.html")
+            if not bkp.exists():
+                _write(bkp, orig)
+            _write(idx_html, new_html)
+            changed += 1
+        except Exception as e:
+            print(f"[v2-ui] Failed {idx_html}: {e}")
+    print(f"[v2-ui] Re-skinned {changed} prediction pages.")
