@@ -436,3 +436,8 @@ def main():
 
 if __name__=="__main__":
     main()
+USE_V2_UI = True  # toggle to False to revert
+
+if USE_V2_UI:
+    from scripts.theme_override import apply_prediction_template
+    apply_prediction_template()
