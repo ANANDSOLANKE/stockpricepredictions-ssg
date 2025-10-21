@@ -1,165 +1,159 @@
-# scripts/theme_override.py
-# Inject a green next-day summary card into each prediction page
-# Safe: reads values already rendered on the page and inserts one styled block.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-import os
-import re
-import datetime
+  <title>{{ stock.name }} ({{ stock.symbol }}) Stock Price Prediction & AI Analysis | {{ exchange }}</title>
+  <meta name="description" content="Our AI model predicts a {{ prediction.signal | capitalize }} movement for {{ stock.symbol }} on {{ prediction.date }}. View latest OHLC, model accuracy, and key performance metrics.">
 
-DIST_ROOT = "dist"
-PRED_DIR = "prediction-tomorrow"
+  <!-- Tailwind CDN (kept self-contained; no change to your site-wide CSS) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
-MARK = f"<!-- v2-theme card injected {datetime.datetime.utcnow().isoformat()}Z -->"
+  <style>
+    body { font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+    .trust-card { box-shadow: 0 4px 10px rgba(0,0,0,.08); transition: transform .3s; }
+    .trust-card:hover { transform: translateY(-5px); }
+    .win { background:#d4edda; color:#155724; font-weight:700; }
+    .loss { background:#f8d7da; color:#721c24; font-weight:700; }
+    .signal-bullish { background: linear-gradient(135deg,#10b981 0%,#059669 100%); }
+    .signal-bearish { background: linear-gradient(135deg,#ef4444 0%,#b91c1c 100%); }
+  </style>
+</head>
+<body class="bg-gray-50">
 
-CSS_BLOCK = r"""
-/* v2 theme summary card */
-.spp-v2-wrap{margin:18px 0 22px 0}
-.spp-v2-card{
-  background:linear-gradient(180deg,#0EA76B 0%,#0A8F5C 100%);
-  color:#E9FFF5; border-radius:14px; padding:22px 22px 18px 22px;
-  box-shadow:0 8px 28px rgba(14,167,107,0.15), inset 0 0 0 1px rgba(255,255,255,0.08)
-}
-.spp-v2-kv{display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap}
-.spp-v2-t{font-weight:700;letter-spacing:.02em}
-.spp-v2-title{font-size:18px;opacity:.95}
-.spp-v2-date{font-size:14px;opacity:.8}
-.spp-v2-signal{font-size:44px;line-height:1.05;font-weight:800;letter-spacing:.01em}
-.spp-v2-ohlc{
-  margin-top:14px;display:inline-flex;gap:10px;flex-wrap:wrap;
-  font-size:13px; background:rgba(255,255,255,0.09); padding:8px 10px; border-radius:10px
-}
-.spp-v2-pill{padding:4px 8px;border-radius:999px;background:#063F2E;color:#9FF2CF;font-weight:700;font-size:12px}
-.spp-v2-note{margin-top:8px;font-size:12px;opacity:.8}
-"""
+  <!-- SEO structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"NewsArticle",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"{{ page_url }}"},
+    "headline":"AI Prediction: {{ stock.name }} ({{ stock.symbol }}) for {{ prediction.date }}",
+    "datePublished":"{{ last_build_iso }}",
+    "dateModified":"{{ last_build_iso }}",
+    "author":{"@type":"Organization","name":"Stock Price Predictions"},
+    "publisher":{"@type":"Organization","name":"Stock Price Predictions",
+      "logo":{"@type":"ImageObject","url":"https://placehold.co/60x60/007bff/ffffff?text=SPL"} },
+    "description":"Our AI model predicts a {{ prediction.signal | capitalize }} movement for {{ stock.symbol }} on {{ prediction.date }}."
+  }
+  </script>
 
-CARD_TEMPLATE = """{mark}
-<div class="spp-v2-wrap">
-  <div class="spp-v2-card">
-    <div class="spp-v2-kv">
-      <div class="spp-v2-t spp-v2-title">{company}</div>
-      <div class="spp-v2-t spp-v2-date">{pdate}</div>
-      <span class="spp-v2-pill">NEXT-DAY SIGNAL</span>
+  <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+
+    <!-- Header -->
+    <header class="bg-white p-4 md:p-6 rounded-xl shadow-lg flex flex-col md:flex-row justify-between items-center mb-6 border-b-4 border-emerald-500">
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 bg-yellow-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+          {{ stock.symbol[:2] }}
+        </div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-gray-800">
+            {{ stock.name }} <span class="text-gray-500 font-semibold text-sm">({{ stock.symbol }})</span>
+          </h2>
+          <p class="text-sm text-gray-600">
+            {{ region }} · {{ country }} · {{ exchange }} |
+            <span class="font-medium text-xs">Last Updated: {{ last_build_iso }}</span>
+          </p>
+        </div>
+      </div>
+      {% if price %}
+      <div class="text-right mt-4 md:mt-0">
+        <p class="text-4xl font-bold {{ price.change_pct >= 0 and 'text-emerald-600' or 'text-red-600' }}">
+          {{ price.currency_symbol }}{{ "%0.2f"|format(price.close) }}
+        </p>
+        <p class="text-lg font-semibold {{ price.change_pct >= 0 and 'text-emerald-600' or 'text-red-600' }}">
+          {{ "%0.2f"|format(price.change_pct) }}%
+        </p>
+      </div>
+      {% endif %}
+    </header>
+
+    <!-- Prediction hero -->
+    <div class="prediction-block {{ prediction.signal == 'bullish' and 'signal-bullish' or 'signal-bearish' }} text-white p-6 md:p-10 rounded-xl mb-8 shadow-2xl">
+      <h1 class="text-2xl md:text-4xl font-light mb-2">
+        AI Prediction: {{ stock.name }} ({{ stock.symbol }}) for {{ prediction.date }}
+      </h1>
+      <p class="text-lg font-medium opacity-80 uppercase tracking-widest mb-2">Next-Day Signal</p>
+      <div class="text-7xl md:text-8xl font-black uppercase tracking-widest mb-6">
+        {{ prediction.signal | upper }}
+      </div>
+      <p class="italic text-sm opacity-90 mb-6">
+        Based on yesterday's OHLC data and our proprietary model.
+      </p>
+
+      <div class="ohlc-data bg-white text-gray-800 font-mono p-3 rounded-lg shadow-inner text-center text-sm md:text-lg mx-auto max-w-2xl">
+        <span class="font-bold">OHLC:</span>
+        O {{ price and "%0.2f"|format(price.open) or "—" }}
+        | H {{ price and "%0.2f"|format(price.high) or "—" }}
+        | L {{ price and "%0.2f"|format(price.low) or "—" }}
+        | C {{ price and "%0.2f"|format(price.close) or "—" }}
+      </div>
     </div>
-    <div class="spp-v2-signal">{signal}</div>
-    <div class="spp-v2-ohlc">
-      <span>OHLC:</span>
-      <span>O {o}</span>
-      <span>H {h}</span>
-      <span>L {l}</span>
-      <span>C {c}</span>
-      <span>• Change%: {chg}</span>
+
+    <!-- Trust cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="trust-card bg-white p-6 rounded-xl border-t-4 border-blue-600">
+        <h3 class="text-xl font-bold text-blue-600 mb-2">Model Performance</h3>
+        <div class="text-5xl font-extrabold text-emerald-600 mb-1">
+          {{ last7.accuracy_pct }}
+        </div>
+        <p class="text-sm text-gray-700">7-Day Accuracy ({{ last7.win_count }}/{{ last7.total }})</p>
+        <p class="text-xs text-gray-500 mt-2">*Demonstrates Experience*</p>
+      </div>
+
+      <div class="trust-card bg-white p-6 rounded-xl border-t-4 border-blue-600">
+        <h3 class="text-xl font-bold text-blue-600 mb-2">Our Methodology</h3>
+        <p class="text-sm text-gray-700 mb-3">
+          We analyze 50+ factors (volume, RSI, MACD, support/resistance) via our deep learning model.
+        </p>
+        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold text-sm">Read Our Full Process →</a>
+      </div>
+
+      <div class="trust-card bg-white p-6 rounded-xl border-t-4 border-blue-600">
+        <h3 class="text-xl font-bold text-blue-600 mb-2">Important Disclosures</h3>
+        <p class="text-xs text-red-600 p-2 border border-red-300 bg-red-50 rounded-lg">
+          This is NOT financial advice. For informational purposes only. Trading carries inherent risk.
+        </p>
+        <p class="text-xs text-gray-500 mt-2">*Authority & Trustworthiness*</p>
+      </div>
     </div>
-    <div class="spp-v2-note">Based on yesterday’s OHLC and our day-action model.</div>
+
+    <!-- Last 7 days table -->
+    <div class="bg-white p-6 rounded-xl shadow-lg mb-8">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Model vs. Actual: Last 7 Days Performance</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-max rounded-lg overflow-hidden border">
+          <thead>
+            <tr class="text-sm font-semibold text-gray-700 uppercase bg-gray-100">
+              <th class="p-3 border-r">Date</th>
+              <th class="p-3 border-r">AI Prediction</th>
+              <th class="p-3 border-r">Actual Movement</th>
+              <th class="p-3">Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in last7.rows %}
+              <tr class="border-t">
+                <td class="p-3 border-r">{{ r.date }}</td>
+                <td class="p-3 border-r">{{ r.prediction }}</td>
+                <td class="p-3 border-r">{{ r.actual }}</td>
+                <td class="p-3 {{ r.result|lower }}">{{ r.result }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Optional long-form analysis block (kept short) -->
+    <div class="bg-white p-6 rounded-xl shadow-lg">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">In-Depth Technical Context</h2>
+      <p class="text-gray-700">
+        This view summarizes the model’s next-day directional call using the latest market close and
+        recent movement. Use alongside your risk management.
+      </p>
+    </div>
   </div>
-</div>
-"""
-
-def _ensure_css(html: str) -> str:
-    if "/* v2 theme summary card */" in html:
-        return html
-    # inject before </head> if possible, else at top
-    style_tag = f"<style>{CSS_BLOCK}</style>"
-    if "</head>" in html:
-        return re.sub(r"</head>", style_tag + "\n</head>", html, count=1, flags=re.IGNORECASE)
-    return style_tag + "\n" + html
-
-def _extract_company(html: str) -> str:
-    # From the big H1: "AI Analysis of XXX Tomorrow | ABC Stock Prediction"
-    m = re.search(r"<h1[^>]*>(.*?)</h1>", html, flags=re.IGNORECASE|re.DOTALL)
-    if m:
-        # Pull the part after the first "of " and before " Tomorrow"
-        text = re.sub(r"<[^>]+>", "", m.group(1)).strip()
-        n = re.search(r"AI Analysis of (.+?) Tomorrow", text, flags=re.IGNORECASE)
-        if n:
-            return n.group(1).strip()
-        return text
-    return "Stock Prediction"
-
-def _extract_prediction_date(html: str) -> str:
-    m = re.search(r"Prediction for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", html, flags=re.IGNORECASE)
-    return m.group(1) if m else "—"
-
-def _extract_ohlc(html: str):
-    # Example line: OHLC: O 19.10, H 19.22, L 18.96, C 19.07 · Change%: -0.10%
-    o=h=l=c=chg="—"
-    m = re.search(r"OHLC:\s*O\s*([0-9.\-]+).*?H\s*([0-9.\-]+).*?L\s*([0-9.\-]+).*?C\s*([0-9.\-]+)", html, flags=re.IGNORECASE|re.DOTALL)
-    if m:
-        o,h,l,c = m.group(1), m.group(2), m.group(3), m.group(4)
-    k = re.search(r"Change%:\s*([+\-]?[0-9.]+%)", html, flags=re.IGNORECASE)
-    if not k:
-        # also render previous pattern with dot mid
-        k = re.search(r"Change%[:\s]*([+\-]?[0-9.]+%)", html, flags=re.IGNORECASE)
-    if k:
-        chg = k.group(1)
-    return o,h,l,c,chg
-
-def _derive_signal(html: str) -> str:
-    # Lean on your existing wording: "Model signal based on..." followed by prior day's action.
-    # We'll infer signal as text already on page if present, else default "—".
-    # Many of your pages don't explicitly print "Bullish/Bearish" at the top,
-    # so we keep the card neutral if we can't infer.
-    # We do this: try to read first row of the 7-day table "AI Prediction" cell text.
-    m = re.search(r"<table[^>]*>.*?<thead.*?</thead>.*?<tbody[^>]*>(.*?)</tbody>", html, flags=re.IGNORECASE|re.DOTALL)
-    if m:
-        body = m.group(1)
-        r = re.search(r"<tr[^>]*>.*?<td[^>]*>.*?</td>.*?<td[^>]*>(Bullish|Bearish)</td>", body, flags=re.IGNORECASE|re.DOTALL)
-        if r:
-            return r.group(1).title()
-    # fallback: neutral dash
-    return "—"
-
-def _inject_card(html: str) -> str:
-    company = _extract_company(html)
-    pdate   = _extract_prediction_date(html)
-    o,h,l,c,chg = _extract_ohlc(html)
-    signal  = _derive_signal(html)
-
-    card = CARD_TEMPLATE.format(
-        mark=MARK, company=company, pdate=pdate,
-        o=o, h=h, l=l, c=c, chg=chg, signal=signal
-    )
-
-    # Place card just before "Last 7-Day Performance" block if present,
-    # otherwise after the first secondary header.
-    target = re.search(r"(Last\s*7[--]Day\s*Performance)", html, flags=re.IGNORECASE)
-    if target:
-        return re.sub(target.re, card + r" \1", html, count=1)
-    # fallback: inject after first <h2>
-    return re.sub(r"(<h2[^>]*>)", r"\1" + card, html, count=1, flags=re.IGNORECASE)
-
-def process(path: str) -> bool:
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            html = f.read()
-    except Exception as e:
-        print("read fail:", path, e)
-        return False
-
-    if MARK in html:
-        return False
-
-    html = _ensure_css(html)
-    html = _inject_card(html)
-
-    try:
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(html)
-        print("patched:", path)
-        return True
-    except Exception as e:
-        print("write fail:", path, e)
-        return False
-
-def main():
-    patched = 0
-    for root, _, files in os.walk(DIST_ROOT):
-        if os.path.basename(root) != PRED_DIR:
-            continue
-        for fn in files:
-            if fn.lower() == "index.html":
-                if process(os.path.join(root, fn)):
-                    patched += 1
-    print(f"theme_override: patched={patched}")
-
-if __name__ == "__main__":
-    main()
+</body>
+</html>
