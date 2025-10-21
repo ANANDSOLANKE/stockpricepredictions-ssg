@@ -1,6 +1,10 @@
-# scripts/theme_override.py
-# Inject a green next-day summary card into each prediction page
-# Safe: reads values already rendered on the page and inserts one styled block.
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+theme_override.py
+Injects a green next-day summary card into each prediction page.
+Safe: reads values already rendered on the page and inserts one styled block.
+"""
 
 import os
 import re
@@ -11,7 +15,7 @@ PRED_DIR = "prediction-tomorrow"
 
 MARK = f"<!-- v2-theme card injected {datetime.datetime.utcnow().isoformat()}Z -->"
 
-CSS_BLOCK = r"""
+CSS_BLOCK = """
 /* v2 theme summary card */
 .spp-v2-wrap{margin:18px 0 22px 0}
 .spp-v2-card{
@@ -55,57 +59,63 @@ CARD_TEMPLATE = """{mark}
 """
 
 def _ensure_css(html: str) -> str:
+    """Ensure our CSS lives in <head>; otherwise prepend to document."""
     if "/* v2 theme summary card */" in html:
         return html
-    # inject before </head> if possible, else at top
     style_tag = f"<style>{CSS_BLOCK}</style>"
     if "</head>" in html:
         return re.sub(r"</head>", style_tag + "\n</head>", html, count=1, flags=re.IGNORECASE)
     return style_tag + "\n" + html
 
+def _strip_tags(text: str) -> str:
+    return re.sub(r"<[^>]+>", "", text or "").strip()
+
 def _extract_company(html: str) -> str:
-    # From the big H1: "AI Analysis of XXX Tomorrow | ABC Stock Prediction"
+    # From H1: "AI Analysis of X Tomorrow | Y Stock Prediction"
     m = re.search(r"<h1[^>]*>(.*?)</h1>", html, flags=re.IGNORECASE|re.DOTALL)
-    if m:
-        # Pull the part after the first "of " and before " Tomorrow"
-        text = re.sub(r"<[^>]+>", "", m.group(1)).strip()
-        n = re.search(r"AI Analysis of (.+?) Tomorrow", text, flags=re.IGNORECASE)
-        if n:
-            return n.group(1).strip()
-        return text
-    return "Stock Prediction"
+    if not m:
+        return "Stock Prediction"
+    text = _strip_tags(m.group(1))
+    n = re.search(r"AI Analysis of (.+?) Tomorrow", text, flags=re.IGNORECASE)
+    return n.group(1).strip() if n else text
 
 def _extract_prediction_date(html: str) -> str:
-    m = re.search(r"Prediction for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", html, flags=re.IGNORECASE)
+    m = re.search(r"Prediction\s*for\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", html, flags=re.IGNORECASE)
     return m.group(1) if m else "—"
 
 def _extract_ohlc(html: str):
-    # Example line: OHLC: O 19.10, H 19.22, L 18.96, C 19.07 · Change%: -0.10%
+    # Robust parse for OHLC; tolerate extra punctuation/whitespace.
     o=h=l=c=chg="—"
-    m = re.search(r"OHLC:\s*O\s*([0-9.\-]+).*?H\s*([0-9.\-]+).*?L\s*([0-9.\-]+).*?C\s*([0-9.\-]+)", html, flags=re.IGNORECASE|re.DOTALL)
+    m = re.search(
+        r"OHLC:\s*O\s*([0-9]+(?:\.[0-9]+)?)\D+H\s*([0-9]+(?:\.[0-9]+)?)\D+L\s*([0-9]+(?:\.[0-9]+)?)\D+C\s*([0-9]+(?:\.[0-9]+)?)",
+        html, flags=re.IGNORECASE|re.DOTALL
+    )
     if m:
         o,h,l,c = m.group(1), m.group(2), m.group(3), m.group(4)
-    k = re.search(r"Change%:\s*([+\-]?[0-9.]+%)", html, flags=re.IGNORECASE)
-    if not k:
-        # also render previous pattern with dot mid
-        k = re.search(r"Change%[:\s]*([+\-]?[0-9.]+%)", html, flags=re.IGNORECASE)
+    k = re.search(r"Change%[:\s]*([+\-]?[0-9]+(?:\.[0-9]+)?%)", html, flags=re.IGNORECASE)
     if k:
         chg = k.group(1)
     return o,h,l,c,chg
 
 def _derive_signal(html: str) -> str:
-    # Lean on your existing wording: "Model signal based on..." followed by prior day's action.
-    # We'll infer signal as text already on page if present, else default "—".
-    # Many of your pages don't explicitly print "Bullish/Bearish" at the top,
-    # so we keep the card neutral if we can't infer.
-    # We do this: try to read first row of the 7-day table "AI Prediction" cell text.
-    m = re.search(r"<table[^>]*>.*?<thead.*?</thead>.*?<tbody[^>]*>(.*?)</tbody>", html, flags=re.IGNORECASE|re.DOTALL)
-    if m:
-        body = m.group(1)
-        r = re.search(r"<tr[^>]*>.*?<td[^>]*>.*?</td>.*?<td[^>]*>(Bullish|Bearish)</td>", body, flags=re.IGNORECASE|re.DOTALL)
-        if r:
-            return r.group(1).title()
-    # fallback: neutral dash
+    """
+    If possible, read the first data row in the 7-day table and
+    pull the 'AI Prediction' cell (Bullish/Bearish).
+    """
+    # Grab tbody of the table on the page
+    mt = re.search(r"<table[^>]*>.*?<tbody[^>]*>(.*?)</tbody>", html, flags=re.IGNORECASE|re.DOTALL)
+    if mt:
+        body = mt.group(1)
+        # find the first <tr> row and its <td> cells
+        mrow = re.search(r"<tr[^>]*>(.*?)</tr>", body, flags=re.IGNORECASE|re.DOTALL)
+        if mrow:
+            row_html = mrow.group(1)
+            # Extract all <td> texts in that row
+            cells = [_strip_tags(x) for x in re.findall(r"<td[^>]*>(.*?)</td>", row_html, flags=re.IGNORECASE|re.DOTALL)]
+            # Typically the second cell is 'AI Prediction'
+            for cell in cells:
+                if cell.lower() in ("bullish", "bearish"):
+                    return cell.title()
     return "—"
 
 def _inject_card(html: str) -> str:
@@ -119,18 +129,17 @@ def _inject_card(html: str) -> str:
         o=o, h=h, l=l, c=c, chg=chg, signal=signal
     )
 
-    # Place card just before "Last 7-Day Performance" block if present,
-    # otherwise after the first secondary header.
-    target = re.search(r"(Last\s*7[--]Day\s*Performance)", html, flags=re.IGNORECASE)
-    if target:
-        return re.sub(target.re, card + r" \1", html, count=1)
-    # fallback: inject after first <h2>
+    # Prefer to place right before "Last 7-Day Performance"
+    anchor_pat = re.compile(r"(Last\s*7\s*-\s*Day\s*Performance|Last\s*7\s*Day\s*Performance)", re.IGNORECASE)
+    if anchor_pat.search(html):
+        return anchor_pat.sub(card + r"\n\1", html, count=1)
+
+    # Fallback: inject after first <h2>
     return re.sub(r"(<h2[^>]*>)", r"\1" + card, html, count=1, flags=re.IGNORECASE)
 
 def process(path: str) -> bool:
     try:
-        with open(path, "r", encoding="utf-8") as f:
-            html = f.read()
+        html = open(path, "r", encoding="utf-8").read()
     except Exception as e:
         print("read fail:", path, e)
         return False
@@ -142,8 +151,7 @@ def process(path: str) -> bool:
     html = _inject_card(html)
 
     try:
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(html)
+        open(path, "w", encoding="utf-8").write(html)
         print("patched:", path)
         return True
     except Exception as e:
@@ -153,6 +161,7 @@ def process(path: str) -> bool:
 def main():
     patched = 0
     for root, _, files in os.walk(DIST_ROOT):
+        # Only touch .../prediction-tomorrow/*/index.html pages
         if os.path.basename(root) != PRED_DIR:
             continue
         for fn in files:
