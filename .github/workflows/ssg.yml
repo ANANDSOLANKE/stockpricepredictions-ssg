@@ -49,6 +49,9 @@ jobs:
       - name: Build site (fast)
         run: python -u scripts/build.py
 
+      - name: Apply prediction page template (safe override)
+        run: python -u scripts/theme_override.py
+
       - name: Inject last-7 performance
         run: python -u scripts/build_last7.py
 
