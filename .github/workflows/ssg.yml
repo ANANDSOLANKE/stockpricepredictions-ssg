@@ -18,7 +18,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 600   # ⬅️ give first full injection room to finish
+    timeout-minutes: 600   # first full build has room to finish
 
     steps:
       - name: Checkout repository
@@ -49,14 +49,15 @@ jobs:
       - name: Build site (fast)
         run: python -u scripts/build.py
 
-      - name: Apply prediction page template (safe override)
-        run: python -u scripts/theme_override.py
-
       - name: Inject last-7 performance
         run: python -u scripts/build_last7.py
 
       - name: Inject logos from mapping
         run: python -u scripts/inject_logos.py
+
+      # 👇 Move the v2 UI step LAST so it overrides final HTML cleanly
+      - name: Apply prediction page template (v2 UI)
+        run: python -u scripts/theme_override.py
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
