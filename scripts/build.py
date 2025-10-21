@@ -436,8 +436,13 @@ def main():
 
 if __name__=="__main__":
     main()
-USE_V2_UI = True  # toggle to False to revert
+    
+# --- Optional: modern prediction page skin (safe to disable) ---
+try:
+    USE_V2_UI = True  # toggle to False to revert to original look
+    if USE_V2_UI:
+        from scripts.theme_override import apply_prediction_template
+        apply_prediction_template()
+except Exception as e:
+    print(f"[v2-ui] Skipped (error: {e})")
 
-if USE_V2_UI:
-    from scripts.theme_override import apply_prediction_template
-    apply_prediction_template()
