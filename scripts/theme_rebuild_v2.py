@@ -1,23 +1,19 @@
 # scripts/theme_rebuild_v2.py
-# Rebuild each prediction page into the new UI (header with full name + symbol,
-# close + change%, green/red signal banner with ▲/▼, 3-up cards, and your Last-7 table).
-# Robust file discovery and verbose logging.
+# Final light-theme rebuild: adds %change beside close price, returns to white background
+# and keeps all other logic (symbol, name, green/red signal, etc.)
 
 import os, re, datetime
 from pathlib import Path
 from html import escape
 
 DIST_ROOT = "dist"
-STAMP = f"<!-- v2-rebuild {datetime.datetime.utcnow().isoformat()}Z -->"
-
-def log(msg): print(f"[v2] {msg}")
+STAMP = f"<!-- v2-rebuild-light {datetime.datetime.utcnow().isoformat()}Z -->"
 
 def rx(p, s, flags=re.I|re.S, group=1, default=""):
     m = re.search(p, s, flags)
     return (m.group(group).strip() if m else default).strip()
 
 def get_symbol_and_fullname(html):
-    # Prefer “AI Analysis of <SYMBOL> (<Full Name>)”
     sym = rx(r"AI\s+Analysis\s+of\s+([A-Z0-9.\-]+)\s*\(", html)
     full = rx(r"AI\s+Analysis\s+of\s+[A-Z0-9.\-]+\s*\(([^)]+)\)", html)
     if not full:
@@ -69,43 +65,45 @@ def build_table(html):
     table = re.sub(r"<table([^>]*)>", r'<table class="table"\1>', table, count=1, flags=re.I)
     return table
 
+# ---------- LIGHT THEME CSS ----------
 CSS = r"""
-:root{
-  --bg:#0b1220; --card:#0f172a; --muted:#9fb3c8; --text:#e6edf6; --ring:rgba(148,163,184,.3);
-  --green1:#10b981; --green2:#059669; --red1:#ef4444; --red2:#b91c1c;
+:root {
+  --green1:#16a34a; --green2:#22c55e;
+  --red1:#ef4444; --red2:#f87171;
+  --border:#e5e7eb; --bg:#f9fafb; --text:#111827;
 }
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font:16px/1.45 Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;padding:28px}
-a{color:#93c5fd;text-decoration:none} a:hover{text-decoration:underline}
-.wrap{max-width:1100px;margin:0 auto}
-.badge{display:inline-block;background:#fde68a;color:#78350f;border-radius:12px;padding:6px 10px;font-weight:700;margin-right:10px;font-size:14px;vertical-align:middle}
-.price-chip{margin-left:auto;background:#0b1a2f;color:#b6ffe3;border:1px solid var(--ring);border-radius:10px;padding:10px 14px;display:flex;gap:12px;align-items:center}
-.price-chip .px{font-size:20px;font-weight:800}
-.header{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--ring);padding:16px 18px;border-radius:14px}
-.header .title{font-weight:800;font-size:22px;letter-spacing:.2px}
-.header .sub{opacity:.75;font-size:13px;margin-top:2px}
-.header-col{display:flex;flex-direction:column}
-.banner{margin:18px 0;border-radius:16px;padding:22px;border:1px solid var(--ring);box-shadow:0 8px 30px rgba(0,0,0,.25) inset 0 0 0 1px rgba(255,255,255,.03)}
-.banner.green{background:linear-gradient(180deg,var(--green1),var(--green2))}
-.banner.red{background:linear-gradient(180deg,var(--red1),var(--red2))}
-.banner .t{opacity:.9}
-.banner .signal{font-size:56px;line-height:1.06;font-weight:900;letter-spacing:.5px;color:#fff;margin:10px 0}
-.banner .ohlc{display:inline-flex;gap:12px;background:rgba(255,255,255,.11);padding:10px 14px;border-radius:12px;color:#fff;font-weight:600}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
-.card{background:var(--card);border:1px solid var(--ring);border-radius:14px;padding:16px}
-.card h4{margin:0 0 8px 0;font-size:14px;letter-spacing:.4px;opacity:.9}
-.card .big{font-size:28px;font-weight:900}
-.card .note{opacity:.7;font-size:12px}
-.table-card{background:var(--card);border:1px solid var(--ring);border-radius:14px;padding:4px 0;margin:18px 0}
-.table-card h3{margin:12px 16px}
-.table{width:100%;border-collapse:collapse}
-.table th,.table td{padding:12px 14px;border-top:1px solid var(--ring)}
-.table th{font-size:13px;letter-spacing:.3px;text-align:left;opacity:.9}
-.win{background:#052e1a;color:#86efac;padding:2px 8px;border-radius:8px}
-.loss{background:#2a0b0b;color:#fecaca;padding:2px 8px;border-radius:8px}
-.footer-card{background:var(--card);border:1px solid var(--ring);border-radius:14px;padding:16px;margin:18px 0}
+body { background:var(--bg); color:var(--text); font:16px/1.45 'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; margin:0; padding:20px; }
+.wrap { max-width:1100px; margin:0 auto; }
+a { color:#2563eb; text-decoration:none; }
+a:hover { text-decoration:underline; }
+.badge { display:inline-block; background:#fef08a; color:#78350f; border-radius:10px; padding:6px 10px; font-weight:700; margin-right:10px; font-size:14px; }
+.header { display:flex; align-items:center; gap:14px; background:white; border:1px solid var(--border); border-radius:12px; padding:14px 18px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.header .title { font-weight:800; font-size:20px; }
+.header .sub { font-size:13px; opacity:.7; }
+.price-chip { margin-left:auto; background:#ecfdf5; border:1px solid #d1fae5; border-radius:10px; padding:10px 14px; display:flex; gap:8px; align-items:center; font-weight:700; color:#065f46; }
+.price-chip .chg.positive { color:#15803d; }
+.price-chip .chg.negative { color:#b91c1c; }
+.banner { margin:18px 0; border-radius:14px; padding:22px; color:#fff; }
+.banner.green { background:linear-gradient(180deg,var(--green1),var(--green2)); }
+.banner.red { background:linear-gradient(180deg,var(--red1),var(--red2)); }
+.banner .signal { font-size:52px; font-weight:900; margin:10px 0; }
+.banner .ohlc { background:rgba(255,255,255,.15); padding:8px 12px; border-radius:10px; display:inline-flex; gap:12px; font-weight:600; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:16px 0; }
+.card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.card h4 { margin:0 0 8px 0; font-size:14px; color:#374151; }
+.card .big { font-size:26px; font-weight:900; color:#111827; }
+.card .note { font-size:13px; opacity:.8; }
+.table-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:8px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.table-card h3 { margin:12px 16px; }
+.table { width:100%; border-collapse:collapse; }
+.table th, .table td { padding:12px 14px; border-top:1px solid var(--border); }
+.table th { font-size:13px; text-align:left; opacity:.9; }
+.win { background:#dcfce7; color:#166534; padding:3px 8px; border-radius:6px; font-weight:600; }
+.loss { background:#fee2e2; color:#b91c1c; padding:3px 8px; border-radius:6px; font-weight:600; }
+.footer-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; margin:18px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
 """
 
+# ---------- HTML TEMPLATE ----------
 HTML = """{stamp}
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -113,25 +111,29 @@ HTML = """{stamp}
 <style>{css}</style>
 </head><body>
 <div class="wrap">
+
   <div class="header">
     <span class="badge">{symbol}</span>
     <div class="header-col">
       <div class="title">{full_name} ({symbol})</div>
-      <div class="sub">Next-day stock movement from yesterday’s OHLC • Last build: {build_time}</div>
+      <div class="sub">Next-day stock movement • Last build: {build_time}</div>
     </div>
-    <div class="price-chip"><div class="px">{close_px}</div><div class="chg">{chg}</div></div>
+    <div class="price-chip">
+      <div class="px">{close_px}</div>
+      <div class="chg {chg_class}">{chg}</div>
+    </div>
   </div>
 
   <div class="banner {banner_class}">
     <div class="t">AI Prediction: <b>{full_name}</b> for <b>{pred_date}</b></div>
     <div class="signal">{arrow} {signal}</div>
-    <div class="ohlc">OHLC: <span>O {o}</span><span>H {h}</span><span>L {l}</span><span>C {c}</span></div>
+    <div class="ohlc">O {o} H {h} L {l} C {c}</div>
   </div>
 
   <div class="grid3">
     <div class="card"><h4>Model Performance</h4><div class="big">{acc_pct}</div><div class="note">{acc_note}</div></div>
-    <div class="card"><h4>Our Methodology</h4><div class="note">We analyze 50+ factors including volume, momentum (RSI, MACD), and key support levels via our deep learning model.</div></div>
-    <div class="card"><h4>Important Disclosures</h4><div class="note">This is <b>not</b> financial advice. For educational purposes only. Trading carries inherent risk.</div></div>
+    <div class="card"><h4>Our Methodology</h4><div class="note">We analyze 50+ factors including volume, momentum (RSI, MACD), and key support levels using our deep learning model.</div></div>
+    <div class="card"><h4>Important Disclosures</h4><div class="note">This is <b>not</b> financial advice. For informational purposes only. Trading carries inherent risk.</div></div>
   </div>
 
   <div class="table-card">
@@ -143,12 +145,14 @@ HTML = """{stamp}
     <h3>In-Depth Technical Analysis of {full_name}</h3>
     <div class="note">Our analysis leverages the latest market close data to determine the highest probability direction for the next trading day.</div>
   </div>
+
 </div>
 </body></html>
 """
 
-def rebuild_page(path: Path):
-    html = path.read_text(encoding="utf-8")
+# ---------- MAIN ----------
+def rebuild_page(p: Path):
+    html = p.read_text(encoding="utf-8")
     symbol, full_name = get_symbol_and_fullname(html)
     pred_date = get_prediction_date(html)
     o, h, l, c, chg = get_ohlc_and_change(html)
@@ -156,41 +160,35 @@ def rebuild_page(path: Path):
     acc_pct, acc_note = scrape_accuracy(html)
     table_html = build_table(html)
     close_px = c if c != "—" else "—"
-    page_title = f"{full_name or symbol} Stock Prediction"
+    chg_class = "positive" if chg.startswith("+") else ("negative" if chg.startswith("-") else "")
     out = HTML.format(
-        stamp=STAMP, page_title=escape(page_title), css=CSS,
-        symbol=escape(symbol or "—"), full_name=escape(full_name or "Stock"),
+        stamp=STAMP,
+        page_title=f"{full_name or symbol} Stock Prediction",
+        css=CSS,
+        symbol=escape(symbol or "—"),
+        full_name=escape(full_name or "Stock"),
         build_time=datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-        close_px=escape(close_px), chg=escape(chg or ""),
+        close_px=escape(close_px),
+        chg=escape(chg),
+        chg_class=chg_class,
         pred_date=escape(pred_date),
-        o=escape(o), h=escape(h), l=escape(l), c=escape(c),
-        signal=escape(signal), arrow=arrow_for(signal), banner_class=banner_class_for(signal),
-        acc_pct=escape(acc_pct), acc_note=escape(acc_note),
+        o=o, h=h, l=l, c=c,
+        signal=signal, arrow=arrow_for(signal),
+        banner_class=banner_class_for(signal),
+        acc_pct=acc_pct, acc_note=acc_note,
         table_html=table_html
     )
-    path.write_text(out, encoding="utf-8")
-    log(f"rebuilt: {path}")
+    p.write_text(out, encoding="utf-8")
+    print(f"[v2-light] rebuilt: {p}")
 
 def main():
     root = Path(DIST_ROOT)
-    files = []
-    # robust discovery of prediction pages
-    for p in root.rglob("index.html"):
-        if "prediction-tomorrow" in str(p.parent).lower():
-            files.append(p)
-    if not files:
-        # fallback: find by URL pattern in file contents
-        for p in root.rglob("index.html"):
-            try:
-                c = p.read_text(encoding="utf-8")
-                if re.search(r"Last\s*7[-\s]?Day\s*Performance", c, re.I):
-                    files.append(p)
-            except Exception:
-                pass
-    log(f"found {len(files)} prediction pages")
-    for f in files:
-        rebuild_page(f)
-    log(f"total rebuilt pages: {len(files)}")
+    count = 0
+    for f in root.rglob("index.html"):
+        if "prediction-tomorrow" in str(f):
+            rebuild_page(f)
+            count += 1
+    print(f"[v2-light] total rebuilt pages: {count}")
 
 if __name__ == "__main__":
     main()
