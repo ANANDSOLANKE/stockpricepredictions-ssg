@@ -1,0 +1,22 @@
+<!-- templates/prediction.html -->
+<section class="card" style="margin:16px 0;">
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <h1 style="margin:0;font-size:22px;">{company} <span style="opacity:.7">({symbol})</span></h1>
+    <div style="opacity:.7;font-size:13px;">Last build: {last_build}</div>
+  </div>
+  <div style="margin-top:6px;opacity:.8;font-size:14px;">
+    Region: {region} · Country: {country} · Exchange: {exchange}
+  </div>
+</section>
+
+<section class="card" style="margin:16px 0;padding:18px;background:#0c2f1f;border:1px solid #174a34;border-radius:12px;">
+  <div style="font-size:14px;opacity:.85;margin-bottom:8px;">
+    AI Prediction: <b>{company}</b> ({symbol}) for <b>{pred_date}</b>
+  </div>
+  <div style="letter-spacing:1px;font-weight:900;font-size:40px;">
+    {signal}
+  </div>
+  <div style="margin-top:10px;opacity:.8;font-size:13px;">
+    OHLC: {ohlc_line} · Change%: <b>{change_pct}</b>
+  </div>
+</section>
