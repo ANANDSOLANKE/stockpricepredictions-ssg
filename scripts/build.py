@@ -543,24 +543,18 @@ def main() -> None:
     )
     print("Build complete →", DIST)
         
-
-# --- Copy AI landing page (static/landing/index.html) to dist root ---
-from pathlib import Path
-import shutil
-
+# --- Copy AI landing page (static/landing/index.html) to dist root (runs AFTER build) ---
 def copy_landing_page():
-    repo_root = Path(__file__).resolve().parent
-    dist_path = repo_root / "dist"
-    landing_src = repo_root / "static" / "landing" / "index.html"
+    landing_src = ROOT / "static" / "landing" / "index.html"  # repo-root path
     if landing_src.exists():
-        dist_path.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(landing_src, dist_path / "index.html")
+        ensure_dir(DIST)
+        shutil.copy2(landing_src, DIST / "index.html")
         print("✅ Landing page copied to dist/index.html")
     else:
         print("⚠️ Landing page not found at static/landing/index.html")
 
-# ensure this runs after build
-copy_landing_page()
-
 if __name__ == "__main__":
     main()
+    # run AFTER the build so dist exists
+    copy_landing_page()
+
