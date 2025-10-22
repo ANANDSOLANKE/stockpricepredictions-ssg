@@ -510,6 +510,13 @@ def main() -> None:
     )
     print("Build complete →", DIST)
 
+    print("\n--- Generated folders (region/country/exchange) ---")
+    for p in sorted(DIST.glob("*/*/*/index.html")):
+    rel = str(p.relative_to(DIST))
+    print("•", rel)
+    print("--------------------------------------------------\n")
+
+
 # ---------- landing page copy (runs after build) ----------
 def copy_landing_page():
     landing_src = ROOT / "static" / "landing" / "index.html"  # repo-root path
