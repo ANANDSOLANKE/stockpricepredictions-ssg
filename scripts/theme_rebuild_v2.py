@@ -1,6 +1,6 @@
 # scripts/theme_rebuild_v2.py
-# Final light-theme rebuild: adds %change beside close price, returns to white background
-# and keeps all other logic (symbol, name, green/red signal, etc.)
+# Light UI with strong %change parsing, blue section headings, bold green accuracy,
+# and improved cards. Keeps your existing layout & features.
 
 import os, re, datetime
 from pathlib import Path
@@ -9,6 +9,7 @@ from html import escape
 DIST_ROOT = "dist"
 STAMP = f"<!-- v2-rebuild-light {datetime.datetime.utcnow().isoformat()}Z -->"
 
+# ---------- helpers ----------
 def rx(p, s, flags=re.I|re.S, group=1, default=""):
     m = re.search(p, s, flags)
     return (m.group(group).strip() if m else default).strip()
@@ -28,13 +29,20 @@ def get_prediction_date(html):
     return rx(r"Prediction\s+for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="—")
 
 def get_ohlc_and_change(html):
+    # OHLC (robust)
     o = h = l = c = chg = "—"
     m = re.search(r"OHLC:\s*O\s*([0-9.,\-]+).*?H\s*([0-9.,\-]+).*?L\s*([0-9.,\-]+).*?C\s*([0-9.,\-]+)",
                   html, re.I|re.S)
     if m:
         o, h, l, c = [g.replace(",", "") for g in m.groups()]
-    k = re.search(r"Change%[:\s]*([+\-]?[0-9.]+%)", html, re.I)
-    if k: chg = k.group(1)
+
+    # % change (very robust)
+    # accepts: "Change%: +1.58%", "· Change%: -0.10%", "Change%  +0.8%", "Change%:+2.0%"
+    # also tolerates weird punctuation between tokens
+    patt = r"Change%\s*[:\-\u00b7\.\s]*([+\-]?\s*\d+(?:\.\d+)?)\s*%"
+    k = re.search(patt, html, re.I|re.S)
+    if k:
+        chg = k.group(1).replace(" ", "") + "%"
     return o, h, l, c, chg
 
 def get_signal(html):
@@ -68,42 +76,76 @@ def build_table(html):
 # ---------- LIGHT THEME CSS ----------
 CSS = r"""
 :root {
+  --blue:#2563eb; --blue-weak:#dbeafe;
   --green1:#16a34a; --green2:#22c55e;
   --red1:#ef4444; --red2:#f87171;
+  --green-deep:#15803d; --red-deep:#b91c1c;
   --border:#e5e7eb; --bg:#f9fafb; --text:#111827;
+  --shadow:0 1px 4px rgba(0,0,0,0.06);
+  --shadow-lg:0 10px 30px rgba(0,0,0,.06);
 }
-body { background:var(--bg); color:var(--text); font:16px/1.45 'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; margin:0; padding:20px; }
+*{box-sizing:border-box}
+body { background:var(--bg); color:var(--text); font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Inter", sans-serif; margin:0; padding:20px; }
 .wrap { max-width:1100px; margin:0 auto; }
-a { color:#2563eb; text-decoration:none; }
+
+a { color:var(--blue); text-decoration:none; }
 a:hover { text-decoration:underline; }
-.badge { display:inline-block; background:#fef08a; color:#78350f; border-radius:10px; padding:6px 10px; font-weight:700; margin-right:10px; font-size:14px; }
-.header { display:flex; align-items:center; gap:14px; background:white; border:1px solid var(--border); border-radius:12px; padding:14px 18px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+
+.badge { display:inline-block; background:#fef08a; color:#78350f; border-radius:10px; padding:6px 10px; font-weight:700; margin-right:10px; font-size:14px; box-shadow:var(--shadow); }
+
+.header {
+  display:flex; align-items:center; gap:14px;
+  background:white; border:1px solid var(--border); border-radius:12px; padding:14px 18px; box-shadow:var(--shadow);
+}
 .header .title { font-weight:800; font-size:20px; }
 .header .sub { font-size:13px; opacity:.7; }
-.price-chip { margin-left:auto; background:#ecfdf5; border:1px solid #d1fae5; border-radius:10px; padding:10px 14px; display:flex; gap:8px; align-items:center; font-weight:700; color:#065f46; }
-.price-chip .chg.positive { color:#15803d; }
-.price-chip .chg.negative { color:#b91c1c; }
-.banner { margin:18px 0; border-radius:14px; padding:22px; color:#fff; }
+
+.price-chip {
+  margin-left:auto; background:#ffffff; border:1px solid var(--border);
+  border-radius:10px; padding:10px 14px; display:flex; gap:10px; align-items:center;
+  font-weight:800; color:var(--text); box-shadow:var(--shadow);
+}
+.price-chip .px{opacity:.9}
+.price-chip .chg { padding:2px 8px; border-radius:999px; font-weight:800; }
+.price-chip .chg.positive { background:#dcfce7; color:var(--green-deep); }
+.price-chip .chg.negative { background:#fee2e2; color:var(--red-deep); }
+.price-chip .arr { font-size:15px; margin-right:4px; }
+
+.banner { margin:18px 0; border-radius:14px; padding:22px; color:#fff; box-shadow:var(--shadow-lg); }
 .banner.green { background:linear-gradient(180deg,var(--green1),var(--green2)); }
 .banner.red { background:linear-gradient(180deg,var(--red1),var(--red2)); }
-.banner .signal { font-size:52px; font-weight:900; margin:10px 0; }
+.banner .t { opacity:.95; margin-bottom:8px; }
+.banner .signal { font-size:48px; font-weight:900; margin:6px 0; display:flex; align-items:center; gap:10px; }
 .banner .ohlc { background:rgba(255,255,255,.15); padding:8px 12px; border-radius:10px; display:inline-flex; gap:12px; font-weight:600; }
+
 .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:16px 0; }
-.card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
-.card h4 { margin:0 0 8px 0; font-size:14px; color:#374151; }
-.card .big { font-size:26px; font-weight:900; color:#111827; }
-.card .note { font-size:13px; opacity:.8; }
-.table-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:8px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
-.table-card h3 { margin:12px 16px; }
+.card {
+  background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden; transition:.25s transform, .25s box-shadow;
+}
+.card:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(0,0,0,.07); }
+.card::before{
+  content:""; position:absolute; left:0; top:0; width:100%; height:4px; background:linear-gradient(90deg,var(--blue),#60a5fa);
+}
+.card h4 { margin:6px 0 10px 0; font-size:14px; color:var(--blue); font-weight:800; }
+.card .big { font-size:28px; font-weight:900; color:var(--green-deep); }
+.card .note { font-size:13px; opacity:.85; }
+
+.table-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:8px 0 16px 0; box-shadow:var(--shadow); }
+.table-card h3 { margin:12px 16px; color:var(--blue); font-weight:800; }
+
 .table { width:100%; border-collapse:collapse; }
 .table th, .table td { padding:12px 14px; border-top:1px solid var(--border); }
 .table th { font-size:13px; text-align:left; opacity:.9; }
-.win { background:#dcfce7; color:#166534; padding:3px 8px; border-radius:6px; font-weight:600; }
-.loss { background:#fee2e2; color:#b91c1c; padding:3px 8px; border-radius:6px; font-weight:600; }
-.footer-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; margin:18px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.win { background:#dcfce7; color:var(--green-deep); padding:3px 8px; border-radius:6px; font-weight:700; }
+.loss { background:#fee2e2; color:var(--red-deep);  padding:3px 8px; border-radius:6px; font-weight:700; }
+
+.footer-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; margin:18px 0; box-shadow:var(--shadow); }
+.footer-card h3{ color:var(--blue); font-weight:800; margin:0 0 8px 0; }
+.footer-card .note { font-size:13px; opacity:.9; }
 """
 
-# ---------- HTML TEMPLATE ----------
+# ---------- page template ----------
 HTML = """{stamp}
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -120,20 +162,30 @@ HTML = """{stamp}
     </div>
     <div class="price-chip">
       <div class="px">{close_px}</div>
-      <div class="chg {chg_class}">{chg}</div>
+      <div class="chg {chg_class}"><span class="arr">{chg_arrow}</span>{chg}</div>
     </div>
   </div>
 
   <div class="banner {banner_class}">
     <div class="t">AI Prediction: <b>{full_name}</b> for <b>{pred_date}</b></div>
-    <div class="signal">{arrow} {signal}</div>
+    <div class="signal">{banner_arrow} {signal}</div>
     <div class="ohlc">O {o} H {h} L {l} C {c}</div>
   </div>
 
   <div class="grid3">
-    <div class="card"><h4>Model Performance</h4><div class="big">{acc_pct}</div><div class="note">{acc_note}</div></div>
-    <div class="card"><h4>Our Methodology</h4><div class="note">We analyze 50+ factors including volume, momentum (RSI, MACD), and key support levels using our deep learning model.</div></div>
-    <div class="card"><h4>Important Disclosures</h4><div class="note">This is <b>not</b> financial advice. For informational purposes only. Trading carries inherent risk.</div></div>
+    <div class="card">
+      <h4>Model Performance</h4>
+      <div class="big">{acc_pct}</div>
+      <div class="note">{acc_note}</div>
+    </div>
+    <div class="card">
+      <h4>Our Methodology</h4>
+      <div class="note">We analyze 50+ factors including volume, momentum (RSI, MACD), and key support levels using our deep learning model.</div>
+    </div>
+    <div class="card">
+      <h4>Important Disclosures</h4>
+      <div class="note">This is <b>not</b> financial advice. For informational purposes only. Trading carries inherent risk.</div>
+    </div>
   </div>
 
   <div class="table-card">
@@ -150,7 +202,7 @@ HTML = """{stamp}
 </body></html>
 """
 
-# ---------- MAIN ----------
+# ---------- main rebuild ----------
 def rebuild_page(p: Path):
     html = p.read_text(encoding="utf-8")
     symbol, full_name = get_symbol_and_fullname(html)
@@ -159,8 +211,12 @@ def rebuild_page(p: Path):
     signal = get_signal(html)
     acc_pct, acc_note = scrape_accuracy(html)
     table_html = build_table(html)
+
     close_px = c if c != "—" else "—"
+    chg_arrow = "▲" if chg.startswith("+") else ("▼" if chg.startswith("-") else "•")
     chg_class = "positive" if chg.startswith("+") else ("negative" if chg.startswith("-") else "")
+    banner_arrow = arrow_for(signal)
+
     out = HTML.format(
         stamp=STAMP,
         page_title=f"{full_name or symbol} Stock Prediction",
@@ -169,11 +225,12 @@ def rebuild_page(p: Path):
         full_name=escape(full_name or "Stock"),
         build_time=datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
         close_px=escape(close_px),
-        chg=escape(chg),
+        chg=escape(chg or "—"),
         chg_class=chg_class,
+        chg_arrow=chg_arrow,
         pred_date=escape(pred_date),
         o=o, h=h, l=l, c=c,
-        signal=signal, arrow=arrow_for(signal),
+        signal=signal, banner_arrow=banner_arrow,
         banner_class=banner_class_for(signal),
         acc_pct=acc_pct, acc_note=acc_note,
         table_html=table_html
