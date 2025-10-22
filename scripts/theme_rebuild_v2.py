@@ -29,20 +29,36 @@ def get_prediction_date(html):
     return rx(r"Prediction\s+for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="—")
 
 def get_ohlc_and_change(html):
-    # OHLC (robust)
+    """
+    Return (O, H, L, C, chg_str) using only the page's *actual* Change%.
+    No computed fallback. If not found, chg_str is '—'.
+    """
+    # 1) OHLC
     o = h = l = c = chg = "—"
-    m = re.search(r"OHLC:\s*O\s*([0-9.,\-]+).*?H\s*([0-9.,\-]+).*?L\s*([0-9.,\-]+).*?C\s*([0-9.,\-]+)",
-                  html, re.I|re.S)
+    m = re.search(
+        r"OHLC:\s*O\s*([0-9.,\-]+).*?H\s*([0-9.,\-]+).*?L\s*([0-9.,\-]+).*?C\s*([0-9.,\-]+)",
+        html, re.I | re.S
+    )
     if m:
-        o, h, l, c = [g.replace(",", "") for g in m.groups()]
+        o, h, l, c = [g.strip().replace(",", "") for g in m.groups()]
 
-    # % change (very robust)
-    # accepts: "Change%: +1.58%", "· Change%: -0.10%", "Change%  +0.8%", "Change%:+2.0%"
-    # also tolerates weird punctuation between tokens
-    patt = r"Change%\s*[:\-\u00b7\.\s]*([+\-]?\s*\d+(?:\.\d+)?)\s*%"
-    k = re.search(patt, html, re.I|re.S)
-    if k:
-        chg = k.group(1).replace(" ", "") + "%"
+    # 2) Try several actual Change% shapes (keep order → most specific first)
+    patterns = [
+        # Common: "Change%: -0.10%"
+        r"Change%\s*:\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        # With dash or middot after label: "Change% – -0.10%" or "Change% · -0.10%"
+        r"Change%\s*[–\-•\.\u00b7]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        # With label but no colon: "Change% -0.10%"
+        r"Change%\s+([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        # Standalone percent near the OHLC chip (look within ~300 chars of 'OHLC')
+        r"OHLC.{0,300}?([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+    ]
+    for patt in patterns:
+        k = re.search(patt, html, re.I | re.S)
+        if k:
+            chg = k.group(1).replace(" ", "").replace(",", ".") + "%"
+            break
+
     return o, h, l, c, chg
 
 def get_signal(html):
