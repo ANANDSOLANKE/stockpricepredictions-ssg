@@ -542,17 +542,25 @@ def main() -> None:
         + "</urlset>",
     )
     print("Build complete →", DIST)
+        
+
+# --- Copy AI landing page (static/landing/index.html) to dist root ---
+from pathlib import Path
+import shutil
+
+def copy_landing_page():
+    repo_root = Path(__file__).resolve().parent
+    dist_path = repo_root / "dist"
+    landing_src = repo_root / "static" / "landing" / "index.html"
+    if landing_src.exists():
+        dist_path.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(landing_src, dist_path / "index.html")
+        print("✅ Landing page copied to dist/index.html")
+    else:
+        print("⚠️ Landing page not found at static/landing/index.html")
+
+# ensure this runs after build
+copy_landing_page()
 
 if __name__ == "__main__":
     main()
-
-# ---- Optional: run the modern prediction-page theme (v2) directly from build ----
-# If your workflow already runs `python -u scripts/theme_override.py`, you can
-# set USE_V2_UI=False below or delete this block to avoid running it twice.
-try:
-    USE_V2_UI = False
-    if USE_V2_UI:
-        from scripts.theme_override import apply_prediction_template
-        apply_prediction_template()
-except Exception as e:
-    print(f"[v2-ui] Skipped (error: {e})")
