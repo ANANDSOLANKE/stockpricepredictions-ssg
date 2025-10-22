@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <title>Global Stock Market Map | StockPricePredictions.com</title>
+  <meta name="description" content="Explore all world markets at a glance — regions, countries, and exchanges. Search any symbol, company, country or exchange to jump directly.">
+  <style>
+    :root{
+      --bg:#0d1117;
+      --card:#161b22;
+      --ink:#ffffff;
+      --muted:#9aa4b2;
+      --brand:#00b7ff;
+      --border:#222;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    header{padding:22px 14px 6px;border-bottom:1px solid var(--border)}
+    .topbar{max-width:1200px;margin:0 auto;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .brand{display:flex;gap:10px;align-items:center}
+    .brand h1{font-size:1.6em;color:var(--brand);margin:0}
+    .brand p{color:var(--muted);font-size:.98em;margin:0}
+    .searchwrap{position:relative;flex:1;min-width:280px;max-width:560px}
+    .searchwrap input{
+      width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);
+      background:#0a0f14;color:var(--ink);outline:none;
+    }
+    .searchbox{position:absolute;top:42px;left:0;right:0;background:var(--card);border:1px solid var(--border);
+      border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.35);display:none;z-index:50;overflow:hidden}
+    .result{padding:10px 12px;cursor:pointer;border-top:1px solid #12161c}
+    .result:first-child{border-top:none}
+    .result:hover{background:rgba(0,183,255,.08)}
+    .muted{color:var(--muted)}
+    section{padding:22px 34px;border-top:1px solid var(--border)}
+    section h2{color:var(--brand);margin:0 0 14px;border-bottom:1px solid var(--border);padding-bottom:6px;font-size:1.2em}
+    .country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+    .country-card{background:var(--card);border-radius:10px;padding:9px;text-align:center;transition:.25s;box-shadow:0 0 5px rgba(0,0,0,.4)}
+    .country-card:hover{transform:scale(1.03);box-shadow:0 0 12px #00b7ff55}
+    .flag{width:44px;height:30px;border-radius:4px;margin-bottom:6px;object-fit:cover}
+    .country-name{font-weight:600;margin-bottom:4px;font-size:.98em}
+    .exchange-list{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+    .exchange-item{display:flex;align-items:center;gap:4px;background:#0d1117;border:1px solid var(--border);border-radius:18px;padding:3px 7px;text-decoration:none;color:#fff;font-size:.77em;transition:.25s}
+    .exchange-item:hover{background:#00b7ff33}
+    .exchange-item img{width:14px;height:14px;border-radius:50%}
+    footer{text-align:center;padding:16px;border-top:1px solid var(--border);color:#777;font-size:.83em}
+    @media (max-width:600px){
+      header{padding:16px 12px 6px}
+      .brand h1{font-size:1.35em}
+      section{padding:18px 12px}
+      .country-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <h1>Global Stock Market Map</h1>
+        <p class="muted">Explore regions, countries, and exchanges around the world</p>
+      </div>
+      <div class="searchwrap">
+        <input id="global-search" type="search" placeholder="Search symbol, company, exchange, or country… (e.g., TCS, NSE, India)" autocomplete="off" aria-label="Global search">
+        <div id="search-results" class="searchbox" role="listbox" aria-label="Search results"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT FROM USER'S ORIGINAL PAGE (kept intact) -->
+  <section><h2>Asia - Pacific</h2><div class='country-grid'><div class='country-card'><img src='/logos/countryflags/australia.svg' alt='australia Flag' class='flag'><div class='country-name'>Australia</div><div class='exchange-list'><a href='/asia---pacific/australia/asx/' class='exchange-item'><img src='/logos/exchanges/asx.png' alt='asx'>ASX</a></div></div><div class='country-card'><img src='/logos/countryflags/malaysia.svg' alt='malaysia Flag' class='flag'><div class='country-name'>Malaysia</div><div class='exchange-list'><a href='/asia---pacific/malaysia/bursa/' class='exchange-item'><img src='/logos/exchanges/bursa.png' alt='bursa'>BURSA</a></div></div><div class='country-card'><img src='/logos/countryflags/bangladesh.svg' alt='bangladesh Flag' class='flag'><div class='country-name'>Bangladesh</div><div class='exchange-list'><a href='/asia---pacific/bangladesh/dse/' class='exchange-item'><img src='/logos/exchanges/dse.png' alt='dse'>DSE</a></div></div><div class='country-card'><img src='/logos/countryflags/new-zealand.svg' alt='new-zealand Flag' class='flag'><div class='country-name'>New Zealand</div><div class='exchange-list'><a href='/asia---pacific/new-zealand/nzsx/' class='exchange-item'><img src='/logos/exchanges/nzsx.png' alt='nzsx'>NZSX</a></div></div><div class='country-card'><img src='/logos/countryflags/china.svg' alt='china Flag' class='flag'><div class='country-name'>China</div><div class='exchange-list'><a href='/asia---pacific/china/sse/' class='exchange-item'><img src='/logos/exchanges/sse.png' alt='sse'>SSE</a><a href='/asia---pacific/china/szse/' class='exchange-item'><img src='/logos/exchanges/szse.png' alt='szse'>SZSE</a></div></div><div class='country-card'><img src='/logos/countryflags/philippines.svg' alt='philippines Flag' class='flag'><div class='country-name'>Philippines</div><div class='exchange-list'><a href='/asia---pacific/philippines/pse/' class='exchange-item'><img src='/logos/exchanges/pse.png' alt='pse'>PSE</a></div></div><div class='country-card'><img src='/logos/countryflags/hong-kong.svg' alt='hong-kong Flag' class='flag'><div class='country-name'>Hong Kong</div><div class='exchange-list'><a href='/asia---pacific/hong-kong/hkex/' class='exchange-item'><img src='/logos/exchanges/hkex.png' alt='hkex'>HKEX</a></div></div><div class='country-card'><img src='/logos/countryflags/pakistan.svg' alt='pakistan Flag' class='flag'><div class='country-name'>Pakistan</div><div class='exchange-list'><a href='/asia---pacific/pakistan/psx/' class='exchange-item'><img src='/logos/exchanges/psx.png' alt='psx'>PSX</a></div></div><div class='country-card'><img src='/logos/countryflags/indonesia.svg' alt='indonesia Flag' class='flag'><div class='country-name'>Indonesia</div><div class='exchange-list'><a href='/asia---pacific/indonesia/idx/' class='exchange-item'><img src='/logos/exchanges/idx.png' alt='idx'>IDX</a></div></div><div class='country-card'><img src='/logos/countryflags/singapore.svg' alt='singapore Flag' class='flag'><div class='country-name'>Singapore</div><div class='exchange-list'><a href='/asia---pacific/singapore/sgx/' class='exchange-item'><img src='/logos/exchanges/sgx.png' alt='sgx'>SGX</a></div></div><div class='country-card'><img src='/logos/countryflags/india.svg' alt='india Flag' class='flag'><div class='country-name'>India</div><div class='exchange-list'><a href='/asia---pacific/india/nse/' class='exchange-item'><img src='/logos/exchanges/nse.png' alt='nse'>NSE</a><a href='/asia---pacific/india/bse/' class='exchange-item'><img src='/logos/exchanges/bse.png' alt='bse'>BSE</a></div></div><div class='country-card'><img src='/logos/countryflags/thailand.svg' alt='thailand Flag' class='flag'><div class='country-name'>Thailand</div><div class='exchange-list'><a href='/asia---pacific/thailand/set/' class='exchange-item'><img src='/logos/exchanges/set.png' alt='set'>SET</a></div></div><div class='country-card'><img src='/logos/countryflags/japan.svg' alt='japan Flag' class='flag'><div class='country-name'>Japan</div><div class='exchange-list'><a href='/asia---pacific/japan/tse/' class='exchange-item'><img src='/logos/exchanges/tse.png' alt='tse'>TSE</a></div></div><div class='country-card'><img src='/logos/countryflags/taiwan.svg' alt='taiwan Flag' class='flag'><div class='country-name'>Taiwan</div><div class='exchange-list'><a href='/asia---pacific/taiwan/main-exchange/' class='exchange-item'><img src='/logos/exchanges/main-exchange.png' alt='main-exchange'>MAIN-EXCHANGE</a></div></div><div class='country-card'><img src='/logos/countryflags/korea.svg' alt='korea Flag' class='flag'><div class='country-name'>Korea</div><div class='exchange-list'><a href='/asia---pacific/korea/main-exchange/' class='exchange-item'><img src='/logos/exchanges/main-exchange.png' alt='main-exchange'>MAIN-EXCHANGE</a></div></div><div class='country-card'><img src='/logos/countryflags/vietnam.svg' alt='vietnam Flag' class='flag'><div class='country-name'>Vietnam</div><div class='exchange-list'><a href='/asia---pacific/vietnam/hose/' class='exchange-item'><img src='/logos/exchanges/hose.png' alt='hose'>HOSE</a></div></div><div class='country-card'><img src='/logos/countryflags/sri-lanka.svg' alt='sri-lanka Flag' class='flag'><div class='country-name'>Sri Lanka</div><div class='exchange-list'><a href='/asia---pacific/sri-lanka/cse/' class='exchange-item'><img src='/logos/exchanges/cse.png' alt='cse'>CSE</a></div></div></div></section>
+  <section><h2>Europe</h2><div class='country-grid'><div class='country-card'><img src='/logos/countryflags/austria.svg' alt='austria Flag' class='flag'><div class='country-name'>Austria</div><div class='exchange-list'><a href='/europe/austria/vse/' class='exchange-item'><img src='/logos/exchanges/vse.png' alt='vse'>VSE</a></div></div><div class='country-card'><img src='/logos/countryflags/italy.svg' alt='italy Flag' class='flag'><div class='country-name'>Italy</div><div class='exchange-list'><a href='/europe/italy/mil/' class='exchange-item'><img src='/logos/exchanges/mil.png' alt='mil'>MIL</a></div></div><div class='country-card'><img src='/logos/countryflags/belgium.svg' alt='belgium Flag' class='flag'><div class='country-name'>Belgium</div><div class='exchange-list'><a href='/europe/belgium/euronext-brussels/' class='exchange-item'><img src='/logos/exchanges/euronext-brussels.png' alt='euronext-brussels'>EURONEXT-BRUSSELS</a></div></div><div class='country-card'><img src='/logos/countryflags/lithuania.svg' alt='lithuania Flag' class='flag'><div class='country-name'>Lithuania</div><div class='exchange-list'><a href='/europe/lithuania/omxl/' class='exchange-item'><img src='/logos/exchanges/omxl.png' alt='omxl'>OMXL</a></div></div><div class='country-card'><img src='/logos/countryflags/switzerland.svg' alt='switzerland Flag' class='flag'><div class='country-name'>Switzerland</div><div class='exchange-list'><a href='/europe/switzerland/six/' class='exchange-item'><img src='/logos/exchanges/six.png' alt='six'>SIX</a></div></div><div class='country-card'><img src='/logos/countryflags/latvia.svg' alt='latvia Flag' class='flag'><div class='country-name'>Latvia</div><div class='exchange-list'><a href='/europe/latvia/omxr/' class='exchange-item'><img src='/logos/exchanges/omxr.png' alt='omxr'>OMXR</a></div></div><div class='country-card'><img src='/logos/countryflags/cyprus.svg' alt='cyprus Flag' class='flag'><div class='country-name'>Cyprus</div><div class='exchange-list'><a href='/europe/cyprus/csecy/' class='exchange-item'><img src='/logos/exchanges/csecy.png' alt='csecy'>CSECY</a></div></div><div class='country-card'><img src='/logos/countryflags/luxembourg.svg' alt='luxembourg Flag' class='flag'><div class='country-name'>Luxembourg</div><div class='exchange-list'><a href='/europe/luxembourg/luxse/' class='exchange-item'><img src='/logos/exchanges/luxse.png' alt='luxse'>LUXSE</a></div></div><div class='country-card'><img src='/logos/countryflags/czech.svg' alt='czech Flag' class='flag'><div class='country-name'>Czech</div><div class='exchange-list'><a href='/europe/czech/pse/' class='exchange-item'><img src='/logos/exchanges/pse.png' alt='pse'>PSE</a></div></div><div class='country-card'><img src='/logos/countryflags/netherlands.svg' alt='netherlands Flag' class='flag'><div class='country-name'>Netherlands</div><div class='exchange-list'><a href='/europe/netherlands/euronext-amsterdam/' class='exchange-item'><img src='/logos/exchanges/euronext-amsterdam.png' alt='euronext-amsterdam'>EURONEXT-AMSTERDAM</a></div></div><div class='country-card'><img src='/logos/countryflags/germany.svg' alt='germany Flag' class='flag'><div class='country-name'>Germany</div><div class='exchange-list'><a href='/europe/germany/xetra/' class='exchange-item'><img src='/logos/exchanges/xetra.png' alt='xetra'>XETRA</a></div></div><div class='country-card'><img src='/logos/countryflags/norway.svg' alt='norway Flag' class='flag'><div class='country-name'>Norway</div><div class='exchange-list'><a href='/europe/norway/oslo/' class='exchange-item'><img src='/logos/exchanges/oslo.png' alt='oslo'>OSLO</a></div></div><div class='country-card'><img src='/logos/countryflags/denmark.svg' alt='denmark Flag' class='flag'><div class='country-name'>Denmark</div><div class='exchange-list'><a href='/europe/denmark/omxc/' class='exchange-item'><img src='/logos/exchanges/omxc.png' alt='omxc'>OMXC</a></div></div><div class='country-card'><img src='/logos/countryflags/poland.svg' alt='poland Flag' class='flag'><div class='country-name'>Poland</div><div class='exchange-list'><a href='/europe/poland/wse/' class='exchange-item'><img src='/logos/exchanges/wse.png' alt='wse'>WSE</a></div></div><div class='country-card'><img src='/logos/countryflags/estonia.svg' alt='estonia Flag' class='flag'><div class='country-name'>Estonia</div><div class='exchange-list'><a href='/europe/estonia/omxt/' class='exchange-item'><img src='/logos/exchanges/omxt.png' alt='omxt'>OMXT</a></div></div><div class='country-card'><img src='/logos/countryflags/portugal.svg' alt='portugal Flag' class='flag'><div class='country-name'>Portugal</div><div class='exchange-list'><a href='/europe/portugal/euronext-lisbon/' class='exchange-item'><img src='/logos/exchanges/euronext-lisbon.png' alt='euronext-lisbon'>EURONEXT-LISBON</a></div></div><div class='country-card'><img src='/logos/countryflags/spain.svg' alt='spain Flag' class='flag'><div class='country-name'>Spain</div><div class='exchange-list'><a href='/europe/spain/bme/' class='exchange-item'><img src='/logos/exchanges/bme.png' alt='bme'>BME</a></div></div><div class='country-card'><img src='/logos/countryflags/serbia.svg' alt='serbia Flag' class='flag'><div class='country-name'>Serbia</div><div class='exchange-list'><a href='/europe/serbia/belex/' class='exchange-item'><img src='/logos/exchanges/belex.png' alt='belex'>BELEX</a></div></div><div class='country-card'><img src='/logos/countryflags/finland.svg' alt='finland Flag' class='flag'><div class='country-name'>Finland</div><div class='exchange-list'><a href='/europe/finland/omxh/' class='exchange-item'><img src='/logos/exchanges/omxh.png' alt='omxh'>OMXH</a></div></div><div class='country-card'><img src='/logos/countryflags/russia.svg' alt='russia Flag' class='flag'><div class='country-name'>Russia</div><div class='exchange-list'><a href='/europe/russia/moex/' class='exchange-item'><img src='/logos/exchanges/moex.png' alt='moex'>MOEX</a></div></div><div class='country-card'><img src='/logos/countryflags/france.svg' alt='france Flag' class='flag'><div class='country-name'>France</div><div class='exchange-list'><a href='/europe/france/euronext-paris/' class='exchange-item'><img src='/logos/exchanges/euronext-paris.png' alt='euronext-paris'>EURONEXT-PARIS</a></div></div><div class='country-card'><img src='/logos/countryflags/romania.svg' alt='romania Flag' class='flag'><div class='country-name'>Romania</div><div class='exchange-list'><a href='/europe/romania/bvb/' class='exchange-item'><img src='/logos/exchanges/bvb.png' alt='bvb'>BVB</a></div></div><div class='country-card'><img src='/logos/countryflags/greece.svg' alt='greece Flag' class='flag'><div class='country-name'>Greece</div><div class='exchange-list'><a href='/europe/greece/athex/' class='exchange-item'><img src='/logos/exchanges/athex.png' alt='athex'>ATHEX</a></div></div><div class='country-card'><img src='/logos/countryflags/sweden.svg' alt='sweden Flag' class='flag'><div class='country-name'>Sweden</div><div class='exchange-list'><a href='/europe/sweden/omx/' class='exchange-item'><img src='/logos/exchanges/omx.png' alt='omx'>OMX</a></div></div><div class='country-card'><img src='/logos/countryflags/hungary.svg' alt='hungary Flag' class='flag'><div class='country-name'>Hungary</div><div class='exchange-list'><a href='/europe/hungary/bsehu/' class='exchange-item'><img src='/logos/exchanges/bsehu.png' alt='bsehu'>BSEHU</a></div></div><div class='country-card'><img src='/logos/countryflags/slovakia.svg' alt='slovakia Flag' class='flag'><div class='country-name'>Slovakia</div><div class='exchange-list'><a href='/europe/slovakia/bsse/' class='exchange-item'><img src='/logos/exchanges/bsse.png' alt='bsse'>BSSE</a></div></div><div class='country-card'><img src='/logos/countryflags/ireland.svg' alt='ireland Flag' class='flag'><div class='country-name'>Ireland</div><div class='exchange-list'><a href='/europe/ireland/euronext-dublin/' class='exchange-item'><img src='/logos/exchanges/euronext-dublin.png' alt='euronext-dublin'>EURONEXT-DUBLIN</a></div></div><div class='country-card'><img src='/logos/countryflags/turkey.svg' alt='turkey Flag' class='flag'><div class='country-name'>Turkey</div><div class='exchange-list'><a href='/europe/turkey/bist/' class='exchange-item'><img src='/logos/exchanges/bist.png' alt='bist'>BIST</a></div></div><div class='country-card'><img src='/logos/countryflags/iceland.svg' alt='iceland Flag' class='flag'><div class='country-name'>Iceland</div><div class='exchange-list'><a href='/europe/iceland/icex/' class='exchange-item'><img src='/logos/exchanges/icex.png' alt='icex'>ICEX</a></div></div><div class='country-card'><img src='/logos/countryflags/united-kingdom.svg' alt='united-kingdom Flag' class='flag'><div class='country-name'>United Kingdom</div><div class='exchange-list'><a href='/europe/united-kingdom/lse/' class='exchange-item'><img src='/logos/exchanges/lse.png' alt='lse'>LSE</a></div></div></div></section>
+  <section><h2>Mexico - South America</h2><div class='country-grid'><div class='country-card'><img src='/logos/countryflags/argentina.svg' alt='argentina Flag' class='flag'><div class='country-name'>Argentina</div><div class='exchange-list'><a href='/mexico---south-america/argentina/bcba/' class='exchange-item'><img src='/logos/exchanges/bcba.png' alt='bcba'>BCBA</a></div></div><div class='country-card'><img src='/logos/countryflags/mexico.svg' alt='mexico Flag' class='flag'><div class='country-name'>Mexico</div><div class='exchange-list'><a href='/mexico---south-america/mexico/bmv/' class='exchange-item'><img src='/logos/exchanges/bmv.png' alt='bmv'>BMV</a></div></div><div class='country-card'><img src='/logos/countryflags/brazil.svg' alt='brazil Flag' class='flag'><div class='country-name'>Brazil</div><div class='exchange-list'><a href='/mexico---south-america/brazil/b3/' class='exchange-item'><img src='/logos/exchanges/b3.png' alt='b3'>B3</a></div></div><div class='country-card'><img src='/logos/countryflags/peru.svg' alt='peru Flag' class='flag'><div class='country-name'>Peru</div><div class='exchange-list'><a href='/mexico---south-america/peru/bvl/' class='exchange-item'><img src='/logos/exchanges/bvl.png' alt='bvl'>BVL</a></div></div><div class='country-card'><img src='/logos/countryflags/chile.svg' alt='chile Flag' class='flag'><div class='country-name'>Chile</div><div class='exchange-list'><a href='/mexico---south-america/chile/bcs/' class='exchange-item'><img src='/logos/exchanges/bcs.png' alt='bcs'>BCS</a></div></div><div class='country-card'><img src='/logos/countryflags/venezuela.svg' alt='venezuela Flag' class='flag'><div class='country-name'>Venezuela</div><div class='exchange-list'><a href='/mexico---south-america/venezuela/main-exchange/' class='exchange-item'><img src='/logos/exchanges/main-exchange.png' alt='main-exchange'>MAIN-EXCHANGE</a></div></div><div class='country-card'><img src='/logos/countryflags/colombia.svg' alt='colombia Flag' class='flag'><div class='country-name'>Colombia</div><div class='exchange-list'><a href='/mexico---south-america/colombia/bvc/' class='exchange-item'><img src='/logos/exchanges/bvc.png' alt='bvc'>BVC</a></div></div></div></section>
+  <section><h2>Middle East - Africa</h2><div class='country-grid'><div class='country-card'><img src='/logos/countryflags/uae.svg' alt='uae Flag' class='flag'><div class='country-name'>Uae</div><div class='exchange-list'><a href='/middle-east---africa/uae/dfm/' class='exchange-item'><img src='/logos/exchanges/dfm.png' alt='dfm'>DFM</a><a href='/middle-east---africa/uae/adx/' class='exchange-item'><img src='/logos/exchanges/adx.png' alt='adx'>ADX</a></div></div><div class='country-card'><img src='/logos/countryflags/bahrain.svg' alt='bahrain Flag' class='flag'><div class='country-name'>Bahrain</div><div class='exchange-list'><a href='/middle-east---africa/bahrain/bsebh/' class='exchange-item'><img src='/logos/exchanges/bsebh.png' alt='bsebh'>BSEBH</a></div></div><div class='country-card'><img src='/logos/countryflags/nigeria.svg' alt='nigeria Flag' class='flag'><div class='country-name'>Nigeria</div><div class='exchange-list'><a href='/middle-east---africa/nigeria/ngx/' class='exchange-item'><img src='/logos/exchanges/ngx.png' alt='ngx'>NGX</a></div></div><div class='country-card'><img src='/logos/countryflags/egypt.svg' alt='egypt Flag' class='flag'><div class='country-name'>Egypt</div><div class='exchange-list'><a href='/middle-east---africa/egypt/egx/' class='exchange-item'><img src='/logos/exchanges/egx.png' alt='egx'>EGX</a></div></div><div class='country-card'><img src='/logos/countryflags/qatar.svg' alt='qatar Flag' class='flag'><div class='country-name'>Qatar</div><div class='exchange-list'><a href='/middle-east---africa/qatar/qe/' class='exchange-item'><img src='/logos/exchanges/qe.png' alt='qe'>QE</a></div></div><div class='country-card'><img src='/logos/countryflags/israel.svg' alt='israel Flag' class='flag'><div class='country-name'>Israel</div><div class='exchange-list'><a href='/middle-east---africa/israel/tase/' class='exchange-item'><img src='/logos/exchanges/tase.png' alt='tase'>TASE</a></div></div><div class='country-card'><img src='/logos/countryflags/ksa.svg' alt='ksa Flag' class='flag'><div class='country-name'>Ksa</div><div class='exchange-list'><a href='/middle-east---africa/ksa/main-exchange/' class='exchange-item'><img src='/logos/exchanges/main-exchange.png' alt='main-exchange'>MAIN-EXCHANGE</a></div></div><div class='country-card'><img src='/logos/countryflags/kenya.svg' alt='kenya Flag' class='flag'><div class='country-name'>Kenya</div><div class='exchange-list'><a href='/middle-east---africa/kenya/nseke/' class='exchange-item'><img src='/logos/exchanges/nseke.png' alt='nseke'>NSEKE</a></div></div><div class='country-card'><img src='/logos/countryflags/tunisia.svg' alt='tunisia Flag' class='flag'><div class='country-name'>Tunisia</div><div class='exchange-list'><a href='/middle-east---africa/tunisia/bvmt/' class='exchange-item'><img src='/logos/exchanges/bvmt.png' alt='bvmt'>BVMT</a></div></div><div class='country-card'><img src='/logos/countryflags/kuwait.svg' alt='kuwait Flag' class='flag'><div class='country-name'>Kuwait</div><div class='exchange-list'><a href='/middle-east---africa/kuwait/kwse/' class='exchange-item'><img src='/logos/exchanges/kwse.png' alt='kwse'>KWSE</a></div></div><div class='country-card'><img src='/logos/countryflags/south-africa.svg' alt='south-africa Flag' class='flag'><div class='country-name'>South Africa</div><div class='exchange-list'><a href='/middle-east---africa/south-africa/jse/' class='exchange-item'><img src='/logos/exchanges/jse.png' alt='jse'>JSE</a></div></div></div></section>
+  <section><h2>North America</h2><div class='country-grid'><div class='country-card'><img src='/logos/countryflags/usa.svg' alt='usa Flag' class='flag'><div class='country-name'>Usa</div><div class='exchange-list'><a href='/north-america/usa/nyse/' class='exchange-item'><img src='/logos/exchanges/nyse.png' alt='nyse'>NYSE</a><a href='/north-america/usa/nasdaq/' class='exchange-item'><img src='/logos/exchanges/nasdaq.png' alt='nasdaq'>NASDAQ</a></div></div><div class='country-card'><img src='/logos/countryflags/canada.svg' alt='canada Flag' class='flag'><div class='country-name'>Canada</div><div class='exchange-list'><a href='/north-america/canada/tsx/' class='exchange-item'><img src='/logos/exchanges/tsx.png' alt='tsx'>TSX</a><a href='/north-america/canada/tsxv/' class='exchange-item'><img src='/logos/exchanges/tsxv.png' alt='tsxv'>TSXV</a></div></div></div></section>
+
+  <footer>© 2025 StockPricePredictions.com — All rights reserved.</footer>
+
+  <script>
+    // Lightweight global search with client-side index (search-index.json)
+    (function(){
+      const input = document.getElementById('global-search');
+      const box   = document.getElementById('search-results');
+      let idx = [];
+      let loaded = false;
+
+      function normalize(s){ return (s||'').toString().trim().toLowerCase(); }
+      function titleCase(s){ return s.replace(/\b\w/g, c => c.toUpperCase()); }
+
+      function buildUrl(hit){
+        if (hit.type === 'symbol') {
+          // /region/country/exchange/SYMBOL/index.html
+          return `/${hit.region}/${hit.country}/${hit.exchange}/${hit.symbol}/`;
+        }
+        if (hit.type === 'exchange') {
+          // open exchange panel on country page if needed in future using ?open=
+          return `/${hit.region}/${hit.country}/${hit.exchange}/`;
+        }
+        if (hit.type === 'country') {
+          return `/${hit.region}/${hit.country}/`;
+        }
+        if (hit.type === 'region') {
+          return `/${hit.region}/`;
+        }
+        return '/';
+      }
+
+      function render(results){
+        if (!results.length){ box.style.display='none'; box.innerHTML=''; return; }
+        box.style.display='block';
+        box.innerHTML = results.map(r => {
+          let label = '';
+          if (r.type === 'symbol') label = \`\${r.symbol} — \${r.name} · \${r.exchange.toUpperCase()}, \${titleCase(r.country)}\`;
+          else if (r.type === 'exchange') label = \`Exchange — \${r.exchange.toUpperCase()} · \${titleCase(r.country)}\`;
+          else if (r.type === 'country') label = \`Country — \${titleCase(r.country)}\`;
+          else if (r.type === 'region') label = \`Region — \${titleCase(r.region.replaceAll('-', ' '))}\`;
+          const url = buildUrl(r);
+          return \`<div class="result" role="option" data-url="\${url}">\${label}</div>\`;
+        }).join('');
+      }
+
+      function searchNow(q){
+        const n = normalize(q);
+        if (!n){ render([]); return; }
+        const results = idx.filter(it =>
+          normalize(it.symbol||'').includes(n) ||
+          normalize(it.name||'').includes(n) ||
+          normalize(it.exchange||'').includes(n) ||
+          normalize(it.country||'').includes(n) ||
+          normalize(it.region||'').includes(n)
+        ).slice(0, 10);
+        render(results);
+      }
+
+      function maybeLoad(){
+        if (loaded) return;
+        loaded = true;
+        // You will generate this file from your CSV in your build step.
+        fetch('/search-index.json')
+          .then(r => r.json())
+          .then(d => { idx = Array.isArray(d) ? d : []; })
+          .catch(() => { idx = []; });
+      }
+
+      input.addEventListener('focus', maybeLoad);
+      input.addEventListener('input', (e) => { maybeLoad(); searchNow(e.target.value); });
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && box.firstElementChild) {
+          location.href = box.firstElementChild.dataset.url;
+        } else if (e.key === 'Escape') {
+          box.style.display='none'; box.innerHTML='';
+        }
+      });
+      box.addEventListener('click', (e) => {
+        const el = e.target.closest('.result');
+        if (el) location.href = el.dataset.url;
+      });
+      document.addEventListener('click', (e)=>{
+        if (!e.target.closest('.searchwrap')) { box.style.display='none'; }
+      });
+    })();
+  </script>
+</body>
+</html>
