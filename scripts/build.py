@@ -508,14 +508,14 @@ def main() -> None:
         + "".join([f"<url><loc>{u}</loc></url>" for u in sorted(set(urls))])
         + "</urlset>",
     )
-    print("Build complete →", DIST)
 
     print("\n--- Generated folders (region/country/exchange) ---")
     for p in sorted(DIST.glob("*/*/*/index.html")):
     rel = str(p.relative_to(DIST))
     print("•", rel)
     print("--------------------------------------------------\n")
-
+    
+    print("Build complete →", DIST)
 
 # ---------- landing page copy (runs after build) ----------
 def copy_landing_page():
