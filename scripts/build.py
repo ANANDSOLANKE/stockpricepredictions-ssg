@@ -3,9 +3,14 @@
 
 """
 SSG build — reads Data/LastTradingDay/<RegionName>/*.csv
-Generates: /<region>/<country>/<exchange>/, stock pages, JSON, robots, sitemap
-Adds: Country flag + exchange chips bar (top of country & exchange pages)
-Fixes: country directories are now slugged (lowercase-dashed) to match URLs
+Generates:
+  /<region>/index.html
+  /<region>/<country>/index.html  ← country page with exchange chips + dynamic table
+  /<region>/<country>/<exchange>/index.html  ← still generated for compatibility
+  /<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+Also writes JSON per exchange used by the country page loader:
+  /static/exchanges/<region>/<country>/<exchange>.json
+Plus robots.txt and sitemap.xml.
 """
 
 import csv, html, json, os, re, unicodedata, shutil
@@ -135,7 +140,7 @@ def load_last_trading_day():
         gslug = slug(gname)
         tree.setdefault(gslug, {})
         for csvp in sorted(gdir.glob("*.csv")):
-            cslug_raw = csvp.stem  # keep raw (e.g., "South Africa")
+            cslug_raw = csvp.stem  # keep raw (e.g., "south-africa" or "South Africa")
             cname = cslug_raw.replace("-", " ").title()
             rows = read_csv_rows(csvp)
             tree[gslug][cslug_raw] = {
@@ -328,7 +333,7 @@ def main() -> None:
     resolver = LogoResolver()
     mkt = MarketTimes()
 
-    # Region pages + capture for index.json (if you need later)
+    # Region pages + country links
     for gslug in sorted(tree.keys()):
         gname = next(iter(tree[gslug].values()))["group_name"]
 
@@ -349,7 +354,7 @@ def main() -> None:
             ),
         )
 
-        # --- Country → Exchanges (slugged country dir) ---
+        # Country → exchanges
         for cslug_raw, country in tree[gslug].items():
             cname = country["country_name"]
             rows = country["rows"]
@@ -366,9 +371,8 @@ def main() -> None:
                 chips = []
                 for ex_name in sorted(e for e in exchanges if e and e.upper() != "UNKNOWN"):
                     ex_slug = slug(ex_name)
-                    ex_url = f"{BASE_URL}/{region_slug}/{country_slug}/{ex_slug}/"
-                    active_cls = " active" if (active_slug and active_slug == ex_slug) else ""
-                    chips.append(f"<a href='{ex_url}' class='exchip{active_cls}'>{html.escape(ex_name)}</a>")
+                    # country page chips link '#' and JS handles switching
+                    chips.append(f"<a href='#' data-ex='{ex_slug}' class='exchip'>{html.escape(ex_name)}</a>")
                 return f"""
                 <div class='exchange-bar'>
                   <div class='flagwrap'>
@@ -381,7 +385,7 @@ def main() -> None:
 
             all_exchanges = sorted(k for k in by.keys() if k and k.upper() != "UNKNOWN")
 
-            # build each exchange page + collect links for country page
+            # ---- build each exchange page (compatibility) + write JSON for dynamic loader
             ex_links = []
             for exch, erows in sorted(by.items(), key=lambda kv: kv[0].lower()):
                 e_slug = slug(exch)
@@ -399,8 +403,10 @@ def main() -> None:
                     o = _f(r.get("open")); h = _f(r.get("high"))
                     l = _f(r.get("low"));  cl = _f(r.get("close"))
                     ch_raw = r.get("change_percent") or r.get("change%") or ""
-                    try: ch = float(ch_raw)
-                    except Exception: ch = None
+                    try:
+                        ch = float(ch_raw)
+                    except Exception:
+                        ch = None
 
                     s_slug = slug(sym)
                     stock_url = f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"
@@ -451,6 +457,7 @@ def main() -> None:
                             tpl_base(title, title, head, f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"),
                         )
 
+                # exchange page (compatibility)
                 table_html = (
                     "<div class='table-wrap'>"
                     "<table class='table'>"
@@ -458,33 +465,73 @@ def main() -> None:
                     "<th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Change%</th><th>Signal</th></tr></thead>"
                     f"<tbody>{''.join(table_rows)}</tbody></table></div>"
                 )
-
-                bar_html = build_exchange_bar(gslug, cslug_dir, cname, all_exchanges, active_slug=e_slug)
-                page_body = bar_html + table_html
-
                 write_text(
                     DIST / gslug / cslug_dir / e_slug / "index.html",
                     tpl_base(
                         f"{cname} {exch} — {CFG.get('site_title','')}",
                         f"Listings for {exch} in {cname}.",
-                        page_body,
+                        build_exchange_bar(gslug, cslug_dir, cname, all_exchanges, active_slug=e_slug) + table_html,
                         f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/",
                     ),
                 )
 
+                # JSON for dynamic loader on country page
                 write_json(
                     DIST / "static" / "exchanges" / gslug / cslug_dir / f"{e_slug}.json",
                     {"region": gname, "country": cname, "exchange": exch, "rows": json_rows},
                 )
 
-            # country page (bar + list of exchanges)
-            bar_html_country = build_exchange_bar(gslug, cslug_dir, cname, all_exchanges)
+            # country page (bar + dynamic table loader)
+            default_ex_slug = slug(all_exchanges[0]) if all_exchanges else ""
+            loader_js = f"""
+<script>
+(function(){{
+  const base = "{BASE_URL}/static/exchanges/{gslug}/{cslug_dir}/";
+  const chips = document.querySelectorAll('.exchange-bar .exchip');
+  const tableHost = document.getElementById('ex-table');
+  function renderRows(rows){{
+    const cells = r => `
+      <tr>
+        <td><a href="${{r.url}}">${{r.symbol || ''}}</a></td>
+        <td>${{r.name || ''}}</td>
+        <td>${{r.sector || ''}}</td>
+        <td>${{r.open ?? ''}}</td>
+        <td>${{r.high ?? ''}}</td>
+        <td>${{r.low ?? ''}}</td>
+        <td>${{r.close ?? ''}}</td>
+        <td>${{(r.change_percent==null)?'':(r.change_percent*1).toFixed(2)+'%'}}}</td>
+        <td><a class='btn' href="${{r.url}}">AI Prediction</a></td>
+      </tr>`;
+    tableHost.innerHTML =
+      "<div class='table-wrap'><table class='table'><thead><tr><th>Symbol</th><th>Name</th><th>Sector</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Change%</th><th>Signal</th></tr></thead><tbody>"
+      + rows.map(cells).join("") + "</tbody></table></div>";
+  }}
+  async function loadExchange(slug){{
+    chips.forEach(c=>c.classList.toggle('active', c.dataset.ex===slug));
+    try {{
+      const res = await fetch(base + slug + ".json");
+      const data = await res.json();
+      renderRows(data.rows||[]);
+    }} catch(e) {{
+      tableHost.innerHTML = "<p class='small'>Failed to load exchange data.</p>";
+    }}
+  }}
+  chips.forEach(c=>c.addEventListener('click', (ev)=>{{ev.preventDefault(); loadExchange(c.dataset.ex);}}));
+  if ("{default_ex_slug}") loadExchange("{default_ex_slug}");
+}})();
+</script>
+"""
+            country_body = (
+                build_exchange_bar(gslug, cslug_dir, cname, all_exchanges)
+                + "<div id='ex-table' class='card'><p class='small'>Loading…</p></div>"
+                + loader_js
+            )
             write_text(
                 DIST / gslug / cslug_dir / "index.html",
                 tpl_base(
                     f"{cname} — {CFG.get('site_title','')}",
                     f"Exchanges in {cname}.",
-                    bar_html_country + "<section class='card'><ul>" + "".join(ex_links) + "</ul></section>",
+                    country_body,
                     f"{BASE_URL}/{gslug}/{cslug_dir}/",
                 ),
             )
@@ -501,14 +548,6 @@ def main() -> None:
         + "".join([f"<url><loc>{u}</loc></url>" for u in sorted(set(urls))])
         + "</urlset>",
     )
-
-    # DEBUG: list generated region/country/exchange pages
-    print("\n--- Generated folders (region/country/exchange) ---")
-    for p in sorted(DIST.glob("*/*/*/index.html")):
-        rel = str(p.relative_to(DIST))
-        print("•", rel)
-    print("--------------------------------------------------\n")
-
     print("Build complete →", DIST)
 
 # ---------- landing page copy (runs after build) ----------
