@@ -328,20 +328,15 @@ def main() -> None:
     resolver = LogoResolver()
     mkt = MarketTimes()
 
-    # --- Region pages (list countries) + capture for index.json
-    site_index = {"regions": []}
-
+    # Region pages + capture for index.json (if you need later)
     for gslug in sorted(tree.keys()):
         gname = next(iter(tree[gslug].values()))["group_name"]
-        reg = {"name": gname, "slug": gslug, "url": f"{BASE_URL}/{gslug}/", "countries": []}
-        site_index["regions"].append(reg)
 
-        # Region page
+        # Region page (country links)
         links = []
         for cslug_raw in sorted(tree[gslug].keys()):
             cname = tree[gslug][cslug_raw]["country_name"]
             cslug_dir = slug(cslug_raw)
-            reg["countries"].append({"name": cname, "slug": cslug_dir, "url": f"{BASE_URL}/{gslug}/{cslug_dir}/", "exchanges": []})
             links.append(f"<li><a href='{BASE_URL}/{gslug}/{cslug_dir}/'>{html.escape(cname)}</a></li>")
 
         write_text(
@@ -354,11 +349,11 @@ def main() -> None:
             ),
         )
 
-        # --- Country → Exchanges
+        # --- Country → Exchanges (slugged country dir) ---
         for cslug_raw, country in tree[gslug].items():
             cname = country["country_name"]
             rows = country["rows"]
-            cslug_dir = slug(cslug_raw)  # *** directory/URL-safe
+            cslug_dir = slug(cslug_raw)  # directory/URL-safe
 
             # group by exchange
             by: Dict[str, List[Dict[str, str]]] = {}
@@ -369,7 +364,7 @@ def main() -> None:
             def build_exchange_bar(region_slug, country_slug, country_name, exchanges, active_slug: Optional[str] = None):
                 flag_path = f"{BASE_URL}/logos/countryflags/{country_slug}.svg"
                 chips = []
-                for ex_name in sorted(exchanges):
+                for ex_name in sorted(e for e in exchanges if e and e.upper() != "UNKNOWN"):
                     ex_slug = slug(ex_name)
                     ex_url = f"{BASE_URL}/{region_slug}/{country_slug}/{ex_slug}/"
                     active_cls = " active" if (active_slug and active_slug == ex_slug) else ""
@@ -404,10 +399,8 @@ def main() -> None:
                     o = _f(r.get("open")); h = _f(r.get("high"))
                     l = _f(r.get("low"));  cl = _f(r.get("close"))
                     ch_raw = r.get("change_percent") or r.get("change%") or ""
-                    try:
-                        ch = float(ch_raw)
-                    except Exception:
-                        ch = None
+                    try: ch = float(ch_raw)
+                    except Exception: ch = None
 
                     s_slug = slug(sym)
                     stock_url = f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"
@@ -509,12 +502,13 @@ def main() -> None:
         + "</urlset>",
     )
 
+    # DEBUG: list generated region/country/exchange pages
     print("\n--- Generated folders (region/country/exchange) ---")
     for p in sorted(DIST.glob("*/*/*/index.html")):
-    rel = str(p.relative_to(DIST))
-    print("•", rel)
+        rel = str(p.relative_to(DIST))
+        print("•", rel)
     print("--------------------------------------------------\n")
-    
+
     print("Build complete →", DIST)
 
 # ---------- landing page copy (runs after build) ----------
