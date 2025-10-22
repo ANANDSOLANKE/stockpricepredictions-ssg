@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-SSG build — reads Data/LastTradingDay/<RegionName>/*.csv
-Generates:
-  /<region>/index.html
-  /<region>/<country>/index.html  ← country page with exchange chips + dynamic table
-  /<region>/<country>/<exchange>/index.html  ← still generated for compatibility
+Build site from Data/LastTradingDay
+Outputs:
+  /index.html                          ← auto-built global landing (regions → countries → exchanges)
+  /<region>/index.html                 ← countries list
+  /<region>/<country>/index.html       ← country page (flag + exchange chips + default table)
+  /<region>/<country>/<exchange>/index.html
   /<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
-Also writes JSON per exchange used by the country page loader:
   /static/exchanges/<region>/<country>/<exchange>.json
-Plus robots.txt and sitemap.xml.
+  robots.txt, sitemap.xml
 """
 
 import csv, html, json, os, re, unicodedata, shutil
@@ -65,7 +65,7 @@ def next_business_day(d: datetime.date) -> datetime.date:
         return d + timedelta(days=2)
     return d + timedelta(days=1)
 
-# ---------- market config (local close -> prediction date) ----------
+# ---------- market config ----------
 class MarketTimes:
     def __init__(self):
         self._by_key: Dict[Tuple[str, str, str], Dict[str, str]] = {}
@@ -73,44 +73,31 @@ class MarketTimes:
 
     def _load(self):
         p = ROOT / "markets_config.csv"
-        if not p.exists():
-            return
+        if not p.exists(): return
         with open(p, "r", encoding="utf-8", newline="") as f:
             rdr = csv.DictReader(f)
             for r in rdr:
                 row = {(k or "").strip().lower(): (v or "").strip() for k, v in r.items()}
-                region = row.get("region", "")
-                country = row.get("country", "")
-                exch = row.get("exchange", "")
-                tz = row.get("timezone", "")
-                close = row.get("close_local", "")
-                if not (region and country and exch and tz and close):
-                    continue
-                self._by_key[(region.lower(), country.lower(), exch.lower())] = {"tz": tz, "close": close}
+                region, country, exch = row.get("region",""), row.get("country",""), row.get("exchange","")
+                tz, close = row.get("timezone",""), row.get("close_local","")
+                if region and country and exch and tz and close:
+                    self._by_key[(region.lower(), country.lower(), exch.lower())] = {"tz": tz, "close": close}
 
     def prediction_date(self, *, region: str, country: str, exchange: str) -> str:
         key = (region.lower(), country.lower(), exchange.lower())
         item = self._by_key.get(key)
         if not item or not zoneinfo:
             return next_business_day(datetime.utcnow().date()).isoformat()
-
-        tzname = item["tz"]
-        hhmm = item["close"]
         try:
-            hh, mm = [int(x) for x in hhmm.split(":", 1)]
+            hh, mm = [int(x) for x in item["close"].split(":", 1)]
             close_t = time(hour=hh, minute=mm)
+            tz = zoneinfo.ZoneInfo(item["tz"])
+            now_local = datetime.now(tz)
+            close_local = datetime.combine(now_local.date(), close_t, tzinfo=tz)
+            target = now_local.date() if now_local < close_local else next_business_day(now_local.date())
+            return target.isoformat()
         except Exception:
             return next_business_day(datetime.utcnow().date()).isoformat()
-
-        try:
-            tz = zoneinfo.ZoneInfo(tzname)
-        except Exception:
-            return next_business_day(datetime.utcnow().date()).isoformat()
-
-        now_local = datetime.now(tz)
-        close_local = datetime.combine(now_local.date(), close_t, tzinfo=tz)
-        target = now_local.date() if now_local < close_local else next_business_day(now_local.date())
-        return target.isoformat()
 
 # ---------- data ----------
 def read_csv_rows(p: Path) -> List[Dict[str, str]]:
@@ -119,35 +106,29 @@ def read_csv_rows(p: Path) -> List[Dict[str, str]]:
         rdr = csv.DictReader(f)
         for r in rdr:
             out.append({(k or "").strip().lower(): (v or "").strip() for k, v in r.items()})
-    # standardize some cols
-    need = ["symbol", "description", "exchange", "sector", "industry",
-            "open", "high", "low", "close", "change_percent", "change%", "currency"]
+    # normalize
+    need = ["symbol","description","exchange","sector","industry","open","high","low","close","change_percent","change%","currency"]
     for r in out:
-        for k in need:
-            r.setdefault(k, "")
+        for k in need: r.setdefault(k, "")
     return out
 
 def load_last_trading_day():
     """
-    returns tree[gslug][cslug_raw] = { group_name, group_slug, country_name, country_slug (raw), rows }
-    gslug is slug(RegionFolderName); cslug_raw is CSV stem (kept as-is for data lookup)
+    tree[gslug][cslug_raw] = { group_name, group_slug, country_name, country_slug(raw), rows }
+    where gslug = slug(RegionFolderName); cslug_raw = CSV stem as-is (e.g., 'South Africa' OR 'south-africa')
     """
     tree: Dict[str, Dict[str, Dict[str, object]]] = {}
-    if not DATA_LAST.exists():
-        return tree
+    if not DATA_LAST.exists(): return tree
     for gdir in sorted(d for d in DATA_LAST.iterdir() if d.is_dir()):
-        gname = gdir.name
-        gslug = slug(gname)
+        gname, gslug = gdir.name, slug(gdir.name)
         tree.setdefault(gslug, {})
         for csvp in sorted(gdir.glob("*.csv")):
-            cslug_raw = csvp.stem  # keep raw (e.g., "south-africa" or "South Africa")
+            cslug_raw = csvp.stem
             cname = cslug_raw.replace("-", " ").title()
             rows = read_csv_rows(csvp)
             tree[gslug][cslug_raw] = {
-                "group_name": gname,
-                "group_slug": gslug,
-                "country_name": cname,
-                "country_slug": cslug_raw,
+                "group_name": gname, "group_slug": gslug,
+                "country_name": cname, "country_slug": cslug_raw,
                 "rows": rows,
             }
     return tree
@@ -157,8 +138,7 @@ def copy_static_assets():
     ensure_dir(DIST / "static")
     for name in ("styles.css", "app.js"):
         s = ROOT / "static" / name
-        if s.exists():
-            shutil.copy2(s, DIST / "static" / name)
+        if s.exists(): shutil.copy2(s, DIST / "static" / name)
 
 def ensure_placeholder_logo():
     svg = """<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'>
@@ -167,8 +147,7 @@ def ensure_placeholder_logo():
 </svg>"""
     p = DIST / "static" / "logo-placeholder.svg"
     if not p.exists():
-        ensure_dir(p.parent)
-        p.write_text(svg, encoding="utf-8")
+        ensure_dir(p.parent); p.write_text(svg, encoding="utf-8")
 
 def _norm(s: str) -> str:
     s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode("ascii")
@@ -191,51 +170,44 @@ def load_logos_index() -> Dict[Tuple[str, str], str]:
 def build_scan_index() -> Dict[str, List[Tuple[str, str]]]:
     base = ROOT / "logos"
     idx: Dict[str, List[Tuple[str, str]]] = {}
-    if not base.exists():
-        return idx
+    if not base.exists(): return idx
     for root, _, files in os.walk(base):
         for f in files:
-            if os.path.splitext(f)[1].lower() not in IMG_EXTS:
-                continue
+            if os.path.splitext(f)[1].lower() not in IMG_EXTS: continue
             full = Path(root) / f
             rel = full.relative_to(base).as_posix()
-            exch = full.parent.name  # NSE / BSE / etc.
+            exch = full.parent.name
             stem = os.path.splitext(f)[0]
-            stem = re.sub(r"(--|_|-)?\d{2,4}$", "", stem)  # trim trailing size/hash
+            stem = re.sub(r"(--|_|-)?\d{2,4}$", "", stem)
             idx.setdefault(exch.upper(), []).append((_norm(stem), rel))
     return idx
 
 def _same_file(src: Path, dst: Path) -> bool:
     try:
-        s = src.stat(); d = dst.stat()
+        s, d = src.stat(), dst.stat()
         return (s.st_size == d.st_size) and (int(s.st_mtime) == int(d.st_mtime))
     except FileNotFoundError:
         return False
 
 def sync_tree(src: Path, dst: Path) -> None:
     ensure_dir(dst)
-    # copy/update
     for root, _, files in os.walk(src):
         rel_root = Path(root).relative_to(src)
         out_root = dst / rel_root
         ensure_dir(out_root)
         for f in files:
-            s = Path(root) / f
-            d = out_root / f
+            s, d = Path(root)/f, out_root/f
             if not _same_file(s, d):
-                ensure_dir(d.parent)
-                shutil.copy2(s, d)
-    # delete stale
+                ensure_dir(d.parent); shutil.copy2(s, d)
     for root, dirs, files in os.walk(dst):
         rel_root = Path(root).relative_to(dst)
         in_src = src / rel_root
         for f in files:
-            if not (in_src / f).exists():
-                try: (Path(root) / f).unlink()
+            if not (in_src/f).exists():
+                try: (Path(root)/f).unlink()
                 except: pass
         for dname in list(dirs):
-            dst_d = Path(root) / dname
-            src_d = in_src / dname
+            dst_d, src_d = Path(root)/dname, in_src/dname
             if not src_d.exists():
                 try: shutil.rmtree(dst_d)
                 except: pass
@@ -244,11 +216,11 @@ class LogoResolver:
     def __init__(self):
         self.placeholder = f"{BASE_URL}/static/logo-placeholder.svg"
         if SKIP_LOGOS:
-            self.curated = {}; self.scan = {}
+            self.curated, self.scan = {}, {}
         else:
-            src = ROOT / "logos"; dst = DIST / "logos"
+            src, dst = ROOT / "logos", DIST / "logos"
             if src.exists(): sync_tree(src, dst)
-            self.curated = load_logos_index(); self.scan = build_scan_index()
+            self.curated, self.scan = load_logos_index(), build_scan_index()
         self.cache: Dict[Tuple[str, str], str] = {}
 
     def url_for(self, exchange: str, symbol: str, name: str = "") -> str:
@@ -256,16 +228,13 @@ class LogoResolver:
         if key in self.cache: return self.cache[key]
         if SKIP_LOGOS:
             self.cache[key] = self.placeholder; return self.placeholder
-        exch = (exchange or "").upper(); symn = _norm(symbol)
-        # curated wins
+        exch, symn = (exchange or "").upper(), _norm(symbol)
         rel = self.curated.get((exch, symn))
         if rel:
             url = f"{BASE_URL}/logos/{rel}"; self.cache[key] = url; return url
-        # exact stem
         for stem, rel in self.scan.get(exch, []):
             if stem == symn:
                 url = f"{BASE_URL}/logos/{rel}"; self.cache[key] = url; return url
-        # contains match
         for stem, rel in self.scan.get(exch, []):
             if symn and (symn in stem or stem in symn):
                 url = f"{BASE_URL}/logos/{rel}"; self.cache[key] = url; return url
@@ -279,10 +248,10 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
     js = f"{BASE_URL}/static/app.js"
     extra_css = """
     <style>
+      body{background:#0e1729;color:#fff}
       .btn{display:inline-block;padding:.35rem .7rem;border:1px solid #27406b;border-radius:8px}
       .btn:hover{background:#122036}
       .pct{font-weight:700}.pct.pos{color:#3ddc97}.pct.neg{color:#ff6b6b}
-      /* exchange bar */
       .exchange-bar{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;padding:.6rem 1rem;background:#111a25;border-radius:10px;box-shadow:0 0 6px #0006;border:1px solid #22395f}
       .exchange-bar .flagwrap{display:flex;align-items:center;gap:.6rem}
       .exchange-bar .flag{width:36px;height:24px;border-radius:4px;object-fit:cover}
@@ -291,8 +260,19 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       .exchange-bar .exchip{padding:.28rem .7rem;border:1px solid #284472;border-radius:999px;background:#0d1117;text-decoration:none;color:#fff;font-size:.8em;transition:.2s}
       .exchange-bar .exchip:hover{background:#00b7ff33;border-color:#4f7bff}
       .exchange-bar .exchip.active{background:#284cff44;border-color:#4f7bff}
-      /* table wrap */
       .table-wrap{overflow:auto}
+      .region{margin:20px;padding:20px;background:#111a25;border-radius:10px;box-shadow:0 0 10px #0006}
+      .region h2{color:#00b7ff;margin:0 0 10px}
+      .countries{display:flex;flex-wrap:wrap;gap:16px}
+      .country-card{background:#192b43;border:1px solid #2b4a70;border-radius:10px;width:190px;padding:10px;text-align:center;transition:.25s}
+      .country-card:hover{background:#203553;transform:translateY(-3px)}
+      .country-flag{width:40px;height:26px;border-radius:4px;object-fit:cover;display:block;margin:0 auto 6px}
+      .country-name{font-weight:700;color:#00b7ff;margin-bottom:8px}
+      .exchange-list a{display:inline-block;background:#0d1117;color:#fff;padding:3px 6px;margin:2px;border-radius:8px;border:1px solid #284472;font-size:.8em;text-decoration:none}
+      .exchange-list a:hover{background:#00b7ff33;border-color:#4f7bff}
+      header.hero{padding:20px}
+      .h1{font-size:1.6rem;color:#00b7ff;margin:6px 0 0}
+      .container{max-width:1100px;margin:0 auto}
     </style>"""
     build_time = datetime.utcnow().isoformat(timespec="seconds") + "Z"
     return f"""<!doctype html>
@@ -308,20 +288,95 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
 <body>
 <div class="container">
 <header class="hero card">
-  <div class="breadcrumbs"><a href="{BASE_URL}/">Home</a></div>
+  <div class="breadcrumbs"><a style="color:#7fb1ff;text-decoration:none" href="{BASE_URL}/">Home</a></div>
   <h1 class="h1">{html.escape(title)}</h1>
   <div class="kv"><div><strong>Last build:</strong> {build_time}</div></div>
 </header>
 <main class="grid">
 {body}
 </main>
-<footer class="footer">
-  <div>E-E-A-T: Author <strong>{html.escape(author.get('name',''))}</strong> · Org: {html.escape(author.get('org',''))} · Contact: <a href="mailto:{html.escape(author.get('contact_email',''))}">{html.escape(author.get('contact_email',''))}</a></div>
+<footer class="footer" style="padding:20px 0 40px;color:#9fb3ce">
+  <div>E-E-A-T: Author <strong>{html.escape(author.get('name',''))}</strong> · Org: {html.escape(author.get('org',''))}</div>
 </footer>
 </div>
 <script>window.SPP_BASE="{BASE_URL}";</script>
 <script src="{js}" defer></script>
 </body></html>"""
+
+# ---------- landing builder ----------
+def build_landing(tree: Dict[str, Dict[str, Dict[str, object]]]) -> None:
+    """Auto-generate /index.html with Regions → Countries → Exchanges cards.
+       Clicking a country card opens /<region>/<country>/, clicking an exchange keeps exchange URL."""
+    sections = []
+    for gslug in sorted(tree.keys()):
+        gname = next(iter(tree[gslug].values()))["group_name"]
+        cards = []
+        for cslug_raw in sorted(tree[gslug].keys()):
+            cname = tree[gslug][cslug_raw]["country_name"]
+            cslug_dir = slug(cslug_raw)
+            # find all exchanges present in rows
+            rows = tree[gslug][cslug_raw]["rows"]
+            ex_set = []
+            seen = set()
+            for r in rows:
+                ex = (r.get("exchange") or "").strip()
+                if not ex or ex.upper()=="UNKNOWN": continue
+                if ex.lower() in seen: continue
+                seen.add(ex.lower()); ex_set.append(ex)
+            ex_links = "".join(
+                f"<a href='/{gslug}/{cslug_dir}/{slug(ex)}/'>{html.escape(ex)}</a>"
+                for ex in sorted(ex_set)
+            )
+            flag = f"/logos/countryflags/{cslug_dir}.svg"
+            cards.append(
+                "<div class='country-card'>"
+                f"<img src='{flag}' alt='{html.escape(cname)} flag' class='country-flag'/>"
+                f"<div class='country-name'>{html.escape(cname)}</div>"
+                f"<div class='exchange-list'>{ex_links or '<span class=\"small\">No exchanges</span>'}</div>"
+                "</div>"
+            )
+        sections.append(
+            "<section class='region'>"
+            f"<h2>{html.escape(gname)}</h2>"
+            f"<div class='countries'>{''.join(cards)}</div>"
+            "</section>"
+        )
+
+    # add click handler to make whole country card go to /region/country/
+    click_js = """
+<script>
+(function(){
+  const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+  $$('.country-card').forEach(card=>{
+    const firstEx=card.querySelector('.exchange-list a[href]');
+    if(!firstEx)return;
+    const u=new URL(firstEx.getAttribute('href'), location.origin);
+    const parts=u.pathname.split('/').filter(Boolean);
+    if(parts.length<3)return;
+    const countryUrl='/' + parts[0] + '/' + parts[1] + '/';
+    card.style.cursor='pointer';
+    card.addEventListener('click', ev=>{
+      if(ev.target.closest('.exchange-list a')) return;
+      location.href=countryUrl;
+    });
+    const nameEl=card.querySelector('.country-name');
+    if(nameEl){
+      nameEl.style.textDecoration='underline';
+      nameEl.style.textUnderlineOffset='2px';
+      nameEl.style.cursor='pointer';
+      nameEl.addEventListener('click', ev=>{ev.stopPropagation(); location.href=countryUrl;});
+    }
+  });
+})();
+</script>
+"""
+    landing_html = tpl_base(
+        "🌍 Global Stock Markets",
+        "Browse world markets by region, country and exchange.",
+        "".join(sections) + click_js,
+        f"{BASE_URL}/"
+    )
+    write_text(DIST / "index.html", landing_html)
 
 # ---------- build ----------
 def main() -> None:
@@ -333,6 +388,9 @@ def main() -> None:
     resolver = LogoResolver()
     mkt = MarketTimes()
 
+    # Build landing first (global)
+    build_landing(tree)
+
     # Region pages + country links
     for gslug in sorted(tree.keys()):
         gname = next(iter(tree[gslug].values()))["group_name"]
@@ -342,7 +400,7 @@ def main() -> None:
         for cslug_raw in sorted(tree[gslug].keys()):
             cname = tree[gslug][cslug_raw]["country_name"]
             cslug_dir = slug(cslug_raw)
-            links.append(f"<li><a href='{BASE_URL}/{gslug}/{cslug_dir}/'>{html.escape(cname)}</a></li>")
+            links.append(f"<li><a href='/{gslug}/{cslug_dir}/'>{html.escape(cname)}</a></li>")
 
         write_text(
             DIST / gslug / "index.html",
@@ -367,25 +425,25 @@ def main() -> None:
 
             # helper: top flag + exchange chips
             def build_exchange_bar(region_slug, country_slug, country_name, exchanges, active_slug: Optional[str] = None):
-                flag_path = f"{BASE_URL}/logos/countryflags/{country_slug}.svg"
+                flag_path = f"/logos/countryflags/{country_slug}.svg"
                 chips = []
                 for ex_name in sorted(e for e in exchanges if e and e.upper() != "UNKNOWN"):
                     ex_slug = slug(ex_name)
-                    # country page chips link '#' and JS handles switching
+                    # Country page: chips act as in-page switches (href '#')
                     chips.append(f"<a href='#' data-ex='{ex_slug}' class='exchip'>{html.escape(ex_name)}</a>")
-                return f"""
-                <div class='exchange-bar'>
-                  <div class='flagwrap'>
-                    <img src='{flag_path}' alt='{html.escape(country_name)} flag' class='flag'>
-                    <span class='cname'>{html.escape(country_name)}</span>
-                  </div>
-                  <div class='chipswrap'>{"".join(chips)}</div>
-                </div>
-                """
+                return (
+                    "<div class='exchange-bar'>"
+                    "<div class='flagwrap'>"
+                    f"<img src='{flag_path}' alt='{html.escape(country_name)} flag' class='flag'>"
+                    f"<span class='cname'>{html.escape(country_name)}</span>"
+                    "</div>"
+                    f"<div class='chipswrap'>{''.join(chips)}</div>"
+                    "</div>"
+                )
 
             all_exchanges = sorted(k for k in by.keys() if k and k.upper() != "UNKNOWN")
 
-            # ---- build each exchange page (compatibility) + write JSON for dynamic loader
+            # ---- exchange pages (compatibility) + JSON for dynamic loader
             ex_links = []
             for exch, erows in sorted(by.items(), key=lambda kv: kv[0].lower()):
                 e_slug = slug(exch)
@@ -400,17 +458,14 @@ def main() -> None:
                     sym = (r.get("symbol") or "").strip()
                     name = (r.get("description") or sym or "").strip()
                     sec = (r.get("sector") or "").strip()
-                    o = _f(r.get("open")); h = _f(r.get("high"))
-                    l = _f(r.get("low"));  cl = _f(r.get("close"))
+                    o, h, l, cl = _f(r.get("open")), _f(r.get("high")), _f(r.get("low")), _f(r.get("close"))
                     ch_raw = r.get("change_percent") or r.get("change%") or ""
-                    try:
-                        ch = float(ch_raw)
-                    except Exception:
-                        ch = None
+                    try: ch = float(ch_raw)
+                    except Exception: ch = None
 
                     s_slug = slug(sym)
                     stock_url = f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"
-                    ch_html = "" if ch is None else f"<span class='pct {'pos' if ch>0 else ('neg' if ch<0 else '')}'>{ch:.2f}%</span>"
+                    ch_html = "" if ch is None else f"<span class='pct {'pos' if ch and ch>0 else ('neg' if ch and ch<0 else '')}'>{'' if ch is None else f'{ch:.2f}%'}</span>"
 
                     table_rows.append(
                         "<tr>"
@@ -426,30 +481,24 @@ def main() -> None:
                         "</tr>"
                     )
 
-                    json_rows.append(
-                        {
-                            "symbol": sym,
-                            "name": name,
-                            "sector": sec,
-                            "open": None if o is None else round(o, 2),
-                            "high": None if h is None else round(h, 2),
-                            "low": None if l is None else round(l, 2),
-                            "close": None if cl is None else round(cl, 2),
-                            "change_percent": None if ch is None else round(ch, 4),
-                            "logo": resolver.url_for(exch, sym, name),
-                            "url": stock_url,
-                        }
-                    )
+                    json_rows.append({
+                        "symbol": sym, "name": name, "sector": sec,
+                        "open": None if o is None else round(o,2),
+                        "high": None if h is None else round(h,2),
+                        "low":  None if l is None else round(l,2),
+                        "close":None if cl is None else round(cl,2),
+                        "change_percent": None if ch is None else round(ch,4),
+                        "logo": resolver.url_for(exch, sym, name),
+                        "url": stock_url,
+                    })
 
-                    # simple stock page
                     if sym and None not in (o, h, l, cl):
                         title = f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
                         head = (
                             "<div class='card'>"
                             f"<h2 class='h2'>AI Analysis of {html.escape(sym)} ({html.escape(name)})</h2>"
                             f"<p class='small'>Region: {html.escape(gname)} · Country: {html.escape(cname)} · Exchange: {html.escape(exch)}</p>"
-                            f"<p class='small'>OHLC: O {'{:.2f}'.format(o)}, H {'{:.2f}'.format(h)}, L {'{:.2f}'.format(l)}, C {'{:.2f}'.format(cl)} · Change%: {ch_html}</p>"
-                            f"<div class='card'><h3 class='h3'>Prediction for {exch_pred_date}</h3><p><strong>Model signal</strong> based on the latest day’s action.</p></div>"
+                            f"<p class='small'>OHLC: O {'{:.2f}'.format(o)}, H {'{:.2f}'.format(h)}, L {'{:.2f}'.format(l)}, C {'{:.2f}'.format(cl)}</p>"
                             "</div>"
                         )
                         write_text(
@@ -457,14 +506,15 @@ def main() -> None:
                             tpl_base(title, title, head, f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"),
                         )
 
-                # exchange page (compatibility)
                 table_html = (
                     "<div class='table-wrap'>"
                     "<table class='table'>"
-                    "<thead><tr><th>Symbol</th><th>Name</th><th>Sector</th>"
-                    "<th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Change%</th><th>Signal</th></tr></thead>"
+                    "<thead><tr><th>Symbol</th><th>Name</th><th>Sector</th><th>Open</th><th>High</th>"
+                    "<th>Low</th><th>Close</th><th>Change%</th><th>Signal</th></tr></thead>"
                     f"<tbody>{''.join(table_rows)}</tbody></table></div>"
                 )
+
+                # Exchange page (kept)
                 write_text(
                     DIST / gslug / cslug_dir / e_slug / "index.html",
                     tpl_base(
@@ -475,13 +525,13 @@ def main() -> None:
                     ),
                 )
 
-                # JSON for dynamic loader on country page
+                # Exchange JSON for country page loader
                 write_json(
                     DIST / "static" / "exchanges" / gslug / cslug_dir / f"{e_slug}.json",
                     {"region": gname, "country": cname, "exchange": exch, "rows": json_rows},
                 )
 
-            # country page (bar + dynamic table loader)
+            # Country page (default exchange + JS loader)
             default_ex_slug = slug(all_exchanges[0]) if all_exchanges else ""
             loader_js = f"""
 <script>
@@ -499,7 +549,7 @@ def main() -> None:
         <td>${{r.high ?? ''}}</td>
         <td>${{r.low ?? ''}}</td>
         <td>${{r.close ?? ''}}</td>
-        <td>${{(r.change_percent==null)?'':(r.change_percent*1).toFixed(2)+'%'}}</td>
+        <td>${{(r.change_percent==null)?'':(r.change_percent*1).toFixed(2)+'%'}}}</td>
         <td><a class='btn' href="${{r.url}}">AI Prediction</a></td>
       </tr>`;
     tableHost.innerHTML =
@@ -536,7 +586,7 @@ def main() -> None:
                 ),
             )
 
-    # robots + sitemap (scan all index.html)
+    # robots + sitemap
     write_text(DIST / "robots.txt", f"Sitemap: {BASE_URL}/sitemap.xml\nUser-agent: *\nAllow: /\n")
     urls = []
     for p in DIST.rglob("index.html"):
@@ -550,17 +600,6 @@ def main() -> None:
     )
     print("Build complete →", DIST)
 
-# ---------- landing page copy (runs after build) ----------
-def copy_landing_page():
-    landing_src = ROOT / "static" / "landing" / "index.html"  # repo-root path
-    if landing_src.exists():
-        ensure_dir(DIST)
-        shutil.copy2(landing_src, DIST / "index.html")
-        print("✅ Landing page copied to dist/index.html")
-    else:
-        print("⚠️ Landing page not found at static/landing/index.html")
-
 # ---------- entry ----------
 if __name__ == "__main__":
     main()
-    copy_landing_page()
