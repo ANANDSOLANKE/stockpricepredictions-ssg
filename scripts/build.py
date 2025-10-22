@@ -322,6 +322,16 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       .btn{display:inline-block;padding:.35rem .7rem;border:1px solid #27406b;border-radius:8px}
       .btn:hover{background:#122036}
       .pct{font-weight:700}.pct.pos{color:#3ddc97}.pct.neg{color:#ff6b6b}
+
+      /* --- Country Flag + Exchange Selector Bar --- */
+      .exchange-bar{display:flex;flex-direction:column;gap:.5rem;margin:0 0 1rem 0;padding:.6rem 1rem;background:#111a25;border-radius:10px;box-shadow:0 0 6px #0006;border:1px solid #22395f}
+      .exchange-bar .flagwrap{display:flex;align-items:center;gap:.6rem}
+      .exchange-bar .flag{width:36px;height:24px;border-radius:4px;object-fit:cover}
+      .exchange-bar .cname{font-weight:600;font-size:1.08em;color:#00b7ff}
+      .exchange-bar .chipswrap{display:flex;flex-wrap:wrap;gap:.45rem;margin-left:2.6rem;margin-top:.2rem}
+      .exchange-bar .exchip{padding:.28rem .7rem;border:1px solid #284472;border-radius:999px;background:#0d1117;text-decoration:none;color:#fff;font-size:.8em;transition:.2s}
+      .exchange-bar .exchip:hover{background:#00b7ff33;border-color:#4f7bff}
+      .exchange-bar .exchip.active{background:#284cff44;border-color:#4f7bff}
     </style>"""
     return f"""<!doctype html>
 <html lang="en"><head>
@@ -422,6 +432,28 @@ def main() -> None:
             for r in rows:
                 by.setdefault((r.get("exchange") or "UNKNOWN").strip(), []).append(r)
 
+            # --- Country Flag + Exchange bar (build once per country) ---
+            def build_exchange_bar(region_slug, country_slug, country_name, exchanges, active_slug: Optional[str] = None):
+                """Return HTML for top flag + exchange chips bar."""
+                flag_path = f"{BASE_URL}/logos/countryflags/{country_slug}.svg"
+                chips = []
+                for ex_name in sorted(exchanges):
+                    ex_slug = slug(ex_name)
+                    ex_url = f"{BASE_URL}/{region_slug}/{country_slug}/{ex_slug}/"
+                    active_cls = " active" if (active_slug and active_slug == ex_slug) else ""
+                    chips.append(f"<a href='{ex_url}' class='exchip{active_cls}'>{html.escape(ex_name)}</a>")
+                return f"""
+                <div class='exchange-bar'>
+                  <div class='flagwrap'>
+                    <img src='{flag_path}' alt='{html.escape(country_name)} flag' class='flag'>
+                    <span class='cname'>{html.escape(country_name)}</span>
+                  </div>
+                  <div class='chipswrap'>{"".join(chips)}</div>
+                </div>
+                """
+
+            all_exchanges = sorted(set(k for k in by.keys() if k and k.upper() != "UNKNOWN"))
+
             ex_links = []
             for exch, erows in sorted(by.items(), key=lambda kv: kv[0].lower()):
                 e_slug = slug(exch)
@@ -454,7 +486,7 @@ def main() -> None:
                     table_rows.append(
                         "<tr>"
                         f"<td><a href='{stock_url}'>{html.escape(sym)}</a></td>"
-                        f"<td><a href='{stock_url}'>{html.escape(name)}</a></td>"
+                        f"<td><a href='{stock_url}' class='name-with-logo'>{html.escape(name)}</a></td>"
                         f"<td>{html.escape(sec)}</td>"
                         f"<td>{'' if o is None else '{:.2f}'.format(o)}</td>"
                         f"<td>{'' if h is None else '{:.2f}'.format(h)}</td>"
@@ -497,17 +529,23 @@ def main() -> None:
                         )
 
                 table_html = (
+                    "<div class='table-wrap'>"
                     "<table class='table'>"
                     "<thead><tr><th>Symbol</th><th>Name</th><th>Sector</th>"
                     "<th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Change%</th><th>Signal</th></tr></thead>"
-                    f"<tbody>{''.join(table_rows)}</tbody></table>"
+                    f"<tbody>{''.join(table_rows)}</tbody></table></div>"
                 )
+
+                # Exchange page: add bar with active exchange highlighted
+                bar_html = build_exchange_bar(gslug, cslug, cname, all_exchanges, active_slug=e_slug)
+                page_body = bar_html + table_html
+
                 write_text(
                     DIST / gslug / cslug / e_slug / "index.html",
                     tpl_base(
                         f"{cname} {exch} — {CFG.get('site_title','')}",
                         f"Listings for {exch} in {cname}.",
-                        table_html,
+                        page_body,
                         f"{BASE_URL}/{gslug}/{cslug}/{e_slug}/",
                     ),
                 )
@@ -516,12 +554,14 @@ def main() -> None:
                     {"region": gname, "country": cname, "exchange": exch, "rows": json_rows},
                 )
 
+            # Country page: show the same bar (no active chip)
+            bar_html_country = build_exchange_bar(gslug, cslug, cname, all_exchanges, active_slug=None)
             write_text(
                 DIST / gslug / cslug / "index.html",
                 tpl_base(
                     f"{cname} — {CFG.get('site_title','')}",
                     f"Exchanges in {cname}.",
-                    "<section class='card'><ul>" + "".join(ex_links) + "</ul></section>",
+                    bar_html_country + "<section class='card'><ul>" + "".join(ex_links) + "</ul></section>",
                     f"{BASE_URL}/{gslug}/{cslug}/",
                 ),
             )
@@ -542,7 +582,7 @@ def main() -> None:
         + "</urlset>",
     )
     print("Build complete →", DIST)
-        
+
 # --- Copy AI landing page (static/landing/index.html) to dist root (runs AFTER build) ---
 def copy_landing_page():
     landing_src = ROOT / "static" / "landing" / "index.html"  # repo-root path
@@ -557,4 +597,3 @@ if __name__ == "__main__":
     main()
     # run AFTER the build so dist exists
     copy_landing_page()
-
