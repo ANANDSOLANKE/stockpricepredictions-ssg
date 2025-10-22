@@ -94,6 +94,11 @@ jobs:
         run: |
           python -u scripts/build.py
 
+      # 🟩 ADD THESE 3 LINES BELOW
+      - name: Run search_setup.py
+        run: |
+          python scripts/search_setup.py
+
       # ✅ NEW STEP — Inject logos from mapping file
       - name: Inject logos from mapping
         run: python -u scripts/inject_logos.py
