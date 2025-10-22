@@ -549,7 +549,7 @@ def main() -> None:
         <td>${{r.high ?? ''}}</td>
         <td>${{r.low ?? ''}}</td>
         <td>${{r.close ?? ''}}</td>
-        <td>${{(r.change_percent==null)?'':(r.change_percent*1).toFixed(2)+'%'}}}</td>
+        <td>${{(r.change_percent==null)?'':(r.change_percent*1).toFixed(2)+'%'}}</td>
         <td><a class='btn' href="${{r.url}}">AI Prediction</a></td>
       </tr>`;
     tableHost.innerHTML =
