@@ -65,6 +65,12 @@ def next_business_day(d: datetime.date) -> datetime.date:
         return d + timedelta(days=2)
     return d + timedelta(days=1)
 
+def ensure_countryflags():
+    src = ROOT / "logos" / "countryflags"
+    dst = DIST / "logos" / "countryflags"
+    if src.exists():
+        sync_tree(src, dst)
+
 # ---------- market config ----------
 class MarketTimes:
     def __init__(self):
@@ -139,6 +145,12 @@ def copy_static_assets():
     for name in ("styles.css", "app.js"):
         s = ROOT / "static" / name
         if s.exists(): shutil.copy2(s, DIST / "static" / name)
+
+def main() -> None:
+    ensure_dir(DIST / "static")
+    copy_static_assets()
+    ensure_placeholder_logo()
+    ensure_countryflags()  # <-- always copy flags
 
 def ensure_placeholder_logo():
     svg = """<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'>
