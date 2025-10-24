@@ -6,7 +6,7 @@ Build site from Data/LastTradingDay
 Outputs:
   /index.html                          ← auto-built global landing (regions → countries → exchanges)
   /<region>/index.html                 ← countries list
-  /<region>/<country>/index.html       ← country page (flag + exchange chips + default table)
+  /<region>/<country>/index.html       ← country page (flag + exchange chips + default table + search/sort/load more)
   /<region>/<country>/<exchange>/index.html
   /<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
   /static/exchanges/<region>/<country>/<exchange>.json
@@ -66,6 +66,7 @@ def next_business_day(d: datetime.date) -> datetime.date:
     return d + timedelta(days=1)
 
 def ensure_countryflags():
+    """Always copy country flags into dist/."""
     src = ROOT / "logos" / "countryflags"
     dst = DIST / "logos" / "countryflags"
     if src.exists():
@@ -145,12 +146,6 @@ def copy_static_assets():
     for name in ("styles.css", "app.js"):
         s = ROOT / "static" / name
         if s.exists(): shutil.copy2(s, DIST / "static" / name)
-
-def main() -> None:
-    ensure_dir(DIST / "static")
-    copy_static_assets()
-    ensure_placeholder_logo()
-    ensure_countryflags()  # <-- always copy flags
 
 def ensure_placeholder_logo():
     svg = """<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'>
@@ -272,6 +267,11 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       .exchange-bar .exchip{padding:.28rem .7rem;border:1px solid #284472;border-radius:999px;background:#0d1117;text-decoration:none;color:#fff;font-size:.8em;transition:.2s}
       .exchange-bar .exchip:hover{background:#00b7ff33;border-color:#4f7bff}
       .exchange-bar .exchip.active{background:#284cff44;border-color:#4f7bff}
+      /* country tools */
+      .tools{display:flex;gap:.6rem;align-items:center;margin:.4rem 0 0 2.6rem;flex-wrap:wrap}
+      .search-input{padding:.45rem .6rem;border:1px solid #2b4a70;background:#0d1117;color:#fff;border-radius:8px;min-width:260px}
+      .sort-select{padding:.45rem .6rem;border:1px solid #2b4a70;background:#0d1117;color:#fff;border-radius:8px}
+      .loadmore-wrap{text-align:center;margin:.6rem 0}
       .table-wrap{overflow:auto}
       .region{margin:20px;padding:20px;background:#111a25;border-radius:10px;box-shadow:0 0 10px #0006}
       .region h2{color:#00b7ff;margin:0 0 10px}
@@ -328,8 +328,7 @@ def build_landing(tree: Dict[str, Dict[str, Dict[str, object]]]) -> None:
             cslug_dir = slug(cslug_raw)
             # find all exchanges present in rows
             rows = tree[gslug][cslug_raw]["rows"]
-            ex_set = []
-            seen = set()
+            ex_set, seen = [], set()
             for r in rows:
                 ex = (r.get("exchange") or "").strip()
                 if not ex or ex.upper()=="UNKNOWN": continue
@@ -339,7 +338,7 @@ def build_landing(tree: Dict[str, Dict[str, Dict[str, object]]]) -> None:
                 f"<a href='/{gslug}/{cslug_dir}/{slug(ex)}/'>{html.escape(ex)}</a>"
                 for ex in sorted(ex_set)
             )
-            flag = f"/logos/countryflags/{cslug_dir}.svg"
+            flag = f"{BASE_URL}/logos/countryflags/{cslug_dir}.svg"
             cards.append(
                 "<div class='country-card'>"
                 f"<img src='{flag}' alt='{html.escape(cname)} flag' class='country-flag'/>"
@@ -354,7 +353,6 @@ def build_landing(tree: Dict[str, Dict[str, Dict[str, object]]]) -> None:
             "</section>"
         )
 
-    # add click handler to make whole country card go to /region/country/
     click_js = """
 <script>
 (function(){
@@ -395,6 +393,7 @@ def main() -> None:
     ensure_dir(DIST / "static")
     copy_static_assets()
     ensure_placeholder_logo()
+    ensure_countryflags()  # always copy flags
 
     tree = load_last_trading_day()
     resolver = LogoResolver()
@@ -435,14 +434,27 @@ def main() -> None:
             for r in rows:
                 by.setdefault((r.get("exchange") or "UNKNOWN").strip(), []).append(r)
 
-            # helper: top flag + exchange chips
+            # helper: top flag + exchange chips + tools (search/sort)
             def build_exchange_bar(region_slug, country_slug, country_name, exchanges, active_slug: Optional[str] = None):
-                flag_path = f"/logos/countryflags/{country_slug}.svg"
+                flag_path = f"{BASE_URL}/logos/countryflags/{country_slug}.svg"
                 chips = []
+                chips.append("<a href='#' data-ex='all' class='exchip'>All</a>")
                 for ex_name in sorted(e for e in exchanges if e and e.upper() != "UNKNOWN"):
                     ex_slug = slug(ex_name)
-                    # Country page: chips act as in-page switches (href '#')
                     chips.append(f"<a href='#' data-ex='{ex_slug}' class='exchip'>{html.escape(ex_name)}</a>")
+                tools = (
+                    "<div class='tools'>"
+                    "<input id='cty-search' class='search-input' type='search' placeholder='Search symbol or name…'>"
+                    "<select id='cty-sort' class='sort-select'>"
+                    "<option value='sym-asc'>Symbol ↑</option>"
+                    "<option value='sym-desc'>Symbol ↓</option>"
+                    "<option value='name-asc'>Name ↑</option>"
+                    "<option value='name-desc'>Name ↓</option>"
+                    "<option value='chg-asc'>% Change ↑</option>"
+                    "<option value='chg-desc'>% Change ↓</option>"
+                    "</select>"
+                    "</div>"
+                )
                 return (
                     "<div class='exchange-bar'>"
                     "<div class='flagwrap'>"
@@ -450,22 +462,17 @@ def main() -> None:
                     f"<span class='cname'>{html.escape(country_name)}</span>"
                     "</div>"
                     f"<div class='chipswrap'>{''.join(chips)}</div>"
+                    f"{tools}"
                     "</div>"
                 )
 
             all_exchanges = sorted(k for k in by.keys() if k and k.upper() != "UNKNOWN")
 
             # ---- exchange pages (compatibility) + JSON for dynamic loader
-            ex_links = []
             for exch, erows in sorted(by.items(), key=lambda kv: kv[0].lower()):
                 e_slug = slug(exch)
-                e_url = f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/"
-                ex_links.append(f"<li><a href='{e_url}'>{html.escape(exch)}</a></li>")
-
                 table_rows = []
                 json_rows = []
-                exch_pred_date = mkt.prediction_date(region=gname, country=cname, exchange=exch)
-
                 for r in erows:
                     sym = (r.get("symbol") or "").strip()
                     name = (r.get("description") or sym or "").strip()
@@ -500,10 +507,10 @@ def main() -> None:
                         "low":  None if l is None else round(l,2),
                         "close":None if cl is None else round(cl,2),
                         "change_percent": None if ch is None else round(ch,4),
-                        "logo": resolver.url_for(exch, sym, name),
                         "url": stock_url,
                     })
 
+                    # stock page
                     if sym and None not in (o, h, l, cl):
                         title = f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
                         head = (
@@ -518,6 +525,7 @@ def main() -> None:
                             tpl_base(title, title, head, f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"),
                         )
 
+                # Exchange page (kept)
                 table_html = (
                     "<div class='table-wrap'>"
                     "<table class='table'>"
@@ -525,8 +533,6 @@ def main() -> None:
                     "<th>Low</th><th>Close</th><th>Change%</th><th>Signal</th></tr></thead>"
                     f"<tbody>{''.join(table_rows)}</tbody></table></div>"
                 )
-
-                # Exchange page (kept)
                 write_text(
                     DIST / gslug / cslug_dir / e_slug / "index.html",
                     tpl_base(
@@ -537,49 +543,158 @@ def main() -> None:
                     ),
                 )
 
-                # Exchange JSON for country page loader
+                # JSON for dynamic loader on country page
                 write_json(
                     DIST / "static" / "exchanges" / gslug / cslug_dir / f"{e_slug}.json",
                     {"region": gname, "country": cname, "exchange": exch, "rows": json_rows},
                 )
 
-            # Country page (default exchange + JS loader)
+            # Country page (default exchange + JS loader with search/sort/load-more)
             default_ex_slug = slug(all_exchanges[0]) if all_exchanges else ""
             loader_js = f"""
 <script>
 (function(){{
-  const base = "{BASE_URL}/static/exchanges/{gslug}/{cslug_dir}/";
-  const chips = document.querySelectorAll('.exchange-bar .exchip');
+  const BASE = "{BASE_URL}/static/exchanges/{gslug}/{cslug_dir}/";
+  const chips = Array.from(document.querySelectorAll('.exchange-bar .exchip'));
   const tableHost = document.getElementById('ex-table');
-  function renderRows(rows){{
-    const cells = r => `
-      <tr>
-        <td><a href="${{r.url}}">${{r.symbol || ''}}</a></td>
-        <td>${{r.name || ''}}</td>
-        <td>${{r.sector || ''}}</td>
-        <td>${{r.open ?? ''}}</td>
-        <td>${{r.high ?? ''}}</td>
-        <td>${{r.low ?? ''}}</td>
-        <td>${{r.close ?? ''}}</td>
-        <td>${{(r.change_percent==null)?'':(r.change_percent*1).toFixed(2)+'%'}}</td>
-        <td><a class='btn' href="${{r.url}}">AI Prediction</a></td>
-      </tr>`;
-    tableHost.innerHTML =
-      "<div class='table-wrap'><table class='table'><thead><tr><th>Symbol</th><th>Name</th><th>Sector</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Change%</th><th>Signal</th></tr></thead><tbody>"
-      + rows.map(cells).join("") + "</tbody></table></div>";
-  }}
-  async function loadExchange(slug){{
-    chips.forEach(c=>c.classList.toggle('active', c.dataset.ex===slug));
-    try {{
-      const res = await fetch(base + slug + ".json");
-      const data = await res.json();
-      renderRows(data.rows||[]);
-    }} catch(e) {{
-      tableHost.innerHTML = "<p class='small'>Failed to load exchange data.</p>";
+  const searchEl = document.getElementById('cty-search');
+  const sortEl = document.getElementById('cty-sort');
+  const PAGE_SIZE = 50;
+
+  let active = "{default_ex_slug}" || "all";
+  let page = 1;
+  const dataByEx = Object.create(null); // slug -> rows[]
+  let allMerged = []; // union across exchanges
+
+  function ensureLoadMoreArea(){{
+    let wrap = document.getElementById('load-more-wrap');
+    if (!wrap){{
+      wrap = document.createElement('div');
+      wrap.id = 'load-more-wrap';
+      wrap.className = 'loadmore-wrap';
+      wrap.innerHTML = "<button id='load-more' class='btn'>Load more</button>";
+      tableHost.insertAdjacentElement('afterend', wrap);
+      wrap.addEventListener('click', function(ev){{
+        const btn = document.getElementById('load-more');
+        if (ev.target === btn) {{ page += 1; render(); }}
+      }});
     }}
   }}
-  chips.forEach(c=>c.addEventListener('click', (ev)=>{{ev.preventDefault(); loadExchange(c.dataset.ex);}}));
-  if ("{default_ex_slug}") loadExchange("{default_ex_slug}");
+
+  function compare(a,b,mode){{
+    const sa = (a.symbol||'').toLowerCase(), sb = (b.symbol||'').toLowerCase();
+    const na = (a.name||'').toLowerCase(), nb = (b.name||'').toLowerCase();
+    const ca = (a.change_percent==null)?0:a.change_percent;
+    const cb = (b.change_percent==null)?0:b.change_percent;
+    switch(mode){{
+      case 'sym-asc': return sa<sb?-1:sa>sb?1:0;
+      case 'sym-desc': return sa>sb?-1:sa<sb?1:0;
+      case 'name-asc': return na<nb?-1:na>nb?1:0;
+      case 'name-desc': return na>nb?-1:na<nb?1:0;
+      case 'chg-asc': return (ca - cb);
+      case 'chg-desc': return (cb - ca);
+      default: return 0;
+    }}
+  }}
+
+  function filterRows(rows, q){{
+    if (!q) return rows;
+    const s = q.toLowerCase();
+    const out = [];
+    for (let i=0;i<rows.length;i++) {{
+      const r = rows[i];
+      if ((r.symbol && r.symbol.toLowerCase().includes(s)) ||
+          (r.name && r.name.toLowerCase().includes(s))) {{
+        out.push(r);
+      }}
+    }}
+    return out;
+  }}
+
+  function fmt(v){{ return (v==null || v==='') ? '' : (''+v); }}
+
+  function render(){{
+    ensureLoadMoreArea();
+    const q = searchEl.value.trim();
+    const mode = sortEl.value;
+
+    let base = (active==='all') ? allMerged : (dataByEx[active]||[]);
+    let rows = filterRows(base, q).slice();  // copy
+    rows.sort((a,b)=>compare(a,b,mode));
+
+    const total = rows.length;
+    const upto = Math.min(total, page*PAGE_SIZE);
+    const view = rows.slice(0, upto);
+
+    let html = "";
+    html += "<div class='table-wrap'><table class='table'><thead>";
+    html += "<tr><th>Symbol</th><th>Name</th><th>Sector</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Change%</th><th>Signal</th></tr>";
+    html += "</thead><tbody>";
+
+    for (let i=0;i<view.length;i++) {{
+      const r = view[i];
+      const chg = (r.change_percent==null) ? "" : (r.change_percent*1).toFixed(2) + "%";
+      html += "<tr>"
+           + "<td><a href='" + fmt(r.url) + "'>" + fmt(r.symbol) + "</a></td>"
+           + "<td>" + fmt(r.name) + "</td>"
+           + "<td>" + fmt(r.sector) + "</td>"
+           + "<td>" + fmt(r.open) + "</td>"
+           + "<td>" + fmt(r.high) + "</td>"
+           + "<td>" + fmt(r.low) + "</td>"
+           + "<td>" + fmt(r.close) + "</td>"
+           + "<td>" + chg + "</td>"
+           + "<td><a class='btn' href='" + fmt(r.url) + "'>AI Prediction</a></td>"
+           + "</tr>";
+    }}
+    html += "</tbody></table></div>";
+
+    tableHost.innerHTML = html;
+
+    const moreBtn = document.getElementById('load-more');
+    if (moreBtn) {{
+      moreBtn.style.display = (upto < total) ? '' : 'none';
+    }}
+  }}
+
+  async function fetchExchange(slug){{
+    if (slug==='all') {{
+      const exSlugs = chips.map(c=>c.dataset.ex).filter(x=>x && x!=='all');
+      await Promise.all(exSlugs.map(s => fetchExchange(s)));
+      const merged = []; const dedup = new Set();
+      exSlugs.forEach(s => {{
+        (dataByEx[s]||[]).forEach(r => {{
+          const key = (r.symbol||'') + "|" + (r.url||'');
+          if (!dedup.has(key)) {{ dedup.add(key); merged.push(r); }}
+        }});
+      }});
+      allMerged = merged;
+      return merged;
+    }}
+    if (dataByEx[slug]) return dataByEx[slug];
+    try {{
+      const res = await fetch(BASE + slug + ".json");
+      const data = await res.json();
+      dataByEx[slug] = data.rows || [];
+      return dataByEx[slug];
+    }} catch(e) {{
+      dataByEx[slug] = [];
+      return dataByEx[slug];
+    }}
+  }}
+
+  async function activate(slug){{
+    active = slug || 'all';
+    page = 1;
+    chips.forEach(c=>c.classList.toggle('active', c.dataset.ex===active));
+    await fetchExchange(active);
+    render();
+  }}
+
+  chips.forEach(c=>c.addEventListener('click', ev=>{{ ev.preventDefault(); activate(c.dataset.ex||'all'); }}));
+  searchEl.addEventListener('input', function(){{ page=1; render(); }});
+  sortEl.addEventListener('change', function(){{ page=1; render(); }});
+
+  activate(active || 'all'); // first load
 }})();
 </script>
 """
