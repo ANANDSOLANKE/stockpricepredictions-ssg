@@ -6,16 +6,18 @@ on:
     # --- Regional close-time passes (UTC) ---
     # APAC ex-India (Japan/Korea/HK/SG/China)
     - cron: "45 6 * * 1-5"
+
     # India (NSE/BSE)
     - cron: "15 10 * * 1-5"
+
     # Gulf / Middle East (Sun–Thu)
     - cron: "15 11 * * 0-4"
+
     # Europe & UK
     - cron: "15 16 * * 1-5"
-    # Africa
-    - cron: "30 16 * * 1-5"
-    # Americas
-    - cron: "5 21 * * 1-5"
+
+    # US & Canada
+    - cron: "15 21 * * 1-5"
 
 permissions:
   contents: write
@@ -23,113 +25,110 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pages-and-data
+  cancel-in-progress: true
 
 jobs:
-  auto:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt || true
-
-      # 1) Download latest market data (headless)
-      - name: Download latest market data (headless)
-        run: |
-          python scripts/auto_downloader.py
-
-      # 2) Detect if any data changed
-      - name: Detect data changes
-        id: diff
-        shell: bash
-        run: |
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          if git diff --quiet -- Data; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
           else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
+            pip install pandas jinja2 python-slugify requests pytz python-dateutil beautifulsoup4 lxml
           fi
 
-      # 3) Ensure logos dir in dist (fast) — keep your existing step if you had one
-      - name: Ensure logos exist in dist (fast)
-        if: steps.diff.outputs.changed == 'true'
+      # --- Download data once per region (headless) ---
+      - name: Download latest market data (headless)
         run: |
-          mkdir -p dist/logos
+          echo "[START] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 240 || true
+          echo "[END]   $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 
-      # 4) Build site quickly (skip heavy logo rescan)
+      # --- Check for Data changes (skip build if unchanged) ---
+      - name: Detect data changes
+        id: diff
+        run: |
+          git add -A
+          if git diff --cached --quiet -- Data; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No Data changes."
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Data changed."
+          fi
+
+      # --- Ensure logos exist in dist (fast) ---
+      - name: Ensure logos exist in dist (fast)
+        run: |
+          if [ -d logos ]; then
+            mkdir -p dist
+            if [ ! -d dist/logos ]; then
+              cp -r logos dist/
+              echo "Copied logos → dist/logos (first time)"
+            else
+              echo "Logos already present, skipping copy"
+            fi
+          else
+            echo "No /logos folder found, skipping"
+          fi
+
+      # --- Build site (fast) ---
       - name: Build site (fast; skip logo rescan)
         if: steps.diff.outputs.changed == 'true'
         env:
           SKIP_LOGOS: "1"
         run: |
-          python scripts/build.py
+          python -u scripts/build.py
 
-      # ✅ NEW — Always copy country flags into dist (prevents missing flags on scheduled runs)
-      - name: Ensure country flags present (robust)
-        if: steps.diff.outputs.changed == 'true'
-        shell: bash
-        run: |
-          mkdir -p dist/logos/countryflags
-          # try rsync first (fast), fallback to cp
-          rsync -a logos/countryflags/ dist/logos/countryflags/ 2>/dev/null || true
-          cp -r logos/countryflags/* dist/logos/countryflags/ 2>/dev/null || true
-          echo ok > dist/logos/countryflags/.ok
-
-      # 5) Build search index + inject on landing
+      # 🟩 ADD THESE 3 LINES BELOW
       - name: Run search_setup.py
-        if: steps.diff.outputs.changed == 'true'
         run: |
           python scripts/search_setup.py
 
-      # 6) Inject logos from mapping (stock/company icons)
+      # ✅ NEW STEP — Inject logos from mapping file
       - name: Inject logos from mapping
-        if: steps.diff.outputs.changed == 'true'
-        run: |
-          python scripts/logo_mapper.py
+        run: python -u scripts/inject_logos.py
 
-      # 7) Inject last-7 performance
+      # --- Inject last-7 performance table ---
       - name: Inject last-7 performance
         if: steps.diff.outputs.changed == 'true'
         run: |
-          python scripts/last7_accuracy.py
+          python -u scripts/build_last7.py
 
-      # 8) Apply full v2 rebuild (webpage.html look)
       - name: Apply full v2 rebuild (webpage.html look)
-        if: steps.diff.outputs.changed == 'true'
-        run: |
-          python scripts/theme_update.py
+        run: python -u scripts/theme_rebuild_v2.py
 
-      # 9) Commit and push updated data + dist
+      # --- Commit & push only if Data changed ---
       - name: Commit and push updated data + dist
         if: steps.diff.outputs.changed == 'true'
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add -A
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Data dist || true
           git commit -m "Auto-update: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No changes to commit"
           git push || true
 
-      # 10) Upload Pages artifact
+      # --- Deploy only if Data changed ---
       - name: Upload Pages artifact
         if: steps.diff.outputs.changed == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
-      # 11) Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         if: steps.diff.outputs.changed == 'true'
         id: deployment
