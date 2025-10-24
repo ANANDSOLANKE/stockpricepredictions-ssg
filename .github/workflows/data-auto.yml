@@ -94,6 +94,14 @@ jobs:
         run: |
           python -u scripts/build.py
 
+      - name: Ensure country flags present (robust)
+        run: |
+         mkdir -p dist/logos/countryflags
+         rsync -a logos/countryflags/ dist/logos/countryflags/ 2>/dev/null || true
+         if [ -z "$(ls -A dist/logos/countryflags 2>/dev/null)" ]; then
+         cp -r logos/countryflags/* dist/logos/countryflags/ 2>/dev/null || true
+         fi
+
       # 🟩 ADD THESE 3 LINES BELOW
       - name: Run search_setup.py
         run: |
