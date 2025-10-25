@@ -3,49 +3,43 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>{{ page_title }}</title>
+  <title>{page_title}</title>
+
+  <!-- ✅ NEW: link the global static CSS and JS so patches run -->
+  <link rel="stylesheet" href="/static/styles.css?v={last_build}">
+  <script src="/static/app.js?v={last_build}" defer></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- keep the local inline styles for dark layout -->
   <style>
     :root{
       --bg:#0f1b2b; --card:#0f1f34; --border:#10243e; --soft:#0b1220; --text:#dbe6ff;
-      --muted:#94a3b8; --chip-border:#1b2b45; --win:#e6f5ef; --loss:#fdecec;
+      --muted:#94a3b8; --green:#26a269; --red:#ef4444; --chip:#0a1b30; --chip-border:#1b2b45;
+      --accent:#1a73e8; --win:#e6f5ef; --loss:#fdecec;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    a{color:#1a73e8;text-decoration:none}
+    a{color:var(--accent);text-decoration:none}
     .wrap{max-width:1020px;margin:28px auto;padding:0 16px}
     .header{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:16px}
     .title{font-size:28px;font-weight:800;letter-spacing:.2px;margin:0 0 6px}
     .sub{color:var(--muted);font-size:14px}
-
-    /* NEW: price strip under title */
-    .stat-strip{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;color:#c9daff;margin-top:10px}
-    .stat-strip .dot{opacity:.4}
-
     .grid{display:grid;gap:16px}
-    .hero{border-radius:16px;padding:22px;margin-bottom:6px;border:1px solid var(--border);}
+    .hero{background:linear-gradient(180deg,#0e2e25 0%, #0a201a 100%);border:1px solid #184c3b;border-radius:16px;padding:22px}
     .hero .row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
     .chip{display:inline-flex;align-items:center;gap:6px;background:#123255;border:1px solid var(--chip-border);color:#bcd7ff;border-radius:999px;padding:6px 12px;font-weight:600;font-size:13px}
-    .signal{font-size:56px;font-weight:900;letter-spacing:1px;margin:8px 0 4px;display:flex;align-items:center}
+    .signal{font-size:56px;font-weight:900;letter-spacing:1px;margin:8px 0 4px}
     .signal--bull{color:#87f2c2}
     .signal--bear{color:#ffb4b4}
-    .muted{color:var(--muted);font-size:12px}
-
-    /* Animated Arrows */
-    @keyframes upFloat{0%{transform:translateY(4px)}50%{transform:translateY(-2px)}100%{transform:translateY(4px)}}
-    @keyframes downFloat{0%{transform:translateY(-4px)}50%{transform:translateY(2px)}100%{transform:translateY(-4px)}}
-    .arrow{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;margin-right:10px;border-radius:8px;font-weight:900;font-size:22px;background:rgba(255,255,255,.08)}
-    .arrow-up{color:#86f3c1;animation:upFloat 1.8s ease-in-out infinite}
-    .arrow-down{color:#ffb4b4;animation:downFloat 1.8s ease-in-out infinite}
-    @media (prefers-reduced-motion:reduce){.arrow-up,.arrow-down{animation:none}}
-
+    .ohlc{margin-top:12px;display:inline-flex;gap:10px;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.18);border-radius:999px;padding:8px 12px;font-size:12px}
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
     .card h4{margin:0 0 10px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#9fb3d9}
     .stat{font-size:28px;font-weight:800}
-
+    .muted{color:var(--muted);font-size:12px}
     .table-card{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-top:16px}
     table{width:100%;border-collapse:separate;border-spacing:0}
     thead th{color:#9fb3d9;text-align:left;font-size:12px;letter-spacing:.06em;padding:12px 14px;border-bottom:1px solid var(--border)}
@@ -54,7 +48,6 @@
     .result-loss{background:var(--loss);color:#9d2431;font-weight:700;display:inline-block;padding:4px 10px;border-radius:999px}
     .section-title{margin:22px 0 8px;font-weight:800;font-size:18px}
     .footer-note{margin-top:14px;color:#a6b7d5;font-size:12px}
-
     @media (max-width:860px){
       .cards{grid-template-columns:1fr}
       .hero .row{flex-direction:column;align-items:flex-start}
@@ -65,44 +58,28 @@
   <div class="wrap">
 
     <div class="header">
-      <h1 class="title">{{ company_name }} <small style="font-size:14px;color:var(--muted);font-weight:600;">({{ symbol }})</small></h1>
-      <div class="sub">Region: {{ region }} · Country: {{ country }} · Exchange: {{ exchange }}</div>
-      <div class="sub">Last build: {{ last_build }}</div>
-
-      <!-- NEW OHLC strip -->
-      <div class="stat-strip">
-        <span><strong>Date:</strong> {{ ohlc_date }}</span>
-        <span class="dot">•</span>
-        <span><strong>Open:</strong> {{ ohlc_open }}</span>
-        <span class="dot">•</span>
-        <span><strong>High:</strong> {{ ohlc_high }}</span>
-        <span class="dot">•</span>
-        <span><strong>Low:</strong> {{ ohlc_low }}</span>
-        <span class="dot">•</span>
-        <span><strong>Close:</strong> {{ ohlc_close }}</span>
-        <span class="dot">•</span>
-        <span><strong>% Change:</strong> {{ change_pct }}%</span>
-      </div>
+      <h1 class="title">{company_name} 
+        <small style="font-size:14px;color:var(--muted);font-weight:600;">({symbol})</small>
+      </h1>
+      <div class="sub">Region: {region} · Country: {country} · Exchange: {exchange}</div>
+      <div class="sub">Last build: {last_build}</div>
     </div>
 
     <div class="grid">
-      <!-- HERO -->
-      <div class="hero" style="
-        background:{{ '#0c2f1f' if signal_upper == 'Bullish' else '#3a0c0c' }};
-        border:1px solid {{ '#174a34' if signal_upper == 'Bullish' else '#5a1c1c' }};
-      ">
+      <div class="hero">
         <div class="row">
           <div>
-            <div class="chip">
-              Stock prediction for <span style="font-weight:800">{{ pred_date }}</span>
-            </div>
-            <div class="signal {{ signal_class }}">
-              <span class="arrow {{ 'arrow-up' if signal_upper == 'Bullish' else 'arrow-down' }}">
-                {{ '▲' if signal_upper == 'Bullish' else '▼' }}
-              </span>
-              {{ signal_upper }}
-            </div>
-            <div class="muted">{{ company_name }}</div>
+            <div class="chip">AI Prediction: <span style="font-weight:800">{company_name}</span> for <span style="font-weight:800">{pred_date}</span></div>
+            <div class="signal {signal_class}">{signal_upper}</div>
+            <div class="muted">Based on yesterday’s OHLC data.</div>
+          </div>
+          <!-- old OHLC pills (will now be hidden by global CSS) -->
+          <div class="ohlc">
+            <div>O: <b>{ohlc_open}</b></div>
+            <div>H: <b>{ohlc_high}</b></div>
+            <div>L: <b>{ohlc_low}</b></div>
+            <div>C: <b>{ohlc_close}</b></div>
+            <div>Change%: <b>{change_pct}</b></div>
           </div>
         </div>
       </div>
@@ -110,46 +87,45 @@
       <div class="cards">
         <div class="card">
           <h4>Model Performance</h4>
-          <div class="stat">{{ accuracy_pct }}</div>
-          <div class="muted">{{ accuracy_note }}</div>
+          <div class="stat">{accuracy_pct}</div>
+          <div class="muted">{accuracy_note}</div>
         </div>
 
         <div class="card">
           <h4>Our Methodology</h4>
-          <div class="muted">{{ methodology }}</div>
+          <div class="muted">{methodology}</div>
         </div>
 
         <div class="card">
           <h4>Important Disclosures</h4>
-          <div class="muted">{{ disclaimer }}</div>
+          <div class="muted">{disclaimer}</div>
         </div>
       </div>
 
       <div class="table-card">
-        <h3 class="section-title" style="padding:14px 16px 0;margin:0">Model vs. Actual: Last 7 Days Performance</h3>
+        <h3 class="section-title" style="padding:14px 16px 0;margin:0">
+          Model vs. Actual: Last 7 Days Performance
+        </h3>
         <table>
           <thead>
             <tr>
               <th>Date</th><th>AI Prediction</th><th>Actual</th><th>Result</th>
             </tr>
           </thead>
-          <tbody>
-            {{ last7_rows | safe }}
-          </tbody>
+          <tbody>{last7_rows}</tbody>
         </table>
       </div>
 
       <div class="card">
-        <h4>In-Depth Technical Analysis of {{ company_name }}</h4>
-        <div class="muted">{{ long_text }}</div>
+        <h4>In-Depth Technical Analysis of {company_name}</h4>
+        <div class="muted">{long_text}</div>
       </div>
 
       <div class="footer-note">
-        E-E-A-T: Author <b>StockPricePredictions Research</b> · Org: SPP Labs · Contact:
-        <a href="mailto:hello@stockpricepredictions.com">hello@stockpricepredictions.com</a>
+        E-E-A-T: Author <b>StockPricePredictions Research</b> · Org: SPP Labs · 
+        Contact: <a href="mailto:hello@stockpricepredictions.com">hello@stockpricepredictions.com</a>
       </div>
     </div>
-
   </div>
 </body>
 </html>
