@@ -1,205 +1,135 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
+# scripts/inject_logos.py
 """
-Post-build logo injector
+Post-build logo injector:
+- Loads logos/_map/logos.csv (or logos/logos.csv).
+- Iterates dist/static/exchanges/<region>/<country>/<exchange>.json
+- For each row, sets row['logo'] to /logos/<country>/<EXCH_DIR>/<logo_file>
+  using an exact (case-insensitive) match for the exchange directory as it exists in /logos.
+- Writes JSON back only if modified.
 
-1) Copy /logos/** -> /dist/logos/**
-2) Enrich every dist/static/exchanges/<region>/<country>/<exchange>.json row with:
-     row["logo"] = <BASE_URL>/logos/<country>/<EXDIR>/<file>
-   Prefer mapping CSV; optionally fallback-scan the filesystem to match by symbol.
-3) (Optional) Patch exchange HTML tables to show <img class="logo"> before Symbol
-   Enable via env: INJECT_LOGOS_HTML="1"
-
-Env:
-  INJECT_LOGOS_HTML: "1" to patch HTML tables (default "0")
-  SCAN_FALLBACK:     "1" to try filesystem scan for rows missing in mapping (default "1")
-
-CSV files supported (first one found is used):
-  logos/_map/logos.csv
-  logos/logos.csv
-Expected columns (case-insensitive):
-  country_slug, exchange, symbol, logo_file
+Run this AFTER your normal build step.
 """
 
-import csv, json, os, re, shutil, unicodedata
-from pathlib import Path
+import csv
+import glob
+import json
+import os
 from typing import Dict, Tuple, Optional
 
-# -------- paths / config --------
-ROOT = Path(__file__).resolve().parents[1]
-DIST = ROOT / "dist"
-LOGOS_SRC = ROOT / "logos"
-CFG = ROOT / "config.json"
+Key = Tuple[str, str, str]  # (country_slug.lower(), EXCHANGE.upper(), SYMBOL.upper())
 
-BASE_URL = ""
-if CFG.exists():
-    try:
-        BASE_URL = json.loads(CFG.read_text(encoding="utf-8")).get("base_url", "").rstrip("/")
-    except Exception:
-        BASE_URL = ""
+def repo_root() -> str:
+    return os.path.abspath(os.getcwd())
 
-INJECT_HTML = os.environ.get("INJECT_LOGOS_HTML", "0") == "1"
-SCAN_FALLBACK = os.environ.get("SCAN_FALLBACK", "1") != "0"
-
-Key = Tuple[str, str, str]  # (country_slug, EXCHANGE, SYMBOL) — all normalized
-
-
-# -------- utils --------
-def norm_symbol(s: str) -> str:
-    s = unicodedata.normalize("NFKD", (s or "")).encode("ascii", "ignore").decode("ascii")
-    return re.sub(r"[^A-Z0-9]", "", s.upper())
-
-
-def read_csv_any(path: Path):
-    with open(path, "r", encoding="utf-8-sig", newline="") as f:
-        rdr = csv.DictReader(f)
-        for r in rdr:
-            yield { (k or "").strip().lower(): (v or "").strip() for k, v in r.items() }
-
-
-def find_mapping_csv(root: Path) -> Optional[Path]:
+def find_mapping_csv(root: str) -> Optional[str]:
     for rel in ("logos/_map/logos.csv", "logos/logos.csv"):
-        p = root / rel
-        if p.is_file():
+        p = os.path.join(root, rel)
+        if os.path.isfile(p):
             return p
     return None
 
-
-def load_logo_map(root: Path) -> Dict[Key, str]:
-    p = find_mapping_csv(root)
-    if not p:
-        print("[logos] mapping CSV not found (logos/_map/logos.csv or logos/logos.csv) — will rely on scan fallback.")
+def load_logo_map(root: str) -> Dict[Key, str]:
+    """
+    Returns dict[(country, EXCHANGE, SYMBOL)] = logo_file
+    """
+    path = find_mapping_csv(root)
+    if not path:
+        print("[logos] mapping CSV not found (expected logos/_map/logos.csv or logos/logos.csv) — skipping.")
         return {}
-    print(f"[logos] using mapping: {p.relative_to(root)}")
-    mp: Dict[Key, str] = {}
-    for row in read_csv_any(p):
-        country = row.get("country_slug", "").lower()
-        exch = row.get("exchange", "").upper()
-        symbol = norm_symbol(row.get("symbol", ""))
-        logo_file = row.get("logo_file", "").lstrip("/\\")
-        if country and exch and symbol and logo_file:
-            mp[(country, exch, symbol)] = logo_file
-    print(f"[logos] loaded {len(mp)} mappings.")
-    return mp
 
+    print(f"[logos] using mapping: {os.path.relpath(path, root)}")
 
-def resolve_exchange_dir_case(country: str, exchange_upper: str) -> Optional[str]:
-    base = LOGOS_SRC / country
-    if not base.is_dir():
+    mapping: Dict[Key, str] = {}
+    with open(path, "r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            country = (row.get("country_slug") or "").strip().lower()
+            exch = (row.get("exchange") or "").strip().upper()
+            symbol = (row.get("symbol") or "").strip().upper()
+            logo_file = (row.get("logo_file") or "").strip()
+            if country and exch and symbol and logo_file:
+                mapping[(country, exch, symbol)] = logo_file
+    print(f"[logos] loaded {len(mapping)} mappings.")
+    return mapping
+
+def resolve_exchange_dir_case(root: str, country: str, exchange_upper: str) -> Optional[str]:
+    """
+    Find the real on-disk exchange folder under logos/<country>/ that matches exchange_upper (case-insensitive).
+    e.g. 'NSE' -> 'NSE' if folder is uppercased; 'nasdaq' -> 'NASDAQ' if that's the actual folder.
+    """
+    base = os.path.join(root, "logos", country)
+    if not os.path.isdir(base):
         return None
     want = exchange_upper.lower()
     for d in os.listdir(base):
-        full = base / d
-        if full.is_dir() and d.lower() == want:
-            return d  # real on-disk name
+        full = os.path.join(base, d)
+        if os.path.isdir(full) and d.lower() == want:
+            return d  # preserve actual case
     return None
 
-
-def country_from_json_path(json_path: Path) -> Optional[str]:
-    # dist/static/exchanges/<region>/<country>/<exchange>.json
-    parts = json_path.as_posix().split("/")
+def country_from_path(json_path: str) -> Optional[str]:
+    """
+    dist/static/exchanges/<region>/<country>/<exchange>.json  -> returns <country>
+    """
+    parts = json_path.replace("\\", "/").split("/")
+    # .../dist/static/exchanges/<region>/<country>/<file>.json
+    # indices from end: [-1]=file, [-2]=country, [-3]=region, [-4]=exchanges
     try:
-        i = parts.index("exchanges")
-        return parts[i + 2]
+        idx = parts.index("exchanges")
+        country = parts[idx + 2]
+        return country
     except (ValueError, IndexError):
         return None
 
-
-def exchange_from_filename(json_path: Path) -> str:
-    return json_path.stem.upper()
-
-
-def safe_copy_tree(src: Path, dst: Path):
-    if not src.exists():
-        return
-    for root, _, files in os.walk(src):
-        rel = Path(root).relative_to(src)
-        out = dst / rel
-        out.mkdir(parents=True, exist_ok=True)
-        for f in files:
-            s = Path(root) / f
-            d = out / f
-            if not d.exists() or s.stat().st_mtime != d.stat().st_mtime or s.stat().st_size != d.stat().st_size:
-                d.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(s, d)
-
-
-def ensure_logo_css():
-    cssp = DIST / "static" / "styles.css"
-    if not cssp.exists():
-        return
-    rule = ".logo{width:20px;height:20px;border-radius:4px;object-fit:cover;vertical-align:middle;margin-right:8px;box-shadow:0 0 0 1px #22395f}"
-    css = cssp.read_text(encoding="utf-8")
-    if ".logo{" not in css:
-        cssp.write_text(css.rstrip() + "\n" + rule + "\n", encoding="utf-8")
-
-
-# -------- fallback scan --------
-_scan_cache: Dict[Tuple[str, str], Dict[str, str]] = {}  # (country, exchdir) -> {SYMBOL -> relpath}
-
-def build_scan_index(country: str, exchdir: str) -> Dict[str, str]:
+def exchange_from_filename(json_path: str) -> str:
     """
-    Walk logos/<country>/<exchdir> and return map SYMBOL-> relative path.
-    Match by filename stem normalized (e.g., TCS.png -> TCS).
-    Cached per (country, exchdir).
+    <exchange>.json -> EXCHANGE (upper)
     """
-    key = (country, exchdir)
-    if key in _scan_cache:
-        return _scan_cache[key]
+    name = os.path.splitext(os.path.basename(json_path))[0]
+    return (name or "").upper()
 
-    base = LOGOS_SRC / country / exchdir
-    out: Dict[str, str] = {}
-    if not base.is_dir():
-        _scan_cache[key] = out
-        return out
+def main() -> None:
+    root = repo_root()
+    mapping = load_logo_map(root)
+    if not mapping:
+        return
 
-    for root, _, files in os.walk(base):
-        for f in files:
-            stem = Path(f).stem
-            sym = norm_symbol(stem)
-            if not sym:
-                continue
-            rel = (Path(root) / f).relative_to(LOGOS_SRC).as_posix()
-            out[sym] = rel
-    _scan_cache[key] = out
-    return out
-
-
-# -------- main steps --------
-def copy_all_logos():
-    safe_copy_tree(LOGOS_SRC, DIST / "logos")
-    print("[logos] copied assets to dist/logos")
-
-
-def inject_json_logos() -> Tuple[int, int]:
-    mapping = load_logo_map(ROOT)
-    files = list((DIST / "static" / "exchanges").glob("*/*/*.json"))
+    # iterate all exchanges JSON
+    pattern = os.path.join(root, "dist", "static", "exchanges", "*", "*", "*.json")
+    files = glob.glob(pattern)
     if not files:
         print("[logos] no exchange JSON files found — did you run the build first?")
-        return (0, 0)
+        return
 
     print(f"[logos] scanning {len(files)} exchange files…")
 
+    # cache for resolved exchange-dir case per (country, EXCHANGE)
     exdir_cache: Dict[Tuple[str, str], Optional[str]] = {}
+
     changed_files = 0
     updated_rows = 0
 
     for jf in files:
-        country = country_from_json_path(jf) or ""
-        cslug = country.lower()
+        country = country_from_path(jf)
+        if not country:
+            continue
+        country_slug = country.lower()
         exch_upper = exchange_from_filename(jf)
 
-        # resolve actual exchange folder casing under /logos/<country>/
-        key_exdir = (cslug, exch_upper)
-        if key_exdir not in exdir_cache:
-            exdir_cache[key_exdir] = resolve_exchange_dir_case(cslug, exch_upper)
-        exchdir = exdir_cache[key_exdir]
-        if not exchdir:
+        # resolve the folder case for this exchange once
+        exdir_key = (country_slug, exch_upper)
+        if exdir_key not in exdir_cache:
+            exdir_cache[exdir_key] = resolve_exchange_dir_case(root, country_slug, exch_upper)
+        exdir = exdir_cache[exdir_key]
+
+        # if logos/<country>/<exchange>/ doesn't exist, skip entire file quickly
+        if not exdir:
             continue
 
+        # load json
         try:
-            data = json.loads(jf.read_text(encoding="utf-8"))
+            with open(jf, "r", encoding="utf-8") as f:
+                data = json.load(f)
         except Exception as e:
             print(f"[logos] skip corrupt JSON: {jf} ({e})")
             continue
@@ -207,117 +137,36 @@ def inject_json_logos() -> Tuple[int, int]:
         rows = data.get("rows") or []
         file_changed = False
 
-        # Fallback index (on demand)
-        fb_index = None
-
-        for r in rows:
-            sym_norm = norm_symbol(r.get("symbol") or "")
-            if not sym_norm:
+        for row in rows:
+            sym = (row.get("symbol") or "").strip().upper()
+            if not sym:
                 continue
 
-            rel_path = None
+            key: Key = (country_slug, exch_upper, sym)
+            logo_file = mapping.get(key)
+            if not logo_file:
+                # no mapping -> ensure empty string (so stale wrong icons don’t persist)
+                if row.get("logo"):
+                    row["logo"] = ""
+                    file_changed = True
+                continue
 
-            # 1) mapping
-            if mapping:
-                rel_path = mapping.get((cslug, exch_upper, sym_norm))
-
-            # 2) fallback scan
-            if not rel_path and SCAN_FALLBACK:
-                if fb_index is None:
-                    fb_index = build_scan_index(cslug, exchdir)
-                rel_path = fb_index.get(sym_norm)
-
-            if rel_path:
-                final = f"{BASE_URL}/logos/{rel_path}" if BASE_URL else f"/logos/{rel_path}"
-            else:
-                final = ""
-
-            if r.get("logo") != final:
-                r["logo"] = final
+            # build final /logos/<country>/<EXDIR>/<file>
+            want_url = f"/logos/{country_slug}/{exdir}/{logo_file}"
+            if row.get("logo") != want_url:
+                row["logo"] = want_url
                 file_changed = True
-                if final:
-                    updated_rows += 1
+                updated_rows += 1
 
         if file_changed:
-            jf.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
-            changed_files += 1
+            try:
+                with open(jf, "w", encoding="utf-8") as f:
+                    json.dump(data, f, ensure_ascii=False, indent=2)
+                changed_files += 1
+            except Exception as e:
+                print(f"[logos] failed to write {jf}: {e}")
 
-    return (changed_files, updated_rows)
-
-
-def patch_exchange_html_tables() -> int:
-    """
-    OPTIONAL: Patch dist/<region>/<country>/<exchange>/index.html Symbol <td>
-    from: <td><a href='...'>SYM</a></td>
-    into: <td><img class="logo" src="..."> <a ...>SYM</a></td>
-    Logo URLs taken from the enriched JSON we just wrote.
-    """
-    cache: Dict[Tuple[str, str, str], Dict[str, str]] = {}
-    for jp in (DIST / "static" / "exchanges").glob("*/*/*.json"):
-        try:
-            data = json.loads(jp.read_text(encoding="utf-8"))
-        except Exception:
-            continue
-        region = jp.parts[-3]
-        country = jp.parts[-2]
-        exch = Path(jp.name).stem
-        logos = {}
-        for r in data.get("rows", []):
-            sym = (r.get("symbol") or "").strip()
-            logo = (r.get("logo") or "").strip()
-            if sym and logo:
-                logos[sym] = logo
-        cache[(region, country, exch)] = logos
-
-    patched = 0
-    for idx in DIST.glob("*/*/*/index.html"):
-        try:
-            region, country, exch = idx.parts[-4:-1]
-        except Exception:
-            continue
-        logos = cache.get((region, country, exch), {})
-        if not logos:
-            continue
-
-        html = idx.read_text(encoding="utf-8")
-        if 'class="logo"' in html:
-            continue
-
-        import re
-        def repl(m):
-            full = m.group(0)
-            sym = m.group(1).strip()
-            url = logos.get(sym)
-            if not url:
-                return full
-            return full.replace("<td>", f"<td><img class=\"logo\" src=\"{url}\" alt=\"\"> ", 1)
-
-        new_html = re.sub(r"<td>\s*<a\s+href=['\"][^'\"]+['\"]>\s*([^<\s]+)\s*</a>\s*</td>", repl, html)
-        if new_html != html:
-            idx.write_text(new_html, encoding="utf-8")
-            patched += 1
-
-    return patched
-
-
-def main():
-    # 1) copy logos
-    copy_all_logos()
-
-    # 2) ensure CSS rule
-    ensure_logo_css()
-
-    # 3) inject JSON
-    changed, rows = inject_json_logos()
-    print(f"[logos] JSON updated: files={changed}, rows={rows}")
-
-    # 4) optional HTML patch
-    if INJECT_HTML:
-        patched = patch_exchange_html_tables()
-        print(f"[logos] HTML patched: {patched} pages")
-    else:
-        print("[logos] HTML patch disabled (set INJECT_LOGOS_HTML=1 to enable)")
-
+    print(f"[logos] done. files updated: {changed_files}, rows updated: {updated_rows}")
 
 if __name__ == "__main__":
     main()
