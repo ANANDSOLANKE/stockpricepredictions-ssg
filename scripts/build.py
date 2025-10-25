@@ -273,6 +273,8 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       .sort-select{padding:.45rem .6rem;border:1px solid #2b4a70;background:#0d1117;color:#fff;border-radius:8px}
       .loadmore-wrap{text-align:center;margin:.6rem 0}
       .table-wrap{overflow:auto}
+      .table th.sortable{cursor:pointer}
+      .sort-indicator{font-weight:600;margin-left:.25rem;font-size:.9em}
       .region{margin:20px;padding:20px;background:#111a25;border-radius:10px;box-shadow:0 0 10px #0006}
       .region h2{color:#00b7ff;margin:0 0 10px}
       .countries{display:flex;flex-wrap:wrap;gap:16px}
@@ -484,7 +486,7 @@ def main() -> None:
 
                     s_slug = slug(sym)
                     stock_url = f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"
-                    ch_html = "" if ch is None else f"<span class='pct {'pos' if ch and ch>0 else ('neg' if ch and ch<0 else '')}'>{'' if ch is None else f'{ch:.2f}%'}</span>"
+                    ch_html = "" if ch is None else f"<span class='pct {'pos' if ch and ch>0 else ('neg' if ch and ch<0 else '')}'>{'' if ch is None else f'{ch:.2f}%'}}</span>"
 
                     table_rows.append(
                         "<tr>"
@@ -628,12 +630,23 @@ def main() -> None:
 
     let html = "";
     html += "<div class='table-wrap'><table class='table'><thead>";
-    html += "<tr><th>Symbol</th><th>Name</th><th>Sector</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Change%</th><th>Signal</th></tr>";
+    html += "<tr>"
+         + "<th class='sortable' data-key='sym'>Symbol <span class='sort-indicator'></span></th>"
+         + "<th class='sortable' data-key='name'>Name <span class='sort-indicator'></span></th>"
+         + "<th>Sector</th>"
+         + "<th>Open</th><th>High</th><th>Low</th><th>Close</th>"
+         + "<th class='sortable' data-key='chg'>Change% <span class='sort-indicator'></span></th>"
+         + "<th>Signal</th></tr>";
     html += "</thead><tbody>";
 
     for (let i=0;i<view.length;i++) {{
       const r = view[i];
-      const chg = (r.change_percent==null) ? "" : (r.change_percent*1).toFixed(2) + "%";
+      const chgVal = (r.change_percent==null) ? null : (r.change_percent*1);
+      let chgHtml = "";
+      if (chgVal !== null) {{
+        const cls = (chgVal>0) ? 'pct pos' : ((chgVal<0) ? 'pct neg' : 'pct');
+        chgHtml = "<span class='" + cls + "'>" + chgVal.toFixed(2) + "%</span>";
+      }}
       html += "<tr>"
            + "<td><a href='" + fmt(r.url) + "'>" + fmt(r.symbol) + "</a></td>"
            + "<td>" + fmt(r.name) + "</td>"
@@ -642,13 +655,43 @@ def main() -> None:
            + "<td>" + fmt(r.high) + "</td>"
            + "<td>" + fmt(r.low) + "</td>"
            + "<td>" + fmt(r.close) + "</td>"
-           + "<td>" + chg + "</td>"
+           + "<td>" + chgHtml + "</td>"
            + "<td><a class='btn' href='" + fmt(r.url) + "'>AI Prediction</a></td>"
            + "</tr>";
     }}
     html += "</tbody></table></div>";
 
     tableHost.innerHTML = html;
+
+    // attach sortable header handlers and indicators
+    const ths = tableHost.querySelectorAll('th.sortable');
+    function updateIndicators(){{
+      ths.forEach(t=>{{
+        const k = t.dataset.key;
+        const span = t.querySelector('.sort-indicator');
+        if (!span) return;
+        span.textContent = '';
+        if (sortEl.value.startsWith(k)) {{
+          span.textContent = sortEl.value.endsWith('asc') ? ' ▲' : ' ▼';
+        }}
+      }});
+    }}
+    ths.forEach(t=>{{
+      t.addEventListener('click', function(){{
+        const key = t.dataset.key;
+        let dir = 'asc';
+        if (sortEl.value.startsWith(key)) {{
+          dir = sortEl.value.endsWith('asc') ? 'desc' : 'asc';
+        }}
+        let val = key === 'sym' ? ('sym-' + dir) : (key === 'name' ? ('name-' + dir) : ('chg-' + dir));
+        sortEl.value = val;
+        page = 1;
+        updateIndicators();
+        render();
+      }});
+    }});
+    // ensure indicators reflect current sort
+    updateIndicators();
 
     const moreBtn = document.getElementById('load-more');
     if (moreBtn) {{
@@ -695,7 +738,7 @@ def main() -> None:
   sortEl.addEventListener('change', function(){{ page=1; render(); }});
 
   activate(active || 'all'); // first load
-}})();
+})();
 </script>
 """
             country_body = (
