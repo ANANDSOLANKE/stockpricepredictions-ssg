@@ -219,37 +219,106 @@ def sync_tree(src: Path, dst: Path) -> None:
                 try: shutil.rmtree(dst_d)
                 except: pass
 
+# ---- NEW: helpers to use your curated CSV mapping ----
+def find_logo_relpath_by_filename(filename: str) -> Optional[str]:
+    """Search /logos recursively for this basename (case-insensitive). Return posix relative path or None."""
+    if not filename:
+        return None
+    target = filename.strip().lower()
+    base = ROOT / "logos"
+    if not base.exists():
+        return None
+    for root, _, files in os.walk(base):
+        for f in files:
+            if f.lower() == target:
+                return (Path(root) / f).relative_to(base).as_posix()
+    return None
+
+def load_logos_from_csv() -> Dict[Tuple[str, str], str]:
+    """
+    Read curated mappings from logos/map/logos.csv.
+    Expected columns (case-insensitive): exchange, symbol, filename or path.
+    Returns: {(EXCHANGE, NORM_SYMBOL): 'relative/posix/path.png'}
+    """
+    p = ROOT / "logos" / "map" / "logos.csv"
+    out: Dict[Tuple[str, str], str] = {}
+    if not p.exists():
+        return out
+    with open(p, "r", encoding="utf-8", newline="") as f:
+        sample = f.read(4096)
+        f.seek(0)
+        try:
+            dialect = csv.Sniffer().sniff(sample, delimiters=",\t;|")
+        except Exception:
+            dialect = csv.excel
+        rdr = csv.DictReader(f, dialect=dialect)
+        for r in rdr:
+            exchange = (r.get("exchange") or r.get("Exchange") or "").strip()
+            symbol   = (r.get("symbol") or r.get("Symbol") or "").strip()
+            path     = (r.get("path") or r.get("Path") or "").strip()
+            filename = (r.get("filename") or r.get("file") or r.get("logo") or r.get("Logo") or "").strip()
+            if not exchange or not symbol:
+                continue
+            rel = path.lstrip("/\\") if path else find_logo_relpath_by_filename(filename)
+            if rel:
+                out[(exchange.upper(), _norm(symbol))] = rel
+    return out
+
+def merge_curated_maps(a: Dict[Tuple[str, str], str], b: Dict[Tuple[str, str], str]) -> Dict[Tuple[str, str], str]:
+    """Return a new dict with keys from a, then fill missing from b (a has priority)."""
+    merged = dict(a)
+    for k, v in b.items():
+        merged.setdefault(k, v)
+    return merged
+
+# ---------- logo resolver ----------
 class LogoResolver:
     def __init__(self):
         self.placeholder = f"{BASE_URL}/static/logo-placeholder.svg"
-        src, dst = ROOT / "logos", DIST / "logos"
 
-        # Always copy curated logos into dist (fast), even if SKIP_LOGOS=1
+        # Always copy curated logos into dist
+        src, dst = ROOT / "logos", DIST / "logos"
         if src.exists():
             sync_tree(src, dst)
 
-        # Always load curated index; only skip the slow scan when SKIP_LOGOS=1
-        self.curated = load_logos_index()
+        # Curated JSON (if present) and your curated CSV mapping (logos/map/logos.csv)
+        curated_json = load_logos_index()     # {(EXCH, SYM): 'relpath'}
+        curated_csv  = load_logos_from_csv()  # {(EXCH, SYM): 'relpath'}
+
+        # Prefer JSON entries but fill gaps from CSV
+        self.curated = merge_curated_maps(curated_json, curated_csv)
+
+        # Optional on-disk scan (only when SKIP_LOGOS=0)
         self.scan = {} if SKIP_LOGOS else build_scan_index()
 
         self.cache: Dict[Tuple[str, str], str] = {}
 
     def url_for(self, exchange: str, symbol: str, name: str = "") -> str:
         key = (exchange or "", symbol or "")
-        if key in self.cache: return self.cache[key]
-        exch, symn = (exchange or "").upper(), _norm(symbol)
-        # curated first
+        if key in self.cache:
+            return self.cache[key]
+
+        exch = (exchange or "").upper()
+        symn = _norm(symbol)
+
+        # 1) curated exact (JSON/CSV)
         rel = self.curated.get((exch, symn))
         if rel:
-            url = f"{BASE_URL}/logos/{rel}"; self.cache[key] = url; return url
-        # scan (if available)
-        for stem, rel in self.scan.get(exch, []):
-            if stem == symn:
-                url = f"{BASE_URL}/logos/{rel}"; self.cache[key] = url; return url
-        for stem, rel in self.scan.get(exch, []):
-            if symn and (symn in stem or stem in symn):
-                url = f"{BASE_URL}/logos/{rel}"; self.cache[key] = url; return url
-        self.cache[key] = self.placeholder; return self.placeholder
+            url = f"{BASE_URL}/logos/{rel}"
+            self.cache[key] = url
+            return url
+
+        # 2) scan exact (only if scan enabled)
+        if self.scan:
+            for stem, rel in self.scan.get(exch, []):
+                if stem == symn:
+                    url = f"{BASE_URL}/logos/{rel}"
+                    self.cache[key] = url
+                    return url
+
+        # 3) placeholder
+        self.cache[key] = self.placeholder
+        return self.placeholder
 
 # ---------- template ----------
 def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
@@ -441,7 +510,7 @@ def main() -> None:
             for r in rows:
                 by.setdefault((r.get("exchange") or "UNKNOWN").strip(), []).append(r)
 
-            # header UI: flag + exchange chips + search (NO dropdown)
+            # header UI: flag + exchange chips + search
             def build_exchange_bar(region_slug, country_slug, country_name, exchanges, active_slug: Optional[str] = None):
                 flag_path = f"{BASE_URL}/logos/countryflags/{country_slug}.svg"
                 chips = []
