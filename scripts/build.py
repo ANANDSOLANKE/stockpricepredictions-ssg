@@ -6,7 +6,7 @@ Build site from Data/LastTradingDay
 Outputs:
   /index.html                          ← global landing (regions → countries → exchanges)
   /<region>/index.html                 ← countries list
-  /<region>/<country>/index.html       ← country page (flag + exchange chips + search/sort/load-more)
+  /<region>/<country>/index.html       ← country page (flag + exchange chips + search + header-sort + load-more)
   /<region>/<country>/<exchange>/index.html
   /<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
   /static/exchanges/<region>/<country>/<exchange>.json
@@ -270,7 +270,6 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       /* country tools */
       .tools{display:flex;gap:.6rem;align-items:center;margin:.4rem 0 0 2.6rem;flex-wrap:wrap}
       .search-input{padding:.45rem .6rem;border:1px solid #2b4a70;background:#0d1117;color:#fff;border-radius:8px;min-width:260px}
-      .sort-select{padding:.45rem .6rem;border:1px solid #2b4a70;background:#0d1117;color:#fff;border-radius:8px}
       .loadmore-wrap{text-align:center;margin:.6rem 0}
       /* table */
       .table-wrap{overflow:auto}
@@ -430,14 +429,14 @@ def main() -> None:
         for cslug_raw, country in tree[gslug].items():
             cname = country["country_name"]
             rows = country["rows"]
-            cslug_dir = slug(cslug_raw)  # directory/URL-safe
+            cslug_dir = slug(cslug_raw)
 
             # group by exchange
             by: Dict[str, List[Dict[str, str]]] = {}
             for r in rows:
                 by.setdefault((r.get("exchange") or "UNKNOWN").strip(), []).append(r)
 
-            # helper: top flag + exchange chips + tools (search/sort)
+            # header UI: flag + exchange chips + search (NO dropdown)
             def build_exchange_bar(region_slug, country_slug, country_name, exchanges, active_slug: Optional[str] = None):
                 flag_path = f"{BASE_URL}/logos/countryflags/{country_slug}.svg"
                 chips = []
@@ -448,14 +447,6 @@ def main() -> None:
                 tools = (
                     "<div class='tools'>"
                     "<input id='cty-search' class='search-input' type='search' placeholder='Search symbol or name…'>"
-                    "<select id='cty-sort' class='sort-select'>"
-                    "<option value='sym-asc'>Symbol ↑</option>"
-                    "<option value='sym-desc'>Symbol ↓</option>"
-                    "<option value='name-asc'>Name ↑</option>"
-                    "<option value='name-desc'>Name ↓</option>"
-                    "<option value='chg-asc'>% Change ↑</option>"
-                    "<option value='chg-desc'>% Change ↓</option>"
-                    "</select>"
                     "</div>"
                 )
                 return (
@@ -471,12 +462,12 @@ def main() -> None:
 
             all_exchanges = sorted(k for k in by.keys() if k and k.upper() != "UNKNOWN")
 
-            # ---- exchange pages (compatibility) + JSON for dynamic loader
+            # ---- exchange pages (kept) + JSON for dynamic loader
             for exch, erows in sorted(by.items(), key=lambda kv: kv[0].lower()):
                 e_slug = slug(exch)
                 table_rows = []
                 json_rows = []
-                exch_pred_date = mkt.prediction_date(region=gname, country=cname, exchange=exch)  # not used on page but computed
+                _ = mkt.prediction_date(region=gname, country=cname, exchange=exch)
 
                 for r in erows:
                     sym = (r.get("symbol") or "").strip()
@@ -554,7 +545,7 @@ def main() -> None:
                     {"region": gname, "country": cname, "exchange": exch, "rows": json_rows},
                 )
 
-            # Country page (default exchange + JS loader with search/sort/load-more + header sort)
+            # Country page (default exchange + JS loader with search + header-sort + load-more)
             default_ex_slug = slug(all_exchanges[0]) if all_exchanges else ""
             loader_js = f"""
 <script>
@@ -563,11 +554,11 @@ def main() -> None:
   const chips = Array.from(document.querySelectorAll('.exchange-bar .exchip'));
   const tableHost = document.getElementById('ex-table');
   const searchEl = document.getElementById('cty-search');
-  const sortEl = document.getElementById('cty-sort');
   const PAGE_SIZE = 50;
 
   let active = "{default_ex_slug}" || "all";
   let page = 1;
+  let sortMode = 'chg-asc';             // default: Change% ↑
   const dataByEx = Object.create(null); // slug -> rows[]
   let allMerged = []; // union across exchanges
 
@@ -633,17 +624,16 @@ def main() -> None:
   function render(){{
     ensureLoadMoreArea();
     const q = searchEl.value.trim();
-    const mode = sortEl.value;
 
     let base = (active==='all') ? allMerged : (dataByEx[active]||[]);
     let rows = filterRows(base, q).slice();  // copy
-    rows.sort((a,b)=>compare(a,b,mode));
+    rows.sort((a,b)=>compare(a,b,sortMode));
 
     const total = rows.length;
     const upto = Math.min(total, page*PAGE_SIZE);
     const view = rows.slice(0, upto);
 
-    const hd = headerArrow(mode);
+    const hd = headerArrow(sortMode);
 
     let html = "";
     html += "<div class='table-wrap'><table class='table'><thead>";
@@ -680,12 +670,9 @@ def main() -> None:
     Array.from(tableHost.querySelectorAll('.th-sort')).forEach(th => {{
       th.addEventListener('click', () => {{
         const k = th.getAttribute('data-sort'); // sym|name|chg
-        const cur = sortEl.value;
-        let next = 'sym-asc';
-        if (k==='sym') next = (cur==='sym-asc') ? 'sym-desc' : 'sym-asc';
-        if (k==='name') next = (cur==='name-asc') ? 'name-desc' : 'name-asc';
-        if (k==='chg') next = (cur==='chg-asc') ? 'chg-desc' : 'chg-asc';
-        sortEl.value = next;   // sync dropdown
+        if (k==='sym') sortMode = (sortMode==='sym-asc') ? 'sym-desc' : 'sym-asc';
+        if (k==='name') sortMode = (sortMode==='name-asc') ? 'name-desc' : 'name-asc';
+        if (k==='chg') sortMode = (sortMode==='chg-asc') ? 'chg-desc' : 'chg-asc';
         page = 1;
         render();
       }});
@@ -733,7 +720,6 @@ def main() -> None:
 
   chips.forEach(c=>c.addEventListener('click', ev=>{{ ev.preventDefault(); activate(c.dataset.ex||'all'); }}));
   searchEl.addEventListener('input', function(){{ page=1; render(); }});
-  sortEl.addEventListener('change', function(){{ page=1; render(); }});
 
   activate(active || 'all'); // first load
 }})();
