@@ -1,69 +1,44 @@
 <!-- templates/prediction.html -->
-
-<style>
-@keyframes upFloat{0%{transform:translateY(4px)}50%{transform:translateY(-2px)}100%{transform:translateY(4px)}}
-@keyframes downFloat{0%{transform:translateY(-4px)}50%{transform:translateY(2px)}100%{transform:translateY(-4px)}}
-.arrow{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:26px;height:26px;margin-right:8px;border-radius:6px;
-  font-weight:900;font-size:18px;background:rgba(255,255,255,.08)
-}
-.arrow-up{color:#86f3c1;animation:upFloat 1.8s ease-in-out infinite}
-.arrow-down{color:#ffb4b4;animation:downFloat 1.8s ease-in-out infinite}
-@media (prefers-reduced-motion:reduce){.arrow-up,.arrow-down{animation:none}}
-</style>
-
-<!-- HEADER -->
 <section class="card" style="margin:16px 0;">
   <div style="display:flex;justify-content:space-between;align-items:center;">
-    <h1 style="margin:0;font-size:22px;">{company}
-      <span style="opacity:.7">({symbol})</span>
-    </h1>
-    <div style="opacity:.7;font-size:13px;">Last build: {last_build}</div>
+    <h1 style="margin:0;font-size:22px;">{{ company }} <span style="opacity:.7">({{ symbol }})</span></h1>
+    <div style="opacity:.7;font-size:13px;">Last build: {{ last_build }}</div>
   </div>
-
   <div style="margin-top:6px;opacity:.8;font-size:14px;">
-    Region: {region} · Country: {country} · Exchange: {exchange}
+    Region: {{ region }} · Country: {{ country }} · Exchange: {{ exchange }}
   </div>
 
-  <!-- PRICE STRIP -->
-  <div style="margin-top:10px;opacity:.9;font-size:14px;
-    display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
-    <span><strong>Date:</strong> {ohlc_date}</span>
+  <!-- Price Strip -->
+  <div style="margin-top:10px;opacity:.9;font-size:14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+    <span><strong>Date:</strong> {{ ohlc_date }}</span>
     <span style="opacity:.5;">•</span>
-    <span><strong>Open:</strong> {ohlc_open}</span>
+    <span><strong>Open:</strong> {{ ohlc_open }}</span>
     <span style="opacity:.5;">•</span>
-    <span><strong>High:</strong> {ohlc_high}</span>
+    <span><strong>High:</strong> {{ ohlc_high }}</span>
     <span style="opacity:.5;">•</span>
-    <span><strong>Low:</strong> {ohlc_low}</span>
+    <span><strong>Low:</strong> {{ ohlc_low }}</span>
     <span style="opacity:.5;">•</span>
-    <span><strong>Close:</strong> {ohlc_close}</span>
+    <span><strong>Close:</strong> {{ ohlc_close }}</span>
     <span style="opacity:.5;">•</span>
-    <span><strong>% Change:</strong> {change_pct}%</span>
+    <span><strong>% Change:</strong> {{ change_pct }}%</span>
   </div>
 </section>
 
-<!-- PREDICTION HERO -->
 <section class="card" style="
   margin:16px 0;padding:18px;border-radius:12px;
-  background:{'#0c2f1f' if signal == 'Bullish' else '#3a0c0c'};
-  border:1px solid {'#174a34' if signal == 'Bullish' else '#5a1c1c'};
-  color:#fff;
-">
-
+  background:{{ '#0c2f1f' if signal == 'Bullish' else '#3a0c0c' }};
+  border:1px solid {{ '#174a34' if signal == 'Bullish' else '#5a1c1c' }};
+  color:#fff;">
   <div style="font-size:14px;opacity:.85;margin-bottom:8px;">
-    Stock prediction for <b>{pred_date}</b>
+    Stock prediction for <b>{{ pred_date }}</b>
   </div>
-
-  <div style="letter-spacing:1px;font-weight:900;font-size:40px;
-    display:flex;align-items:center;">
+  <div style="letter-spacing:1px;font-weight:900;font-size:40px;display:flex;align-items:center;">
     <span class="arrow {{ 'arrow-up' if signal == 'Bullish' else 'arrow-down' }}">
       {{ '▲' if signal == 'Bullish' else '▼' }}
     </span>
-    {signal}
+    {{ signal }}
   </div>
-
   <div style="margin-top:6px;opacity:.85;font-size:13px;">
-    {company} ({symbol})
+    {{ company }} ({{ symbol }})
   </div>
 </section>
