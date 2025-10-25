@@ -246,3 +246,32 @@ a:hover{ color:var(--text); text-decoration:underline; }
   box-shadow: 0 0 6px rgba(79, 123, 255, 0.45);
   font-weight: 600;
 }
+
+/* =====================================================
+   vExt3 — Prediction page patch (client-side)
+   Only affects /prediction-tomorrow/ pages.
+   ===================================================== */
+
+/* Hide the old OHLC "pills" inside the green/red hero */
+.ohlc{ display:none !important; }
+
+/* Price strip injected under the stock title */
+.spp-stat-strip{
+  display:flex; flex-wrap:wrap; gap:.5rem; align-items:center;
+  font-size:14px; color:#cfe0ff; margin-top:8px;
+}
+.spp-stat-strip .dot{ opacity:.45 }
+
+/* Animated up/down arrow shown before the big signal */
+@keyframes sppUp{0%{transform:translateY(4px)}50%{transform:translateY(-2px)}100%{transform:translateY(4px)}}
+@keyframes sppDown{0%{transform:translateY(-4px)}50%{transform:translateY(2px)}100%{transform:translateY(-4px)}}
+.spp-arrow{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px; margin-right:8px; border-radius:6px;
+  font-weight:900; font-size:18px; background:rgba(255,255,255,.08);
+}
+.spp-arrow.up{ color:#86f3c1; animation:sppUp 1.8s ease-in-out infinite; }
+.spp-arrow.down{ color:#ffb4b4; animation:sppDown 1.8s ease-in-out infinite; }
+@media (prefers-reduced-motion:reduce){
+  .spp-arrow.up, .spp-arrow.down{ animation:none; }
+}
