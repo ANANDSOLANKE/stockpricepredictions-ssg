@@ -20,14 +20,25 @@
     .header{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:16px}
     .title{font-size:28px;font-weight:800;letter-spacing:.2px;margin:0 0 6px}
     .sub{color:var(--muted);font-size:14px}
+
+    /* NEW: price line */
+    .stat-strip{
+      display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+      font-size:14px;color:#c9daff;margin-top:10px
+    }
+    .stat-strip .dot{opacity:.4}
+
     .grid{display:grid;gap:16px}
-    .hero{background:linear-gradient(180deg,#0e2e25 0%, #0a201a 100%);border:1px solid #184c3b;border-radius:16px;padding:22px}
+    .hero{background:linear-gradient(180deg,#0e2e25 0%, #0a201a 100%);
+      border:1px solid #184c3b;border-radius:16px;padding:22px}
     .hero .row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-    .chip{display:inline-flex;align-items:center;gap:6px;background:#123255;border:1px solid var(--chip-border);color:#bcd7ff;border-radius:999px;padding:6px 12px;font-weight:600;font-size:13px}
+    .chip{display:inline-flex;align-items:center;gap:6px;background:#123255;
+      border:1px solid var(--chip-border);color:#bcd7ff;border-radius:999px;
+      padding:6px 12px;font-weight:600;font-size:13px}
     .signal{font-size:56px;font-weight:900;letter-spacing:1px;margin:8px 0 4px}
     .signal--bull{color:#87f2c2}
     .signal--bear{color:#ffb4b4}
-    .ohlc{margin-top:12px;display:inline-flex;gap:10px;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.18);border-radius:999px;padding:8px 12px;font-size:12px}
+    /* old .ohlc removed */
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
     .card h4{margin:0 0 10px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#9fb3d9}
@@ -50,30 +61,45 @@
 <body>
   <div class="wrap">
 
+    <!-- Header -->
     <div class="header">
-      <h1 class="title">{company_name} <small style="font-size:14px;color:var(--muted);font-weight:600;">({symbol})</small></h1>
+      <h1 class="title">{company_name} 
+        <small style="font-size:14px;color:var(--muted);font-weight:600;">({symbol})</small>
+      </h1>
       <div class="sub">Region: {region} · Country: {country} · Exchange: {exchange}</div>
       <div class="sub">Last build: {last_build}</div>
+
+      <!-- NEW OHLC line below title -->
+      <div class="stat-strip">
+        <span><strong>Date:</strong> {ohlc_date}</span>
+        <span class="dot">•</span>
+        <span><strong>Open:</strong> {ohlc_open}</span>
+        <span class="dot">•</span>
+        <span><strong>High:</strong> {ohlc_high}</span>
+        <span class="dot">•</span>
+        <span><strong>Low:</strong> {ohlc_low}</span>
+        <span class="dot">•</span>
+        <span><strong>Close:</strong> {ohlc_close}</span>
+        <span class="dot">•</span>
+        <span><strong>% Change:</strong> {change_pct}%</span>
+      </div>
     </div>
 
     <div class="grid">
+      <!-- HERO SECTION -->
       <div class="hero">
         <div class="row">
           <div>
-            <div class="chip">AI Prediction: <span style="font-weight:800">{company_name}</span> for <span style="font-weight:800">{pred_date}</span></div>
+            <div class="chip">
+              Stock prediction for <span style="font-weight:800">{pred_date}</span>
+            </div>
             <div class="signal {signal_class}">{signal_upper}</div>
-            <div class="muted">Based on yesterday’s OHLC data.</div>
-          </div>
-          <div class="ohlc">
-            <div>O: <b>{ohlc_open}</b></div>
-            <div>H: <b>{ohlc_high}</b></div>
-            <div>L: <b>{ohlc_low}</b></div>
-            <div>C: <b>{ohlc_close}</b></div>
-            <div>Change%: <b>{change_pct}</b></div>
+            <div class="muted">{company_name}</div>
           </div>
         </div>
       </div>
 
+      <!-- STAT CARDS -->
       <div class="cards">
         <div class="card">
           <h4>Model Performance</h4>
@@ -92,8 +118,11 @@
         </div>
       </div>
 
+      <!-- 7-DAY TABLE -->
       <div class="table-card">
-        <h3 class="section-title" style="padding:14px 16px 0;margin:0">Model vs. Actual: Last 7 Days Performance</h3>
+        <h3 class="section-title" style="padding:14px 16px 0;margin:0">
+          Model vs. Actual: Last 7 Days Performance
+        </h3>
         <table>
           <thead>
             <tr>
@@ -106,13 +135,16 @@
         </table>
       </div>
 
+      <!-- LONG TECHNICAL ANALYSIS -->
       <div class="card">
         <h4>In-Depth Technical Analysis of {company_name}</h4>
         <div class="muted">{long_text}</div>
       </div>
 
+      <!-- FOOTER -->
       <div class="footer-note">
-        E-E-A-T: Author <b>StockPricePredictions Research</b> · Org: SPP Labs · Contact: <a href="mailto:hello@stockpricepredictions.com">hello@stockpricepredictions.com</a>
+        E-E-A-T: Author <b>StockPricePredictions Research</b> · Org: SPP Labs · Contact:
+        <a href="mailto:hello@stockpricepredictions.com">hello@stockpricepredictions.com</a>
       </div>
     </div>
 
