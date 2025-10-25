@@ -4,9 +4,9 @@
 """
 Build site from Data/LastTradingDay
 Outputs:
-  /index.html                          ← auto-built global landing (regions → countries → exchanges)
+  /index.html                          ← global landing (regions → countries → exchanges)
   /<region>/index.html                 ← countries list
-  /<region>/<country>/index.html       ← country page (flag + exchange chips + default table + search/sort/load more)
+  /<region>/<country>/index.html       ← country page (flag + exchange chips + search/sort/load-more)
   /<region>/<country>/<exchange>/index.html
   /<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
   /static/exchanges/<region>/<country>/<exchange>.json
@@ -65,8 +65,8 @@ def next_business_day(d: datetime.date) -> datetime.date:
         return d + timedelta(days=2)
     return d + timedelta(days=1)
 
+# always ship flags even if SKIP_LOGOS is set
 def ensure_countryflags():
-    """Always copy country flags into dist/."""
     src = ROOT / "logos" / "countryflags"
     dst = DIST / "logos" / "countryflags"
     if src.exists():
@@ -272,9 +272,9 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       .search-input{padding:.45rem .6rem;border:1px solid #2b4a70;background:#0d1117;color:#fff;border-radius:8px;min-width:260px}
       .sort-select{padding:.45rem .6rem;border:1px solid #2b4a70;background:#0d1117;color:#fff;border-radius:8px}
       .loadmore-wrap{text-align:center;margin:.6rem 0}
+      /* table */
       .table-wrap{overflow:auto}
-      .table th.sortable{cursor:pointer}
-      .sort-indicator{font-weight:600;margin-left:.25rem;font-size:.9em}
+      /* landing layout */
       .region{margin:20px;padding:20px;background:#111a25;border-radius:10px;box-shadow:0 0 10px #0006}
       .region h2{color:#00b7ff;margin:0 0 10px}
       .countries{display:flex;flex-wrap:wrap;gap:16px}
@@ -287,6 +287,10 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       header.hero{padding:20px}
       .h1{font-size:1.6rem;color:#00b7ff;margin:6px 0 0}
       .container{max-width:1100px;margin:0 auto}
+      /* sortable headers */
+      .th-sort{cursor:pointer; user-select:none}
+      .th-sort .arrow{opacity:.55; font-size:.9em; margin-left:.25rem}
+      .th-sort.active{color:#9fd0ff}
     </style>"""
     build_time = datetime.utcnow().isoformat(timespec="seconds") + "Z"
     return f"""<!doctype html>
@@ -319,8 +323,6 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
 
 # ---------- landing builder ----------
 def build_landing(tree: Dict[str, Dict[str, Dict[str, object]]]) -> None:
-    """Auto-generate /index.html with Regions → Countries → Exchanges cards.
-       Clicking a country card opens /<region>/<country>/, clicking an exchange keeps exchange URL."""
     sections = []
     for gslug in sorted(tree.keys()):
         gname = next(iter(tree[gslug].values()))["group_name"]
@@ -328,7 +330,6 @@ def build_landing(tree: Dict[str, Dict[str, Dict[str, object]]]) -> None:
         for cslug_raw in sorted(tree[gslug].keys()):
             cname = tree[gslug][cslug_raw]["country_name"]
             cslug_dir = slug(cslug_raw)
-            # find all exchanges present in rows
             rows = tree[gslug][cslug_raw]["rows"]
             ex_set, seen = [], set()
             for r in rows:
@@ -475,6 +476,8 @@ def main() -> None:
                 e_slug = slug(exch)
                 table_rows = []
                 json_rows = []
+                exch_pred_date = mkt.prediction_date(region=gname, country=cname, exchange=exch)  # not used on page but computed
+
                 for r in erows:
                     sym = (r.get("symbol") or "").strip()
                     name = (r.get("description") or sym or "").strip()
@@ -486,13 +489,7 @@ def main() -> None:
 
                     s_slug = slug(sym)
                     stock_url = f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"
-
-                    # build colored change HTML safely (avoid nested f-strings/braces)
-                    if ch is None:
-                        ch_html = ""
-                    else:
-                        cls = "pos" if ch > 0 else ("neg" if ch < 0 else "")
-                        ch_html = f"<span class='pct {cls}'>{ch:.2f}%</span>"
+                    ch_html = "" if ch is None else f"<span class='pct {'pos' if ch and ch>0 else ('neg' if ch and ch<0 else '')}'>{'' if ch is None else f'{ch:.2f}%'}</span>"
 
                     table_rows.append(
                         "<tr>"
@@ -557,7 +554,7 @@ def main() -> None:
                     {"region": gname, "country": cname, "exchange": exch, "rows": json_rows},
                 )
 
-            # Country page (default exchange + JS loader with search/sort/load-more)
+            # Country page (default exchange + JS loader with search/sort/load-more + header sort)
             default_ex_slug = slug(all_exchanges[0]) if all_exchanges else ""
             loader_js = f"""
 <script>
@@ -621,6 +618,18 @@ def main() -> None:
 
   function fmt(v){{ return (v==null || v==='') ? '' : (''+v); }}
 
+  function headerArrow(mode){{
+    switch(mode){{
+      case 'sym-asc': return {{col:'sym', arrow:'▲'}};
+      case 'sym-desc': return {{col:'sym', arrow:'▼'}};
+      case 'name-asc': return {{col:'name', arrow:'▲'}};
+      case 'name-desc': return {{col:'name', arrow:'▼'}};
+      case 'chg-asc': return {{col:'chg', arrow:'▲'}};
+      case 'chg-desc': return {{col:'chg', arrow:'▼'}};
+      default: return {{col:'', arrow:''}};
+    }}
+  }}
+
   function render(){{
     ensureLoadMoreArea();
     const q = searchEl.value.trim();
@@ -634,25 +643,23 @@ def main() -> None:
     const upto = Math.min(total, page*PAGE_SIZE);
     const view = rows.slice(0, upto);
 
+    const hd = headerArrow(mode);
+
     let html = "";
     html += "<div class='table-wrap'><table class='table'><thead>";
-    html += "<tr>"
-         + "<th class='sortable' data-key='sym'>Symbol <span class='sort-indicator'></span></th>"
-         + "<th class='sortable' data-key='name'>Name <span class='sort-indicator'></span></th>"
-         + "<th>Sector</th>"
-         + "<th>Open</th><th>High</th><th>Low</th><th>Close</th>"
-         + "<th class='sortable' data-key='chg'>Change% <span class='sort-indicator'></span></th>"
-         + "<th>Signal</th></tr>";
-    html += "</thead><tbody>";
+    html += "<tr>";
+    html += "<th class='th-sort"+(hd.col==='sym'?" active":"")+"' data-sort='sym'>Symbol<span class='arrow'>"+(hd.col==='sym'?hd.arrow:"")+"</span></th>";
+    html += "<th class='th-sort"+(hd.col==='name'?" active":"")+"' data-sort='name'>Name<span class='arrow'>"+(hd.col==='name'?hd.arrow:"")+"</span></th>";
+    html += "<th>Sector</th><th>Open</th><th>High</th><th>Low</th><th>Close</th>";
+    html += "<th class='th-sort"+(hd.col==='chg'?" active":"")+"' data-sort='chg'>Change%<span class='arrow'>"+(hd.col==='chg'?hd.arrow:"")+"</span></th>";
+    html += "<th>Signal</th>";
+    html += "</tr></thead><tbody>";
 
     for (let i=0;i<view.length;i++) {{
       const r = view[i];
-      const chgVal = (r.change_percent==null) ? null : (r.change_percent*1);
-      let chgHtml = "";
-      if (chgVal !== null) {{
-        const cls = (chgVal>0) ? 'pct pos' : ((chgVal<0) ? 'pct neg' : 'pct');
-        chgHtml = "<span class='" + cls + "'>" + chgVal.toFixed(2) + "%</span>";
-      }}
+      const v = (r.change_percent==null) ? null : (r.change_percent*1);
+      const chg = (v==null) ? "" : (v.toFixed(2) + "%");
+      const cls = (v==null) ? "" : (v>0 ? "pct pos" : (v<0 ? "pct neg" : "pct"));
       html += "<tr>"
            + "<td><a href='" + fmt(r.url) + "'>" + fmt(r.symbol) + "</a></td>"
            + "<td>" + fmt(r.name) + "</td>"
@@ -661,7 +668,7 @@ def main() -> None:
            + "<td>" + fmt(r.high) + "</td>"
            + "<td>" + fmt(r.low) + "</td>"
            + "<td>" + fmt(r.close) + "</td>"
-           + "<td>" + chgHtml + "</td>"
+           + "<td>" + (chg?("<span class='" + cls + "'>" + chg + "</span>"):"") + "</td>"
            + "<td><a class='btn' href='" + fmt(r.url) + "'>AI Prediction</a></td>"
            + "</tr>";
     }}
@@ -669,35 +676,20 @@ def main() -> None:
 
     tableHost.innerHTML = html;
 
-    // attach sortable header handlers and indicators
-    const ths = tableHost.querySelectorAll('th.sortable');
-    function updateIndicators(){{
-      ths.forEach(t=>{{
-        const k = t.dataset.key;
-        const span = t.querySelector('.sort-indicator');
-        if (!span) return;
-        span.textContent = '';
-        if (sortEl.value.startsWith(k)) {{
-          span.textContent = sortEl.value.endsWith('asc') ? ' ▲' : ' ▼';
-        }}
-      }});
-    }}
-    ths.forEach(t=>{{
-      t.addEventListener('click', function(){{
-        const key = t.dataset.key;
-        let dir = 'asc';
-        if (sortEl.value.startsWith(key)) {{
-          dir = sortEl.value.endsWith('asc') ? 'desc' : 'asc';
-        }}
-        let val = key === 'sym' ? ('sym-' + dir) : (key === 'name' ? ('name-' + dir) : ('chg-' + dir));
-        sortEl.value = val;
+    // header click handlers
+    Array.from(tableHost.querySelectorAll('.th-sort')).forEach(th => {{
+      th.addEventListener('click', () => {{
+        const k = th.getAttribute('data-sort'); // sym|name|chg
+        const cur = sortEl.value;
+        let next = 'sym-asc';
+        if (k==='sym') next = (cur==='sym-asc') ? 'sym-desc' : 'sym-asc';
+        if (k==='name') next = (cur==='name-asc') ? 'name-desc' : 'name-asc';
+        if (k==='chg') next = (cur==='chg-asc') ? 'chg-desc' : 'chg-asc';
+        sortEl.value = next;   // sync dropdown
         page = 1;
-        updateIndicators();
         render();
       }});
     }});
-    // ensure indicators reflect current sort
-    updateIndicators();
 
     const moreBtn = document.getElementById('load-more');
     if (moreBtn) {{
@@ -744,7 +736,7 @@ def main() -> None:
   sortEl.addEventListener('change', function(){{ page=1; render(); }});
 
   activate(active || 'all'); // first load
-})();
+}})();
 </script>
 """
             country_body = (
