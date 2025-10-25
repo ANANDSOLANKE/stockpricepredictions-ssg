@@ -1,3 +1,4 @@
+ url=https://github.com/ANANDSOLANKE/stockpricepredictions-ssg/blob/d247a91e4ef425e68752b18292f6f74363a1d2a7/scripts/build.py
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -486,7 +487,13 @@ def main() -> None:
 
                     s_slug = slug(sym)
                     stock_url = f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"
-                    ch_html = "" if ch is None else f"<span class='pct {'pos' if ch and ch>0 else ('neg' if ch and ch<0 else '')}'>{'' if ch is None else f'{ch:.2f}%'}}</span>"
+
+                    # build colored change HTML safely (avoid nested f-strings/braces)
+                    if ch is None:
+                        ch_html = ""
+                    else:
+                        cls = "pos" if ch > 0 else ("neg" if ch < 0 else "")
+                        ch_html = f"<span class='pct {cls}'>{ch:.2f}%</span>"
 
                     table_rows.append(
                         "<tr>"
