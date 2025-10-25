@@ -1,4 +1,3 @@
- url=https://github.com/ANANDSOLANKE/stockpricepredictions-ssg/blob/d247a91e4ef425e68752b18292f6f74363a1d2a7/scripts/build.py
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
