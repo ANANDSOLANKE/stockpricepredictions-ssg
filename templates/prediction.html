@@ -1,5 +1,32 @@
 <!-- templates/prediction.html -->
 
+<!-- Small styles just for the animated arrows -->
+<style>
+  @keyframes floatUp {
+    0% { transform: translateY(4px); }
+    50% { transform: translateY(-2px); }
+    100% { transform: translateY(4px); }
+  }
+  @keyframes floatDown {
+    0% { transform: translateY(-4px); }
+    50% { transform: translateY(2px); }
+    100% { transform: translateY(-4px); }
+  }
+  .arrow {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:28px; height:28px; margin-right:10px;
+    border-radius:6px; font-weight:900; font-size:20px;
+    background: rgba(255,255,255,.08);
+  }
+  .arrow-up   { color:#86f3c1; animation: floatUp 1.8s ease-in-out infinite; }
+  .arrow-down { color:#ffb4b4; animation: floatDown 1.8s ease-in-out infinite; }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .arrow-up, .arrow-down { animation: none; }
+  }
+</style>
+
 <!-- HEADER -->
 <section class="card" style="margin:16px 0;">
   <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -13,7 +40,7 @@
     Region: {region} · Country: {country} · Exchange: {exchange}
   </div>
 
-  <!-- 🆕 Price Strip: Date, OHLC, % Change -->
+  <!-- Price Strip: Date, OHLC, % Change -->
   <div style="margin-top:10px;opacity:.9;font-size:14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
     <span><strong>Date:</strong> {ohlc_date}</span>
     <span style="opacity:.5;">•</span>
@@ -38,12 +65,15 @@
   border:1px solid {'#174a34' if signal == 'Bullish' else '#5a1c1c'};
   color:#fff;
 ">
-
   <div style="font-size:14px;opacity:.85;margin-bottom:8px;">
     Stock prediction for <b>{pred_date}</b>
   </div>
 
-  <div style="letter-spacing:1px;font-weight:900;font-size:40px;">
+  <!-- Arrow + Signal -->
+  <div style="letter-spacing:1px;font-weight:900;font-size:40px;display:flex;align-items:center;">
+    <span class="arrow {{ 'arrow-up' if signal == 'Bullish' else 'arrow-down' }}">
+      {{ '▲' if signal == 'Bullish' else '▼' }}
+    </span>
     {signal}
   </div>
 
