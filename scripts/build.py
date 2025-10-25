@@ -222,23 +222,27 @@ def sync_tree(src: Path, dst: Path) -> None:
 class LogoResolver:
     def __init__(self):
         self.placeholder = f"{BASE_URL}/static/logo-placeholder.svg"
-        if SKIP_LOGOS:
-            self.curated, self.scan = {}, {}
-        else:
-            src, dst = ROOT / "logos", DIST / "logos"
-            if src.exists(): sync_tree(src, dst)
-            self.curated, self.scan = load_logos_index(), build_scan_index()
+        src, dst = ROOT / "logos", DIST / "logos"
+
+        # Always copy curated logos into dist (fast), even if SKIP_LOGOS=1
+        if src.exists():
+            sync_tree(src, dst)
+
+        # Always load curated index; only skip the slow scan when SKIP_LOGOS=1
+        self.curated = load_logos_index()
+        self.scan = {} if SKIP_LOGOS else build_scan_index()
+
         self.cache: Dict[Tuple[str, str], str] = {}
 
     def url_for(self, exchange: str, symbol: str, name: str = "") -> str:
         key = (exchange or "", symbol or "")
         if key in self.cache: return self.cache[key]
-        if SKIP_LOGOS:
-            self.cache[key] = self.placeholder; return self.placeholder
         exch, symn = (exchange or "").upper(), _norm(symbol)
+        # curated first
         rel = self.curated.get((exch, symn))
         if rel:
             url = f"{BASE_URL}/logos/{rel}"; self.cache[key] = url; return url
+        # scan (if available)
         for stem, rel in self.scan.get(exch, []):
             if stem == symn:
                 url = f"{BASE_URL}/logos/{rel}"; self.cache[key] = url; return url
@@ -259,6 +263,7 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       .btn{display:inline-block;padding:.35rem .7rem;border:1px solid #27406b;border-radius:8px}
       .btn:hover{background:#122036}
       .pct{font-weight:700}.pct.pos{color:#3ddc97}.pct.neg{color:#ff6b6b}
+      .logo{width:20px;height:20px;border-radius:4px;object-fit:cover;vertical-align:middle;margin-right:8px;box-shadow:0 0 0 1px #22395f}
       .exchange-bar{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;padding:.6rem 1rem;background:#111a25;border-radius:10px;box-shadow:0 0 6px #0006;border:1px solid #22395f}
       .exchange-bar .flagwrap{display:flex;align-items:center;gap:.6rem}
       .exchange-bar .flag{width:36px;height:24px;border-radius:4px;object-fit:cover}
@@ -480,11 +485,12 @@ def main() -> None:
 
                     s_slug = slug(sym)
                     stock_url = f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"
+                    logo_url = resolver.url_for(exch, sym, name)
                     ch_html = "" if ch is None else f"<span class='pct {'pos' if ch and ch>0 else ('neg' if ch and ch<0 else '')}'>{'' if ch is None else f'{ch:.2f}%'}</span>"
 
                     table_rows.append(
                         "<tr>"
-                        f"<td><a href='{stock_url}'>{html.escape(sym)}</a></td>"
+                        f"<td><img class='logo' src='{logo_url}' alt=''> <a href='{stock_url}'>{html.escape(sym)}</a></td>"
                         f"<td>{html.escape(name)}</td>"
                         f"<td>{html.escape(sec)}</td>"
                         f"<td>{'' if o is None else '{:.2f}'.format(o)}</td>"
@@ -504,6 +510,7 @@ def main() -> None:
                         "close":None if cl is None else round(cl,2),
                         "change_percent": None if ch is None else round(ch,4),
                         "url": stock_url,
+                        "logo": logo_url,
                     })
 
                     # stock page
@@ -651,7 +658,7 @@ def main() -> None:
       const chg = (v==null) ? "" : (v.toFixed(2) + "%");
       const cls = (v==null) ? "" : (v>0 ? "pct pos" : (v<0 ? "pct neg" : "pct"));
       html += "<tr>"
-           + "<td><a href='" + fmt(r.url) + "'>" + fmt(r.symbol) + "</a></td>"
+           + "<td>" + (r.logo ? "<img class='logo' src='" + r.logo + "' alt=''> " : "") + "<a href='" + fmt(r.url) + "'>" + fmt(r.symbol) + "</a></td>"
            + "<td>" + fmt(r.name) + "</td>"
            + "<td>" + fmt(r.sector) + "</td>"
            + "<td>" + fmt(r.open) + "</td>"
