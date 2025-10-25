@@ -22,8 +22,9 @@
 
   // Render functions (ONLY populate the three containers; do not add titles)
   function renderRegions(index) {
+    if (!elRegions) return; // not on picker page
     clear(elRegions); clear(elCountries); clear(elExchanges);
-    elStocksTable.textContent = "Pick a region → country → exchange";
+    if (elStocksTable) elStocksTable.textContent = "Pick a region → country → exchange";
     (index.regions || []).forEach((r) => {
       elRegions.appendChild(
         chip(r.name, () => renderCountries(r))
@@ -33,19 +34,18 @@
 
   function renderCountries(region) {
     clear(elCountries); clear(elExchanges);
-    elStocksTable.textContent = "Pick a country → exchange";
+    if (elStocksTable) elStocksTable.textContent = "Pick a country → exchange";
     (region.countries || []).forEach((c) => {
       elCountries.appendChild(
         chip(c.name, () => renderExchanges(region, c))
       );
     });
-    // Scroll into view on mobile
     elCountries.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
   async function renderExchanges(region, country) {
     clear(elExchanges);
-    elStocksTable.textContent = "Pick an exchange to load stocks";
+    if (elStocksTable) elStocksTable.textContent = "Pick an exchange to load stocks";
     (country.exchanges || []).forEach((e) => {
       elExchanges.appendChild(
         chip(e.name, () => loadExchangeTable(region, country, e))
@@ -55,6 +55,7 @@
   }
 
   async function loadExchangeTable(region, country, exch) {
+    if (!elStocksTable) return;
     // /static/exchanges/<region>/<country>/<exchange>.json
     const url = `${BASE}/static/exchanges/${region.slug}/${country.slug}/${exch.slug}.json`;
     elStocksTable.textContent = "Loading…";
@@ -125,9 +126,10 @@
     }
   }
 
-  // Boot
+  // Boot (picker/list pages)
   (async () => {
     try {
+      if (!elRegions) return; // if we're not on the picker page, skip boot
       const resp = await fetch(INDEX_URL, { cache: "no-store" });
       const index = await resp.json();
       renderRegions(index);
@@ -135,4 +137,65 @@
       console.error(e);
     }
   })();
+
+  /* =====================================================
+     vExt3 — Prediction page patch (client-side)
+     Only runs on /prediction-tomorrow/ pages.
+     ===================================================== */
+  (function predictionPatch(){
+    if (!/\/prediction-tomorrow\/?$/.test(location.pathname)) return;
+
+    // 1) Find the old OHLC pills inside the hero and parse values
+    const ohlcEl = document.querySelector('.ohlc');
+    const header = document.querySelector('.header') || document.querySelector('.stock-header') || document.querySelector('.card.header');
+
+    function parseOhlc(text){
+      if (!text) return null;
+      const t = text.replace(/\s+/g,' ').trim();
+      // O <num> H <num> L <num> C <num> [Change% <num>]
+      const m = t.match(/O\s*([\d.,]+).*?H\s*([\d.,]+).*?L\s*([\d.,]+).*?C\s*([\d.,]+)(?:.*?Change%[:\s]*([-+]?\d+(?:\.\d+)?))?/i);
+      return m ? { open:m[1], high:m[2], low:m[3], close:m[4], change: m[5] || null } : null;
+    }
+
+    const ohlc = ohlcEl ? parseOhlc(ohlcEl.textContent) : null;
+
+    // 2) Inject price strip under the stock title (once)
+    if (header && ohlc && !header.querySelector('.spp-stat-strip')) {
+      const strip = document.createElement('div');
+      strip.className = 'spp-stat-strip';
+
+      // Try to read a date if the page provides it as a data attribute
+      const dateAttr = document.querySelector('[data-ohlc-date]')?.getAttribute('data-ohlc-date');
+      const parts = [];
+      if (dateAttr) parts.push(`<span><strong>Date:</strong> ${dateAttr}</span><span class="dot">•</span>`);
+      parts.push(`<span><strong>Open:</strong> ${ohlc.open}</span><span class="dot">•</span>`);
+      parts.push(`<span><strong>High:</strong> ${ohlc.high}</span><span class="dot">•</span>`);
+      parts.push(`<span><strong>Low:</strong> ${ohlc.low}</span><span class="dot">•</span>`);
+      parts.push(`<span><strong>Close:</strong> ${ohlc.close}</span>`);
+      if (ohlc.change != null) parts.push(`<span class="dot">•</span><span><strong>% Change:</strong> ${ohlc.change}%</span>`);
+
+      strip.innerHTML = parts.join('');
+      header.appendChild(strip);
+    }
+
+    // 3) Ensure the old pills are hidden (CSS also hides them)
+    if (ohlcEl) ohlcEl.style.display = 'none';
+
+    // 4) Add animated ▲/▼ arrow in the big signal line
+    const sigEl = document.querySelector('.signal');
+    if (sigEl && !sigEl.querySelector('.spp-arrow')) {
+      const txt = sigEl.textContent.trim().toLowerCase();
+      const up = txt.includes('bullish');
+      const arrow = document.createElement('span');
+      arrow.className = 'spp-arrow ' + (up ? 'up' : 'down');
+      arrow.textContent = up ? '▲' : '▼';
+      sigEl.prepend(arrow);
+    }
+
+    // 5) Optional: change the chip text to "Stock prediction for <date>" if a date is available
+    const chip = document.querySelector('.chip');
+    const predDate = document.querySelector('[data-pred-date]')?.getAttribute('data-pred-date');
+    if (chip && predDate) chip.textContent = `Stock prediction for ${predDate}`;
+  })();
+
 })();
