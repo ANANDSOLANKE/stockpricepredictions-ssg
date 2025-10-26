@@ -4,16 +4,9 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>{page_title}</title>
-
-  <!-- ✅ NEW: link the global static CSS and JS so patches run -->
-  <link rel="stylesheet" href="/static/styles.css?v={last_build}">
-  <script src="/static/app.js?v={last_build}" defer></script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- keep the local inline styles for dark layout -->
   <style>
     :root{
       --bg:#0f1b2b; --card:#0f1f34; --border:#10243e; --soft:#0b1220; --text:#dbe6ff;
@@ -58,9 +51,7 @@
   <div class="wrap">
 
     <div class="header">
-      <h1 class="title">{company_name} 
-        <small style="font-size:14px;color:var(--muted);font-weight:600;">({symbol})</small>
-      </h1>
+      <h1 class="title">{company_name} <small style="font-size:14px;color:var(--muted);font-weight:600;">({symbol})</small></h1>
       <div class="sub">Region: {region} · Country: {country} · Exchange: {exchange}</div>
       <div class="sub">Last build: {last_build}</div>
     </div>
@@ -73,7 +64,6 @@
             <div class="signal {signal_class}">{signal_upper}</div>
             <div class="muted">Based on yesterday’s OHLC data.</div>
           </div>
-          <!-- old OHLC pills (will now be hidden by global CSS) -->
           <div class="ohlc">
             <div>O: <b>{ohlc_open}</b></div>
             <div>H: <b>{ohlc_high}</b></div>
@@ -103,16 +93,16 @@
       </div>
 
       <div class="table-card">
-        <h3 class="section-title" style="padding:14px 16px 0;margin:0">
-          Model vs. Actual: Last 7 Days Performance
-        </h3>
+        <h3 class="section-title" style="padding:14px 16px 0;margin:0">Model vs. Actual: Last 7 Days Performance</h3>
         <table>
           <thead>
             <tr>
               <th>Date</th><th>AI Prediction</th><th>Actual</th><th>Result</th>
             </tr>
           </thead>
-          <tbody>{last7_rows}</tbody>
+          <tbody>
+            {last7_rows}
+          </tbody>
         </table>
       </div>
 
@@ -122,10 +112,10 @@
       </div>
 
       <div class="footer-note">
-        E-E-A-T: Author <b>StockPricePredictions Research</b> · Org: SPP Labs · 
-        Contact: <a href="mailto:hello@stockpricepredictions.com">hello@stockpricepredictions.com</a>
+        E-E-A-T: Author <b>StockPricePredictions Research</b> · Org: SPP Labs · Contact: <a href="mailto:hello@stockpricepredictions.com">hello@stockpricepredictions.com</a>
       </div>
     </div>
+
   </div>
 </body>
 </html>
