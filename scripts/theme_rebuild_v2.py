@@ -16,25 +16,55 @@ def rx(pat, s, flags=re.I | re.S, group=1, default=""):
     return (m.group(group).strip() if m else default).strip()
 
 def get_symbol_and_fullname(html: str):
-    # Try: "AI Analysis of 20MICRONS (20 Microns Limited) ..."
-    sym = rx(r"AI\s+Analysis\s+of\s+([A-Z0-9.\-]+)\s*\(", html)
-    full = rx(r"AI\s+Analysis\s+of\s+[A-Z0-9.\-]+\s*\(([^)]+)\)", html)
-    if not full:
-        h1 = rx(r"<h1[^>]*>(.*?)</h1>", html, group=1, default="")
-        clean = re.sub(r"<[^>]+>", "", h1)
-        full = rx(r"AI\s+Analysis\s+of\s+(.+?)\s+\(", clean)
-        if not sym:
-            sym = rx(r"\(([^)]+)\)", clean)
-    return sym or "", full or ""
+    """
+    Handles both:
+      1) AI Analysis of 20MICRONS (20 Microns Limited)
+      2) AI Analysis of 20 Microns Limited (20MICRONS)
+    Falls back to <h1> text if needed.
+    """
+    # Style 1: SYMBOL first, Full name in (...)
+    sym1  = rx(r"AI\s+Analysis\s+of\s+([A-Z0-9.\-]+)\s*\(([^)]+)\)", html, group=1, default="")
+    full1 = rx(r"AI\s+Analysis\s+of\s+([A-Z0-9.\-]+)\s*\(([^)]+)\)", html, group=2, default="")
+    if sym1 and full1:
+        return sym1, full1
+
+    # Style 2: Full name first, SYMBOL in (...)
+    full2 = rx(r"AI\s+Analysis\s+of\s+(.+?)\s*\(\s*([A-Z0-9.\-]+)\s*\)", html, group=1, default="")
+    sym2  = rx(r"AI\s+Analysis\s+of\s+(.+?)\s*\(\s*([A-Z0-9.\-]+)\s*\)", html, group=2, default="")
+    if sym2 and full2:
+        return sym2, full2
+
+    # Fallback to H1
+    h1 = rx(r"<h1[^>]*>(.*?)</h1>", html, group=1, default="")
+    clean = re.sub(r"<[^>]+>", "", h1)
+    # Try to detect either order in H1 text
+    sym3  = rx(r"\(\s*([A-Z0-9.\-]+)\s*\)", clean, default="")
+    full3 = rx(r"AI\s+Analysis\s+of\s+(.+?)\s*\(", clean, default="")
+    return (sym3 or ""), (full3 or "")
 
 def get_prediction_date(html: str):
-    return rx(r"Prediction\s+for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="—")
+    """
+    Typical shapes seen:
+      - "Prediction for 2025-10-24"
+      - "AI Prediction: <name> for 2025-10-24"
+    """
+    for pat in [
+        r"Prediction\s+for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})",
+        r"AI\s+Prediction[^<>\n]*?\sfor\s+([0-9]{4}-[0-9]{2}-[0-9]{2})",
+    ]:
+        d = rx(pat, html, default="")
+        if d:
+            return d
+    return "—"
 
 def get_ohlc_and_change(html: str):
     """
-    Return (O, H, L, C, chg_str) pulling just what's printed on the page.
+    Return (O, H, L, C, chg_str) using what's printed on the page.
+    Accepts OHLC block like: "OHLC: O 123 | H 124 | L 120 | C 122"
+    Accepts change like: "Change %: +1.23%" / "Change%: -0.5%" / "Change - 0.8 %"
     """
     o = h = l = c = chg = "—"
+
     m = re.search(
         r"OHLC:\s*O\s*([0-9.,\-]+).*?H\s*([0-9.,\-]+).*?L\s*([0-9.,\-]+).*?C\s*([0-9.,\-]+)",
         html, re.I | re.S
@@ -42,20 +72,26 @@ def get_ohlc_and_change(html: str):
     if m:
         o, h, l, c = [g.strip().replace(",", "") for g in m.groups()]
 
-    # Try several "Change%" shapes that appear in your pages
+    # normalize typographic minus to ASCII minus
+    norm_html = html.replace("−", "-")
+
     patt = [
-        r"Change%\s*:\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"Change%\s*[–\-•\.\u00b7]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"Change%\s+([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"OHLC.{0,300}?([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",  # near the OHLC chip
+        r"Change\s*%?\s*[:\-•\u00b7]?\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        r"OHLC.{0,300}?([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",  # near OHLC chip
     ]
     for p in patt:
-        k = re.search(p, html, re.I | re.S)
+        k = re.search(p, norm_html, re.I | re.S)
         if k:
-            chg = k.group(1).replace(" ", "").replace(",", ".") + "%"
+            v = k.group(1)
+            v = v.replace(" ", "").replace(",", ".")
+            # ensure ASCII sign if any
+            if v.startswith(("+", "-")):
+                chg = v + "%"
+            else:
+                chg = v + "%"
             break
 
-    return o, h, l, c, chg
+    return o, h, l, c, chg or "—"
 
 def get_signal(html: str):
     tb = rx(r"<table[^>]*>.*?<thead.*?</thead>.*?<tbody[^>]*>(.*?)</tbody>", html, group=1, default="")
@@ -158,11 +194,11 @@ a:hover { text-decoration:underline; }
 .table { width:100%; border-collapse:collapse; }
 .table th, .table td { padding:12px 14px; border-top:1px solid var(--border); }
 .table th { font-size:13px; text-align:left; opacity:.9; }
-.win { background:#dcfce7; color:var(--green-deep); padding:3px 8px; border-radius:6px; font-weight:700; }
-.loss{ background:#fee2e2; color:var(--red-deep);  padding:3px 8px; border-radius:6px; font-weight:700; }
+.win { background:#dcfce7; color:#15803d; padding:3px 8px; border-radius:6px; font-weight:700; }
+.loss{ background:#fee2e2; color:#b91c1c;  padding:3px 8px; border-radius:6px; font-weight:700; }
 
 .footer-card{ background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; margin:18px 0; box-shadow:var(--shadow); }
-.footer-card h3{ color:var(--blue); font-weight:800; margin:0 0 8px 0; }
+.footer-card h3{ color:#2563eb; font-weight:800; margin:0 0 8px 0; }
 .footer-card .note{ font-size:13px; opacity:.9; }
 """
 
@@ -263,8 +299,8 @@ def rebuild_page(p: Path):
         build_time=dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         # header meta
         pred_date=escape(pred_date),
-        o=o, h=h, l=l, c=c,
-        meta_chg_class=meta_chg_class, chg_sign=sign, chg_abs=absval,
+        o=escape(o), h=escape(h), l=escape(l), c=escape(c),
+        meta_chg_class=meta_chg_class, chg_sign=escape(sign), chg_abs=escape(absval),
         # price chip (right)
         close_px=escape(close_px),
         chg=escape(chg or "—"),
@@ -273,9 +309,9 @@ def rebuild_page(p: Path):
         # banner
         banner_class=banner_class_for(signal),
         banner_arrow=banner_arrow,
-        signal=signal,
+        signal=escape(signal),
         # cards / table
-        acc_pct=acc_pct, acc_note=acc_note,
+        acc_pct=escape(acc_pct), acc_note=escape(acc_note),
         table_html=table_html,
     )
 
@@ -286,7 +322,8 @@ def main():
     root = Path(DIST_ROOT)
     count = 0
     for f in root.rglob("index.html"):
-        if "prediction-tomorrow" in str(f):
+        # Your site uses "ai-analysis-tomorrow" in the URL path
+        if "ai-analysis-tomorrow" in str(f).replace("\\", "/"):
             rebuild_page(f)
             count += 1
     print(f"[v2-light] total rebuilt pages: {count}")
