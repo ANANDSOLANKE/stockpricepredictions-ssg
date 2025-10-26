@@ -1,129 +1,87 @@
 # scripts/theme_rebuild_v2.py
-# v2.5 — CSV-first rebuild aligned with dark index tables.
-# - Reads Date + O H L C + %Change from Data/LastTradingDay/<Region>/<country>.csv
-# - Header shows: Date: {date} • O {o} H {h} L {l} C {c} • % Change {chg}
-# - Banner shows: AI Prediction: {Full Name} for {Next trading date}
-# - Theme/HTML structure unchanged
-# - Robust header normalization so "Change%" is recognized as percent
+# Light UI + 100% CSV-driven OHLC & Change% using FIRST TWO COLUMNS (symbol, description).
+# Strict matching: (symbol, description) → exact; fallback to unique symbol-only.
+# No computed % change. Uses Data/LastTradingDay as the source of truth.
 
-import re, csv
+import csv
+import re
 import datetime as dt
 from pathlib import Path
 from html import escape
 
 DIST_ROOT = "dist"
-DATA_ROOT = Path("Data") / "LastTradingDay"
+DATA_LAST_TRADING_DAY = "Data/LastTradingDay"
 STAMP = f"<!-- v2-rebuild-light {dt.datetime.now(dt.timezone.utc).isoformat()} -->"
 
-# ---------- helpers ----------
+# ------------- helpers -------------
 def rx(pat, s, flags=re.I | re.S, group=1, default=""):
     m = re.search(pat, s, flags)
     return (m.group(group).strip() if m else default).strip()
 
-def next_weekday(iso_date: str) -> str:
-    try:
-        d = dt.date.fromisoformat(iso_date)
-    except Exception:
-        return "—"
-    while True:
-        d += dt.timedelta(days=1)
-        if d.weekday() < 5:
-            return d.isoformat()
+def norm_desc(s: str) -> str:
+    """Normalize descriptions so matching is robust."""
+    if not s:
+        return ""
+    s = s.lower()
+    # common noise words
+    repl = [
+        ("&", " and "),
+        ("limited", " "),
+        ("ltd", " "),
+        ("public", " "),
+        ("company", " "),
+        ("co.", " "),
+        ("co ", " "),
+        ("plc", " "),
+        ("inc.", " "),
+        ("inc", " "),
+        ("corp.", " "),
+        ("corporation", " "),
+    ]
+    for a, b in repl:
+        s = s.replace(a, b)
+    # drop punctuation/spaces
+    s = re.sub(r"[^\w]+", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
 
-def number_str(x):
-    sx = str(x).strip()
-    if sx == "" or sx == "—":
-        return "—"
-    return sx.replace(",", "")
-
-def pct_to_str(val):
-    if val is None or val == "":
-        return "—"
-    try:
-        f = float(val)
-    except Exception:
-        return "—"
-    return f"{f:.2f}%"
-
-# ---------- HTML fallbacks (unchanged look) ----------
 def get_symbol_and_fullname(html: str):
+    # Try: "AI Analysis of 20MICRONS (20 Microns Limited) ..."
     sym = rx(r"AI\s+Analysis\s+of\s+([A-Z0-9.\-]+)\s*\(", html)
     full = rx(r"AI\s+Analysis\s+of\s+[A-Z0-9.\-]+\s*\(([^)]+)\)", html)
     if not full:
+        # fallback: pull from <h1> if present
         h1 = rx(r"<h1[^>]*>(.*?)</h1>", html)
         clean = re.sub(r"<[^>]+>", "", h1)
         full = rx(r"AI\s+Analysis\s+of\s+(.+?)\s+\(", clean)
         sym2 = rx(r"\(([^)]+)\)", clean)
         if full and not sym:
             sym = sym2
-    return sym or "", full or ""
+    return (sym or "").strip(), (full or "").strip()
 
-def get_prediction_date_explicit(html: str):
-    d = rx(r"Prediction\s+for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="")
-    if d: return d
-    d = rx(r"Next\s*(?:Trading\s*)?Day\s*[:\-]\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="")
-    if d: return d
-    d = rx(r"AI\s+Prediction\s*[:\-]\s*.*?\b([0-9]{4}-[0-9]{2}-[0-9]{2})\b", html, default="")
-    return d or ""
+def get_prediction_date(html):
+    return rx(r"Prediction\s+for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="—")
 
-def extract_table_block(html: str) -> str:
-    return rx(r"(<table[^>]*>.*?</table>)", html, group=1, default="")
-
-def get_max_table_date(html: str) -> str:
-    tbl = extract_table_block(html)
-    if not tbl:
-        return ""
-    dates = re.findall(r"\b([0-9]{4}-[0-9]{2}-[0-9]{2})\b", tbl)
-    if not dates:
-        return ""
-    try:
-        dates_parsed = sorted({dt.date.fromisoformat(x) for x in dates})
-        return dates_parsed[-1].isoformat()
-    except Exception:
-        return ""
-
-def get_ohlc_and_change_from_html(html: str):
-    o = h = l = c = chg = "—"
-    m = re.search(
-        r"OHLC:\s*O\s*([0-9.,\-]+).*?H\s*([0-9.,\-]+).*?L\s*([0-9.,\-]+).*?C\s*([0-9.,\-]+)",
-        html, re.I | re.S
-    )
-    if m:
-        o, h, l, c = [g.strip().replace(",", "") for g in m.groups()]
-
-    cutoff_idx = len(html)
-    for marker in ("Model Performance", "Last 7-Day Accuracy", "Model vs. Actual"):
-        i = html.lower().find(marker.lower())
-        if i != -1: cutoff_idx = min(cutoff_idx, i)
-    scope = html[:cutoff_idx]
-    patt = re.compile(
-        r"(?:Change%\s*|Change\s*%\s*|Change\s*|Chg%\s*|Chg\s*|Day\s*Change\s*|[Δ∆]\s*%)"
-        r"[:\-]?\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%", re.I | re.S
-    )
-    k = patt.search(scope)
-    if k:
-        chg = k.group(1).replace(" ", "").replace(",", ".") + "%"
-    return o, h, l, c, chg
-
-def get_signal(html: str):
+def get_signal(html):
     tb = rx(r"<table[^>]*>.*?<thead.*?</thead>.*?<tbody[^>]*>(.*?)</tbody>", html, group=1, default="")
     if tb:
-        r = re.search(r"<tr[^>]*>.*?<td[^>]*>.*?</td>.*?<td[^>]*>(Bullish|Bearish)</td>", tb, re.I | re.S)
-        if r: return r.group(1).title()
+        r = re.search(r"<tr[^>]*>.*?<td[^>]*>.*?</td>.*?<td[^>]*>(Bullish|Bearish)</td>", tb, re.I|re.S)
+        if r:
+            return r.group(1).title()
     return "—"
 
-def arrow_for(signal: str):
-    return "▲" if signal.lower()=="bullish" else ("▼" if signal.lower()=="bearish" else "—")
+def arrow_for(signal):
+    return "▲" if signal.lower() == "bullish" else ("▼" if signal.lower() == "bearish" else "•")
 
-def banner_class_for(signal: str):
-    return "green" if signal.lower()=="bullish" else ("red" if signal.lower()=="bearish" else "")
+def banner_class_for(signal):
+    return "green" if signal.lower() == "bullish" else ("red" if signal.lower() == "bearish" else "")
 
-def scrape_accuracy(html: str):
+def scrape_accuracy(html):
     chip = rx(r"([0-9]{1,3}\.[0-9]{2}%\s*\([0-9]+/[0-9]+\))", html, default="")
     return (chip or "—"), ("Last 7-Day Accuracy" if chip else "Accuracy unavailable")
 
-def build_table(html: str):
-    table = extract_table_block(html)
+def build_table(html):
+    table = rx(r"(<table[^>]*>.*?</table>)", html, group=1, default="")
     if not table:
         return ('<table class="table"><thead><tr><th>Date</th><th>AI Prediction</th>'
                 '<th>Actual</th><th>Result</th></tr></thead>'
@@ -133,156 +91,172 @@ def build_table(html: str):
     table = re.sub(r"<table([^>]*)>", r'<table class="table"\1>', table, count=1, flags=re.I)
     return table
 
-# ---------- region folder mapping (dist → Data/LastTradingDay names) ----------
-REGION_MAP = {
-    "asia-pacific": "Asia - Pacific",
-    "europe": "Europe",
-    "north-america": "North America",
-    "mexico-south-america": "Mexico - South America",
-    "middle-east-africa": "Middle East - Africa",
-    "global-indices": "Global Indices",
-}
+# ------------- CSV Index (symbol, description → row) -------------
+# We assume FIRST TWO COLUMNS are: symbol, description
+# We then read the rest but only rely on dedicated headers if present: Open, High, Low, Close, Change%
+CSV_BY_SYM_DESC = {}     # key: (sym_upper, norm_desc(description)) -> row dict
+CSV_BY_SYM = {}          # key: sym_upper -> list[row dict]
 
-def country_to_csv_name(country: str) -> str:
-    # CSV filenames are lowercase with hyphens
-    return country.lower().replace(" ", "-") + ".csv"
+CSV_OPEN_KEYS  = ["open", "o"]
+CSV_HIGH_KEYS  = ["high", "h"]
+CSV_LOW_KEYS   = ["low", "l"]
+CSV_CLOSE_KEYS = ["close", "c", "last", "close price"]
+CSV_CHG_KEYS   = ["change%", "change %", "pct_change", "percent_change", "pct%", "% change"]
 
-def parse_path_parts(p: Path):
-    # dist/<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
-    parts = [x for x in p.parts]
-    try:
-        i = parts.index(DIST_ROOT)
-    except ValueError:
-        i = next((k for k, s in enumerate(parts) if s.lower()=="dist"), -1)
-    if i == -1 or len(parts) < i+6:
-        return None
-    region_slug = parts[i+1].lower()
-    country = parts[i+2]
-    exchange = parts[i+3]
-    symbol_slug = parts[i+4]  # folder name equals symbol slug
-    return {
-        "region_slug": region_slug,
-        "region_data": REGION_MAP.get(region_slug, region_slug),
-        "country": country,
-        "exchange": exchange,
-        "symbol_upper": symbol_slug.upper()
-    }
+def pick_col(row: dict, keys):
+    for k in row.keys():
+        if k is None:
+            continue
+        kl = k.strip().lower()
+        if kl in keys:
+            return row[k]
+    # If headers are positional/named oddly, try numeric-like extraction later
+    return ""
 
-# ---------- CSV cache ----------
-class CSVCache:
-    def __init__(self, base: Path):
-        self.base = base
-        self.cache = {}  # (region_data, country_csv) -> list of rows
-        self.index = {}  # (region_data, country_csv) -> {symbol_upper: row}
-        self.country_last_date = {}  # fallback date if row has no date
+def coerce_num(x):
+    if x is None:
+        return ""
+    s = str(x).strip().replace(",", "")
+    if s in ("", "—", "-"):
+        return ""
+    return s
 
-    @staticmethod
-    def _normalize_headers(headers):
-        # Normalize headers: lower, remove spaces/underscores, map '%' → 'pct'
-        # So "Change%" becomes "changepct"
-        return [h.strip().lower().replace(" ", "").replace("_", "").replace("%", "pct") for h in headers]
+def coerce_pct(x):
+    if x is None:
+        return ""
+    s = str(x).strip().replace(" ", "")
+    if not s:
+        return ""
+    # accept forms like -0.10 or -0.10%
+    s = s.replace(",", ".")
+    if s.endswith("%"):
+        return s
+    # If it looks numeric, append %
+    if re.match(r"^[+\-]?\d+(\.\d+)?$", s):
+        return s + "%"
+    return s
 
-    @staticmethod
-    def _float_or_none(v):
-        if v is None: return None
-        s = str(v).replace(",", "").strip()
-        if s == "": return None
-        try: return float(s)
-        except Exception: return None
+def read_all_lastday_csvs():
+    root = Path(DATA_LAST_TRADING_DAY)
+    if not root.exists():
+        print(f"[WARN] {DATA_LAST_TRADING_DAY} not found — CSV override disabled.")
+        return
 
-    @staticmethod
-    def _parse_pct(v):
-        if v is None: return None
-        s = str(v).strip().replace("%","").replace(",","")
-        if s == "": return None
+    total = 0
+    for csv_path in root.rglob("*.csv"):
         try:
-            num = float(s)
-        except Exception:
-            return None
-        # Treat <=1 as likely fraction; multiply to %
-        if abs(num) <= 1.0:
-            num *= 100.0
-        return round(num, 2)
+            with csv_path.open("r", encoding="utf-8", newline="") as fh:
+                reader = csv.reader(fh)
+                rows = list(reader)
+                if not rows:
+                    continue
 
-    def _row_to_obj(self, headers_norm, row_vals):
-        raw = {k:v for k,v in zip(headers_norm, row_vals)}
-        def get(*names, default=""):
-            for n in names:
-                if n in raw and raw[n] not in (None,""):
-                    return raw[n]
-            return default
+                # Build a header map if the file has one; otherwise synthesize indices
+                header = [h.strip() if h else "" for h in rows[0]]
+                has_header = False
+                if len(header) >= 2:
+                    # heuristic: first cell looks like a header if it isn't a typical symbol pattern
+                    has_header = (header[0].lower() in ("symbol", "ticker", "code"))
 
-        symbol  = str(get("symbol","ticker")).strip().upper()
-        exchange= str(get("exchange","exch")).strip().lower()
-        date    = str(get("date","lastdate","tradingdate")).strip()
+                start_idx = 1 if has_header else 0
 
-        o = number_str(get("open","o"))
-        h = number_str(get("high","h"))
-        l = number_str(get("low","l"))
-        c = number_str(get("close","c","last"))
+                # If we have a header row, we’ll build DictReader-style dicts
+                if has_header:
+                    # Lowercased header names for flexible lookups
+                    header_l = [h.lower() for h in header]
+                    for r in rows[start_idx:]:
+                        if len(r) < 2:
+                            continue
+                        sym = (r[0] or "").strip()
+                        desc = (r[1] or "").strip()
+                        if not sym or not desc:
+                            continue
+                        rd = {header[i]: (r[i] if i < len(r) else "") for i in range(len(header))}
+                        rd["_sym_"] = sym
+                        rd["_desc_"] = desc
+                        # keep a pre-resolved payload for speed
+                        rd["_o_"] = coerce_num(pick_col(rd, CSV_OPEN_KEYS))
+                        rd["_h_"] = coerce_num(pick_col(rd, CSV_HIGH_KEYS))
+                        rd["_l_"] = coerce_num(pick_col(rd, CSV_LOW_KEYS))
+                        rd["_c_"] = coerce_num(pick_col(rd, CSV_CLOSE_KEYS))
+                        rd["_chg_"] = coerce_pct(pick_col(rd, CSV_CHG_KEYS))
 
-        # percent candidates (after normalization "Change%" -> "changepct")
-        pct_keys = [
-            "changepct","changepercent","percentchange","pctchange",
-            "changepercentage","changeperc","change_pct",
-            "pchange","chgpct","chgpercent","chgperc",
-            "daychangepct","daychangepct"
-        ]
-        chg_pct = None
-        for k in pct_keys:
-            if k in raw and str(raw[k]).strip()!="":
-                chg_pct = self._parse_pct(raw[k]); break
+                        key = (sym.upper(), norm_desc(desc))
+                        CSV_BY_SYM_DESC[key] = rd
+                        CSV_BY_SYM.setdefault(sym.upper(), []).append(rd)
+                        total += 1
+                else:
+                    # No headers: assume columns:
+                    # 0:symbol 1:description 2:exchange 3:sector 4:industry 5:open 6:high 7:low 8:close 9:Change%
+                    for r in rows[start_idx:]:
+                        if len(r) < 2:
+                            continue
+                        sym = (r[0] or "").strip()
+                        desc = (r[1] or "").strip()
+                        if not sym or not desc:
+                            continue
+                        rd = {
+                            "_sym_": sym,
+                            "_desc_": desc,
+                            "open":  (r[5] if len(r) > 5 else ""),
+                            "high":  (r[6] if len(r) > 6 else ""),
+                            "low":   (r[7] if len(r) > 7 else ""),
+                            "close": (r[8] if len(r) > 8 else ""),
+                            "change%": (r[9] if len(r) > 9 else ""),
+                        }
+                        rd["_o_"] = coerce_num(rd["open"])
+                        rd["_h_"] = coerce_num(rd["high"])
+                        rd["_l_"] = coerce_num(rd["low"])
+                        rd["_c_"] = coerce_num(rd["close"])
+                        rd["_chg_"] = coerce_pct(rd["change%"])
 
-        # compute from prev/abs if needed
-        if chg_pct is None:
-            prev = self._float_or_none(get("prevclose","previousclose","pclose","pc","yclose","prev"))
-            close_f = self._float_or_none(c)
-            if close_f is not None and prev not in (None,0):
-                chg_pct = round((close_f - prev) / prev * 100.0, 2)
-            else:
-                abschg = self._float_or_none(get("change","chg","daychange","pricechange","changevalue","chgvalue"))
-                if abschg is not None and close_f not in (None,0):
-                    prev_est = close_f - abschg
-                    if prev_est:
-                        chg_pct = round((close_f - prev_est) / prev_est * 100.0, 2)
+                        key = (sym.upper(), norm_desc(desc))
+                        CSV_BY_SYM_DESC[key] = rd
+                        CSV_BY_SYM.setdefault(sym.upper(), []).append(rd)
+                        total += 1
 
-        return {
-            "symbol": symbol, "exchange": exchange, "date": date,
-            "o": o, "h": h, "l": l, "c": c, "chg_pct": chg_pct
-        }
+        except Exception as e:
+            print(f"[WARN] Failed reading {csv_path}: {e}")
 
-    def _load(self, region_folder: str, country_csv: str):
-        key = (region_folder, country_csv)
-        if key in self.cache: return
-        fp = self.base / region_folder / country_csv
-        rows = []
-        idx = {}
-        last_date = ""
-        if fp.exists():
-            with fp.open("r", encoding="utf-8", newline="") as f:
-                rr = csv.reader(f)
-                rows_all = list(rr)
-            if rows_all:
-                headers_norm = self._normalize_headers(rows_all[0])
-                for r in rows_all[1:]:
-                    obj = self._row_to_obj(headers_norm, r)
-                    rows.append(obj)
-                    if obj["symbol"]:
-                        idx[obj["symbol"]] = obj
-                    if obj["date"]:
-                        last_date = obj["date"]
-        self.cache[key] = rows
-        self.index[key] = idx
-        self.country_last_date[key] = last_date
+    print(f"[CSV] Indexed {total} rows from {root}")
 
-    def lookup(self, region_folder: str, country_csv: str, symbol_upper: str):
-        self._load(region_folder, country_csv)
-        key = (region_folder, country_csv)
-        return self.index[key].get(symbol_upper), self.country_last_date.get(key,"")
+def csv_lookup(sym: str, fullname: str):
+    """
+    Primary: (symbol, normalized description) exact match.
+    Fallback: symbol-only match if it yields exactly one unique description row.
+    Returns tuple (o,h,l,c,chg) or ("","","","","") if not found.
+    """
+    if not sym:
+        return "", "", "", "", ""
+    key = (sym.upper(), norm_desc(fullname))
+    rd = CSV_BY_SYM_DESC.get(key)
+    if rd:
+        return rd["_o_"], rd["_h_"], rd["_l_"], rd["_c_"], rd["_chg_"]
 
-CSV = CSVCache(DATA_ROOT)
+    # Fallback to unique symbol
+    cand = CSV_BY_SYM.get(sym.upper(), [])
+    if len(cand) == 1:
+        r = cand[0]
+        return r["_o_"], r["_h_"], r["_l_"], r["_c_"], r["_chg_"]
 
-# ---------- THEME (unchanged) ----------
+    # If multiple with same symbol, try the best description distance (simple contains heuristic)
+    if len(cand) > 1 and fullname:
+        nfull = norm_desc(fullname)
+        best = None
+        best_score = -1
+        for r in cand:
+            nd = norm_desc(r.get("_desc_", ""))
+            # score: length of overlap tokens
+            overlap = len(set(nfull.split()) & set(nd.split()))
+            if overlap > best_score:
+                best = r
+                best_score = overlap
+        if best:
+            return best["_o_"], best["_h_"], best["_l_"], best["_c_"], best["_chg_"]
+
+    return "", "", "", "", ""
+
+# ------------- LIGHT THEME CSS (unchanged) -------------
 CSS = r"""
 :root {
   --blue:#2563eb; --blue-weak:#dbeafe;
@@ -303,18 +277,29 @@ a:hover { text-decoration:underline; }
 .badge { display:inline-block; background:#fef08a; color:#78350f; border-radius:10px; padding:6px 10px; font-weight:700; margin-right:10px; font-size:14px; box-shadow:var(--shadow); }
 
 .header {
-  display:flex; align-items:flex-start; gap:14px;
+  display:flex; align-items:center; gap:14px;
   background:white; border:1px solid var(--border); border-radius:12px; padding:14px 18px; box-shadow:var(--shadow);
 }
 .header .title { font-weight:800; font-size:20px; }
 .header .sub { font-size:13px; opacity:.7; }
-.header .ohlc-line { margin-top:6px; font-size:13px; font-weight:700; color:#0f172a; }
+
+.price-chip {
+  margin-left:auto; background:#ffffff; border:1px solid var(--border);
+  border-radius:10px; padding:10px 14px; display:flex; gap:10px; align-items:center;
+  font-weight:800; color:var(--text); box-shadow:var(--shadow);
+}
+.price-chip .px{opacity:.9}
+.price-chip .chg { padding:2px 8px; border-radius:999px; font-weight:800; }
+.price-chip .chg.positive { background:#dcfce7; color:var(--green-deep); }
+.price-chip .chg.negative { background:#fee2e2; color:#b91c1c; }
+.price-chip .arr { font-size:15px; margin-right:4px; }
 
 .banner { margin:18px 0; border-radius:14px; padding:22px; color:#fff; box-shadow:var(--shadow-lg); }
 .banner.green { background:linear-gradient(180deg,var(--green1),var(--green2)); }
 .banner.red { background:linear-gradient(180deg,var(--red1),var(--red2)); }
 .banner .t { opacity:.95; margin-bottom:8px; }
 .banner .signal { font-size:48px; font-weight:900; margin:6px 0; display:flex; align-items:center; gap:10px; }
+.banner .ohlc { background:rgba(255,255,255,.15); padding:8px 12px; border-radius:10px; display:inline-flex; gap:12px; font-weight:600; }
 
 .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:16px 0; }
 .card {
@@ -330,7 +315,7 @@ a:hover { text-decoration:underline; }
 .card .note { font-size:13px; opacity:.85; }
 
 .table-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:8px 0 16px 0; box-shadow:var(--shadow); }
-.table-card h3 { margin:12px 16px; color:#2563eb; font-weight:800; }
+.table-card h3 { margin:12px 16px; color:var(--blue); font-weight:800; }
 
 .table { width:100%; border-collapse:collapse; }
 .table th, .table td { padding:12px 14px; border-top:1px solid var(--border); }
@@ -343,6 +328,7 @@ a:hover { text-decoration:underline; }
 .footer-card .note { font-size:13px; opacity:.9; }
 """
 
+# ------------- PAGE TEMPLATE -------------
 HTML = """{stamp}
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -356,13 +342,17 @@ HTML = """{stamp}
     <div class="header-col">
       <div class="title">{full_name} ({symbol})</div>
       <div class="sub">Next-day stock movement • Last build: {build_time}</div>
-      <div class="ohlc-line">Date: {last_date} • O {o} H {h} L {l} C {c} • % Change {chg}</div>
+    </div>
+    <div class="price-chip">
+      <div class="px">{close_px}</div>
+      <div class="chg {chg_class}"><span class="arr">{chg_arrow}</span>{chg}</div>
     </div>
   </div>
 
   <div class="banner {banner_class}">
     <div class="t">AI Prediction: <b>{full_name}</b> for <b>{pred_date}</b></div>
     <div class="signal">{banner_arrow} {signal}</div>
+    <div class="ohlc">O {o} H {h} L {l} C {c}</div>
   </div>
 
   <div class="grid3">
@@ -395,34 +385,32 @@ HTML = """{stamp}
 </body></html>
 """
 
-# ---------- rebuild ----------
+# ------------- rebuild logic -------------
 def rebuild_page(p: Path):
     html = p.read_text(encoding="utf-8")
     symbol, full_name = get_symbol_and_fullname(html)
-
-    # defaults from HTML (safe fallback)
-    last_date = get_max_table_date(html) or "—"
-    o, h, l, c, chg = get_ohlc_and_change_from_html(html)
-
-    parts = parse_path_parts(p)
-    if parts:
-        region_folder = parts["region_data"]
-        country_csv = country_to_csv_name(parts["country"])
-        sym_u = parts["symbol_upper"]
-
-        row, country_last_date = CSV.lookup(region_folder, country_csv, sym_u)
-        if row:
-            last_date = row["date"] or country_last_date or last_date
-            o = number_str(row["o"]); h = number_str(row["h"])
-            l = number_str(row["l"]); c = number_str(row["c"])
-            chg = pct_to_str(row["chg_pct"])
-
-    # Banner date
-    pred_date = get_prediction_date_explicit(html) or (next_weekday(last_date) if last_date and last_date!="—" else "—")
-
+    pred_date = get_prediction_date(html)
     signal = get_signal(html)
     acc_pct, acc_note = scrape_accuracy(html)
     table_html = build_table(html)
+
+    # Pull strictly from CSVs using (symbol, description) with fallback to unique symbol.
+    o_csv, h_csv, l_csv, c_csv, chg_csv = csv_lookup(symbol, full_name)
+
+    # Apply CSV values if present; otherwise leave blanks (will render as —)
+    def dash_if_empty(v): 
+        return v if v else "—"
+
+    o = dash_if_empty(o_csv)
+    h = dash_if_empty(h_csv)
+    l = dash_if_empty(l_csv)
+    c = dash_if_empty(c_csv)
+    chg = dash_if_empty(chg_csv)
+
+    close_px = c
+    chg_arrow = "▲" if chg.startswith("+") else ("▼" if chg.startswith("-") else "•")
+    chg_class = "positive" if chg.startswith("+") else ("negative" if chg.startswith("-") else "")
+    banner_arrow = arrow_for(signal)
 
     out = HTML.format(
         stamp=STAMP,
@@ -431,26 +419,32 @@ def rebuild_page(p: Path):
         symbol=escape(symbol or "—"),
         full_name=escape(full_name or "Stock"),
         build_time=dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-        last_date=escape(last_date or "—"),
-        o=o, h=h, l=l, c=c, chg=escape(chg or "—"),
-        pred_date=escape(pred_date or "—"),
-        signal=signal,
-        banner_arrow=arrow_for(signal),
+        close_px=escape(close_px),
+        chg=escape(chg or "—"),
+        chg_class=chg_class,
+        chg_arrow=chg_arrow,
+        pred_date=escape(pred_date),
+        o=o, h=h, l=l, c=c,
+        signal=signal, banner_arrow=banner_arrow,
         banner_class=banner_class_for(signal),
         acc_pct=acc_pct, acc_note=acc_note,
         table_html=table_html
     )
     p.write_text(out, encoding="utf-8")
-    print(f"[v2.5-csv] {p}")
+
+    # debug prints for visibility during run
+    src = "CSV" if o_csv or c_csv or chg_csv else "MISSING"
+    print(f"[v2-light] {symbol} • {full_name} → {src} • O:{o} H:{h} L:{l} C:{c} Chg:{chg} • {p}")
 
 def main():
+    read_all_lastday_csvs()
     root = Path(DIST_ROOT)
     count = 0
     for f in root.rglob("index.html"):
-        if "prediction-tomorrow" in str(f).replace("\\","/"):
+        if "prediction-tomorrow" in str(f).replace("\\", "/"):
             rebuild_page(f)
             count += 1
-    print(f"[v2.5-csv] finished; pages rebuilt: {count}")
+    print(f"[v2-light] total rebuilt pages: {count}")
 
 if __name__ == "__main__":
     main()
