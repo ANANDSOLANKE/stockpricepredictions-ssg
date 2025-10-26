@@ -1,7 +1,8 @@
 # scripts/theme_rebuild_v2.py
-# Light UI (v2.1): Header shows LAST trading day's Date + OHLC + %Change.
-# Banner shows ONLY "AI Prediction: {Full Name} for {Next trading date}".
-# No right-side price chip.
+# Light UI (v2.2):
+# - Header line shows LAST trading day's Date + OHLC + %Change (date sourced from 7-day table max date).
+# - Banner shows ONLY "AI Prediction: {Full Name} for {Next trading date}".
+# - No right-side price chip. No OHLC in banner.
 
 import re
 import datetime as dt
@@ -17,11 +18,9 @@ def rx(pat, s, flags=re.I | re.S, group=1, default=""):
     return (m.group(group).strip() if m else default).strip()
 
 def get_symbol_and_fullname(html: str):
-    # Expected: "AI Analysis of TCS (Tata Consultancy Services Limited) ..."
     sym = rx(r"AI\s+Analysis\s+of\s+([A-Z0-9.\-]+)\s*\(", html)
     full = rx(r"AI\s+Analysis\s+of\s+[A-Z0-9.\-]+\s*\(([^)]+)\)", html)
     if not full:
-        # Fallback via <h1>
         h1 = rx(r"<h1[^>]*>(.*?)</h1>", html)
         clean = re.sub(r"<[^>]+>", "", h1)
         full = rx(r"AI\s+Analysis\s+of\s+(.+?)\s+\(", clean)
@@ -30,38 +29,77 @@ def get_symbol_and_fullname(html: str):
             sym = sym2
     return sym or "", full or ""
 
-def get_prediction_date(html):
-    """Next trading day shown as: 'Prediction for YYYY-MM-DD'"""
-    return rx(r"Prediction\s+for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="—")
+def get_prediction_date_explicit(html: str):
+    # Primary: your existing "Prediction for YYYY-MM-DD"
+    d = rx(r"Prediction\s+for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="")
+    if d:
+        return d
+    # Common alternates:
+    d = rx(r"Next\s*(?:Trading\s*)?Day\s*[:\-]\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="")
+    if d:
+        return d
+    d = rx(r"AI\s+Prediction\s*[:\-]\s*.*?\b([0-9]{4}-[0-9]{2}-[0-9]{2})\b", html, default="")
+    return d or ""
 
-def get_last_trading_date(html):
+def next_weekday(iso_date: str) -> str:
+    # Fallback: compute next Mon–Fri date (no holiday calendar).
+    try:
+        d = dt.date.fromisoformat(iso_date)
+    except Exception:
+        return "—"
+    while True:
+        d += dt.timedelta(days=1)
+        if d.weekday() < 5:  # 0=Mon .. 4=Fri
+            return d.isoformat()
+
+def extract_table_block(html: str) -> str:
+    return rx(r"(<table[^>]*>.*?</table>)", html, group=1, default="")
+
+def get_max_table_date(html: str) -> str:
     """
-    Try multiple shapes for the LAST trading day's date (for the OHLC/Change block).
-    Examples it can catch:
-      - 'Date: 2025-10-24'
-      - 'As of: 2025-10-24'
-      - 'Last Close: 2025-10-24'
-      - A date near the OHLC chip
-      - Fallback: first date-like 'YYYY-MM-DD' in the doc (conservative)
+    Extract all YYYY-MM-DD inside the 7-day table and return the max (LAST trading day).
+    Safer than scanning the whole doc (avoids picking the prediction date).
     """
-    patterns = [
-        r"(?:^|>|\s)(?:Date|As\s*of|Last\s*Close)\s*[:\-]\s*([0-9]{4}-[0-9]{2}-[0-9]{2})",
+    tbl = extract_table_block(html)
+    if not tbl:
+        return ""
+    dates = re.findall(r"\b([0-9]{4}-[0-9]{2}-[0-9]{2})\b", tbl)
+    if not dates:
+        return ""
+    try:
+        dates_parsed = sorted({dt.date.fromisoformat(x) for x in dates})
+        return dates_parsed[-1].isoformat()
+    except Exception:
+        return ""
+
+def get_last_trading_date(html: str) -> str:
+    """
+    Priority:
+    1) From 7-day table (max date) — usually the true last trading day.
+    2) Gentle fallbacks for older pages.
+    """
+    d = get_max_table_date(html)
+    if d:
+        return d
+    # Fallback patterns (kept conservative)
+    pats = [
+        r"(?:As\s*of|Last\s*Close|Date)\s*[:\-]\s*([0-9]{4}-[0-9]{2}-[0-9]{2})",
         r"OHLC.{0,200}?(?:on|as\s*of|for)\s*([0-9]{4}-[0-9]{2}-[0-9]{2})",
-        r"\b([0-9]{4}-[0-9]{2}-[0-9]{2})\b",  # very last fallback
     ]
-    for patt in patterns:
-        m = re.search(patt, html, re.I | re.S)
-        if m:
-            return m.group(1)
+    for p in pats:
+        d = rx(p, html, default="")
+        if d:
+            return d
     return "—"
 
-def get_ohlc_and_change(html):
+def get_ohlc_and_change(html: str):
     """
-    Return (O, H, L, C, chg_str) using only the page's actual Change%.
+    Return (O, H, L, C, chg_str). Use MANY variants to find Change%.
+    If still missing, leave as '—' (we avoid computing without prev close context).
     """
     o = h = l = c = chg = "—"
 
-    # 1) OHLC
+    # OHLC
     m = re.search(
         r"OHLC:\s*O\s*([0-9.,\-]+).*?H\s*([0-9.,\-]+).*?L\s*([0-9.,\-]+).*?C\s*([0-9.,\-]+)",
         html, re.I | re.S
@@ -69,12 +107,18 @@ def get_ohlc_and_change(html):
     if m:
         o, h, l, c = [g.strip().replace(",", "") for g in m.groups()]
 
-    # 2) Change %
+    # % Change — broadened patterns
     patterns = [
         r"Change%\s*:\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"Change%\s*[–\-•\.\u00b7]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"Change%\s+([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"OHLC.{0,300}?([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        r"Change\s*%\s*[:\-]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        r"Change\s*[:\-]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        r"Chg%\s*[:\-]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        r"Chg\s*[:\-]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        r"Day\s*Change\s*[:\-]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        r"[Δ∆]\s*%\s*[:\-]?\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        # bare parentheses or near OHLC area
+        r"\(([+\-]?\s*\d+(?:[.,]\d+)?)\s*%\)",
+        r"OHLC.{0,400}?([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
     ]
     for patt in patterns:
         k = re.search(patt, html, re.I | re.S)
@@ -84,7 +128,7 @@ def get_ohlc_and_change(html):
 
     return o, h, l, c, chg
 
-def get_signal(html):
+def get_signal(html: str):
     tb = rx(r"<table[^>]*>.*?<thead.*?</thead>.*?<tbody[^>]*>(.*?)</tbody>", html, group=1, default="")
     if tb:
         r = re.search(r"<tr[^>]*>.*?<td[^>]*>.*?</td>.*?<td[^>]*>(Bullish|Bearish)</td>", tb, re.I | re.S)
@@ -92,17 +136,17 @@ def get_signal(html):
             return r.group(1).title()
     return "—"
 
-def arrow_for(signal):
+def arrow_for(signal: str):
     return "▲" if signal.lower() == "bullish" else ("▼" if signal.lower() == "bearish" else "—")
 
-def banner_class_for(signal):
+def banner_class_for(signal: str):
     return "green" if signal.lower() == "bullish" else ("red" if signal.lower() == "bearish" else "")
 
-def scrape_accuracy(html):
+def scrape_accuracy(html: str):
     chip = rx(r"([0-9]{1,3}\.[0-9]{2}%\s*\([0-9]+/[0-9]+\))", html, default="")
     return (chip or "—"), ("Last 7-Day Accuracy" if chip else "Accuracy unavailable")
 
-def build_table(html):
+def build_table(html: str):
     table = rx(r"(<table[^>]*>.*?</table>)", html, group=1, default="")
     if not table:
         return ('<table class="table"><thead><tr><th>Date</th><th>AI Prediction</th>'
@@ -234,12 +278,12 @@ def rebuild_page(p: Path):
     # Names
     symbol, full_name = get_symbol_and_fullname(html)
 
-    # Dates
-    pred_date = get_prediction_date(html)   # NEXT trading date (for banner)
-    last_date = get_last_trading_date(html) # LAST trading day (for header OHLC)
-
-    # Market data (for LAST trading day line)
+    # LAST trading date from the table (robust) + OHLC / Change%
+    last_date = get_last_trading_date(html)
     o, h, l, c, chg = get_ohlc_and_change(html)
+
+    # NEXT trading date (banner): read explicit, else compute from last_date
+    pred_date = get_prediction_date_explicit(html) or (next_weekday(last_date) if last_date and last_date != "—" else "—")
 
     # Signal + accuracy + table
     signal = get_signal(html)
@@ -255,11 +299,11 @@ def rebuild_page(p: Path):
         build_time=dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
 
         # Header (LAST trading day)
-        last_date=escape(last_date),
+        last_date=escape(last_date or "—"),
         o=o, h=h, l=l, c=c, chg=escape(chg or "—"),
 
         # Banner (NEXT trading day)
-        pred_date=escape(pred_date),
+        pred_date=escape(pred_date or "—"),
         signal=signal,
         banner_arrow=arrow_for(signal),
         banner_class=banner_class_for(signal),
