@@ -1,22 +1,49 @@
 # scripts/theme_rebuild_v2.py
-# Light UI (v2.2):
-# - Header line shows LAST trading day's Date + OHLC + %Change (date sourced from 7-day table max date).
-# - Banner shows ONLY "AI Prediction: {Full Name} for {Next trading date}".
-# - No right-side price chip. No OHLC in banner.
+# v2.3 — Same theme. Data now pulled from latest CSV to align 100% with dark index tables.
+# Header shows LAST trading day's Date + OHLC + %Change from CSV.
+# Banner shows ONLY "AI Prediction: {Full Name} for {Next trading date}".
+# If CSV match not found, falls back to previous HTML scraping (safe).
 
 import re
+import csv
 import datetime as dt
 from pathlib import Path
 from html import escape
 
 DIST_ROOT = "dist"
+DATA_ROOT = "Data"
 STAMP = f"<!-- v2-rebuild-light {dt.datetime.now(dt.timezone.utc).isoformat()} -->"
 
-# ---------- helpers ----------
+# -------------------- small utils --------------------
 def rx(pat, s, flags=re.I | re.S, group=1, default=""):
     m = re.search(pat, s, flags)
     return (m.group(group).strip() if m else default).strip()
 
+def next_weekday(iso_date: str) -> str:
+    try:
+        d = dt.date.fromisoformat(iso_date)
+    except Exception:
+        return "—"
+    while True:
+        d += dt.timedelta(days=1)
+        if d.weekday() < 5:
+            return d.isoformat()
+
+def latest_data_folder(root=DATA_ROOT) -> str:
+    base = Path(root)
+    if not base.exists():
+        return ""
+    candidates = []
+    for p in base.iterdir():
+        if p.is_dir():
+            try:
+                _ = dt.date.fromisoformat(p.name)
+                candidates.append(p.name)
+            except Exception:
+                pass
+    return max(candidates) if candidates else ""
+
+# -------------------- HTML fallbacks (old behavior) --------------------
 def get_symbol_and_fullname(html: str):
     sym = rx(r"AI\s+Analysis\s+of\s+([A-Z0-9.\-]+)\s*\(", html)
     full = rx(r"AI\s+Analysis\s+of\s+[A-Z0-9.\-]+\s*\(([^)]+)\)", html)
@@ -30,36 +57,17 @@ def get_symbol_and_fullname(html: str):
     return sym or "", full or ""
 
 def get_prediction_date_explicit(html: str):
-    # Primary: your existing "Prediction for YYYY-MM-DD"
     d = rx(r"Prediction\s+for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="")
-    if d:
-        return d
-    # Common alternates:
+    if d: return d
     d = rx(r"Next\s*(?:Trading\s*)?Day\s*[:\-]\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="")
-    if d:
-        return d
+    if d: return d
     d = rx(r"AI\s+Prediction\s*[:\-]\s*.*?\b([0-9]{4}-[0-9]{2}-[0-9]{2})\b", html, default="")
     return d or ""
-
-def next_weekday(iso_date: str) -> str:
-    # Fallback: compute next Mon–Fri date (no holiday calendar).
-    try:
-        d = dt.date.fromisoformat(iso_date)
-    except Exception:
-        return "—"
-    while True:
-        d += dt.timedelta(days=1)
-        if d.weekday() < 5:  # 0=Mon .. 4=Fri
-            return d.isoformat()
 
 def extract_table_block(html: str) -> str:
     return rx(r"(<table[^>]*>.*?</table>)", html, group=1, default="")
 
 def get_max_table_date(html: str) -> str:
-    """
-    Extract all YYYY-MM-DD inside the 7-day table and return the max (LAST trading day).
-    Safer than scanning the whole doc (avoids picking the prediction date).
-    """
     tbl = extract_table_block(html)
     if not tbl:
         return ""
@@ -72,35 +80,8 @@ def get_max_table_date(html: str) -> str:
     except Exception:
         return ""
 
-def get_last_trading_date(html: str) -> str:
-    """
-    Priority:
-    1) From 7-day table (max date) — usually the true last trading day.
-    2) Gentle fallbacks for older pages.
-    """
-    d = get_max_table_date(html)
-    if d:
-        return d
-    # Fallback patterns (kept conservative)
-    pats = [
-        r"(?:As\s*of|Last\s*Close|Date)\s*[:\-]\s*([0-9]{4}-[0-9]{2}-[0-9]{2})",
-        r"OHLC.{0,200}?(?:on|as\s*of|for)\s*([0-9]{4}-[0-9]{2}-[0-9]{2})",
-    ]
-    for p in pats:
-        d = rx(p, html, default="")
-        if d:
-            return d
-    return "—"
-
-def get_ohlc_and_change(html: str):
-    """
-    Return (O, H, L, C, chg_str).
-    - OHLC from the 'OHLC: O ... H ... L ... C ...' line.
-    - % Change ONLY from explicit 'Change' labels (never from accuracy).
-    """
+def get_ohlc_and_change_from_html(html: str):
     o = h = l = c = chg = "—"
-
-    # 1) OHLC
     m = re.search(
         r"OHLC:\s*O\s*([0-9.,\-]+).*?H\s*([0-9.,\-]+).*?L\s*([0-9.,\-]+).*?C\s*([0-9.,\-]+)",
         html, re.I | re.S
@@ -108,7 +89,6 @@ def get_ohlc_and_change(html: str):
     if m:
         o, h, l, c = [g.strip().replace(",", "") for g in m.groups()]
 
-    # 2) Limit search scope to BEFORE the accuracy/cards to avoid grabbing '42.86% (3/7)'
     cutoff_idx = len(html)
     for marker in ("Model Performance", "Last 7-Day Accuracy", "Model vs. Actual"):
         i = html.lower().find(marker.lower())
@@ -116,7 +96,6 @@ def get_ohlc_and_change(html: str):
             cutoff_idx = min(cutoff_idx, i)
     scope = html[:cutoff_idx]
 
-    # 3) % Change — match only labeled variants (no generic percent grabs)
     patt = re.compile(
         r"(?:Change%\s*|Change\s*%\s*|Change\s*|Chg%\s*|Chg\s*|Day\s*Change\s*|[Δ∆]\s*%)"
         r"[:\-]?\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%", re.I | re.S
@@ -124,9 +103,7 @@ def get_ohlc_and_change(html: str):
     k = patt.search(scope)
     if k:
         chg = k.group(1).replace(" ", "").replace(",", ".") + "%"
-
     return o, h, l, c, chg
-
 
 def get_signal(html: str):
     tb = rx(r"<table[^>]*>.*?<thead.*?</thead>.*?<tbody[^>]*>(.*?)</tbody>", html, group=1, default="")
@@ -147,7 +124,7 @@ def scrape_accuracy(html: str):
     return (chip or "—"), ("Last 7-Day Accuracy" if chip else "Accuracy unavailable")
 
 def build_table(html: str):
-    table = rx(r"(<table[^>]*>.*?</table>)", html, group=1, default="")
+    table = extract_table_block(html)
     if not table:
         return ('<table class="table"><thead><tr><th>Date</th><th>AI Prediction</th>'
                 '<th>Actual</th><th>Result</th></tr></thead>'
@@ -157,7 +134,120 @@ def build_table(html: str):
     table = re.sub(r"<table([^>]*)>", r'<table class="table"\1>', table, count=1, flags=re.I)
     return table
 
-# ---------- LIGHT THEME CSS ----------
+# -------------------- CSV loader (new) --------------------
+class CSVCache:
+    """
+    Cache per-country CSV from the latest Data/<date>/.
+    Provides lookup by (exchange_lower, symbol_upper).
+    """
+    def __init__(self, data_root=DATA_ROOT):
+        self.data_root = data_root
+        self.latest = latest_data_folder(data_root)
+        self._country_maps = {}  # country_lower -> dict[(exch_lower, sym_upper)] = row_dict
+        self._last_date_by_country = {}  # country_lower -> iso date
+
+    def _normalize_headers(self, headers):
+        return [h.strip().lower().replace(" ", "").replace("_", "") for h in headers]
+
+    def _parse_pct(self, v):
+        if v is None or v == "":
+            return None
+        s = str(v).strip().replace("%", "").replace(",", "")
+        try:
+            num = float(s)
+        except Exception:
+            return None
+        # If looks like decimal fraction, convert to percent
+        if abs(num) <= 1.0:
+            num *= 100.0
+        return round(num, 2)
+
+    def _row_to_obj(self, headers_norm, row_vals):
+        obj = {}
+        for k, v in zip(headers_norm, row_vals):
+            obj[k] = v
+        # Common names
+        def get(*names):
+            for n in names:
+                if n in obj and obj[n] not in (None, ""):
+                    return obj[n]
+            return ""
+
+        # Build typed view
+        symbol = str(get("symbol","ticker")).strip()
+        exchange = str(get("exchange","exch")).strip()
+        # Date (prefer explicit, else folder date)
+        date = str(get("date","lastdate","tradingdate")).strip()
+
+        o = str(get("open","o")).strip()
+        h = str(get("high","h")).strip()
+        l = str(get("low","l")).strip()
+        c = str(get("close","c","last")).strip()
+
+        # change percent variants
+        chg_candidates = [get("change%","changepct","pctchange","changep","change","daychange")]
+        chg_val = None
+        for cv in chg_candidates:
+            p = self._parse_pct(cv)
+            if p is not None:
+                chg_val = p
+                break
+
+        return {
+            "symbol": symbol,
+            "exchange": exchange,
+            "date": date,
+            "o": o, "h": h, "l": l, "c": c,
+            "chg_pct": chg_val
+        }
+
+    def _load_country(self, country_lower):
+        if not self.latest:
+            self._country_maps[country_lower] = {}
+            self._last_date_by_country[country_lower] = ""
+            return
+
+        csv_path = Path(self.data_root) / self.latest / f"{country_lower}.csv"
+        if not csv_path.exists():
+            self._country_maps[country_lower] = {}
+            self._last_date_by_country[country_lower] = ""
+            return
+
+        with csv_path.open("r", encoding="utf-8", newline="") as f:
+            r = csv.reader(f)
+            rows = list(r)
+        if not rows:
+            self._country_maps[country_lower] = {}
+            self._last_date_by_country[country_lower] = ""
+            return
+
+        headers = rows[0]
+        headers_norm = self._normalize_headers(headers)
+        m = {}
+        last_date_seen = ""
+        for row in rows[1:]:
+            obj = self._row_to_obj(headers_norm, row)
+            key = (obj["exchange"].lower(), obj["symbol"].upper())
+            m[key] = obj
+            if obj["date"]:
+                last_date_seen = obj["date"]
+        self._country_maps[country_lower] = m
+        # If no date column, fall back to folder name
+        self._last_date_by_country[country_lower] = last_date_seen or self.latest
+
+    def get_row(self, country_lower, exchange_lower, symbol_upper):
+        if country_lower not in self._country_maps:
+            self._load_country(country_lower)
+        return self._country_maps.get(country_lower, {}).get((exchange_lower, symbol_upper))
+
+    def get_country_last_date(self, country_lower):
+        if country_lower not in self._last_date_by_country:
+            self._load_country(country_lower)
+        return self._last_date_by_country.get(country_lower, "")
+
+CSV = CSVCache()
+
+# -------------------- THEME (unchanged) --------------------
 CSS = r"""
 :root {
   --blue:#2563eb; --blue-weak:#dbeafe;
@@ -218,7 +308,6 @@ a:hover { text-decoration:underline; }
 .footer-card .note { font-size:13px; opacity:.9; }
 """
 
-# ---------- page template ----------
 HTML = """{stamp}
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -271,21 +360,69 @@ HTML = """{stamp}
 </body></html>
 """
 
-# ---------- main rebuild ----------
+# -------------------- CSV-first rebuild --------------------
+def parse_path_parts(p: Path):
+    # dist/<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+    parts = p.parts
+    try:
+        i = parts.index(DIST_ROOT)
+    except ValueError:
+        # fall back if absolute path, try to find "dist"
+        i = next((k for k, s in enumerate(parts) if s.lower() == "dist"), -1)
+    if i == -1 or len(parts) < i + 6:
+        return None
+    region = parts[i+1]
+    country = parts[i+2]
+    exchange = parts[i+3]
+    symbol_slug = parts[i+4]
+    return {
+        "region": region,
+        "country_lower": country.lower(),
+        "exchange_lower": exchange.lower(),
+        "symbol_upper": symbol_slug.upper()
+    }
+
+def number_str(x):
+    sx = str(x).strip()
+    if sx == "" or sx == "—":
+        return "—"
+    # keep as-is; remove thousands commas
+    sx = sx.replace(",", "")
+    return sx
+
+def pct_str(x):
+    if x is None or x == "":
+        return "—"
+    try:
+        v = float(x)
+    except Exception:
+        return "—"
+    return f"{v:.2f}%"
+
 def rebuild_page(p: Path):
     html = p.read_text(encoding="utf-8")
-
-    # Names
     symbol, full_name = get_symbol_and_fullname(html)
+    parts = parse_path_parts(p)
 
-    # LAST trading date from the table (robust) + OHLC / Change%
-    last_date = get_last_trading_date(html)
-    o, h, l, c, chg = get_ohlc_and_change(html)
+    # Defaults (fallback to HTML if CSV not found)
+    last_date = get_max_table_date(html) or "—"
+    o, h, l, c, chg = get_ohlc_and_change_from_html(html)
 
-    # NEXT trading date (banner): read explicit, else compute from last_date
-    pred_date = get_prediction_date_explicit(html) or (next_weekday(last_date) if last_date and last_date != "—" else "—")
+    if parts:
+        row = CSV.get_row(parts["country_lower"], parts["exchange_lower"], parts["symbol_upper"])
+        if row:
+            # Use CSV values
+            last_date = row["date"] or CSV.get_country_last_date(parts["country_lower"]) or last_date
+            o = number_str(row["o"])
+            h = number_str(row["h"])
+            l = number_str(row["l"])
+            c = number_str(row["c"])
+            chg = pct_str(row["chg_pct"])
 
-    # Signal + accuracy + table
+    # Banner date: explicit if present; else next weekday after last_date
+    pred_explicit = get_prediction_date_explicit(html)
+    pred_date = pred_explicit or (next_weekday(last_date) if last_date and last_date != "—" else "—")
+
     signal = get_signal(html)
     acc_pct, acc_note = scrape_accuracy(html)
     table_html = build_table(html)
@@ -298,31 +435,28 @@ def rebuild_page(p: Path):
         full_name=escape(full_name or "Stock"),
         build_time=dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
 
-        # Header (LAST trading day)
         last_date=escape(last_date or "—"),
         o=o, h=h, l=l, c=c, chg=escape(chg or "—"),
 
-        # Banner (NEXT trading day)
         pred_date=escape(pred_date or "—"),
         signal=signal,
         banner_arrow=arrow_for(signal),
         banner_class=banner_class_for(signal),
 
-        # Cards + table
         acc_pct=acc_pct, acc_note=acc_note,
         table_html=table_html
     )
     p.write_text(out, encoding="utf-8")
-    print(f"[v2-light] rebuilt: {p}")
+    print(f"[v2.3-csv] rebuilt: {p}")
 
 def main():
     root = Path(DIST_ROOT)
     count = 0
     for f in root.rglob("index.html"):
-        if "prediction-tomorrow" in str(f):
+        if "prediction-tomorrow" in str(f).replace("\\", "/"):
             rebuild_page(f)
             count += 1
-    print(f"[v2-light] total rebuilt pages: {count}")
+    print(f"[v2.3-csv] latest Data folder: {CSV.latest or '—'} | total rebuilt pages: {count}")
 
 if __name__ == "__main__":
     main()
