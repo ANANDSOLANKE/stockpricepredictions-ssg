@@ -59,8 +59,11 @@ jobs:
       - name: Inject logos from mapping
         run: python -u scripts/inject_logos.py
 
-      - name: Apply full v2 rebuild (webpage.html look)
-        run: python -u scripts/theme_rebuild_v2.py
+      #- name: Apply full v2 rebuild (webpage.html look)
+      #  run: python -u scripts/theme_rebuild_v2.py
+
+      - name: Apply prediction page template (v2 UI)
+        run: python -u scripts/theme_override.py
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
