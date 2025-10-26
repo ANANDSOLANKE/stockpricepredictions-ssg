@@ -1,17 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+"""
+Build site from Data/LastTradingDay
+Outputs:
+  /index.html                          ← global landing (regions → countries → exchanges)
+  /<region>/index.html                 ← countries list
+  /<region>/<country>/index.html       ← country page (flag + exchange chips + search + header-sort + load-more)
+  /<region>/<country>/<exchange>/index.html
+  /<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+  /static/exchanges/<region>/<country>/<exchange>.json
+  robots.txt, sitemap.xml
+"""
+
 import csv, html, json, os, re, unicodedata, shutil
 from pathlib import Path
 from datetime import datetime, timedelta, time
 from typing import Dict, List, Tuple, Optional
 
-# Jinja is optional; we still support plain HTML templates.
-try:
-    from jinja2 import Environment, FileSystemLoader, select_autoescape
-except Exception:
-    Environment = None
-
+# ---------- paths / config ----------
 ROOT = Path(__file__).resolve().parents[1]
 DATA_LAST = ROOT / "Data" / "LastTradingDay"
 DIST = ROOT / "dist"
@@ -23,7 +30,7 @@ IMG_EXTS = {".png", ".jpg", ".jpeg", ".svg", ".webp"}
 SKIP_LOGOS = os.environ.get("SKIP_LOGOS", "0") == "1"
 
 try:
-    import zoneinfo
+    import zoneinfo  # Python 3.9+
 except Exception:
     zoneinfo = None
 
@@ -107,12 +114,16 @@ def read_csv_rows(p: Path) -> List[Dict[str, str]]:
         for r in rdr:
             out.append({(k or "").strip().lower(): (v or "").strip() for k, v in r.items()})
     # normalize
-    need = ["symbol","description","exchange","sector","industry","open","high","low","close","change_percent","change%","currency","date","last_date"]
+    need = ["symbol","description","exchange","sector","industry","open","high","low","close","change_percent","change%","currency"]
     for r in out:
         for k in need: r.setdefault(k, "")
     return out
 
 def load_last_trading_day():
+    """
+    tree[gslug][cslug_raw] = { group_name, group_slug, country_name, country_slug(raw), rows }
+    where gslug = slug(RegionFolderName); cslug_raw = CSV stem as-is (e.g., 'South Africa' OR 'south-africa')
+    """
     tree: Dict[str, Dict[str, Dict[str, object]]] = {}
     if not DATA_LAST.exists(): return tree
     for gdir in sorted(d for d in DATA_LAST.iterdir() if d.is_dir()):
@@ -181,13 +192,9 @@ def build_scan_index() -> Dict[str, List[Tuple[str, str]]]:
 def _same_file(src: Path, dst: Path) -> bool:
     try:
         s, d = src.stat(), dst.stat()
-        return (s.st_size == d.st_size) and (int(s.st_mtime) == int(d.mtime))
-    except Exception:
-        try:
-            s, d = src.stat(), dst.stat()
-            return (s.st_size == d.st_size) and (int(s.st_mtime) == int(d.st_mtime))
-        except Exception:
-            return False
+        return (s.st_size == d.st_size) and (int(s.st_mtime) == int(d.st_mtime))
+    except FileNotFoundError:
+        return False
 
 def sync_tree(src: Path, dst: Path) -> None:
     ensure_dir(dst)
@@ -212,8 +219,9 @@ def sync_tree(src: Path, dst: Path) -> None:
                 try: shutil.rmtree(dst_d)
                 except: pass
 
-# ---- curated logo helpers (CSV/JSON) ----
+# ---- NEW: helpers to use your curated CSV mapping ----
 def find_logo_relpath_by_filename(filename: str) -> Optional[str]:
+    """Search /logos recursively for this basename (case-insensitive). Return posix relative path or None."""
     if not filename:
         return None
     target = filename.strip().lower()
@@ -227,12 +235,18 @@ def find_logo_relpath_by_filename(filename: str) -> Optional[str]:
     return None
 
 def load_logos_from_csv() -> Dict[Tuple[str, str], str]:
+    """
+    Read curated mappings from logos/map/logos.csv.
+    Expected columns (case-insensitive): exchange, symbol, filename or path.
+    Returns: {(EXCHANGE, NORM_SYMBOL): 'relative/posix/path.png'}
+    """
     p = ROOT / "logos" / "map" / "logos.csv"
     out: Dict[Tuple[str, str], str] = {}
     if not p.exists():
         return out
     with open(p, "r", encoding="utf-8", newline="") as f:
-        sample = f.read(4096); f.seek(0)
+        sample = f.read(4096)
+        f.seek(0)
         try:
             dialect = csv.Sniffer().sniff(sample, delimiters=",\t;|")
         except Exception:
@@ -243,12 +257,15 @@ def load_logos_from_csv() -> Dict[Tuple[str, str], str]:
             symbol   = (r.get("symbol") or r.get("Symbol") or "").strip()
             path     = (r.get("path") or r.get("Path") or "").strip()
             filename = (r.get("filename") or r.get("file") or r.get("logo") or r.get("Logo") or "").strip()
-            if not exchange or not symbol: continue
+            if not exchange or not symbol:
+                continue
             rel = path.lstrip("/\\") if path else find_logo_relpath_by_filename(filename)
-            if rel: out[(exchange.upper(), _norm(symbol))] = rel
+            if rel:
+                out[(exchange.upper(), _norm(symbol))] = rel
     return out
 
 def merge_curated_maps(a: Dict[Tuple[str, str], str], b: Dict[Tuple[str, str], str]) -> Dict[Tuple[str, str], str]:
+    """Return a new dict with keys from a, then fill missing from b (a has priority)."""
     merged = dict(a)
     for k, v in b.items():
         merged.setdefault(k, v)
@@ -258,36 +275,52 @@ def merge_curated_maps(a: Dict[Tuple[str, str], str], b: Dict[Tuple[str, str], s
 class LogoResolver:
     def __init__(self):
         self.placeholder = f"{BASE_URL}/static/logo-placeholder.svg"
+
+        # Always copy curated logos into dist
         src, dst = ROOT / "logos", DIST / "logos"
         if src.exists():
             sync_tree(src, dst)
-        curated_json = load_logos_index()
-        curated_csv  = load_logos_from_csv()
+
+        # Curated JSON (if present) and your curated CSV mapping (logos/map/logos.csv)
+        curated_json = load_logos_index()     # {(EXCH, SYM): 'relpath'}
+        curated_csv  = load_logos_from_csv()  # {(EXCH, SYM): 'relpath'}
+
+        # Prefer JSON entries but fill gaps from CSV
         self.curated = merge_curated_maps(curated_json, curated_csv)
+
+        # Optional on-disk scan (only when SKIP_LOGOS=0)
         self.scan = {} if SKIP_LOGOS else build_scan_index()
+
         self.cache: Dict[Tuple[str, str], str] = {}
 
     def url_for(self, exchange: str, symbol: str, name: str = "") -> str:
         key = (exchange or "", symbol or "")
         if key in self.cache:
             return self.cache[key]
+
         exch = (exchange or "").upper()
         symn = _norm(symbol)
+
+        # 1) curated exact (JSON/CSV)
         rel = self.curated.get((exch, symn))
         if rel:
             url = f"{BASE_URL}/logos/{rel}"
             self.cache[key] = url
             return url
+
+        # 2) scan exact (only if scan enabled)
         if self.scan:
             for stem, rel in self.scan.get(exch, []):
                 if stem == symn:
                     url = f"{BASE_URL}/logos/{rel}"
                     self.cache[key] = url
                     return url
+
+        # 3) placeholder
         self.cache[key] = self.placeholder
         return self.placeholder
 
-# ---------- page wrapper ----------
+# ---------- template ----------
 def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
     meta_kw = ", ".join(CFG.get("keywords", []))
     author = CFG.get("author", {})
@@ -300,9 +333,37 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       .btn:hover{background:#122036}
       .pct{font-weight:700}.pct.pos{color:#3ddc97}.pct.neg{color:#ff6b6b}
       .logo{width:20px;height:20px;border-radius:4px;object-fit:cover;vertical-align:middle;margin-right:8px;box-shadow:0 0 0 1px #22395f}
+      .exchange-bar{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;padding:.6rem 1rem;background:#111a25;border-radius:10px;box-shadow:0 0 6px #0006;border:1px solid #22395f}
+      .exchange-bar .flagwrap{display:flex;align-items:center;gap:.6rem}
+      .exchange-bar .flag{width:36px;height:24px;border-radius:4px;object-fit:cover}
+      .exchange-bar .cname{font-weight:600;font-size:1.08em;color:#00b7ff}
+      .exchange-bar .chipswrap{display:flex;flex-wrap:wrap;gap:.45rem;margin-left:2.6rem;margin-top:.2rem}
+      .exchange-bar .exchip{padding:.28rem .7rem;border:1px solid #284472;border-radius:999px;background:#0d1117;text-decoration:none;color:#fff;font-size:.8em;transition:.2s}
+      .exchange-bar .exchip:hover{background:#00b7ff33;border-color:#4f7bff}
+      .exchange-bar .exchip.active{background:#284cff44;border-color:#4f7bff}
+      /* country tools */
+      .tools{display:flex;gap:.6rem;align-items:center;margin:.4rem 0 0 2.6rem;flex-wrap:wrap}
+      .search-input{padding:.45rem .6rem;border:1px solid #2b4a70;background:#0d1117;color:#fff;border-radius:8px;min-width:260px}
+      .loadmore-wrap{text-align:center;margin:.6rem 0}
+      /* table */
+      .table-wrap{overflow:auto}
+      /* landing layout */
+      .region{margin:20px;padding:20px;background:#111a25;border-radius:10px;box-shadow:0 0 10px #0006}
+      .region h2{color:#00b7ff;margin:0 0 10px}
+      .countries{display:flex;flex-wrap:wrap;gap:16px}
+      .country-card{background:#192b43;border:1px solid #2b4a70;border-radius:10px;width:190px;padding:10px;text-align:center;transition:.25s}
+      .country-card:hover{background:#203553;transform:translateY(-3px)}
+      .country-flag{width:40px;height:26px;border-radius:4px;object-fit:cover;display:block;margin:0 auto 6px}
+      .country-name{font-weight:700;color:#00b7ff;margin-bottom:8px}
+      .exchange-list a{display:inline-block;background:#0d1117;color:#fff;padding:3px 6px;margin:2px;border-radius:8px;border:1px solid #284472;font-size:.8em;text-decoration:none}
+      .exchange-list a:hover{background:#00b7ff33;border-color:#4f7bff}
       header.hero{padding:20px}
       .h1{font-size:1.6rem;color:#00b7ff;margin:6px 0 0}
       .container{max-width:1100px;margin:0 auto}
+      /* sortable headers */
+      .th-sort{cursor:pointer; user-select:none}
+      .th-sort .arrow{opacity:.55; font-size:.9em; margin-left:.25rem}
+      .th-sort.active{color:#9fd0ff}
     </style>"""
     build_time = datetime.utcnow().isoformat(timespec="seconds") + "Z"
     return f"""<!doctype html>
@@ -313,8 +374,7 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
 <meta name="description" content="{html.escape(description)}">
 <meta name="keywords" content="{html.escape(meta_kw)}">
 <meta name="author" content="{html.escape(author.get('name',''))}">
-<link rel="stylesheet" href="{css}">
-{extra_css}
+<link rel="stylesheet" href="{css}">{extra_css}
 </head>
 <body>
 <div class="container">
@@ -333,43 +393,6 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
 <script>window.SPP_BASE="{BASE_URL}";</script>
 <script src="{js}" defer></script>
 </body></html>"""
-
-# ---------- template loader ----------
-def get_prediction_template():
-    tdir = ROOT / "templates"
-    # Try Jinja first
-    if Environment:
-        env = Environment(
-            loader=FileSystemLoader(str(tdir)),
-            autoescape=select_autoescape(enabled_extensions=("html", "j2", "jinja"))
-        )
-        for name in ("prediction_v2.html.j2", "prediction.html", "prediction_v2.j2"):
-            p = tdir / name
-            if p.exists():
-                return ("jinja", env.get_template(name))
-    # Fallback: plain text template with {placeholders}
-    for name in ("prediction_v2.html.j2", "prediction.html"):
-        p = (ROOT / "templates" / name)
-        if p.exists():
-            return ("plain", p.read_text(encoding="utf-8"))
-    return None
-
-# ---------- inject assets into raw HTML ----------
-def inject_assets(html_text: str, build_stamp: str) -> str:
-    """Ensure /static/styles.css and /static/app.js are linked in <head>."""
-    css_tag = f'<link rel="stylesheet" href="/static/styles.css?v={build_stamp}">'
-    js_tag  = f'<script src="/static/app.js?v={build_stamp}" defer></script>'
-    if "/static/styles.css" in html_text and "/static/app.js" in html_text:
-        return html_text  # already present
-    # insert before </head>
-    def _ins(markup: str, snippet: str) -> str:
-        return re.sub(r"</head>", snippet + "\n</head>", markup, flags=re.IGNORECASE, count=1)
-    out = html_text
-    if "/static/styles.css" not in out:
-        out = _ins(out, css_tag)
-    if "/static/app.js" not in out:
-        out = _ins(out, js_tag)
-    return out
 
 # ---------- landing builder ----------
 def build_landing(tree: Dict[str, Dict[str, Dict[str, object]]]) -> None:
@@ -405,10 +428,38 @@ def build_landing(tree: Dict[str, Dict[str, Dict[str, object]]]) -> None:
             f"<div class='countries'>{''.join(cards)}</div>"
             "</section>"
         )
+
+    click_js = """
+<script>
+(function(){
+  const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+  $$('.country-card').forEach(card=>{
+    const firstEx=card.querySelector('.exchange-list a[href]');
+    if(!firstEx)return;
+    const u=new URL(firstEx.getAttribute('href'), location.origin);
+    const parts=u.pathname.split('/').filter(Boolean);
+    if(parts.length<3)return;
+    const countryUrl='/' + parts[0] + '/' + parts[1] + '/';
+    card.style.cursor='pointer';
+    card.addEventListener('click', ev=>{
+      if(ev.target.closest('.exchange-list a')) return;
+      location.href=countryUrl;
+    });
+    const nameEl=card.querySelector('.country-name');
+    if(nameEl){
+      nameEl.style.textDecoration='underline';
+      nameEl.style.textUnderlineOffset='2px';
+      nameEl.style.cursor='pointer';
+      nameEl.addEventListener('click', ev=>{ev.stopPropagation(); location.href=countryUrl;});
+    }
+  });
+})();
+</script>
+"""
     landing_html = tpl_base(
         "🌍 Global Stock Markets",
         "Browse world markets by region, country and exchange.",
-        "".join(sections),
+        "".join(sections) + click_js,
         f"{BASE_URL}/"
     )
     write_text(DIST / "index.html", landing_html)
@@ -418,25 +469,26 @@ def main() -> None:
     ensure_dir(DIST / "static")
     copy_static_assets()
     ensure_placeholder_logo()
-    ensure_countryflags()
+    ensure_countryflags()  # always copy flags
 
     tree = load_last_trading_day()
     resolver = LogoResolver()
     mkt = MarketTimes()
 
-    tpl_info = get_prediction_template()  # ("jinja", template) or ("plain", raw_text) or None
-
+    # Build landing first (global)
     build_landing(tree)
 
+    # Region pages + country links
     for gslug in sorted(tree.keys()):
         gname = next(iter(tree[gslug].values()))["group_name"]
 
-        # Region page
+        # Region page (country links)
         links = []
         for cslug_raw in sorted(tree[gslug].keys()):
             cname = tree[gslug][cslug_raw]["country_name"]
             cslug_dir = slug(cslug_raw)
             links.append(f"<li><a href='/{gslug}/{cslug_dir}/'>{html.escape(cname)}</a></li>")
+
         write_text(
             DIST / gslug / "index.html",
             tpl_base(
@@ -449,7 +501,8 @@ def main() -> None:
 
         # Country → exchanges
         for cslug_raw, country in tree[gslug].items():
-            cname = country["country_name"]; rows = country["rows"]
+            cname = country["country_name"]
+            rows = country["rows"]
             cslug_dir = slug(cslug_raw)
 
             # group by exchange
@@ -457,9 +510,33 @@ def main() -> None:
             for r in rows:
                 by.setdefault((r.get("exchange") or "UNKNOWN").strip(), []).append(r)
 
+            # header UI: flag + exchange chips + search
+            def build_exchange_bar(region_slug, country_slug, country_name, exchanges, active_slug: Optional[str] = None):
+                flag_path = f"{BASE_URL}/logos/countryflags/{country_slug}.svg"
+                chips = []
+                chips.append("<a href='#' data-ex='all' class='exchip'>All</a>")
+                for ex_name in sorted(e for e in exchanges if e and e.upper() != "UNKNOWN"):
+                    ex_slug = slug(ex_name)
+                    chips.append(f"<a href='#' data-ex='{ex_slug}' class='exchip'>{html.escape(ex_name)}</a>")
+                tools = (
+                    "<div class='tools'>"
+                    "<input id='cty-search' class='search-input' type='search' placeholder='Search symbol or name…'>"
+                    "</div>"
+                )
+                return (
+                    "<div class='exchange-bar'>"
+                    "<div class='flagwrap'>"
+                    f"<img src='{flag_path}' alt='{html.escape(country_name)} flag' class='flag'>"
+                    f"<span class='cname'>{html.escape(country_name)}</span>"
+                    "</div>"
+                    f"<div class='chipswrap'>{''.join(chips)}</div>"
+                    f"{tools}"
+                    "</div>"
+                )
+
             all_exchanges = sorted(k for k in by.keys() if k and k.upper() != "UNKNOWN")
 
-            # Exchange pages + JSON
+            # ---- exchange pages (kept) + JSON for dynamic loader
             for exch, erows in sorted(by.items(), key=lambda kv: kv[0].lower()):
                 e_slug = slug(exch)
                 table_rows = []
@@ -505,62 +582,22 @@ def main() -> None:
                         "logo": logo_url,
                     })
 
-                    # ---------- prediction page ----------
+                    # stock page
                     if sym and None not in (o, h, l, cl):
-                        pred_date = mkt.prediction_date(region=gname, country=cname, exchange=exch)
-                        signal_upper = (r.get("signal") or ("Bullish" if (ch is not None and ch > 0) else "Bearish")).title()
-                        signal_class = "signal--bull" if signal_upper == "Bullish" else "signal--bear"
+                        title = f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
+                        head = (
+                            "<div class='card'>"
+                            f"<h2 class='h2'>AI Analysis of {html.escape(sym)} ({html.escape(name)})</h2>"
+                            f"<p class='small'>Region: {html.escape(gname)} · Country: {html.escape(cname)} · Exchange: {html.escape(exch)}</p>"
+                            f"<p class='small'>OHLC: O {'{:.2f}'.format(o)}, H {'{:.2f}'.format(h)}, L {'{:.2f}'.format(l)}, C {'{:.2f}'.format(cl)}</p>"
+                            "</div>"
+                        )
+                        write_text(
+                            DIST / gslug / cslug_dir / e_slug / s_slug / "prediction-tomorrow" / "index.html",
+                            tpl_base(title, title, head, f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"),
+                        )
 
-                        ctx = {
-                            "page_title": f"{name} ({sym}) - AI Prediction",
-                            "company_name": name, "symbol": sym,
-                            "region": gname, "country": cname, "exchange": exch,
-                            "last_build": datetime.utcnow().isoformat(timespec="seconds") + "Z",
-                            "ohlc_date": r.get("date") or r.get("last_date") or "",
-                            "ohlc_open": "" if o is None else f"{o:.2f}",
-                            "ohlc_high": "" if h is None else f"{h:.2f}",
-                            "ohlc_low":  "" if l is None else f"{l:.2f}",
-                            "ohlc_close":"" if cl is None else f"{cl:.2f}",
-                            "change_pct": "" if ch is None else f"{ch:.2f}",
-                            "pred_date": pred_date, "signal_upper": signal_upper, "signal_class": signal_class,
-                            "accuracy_pct": r.get("accuracy_pct") or "Accuracy unavailable",
-                            "accuracy_note": r.get("accuracy_note") or "",
-                            "methodology": r.get("methodology") or "We analyze 50+ factors including volume, momentum (RSI, MACD), and key support levels using our deep learning model.",
-                            "disclaimer": r.get("disclaimer") or "This is not financial advice. Trading carries risk.",
-                            "last7_rows": r.get("last7_rows") or "",
-                            "long_text": r.get("long_text") or "",
-                        }
-
-                        out_dir = DIST / gslug / cslug_dir / e_slug / s_slug / "prediction-tomorrow"
-                        ensure_dir(out_dir)
-
-                        html_out = None
-                        if tpl_info:
-                            kind, tpl = tpl_info
-                            if kind == "jinja":
-                                html_out = tpl.render(**ctx)
-                            else:  # plain format {placeholder}
-                                raw = tpl
-                                for k, v in ctx.items():
-                                    raw = raw.replace("{" + k + "}", str(v))
-                                html_out = raw
-                        else:
-                            title = f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
-                            html_out = (
-                                "<div class='card'>"
-                                f"<h2 class='h2'>AI Analysis of {html.escape(sym)} ({html.escape(name)})</h2>"
-                                f"<p class='small'>Region: {html.escape(gname)} · Country: {html.escape(cname)} · Exchange: {html.escape(exch)}</p>"
-                                f"<p class='small'>OHLC: O {'{:.2f}'.format(o)}, H {'{:.2f}'.format(h)}, L {'{:.2f}'.format(l)}, C {'{:.2f}'.format(cl)}</p>"
-                                "</div>"
-                            )
-
-                        # >>> Force-inject global CSS/JS so client patch runs <<<
-                        stamp = datetime.utcnow().strftime("%Y%m%d%H%M%S")
-                        html_out = inject_assets(html_out, stamp)
-
-                        write_text(out_dir / "index.html", html_out)
-
-                # Exchange page
+                # Exchange page (kept)
                 table_html = (
                     "<div class='table-wrap'>"
                     "<table class='table'>"
@@ -573,19 +610,211 @@ def main() -> None:
                     tpl_base(
                         f"{cname} {exch} — {CFG.get('site_title','')}",
                         f"Listings for {exch} in {cname}.",
-                        table_html,
+                        build_exchange_bar(gslug, cslug_dir, cname, all_exchanges, active_slug=e_slug) + table_html,
                         f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/",
                     ),
                 )
 
-                # JSON for dynamic loader
+                # JSON for dynamic loader on country page
                 write_json(
                     DIST / "static" / "exchanges" / gslug / cslug_dir / f"{e_slug}.json",
                     {"region": gname, "country": cname, "exchange": exch, "rows": json_rows},
                 )
 
-        # Country page (kept minimal – omitted here for brevity in this build)
-        # You can leave your existing implementation.
+            # Country page (default exchange + JS loader with search + header-sort + load-more)
+            default_ex_slug = slug(all_exchanges[0]) if all_exchanges else ""
+            loader_js = f"""
+<script>
+(function(){{
+  const BASE = "{BASE_URL}/static/exchanges/{gslug}/{cslug_dir}/";
+  const chips = Array.from(document.querySelectorAll('.exchange-bar .exchip'));
+  const tableHost = document.getElementById('ex-table');
+  const searchEl = document.getElementById('cty-search');
+  const PAGE_SIZE = 50;
+
+  let active = "{default_ex_slug}" || "all";
+  let page = 1;
+  let sortMode = 'chg-asc';             // default: Change% ↑
+  const dataByEx = Object.create(null); // slug -> rows[]
+  let allMerged = []; // union across exchanges
+
+  function ensureLoadMoreArea(){{
+    let wrap = document.getElementById('load-more-wrap');
+    if (!wrap){{
+      wrap = document.createElement('div');
+      wrap.id = 'load-more-wrap';
+      wrap.className = 'loadmore-wrap';
+      wrap.innerHTML = "<button id='load-more' class='btn'>Load more</button>";
+      tableHost.insertAdjacentElement('afterend', wrap);
+      wrap.addEventListener('click', function(ev){{
+        const btn = document.getElementById('load-more');
+        if (ev.target === btn) {{ page += 1; render(); }}
+      }});
+    }}
+  }}
+
+  function compare(a,b,mode){{
+    const sa = (a.symbol||'').toLowerCase(), sb = (b.symbol||'').toLowerCase();
+    const na = (a.name||'').toLowerCase(), nb = (b.name||'').toLowerCase();
+    const ca = (a.change_percent==null)?0:a.change_percent;
+    const cb = (b.change_percent==null)?0:b.change_percent;
+    switch(mode){{
+      case 'sym-asc': return sa<sb?-1:sa>sb?1:0;
+      case 'sym-desc': return sa>sb?-1:sa<sb?1:0;
+      case 'name-asc': return na<nb?-1:na>nb?1:0;
+      case 'name-desc': return na>nb?-1:na<nb?1:0;
+      case 'chg-asc': return (ca - cb);
+      case 'chg-desc': return (cb - ca);
+      default: return 0;
+    }}
+  }}
+
+  function filterRows(rows, q){{
+    if (!q) return rows;
+    const s = q.toLowerCase();
+    const out = [];
+    for (let i=0;i<rows.length;i++) {{
+      const r = rows[i];
+      if ((r.symbol && r.symbol.toLowerCase().includes(s)) ||
+          (r.name && r.name.toLowerCase().includes(s))) {{
+        out.push(r);
+      }}
+    }}
+    return out;
+  }}
+
+  function fmt(v){{ return (v==null || v==='') ? '' : (''+v); }}
+
+  function headerArrow(mode){{
+    switch(mode){{
+      case 'sym-asc': return {{col:'sym', arrow:'▲'}};
+      case 'sym-desc': return {{col:'sym', arrow:'▼'}};
+      case 'name-asc': return {{col:'name', arrow:'▲'}};
+      case 'name-desc': return {{col:'name', arrow:'▼'}};
+      case 'chg-asc': return {{col:'chg', arrow:'▲'}};
+      case 'chg-desc': return {{col:'chg', arrow:'▼'}};
+      default: return {{col:'', arrow:''}};
+    }}
+  }}
+
+  function render(){{
+    ensureLoadMoreArea();
+    const q = searchEl.value.trim();
+
+    let base = (active==='all') ? allMerged : (dataByEx[active]||[]);
+    let rows = filterRows(base, q).slice();  // copy
+    rows.sort((a,b)=>compare(a,b,sortMode));
+
+    const total = rows.length;
+    const upto = Math.min(total, page*PAGE_SIZE);
+    const view = rows.slice(0, upto);
+
+    const hd = headerArrow(sortMode);
+
+    let html = "";
+    html += "<div class='table-wrap'><table class='table'><thead>";
+    html += "<tr>";
+    html += "<th class='th-sort"+(hd.col==='sym'?" active":"")+"' data-sort='sym'>Symbol<span class='arrow'>"+(hd.col==='sym'?hd.arrow:"")+"</span></th>";
+    html += "<th class='th-sort"+(hd.col==='name'?" active":"")+"' data-sort='name'>Name<span class='arrow'>"+(hd.col==='name'?hd.arrow:"")+"</span></th>";
+    html += "<th>Sector</th><th>Open</th><th>High</th><th>Low</th><th>Close</th>";
+    html += "<th class='th-sort"+(hd.col==='chg'?" active":"")+"' data-sort='chg'>Change%<span class='arrow'>"+(hd.col==='chg'?hd.arrow:"")+"</span></th>";
+    html += "<th>Signal</th>";
+    html += "</tr></thead><tbody>";
+
+    for (let i=0;i<view.length;i++) {{
+      const r = view[i];
+      const v = (r.change_percent==null) ? null : (r.change_percent*1);
+      const chg = (v==null) ? "" : (v.toFixed(2) + "%");
+      const cls = (v==null) ? "" : (v>0 ? "pct pos" : (v<0 ? "pct neg" : "pct"));
+      html += "<tr>"
+           + "<td>" + (r.logo ? "<img class='logo' src='" + r.logo + "' alt=''> " : "") + "<a href='" + fmt(r.url) + "'>" + fmt(r.symbol) + "</a></td>"
+           + "<td>" + fmt(r.name) + "</td>"
+           + "<td>" + fmt(r.sector) + "</td>"
+           + "<td>" + fmt(r.open) + "</td>"
+           + "<td>" + fmt(r.high) + "</td>"
+           + "<td>" + fmt(r.low) + "</td>"
+           + "<td>" + fmt(r.close) + "</td>"
+           + "<td>" + (chg?("<span class='" + cls + "'>" + chg + "</span>"):"") + "</td>"
+           + "<td><a class='btn' href='" + fmt(r.url) + "'>AI Prediction</a></td>"
+           + "</tr>";
+    }}
+    html += "</tbody></table></div>";
+
+    tableHost.innerHTML = html;
+
+    // header click handlers
+    Array.from(tableHost.querySelectorAll('.th-sort')).forEach(th => {{
+      th.addEventListener('click', () => {{
+        const k = th.getAttribute('data-sort'); // sym|name|chg
+        if (k==='sym') sortMode = (sortMode==='sym-asc') ? 'sym-desc' : 'sym-asc';
+        if (k==='name') sortMode = (sortMode==='name-asc') ? 'name-desc' : 'name-asc';
+        if (k==='chg') sortMode = (sortMode==='chg-asc') ? 'chg-desc' : 'chg-asc';
+        page = 1;
+        render();
+      }});
+    }});
+
+    const moreBtn = document.getElementById('load-more');
+    if (moreBtn) {{
+      moreBtn.style.display = (upto < total) ? '' : 'none';
+    }}
+  }}
+
+  async function fetchExchange(slug){{
+    if (slug==='all') {{
+      const exSlugs = chips.map(c=>c.dataset.ex).filter(x=>x && x!=='all');
+      await Promise.all(exSlugs.map(s => fetchExchange(s)));
+      const merged = []; const dedup = new Set();
+      exSlugs.forEach(s => {{
+        (dataByEx[s]||[]).forEach(r => {{
+          const key = (r.symbol||'') + "|" + (r.url||'');
+          if (!dedup.has(key)) {{ dedup.add(key); merged.push(r); }}
+        }});
+      }});
+      allMerged = merged;
+      return merged;
+    }}
+    if (dataByEx[slug]) return dataByEx[slug];
+    try {{
+      const res = await fetch(BASE + slug + ".json");
+      const data = await res.json();
+      dataByEx[slug] = data.rows || [];
+      return dataByEx[slug];
+    }} catch(e) {{
+      dataByEx[slug] = [];
+      return dataByEx[slug];
+    }}
+  }}
+
+  async function activate(slug){{
+    active = slug || 'all';
+    page = 1;
+    chips.forEach(c=>c.classList.toggle('active', c.dataset.ex===active));
+    await fetchExchange(active);
+    render();
+  }}
+
+  chips.forEach(c=>c.addEventListener('click', ev=>{{ ev.preventDefault(); activate(c.dataset.ex||'all'); }}));
+  searchEl.addEventListener('input', function(){{ page=1; render(); }});
+
+  activate(active || 'all'); // first load
+}})();
+</script>
+"""
+            country_body = (
+                build_exchange_bar(gslug, cslug_dir, cname, all_exchanges)
+                + "<div id='ex-table' class='card'><p class='small'>Loading…</p></div>"
+                + loader_js
+            )
+            write_text(
+                DIST / gslug / cslug_dir / "index.html",
+                tpl_base(
+                    f"{cname} — {CFG.get('site_title','')}",
+                    f"Exchanges in {cname}.",
+                    country_body,
+                    f"{BASE_URL}/{gslug}/{cslug_dir}/",
+                ),
+            )
 
     # robots + sitemap
     write_text(DIST / "robots.txt", f"Sitemap: {BASE_URL}/sitemap.xml\nUser-agent: *\nAllow: /\n")
@@ -601,5 +830,6 @@ def main() -> None:
     )
     print("Build complete →", DIST)
 
+# ---------- entry ----------
 if __name__ == "__main__":
     main()
