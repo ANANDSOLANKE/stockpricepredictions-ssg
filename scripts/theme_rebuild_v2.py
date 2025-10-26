@@ -1,28 +1,40 @@
 # scripts/theme_rebuild_v2.py
 # Light UI with strong %change parsing, blue section headings, bold green accuracy,
-# and improved cards. Keeps your existing layout & features.
+# and improved cards. Keeps your existing layout & data, fully rebuilds each page.
 
-import os, re, datetime
+import os
+import re
+import datetime
 from pathlib import Path
 from html import escape
 
 DIST_ROOT = "dist"
-STAMP = f"<!-- v2-rebuild-light {datetime.datetime.utcnow().isoformat()}Z -->"
+
+# Use timezone-aware UTC timestamps (avoids deprecation warnings)
+def utc_iso():
+    return datetime.datetime.now(datetime.UTC).isoformat().replace("+00:00", "Z")
+
+STAMP = f"<!-- v2-rebuild-light {utc_iso()} -->"
 
 # ---------- helpers ----------
-def rx(p, s, flags=re.I|re.S, group=1, default=""):
+def rx(p, s, flags=re.I | re.S, group=1, default=""):
     m = re.search(p, s, flags)
     return (m.group(group).strip() if m else default).strip()
 
 def get_symbol_and_fullname(html):
+    # Try common "AI Analysis of SYMBOL (Full Name)" pattern
     sym = rx(r"AI\s+Analysis\s+of\s+([A-Z0-9.\-]+)\s*\(", html)
     full = rx(r"AI\s+Analysis\s+of\s+[A-Z0-9.\-]+\s*\(([^)]+)\)", html)
+
     if not full:
+        # Fallback: pull from the raw <h1>
         h1 = rx(r"<h1[^>]*>(.*?)</h1>", html)
         clean = re.sub(r"<[^>]+>", "", h1)
         full = rx(r"AI\s+Analysis\s+of\s+(.+?)\s+\(", clean)
         sym2 = rx(r"\(([^)]+)\)", clean)
-        if full and not sym: sym = sym2
+        if full and not sym:
+            sym = sym2
+
     return sym or "", full or ""
 
 def get_prediction_date(html):
@@ -30,11 +42,12 @@ def get_prediction_date(html):
 
 def get_ohlc_and_change(html):
     """
-    Return (O, H, L, C, chg_str) using only the page's *actual* Change%.
+    Return (O, H, L, C, chg_str) using only the page's actual Change%.
     No computed fallback. If not found, chg_str is '—'.
     """
-    # 1) OHLC
     o = h = l = c = chg = "—"
+
+    # 1) OHLC (allow , or . and minus)
     m = re.search(
         r"OHLC:\s*O\s*([0-9.,\-]+).*?H\s*([0-9.,\-]+).*?L\s*([0-9.,\-]+).*?C\s*([0-9.,\-]+)",
         html, re.I | re.S
@@ -42,16 +55,12 @@ def get_ohlc_and_change(html):
     if m:
         o, h, l, c = [g.strip().replace(",", "") for g in m.groups()]
 
-    # 2) Try several actual Change% shapes (keep order → most specific first)
+    # 2) Actual Change% (several shapes)
     patterns = [
-        # Common: "Change%: -0.10%"
-        r"Change%\s*:\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        # With dash or middot after label: "Change% – -0.10%" or "Change% · -0.10%"
-        r"Change%\s*[–\-•\.\u00b7]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        # With label but no colon: "Change% -0.10%"
-        r"Change%\s+([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        # Standalone percent near the OHLC chip (look within ~300 chars of 'OHLC')
-        r"OHLC.{0,300}?([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
+        r"Change%\s*:\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",               # "Change%: -0.10%"
+        r"Change%\s*[–\-•\.\u00b7]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",  # "Change% – -0.10%"
+        r"Change%\s+([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",                   # "Change% -0.10%"
+        r"OHLC.{0,300}?([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",               # bare percent near the OHLC chip
     ]
     for patt in patterns:
         k = re.search(patt, html, re.I | re.S)
@@ -64,15 +73,18 @@ def get_ohlc_and_change(html):
 def get_signal(html):
     tb = rx(r"<table[^>]*>.*?<thead.*?</thead>.*?<tbody[^>]*>(.*?)</tbody>", html, group=1, default="")
     if tb:
-        r = re.search(r"<tr[^>]*>.*?<td[^>]*>.*?</td>.*?<td[^>]*>(Bullish|Bearish)</td>", tb, re.I|re.S)
-        if r: return r.group(1).title()
+        r = re.search(r"<tr[^>]*>.*?<td[^>]*>.*?</td>.*?<td[^>]*>(Bullish|Bearish)</td>", tb, re.I | re.S)
+        if r:
+            return r.group(1).title()
     return "—"
 
 def arrow_for(signal):
-    return "▲" if signal.lower()=="bullish" else ("▼" if signal.lower()=="bearish" else "—")
+    s = signal.lower()
+    return "▲" if s == "bullish" else ("▼" if s == "bearish" else "•")
 
 def banner_class_for(signal):
-    return "green" if signal.lower()=="bullish" else ("red" if signal.lower()=="bearish" else "")
+    s = signal.lower()
+    return "green" if s == "bullish" else ("red" if s == "bearish" else "")
 
 def scrape_accuracy(html):
     chip = rx(r"([0-9]{1,3}\.[0-9]{2}%\s*\([0-9]+/[0-9]+\))", html, default="")
@@ -81,9 +93,11 @@ def scrape_accuracy(html):
 def build_table(html):
     table = rx(r"(<table[^>]*>.*?</table>)", html, group=1, default="")
     if not table:
-        return ('<table class="table"><thead><tr><th>Date</th><th>AI Prediction</th>'
-                '<th>Actual</th><th>Result</th></tr></thead>'
-                '<tbody><tr><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody></table>')
+        return (
+            '<table class="table"><thead><tr>'
+            '<th>Date</th><th>AI Prediction</th><th>Actual</th><th>Result</th>'
+            '</tr></thead><tbody><tr><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody></table>'
+        )
     table = re.sub(r">Win<",  r'><span class="win">Win</span><',  table, flags=re.I)
     table = re.sub(r">Loss<", r'><span class="loss">Loss</span><', table, flags=re.I)
     table = re.sub(r"<table([^>]*)>", r'<table class="table"\1>', table, count=1, flags=re.I)
@@ -101,7 +115,7 @@ CSS = r"""
   --shadow-lg:0 10px 30px rgba(0,0,0,.06);
 }
 *{box-sizing:border-box}
-body { background:var(--bg); color:var(--text); font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Inter", sans-serif; margin:0; padding:20px; }
+body { background:var(--bg); color:var(--text); font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,Inter,sans-serif; margin:0; padding:20px; }
 .wrap { max-width:1100px; margin:0 auto; }
 
 a { color:var(--blue); text-decoration:none; }
@@ -235,11 +249,11 @@ def rebuild_page(p: Path):
 
     out = HTML.format(
         stamp=STAMP,
-        page_title=f"{full_name or symbol} Stock Prediction",
+        page_title=f"{(full_name or symbol or 'Stock')} Stock Prediction",
         css=CSS,
         symbol=escape(symbol or "—"),
         full_name=escape(full_name or "Stock"),
-        build_time=datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        build_time=datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         close_px=escape(close_px),
         chg=escape(chg or "—"),
         chg_class=chg_class,
