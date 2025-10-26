@@ -1,20 +1,21 @@
 # scripts/theme_rebuild_v2.py
-# v2.3 — Same theme. Data now pulled from latest CSV to align 100% with dark index tables.
-# Header shows LAST trading day's Date + OHLC + %Change from CSV.
-# Banner shows ONLY "AI Prediction: {Full Name} for {Next trading date}".
-# If CSV match not found, falls back to previous HTML scraping (safe).
+# v2.5 — CSV-first rebuild aligned with dark index tables.
+# - Reads Date + O H L C + %Change from Data/LastTradingDay/<Region>/<country>.csv
+# - Header shows: Date: {date} • O {o} H {h} L {l} C {c} • % Change {chg}
+# - Banner shows: AI Prediction: {Full Name} for {Next trading date}
+# - Theme/HTML structure unchanged
+# - Robust header normalization so "Change%" is recognized as percent
 
-import re
-import csv
+import re, csv
 import datetime as dt
 from pathlib import Path
 from html import escape
 
 DIST_ROOT = "dist"
-DATA_ROOT = "Data"
+DATA_ROOT = Path("Data") / "LastTradingDay"
 STAMP = f"<!-- v2-rebuild-light {dt.datetime.now(dt.timezone.utc).isoformat()} -->"
 
-# -------------------- small utils --------------------
+# ---------- helpers ----------
 def rx(pat, s, flags=re.I | re.S, group=1, default=""):
     m = re.search(pat, s, flags)
     return (m.group(group).strip() if m else default).strip()
@@ -29,21 +30,22 @@ def next_weekday(iso_date: str) -> str:
         if d.weekday() < 5:
             return d.isoformat()
 
-def latest_data_folder(root=DATA_ROOT) -> str:
-    base = Path(root)
-    if not base.exists():
-        return ""
-    candidates = []
-    for p in base.iterdir():
-        if p.is_dir():
-            try:
-                _ = dt.date.fromisoformat(p.name)
-                candidates.append(p.name)
-            except Exception:
-                pass
-    return max(candidates) if candidates else ""
+def number_str(x):
+    sx = str(x).strip()
+    if sx == "" or sx == "—":
+        return "—"
+    return sx.replace(",", "")
 
-# -------------------- HTML fallbacks (old behavior) --------------------
+def pct_to_str(val):
+    if val is None or val == "":
+        return "—"
+    try:
+        f = float(val)
+    except Exception:
+        return "—"
+    return f"{f:.2f}%"
+
+# ---------- HTML fallbacks (unchanged look) ----------
 def get_symbol_and_fullname(html: str):
     sym = rx(r"AI\s+Analysis\s+of\s+([A-Z0-9.\-]+)\s*\(", html)
     full = rx(r"AI\s+Analysis\s+of\s+[A-Z0-9.\-]+\s*\(([^)]+)\)", html)
@@ -92,10 +94,8 @@ def get_ohlc_and_change_from_html(html: str):
     cutoff_idx = len(html)
     for marker in ("Model Performance", "Last 7-Day Accuracy", "Model vs. Actual"):
         i = html.lower().find(marker.lower())
-        if i != -1:
-            cutoff_idx = min(cutoff_idx, i)
+        if i != -1: cutoff_idx = min(cutoff_idx, i)
     scope = html[:cutoff_idx]
-
     patt = re.compile(
         r"(?:Change%\s*|Change\s*%\s*|Change\s*|Chg%\s*|Chg\s*|Day\s*Change\s*|[Δ∆]\s*%)"
         r"[:\-]?\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%", re.I | re.S
@@ -109,15 +109,14 @@ def get_signal(html: str):
     tb = rx(r"<table[^>]*>.*?<thead.*?</thead>.*?<tbody[^>]*>(.*?)</tbody>", html, group=1, default="")
     if tb:
         r = re.search(r"<tr[^>]*>.*?<td[^>]*>.*?</td>.*?<td[^>]*>(Bullish|Bearish)</td>", tb, re.I | re.S)
-        if r:
-            return r.group(1).title()
+        if r: return r.group(1).title()
     return "—"
 
 def arrow_for(signal: str):
-    return "▲" if signal.lower() == "bullish" else ("▼" if signal.lower() == "bearish" else "—")
+    return "▲" if signal.lower()=="bullish" else ("▼" if signal.lower()=="bearish" else "—")
 
 def banner_class_for(signal: str):
-    return "green" if signal.lower() == "bullish" else ("red" if signal.lower() == "bearish" else "")
+    return "green" if signal.lower()=="bullish" else ("red" if signal.lower()=="bearish" else "")
 
 def scrape_accuracy(html: str):
     chip = rx(r"([0-9]{1,3}\.[0-9]{2}%\s*\([0-9]+/[0-9]+\))", html, default="")
@@ -134,120 +133,156 @@ def build_table(html: str):
     table = re.sub(r"<table([^>]*)>", r'<table class="table"\1>', table, count=1, flags=re.I)
     return table
 
-# -------------------- CSV loader (new) --------------------
+# ---------- region folder mapping (dist → Data/LastTradingDay names) ----------
+REGION_MAP = {
+    "asia-pacific": "Asia - Pacific",
+    "europe": "Europe",
+    "north-america": "North America",
+    "mexico-south-america": "Mexico - South America",
+    "middle-east-africa": "Middle East - Africa",
+    "global-indices": "Global Indices",
+}
+
+def country_to_csv_name(country: str) -> str:
+    # CSV filenames are lowercase with hyphens
+    return country.lower().replace(" ", "-") + ".csv"
+
+def parse_path_parts(p: Path):
+    # dist/<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+    parts = [x for x in p.parts]
+    try:
+        i = parts.index(DIST_ROOT)
+    except ValueError:
+        i = next((k for k, s in enumerate(parts) if s.lower()=="dist"), -1)
+    if i == -1 or len(parts) < i+6:
+        return None
+    region_slug = parts[i+1].lower()
+    country = parts[i+2]
+    exchange = parts[i+3]
+    symbol_slug = parts[i+4]  # folder name equals symbol slug
+    return {
+        "region_slug": region_slug,
+        "region_data": REGION_MAP.get(region_slug, region_slug),
+        "country": country,
+        "exchange": exchange,
+        "symbol_upper": symbol_slug.upper()
+    }
+
+# ---------- CSV cache ----------
 class CSVCache:
-    """
-    Cache per-country CSV from the latest Data/<date>/.
-    Provides lookup by (exchange_lower, symbol_upper).
-    """
-    def __init__(self, data_root=DATA_ROOT):
-        self.data_root = data_root
-        self.latest = latest_data_folder(data_root)
-        self._country_maps = {}  # country_lower -> dict[(exch_lower, sym_upper)] = row_dict
-        self._last_date_by_country = {}  # country_lower -> iso date
+    def __init__(self, base: Path):
+        self.base = base
+        self.cache = {}  # (region_data, country_csv) -> list of rows
+        self.index = {}  # (region_data, country_csv) -> {symbol_upper: row}
+        self.country_last_date = {}  # fallback date if row has no date
 
-    def _normalize_headers(self, headers):
-        return [h.strip().lower().replace(" ", "").replace("_", "") for h in headers]
+    @staticmethod
+    def _normalize_headers(headers):
+        # Normalize headers: lower, remove spaces/underscores, map '%' → 'pct'
+        # So "Change%" becomes "changepct"
+        return [h.strip().lower().replace(" ", "").replace("_", "").replace("%", "pct") for h in headers]
 
-    def _parse_pct(self, v):
-        if v is None or v == "":
-            return None
-        s = str(v).strip().replace("%", "").replace(",", "")
+    @staticmethod
+    def _float_or_none(v):
+        if v is None: return None
+        s = str(v).replace(",", "").strip()
+        if s == "": return None
+        try: return float(s)
+        except Exception: return None
+
+    @staticmethod
+    def _parse_pct(v):
+        if v is None: return None
+        s = str(v).strip().replace("%","").replace(",","")
+        if s == "": return None
         try:
             num = float(s)
         except Exception:
             return None
-        # If looks like decimal fraction, convert to percent
+        # Treat <=1 as likely fraction; multiply to %
         if abs(num) <= 1.0:
             num *= 100.0
         return round(num, 2)
 
     def _row_to_obj(self, headers_norm, row_vals):
-        obj = {}
-        for k, v in zip(headers_norm, row_vals):
-            obj[k] = v
-        # Common names
-        def get(*names):
+        raw = {k:v for k,v in zip(headers_norm, row_vals)}
+        def get(*names, default=""):
             for n in names:
-                if n in obj and obj[n] not in (None, ""):
-                    return obj[n]
-            return ""
+                if n in raw and raw[n] not in (None,""):
+                    return raw[n]
+            return default
 
-        # Build typed view
-        symbol = str(get("symbol","ticker")).strip()
-        exchange = str(get("exchange","exch")).strip()
-        # Date (prefer explicit, else folder date)
-        date = str(get("date","lastdate","tradingdate")).strip()
+        symbol  = str(get("symbol","ticker")).strip().upper()
+        exchange= str(get("exchange","exch")).strip().lower()
+        date    = str(get("date","lastdate","tradingdate")).strip()
 
-        o = str(get("open","o")).strip()
-        h = str(get("high","h")).strip()
-        l = str(get("low","l")).strip()
-        c = str(get("close","c","last")).strip()
+        o = number_str(get("open","o"))
+        h = number_str(get("high","h"))
+        l = number_str(get("low","l"))
+        c = number_str(get("close","c","last"))
 
-        # change percent variants
-        chg_candidates = [get("change%","changepct","pctchange","changep","change","daychange")]
-        chg_val = None
-        for cv in chg_candidates:
-            p = self._parse_pct(cv)
-            if p is not None:
-                chg_val = p
-                break
+        # percent candidates (after normalization "Change%" -> "changepct")
+        pct_keys = [
+            "changepct","changepercent","percentchange","pctchange",
+            "changepercentage","changeperc","change_pct",
+            "pchange","chgpct","chgpercent","chgperc",
+            "daychangepct","daychangepct"
+        ]
+        chg_pct = None
+        for k in pct_keys:
+            if k in raw and str(raw[k]).strip()!="":
+                chg_pct = self._parse_pct(raw[k]); break
+
+        # compute from prev/abs if needed
+        if chg_pct is None:
+            prev = self._float_or_none(get("prevclose","previousclose","pclose","pc","yclose","prev"))
+            close_f = self._float_or_none(c)
+            if close_f is not None and prev not in (None,0):
+                chg_pct = round((close_f - prev) / prev * 100.0, 2)
+            else:
+                abschg = self._float_or_none(get("change","chg","daychange","pricechange","changevalue","chgvalue"))
+                if abschg is not None and close_f not in (None,0):
+                    prev_est = close_f - abschg
+                    if prev_est:
+                        chg_pct = round((close_f - prev_est) / prev_est * 100.0, 2)
 
         return {
-            "symbol": symbol,
-            "exchange": exchange,
-            "date": date,
-            "o": o, "h": h, "l": l, "c": c,
-            "chg_pct": chg_val
+            "symbol": symbol, "exchange": exchange, "date": date,
+            "o": o, "h": h, "l": l, "c": c, "chg_pct": chg_pct
         }
 
-    def _load_country(self, country_lower):
-        if not self.latest:
-            self._country_maps[country_lower] = {}
-            self._last_date_by_country[country_lower] = ""
-            return
+    def _load(self, region_folder: str, country_csv: str):
+        key = (region_folder, country_csv)
+        if key in self.cache: return
+        fp = self.base / region_folder / country_csv
+        rows = []
+        idx = {}
+        last_date = ""
+        if fp.exists():
+            with fp.open("r", encoding="utf-8", newline="") as f:
+                rr = csv.reader(f)
+                rows_all = list(rr)
+            if rows_all:
+                headers_norm = self._normalize_headers(rows_all[0])
+                for r in rows_all[1:]:
+                    obj = self._row_to_obj(headers_norm, r)
+                    rows.append(obj)
+                    if obj["symbol"]:
+                        idx[obj["symbol"]] = obj
+                    if obj["date"]:
+                        last_date = obj["date"]
+        self.cache[key] = rows
+        self.index[key] = idx
+        self.country_last_date[key] = last_date
 
-        csv_path = Path(self.data_root) / self.latest / f"{country_lower}.csv"
-        if not csv_path.exists():
-            self._country_maps[country_lower] = {}
-            self._last_date_by_country[country_lower] = ""
-            return
+    def lookup(self, region_folder: str, country_csv: str, symbol_upper: str):
+        self._load(region_folder, country_csv)
+        key = (region_folder, country_csv)
+        return self.index[key].get(symbol_upper), self.country_last_date.get(key,"")
 
-        with csv_path.open("r", encoding="utf-8", newline="") as f:
-            r = csv.reader(f)
-            rows = list(r)
-        if not rows:
-            self._country_maps[country_lower] = {}
-            self._last_date_by_country[country_lower] = ""
-            return
+CSV = CSVCache(DATA_ROOT)
 
-        headers = rows[0]
-        headers_norm = self._normalize_headers(headers)
-        m = {}
-        last_date_seen = ""
-        for row in rows[1:]:
-            obj = self._row_to_obj(headers_norm, row)
-            key = (obj["exchange"].lower(), obj["symbol"].upper())
-            m[key] = obj
-            if obj["date"]:
-                last_date_seen = obj["date"]
-        self._country_maps[country_lower] = m
-        # If no date column, fall back to folder name
-        self._last_date_by_country[country_lower] = last_date_seen or self.latest
-
-    def get_row(self, country_lower, exchange_lower, symbol_upper):
-        if country_lower not in self._country_maps:
-            self._load_country(country_lower)
-        return self._country_maps.get(country_lower, {}).get((exchange_lower, symbol_upper))
-
-    def get_country_last_date(self, country_lower):
-        if country_lower not in self._last_date_by_country:
-            self._load_country(country_lower)
-        return self._last_date_by_country.get(country_lower, "")
-
-CSV = CSVCache()
-
-# -------------------- THEME (unchanged) --------------------
+# ---------- THEME (unchanged) ----------
 CSS = r"""
 :root {
   --blue:#2563eb; --blue-weak:#dbeafe;
@@ -360,68 +395,30 @@ HTML = """{stamp}
 </body></html>
 """
 
-# -------------------- CSV-first rebuild --------------------
-def parse_path_parts(p: Path):
-    # dist/<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
-    parts = p.parts
-    try:
-        i = parts.index(DIST_ROOT)
-    except ValueError:
-        # fall back if absolute path, try to find "dist"
-        i = next((k for k, s in enumerate(parts) if s.lower() == "dist"), -1)
-    if i == -1 or len(parts) < i + 6:
-        return None
-    region = parts[i+1]
-    country = parts[i+2]
-    exchange = parts[i+3]
-    symbol_slug = parts[i+4]
-    return {
-        "region": region,
-        "country_lower": country.lower(),
-        "exchange_lower": exchange.lower(),
-        "symbol_upper": symbol_slug.upper()
-    }
-
-def number_str(x):
-    sx = str(x).strip()
-    if sx == "" or sx == "—":
-        return "—"
-    # keep as-is; remove thousands commas
-    sx = sx.replace(",", "")
-    return sx
-
-def pct_str(x):
-    if x is None or x == "":
-        return "—"
-    try:
-        v = float(x)
-    except Exception:
-        return "—"
-    return f"{v:.2f}%"
-
+# ---------- rebuild ----------
 def rebuild_page(p: Path):
     html = p.read_text(encoding="utf-8")
     symbol, full_name = get_symbol_and_fullname(html)
-    parts = parse_path_parts(p)
 
-    # Defaults (fallback to HTML if CSV not found)
+    # defaults from HTML (safe fallback)
     last_date = get_max_table_date(html) or "—"
     o, h, l, c, chg = get_ohlc_and_change_from_html(html)
 
+    parts = parse_path_parts(p)
     if parts:
-        row = CSV.get_row(parts["country_lower"], parts["exchange_lower"], parts["symbol_upper"])
-        if row:
-            # Use CSV values
-            last_date = row["date"] or CSV.get_country_last_date(parts["country_lower"]) or last_date
-            o = number_str(row["o"])
-            h = number_str(row["h"])
-            l = number_str(row["l"])
-            c = number_str(row["c"])
-            chg = pct_str(row["chg_pct"])
+        region_folder = parts["region_data"]
+        country_csv = country_to_csv_name(parts["country"])
+        sym_u = parts["symbol_upper"]
 
-    # Banner date: explicit if present; else next weekday after last_date
-    pred_explicit = get_prediction_date_explicit(html)
-    pred_date = pred_explicit or (next_weekday(last_date) if last_date and last_date != "—" else "—")
+        row, country_last_date = CSV.lookup(region_folder, country_csv, sym_u)
+        if row:
+            last_date = row["date"] or country_last_date or last_date
+            o = number_str(row["o"]); h = number_str(row["h"])
+            l = number_str(row["l"]); c = number_str(row["c"])
+            chg = pct_to_str(row["chg_pct"])
+
+    # Banner date
+    pred_date = get_prediction_date_explicit(html) or (next_weekday(last_date) if last_date and last_date!="—" else "—")
 
     signal = get_signal(html)
     acc_pct, acc_note = scrape_accuracy(html)
@@ -434,29 +431,26 @@ def rebuild_page(p: Path):
         symbol=escape(symbol or "—"),
         full_name=escape(full_name or "Stock"),
         build_time=dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-
         last_date=escape(last_date or "—"),
         o=o, h=h, l=l, c=c, chg=escape(chg or "—"),
-
         pred_date=escape(pred_date or "—"),
         signal=signal,
         banner_arrow=arrow_for(signal),
         banner_class=banner_class_for(signal),
-
         acc_pct=acc_pct, acc_note=acc_note,
         table_html=table_html
     )
     p.write_text(out, encoding="utf-8")
-    print(f"[v2.3-csv] rebuilt: {p}")
+    print(f"[v2.5-csv] {p}")
 
 def main():
     root = Path(DIST_ROOT)
     count = 0
     for f in root.rglob("index.html"):
-        if "prediction-tomorrow" in str(f).replace("\\", "/"):
+        if "prediction-tomorrow" in str(f).replace("\\","/"):
             rebuild_page(f)
             count += 1
-    print(f"[v2.3-csv] latest Data folder: {CSV.latest or '—'} | total rebuilt pages: {count}")
+    print(f"[v2.5-csv] finished; pages rebuilt: {count}")
 
 if __name__ == "__main__":
     main()
