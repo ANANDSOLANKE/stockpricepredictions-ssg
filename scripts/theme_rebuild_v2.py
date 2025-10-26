@@ -94,12 +94,13 @@ def get_last_trading_date(html: str) -> str:
 
 def get_ohlc_and_change(html: str):
     """
-    Return (O, H, L, C, chg_str). Use MANY variants to find Change%.
-    If still missing, leave as '—' (we avoid computing without prev close context).
+    Return (O, H, L, C, chg_str).
+    - OHLC from the 'OHLC: O ... H ... L ... C ...' line.
+    - % Change ONLY from explicit 'Change' labels (never from accuracy).
     """
     o = h = l = c = chg = "—"
 
-    # OHLC
+    # 1) OHLC
     m = re.search(
         r"OHLC:\s*O\s*([0-9.,\-]+).*?H\s*([0-9.,\-]+).*?L\s*([0-9.,\-]+).*?C\s*([0-9.,\-]+)",
         html, re.I | re.S
@@ -107,26 +108,25 @@ def get_ohlc_and_change(html: str):
     if m:
         o, h, l, c = [g.strip().replace(",", "") for g in m.groups()]
 
-    # % Change — broadened patterns
-    patterns = [
-        r"Change%\s*:\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"Change\s*%\s*[:\-]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"Change\s*[:\-]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"Chg%\s*[:\-]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"Chg\s*[:\-]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"Day\s*Change\s*[:\-]\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        r"[Δ∆]\s*%\s*[:\-]?\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-        # bare parentheses or near OHLC area
-        r"\(([+\-]?\s*\d+(?:[.,]\d+)?)\s*%\)",
-        r"OHLC.{0,400}?([+\-]?\s*\d+(?:[.,]\d+)?)\s*%",
-    ]
-    for patt in patterns:
-        k = re.search(patt, html, re.I | re.S)
-        if k:
-            chg = k.group(1).replace(" ", "").replace(",", ".") + "%"
-            break
+    # 2) Limit search scope to BEFORE the accuracy/cards to avoid grabbing '42.86% (3/7)'
+    cutoff_idx = len(html)
+    for marker in ("Model Performance", "Last 7-Day Accuracy", "Model vs. Actual"):
+        i = html.lower().find(marker.lower())
+        if i != -1:
+            cutoff_idx = min(cutoff_idx, i)
+    scope = html[:cutoff_idx]
+
+    # 3) % Change — match only labeled variants (no generic percent grabs)
+    patt = re.compile(
+        r"(?:Change%\s*|Change\s*%\s*|Change\s*|Chg%\s*|Chg\s*|Day\s*Change\s*|[Δ∆]\s*%)"
+        r"[:\-]?\s*([+\-]?\s*\d+(?:[.,]\d+)?)\s*%", re.I | re.S
+    )
+    k = patt.search(scope)
+    if k:
+        chg = k.group(1).replace(" ", "").replace(",", ".") + "%"
 
     return o, h, l, c, chg
+
 
 def get_signal(html: str):
     tb = rx(r"<table[^>]*>.*?<thead.*?</thead>.*?<tbody[^>]*>(.*?)</tbody>", html, group=1, default="")
