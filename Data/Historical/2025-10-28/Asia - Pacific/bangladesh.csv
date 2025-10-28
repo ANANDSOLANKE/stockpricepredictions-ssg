@@ -1,12 +1,12 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
 1JANATAMF,First Janata Bank Mutual Fund Units,DSEBD,,,2.9,2.9,2.8,2.8,0.0,,187370,BDT
-1STPRIMFMF,Prime Finance First Mutual Fund 2009 Units,DSEBD,,,19.2,20.3,19.2,20.0,1.0101010101010066,,280026,BDT
+1STPRIMFMF,Prime Finance First Mutual Fund 2009 Units,DSEBD,,,19.2,20.3,19.2,20.0,1.0101010101010066,,280226,BDT
 AAMRANET,aamra networks ltd,DSEBD,Communications,Specialty Telecommunications,20.2,21.3,20.2,21.0,3.960396039603964,1878193980.0,370927,BDT
 AAMRATECH,Aamra Technologies Limited,DSEBD,Technology Services,Information Technology Services,11.9,12.3,11.8,12.2,2.5210084033613356,770018060.0,13026,BDT
 ABB1STMF,AB Bank 1st Mutual Fund 2011 Units,DSEBD,Miscellaneous,Investment Trusts/Mutual Funds,2.9,3.0,2.9,2.9,0.0,,196044,BDT
 ABBANK,AB Bank PLC,DSEBD,Finance,Regional Banks,5.2,5.2,5.1,5.2,1.960784313725501,4568043207.0,304812,BDT
 ACFL,Aman Cotton Fibrous PLC,DSEBD,Process Industries,Textiles,18.2,18.4,18.1,18.2,0.0,1835166790.0,84093,BDT
-ACI,Advanced Chemical Industries PLC,DSEBD,Health Technology,Pharmaceuticals: Major,174.0,174.0,170.0,172.4,1.292596944770868,14915726413.0,25784,BDT
+ACI,Advanced Chemical Industries PLC,DSEBD,Health Technology,Pharmaceuticals: Major,174.0,174.0,170.0,172.4,1.292596944770868,14915726413.0,25834,BDT
 ACIFORMULA,ACI Formulations PLC,DSEBD,Process Industries,Chemicals: Agricultural,141.9,141.9,138.2,138.6,-0.21598272138229757,6563024712.0,17264,BDT
 ACMELAB,ACME Laboratories Ltd.,DSEBD,Health Technology,Pharmaceuticals: Major,75.2,75.4,74.6,75.1,-0.2656042496679985,15933608643.0,221315,BDT
 ACMEPL,ACME Pesticides Ltd,DSEBD,Process Industries,Chemicals: Agricultural,15.5,15.9,14.5,14.8,-5.732484076433112,,1139701,BDT
@@ -69,7 +69,7 @@ BNICL,Bangladesh National Insurance Company Ltd,DSEBD,Finance,Multi-Line Insuran
 BPML,Bashundhara Paper Mill Ltd.,DSEBD,Process Industries,Pulp & Paper,29.9,29.9,27.9,29.0,-2.3569023569023546,5161605986.0,115032,BDT
 BPPL,Baraka Patenga Power Ltd.,DSEBD,Utilities,Electric Utilities,11.9,13.0,11.9,13.0,9.243697478991592,2058646186.0,2231450,BDT
 BRACBANK,BRAC Bank PLC,DSEBD,Finance,Regional Banks,70.5,70.5,68.2,69.0,0.877192982456132,136179351524.0,2446698,BDT
-BSC,Bangladesh Shipping Corporation,DSEBD,Transportation,Marine Shipping,107.5,109.1,106.7,108.5,1.8779342723004695,16244982765.0,511737,BDT
+BSC,Bangladesh Shipping Corporation,DSEBD,Transportation,Marine Shipping,107.5,109.1,106.7,108.5,1.8779342723004695,16244982765.0,511787,BDT
 BSCPLC,Bangladesh Submarine Cables PLC,DSEBD,Communications,Specialty Telecommunications,130.5,130.5,128.9,129.1,0.15515903801395547,24109306479.0,20614,BDT
 BSRMLTD,Bangladesh Steel Re-Rolling Mills Ltd.,DSEBD,Non-Energy Minerals,Steel,83.7,84.5,83.6,83.7,-0.23837902264601052,25051250514.0,45266,BDT
 BSRMSTEEL,BSRM Steels Limited,DSEBD,Non-Energy Minerals,Steel,67.5,68.2,66.9,68.0,0.8902077151335227,25339200061.0,417394,BDT
@@ -171,7 +171,7 @@ ICBIBANK,ICB Islamic Bank Limited,DSEBD,Finance,Regional Banks,2.7,2.7,2.5,2.6,0
 ICBSONALI1,ICB AMCL Sonali Bank Ltd 1st Mutual Fund 2013- Units,DSEBD,Miscellaneous,Investment Trusts/Mutual Funds,5.1,5.1,5.0,5.0,0.0,,494584,BDT
 ICICL,Islami Commercial Insurance PLC.,DSEBD,Finance,Multi-Line Insurance,22.5,23.1,22.5,22.9,1.3274336283185715,,185384,BDT
 IDLC,IDLC Finance PLC.,DSEBD,Finance,Finance/Rental/Leasing,36.5,37.2,36.0,36.2,-1.3623978201634876,16018941056.0,381234,BDT
-IFADAUTOS,IFAD Autos PLC,DSEBD,Retail Trade,Specialty Stores,21.3,21.3,19.6,20.0,-4.3062200956937735,5606506538.0,448896,BDT
+IFADAUTOS,IFAD Autos PLC,DSEBD,Retail Trade,Specialty Stores,21.3,21.3,19.6,20.0,-4.3062200956937735,5606506538.0,449536,BDT
 IFIC,IFIC Bank PLC,DSEBD,Finance,Major Banks,5.1,5.2,5.0,5.1,0.0,9802641833.0,908220,BDT
 IFIC1STMF,IFIC Bank 1st Mutual Fund Units,DSEBD,Miscellaneous,Investment Trusts/Mutual Funds,3.0,3.1,2.9,3.0,3.448275862068969,,114478,BDT
 IFILISLMF1,IFIL Islamic Mutual Fund - 1 Units,DSEBD,Miscellaneous,Investment Trusts/Mutual Funds,4.0,4.1,4.0,4.0,0.0,400000000.0,23180,BDT
@@ -367,7 +367,7 @@ TAMIJTEX,Tamijuddin Textile Mills PLC,DSEBD,Consumer Non-Durables,Apparel/Footwe
 TECHNODRUG,Techno Drugs Ltd.,DSEBD,Health Technology,Pharmaceuticals: Major,32.1,32.1,31.1,31.2,-1.8867924528301931,4197542760.0000005,425427,BDT
 TILIL,Trust Islami Life Insurance Ltd.,DSEBD,Finance,Life/Health Insurance,46.2,46.6,44.0,44.4,-3.4782608695652204,,545748,BDT
 TITASGAS,Titas Gas Transmission and Distribution PLC,DSEBD,Utilities,Gas Distributors,17.7,17.8,17.4,17.6,0.5714285714285796,17311381531.0,149927,BDT
-TOSRIFA,Tosrifa Industries Ltd,DSEBD,Consumer Non-Durables,Apparel/Footwear,18.2,18.9,18.1,18.6,1.6393442622950858,1269010119.0,283110,BDT
+TOSRIFA,Tosrifa Industries Ltd,DSEBD,Consumer Non-Durables,Apparel/Footwear,18.2,18.9,18.1,18.6,1.6393442622950858,1269010119.0,283540,BDT
 TRUSTB1MF,Trust Bank 1st Mutual Fund Units,DSEBD,Miscellaneous,Investment Trusts/Mutual Funds,2.9,3.0,2.9,2.9,0.0,,85188,BDT
 TRUSTBANK,Trust Bank PLC,DSEBD,Finance,Major Banks,17.2,17.6,17.1,17.4,1.1627906976744147,17098168654.000002,226936,BDT
 TUNGHAI,Tung Hai Knitting & Dyeing Ltd,DSEBD,Consumer Non-Durables,Apparel/Footwear,1.6,1.7,1.6,1.6,0.0,170644851.0,97539,BDT
