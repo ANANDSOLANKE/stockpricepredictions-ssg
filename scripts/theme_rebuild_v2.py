@@ -1,17 +1,17 @@
 # scripts/theme_rebuild_v2.py
-# Date + OHLC + %Change under stock name; NO OHLC in banner.
-# CSV is the single source of truth (Data/LastTradingDay). Matching by (Symbol, Description) with safe fallbacks.
+# Dates from folder structure; OHLC/%Change under stock name; NO OHLC in banner.
 
-import csv, re
+import csv, re, os
 import datetime as dt
 from pathlib import Path
 from html import escape
 
 DIST_ROOT = "dist"
 DATA_LAST_TRADING_DAY = "Data/LastTradingDay"
+DATA_HISTORICAL = "Data/Historical"
 STAMP = f"<!-- v2-rebuild-light {dt.datetime.now(dt.timezone.utc).isoformat()} -->"
 
-# ---------------- helpers ----------------
+# ---------------- small utils ----------------
 def rx(pat, s, flags=re.I | re.S, group=1, default=""):
     m = re.search(pat, s, flags)
     return (m.group(group).strip() if m else default).strip()
@@ -37,9 +37,6 @@ def get_symbol_and_fullname(html: str):
         if full and not sym: sym = sym2
     return (sym or "").strip(), (full or "").strip()
 
-def get_prediction_date(html):
-    return rx(r"Prediction\s+for\s+([0-9]{4}-[0-9]{2}-[0-9]{2})", html, default="")
-
 def get_signal(html):
     tbody = rx(r"<table[^>]*>.*?<thead.*?</thead>.*?<tbody[^>]*>(.*?)</tbody>", html, group=1, default="")
     if tbody:
@@ -54,7 +51,89 @@ def scrape_accuracy(html):
     chip = rx(r"([0-9]{1,3}\.[0-9]{2}%\s*\([0-9]+/[0-9]+\))", html, default="")
     return (chip or "—"), ("Last 7-Day Accuracy" if chip else "Accuracy unavailable")
 
-# ---------------- CSV index ----------------
+# ---------------- region helpers ----------------
+MIDEAST_HINTS = {"gulf", "middle east", "middle-east", "me", "mena"}
+
+def infer_region_from_path(page_path: Path) -> str:
+    """Assumes dist/<Region>/<Country>/<...>/prediction-tomorrow/index.html"""
+    parts = page_path.parts
+    try:
+        i = parts.index(DIST_ROOT) if DIST_ROOT in parts else parts.index("dist")
+    except ValueError:
+        # best-effort: assume region is right after 'dist'
+        try:
+            i = parts.index("dist")
+        except ValueError:
+            return ""
+    # region should be next segment
+    return parts[i+1] if i+1 < len(parts) else ""
+
+def is_middle_east_region(region_name: str) -> bool:
+    s = region_name.lower()
+    return any(h in s for h in MIDEAST_HINTS)
+
+def previous_trading_day(d: dt.date, middle_east: bool) -> dt.date:
+    wd = d.weekday()  # 0=Mon ... 6=Sun
+    if middle_east:
+        # trading Sun(6? actually Python 6=Sun)–Thu(3)? Wait: Python 3=Thu; 4=Fri
+        # Weekend = Fri(4), Sat(5)
+        if wd == 0:  # Mon -> Sun (-1)
+            return d - dt.timedelta(days=1)
+        if wd == 6:  # Sun -> Thu (-3)
+            return d - dt.timedelta(days=3)
+        if wd == 5:  # Sat -> Thu (-2)
+            return d - dt.timedelta(days=2)
+        # default previous day
+        return d - dt.timedelta(days=1)
+    else:
+        # Weekend = Sat(5), Sun(6)
+        if wd == 0:  # Mon -> Fri (-3)
+            return d - dt.timedelta(days=3)
+        if wd == 6:  # Sun -> Fri (-2)
+            return d - dt.timedelta(days=2)
+        # default previous day
+        return d - dt.timedelta(days=1)
+
+def next_trading_day(d: dt.date, middle_east: bool) -> dt.date:
+    wd = d.weekday()
+    if middle_east:
+        # Trading Sun–Thu; Weekend Fri(4), Sat(5)
+        if wd == 4:  # Fri -> Sun (+2)
+            return d + dt.timedelta(days=2)
+        if wd == 5:  # Sat -> Sun (+1)
+            return d + dt.timedelta(days=1)
+        return d + dt.timedelta(days=1)
+    else:
+        # Trading Mon–Fri; Weekend Sat(5), Sun(6)
+        if wd == 4:  # Fri -> Mon (+3)
+            return d + dt.timedelta(days=3)
+        if wd == 5:  # Sat -> Mon (+2)
+            return d + dt.timedelta(days=2)
+        return d + dt.timedelta(days=1)
+
+# ---------------- LastTradingDay from folders ----------------
+DATE_DIR_RX = re.compile(r"^20\d{2}-\d{2}-\d{2}$")
+
+def latest_hist_date_for_region(region: str) -> dt.date | None:
+    """Return latest YYYY-MM-DD in Data/Historical that contains this region folder."""
+    root = Path(DATA_HISTORICAL)
+    if not root.exists():
+        return None
+    candidates = []
+    for d in root.iterdir():
+        if d.is_dir() and DATE_DIR_RX.match(d.name):
+            region_dir = d / region
+            if region_dir.exists() and any(region_dir.rglob("*.csv")):
+                # date folder has CSVs for this region
+                try:
+                    candidates.append(dt.datetime.strptime(d.name, "%Y-%m-%d").date())
+                except:
+                    pass
+    if not candidates:
+        return None
+    return max(candidates)
+
+# ---------------- CSV index (from Data/LastTradingDay) ----------------
 CSV_BY_SYM_DESC, CSV_BY_SYM = {}, {}
 
 CSV_OPEN_KEYS  = {"open","o"}
@@ -62,12 +141,6 @@ CSV_HIGH_KEYS  = {"high","h"}
 CSV_LOW_KEYS   = {"low","l"}
 CSV_CLOSE_KEYS = {"close","c","last","close price"}
 CSV_CHG_KEYS   = {"change%","change %","pct_change","percent_change","pct%","% change"}
-CSV_DATE_KEYS  = {"date","trading_date","lasttradingday","last trading day","timestamp","time","close_date"}
-
-DATE_RXES = [
-    re.compile(r"\b(20\d{2}-\d{2}-\d{2})\b"),           # YYYY-MM-DD
-    re.compile(r"\b(\d{2}-\d{2}-20\d{2})\b"),           # DD-MM-YYYY
-]
 
 def coerce_num(x):
     if x is None: return ""
@@ -75,14 +148,7 @@ def coerce_num(x):
     return "" if s in ("","—","-") else s
 
 def normalize_pct(x):
-    """
-    Format to +0.83% / -0.83% without accidental ×100.
-    Rules:
-      - If contains '%': parse and reformat to ±xx.xx%.
-      - If numeric (no '%'):
-          * very small |v| < 0.005 → treat as fraction ⇒ v*100 (0.0083 → 0.83%)
-          * else keep as percent points (0.83 → 0.83%, 2.5 → 2.50%)
-    """
+    """Format to +0.83% / -0.83% without accidental ×100."""
     if x is None: return ""
     s = str(x).strip()
     if s in ("","—","-"): return ""
@@ -91,9 +157,8 @@ def normalize_pct(x):
         except: return s
     try:
         v = float(s.replace(",",""))
-        if abs(v) < 0.005:      # fraction like 0.0007 → 0.07%
+        if abs(v) < 0.005:  # fraction like 0.0083 -> 0.83%
             v *= 100.0
-        # else: already percent points (0.83 or 2.5)
         return f"{v:+.2f}%"
     except:
         return s
@@ -102,19 +167,6 @@ def pick_col(row: dict, keys_set):
     for k in list(row.keys()):
         if k is None: continue
         if k.strip().lower() in keys_set: return row[k]
-    return ""
-
-def sniff_date_from_row(row_vals):
-    for v in row_vals:
-        sv = str(v or "").strip()
-        for rxp in DATE_RXES:
-            m = rxp.search(sv)
-            if m:
-                s = m.group(1)
-                if re.match(r"^\d{2}-\d{2}-20\d{2}$", s):  # DD-MM-YYYY → YYYY-MM-DD
-                    dd,mm,yyyy = s.split("-")
-                    s = f"{yyyy}-{mm}-{dd}"
-                return s
     return ""
 
 def read_all_lastday_csvs():
@@ -139,18 +191,17 @@ def read_all_lastday_csvs():
                     if not sym or not desc: continue
                     rd = {header[i]: (r[i] if i<len(r) else "") for i in range(len(header))}
                     rd["_sym_"], rd["_desc_"] = sym, desc
-                    rd["_o_"]    = coerce_num(pick_col(rd, CSV_OPEN_KEYS))
-                    rd["_h_"]    = coerce_num(pick_col(rd, CSV_HIGH_KEYS))
-                    rd["_l_"]    = coerce_num(pick_col(rd, CSV_LOW_KEYS))
-                    rd["_c_"]    = coerce_num(pick_col(rd, CSV_CLOSE_KEYS))
-                    rd["_chg_"]  = normalize_pct(pick_col(rd, CSV_CHG_KEYS))
-                    rd["_date_"] = (pick_col(rd, CSV_DATE_KEYS) or "").strip() or sniff_date_from_row(r)
+                    rd["_o_"]   = coerce_num(pick_col(rd, CSV_OPEN_KEYS))
+                    rd["_h_"]   = coerce_num(pick_col(rd, CSV_HIGH_KEYS))
+                    rd["_l_"]   = coerce_num(pick_col(rd, CSV_LOW_KEYS))
+                    rd["_c_"]   = coerce_num(pick_col(rd, CSV_CLOSE_KEYS))
+                    rd["_chg_"] = normalize_pct(pick_col(rd, CSV_CHG_KEYS))
                     key = (sym.upper(), norm_desc(desc))
                     CSV_BY_SYM_DESC[key] = rd
                     CSV_BY_SYM.setdefault(sym.upper(), []).append(rd)
                     total += 1
             else:
-                # Positional best-guess: 0:sym 1:desc ... 5:O 6:H 7:L 8:C 9:Change% (2 may be a date)
+                # Positional best-guess: 0:sym 1:desc ... 5:O 6:H 7:L 8:C 9:Change%
                 for r in rows[start:]:
                     if len(r)<2: continue
                     sym, desc = (r[0] or "").strip(), (r[1] or "").strip()
@@ -162,7 +213,6 @@ def read_all_lastday_csvs():
                         "_l_": coerce_num(r[7] if len(r)>7 else ""),
                         "_c_": coerce_num(r[8] if len(r)>8 else ""),
                         "_chg_": normalize_pct(r[9] if len(r)>9 else ""),
-                        "_date_": sniff_date_from_row(r),
                     }
                     key = (sym.upper(), norm_desc(desc))
                     CSV_BY_SYM_DESC[key] = rd
@@ -173,7 +223,7 @@ def read_all_lastday_csvs():
     print(f"[CSV] Indexed {total} rows from {root}")
 
 def csv_lookup(sym: str, fullname: str):
-    if not sym: return {"_o_":"","_h_":"","_l_":"","_c_":"","_chg_":"","_date_":""}
+    if not sym: return {"_o_":"","_h_":"","_l_":"","_c_":"","_chg_":""}
     key = (sym.upper(), norm_desc(fullname))
     rd = CSV_BY_SYM_DESC.get(key)
     if rd: return rd
@@ -187,7 +237,7 @@ def csv_lookup(sym: str, fullname: str):
             ov = len(set(nfull.split()) & set(nd.split()))
             if ov>score: best,score=r,ov
         if best: return best
-    return {"_o_":"","_h_":"","_l_":"","_c_":"","_chg_":"","_date_":""}
+    return {"_o_":"","_h_":"","_l_":"","_c_":"","_chg_":""}
 
 # ---------------- styles & template ----------------
 CSS = r"""
@@ -281,18 +331,26 @@ def rebuild_page(p: Path):
     signal = get_signal(html)
     acc_pct, acc_note = scrape_accuracy(html)
     table_html = build_table(html)
-    pred_date_raw = get_prediction_date(html)
 
+    # Region from path, then pick last trading date from Data/Historical/<date>/<region>/*
+    region = infer_region_from_path(p)
+    middle_east = is_middle_east_region(region)
+    hist_date = latest_hist_date_for_region(region)
+    if hist_date is None:
+        # Fallback: previous trading day from UTC "today"
+        hist_date = previous_trading_day(dt.datetime.utcnow().date(), middle_east)
+    next_date = next_trading_day(hist_date, middle_east)
+
+    last_date_str = hist_date.strftime("%Y-%m-%d")
+    pred_date_str = next_date.strftime("%Y-%m-%d")
+
+    # CSV values from Data/LastTradingDay (single source of truth)
     rd = csv_lookup(symbol, full_name)
     o = rd.get("_o_","") or "—"
     h = rd.get("_h_","") or "—"
     l = rd.get("_l_","") or "—"
     c = rd.get("_c_","") or "—"
     chg = rd.get("_chg_","") or "—"
-    last_date = rd.get("_date_","") or "—"
-
-    # Banner date fallback
-    pred_date = pred_date_raw if pred_date_raw else last_date
 
     chg_class = "positive" if chg.startswith("+") else ("negative" if chg.startswith("-") else "")
     banner_arrow = arrow_for(signal)
@@ -305,26 +363,26 @@ def rebuild_page(p: Path):
         symbol=escape(symbol or "—"),
         full_name=escape(full_name or "Stock"),
         build_time=dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-        last_date=escape(pred_date or last_date or "—"),
+        last_date=escape(last_date_str),
         o=o, h=h, l=l, c=c,
         close_px=escape(c),
         chg=escape(chg), chg_class=chg_class,
-        pred_date=escape(pred_date or "—"),
+        pred_date=escape(pred_date_str),
         signal=signal, banner_arrow=banner_arrow, banner_class=banner_class,
         acc_pct=acc_pct, acc_note=acc_note,
         table_html=table_html
     )
     p.write_text(out, encoding="utf-8")
-    print(f"[v2-light] {symbol} • {full_name} • Date:{pred_date or last_date} • O:{o} H:{h} L:{l} C:{c} Chg:{chg} • {p}")
+    print(f"[v2] {region} • {symbol} • Last:{last_date_str} Next:{pred_date_str} • O:{o} H:{h} L:{l} C:{c} Chg:{chg} • {p}")
 
 def main():
     read_all_lastday_csvs()
     root = Path(DIST_ROOT)
-    count = 0
+    n = 0
     for f in root.rglob("index.html"):
         if "prediction-tomorrow" in str(f).replace("\\","/"):
-            rebuild_page(f); count += 1
-    print(f"[v2-light] total rebuilt pages: {count}")
+            rebuild_page(f); n += 1
+    print(f"[v2] total rebuilt pages: {n}")
 
 if __name__ == "__main__":
     main()
