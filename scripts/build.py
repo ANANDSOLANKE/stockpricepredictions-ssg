@@ -2,15 +2,16 @@
 # -*- coding: utf-8 -*-
 
 """
-Build site from Data/LastTradingDay
-Outputs:
-  /index.html
-  /<region>/index.html
-  /<region>/<country>/index.html
-  /<region>/<country>/<exchange>/index.html
-  /<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
-  /static/exchanges/<region>/<country>/<exchange>.json
-  robots.txt, sitemap.xml
+Builds the site from Data/LastTradingDay.
+
+Outputs
+- /index.html (your Ravensight hero + injected All Markets grid + Global Search)
+- /<region>/index.html
+- /<region>/<country>/index.html
+- /<region>/<country>/<exchange>/index.html
+- /<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
+- /static/exchanges/<region>/<country>/<exchange>.json
+- robots.txt, sitemap.xml
 """
 
 import csv, html, json, os, re, unicodedata, shutil
@@ -24,7 +25,7 @@ DATA_LAST = ROOT / "Data" / "LastTradingDay"
 DIST = ROOT / "dist"
 
 CFG = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
-BASE_URL = CFG.get("base_url", "").rstrip("/")
+BASE_URL = (CFG.get("base_url", "") or "").rstrip("/")
 
 IMG_EXTS = {".png", ".jpg", ".jpeg", ".svg", ".webp"}
 SKIP_LOGOS = os.environ.get("SKIP_LOGOS", "0") == "1"
@@ -122,7 +123,7 @@ def read_csv_rows(p: Path) -> List[Dict[str, str]]:
 def load_last_trading_day():
     """
     tree[gslug][cslug_raw] = { group_name, group_slug, country_name, country_slug(raw), rows }
-    where gslug = slug(RegionFolderName); cslug_raw = CSV stem as-is (e.g., 'South Africa' OR 'south-africa')
+    where gslug = slug(RegionFolderName); cslug_raw = CSV stem as-is
     """
     tree: Dict[str, Dict[str, Dict[str, object]]] = {}
     if not DATA_LAST.exists(): return tree
@@ -239,8 +240,7 @@ def load_logos_from_csv() -> Dict[Tuple[str, str], str]:
     if not p.exists():
         return out
     with open(p, "r", encoding="utf-8", newline="") as f:
-        sample = f.read(4096)
-        f.seek(0)
+        sample = f.read(4096); f.seek(0)
         try:
             dialect = csv.Sniffer().sniff(sample, delimiters=",\t;|")
         except Exception:
@@ -268,16 +268,12 @@ def merge_curated_maps(a: Dict[Tuple[str, str], str], b: Dict[Tuple[str, str], s
 class LogoResolver:
     def __init__(self):
         self.placeholder = f"{BASE_URL}/static/logo-placeholder.svg"
-
-        # Always copy curated logos into dist
         src, dst = ROOT / "logos", DIST / "logos"
         if src.exists():
             sync_tree(src, dst)
-
         curated_json = load_logos_index()
         curated_csv  = load_logos_from_csv()
         self.curated = merge_curated_maps(curated_json, curated_csv)
-
         self.scan = {} if SKIP_LOGOS else build_scan_index()
         self.cache: Dict[Tuple[str, str], str] = {}
 
@@ -285,27 +281,21 @@ class LogoResolver:
         key = (exchange or "", symbol or "")
         if key in self.cache:
             return self.cache[key]
-
         exch = (exchange or "").upper()
         symn = _norm(symbol)
-
         rel = self.curated.get((exch, symn))
         if rel:
             url = f"{BASE_URL}/logos/{rel}"
-            self.cache[key] = url
-            return url
-
+            self.cache[key] = url; return url
         if self.scan:
             for stem, rel in self.scan.get(exch, []):
                 if stem == symn:
                     url = f"{BASE_URL}/logos/{rel}"
-                    self.cache[key] = url
-                    return url
-
+                    self.cache[key] = url; return url
         self.cache[key] = self.placeholder
         return self.placeholder
 
-# ---------- template ----------
+# ---------- dark template helpers (for internal pages) ----------
 def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
     meta_kw = ", ".join(CFG.get("keywords", []))
     author = CFG.get("author", {})
@@ -375,7 +365,105 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
 <script src="{js}" defer></script>
 </body></html>"""
 
-# ---------- landing builder ----------
+# ---------- render markets (light theme) & inject into Ravensight homepage ----------
+def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], base_url: str) -> str:
+    sections = []
+    for gslug in sorted(tree.keys()):
+        first = next(iter(tree[gslug].values()))
+        gname = first["group_name"]
+
+        cards = []
+        for cslug_raw in sorted(tree[gslug].keys()):
+            country = tree[gslug][cslug_raw]
+            cname = country["country_name"]
+            cslug_dir = slug(cslug_raw)
+            rows = country["rows"]
+
+            seen, ex_list = set(), []
+            for r in rows:
+                ex = (r.get("exchange") or "").strip()
+                if not ex or ex.upper() == "UNKNOWN": 
+                    continue
+                key = ex.lower()
+                if key in seen: 
+                    continue
+                seen.add(key)
+                ex_list.append(ex)
+
+            flag_url = f"{base_url}/logos/countryflags/{cslug_dir}.svg"
+            chips = "".join(
+                f"<a href='/{gslug}/{cslug_dir}/{slug(ex)}/' class='px-2.5 py-1 rounded-full border text-xs text-slate-700 border-slate-300 hover:border-indigo-400 hover:text-indigo-700 transition'>{html.escape(ex)}</a>"
+                for ex in sorted(ex_list)
+            ) or "<span class='text-xs text-slate-400'>No exchanges</span>"
+
+            cards.append(
+                "<div class='rounded-xl border border-slate-200 bg-white p-4 shadow-sm'>"
+                f"  <img src='{flag_url}' alt='{html.escape(cname)} flag' class='w-8 h-5 rounded object-cover shadow-sm mb-2'/>"
+                f"  <div class='font-semibold text-slate-800 mb-2'>{html.escape(cname)}</div>"
+                f"  <div class='flex flex-wrap gap-2'>{chips}</div>"
+                "</div>"
+            )
+
+        region_block = (
+            "<section class='mb-10'>"
+            f"  <h3 class='text-lg font-bold text-slate-800 mb-4'>{html.escape(gname)}</h3>"
+            f"  <div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>{''.join(cards)}</div>"
+            "</section>"
+        )
+        sections.append(region_block)
+
+    search_block = """
+<div id="global-search" class="max-w-6xl mx-auto mb-8">
+  <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+    <label class="block text-sm font-medium text-slate-700 mb-2">Global Search</label>
+    <!-- search.js will build input + results here -->
+  </div>
+</div>
+"""
+
+    return (
+        "<!-- AUTO-INJECTED: All Markets section -->"
+        "<section id='all-markets' class='pt-6 pb-16'>"
+        "  <div class='max-w-6xl mx-auto px-4 md:px-8'>"
+        "    <h2 class='text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4'>Browse All Markets</h2>"
+        "    <p class='text-slate-600 mb-6'>Explore countries and jump straight into their exchanges, or use the global search below to find a stock by symbol or name.</p>"
+        f"    {search_block}"
+        f"    {''.join(sections)}"
+        "  </div>"
+        "</section>"
+        "<!-- /AUTO-INJECTED -->"
+    )
+
+def inject_into_home(dist_index: Path, markets_html: str, base_url: str) -> None:
+    if not dist_index.exists():
+        print("⚠️  inject_into_home: dist index.html not found", dist_index)
+        return
+    html_txt = dist_index.read_text(encoding="utf-8")
+
+    # insert before </main> (preferred), else before </footer>, else before </body>, else append
+    inserted = False
+    for marker in ["</main>", "</footer>", "</body>"]:
+        idx = html_txt.lower().rfind(marker)
+        if idx != -1:
+            html_txt = html_txt[:idx] + markets_html + html_txt[idx:]
+            inserted = True
+            break
+    if not inserted:
+        html_txt += markets_html
+
+    # ensure search.js is referenced
+    script_tag = f"<script src=\"{base_url}/static/search.js\" defer></script>"
+    if script_tag not in html_txt:
+        pos = html_txt.lower().rfind("</body>")
+        if pos != -1:
+            html_txt = html_txt[:pos] + script_tag + "\n" + html_txt[pos:]
+        else:
+            html_txt += script_tag
+
+    dist_index.write_text(html_txt, encoding="utf-8")
+    print("✅ Injected All Markets section + global search into homepage.")
+
+# ---------- landing builder for internal “dark” index (kept for /regions etc.) ----------
 def build_landing(tree: Dict[str, Dict[str, Dict[str, object]]]) -> None:
     sections = []
     for gslug in sorted(tree.keys()):
@@ -450,16 +538,15 @@ def main() -> None:
     ensure_dir(DIST / "static")
     copy_static_assets()
     ensure_placeholder_logo()
-    ensure_countryflags()  # always copy flags
+    ensure_countryflags()
 
     tree = load_last_trading_day()
     resolver = LogoResolver()
     mkt = MarketTimes()
 
-    # Build landing first (global)
-    build_landing(tree)
+    # internal pages (dark theme): region/country/exchange + stock pages
+    # build_landing(tree)  # no need to overwrite index.html now; we inject into Ravensight page instead
 
-    # Region pages + country links
     for gslug in sorted(tree.keys()):
         gname = next(iter(tree[gslug].values()))["group_name"]
 
@@ -479,7 +566,6 @@ def main() -> None:
             ),
         )
 
-        # Country → exchanges
         for cslug_raw, country in tree[gslug].items():
             cname = country["country_name"]
             rows = country["rows"]
@@ -596,6 +682,7 @@ def main() -> None:
                 )
 
             default_ex_slug = slug(all_exchanges[0]) if all_exchanges else ""
+
             loader_js = f"""
 <script>
 (function(){{
@@ -645,9 +732,7 @@ def main() -> None:
   function filterRows(rows, q){{
     if (!q) return rows;
     const s = q.toLowerCase();
-    return rows.filter(r =>
-      (r.symbol && r.symbol.toLowerCase().includes(s)) ||
-      (r.name && r.name.toLowerCase().includes(s)));
+    return rows.filter(r => (r.symbol && r.symbol.toLowerCase().includes(s)) || (r.name && r.name.toLowerCase().includes(s)));
   }}
 
   function fmt(v){{ return (v==null || v==='') ? '' : (''+v); }}
@@ -764,6 +849,7 @@ def main() -> None:
 }})();
 </script>
 """
+
             country_body = (
                 build_exchange_bar(gslug, cslug_dir, cname, all_exchanges)
                 + "<div id='ex-table' class='card'><p class='small'>Loading…</p></div>"
@@ -793,12 +879,12 @@ def main() -> None:
     )
     print("Build complete →", DIST)
 
-    # --- Copy Ravensight Alpha landing page (exact, unmodified) ---
+    # --- Copy your Ravensight landing page (exact, unmodified) ---
     candidates = [
-        ROOT / "index.html",                 # preferred: repo root 
-        ROOT / "static" / "index.html",      # fallback
-        ROOT / "scripts" / "index.html",     # fallback
-        ROOT / "landing" / "index.html",     # fallback
+        ROOT / "index.html",                 # preferred: repo root
+        ROOT / "static" / "index.html",
+        ROOT / "scripts" / "index.html",
+        ROOT / "landing" / "index.html",
     ]
     landing_src = next((p for p in candidates if p.exists()), None)
     landing_dst = DIST / "index.html"
@@ -807,6 +893,10 @@ def main() -> None:
         print("Landing page copied →", landing_dst)
     else:
         print("⚠️  Landing page not found in any of:", ", ".join(str(p) for p in candidates))
+
+    # --- Inject All Markets (countries + flags + exchanges) + Global Search below your hero ---
+    markets_html = render_markets_section_light(tree, BASE_URL)
+    inject_into_home(landing_dst, markets_html, BASE_URL)
 
 # ---------- entry ----------
 if __name__ == "__main__":
