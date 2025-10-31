@@ -5,6 +5,8 @@
 search_setup.py
 - Generates /dist/static/search_index.json from Data/LastTradingDay
 - Injects a search bar + client-side search JS into /dist/index.html
+  BUT will SKIP injection if the homepage is the custom Ravensight landing page
+  (to keep it 100% unchanged).
 
 Run AFTER your normal build.py.
 """
@@ -87,7 +89,6 @@ def write_search_js():
     js = r"""
 (function(){
   const $ = (s, r=document)=>r.querySelector(s);
-  const $$ = (s, r=document)=>Array.from(r.querySelectorAll(s));
 
   const root = document.getElementById('global-search');
   if (!root) return;
@@ -199,8 +200,13 @@ def write_search_js():
     (STATIC / "search.js").write_text(js, encoding="utf-8")
     print(f"✅ Wrote {(STATIC / 'search.js').relative_to(ROOT)}")
 
+def is_custom_ravensight(html: str) -> bool:
+    """Detect your Tailwind Ravensight landing page to avoid modifying it."""
+    up = html.upper()
+    return ("RAVENSIGHT" in up) or ("CDN.TAILWINDCSS.COM" in up) or ("RAVENSIGHT ALPHA" in up)
+
 def inject_search_into_landing():
-    """Injects a search container + script into dist/index.html."""
+    """Injects a search container + script into dist/index.html unless it's the Ravensight homepage."""
     idx_html = DIST / "index.html"
     if not idx_html.exists():
         print("⚠️ dist/index.html not found. Run your main build.py first.")
@@ -208,7 +214,12 @@ def inject_search_into_landing():
 
     html = idx_html.read_text(encoding="utf-8")
 
-    # 1) Insert container just after <main class="grid">
+    # If this is your custom Ravensight landing page, skip to keep 100% identical
+    if is_custom_ravensight(html):
+        print("ℹ️ Detected custom Ravensight landing. Skipping homepage injection to keep it exact.")
+        return
+
+    # For classic template pages, use the known marker
     marker = "<main class=\"grid\">"
     block = (
         marker
@@ -218,21 +229,23 @@ def inject_search_into_landing():
         + "  <!-- Search UI will be injected here by /static/search.js -->\n"
         + "</section>\n"
     )
+
+    changed = False
     if marker in html and "id=\"global-search\"" not in html:
         html = html.replace(marker, block, 1)
         print("✅ Inserted search container into dist/index.html")
+        changed = True
     else:
-        print("ℹ️ Search container already present (or marker not found).")
+        print("ℹ️ Search container already present or marker not found; no container added.")
 
-    # 2) Ensure <script src=".../static/search.js" defer> before </body>
+    # Only add the script tag if we inserted the container above
     script_tag = f"<script src=\"{BASE_URL}/static/search.js\" defer></script>"
-    if script_tag not in html:
+    if changed and script_tag not in html:
         html = html.replace("</body>", script_tag + "\n</body>")
         print("✅ Added search.js script tag to dist/index.html")
-    else:
-        print("ℹ️ search.js script already referenced.")
 
-    idx_html.write_text(html, encoding="utf-8")
+    if changed:
+        idx_html.write_text(html, encoding="utf-8")
 
 def main():
     STATIC.mkdir(parents=True, exist_ok=True)
