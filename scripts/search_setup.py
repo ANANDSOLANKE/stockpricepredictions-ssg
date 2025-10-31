@@ -3,15 +3,12 @@
 
 """
 search_setup.py
-- Generates /dist/static/search_index.json from Data/LastTradingDay
-- Injects a search bar + client-side search JS into /dist/index.html
-  BUT will SKIP injection if the homepage is the custom Ravensight landing page
-  (to keep it 100% unchanged).
-
-Run AFTER your normal build.py.
+- Builds /dist/static/search_index.json (flat list of stocks)
+- Writes /dist/static/search.js (client-side search UI)
+- DOES NOT modify /dist/index.html (your homepage). build.py injects the search container itself.
 """
 
-import csv, json, os, re
+import csv, json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,32 +34,26 @@ def read_csv_rows(p: Path):
     return out
 
 def build_search_index():
-    """Scan Data/LastTradingDay and produce a flat index of stocks for search."""
-    index = []  # [{symbol, name, exchange, country, region, url}]
+    index = []
     if not DATA_LAST.exists():
         return index
 
     for region_dir in sorted(d for d in DATA_LAST.iterdir() if d.is_dir()):
         region_name = region_dir.name
         region_slug = slug(region_name)
-
         for csvp in sorted(region_dir.glob("*.csv")):
             country_raw = csvp.stem
             country_name = country_raw.replace("-", " ").title()
             country_slug = slug(country_raw)
-
             rows = read_csv_rows(csvp)
             for r in rows:
                 sym = (r.get("symbol") or "").strip()
-                if not sym:
-                    continue
+                if not sym: continue
                 name = (r.get("description") or sym).strip()
                 exchange = (r.get("exchange") or "").strip()
-                if not exchange:
-                    continue
+                if not exchange: continue
                 ex_slug = slug(exchange)
                 sym_slug = slug(sym)
-
                 url = f"{BASE_URL}/{region_slug}/{country_slug}/{ex_slug}/{sym_slug}/prediction-tomorrow/"
                 index.append({
                     "symbol": sym,
@@ -81,16 +72,10 @@ def write_search_index(index):
     print(f"✅ Wrote {outp.relative_to(ROOT)} ({len(index)} entries)")
 
 def write_search_js():
-    """
-    Write /dist/static/search.js — lightweight client-side search
-    - Lazy loads JSON on first use
-    - Filters by symbol or name (case-insensitive)
-    """
     js = r"""
 (function(){
   const $ = (s, r=document)=>r.querySelector(s);
-
-  const root = document.getElementById('global-search');
+  const root = document.getElementById('global-search');  // build.py injects this container
   if (!root) return;
 
   const input = document.createElement('input');
@@ -108,16 +93,16 @@ def write_search_js():
 
   const style = document.createElement('style');
   style.textContent = `
-    .gs-wrap{margin:16px 0 8px;padding:12px;background:#111a25;border:1px solid #22395f;border-radius:10px}
-    .gs-input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #2b4a70;background:#0d1117;color:#fff;font-size:14px;outline:none}
-    .gs-input:focus{border-color:#4f7bff;box-shadow:0 0 0 2px #4f7bff33}
+    .gs-wrap{margin:12px 0 8px;padding:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px}
+    .gs-input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #cbd5e1;background:#f7f9fc;color:#0b111d;font-size:14px;outline:none}
+    .gs-input:focus{border-color:#7a3edc;box-shadow:0 0 0 2px rgba(122,62,220,.25)}
     .gs-results{margin-top:8px;max-height:360px;overflow:auto}
-    .gs-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;border:1px solid #243c62;background:#0f1522;margin-top:6px;text-decoration:none;color:#fff}
-    .gs-item:hover{background:#203553}
+    .gs-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid #e2e8f0;background:#fff;margin-top:6px;text-decoration:none;color:#0b111d}
+    .gs-item:hover{border-color:#7a3edc}
     .gs-sym{font-weight:700;min-width:84px}
     .gs-name{opacity:.9}
-    .gs-meta{margin-left:auto;color:#7fb1ff;font-size:12px}
-    .gs-note{color:#9fb3ce;font-size:12px;margin-top:8px}
+    .gs-meta{margin-left:auto;color:#4d95ee;font-size:12px}
+    .gs-note{color:#64748b;font-size:12px;margin-top:8px}
   `;
   document.head.appendChild(style);
 
@@ -128,8 +113,7 @@ def write_search_js():
   wrap.appendChild(note);
   root.appendChild(wrap);
 
-  let cache = null; // lazy-loaded
-  let timer = null;
+  let cache = null, timer = null;
 
   async function ensureIndex(){
     if (cache) return cache;
@@ -176,84 +160,32 @@ def write_search_js():
     const out = [];
     for (let i=0;i<idx.length;i++){
       const it = idx[i];
-      // match by symbol startswith or name contains
       if ((it.symbol && it.symbol.toLowerCase().startsWith(ql)) ||
           (it.name && it.name.toLowerCase().includes(ql))) {
         out.push(it);
-        if (out.length>500) break; // hard cap to keep UI snappy
+        if (out.length>500) break;
       }
     }
     render(out);
   }
 
-  // debounce
   input.addEventListener('input', ()=>{
     clearTimeout(timer);
     timer = setTimeout(onInput, 120);
   });
 
-  // load index lazily on first focus, so it’s instant afterward
   input.addEventListener('focus', ()=>{ if (!cache) ensureIndex().catch(()=>{}); });
-
 })();
 """
     (STATIC / "search.js").write_text(js, encoding="utf-8")
     print(f"✅ Wrote {(STATIC / 'search.js').relative_to(ROOT)}")
-
-def is_custom_ravensight(html: str) -> bool:
-    """Detect your Tailwind Ravensight landing page to avoid modifying it."""
-    up = html.upper()
-    return ("RAVENSIGHT" in up) or ("CDN.TAILWINDCSS.COM" in up) or ("RAVENSIGHT ALPHA" in up)
-
-def inject_search_into_landing():
-    """Injects a search container + script into dist/index.html unless it's the Ravensight homepage."""
-    idx_html = DIST / "index.html"
-    if not idx_html.exists():
-        print("⚠️ dist/index.html not found. Run your main build.py first.")
-        return
-
-    html = idx_html.read_text(encoding="utf-8")
-
-    # If this is your custom Ravensight landing page, skip to keep 100% identical
-    if is_custom_ravensight(html):
-        print("ℹ️ Detected custom Ravensight landing. Skipping homepage injection to keep it exact.")
-        return
-
-    # For classic template pages, use the known marker
-    marker = "<main class=\"grid\">"
-    block = (
-        marker
-        + "\n"
-        + "<section class=\"region\" id=\"global-search\">\n"
-        + "  <h2 style=\"color:#00b7ff;margin:0 0 10px\">Search</h2>\n"
-        + "  <!-- Search UI will be injected here by /static/search.js -->\n"
-        + "</section>\n"
-    )
-
-    changed = False
-    if marker in html and "id=\"global-search\"" not in html:
-        html = html.replace(marker, block, 1)
-        print("✅ Inserted search container into dist/index.html")
-        changed = True
-    else:
-        print("ℹ️ Search container already present or marker not found; no container added.")
-
-    # Only add the script tag if we inserted the container above
-    script_tag = f"<script src=\"{BASE_URL}/static/search.js\" defer></script>"
-    if changed and script_tag not in html:
-        html = html.replace("</body>", script_tag + "\n</body>")
-        print("✅ Added search.js script tag to dist/index.html")
-
-    if changed:
-        idx_html.write_text(html, encoding="utf-8")
 
 def main():
     STATIC.mkdir(parents=True, exist_ok=True)
     index = build_search_index()
     write_search_index(index)
     write_search_js()
-    inject_search_into_landing()
-    print("🎉 Search setup complete.")
+    print("🎉 Search setup complete (no homepage edits).")
 
 if __name__ == "__main__":
     main()
