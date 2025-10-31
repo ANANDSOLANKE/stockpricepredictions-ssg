@@ -795,7 +795,7 @@ def main() -> None:
 
     # --- Copy Ravensight Alpha landing page (exact, unmodified) ---
     candidates = [
-        ROOT / "index.html",                 # preferred: repo root
+        ROOT / "index.html",                 # preferred: repo root 
         ROOT / "static" / "index.html",      # fallback
         ROOT / "scripts" / "index.html",     # fallback
         ROOT / "landing" / "index.html",     # fallback
@@ -806,7 +806,7 @@ def main() -> None:
         shutil.copyfile(landing_src, landing_dst)
         print("Landing page copied →", landing_dst)
     else:
-        print("⚠️  Landing page not found in any of:", ", ".join(str(p) for p in candidates)))
+        print("⚠️  Landing page not found in any of:", ", ".join(str(p) for p in candidates))
 
 # ---------- entry ----------
 if __name__ == "__main__":
