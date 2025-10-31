@@ -4,9 +4,9 @@
 """
 Build site from Data/LastTradingDay
 Outputs:
-  /index.html                          ← global landing (regions → countries → exchanges)
-  /<region>/index.html                 ← countries list
-  /<region>/<country>/index.html       ← country page (flag + exchange chips + search + header-sort + load-more)
+  /index.html
+  /<region>/index.html
+  /<region>/<country>/index.html
   /<region>/<country>/<exchange>/index.html
   /<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
   /static/exchanges/<region>/<country>/<exchange>.json
@@ -192,13 +192,9 @@ def build_scan_index() -> Dict[str, List[Tuple[str, str]]]:
 def _same_file(src: Path, dst: Path) -> bool:
     try:
         s, d = src.stat(), dst.stat()
-        return (s.st_size == d.st_size) and (int(s.st_mtime) == int(d.mtime))
+        return (s.st_size == d.st_size) and (int(s.st_mtime) == int(d.st_mtime))
     except Exception:
-        try:
-            s, d = src.stat(), dst.stat()
-            return (s.st_size == d.st_size) and (int(s.st_mtime) == int(d.st_mtime))
-        except Exception:
-            return False
+        return False
 
 def sync_tree(src: Path, dst: Path) -> None:
     ensure_dir(dst)
@@ -223,9 +219,8 @@ def sync_tree(src: Path, dst: Path) -> None:
                 try: shutil.rmtree(dst_d)
                 except: pass
 
-# ---- NEW: helpers to use your curated CSV mapping ----
+# ---- curated logos via CSV (optional) ----
 def find_logo_relpath_by_filename(filename: str) -> Optional[str]:
-    """Search /logos recursively for this basename (case-insensitive). Return posix relative path or None."""
     if not filename:
         return None
     target = filename.strip().lower()
@@ -239,11 +234,6 @@ def find_logo_relpath_by_filename(filename: str) -> Optional[str]:
     return None
 
 def load_logos_from_csv() -> Dict[Tuple[str, str], str]:
-    """
-    Read curated mappings from logos/map/logos.csv.
-    Expected columns (case-insensitive): exchange, symbol, filename or path.
-    Returns: {(EXCHANGE, NORM_SYMBOL): 'relative/posix/path.png'}
-    """
     p = ROOT / "logos" / "map" / "logos.csv"
     out: Dict[Tuple[str, str], str] = {}
     if not p.exists():
@@ -269,7 +259,6 @@ def load_logos_from_csv() -> Dict[Tuple[str, str], str]:
     return out
 
 def merge_curated_maps(a: Dict[Tuple[str, str], str], b: Dict[Tuple[str, str], str]) -> Dict[Tuple[str, str], str]:
-    """Return a new dict with keys from a, then fill missing from b (a has priority)."""
     merged = dict(a)
     for k, v in b.items():
         merged.setdefault(k, v)
@@ -285,16 +274,11 @@ class LogoResolver:
         if src.exists():
             sync_tree(src, dst)
 
-        # Curated JSON (if present) and your curated CSV mapping (logos/map/logos.csv)
-        curated_json = load_logos_index()     # {(EXCH, SYM): 'relpath'}
-        curated_csv  = load_logos_from_csv()  # {(EXCH, SYM): 'relpath'}
-
-        # Prefer JSON entries but fill gaps from CSV
+        curated_json = load_logos_index()
+        curated_csv  = load_logos_from_csv()
         self.curated = merge_curated_maps(curated_json, curated_csv)
 
-        # Optional on-disk scan (only when SKIP_LOGOS=0)
         self.scan = {} if SKIP_LOGOS else build_scan_index()
-
         self.cache: Dict[Tuple[str, str], str] = {}
 
     def url_for(self, exchange: str, symbol: str, name: str = "") -> str:
@@ -305,14 +289,12 @@ class LogoResolver:
         exch = (exchange or "").upper()
         symn = _norm(symbol)
 
-        # 1) curated exact (JSON/CSV)
         rel = self.curated.get((exch, symn))
         if rel:
             url = f"{BASE_URL}/logos/{rel}"
             self.cache[key] = url
             return url
 
-        # 2) scan exact (only if scan enabled)
         if self.scan:
             for stem, rel in self.scan.get(exch, []):
                 if stem == symn:
@@ -320,7 +302,6 @@ class LogoResolver:
                     self.cache[key] = url
                     return url
 
-        # 3) placeholder
         self.cache[key] = self.placeholder
         return self.placeholder
 
@@ -345,13 +326,10 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       .exchange-bar .exchip{padding:.28rem .7rem;border:1px solid #284472;border-radius:999px;background:#0d1117;text-decoration:none;color:#fff;font-size:.8em;transition:.2s}
       .exchange-bar .exchip:hover{background:#00b7ff33;border-color:#4f7bff}
       .exchange-bar .exchip.active{background:#284cff44;border-color:#4f7bff}
-      /* country tools */
       .tools{display:flex;gap:.6rem;align-items:center;margin:.4rem 0 0 2.6rem;flex-wrap:wrap}
       .search-input{padding:.45rem .6rem;border:1px solid #2b4a70;background:#0d1117;color:#fff;border-radius:8px;min-width:260px}
       .loadmore-wrap{text-align:center;margin:.6rem 0}
-      /* table */
       .table-wrap{overflow:auto}
-      /* landing layout */
       .region{margin:20px;padding:20px;background:#111a25;border-radius:10px;box-shadow:0 0 10px #0006}
       .region h2{color:#00b7ff;margin:0 0 10px}
       .countries{display:flex;flex-wrap:wrap;gap:16px}
@@ -364,7 +342,6 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       header.hero{padding:20px}
       .h1{font-size:1.6rem;color:#00b7ff;margin:6px 0 0}
       .container{max-width:1100px;margin:0 auto}
-      /* sortable headers */
       .th-sort{cursor:pointer; user-select:none}
       .th-sort .arrow{opacity:.55; font-size:.9em; margin-left:.25rem}
       .th-sort.active{color:#9fd0ff}
@@ -486,7 +463,6 @@ def main() -> None:
     for gslug in sorted(tree.keys()):
         gname = next(iter(tree[gslug].values()))["group_name"]
 
-        # Region page (country links)
         links = []
         for cslug_raw in sorted(tree[gslug].keys()):
             cname = tree[gslug][cslug_raw]["country_name"]
@@ -509,12 +485,10 @@ def main() -> None:
             rows = country["rows"]
             cslug_dir = slug(cslug_raw)
 
-            # group by exchange
             by: Dict[str, List[Dict[str, str]]] = {}
             for r in rows:
                 by.setdefault((r.get("exchange") or "UNKNOWN").strip(), []).append(r)
 
-            # header UI: flag + exchange chips + search
             def build_exchange_bar(region_slug, country_slug, country_name, exchanges, active_slug: Optional[str] = None):
                 flag_path = f"{BASE_URL}/logos/countryflags/{country_slug}.svg"
                 chips = []
@@ -540,7 +514,6 @@ def main() -> None:
 
             all_exchanges = sorted(k for k in by.keys() if k and k.upper() != "UNKNOWN")
 
-            # ---- exchange pages (kept) + JSON for dynamic loader
             for exch, erows in sorted(by.items(), key=lambda kv: kv[0].lower()):
                 e_slug = slug(exch)
                 table_rows = []
@@ -586,7 +559,6 @@ def main() -> None:
                         "logo": logo_url,
                     })
 
-                    # stock page
                     if sym and None not in (o, h, l, cl):
                         title = f"AI Analysis of {sym} Tomorrow | {name} Stock Prediction"
                         head = (
@@ -601,7 +573,6 @@ def main() -> None:
                             tpl_base(title, title, head, f"{BASE_URL}/{gslug}/{cslug_dir}/{e_slug}/{s_slug}/prediction-tomorrow/"),
                         )
 
-                # Exchange page (kept)
                 table_html = (
                     "<div class='table-wrap'>"
                     "<table class='table'>"
@@ -619,13 +590,11 @@ def main() -> None:
                     ),
                 )
 
-                # JSON for dynamic loader on country page
                 write_json(
                     DIST / "static" / "exchanges" / gslug / cslug_dir / f"{e_slug}.json",
                     {"region": gname, "country": cname, "exchange": exch, "rows": json_rows},
                 )
 
-            # Country page (default exchange + JS loader with search + header-sort + load-more)
             default_ex_slug = slug(all_exchanges[0]) if all_exchanges else ""
             loader_js = f"""
 <script>
@@ -638,9 +607,9 @@ def main() -> None:
 
   let active = "{default_ex_slug}" || "all";
   let page = 1;
-  let sortMode = 'chg-asc';             // default: Change% ↑
-  const dataByEx = Object.create(null); // slug -> rows[]
-  let allMerged = []; // union across exchanges
+  let sortMode = 'chg-asc';
+  const dataByEx = Object.create(null);
+  let allMerged = [];
 
   function ensureLoadMoreArea(){{
     let wrap = document.getElementById('load-more-wrap');
@@ -676,15 +645,9 @@ def main() -> None:
   function filterRows(rows, q){{
     if (!q) return rows;
     const s = q.toLowerCase();
-    const out = [];
-    for (let i=0;i<rows.length;i++) {{
-      const r = rows[i];
-      if ((r.symbol && r.symbol.toLowerCase().includes(s)) ||
-          (r.name && r.name.toLowerCase().includes(s))) {{
-        out.push(r);
-      }}
-    }}
-    return out;
+    return rows.filter(r =>
+      (r.symbol && r.symbol.toLowerCase().includes(s)) ||
+      (r.name && r.name.toLowerCase().includes(s)));
   }}
 
   function fmt(v){{ return (v==null || v==='') ? '' : (''+v); }}
@@ -706,7 +669,7 @@ def main() -> None:
     const q = searchEl.value.trim();
 
     let base = (active==='all') ? allMerged : (dataByEx[active]||[]);
-    let rows = filterRows(base, q).slice();  // copy
+    let rows = filterRows(base, q).slice();
     rows.sort((a,b)=>compare(a,b,sortMode));
 
     const total = rows.length;
@@ -746,22 +709,18 @@ def main() -> None:
 
     tableHost.innerHTML = html;
 
-    # header click handlers
     Array.from(tableHost.querySelectorAll('.th-sort')).forEach(th => {{
       th.addEventListener('click', () => {{
-        const k = th.getAttribute('data-sort'); // sym|name|chg
+        const k = th.getAttribute('data-sort');
         if (k==='sym') sortMode = (sortMode==='sym-asc') ? 'sym-desc' : 'sym-asc';
         if (k==='name') sortMode = (sortMode==='name-asc') ? 'name-desc' : 'name-asc';
         if (k==='chg') sortMode = (sortMode==='chg-asc') ? 'chg-desc' : 'chg-asc';
-        page = 1;
-        render();
+        page = 1; render();
       }});
     }});
 
     const moreBtn = document.getElementById('load-more');
-    if (moreBtn) {{
-      moreBtn.style.display = (upto < total) ? '' : 'none';
-    }}
+    if (moreBtn) moreBtn.style.display = (upto < total) ? '' : 'none';
   }}
 
   async function fetchExchange(slug){{
@@ -801,7 +760,7 @@ def main() -> None:
   chips.forEach(c=>c.addEventListener('click', ev=>{{ ev.preventDefault(); activate(c.dataset.ex||'all'); }}));
   searchEl.addEventListener('input', function(){{ page=1; render(); }});
 
-  activate(active || 'all'); // first load
+  activate(active || 'all');
 }})();
 </script>
 """
@@ -835,13 +794,19 @@ def main() -> None:
     print("Build complete →", DIST)
 
     # --- Copy Ravensight Alpha landing page (exact, unmodified) ---
-    landing_src = ROOT / "index.html"          # the HTML you provided
+    candidates = [
+        ROOT / "index.html",                 # preferred: repo root
+        ROOT / "static" / "index.html",      # fallback
+        ROOT / "scripts" / "index.html",     # fallback
+        ROOT / "landing" / "index.html",     # fallback
+    ]
+    landing_src = next((p for p in candidates if p.exists()), None)
     landing_dst = DIST / "index.html"
-    if landing_src.exists():
+    if landing_src:
         shutil.copyfile(landing_src, landing_dst)
         print("Landing page copied →", landing_dst)
     else:
-        print("⚠️  Landing page not found:", landing_src)
+        print("⚠️  Landing page not found in any of:", ", ".join(str(p) for p in candidates)))
 
 # ---------- entry ----------
 if __name__ == "__main__":
