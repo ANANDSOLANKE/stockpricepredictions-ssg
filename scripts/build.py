@@ -4,10 +4,14 @@
 """
 Builds the site from Data/LastTradingDay.
 
-Outputs
-- /index.html (your Ravensight hero + injected All Markets grid + Global Search)
+Homepage (/index.html):
+- We copy your custom Ravensight page EXACTLY.
+- Then we inject a light "Browse All Markets" grid (countries with flags + exchange chips) BELOW your hero.
+- No separate search box is added; the hero input (#tickerInput) is wired by search_setup.js to do global search.
+
+Other outputs stay the same:
 - /<region>/index.html
-- /<region>/<country>/index.html
+- /<region>/<country>/index.html  (has exchange chips + per-country search + default exchange loaded)
 - /<region>/<country>/<exchange>/index.html
 - /<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
 - /static/exchanges/<region>/<country>/<exchange>.json
@@ -295,7 +299,7 @@ class LogoResolver:
         self.cache[key] = self.placeholder
         return self.placeholder
 
-# ---------- dark template helpers (for internal pages) ----------
+# ---------- dark template for internal pages ----------
 def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
     meta_kw = ", ".join(CFG.get("keywords", []))
     author = CFG.get("author", {})
@@ -323,12 +327,6 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
       .region{margin:20px;padding:20px;background:#111a25;border-radius:10px;box-shadow:0 0 10px #0006}
       .region h2{color:#00b7ff;margin:0 0 10px}
       .countries{display:flex;flex-wrap:wrap;gap:16px}
-      .country-card{background:#192b43;border:1px solid #2b4a70;border-radius:10px;width:190px;padding:10px;text-align:center;transition:.25s}
-      .country-card:hover{background:#203553;transform:translateY(-3px)}
-      .country-flag{width:40px;height:26px;border-radius:4px;object-fit:cover;display:block;margin:0 auto 6px}
-      .country-name{font-weight:700;color:#00b7ff;margin-bottom:8px}
-      .exchange-list a{display:inline-block;background:#0d1117;color:#fff;padding:3px 6px;margin:2px;border-radius:8px;border:1px solid #284472;font-size:.8em;text-decoration:none}
-      .exchange-list a:hover{background:#00b7ff33;border-color:#4f7bff}
       header.hero{padding:20px}
       .h1{font-size:1.6rem;color:#00b7ff;margin:6px 0 0}
       .container{max-width:1100px;margin:0 auto}
@@ -367,6 +365,7 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
 
 # ---------- render markets (light theme) & inject into Ravensight homepage ----------
 def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], base_url: str) -> str:
+    """Light cards; each COUNTRY CARD links to its country page. Exchange chips link to exchanges."""
     sections = []
     for gslug in sorted(tree.keys()):
         first = next(iter(tree[gslug].values()))
@@ -379,13 +378,14 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
             cslug_dir = slug(cslug_raw)
             rows = country["rows"]
 
+            # collect unique exchanges
             seen, ex_list = set(), []
             for r in rows:
                 ex = (r.get("exchange") or "").strip()
-                if not ex or ex.upper() == "UNKNOWN": 
+                if not ex or ex.upper() == "UNKNOWN":
                     continue
                 key = ex.lower()
-                if key in seen: 
+                if key in seen:
                     continue
                 seen.add(key)
                 ex_list.append(ex)
@@ -396,12 +396,15 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
                 for ex in sorted(ex_list)
             ) or "<span class='text-xs text-slate-400'>No exchanges</span>"
 
+            # MAKE THE WHOLE CARD CLICKABLE to the country page:
+            country_href = f"/{gslug}/{cslug_dir}/"
             cards.append(
-                "<div class='rounded-xl border border-slate-200 bg-white p-4 shadow-sm'>"
-                f"  <img src='{flag_url}' alt='{html.escape(cname)} flag' class='w-8 h-5 rounded object-cover shadow-sm mb-2'/>"
-                f"  <div class='font-semibold text-slate-800 mb-2'>{html.escape(cname)}</div>"
-                f"  <div class='flex flex-wrap gap-2'>{chips}</div>"
-                "</div>"
+                "<a href='{href}' class='block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:border-indigo-300 transition'>"
+                "  <img src='{flag}' alt='{cname} flag' class='w-8 h-5 rounded object-cover shadow-sm mb-2'/>"
+                "  <div class='font-semibold text-slate-800 mb-2'>{cname}</div>"
+                "  <div class='flex flex-wrap gap-2'>{chips}</div>"
+                "</a>"
+                .format(href=country_href, flag=flag_url, cname=html.escape(cname), chips=chips)
             )
 
         region_block = (
@@ -412,22 +415,12 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
         )
         sections.append(region_block)
 
-    search_block = """
-<div id="global-search" class="max-w-6xl mx-auto mb-8">
-  <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-    <label class="block text-sm font-medium text-slate-700 mb-2">Global Search</label>
-    <!-- search.js will build input + results here -->
-  </div>
-</div>
-"""
-
     return (
         "<!-- AUTO-INJECTED: All Markets section -->"
         "<section id='all-markets' class='pt-6 pb-16'>"
         "  <div class='max-w-6xl mx-auto px-4 md:px-8'>"
         "    <h2 class='text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4'>Browse All Markets</h2>"
-        "    <p class='text-slate-600 mb-6'>Explore countries and jump straight into their exchanges, or use the global search below to find a stock by symbol or name.</p>"
-        f"    {search_block}"
+        "    <p class='text-slate-600 mb-6'>Explore countries and jump into their exchanges. Use the top Ravensight search box to find any stock by symbol or name.</p>"
         f"    {''.join(sections)}"
         "  </div>"
         "</section>"
@@ -451,7 +444,7 @@ def inject_into_home(dist_index: Path, markets_html: str, base_url: str) -> None
     if not inserted:
         html_txt += markets_html
 
-    # ensure search.js is referenced
+    # ensure search.js is referenced (for hero input behavior)
     script_tag = f"<script src=\"{base_url}/static/search.js\" defer></script>"
     if script_tag not in html_txt:
         pos = html_txt.lower().rfind("</body>")
@@ -461,101 +454,22 @@ def inject_into_home(dist_index: Path, markets_html: str, base_url: str) -> None
             html_txt += script_tag
 
     dist_index.write_text(html_txt, encoding="utf-8")
-    print("✅ Injected All Markets section + global search into homepage.")
+    print("✅ Injected All Markets section into homepage (hero input powers global search).")
 
-# ---------- landing builder for internal “dark” index (kept for /regions etc.) ----------
-def build_landing(tree: Dict[str, Dict[str, Dict[str, object]]]) -> None:
-    sections = []
-    for gslug in sorted(tree.keys()):
-        gname = next(iter(tree[gslug].values()))["group_name"]
-        cards = []
-        for cslug_raw in sorted(tree[gslug].keys()):
-            cname = tree[gslug][cslug_raw]["country_name"]
-            cslug_dir = slug(cslug_raw)
-            rows = tree[gslug][cslug_raw]["rows"]
-            ex_set, seen = [], set()
-            for r in rows:
-                ex = (r.get("exchange") or "").strip()
-                if not ex or ex.upper()=="UNKNOWN": continue
-                if ex.lower() in seen: continue
-                seen.add(ex.lower()); ex_set.append(ex)
-            ex_links = "".join(
-                f"<a href='/{gslug}/{cslug_dir}/{slug(ex)}/'>{html.escape(ex)}</a>"
-                for ex in sorted(ex_set)
-            )
-            flag = f"{BASE_URL}/logos/countryflags/{cslug_dir}.svg"
-            cards.append(
-                "<div class='country-card'>"
-                f"<img src='{flag}' alt='{html.escape(cname)} flag' class='country-flag'/>"
-                f"<div class='country-name'>{html.escape(cname)}</div>"
-                f"<div class='exchange-list'>{ex_links or '<span class=\"small\">No exchanges</span>'}</div>"
-                "</div>"
-            )
-        sections.append(
-            "<section class='region'>"
-            f"<h2>{html.escape(gname)}</h2>"
-            f"<div class='countries'>{''.join(cards)}</div>"
-            "</section>"
-        )
-
-    click_js = """
-<script>
-(function(){
-  const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
-  $$('.country-card').forEach(card=>{
-    const firstEx=card.querySelector('.exchange-list a[href]');
-    if(!firstEx)return;
-    const u=new URL(firstEx.getAttribute('href'), location.origin);
-    const parts=u.pathname.split('/').filter(Boolean);
-    if(parts.length<3)return;
-    const countryUrl='/' + parts[0] + '/' + parts[1] + '/';
-    card.style.cursor='pointer';
-    card.addEventListener('click', ev=>{
-      if(ev.target.closest('.exchange-list a')) return;
-      location.href=countryUrl;
-    });
-    const nameEl=card.querySelector('.country-name');
-    if(nameEl){
-      nameEl.style.textDecoration='underline';
-      nameEl.style.textUnderlineOffset='2px';
-      nameEl.style.cursor='pointer';
-      nameEl.addEventListener('click', ev=>{ev.stopPropagation(); location.href=countryUrl;});
-    }
-  });
-})();
-</script>
-"""
-    landing_html = tpl_base(
-        "🌍 Global Stock Markets",
-        "Browse world markets by region, country and exchange.",
-        "".join(sections) + click_js,
-        f"{BASE_URL}/"
-    )
-    write_text(DIST / "index.html", landing_html)
-
-# ---------- build ----------
-def main() -> None:
-    ensure_dir(DIST / "static")
-    copy_static_assets()
-    ensure_placeholder_logo()
-    ensure_countryflags()
-
-    tree = load_last_trading_day()
+# ---------- build region/country/exchange pages ----------
+def build_site_pages(tree):
     resolver = LogoResolver()
     mkt = MarketTimes()
 
-    # internal pages (dark theme): region/country/exchange + stock pages
-    # build_landing(tree)  # no need to overwrite index.html now; we inject into Ravensight page instead
-
     for gslug in sorted(tree.keys()):
         gname = next(iter(tree[gslug].values()))["group_name"]
 
+        # Region page
         links = []
         for cslug_raw in sorted(tree[gslug].keys()):
             cname = tree[gslug][cslug_raw]["country_name"]
             cslug_dir = slug(cslug_raw)
             links.append(f"<li><a href='/{gslug}/{cslug_dir}/'>{html.escape(cname)}</a></li>")
-
         write_text(
             DIST / gslug / "index.html",
             tpl_base(
@@ -566,6 +480,7 @@ def main() -> None:
             ),
         )
 
+        # Country + exchanges
         for cslug_raw, country in tree[gslug].items():
             cname = country["country_name"]
             rows = country["rows"]
@@ -681,8 +596,8 @@ def main() -> None:
                     {"region": gname, "country": cname, "exchange": exch, "rows": json_rows},
                 )
 
+            # country page (loader & search) – default exchange preloaded handled by front-end JS below
             default_ex_slug = slug(all_exchanges[0]) if all_exchanges else ""
-
             loader_js = f"""
 <script>
 (function(){{
@@ -849,7 +764,6 @@ def main() -> None:
 }})();
 </script>
 """
-
             country_body = (
                 build_exchange_bar(gslug, cslug_dir, cname, all_exchanges)
                 + "<div id='ex-table' class='card'><p class='small'>Loading…</p></div>"
@@ -865,19 +779,17 @@ def main() -> None:
                 ),
             )
 
-    # robots + sitemap
-    write_text(DIST / "robots.txt", f"Sitemap: {BASE_URL}/sitemap.xml\nUser-agent: *\nAllow: /\n")
-    urls = []
-    for p in DIST.rglob("index.html"):
-        rel = "/" + str(p.relative_to(DIST)).replace("\\", "/")
-        urls.append(f"{BASE_URL}{rel[:-10]}")
-    write_text(
-        DIST / "sitemap.xml",
-        "<?xml version='1.0' encoding='UTF-8'?><urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>"
-        + "".join([f"<url><loc>{u}</loc></url>" for u in sorted(set(urls))])
-        + "</urlset>",
-    )
-    print("Build complete →", DIST)
+# ---------- build ----------
+def main() -> None:
+    ensure_dir(DIST / "static")
+    copy_static_assets()
+    ensure_placeholder_logo()
+    ensure_countryflags()
+
+    tree = load_last_trading_day()
+
+    # Build region/country/exchange pages (with country search + default exchange)
+    build_site_pages(tree)
 
     # --- Copy your Ravensight landing page (exact, unmodified) ---
     candidates = [
@@ -894,9 +806,23 @@ def main() -> None:
     else:
         print("⚠️  Landing page not found in any of:", ", ".join(str(p) for p in candidates))
 
-    # --- Inject All Markets (countries + flags + exchanges) + Global Search below your hero ---
+    # --- Inject All Markets (countries + flags + exchanges) below your hero ---
     markets_html = render_markets_section_light(tree, BASE_URL)
     inject_into_home(landing_dst, markets_html, BASE_URL)
+
+    # robots + sitemap
+    write_text(DIST / "robots.txt", f"Sitemap: {BASE_URL}/sitemap.xml\nUser-agent: *\nAllow: /\n")
+    urls = []
+    for p in DIST.rglob("index.html"):
+        rel = "/" + str(p.relative_to(DIST)).replace("\\", "/")
+        urls.append(f"{BASE_URL}{rel[:-10]}")
+    write_text(
+        DIST / "sitemap.xml",
+        "<?xml version='1.0' encoding='UTF-8'?><urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>"
+        + "".join([f"<url><loc>{u}</loc></url>" for u in sorted(set(urls))])
+        + "</urlset>",
+    )
+    print("Build complete →", DIST)
 
 # ---------- entry ----------
 if __name__ == "__main__":
