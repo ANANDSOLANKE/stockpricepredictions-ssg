@@ -192,9 +192,13 @@ def build_scan_index() -> Dict[str, List[Tuple[str, str]]]:
 def _same_file(src: Path, dst: Path) -> bool:
     try:
         s, d = src.stat(), dst.stat()
-        return (s.st_size == d.st_size) and (int(s.st_mtime) == int(d.st_mtime))
-    except FileNotFoundError:
-        return False
+        return (s.st_size == d.st_size) and (int(s.st_mtime) == int(d.mtime))
+    except Exception:
+        try:
+            s, d = src.stat(), dst.stat()
+            return (s.st_size == d.st_size) and (int(s.st_mtime) == int(d.st_mtime))
+        except Exception:
+            return False
 
 def sync_tree(src: Path, dst: Path) -> None:
     ensure_dir(dst)
@@ -742,7 +746,7 @@ def main() -> None:
 
     tableHost.innerHTML = html;
 
-    // header click handlers
+    # header click handlers
     Array.from(tableHost.querySelectorAll('.th-sort')).forEach(th => {{
       th.addEventListener('click', () => {{
         const k = th.getAttribute('data-sort'); // sym|name|chg
@@ -829,6 +833,15 @@ def main() -> None:
         + "</urlset>",
     )
     print("Build complete →", DIST)
+
+    # --- Copy Ravensight Alpha landing page (exact, unmodified) ---
+    landing_src = ROOT / "index.html"          # the HTML you provided
+    landing_dst = DIST / "index.html"
+    if landing_src.exists():
+        shutil.copyfile(landing_src, landing_dst)
+        print("Landing page copied →", landing_dst)
+    else:
+        print("⚠️  Landing page not found:", landing_src)
 
 # ---------- entry ----------
 if __name__ == "__main__":
