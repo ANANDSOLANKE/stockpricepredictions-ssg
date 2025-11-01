@@ -51,6 +51,9 @@ jobs:
         run: python -u scripts/theme_rebuild_v2.py
       # --------------------------------------
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       # ---------- Option B: Stage only production files into _site/ ----------
       - name: Prepare Pages bundle (_site)
         shell: bash
@@ -73,7 +76,7 @@ jobs:
           # Common content/asset directories (copy only if they exist)
           dirs=(
             "Asia-Pacific" "Europe" "Middle-East-Africa" "North-America" "South-America"
-            "India" "USA" "UK"            # keep if you also write top-level hubs
+            "India" "USA" "UK"
             "static" "assets" "css" "js" "logos" "images" "search" "flags"
           )
           for d in "${dirs[@]}"; do
@@ -87,15 +90,16 @@ jobs:
 
           # Safety: ensure robots.txt exists
           if [[ ! -f _site/robots.txt ]]; then
-            cat > _site/robots.txt <<'EOF'
-User-agent: *
-Allow: /
-Sitemap: https://stockpricepredictions.com/sitemap.xml
-EOF
+            printf '%s\n' \
+              'User-agent: *' \
+              'Allow: /' \
+              'Sitemap: https://stockpricepredictions.com/sitemap.xml' > _site/robots.txt
           fi
 
           # Safety: include sitemap if only at repo root
-          [[ ! -f _site/sitemap.xml && -f sitemap.xml ]] && cp sitemap.xml _site/
+          if [[ ! -f _site/sitemap.xml && -f sitemap.xml ]]; then
+            cp sitemap.xml _site/
+          fi
 
           echo "✅ Staged site. Sample tree:"
           find _site -maxdepth 2 -type d -print
