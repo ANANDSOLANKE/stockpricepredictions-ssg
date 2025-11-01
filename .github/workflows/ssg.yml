@@ -18,7 +18,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 600
+    timeout-minutes: 600   # first full build has room to finish
 
     steps:
       - name: Checkout repository
@@ -34,12 +34,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas jinja2 python-slugify
 
-      # ----------------- your existing build steps -----------------
+      - name: Ensure logos exist in dist (fast)
+        run: |
+          if [ -d logos ]; then
+            mkdir -p dist
+            if [ ! -d dist/logos ]; then
+              cp -r logos dist/
+              echo "Copied logos → dist/logos"
+            else
+              echo "Logos already present"
+            fi
+          fi
+
       - name: Build site (fast)
         run: python -u scripts/build.py
 
+         # 🟩 ADD THESE 3 LINES BELOW
       - name: Run search_setup.py
-        run: python -u scripts/search_setup.py
+        run: python scripts/search_setup.py
 
       - name: Inject last-7 performance
         run: python -u scripts/build_last7.py
@@ -49,89 +61,14 @@ jobs:
 
       - name: Apply full v2 rebuild (webpage.html look)
         run: python -u scripts/theme_rebuild_v2.py
-      # ------------------------------------------------------------
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      # -------- Stage ONLY production files into _site/ (Option B) --------
-      - name: Prepare Pages bundle (_site)
-        shell: bash
-        run: |
-          set -euo pipefail
-          rm -rf _site && mkdir -p _site
-          shopt -s nullglob dotglob
-
-          # 1) Copy single files at repo root if present
-          to_copy=("index.html" "404.html" "robots.txt" "sitemap.xml" "CNAME")
-          for f in "${to_copy[@]}"; do
-            [[ -f "$f" ]] && cp -f "$f" _site/
-          done
-
-          # 2) Copy optional Google verification files (URL-prefix method)
-          for f in google*.html; do
-            [[ -f "$f" ]] && cp -f "$f" _site/
-          done
-
-          # 3) Copy content/asset directories if they exist in your repo
-          dirs=(
-            "Asia-Pacific" "Europe" "Middle-East-Africa" "North-America" "South-America"
-            "India" "USA" "UK"
-            "static" "assets" "css" "js" "logos" "images" "search" "flags"
-          )
-          for d in "${dirs[@]}"; do
-            [[ -d "$d" ]] && cp -R "$d" _site/
-          done
-
-          # 4) Catch-all: copy any other top-level HTML pages (e.g., /about.html)
-          for f in *.html; do
-            [[ -f "$f" ]] && cp -f "$f" _site/
-          done
-
-          # 5) Safety: ensure robots.txt exists even if repo didn't have one
-          if [[ ! -f _site/robots.txt ]]; then
-            printf '%s\n' \
-              'User-agent: *' \
-              'Allow: /' \
-              'Sitemap: https://stockpricepredictions.com/sitemap.xml' > _site/robots.txt
-          fi
-
-      # -------- Build sitemap.xml from what’s actually in _site/ --------
-      - name: Generate sitemap.xml from _site
-        shell: bash
-        run: |
-          set -euo pipefail
-          BASE="https://stockpricepredictions.com"
-          TMP="$(mktemp)"
-          # Collect every .html file under _site
-          # Skip 404.html and Google verify files; canonicalize index.html
-          {
-            echo '<?xml version="1.0" encoding="UTF-8"?>'
-            echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-            while IFS= read -r -d '' f; do
-              rel="${f#_site/}"                     # path relative to site root
-              case "$rel" in
-                404.html|google*.html) continue;;
-              esac
-              # strip trailing /index.html → folder URL; also strip .html at top-level pages
-              url="$rel"
-              url="${url%/index.html}"
-              url="${url%.html}"
-              # ensure no double slashes
-              echo "  <url><loc>${BASE}/${url}</loc></url>"
-            done < <(find _site -type f -name '*.html' -print0)
-            echo '</urlset>'
-          } > "$TMP"
-          mv "$TMP" _site/sitemap.xml
-          echo "✅ Built sitemap entries:"
-          head -n 20 _site/sitemap.xml || true
-
-      # -------------------------------------------------------------------
+      #- name: Apply prediction page template (v2 UI)
+      #  run: python -u scripts/theme_override.py
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment
