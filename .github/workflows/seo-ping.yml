@@ -16,3 +16,4 @@ jobs:
           curl -s "https://www.bing.com/ping?sitemap=https://stockpricepredictions.com/sitemap.xml" -o /dev/null
           curl -s "https://yandex.com/ping?sitemap=https://stockpricepredictions.com/sitemap.xml" -o /dev/null
           echo "✅ Sitemap ping sent."
+
