@@ -4,7 +4,7 @@ from pathlib import Path
 
 DIST = Path("dist")
 CONF = Path("config.json")
-CHUNK = 45000  # a bit smaller than 50k to keep file size well under 50 MB
+CHUNK = 45000
 TZ = datetime.timezone.utc
 
 def load_base_url():
@@ -26,7 +26,6 @@ def find_urls(base_url: str):
         yield (url, lastmod)
 
 def write_sitemap_file(out_path: Path, items):
-    out_path.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -40,9 +39,8 @@ def write_sitemap_file(out_path: Path, items):
             "  </url>",
         ]
     lines.append("</urlset>")
-    xml = "\n".join(lines)
-    out_path.write_text(xml, encoding="utf-8")
-    print(f"[sitemap] wrote {out_path} ({len(items)} urls, {len(xml)/1_000_000:.2f} MB)")
+    out_path.write_text("\n".join(lines), encoding="utf-8")
+    print(f"[sitemap] wrote {out_path.name} ({len(items)} urls)")
 
 def write_index_file(index_path: Path, part_urls):
     now = datetime.datetime.now(tz=TZ).isoformat(timespec="seconds").replace("+00:00","Z")
@@ -58,14 +56,11 @@ def write_index_file(index_path: Path, part_urls):
             "  </sitemap>",
         ]
     lines.append("</sitemapindex>")
-    index_path.parent.mkdir(parents=True, exist_ok=True)
     index_path.write_text("\n".join(lines), encoding="utf-8")
-    print(f"[sitemap] wrote index {index_path} with {len(part_urls)} part(s)")
+    print(f"[sitemap] wrote index {index_path.name} with {len(part_urls)} part(s)")
 
 def main():
-    # ensure GitHub Pages serves files as-is (no Jekyll processing)
     (DIST / ".nojekyll").write_text("", encoding="utf-8")
-
     base = load_base_url()
     all_items = list(find_urls(base))
     if not all_items:
@@ -74,13 +69,12 @@ def main():
     parts = [all_items[i:i+CHUNK] for i in range(0, len(all_items), CHUNK)]
     part_urls = []
     for idx, part in enumerate(parts, start=1):
-        fname = f"sitemaps/sitemap-{idx:04d}.xml"
+        fname = f"sitemap{idx}.xml"
         write_sitemap_file(DIST / fname, part)
         part_urls.append(f"{base}/{fname}")
 
     write_index_file(DIST / "sitemap.xml", part_urls)
 
-    # robots.txt safety
     robots = DIST / "robots.txt"
     line = f"Sitemap: {base}/sitemap.xml\n"
     if robots.exists():
