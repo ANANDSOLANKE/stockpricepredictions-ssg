@@ -122,6 +122,11 @@ jobs:
         if: steps.diff.outputs.changed == 'true'
         run: python -u scripts/theme_rebuild_v2.py
 
+      - name: Cleanup old sitemap folder
+        run: |
+         rm -rf dist/sitemaps || true
+         echo "🧹 Removed legacy /sitemaps folder"
+
       # Split sitemap into chunks + index
       - name: Split sitemap into chunks + index
         if: steps.diff.outputs.changed == 'true'
