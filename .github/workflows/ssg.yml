@@ -18,7 +18,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 600   # first full build has room to finish
+    timeout-minutes: 600
 
     steps:
       - name: Checkout repository
@@ -46,30 +46,46 @@ jobs:
             fi
           fi
 
+      # 🏗️ Build all region/country/exchange/stock pages
       - name: Build site (fast)
         run: python -u scripts/build.py
 
-         # 🟩 ADD THESE 3 LINES BELOW
+      # 🔎 Global search (hero input) → builds /static/search_index.json + /static/search.js
       - name: Run search_setup.py
-        run: python scripts/search_setup.py
+        run: python -u scripts/search_setup.py
 
+      # (Optional) Last-7 performance widget (safe)
       - name: Inject last-7 performance
         run: python -u scripts/build_last7.py
 
+      # (Optional) Curated logo mappings (safe)
       - name: Inject logos from mapping
         run: python -u scripts/inject_logos.py
 
+      # 🎨 Rebuild ONLY prediction pages with V2 theme (safe for homepage)
       - name: Apply full v2 rebuild (webpage.html look)
         run: python -u scripts/theme_rebuild_v2.py
 
-      #- name: Apply prediction page template (v2 UI)
-      #  run: python -u scripts/theme_override.py
-
+      # 📦 Upload artifact to GitHub Pages
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
+      # 🚀 Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # 🔍 SEO Fast-Track — Ping all major search engines
+      - name: Notify Search Engines (Google, Bing, Yandex, DuckDuckGo)
+        if: success()
+        run: |
+          SITEMAP_URL="https://stockpricepredictions.com/sitemap.xml"
+          echo "🔍 Pinging search engines with $SITEMAP_URL ..."
+          # Fail-safe: if curl fails, do not break the workflow
+          curl -fsS "https://www.google.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
+          curl -fsS "https://www.bing.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
+          curl -fsS "https://yandex.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
+          curl -fsS "https://duckduckgo.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
+          echo "✅ Sitemap ping sent to Google, Bing, Yandex, and DuckDuckGo."
