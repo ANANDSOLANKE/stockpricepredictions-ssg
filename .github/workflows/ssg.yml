@@ -68,13 +68,12 @@ jobs:
 
       - name: Cleanup old sitemap folder
         run: |
-         rm -rf dist/sitemaps || true
-         echo "🧹 Old /sitemaps folder removed"
+          rm -rf dist/sitemaps || true
+          echo "🧹 Old /sitemaps folder removed"
 
-       # Split sitemap into chunks + index
+      # Split sitemap into chunks + index (root: /sitemap.xml + /sitemap1..4.xml)
       - name: Split sitemap into chunks + index
         run: python -u scripts/sitemap_split.py
-
 
       # 📦 Upload artifact to GitHub Pages
       - name: Upload Pages artifact
@@ -93,9 +92,9 @@ jobs:
         run: |
           SITEMAP_URL="https://stockpricepredictions.com/sitemap.xml"
           echo "🔍 Pinging search engines with $SITEMAP_URL ..."
-          # Fail-safe: if curl fails, do not break the workflow
+          # Google ping is deprecated (kept harmlessly)
           curl -fsS "https://www.google.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
           curl -fsS "https://www.bing.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
           curl -fsS "https://yandex.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
           curl -fsS "https://duckduckgo.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
-          echo "✅ Sitemap ping sent to Google, Bing, Yandex, and DuckDuckGo."
+          echo "✅ Sitemap ping sent."
