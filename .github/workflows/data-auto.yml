@@ -122,6 +122,12 @@ jobs:
         if: steps.diff.outputs.changed == 'true'
         run: python -u scripts/theme_rebuild_v2.py
 
+      # Split sitemap into chunks + index
+      - name: Split sitemap into chunks + index
+        if: steps.diff.outputs.changed == 'true'
+        run: python -u scripts/sitemap_split.py
+
+
       # --- Commit & push only if Data changed ---
       - name: Commit and push updated data + dist
         if: steps.diff.outputs.changed == 'true'
