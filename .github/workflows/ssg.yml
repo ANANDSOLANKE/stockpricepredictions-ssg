@@ -18,7 +18,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 600   # first full build has room to finish
+    timeout-minutes: 600
 
     steps:
       - name: Checkout repository
@@ -34,24 +34,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas jinja2 python-slugify
 
-      - name: Ensure logos exist in dist (fast)
-        run: |
-          if [ -d logos ]; then
-            mkdir -p dist
-            if [ ! -d dist/logos ]; then
-              cp -r logos dist/
-              echo "Copied logos → dist/logos"
-            else
-              echo "Logos already present"
-            fi
-          fi
-
+      # ---- your build steps (unchanged) ----
       - name: Build site (fast)
         run: python -u scripts/build.py
 
-         # 🟩 ADD THESE 3 LINES BELOW
       - name: Run search_setup.py
-        run: python scripts/search_setup.py
+        run: python -u scripts/search_setup.py
 
       - name: Inject last-7 performance
         run: python -u scripts/build_last7.py
@@ -61,14 +49,62 @@ jobs:
 
       - name: Apply full v2 rebuild (webpage.html look)
         run: python -u scripts/theme_rebuild_v2.py
+      # --------------------------------------
 
-      #- name: Apply prediction page template (v2 UI)
-      #  run: python -u scripts/theme_override.py
+      # ---------- Option B: Stage only production files into _site/ ----------
+      - name: Prepare Pages bundle (_site)
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _site && mkdir -p _site
+          shopt -s nullglob dotglob
+
+          # Files to copy if present at repo root
+          to_copy=("index.html" "404.html" "robots.txt" "sitemap.xml" "CNAME")
+          for f in "${to_copy[@]}"; do
+            [[ -f "$f" ]] && cp -f "$f" _site/
+          done
+
+          # Google Search Console URL-prefix verification files (optional backup)
+          for f in google*.html; do
+            [[ -f "$f" ]] && cp -f "$f" _site/
+          done
+
+          # Common content/asset directories (copy only if they exist)
+          dirs=(
+            "Asia-Pacific" "Europe" "Middle-East-Africa" "North-America" "South-America"
+            "India" "USA" "UK"            # keep if you also write top-level hubs
+            "static" "assets" "css" "js" "logos" "images" "search" "flags"
+          )
+          for d in "${dirs[@]}"; do
+            [[ -d "$d" ]] && cp -R "$d" _site/
+          done
+
+          # Catch-all: include any other top-level HTML files
+          for f in *.html; do
+            [[ -f "$f" ]] && cp -f "$f" _site/
+          done
+
+          # Safety: ensure robots.txt exists
+          if [[ ! -f _site/robots.txt ]]; then
+            cat > _site/robots.txt <<'EOF'
+User-agent: *
+Allow: /
+Sitemap: https://stockpricepredictions.com/sitemap.xml
+EOF
+          fi
+
+          # Safety: include sitemap if only at repo root
+          [[ ! -f _site/sitemap.xml && -f sitemap.xml ]] && cp sitemap.xml _site/
+
+          echo "✅ Staged site. Sample tree:"
+          find _site -maxdepth 2 -type d -print
+      # -----------------------------------------------------------------------
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
