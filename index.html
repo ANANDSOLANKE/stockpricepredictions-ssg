@@ -1,277 +1,201 @@
 <!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>stockpricepredictions.com - Ravensight Alpha</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"><style>
-    /* Define the new color scheme based on the image (Light Theme, Purple/Blue Gradient Accent) */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stockpricepredictions.com - Ravensight Alpha</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+  <style>
     :root {
-        --color-primary-light: #FFFFFF; /* White (Page Background) */
-        --color-secondary-light: #F7F9FC; /* Very Light Blue-Grey (Card/Input Background) */
-        
-        /* New Purple/Blue Gradient Accent */
-        --color-accent-start: #7A3EDC; /* Deep Purple */
-        --color-accent-end: #4D95EE; /* Bright Blue */
+      --color-primary-light:#FFFFFF;
+      --color-secondary-light:#F7F9FC;
+      --color-accent-start:#7A3EDC;
+      --color-accent-end:#4D95EE;
+      --color-logo-text:#1E293B;
+      --color-text-dark:#0B111D;
+      --color-text-subtle:#64748B;
+      --color-eye-accent:#4D95EE;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--color-primary-light);color:var(--color-text-dark);transition:background-color .3s}
+    .btn-predict{background-image:linear-gradient(to right,var(--color-accent-start),var(--color-accent-end));color:#fff;transition:transform .1s,box-shadow .3s;box-shadow:0 4px 10px rgba(77,149,238,.4)}
+    .btn-predict:hover{transform:translateY(-1px);box-shadow:0 6px 15px rgba(77,149,238,.5)}
+    .input-style{background:var(--color-secondary-light);border:1px solid #CBD5E1;color:var(--color-text-dark);transition:border-color .3s,box-shadow .3s}
+    .input-style:focus{border-color:var(--color-accent-start);box-shadow:0 0 0 2px rgba(122,62,220,.3)}
+    .gradient-text{background-image:linear-gradient(to right,var(--color-accent-start),var(--color-accent-end));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-fill-color:transparent}
+    .header-bg{background:var(--color-primary-light);border-bottom:1px solid #E2E8F0}
+    .card-bg{background:var(--color-secondary-light);border:1px solid #E2E8F0;box-shadow:0 10px 15px -3px rgba(0,0,0,.05),0 4px 6px -2px rgba(0,0,0,.05)}
+    .text-accent-color{color:var(--color-accent-start)}
+    .border-accent-color{border-color:var(--color-accent-start)}
 
-        /* Text Colors for Light Background */
-        --color-logo-text: #1E293B; /* Dark Slate for main logo text */
-        --color-text-dark: #0B111D;  /* Deep Navy/Black for main body text */
-        --color-text-subtle: #64748B; /* Slate 600 for subtle text */
-        
-        /* Eye color accent */
-        --color-eye-accent: #4D95EE; 
-    }
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--color-primary-light); 
-        color: var(--color-text-dark);
-        transition: background-color 0.3s ease;
-    }
-    
-    /* Gradient Button Style */
-    .btn-predict {
-        background-image: linear-gradient(to right, var(--color-accent-start), var(--color-accent-end));
-        color: var(--color-primary-light); /* White text */
-        transition: transform 0.1s, box-shadow 0.3s;
-        box-shadow: 0 4px 10px rgba(77, 149, 238, 0.4);
-    }
-    .btn-predict:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 6px 15px rgba(77, 149, 238, 0.5);
-    }
-    
-    /* Input & Card Styles */
-    .input-style {
-        background-color: var(--color-secondary-light); 
-        border: 1px solid #CBD5E1; /* Light border */
-        color: var(--color-text-dark); 
-        transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    .input-style:focus {
-        border-color: var(--color-accent-start);
-        box-shadow: 0 0 0 2px rgba(122, 62, 220, 0.3);
-    }
-
-    /* Gradient Text for Headlines (Crucial for image look) */
-    .gradient-text {
-        background-image: linear-gradient(to right, var(--color-accent-start), var(--color-accent-end));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
-    }
-
-    /* Specific header and card background updates for Light Theme */
-    .header-bg {
-        background-color: var(--color-primary-light); 
-        border-bottom: 1px solid #E2E8F0; 
-    }
-    .card-bg {
-        background-color: var(--color-secondary-light); 
-        border: 1px solid #E2E8F0; 
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
-    .text-accent-color {
-         color: var(--color-accent-start); /* Use the primary purple accent for icons/small text */
-    }
-    .border-accent-color {
-         border-color: var(--color-accent-start);
-    }
-</style>
-
+    /* ---------- Compact “Browse All Markets” section ---------- */
+    #all-markets .max-w-6xl{max-width:80rem}
+    #all-markets section{margin-bottom:1.5rem}
+    #all-markets .grid{gap:.75rem}
+    #all-markets .grid > a{padding:.65rem .75rem}
+    #all-markets .grid .w-6{width:24px;height:16px}
+    #all-markets .grid .font-semibold{font-size:.95rem}
+    #all-markets .grid .flex.flex-wrap{gap:.35rem}
+    #all-markets .exchip{padding:.15rem .45rem;font-size:.70rem}
+    #all-markets .exchip:empty{display:none} /* hide accidental empty pills */
+  </style>
 </head>
-<body class="min-h-screen"><!-- Header Navigation -->
-<header class="p-4 md:px-8 shadow-sm header-bg">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-        
-        <!-- Logo Area: Ravensight Alpha -->
-       <!-- Logo Area: Ravensight Alpha -->
-            <div class="flex items-center space-x-2">
-              <div class="w-10 h-10 -mt-1">
-                <img src="/logos/site/logo.png" alt="Ravensight Alpha Logo" class="w-10 h-10 rounded-md"/>
-              </div>
-              <div class="flex flex-col leading-none">
-                <span class="text-sm font-light tracking-widest text-gray-500 uppercase">
-                  stockpricepredictions.com
-                </span>
-                <span class="text-xl font-extrabold tracking-tight text-[var(--color-logo-text)]">
-                  RAVENSIGHT <span class="gradient-text">ALPHA</span>
-                </span>
-              </div>
-            </div>
 
-            <!-- Site Name and Brand Name -->
-            <div class="flex flex-col leading-none">
-                <span class="text-sm font-light tracking-widest text-gray-500 uppercase">
-                    stockpricepredictions.com
-                </span>
-                <span class="text-xl font-extrabold tracking-tight text-[var(--color-logo-text)]">
-                    RAVENSIGHT <span class="gradient-text">ALPHA</span>
-                </span>
-            </div>
+<body class="min-h-screen">
+  <!-- Header: single brand (left only) -->
+  <header class="p-4 md:px-8 shadow-sm header-bg">
+    <div class="max-w-6xl mx-auto flex items-center">
+      <a href="/" class="flex items-center space-x-2">
+        <div class="w-10 h-10 -mt-1">
+          <img src="/logos/site/logo.png" alt="Ravensight Alpha Logo" class="w-10 h-10 rounded-md"/>
         </div>
-        
+        <div class="flex flex-col leading-none">
+          <span class="text-sm font-light tracking-widest text-gray-500 uppercase">
+            stockpricepredictions.com
+          </span>
+          <span class="text-xl font-extrabold tracking-tight text-[var(--color-logo-text)]">
+            RAVENSIGHT <span class="gradient-text">ALPHA</span>
+          </span>
+        </div>
+      </a>
     </div>
-</header>
+  </header>
 
-<main class="max-w-6xl mx-auto p-4 md:p-8">
-
-    <!-- Hero Section: Prediction Input -->
+  <main class="max-w-6xl mx-auto p-4 md:p-8">
+    <!-- Hero -->
     <section class="text-center py-16 md:py-24">
-        <h2 class="text-4xl md:text-6xl font-black mb-4 leading-tight text-[var(--color-text-dark)]">
-            The Dark Intelligence Behind <span class="gradient-text">Every Smart Trade</span>
-        </h2>
-        <p class="text-lg md:text-xl text-[var(--color-text-subtle)] max-w-3xl mx-auto mb-10">
-            **Ravensight Alpha** is our proprietary AI engine, decoding billions of market data points to deliver **AI-Driven Precision** in your stock forecasts.
-        </p>
+      <h2 class="text-4xl md:text-6xl font-black mb-4 leading-tight text-[var(--color-text-dark)]">
+        The Dark Intelligence Behind <span class="gradient-text">Every Smart Trade</span>
+      </h2>
+      <p class="text-lg md:text-xl text-[var(--color-text-subtle)] max-w-3xl mx-auto mb-10">
+        <strong>Ravensight Alpha</strong> is our proprietary AI engine, decoding billions of market data points to deliver <strong>AI-Driven Precision</strong> in your stock forecasts.
+      </p>
 
-        <!-- Prediction Card/Input -->
-        <div class="max-w-lg mx-auto card-bg p-6 sm:p-8 rounded-xl shadow-2xl">
-            <h3 class="text-xl font-semibold mb-6 text-[var(--color-text-dark)]">Enter a Ticker for a Free 30-Day AI Forecast</h3>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <input type="text" id="tickerInput" placeholder="Enter Stock Ticker (e.g., AAPL, NVDA)"
-                       class="input-style flex-grow p-3 rounded-lg focus:outline-none placeholder-gray-500 uppercase font-mono text-sm"
-                       maxlength="5">
-                <button id="predictButton" class="btn-predict px-6 py-3 rounded-xl font-bold whitespace-nowrap">
-                    Run Ravensight
-                </button>
-            </div>
-
-            <!-- Prediction Results Area -->
-            <div id="resultsContainer" class="mt-6 p-4 text-left rounded-xl border-2 border-dashed border-gray-300 hidden">
-                <p class="text-lg font-bold text-accent-color mb-2">Prediction Status:</p>
-                <p id="predictionText" class="text-[var(--color-text-dark)]">Awaiting input...</p>
-                <div id="loadingIndicator" class="hidden text-center mt-4">
-                    <div class="inline-block w-6 h-6 border-2 border-t-2 border-t-transparent border-accent-color rounded-full animate-spin"></div>
-                    <p class="text-sm text-[var(--color-text-subtle)] mt-2">Ravensight Alpha is analyzing market data...</p>
-                </div>
-            </div>
+      <!-- Prediction Card/Input -->
+      <div class="max-w-lg mx-auto card-bg p-6 sm:p-8 rounded-xl shadow-2xl">
+        <h3 class="text-xl font-semibold mb-6 text-[var(--color-text-dark)]">Enter a Ticker for a Free 30-Day AI Forecast</h3>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <input type="text" id="tickerInput" placeholder="Enter Stock Ticker (e.g., AAPL, NVDA)"
+                 class="input-style flex-grow p-3 rounded-lg focus:outline-none placeholder-gray-500 uppercase font-mono text-sm"
+                 maxlength="5">
+          <button id="predictButton" class="btn-predict px-6 py-3 rounded-xl font-bold whitespace-nowrap">
+            Run Ravensight
+          </button>
         </div>
+
+        <div id="resultsContainer" class="mt-6 p-4 text-left rounded-xl border-2 border-dashed border-gray-300 hidden">
+          <p class="text-lg font-bold text-accent-color mb-2">Prediction Status:</p>
+          <p id="predictionText" class="text-[var(--color-text-dark)]">Awaiting input...</p>
+          <div id="loadingIndicator" class="hidden text-center mt-4">
+            <div class="inline-block w-6 h-6 border-2 border-t-2 border-t-transparent border-accent-color rounded-full animate-spin"></div>
+            <p class="text-sm text-[var(--color-text-subtle)] mt-2">Ravensight Alpha is analyzing market data...</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Feature Section -->
+    <!-- Features -->
     <section class="py-16">
-        <h2 class="text-3xl font-bold text-center mb-12 text-[var(--color-text-dark)]">The Ravensight Alpha Advantage</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            <!-- Feature 1: Deep Vision (The Eye) -->
-            <div class="card-bg p-6 rounded-xl shadow-lg hover:border-accent-color transition duration-300">
-                <div class="text-accent-color mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-dark)]">Unmatched Market Vision</h3>
-                <p class="text-[var(--color-text-subtle)] text-sm">A multi-layered neural network processes technicals, fundamentals, and real-time news sentiment for superior foresight.</p>
-            </div>
-
-            <!-- Feature 2: High Alpha (The Arrow) -->
-            <div class="card-bg p-6 rounded-xl shadow-lg hover:border-accent-color transition duration-300">
-                <div class="text-accent-color mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-dark)]">Targeting True Alpha</h3>
-                <p class="text-[var(--color-text-subtle)] text-sm">We don't just predict price; we isolate predictions with the highest statistical likelihood of generating market-beating returns.</p>
-            </div>
-
-            <!-- Feature 3: Adaptive Learning (The Brain/CPU) -->
-            <div class="card-bg p-6 rounded-xl shadow-lg hover:border-accent-color transition duration-300">
-                <div class="text-accent-color mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-dark)]">Real-Time Adaption</h3>
-                <p class="text-[var(--color-text-subtle)] text-sm">The engine continuously retrains on new data, ensuring predictions remain relevant during periods of high volatility or sudden shifts.</p>
-            </div>
+      <h2 class="text-3xl font-bold text-center mb-12 text-[var(--color-text-dark)]">The Ravensight Alpha Advantage</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-bg p-6 rounded-xl shadow-lg hover:border-accent-color transition">
+          <div class="text-accent-color mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-dark)]">Unmatched Market Vision</h3>
+          <p class="text-[var(--color-text-subtle)] text-sm">A multi-layered neural network processes technicals, fundamentals, and real-time news sentiment for superior foresight.</p>
         </div>
+
+        <div class="card-bg p-6 rounded-xl shadow-lg hover:border-accent-color transition">
+          <div class="text-accent-color mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-dark)]">Targeting True Alpha</h3>
+          <p class="text-[var(--color-text-subtle)] text-sm">We isolate predictions with the highest statistical likelihood of generating market-beating returns.</p>
+        </div>
+
+        <div class="card-bg p-6 rounded-xl shadow-lg hover:border-accent-color transition">
+          <div class="text-accent-color mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-dark)]">Real-Time Adaption</h3>
+          <p class="text-[var(--color-text-subtle)] text-sm">The engine continuously retrains on new data, keeping predictions relevant during high volatility.</p>
+        </div>
+      </div>
     </section>
+  </main>
 
-</main>
+  <!-- Footer -->
+  <footer class="mt-16 p-6 md:p-8 text-center text-sm text-[var(--color-text-subtle)] border-t border-gray-200">
+    <p>&copy; <span id="currentYear"></span> <strong>stockpricepredictions.com</strong>. Product: Ravensight Alpha.</p>
+    <p class="mt-2 text-xs text-gray-400">Disclaimer: Ravensight Alpha provides informational forecasts based on advanced AI models. This is not financial advice.</p>
+  </footer>
 
-<!-- Footer -->
-<footer class="mt-16 p-6 md:p-8 text-center text-sm text-[var(--color-text-subtle)] border-t border-gray-200">
-    <p>
-        &copy; <span id="currentYear"></span> **stockpricepredictions.com**. Product: Ravensight Alpha.
-    </p>
-    <p class="mt-2 text-xs text-gray-400">
-        Disclaimer: Ravensight Alpha provides informational forecasts based on advanced AI models. This is not financial advice. Invest responsibly.
-    </p>
-</footer>
-
-<!-- JavaScript for Mock Prediction Functionality -->
-<script>
+  <!-- Simple mock prediction JS (unchanged) -->
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const predictButton = document.getElementById('predictButton');
-        const tickerInput = document.getElementById('tickerInput');
-        const resultsContainer = document.getElementById('resultsContainer');
-        const predictionText = document.getElementById('predictionText');
-        const loadingIndicator = document.getElementById('loadingIndicator');
-        const currentYear = document.getElementById('currentYear');
+      const predictButton = document.getElementById('predictButton');
+      const tickerInput = document.getElementById('tickerInput');
+      const resultsContainer = document.getElementById('resultsContainer');
+      const predictionText = document.getElementById('predictionText');
+      const loadingIndicator = document.getElementById('loadingIndicator');
+      const currentYear = document.getElementById('currentYear');
+      currentYear.textContent = new Date().getFullYear();
 
-        currentYear.textContent = new Date().getFullYear();
+      const mockPredictions = {
+        NVDA:{price:1050.5,change:'+18.5%',confidence:'High'},
+        AAPL:{price:235.5,change:'+12.5%',confidence:'Medium'},
+        GOOG:{price:180.15,change:'+8.2%',confidence:'Medium'},
+        TSLA:{price:310.9,change:'-4.1%',confidence:'Low'},
+        MSFT:{price:475.2,change:'+10.9%',confidence:'High'},
+      };
 
-        // Simple data map for mock predictions
-        const mockPredictions = {
-            'NVDA': { price: 1050.50, change: '+18.5%', confidence: 'High' },
-            'AAPL': { price: 235.50, change: '+12.5%', confidence: 'Medium' },
-            'GOOG': { price: 180.15, change: '+8.2%', confidence: 'Medium' },
-            'TSLA': { price: 310.90, change: '-4.1%', confidence: 'Low' },
-            'MSFT': { price: 475.20, change: '+10.9%', confidence: 'High' },
-        };
-
-        predictButton.addEventListener('click', () => {
-            const ticker = tickerInput.value.trim().toUpperCase();
-            
-            // Input validation
-            if (ticker.length < 3 || ticker.length > 5) {
-                displayMessage("Please enter a valid 3-5 letter stock ticker.", "text-red-700");
-                return;
-            }
-            
-            resultsContainer.classList.remove('hidden');
-            predictionText.textContent = '';
-            loadingIndicator.classList.remove('hidden');
-            
-            // Simulate network latency (2 seconds)
-            setTimeout(() => {
-                loadingIndicator.classList.add('hidden');
-
-                if (mockPredictions[ticker]) {
-                    const data = mockPredictions[ticker];
-                    const changeColor = data.change.startsWith('+') ? 'text-green-700' : 'text-red-700'; // Darker green/red for light background
-                    
-                    const predictionHtml = `
-                        <p class="text-xl font-bold mb-3">${ticker} 30-Day Forecast</p>
-                        <div class="space-y-1">
-                            <p>Projected Price: <span class="font-mono text-lg text-accent-color">${data.price.toFixed(2)}</span></p>
-                            <p>Projected Change: <span class="${changeColor} font-semibold">${data.change}</span></p>
-                            <p>Confidence Level: <span class="font-medium text-[var(--color-text-subtle)]">${data.confidence}</span></p>
-                        </div>
-                    `;
-                    // Using dark text for the success message itself
-                    displayMessage(predictionHtml, "text-[var(--color-text-dark)]");
-                } else {
-                    // Using dark indigo/purple for the error on the light background
-                    displayMessage(`Ticker "${ticker}" not currently in the Ravensight Alpha coverage universe.`, "text-indigo-700"); 
-                }
-            }, 2000);
-        });
-
-        function displayMessage(htmlContent, textColorClass) {
-            // Clear the current prediction text before displaying the new message
-            predictionText.className = `mt-2 ${textColorClass}`;
-            predictionText.innerHTML = htmlContent;
-            resultsContainer.classList.remove('hidden');
+      predictButton.addEventListener('click', () => {
+        const ticker = tickerInput.value.trim().toUpperCase();
+        if (ticker.length < 3 || ticker.length > 5){
+          displayMessage("Please enter a valid 3–5 letter stock ticker.","text-red-700");
+          return;
         }
-    });
-</script>
+        resultsContainer.classList.remove('hidden');
+        predictionText.textContent='';
+        loadingIndicator.classList.remove('hidden');
 
+        setTimeout(() => {
+          loadingIndicator.classList.add('hidden');
+          if (mockPredictions[ticker]) {
+            const d = mockPredictions[ticker];
+            const changeColor = d.change.startsWith('+') ? 'text-green-700' : 'text-red-700';
+            const html = `
+              <p class="text-xl font-bold mb-3">${ticker} 30-Day Forecast</p>
+              <div class="space-y-1">
+                <p>Projected Price: <span class="font-mono text-lg text-accent-color">${d.price.toFixed(2)}</span></p>
+                <p>Projected Change: <span class="${changeColor} font-semibold">${d.change}</span></p>
+                <p>Confidence Level: <span class="font-medium text-[var(--color-text-subtle)]">${d.confidence}</span></p>
+              </div>`;
+            displayMessage(html,"text-[var(--color-text-dark)]");
+          } else {
+            displayMessage(`Ticker "${ticker}" not currently in the Ravensight Alpha coverage universe.`,"text-indigo-700");
+          }
+        }, 2000);
+      });
+
+      function displayMessage(htmlContent, className){
+        predictionText.className = `mt-2 ${className}`;
+        predictionText.innerHTML = htmlContent;
+        resultsContainer.classList.remove('hidden');
+      }
+    });
+  </script>
 </body>
 </html>
