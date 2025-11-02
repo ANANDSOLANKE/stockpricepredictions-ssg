@@ -46,6 +46,11 @@ jobs:
             fi
           fi
 
+      - name: Verify site logo present
+        run: |
+         test -f dist/logos/site/logo.png || (echo "❌ dist/logos/site/logo.png missing!" && exit 1)
+         echo "✅ Verified logo: dist/logos/site/logo.png"
+
       # 🏗️ Build all region/country/exchange/stock pages
       - name: Build site (fast)
         run: python -u scripts/build.py
