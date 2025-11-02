@@ -386,7 +386,12 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
 
 # ---------- render markets (light theme) & inject into Ravensight homepage ----------
 def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], base_url: str) -> str:
-    """Compact country cards + cleaned exchange chips for the homepage injection."""
+    """
+    Compact, aligned cards:
+    - Desktop 5 cols, tablet 3, mobile 2
+    - Card contains flag + country name (single line) and chips that wrap INSIDE the card
+    - All styles are namespaced with 'am-' to avoid site-wide CSS collisions
+    """
     def clean_exchange(ex: str) -> str:
         ex = (ex or "").strip()
         if not ex:
@@ -394,12 +399,37 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
         bad = {"unknown", "n/a", "na", "none", "-", "—", "_", "0"}
         if ex.lower() in bad:
             return ""
+        # keep exchange tickers tight (no spaces); drop very long codes
         ex = re.sub(r"\s+", "", ex)
         if len(ex) > 8:
             return ""
         return ex
 
-    sections = []
+    # --- namespaced CSS so nothing leaks/overrides existing site styles ---
+    scoped_css = """
+<style id="am-styles">
+  .am-wrap{max-width:1200px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px}
+  .am-title{font-weight:800;color:#0f172a;letter-spacing:-.01em}
+  .am-help{color:#475569}
+  .am-region{margin-bottom:16px}
+  .am-region h3{color:#0f172a;font-weight:700;margin:0 0 8px}
+  .am-grid{display:grid;gap:10px}
+  @media (max-width:639.98px){.am-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (min-width:640px) and (max-width:1023.98px){.am-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media (min-width:1024px){.am-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+  .am-card{display:block;background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:12px;box-shadow:0 1px 2px rgba(0,0,0,.04);text-decoration:none}
+  .am-card:hover{border-color:#93c5fd}
+  .am-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+  .am-flag{width:24px;height:16px;border-radius:4px;object-fit:cover;box-shadow:0 0 0 1px rgba(0,0,0,.05)}
+  .am-name{font-weight:700;color:#0f172a;font-size:14px}
+  .am-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:20px}
+  .am-chip{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;border:1px solid #CBD5E1;border-radius:999px;font-size:11px;color:#334155;background:#fff;text-decoration:none}
+  .am-chip:hover{border-color:#93c5fd;color:#4338ca}
+</style>
+"""
+
+    regions_html = []
+
     for gslug in sorted(tree.keys()):
         first = next(iter(tree[gslug].values()))
         gname = first["group_name"]
@@ -417,45 +447,43 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
                 ex = clean_exchange(r.get("exchange"))
                 if not ex:
                     continue
-                key = ex.lower()
-                if key in seen:
+                k = ex.lower()
+                if k in seen: 
                     continue
-                seen.add(key)
+                seen.add(k)
                 ex_list.append(ex)
 
             flag_url = f"{base_url}/logos/countryflags/{cslug_dir}.svg"
-            chips = "".join(
-                f"<a href='/{gslug}/{cslug_dir}/{slug(ex)}/' class='exchip px-2 py-[2px] rounded-full border text-[11px] text-slate-700 border-slate-300 hover:border-indigo-400 hover:text-indigo-700 transition'>{html.escape(ex)}</a>"
+            country_href = f"/{gslug}/{cslug_dir}/"
+
+            chips_html = "".join(
+                f"<a class='am-chip' href='/{gslug}/{cslug_dir}/{slug(ex)}/'>{html.escape(ex)}</a>"
                 for ex in sorted(ex_list)
             )
 
-            country_href = f"/{gslug}/{cslug_dir}/"
             cards.append(
-                "<a href='{href}' class='block rounded-xl border border-slate-200 bg-white p-3 shadow-sm hover:border-indigo-300 transition'>"
-                "  <div class='flex items-center gap-2 mb-1'>"
-                "    <img src='{flag}' alt='{cname} flag' class='w-6 h-4 rounded object-cover shadow-sm'/>"
-                "    <div class='font-semibold text-slate-800'>{cname}</div>"
-                "  </div>"
-                "  <div class='flex flex-wrap gap-1.5 min-h-[20px]'>{chips}</div>"
-                "</a>"
-                .format(href=country_href, flag=flag_url, cname=html.escape(cname), chips=chips)
+                f"<a class='am-card' href='{country_href}'>"
+                f"  <div class='am-row'><img class='am-flag' src='{flag_url}' alt='{html.escape(cname)} flag'>"
+                f"  <span class='am-name'>{html.escape(cname)}</span></div>"
+                f"  <div class='am-chips'>{chips_html}</div>"
+                f"</a>"
             )
 
-        region_block = (
-            "<section class='mb-6'>"
-            f"  <h3 class='text-base md:text-lg font-bold text-slate-800 mb-2'>{html.escape(gname)}</h3>"
-            f"  <div class='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3'>{''.join(cards)}</div>"
+        regions_html.append(
+            "<section class='am-region'>"
+            f"  <h3>{html.escape(gname)}</h3>"
+            f"  <div class='am-grid'>{''.join(cards)}</div>"
             "</section>"
         )
-        sections.append(region_block)
 
     return (
-        "<!-- AUTO-INJECTED: All Markets section (compact) -->"
+        "<!-- AUTO-INJECTED: All Markets section (scoped) -->"
+        f"{scoped_css}"
         "<section id='all-markets' class='pt-6 pb-10'>"
-        "  <div class='max-w-6xl mx-auto px-3 md:px-6'>"
-        "    <h2 class='text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-2'>Browse All Markets</h2>"
-        "    <p class='text-slate-600 mb-4 text-sm md:text-base'>Explore countries and jump into their exchanges. Use the top Ravensight search box to find any stock by symbol or name.</p>"
-        f"    {''.join(sections)}"
+        "  <div class='am-wrap'>"
+        "    <h2 class='am-title' style='font-size:32px;margin:0 0 6px'>Browse All Markets</h2>"
+        "    <p class='am-help' style='margin:0 0 12px'>Explore countries and jump into their exchanges. Use the top Ravensight search box to find any stock by symbol or name.</p>"
+        f"    {''.join(regions_html)}"
         "  </div>"
         "</section>"
         "<!-- /AUTO-INJECTED -->"
