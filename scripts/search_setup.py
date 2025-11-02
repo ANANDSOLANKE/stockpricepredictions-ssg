@@ -48,10 +48,12 @@ def build_search_index():
             rows = read_csv_rows(csvp)
             for r in rows:
                 sym = (r.get("symbol") or "").strip()
-                if not sym: continue
+                if not sym: 
+                    continue
                 name = (r.get("description") or sym).strip()
                 exchange = (r.get("exchange") or "").strip()
-                if not exchange: continue
+                if not exchange: 
+                    continue
                 ex_slug = slug(exchange)
                 sym_slug = slug(sym)
                 url = f"{BASE_URL}/{region_slug}/{country_slug}/{ex_slug}/{sym_slug}/prediction-tomorrow/"
@@ -72,6 +74,7 @@ def write_search_index(index):
     print(f"✅ Wrote {outp.relative_to(ROOT)} ({len(index)} entries)")
 
 def write_search_js():
+    # NB: this JS removes the 5-char cap and allows multi-word queries (e.g., "tata motors")
     js = r"""
 (function(){
   function $(s, r=document){ return r.querySelector(s); }
@@ -82,9 +85,23 @@ def write_search_js():
     } else { fn(); }
   }
 
+  // simple text normalizer (diacritics-insensitive)
+  function norm(s){
+    return (s||'')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g,'')
+      .trim();
+  }
+
   ready(function(){
     const input = document.getElementById('tickerInput');
     if (!input) return;
+
+    // ---- remove old UI limits (was 3-5 uppercase ticker) ----
+    try { input.maxLength = 64; } catch(_){}
+    try { input.setAttribute('maxlength','64'); } catch(_){}
+    try { input.classList.remove('uppercase'); } catch(_){}
 
     const btn   = document.getElementById('predictButton');
     const resBox= document.getElementById('resultsContainer'); // old mock area (we'll keep hidden)
@@ -116,7 +133,7 @@ def write_search_js():
     note.style.fontSize = '12px';
     note.style.color    = '#64748B';
     note.style.padding  = '2px 4px';
-    note.textContent    = 'Type at least 2 characters';
+    note.textContent    = 'Type a symbol (e.g., TATAMOTORS) or a company name (e.g., Tata Motors)';
     panel.appendChild(note);
 
     let cache = null, timer = null;
@@ -126,11 +143,47 @@ def write_search_js():
       // absolute-safe path
       const res = await fetch('/static/search_index.json', {cache:'no-store'});
       cache = await res.json();
+      // add precomputed normalized fields for faster matching
+      for (let i=0;i<cache.length;i++){
+        const it = cache[i];
+        it._symbol = norm(it.symbol);
+        it._name   = norm(it.name);
+      }
       return cache;
     }
 
     function escapeHtml(s){
       return (s||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+
+    function matchItems(idx, q){
+      // token-based: all tokens must be contained in the name (AND),
+      // OR the symbol must start with the whole query (for tickers)
+      const qn = norm(q);
+      const tokens = qn.split(/\s+/).filter(Boolean);
+      if (!tokens.length) return [];
+
+      const out = [];
+      for (let i=0;i<idx.length;i++){
+        const it = idx[i];
+
+        // symbol prefix
+        if (it._symbol && it._symbol.startsWith(qn)) {
+          out.push(it);
+          if (out.length>600) break;
+          continue;
+        }
+        // name tokens AND
+        let ok = true;
+        for (let t of tokens){
+          if (!it._name || it._name.indexOf(t) === -1){ ok=false; break; }
+        }
+        if (ok){
+          out.push(it);
+          if (out.length>600) break;
+        }
+      }
+      return out;
     }
 
     function render(items){
@@ -174,16 +227,7 @@ def write_search_js():
         return;
       }
       const idx = await ensureIndex();
-      const ql  = q.toLowerCase();
-      const out = [];
-      for (let i=0;i<idx.length;i++){
-        const it = idx[i];
-        if ((it.symbol && it.symbol.toLowerCase().startsWith(ql)) ||
-            (it.name && it.name.toLowerCase().includes(ql))) {
-          out.push(it);
-          if (out.length>500) break;
-        }
-      }
+      const out = matchItems(idx, q);
       panel.style.display = 'block';
       if (resBox) resBox.style.display = 'none';
       render(out);
