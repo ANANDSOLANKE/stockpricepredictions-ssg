@@ -1,37 +1,22 @@
 name: Auto download market data and build & deploy SSG
-
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
   schedule:
-    # --- Regional close-time passes (UTC) ---
-    # APAC ex-India (Japan/Korea/HK/SG/China)
-    - cron: "45 6 * * 1-5"
-
-    # India (NSE/BSE)
-    - cron: "15 10 * * 1-5"
-
-    # Gulf / Middle East (Sun–Thu)
-    - cron: "15 11 * * 0-4"
-
-    # Europe & UK
-    - cron: "15 16 * * 1-5"
-
-    # US & Canada
-    - cron: "15 21 * * 1-5"
+    - cron: "45 6 * * 1-5"    # APAC ex-India
+    - cron: "15 10 * * 1-5"   # India (NSE/BSE)
+    - cron: "15 11 * * 0-4"   # Gulf / Middle East
+    - cron: "15 16 * * 1-5"   # Europe & UK
+    - cron: "15 21 * * 1-5"   # US & Canada
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
-concurrency:
-  group: pages-and-data
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 600
 
     steps:
       - name: Checkout repository
@@ -45,54 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            pip install pandas jinja2 python-slugify requests pytz python-dateutil beautifulsoup4 lxml
-          fi
-
-      # --- Download data once per region (headless) ---
-      - name: Download latest market data (headless)
-        run: |
-          echo "[START] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 240 || true
-          echo "[END]   $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-
-      # --- Check for Data changes (skip build if unchanged) ---
-      - name: Detect data changes
-        id: diff
-        run: |
-          git add -A
-          if git diff --cached --quiet -- Data; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-            echo "No Data changes."
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-            echo "Data changed."
-          fi
-
-      # --- Ensure logos exist in dist (fast) ---
-      - name: Ensure logos exist in dist (fast)
-        run: |
-          if [ -d logos ]; then
-            mkdir -p dist
-            if [ ! -d dist/logos ]; then
-              cp -r logos dist/
-              echo "Copied logos → dist/logos (first time)"
-            else
-              echo "Logos already present, skipping copy"
-            fi
-          else
-            echo "No /logos folder found, skipping"
-          fi
-
-      # --- Build site (fast) ---
-      - name: Build site (fast; skip logo rescan)
-        if: steps.diff.outputs.changed == 'true'
-        env:
-          SKIP_LOGOS: "1"
-        run: |
-          python -u scripts/build.py
+          pip install pandas jinja2 python-slugify
 
       - name: Ensure country flags present (robust)
         run: |
@@ -102,62 +40,55 @@ jobs:
             cp -r logos/countryflags/* dist/logos/countryflags/ 2>/dev/null || true
           fi
 
-      # 🔎 Build global search (hero input)
-      - name: Run search_setup.py
-        if: steps.diff.outputs.changed == 'true'
+      # ✅ NEW: Ensure main site logo always exists
+      - name: Verify site logo present
+        run: |
+          mkdir -p dist/logos/site
+          if [ -f logos/site/logo.png ]; then
+            cp -f logos/site/logo.png dist/logos/site/logo.png
+            echo "✅ Copied and verified site logo: dist/logos/site/logo.png"
+          else
+            echo "❌ logos/site/logo.png not found!"
+            exit 1
+          fi
+
+      - name: Run data downloader
+        run: python -u scripts/data_auto.py
+
+      - name: Build site
+        run: python -u scripts/build.py
+
+      - name: Rebuild search index
         run: python -u scripts/search_setup.py
 
-      # ✅ Inject logo mappings
-      - name: Inject logos from mapping
-        if: steps.diff.outputs.changed == 'true'
-        run: python -u scripts/inject_logos.py
-
-      # 📊 Inject last-7-day performance
       - name: Inject last-7 performance
-        if: steps.diff.outputs.changed == 'true'
         run: python -u scripts/build_last7.py
 
-      # 🎨 Rebuild prediction pages (v2 theme)
-      - name: Apply v2 rebuild (prediction pages)
-        if: steps.diff.outputs.changed == 'true'
+      - name: Inject logos from mapping
+        run: python -u scripts/inject_logos.py
+
+      - name: Apply V2 rebuild theme
         run: python -u scripts/theme_rebuild_v2.py
 
       - name: Cleanup old sitemap folder
         run: |
-         rm -rf dist/sitemaps || true
-         echo "🧹 Removed legacy /sitemaps folder"
+          rm -rf dist/sitemaps || true
+          echo "🧹 Old /sitemaps folder removed"
 
-      # Split sitemap into chunks + index
       - name: Split sitemap into chunks + index
-        if: steps.diff.outputs.changed == 'true'
         run: python -u scripts/sitemap_split.py
 
-
-      # --- Commit & push only if Data changed ---
-      - name: Commit and push updated data + dist
-        if: steps.diff.outputs.changed == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Data dist || true
-          git commit -m "Auto-update: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No changes to commit"
-          git push || true
-
-      # --- Deploy only if Data changed ---
       - name: Upload Pages artifact
-        if: steps.diff.outputs.changed == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
       - name: Deploy to GitHub Pages
-        if: steps.diff.outputs.changed == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
 
-      # 🔍 SEO Fast-Track — Ping all major search engines
       - name: Notify Search Engines (Google, Bing, Yandex, DuckDuckGo)
-        if: steps.diff.outputs.changed == 'true'
+        if: success()
         run: |
           SITEMAP_URL="https://stockpricepredictions.com/sitemap.xml"
           echo "🔍 Pinging search engines with $SITEMAP_URL ..."
@@ -165,4 +96,4 @@ jobs:
           curl -fsS "https://www.bing.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
           curl -fsS "https://yandex.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
           curl -fsS "https://duckduckgo.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
-          echo "✅ Sitemap ping sent successfully to Google, Bing, Yandex, and DuckDuckGo."
+          echo "✅ Sitemap ping sent."
