@@ -5,13 +5,13 @@
 Builds the site from Data/LastTradingDay.
 
 Homepage (/index.html):
-- We copy your custom Ravensight page EXACTLY.
-- Then we inject a light "Browse All Markets" grid (countries with flags + exchange chips) BELOW your hero.
-- No separate search box is added; the hero input (#tickerInput) is wired by search_setup.js to do global search.
+- Copies your custom Ravensight page EXACTLY from repo root index.html to /dist/index.html.
+- Injects a compact "Browse All Markets" grid under the hero (countries + flags + exchange chips).
+- No extra search box; the hero input (#tickerInput) is wired by /static/search.js.
 
-Other outputs stay the same:
+Other outputs:
 - /<region>/index.html
-- /<region>/<country>/index.html  (has exchange chips + per-country search + default exchange loaded)
+- /<region>/<country>/index.html (exchange chips + per-country search + default exchange loaded)
 - /<region>/<country>/<exchange>/index.html
 - /<region>/<country>/<exchange>/<symbol>/prediction-tomorrow/index.html
 - /static/exchanges/<region>/<country>/<exchange>.json
@@ -22,6 +22,7 @@ import csv, html, json, os, re, unicodedata, shutil
 from pathlib import Path
 from datetime import datetime, timedelta, time
 from typing import Dict, List, Tuple, Optional
+from string import Template
 
 # ---------- paths / config ----------
 ROOT = Path(__file__).resolve().parents[1]
@@ -394,7 +395,7 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
         if ex.lower() in bad:
             return ""
         ex = re.sub(r"\s+", "", ex)
-        if len(ex) > 8:  # keep short codes only (prevents long junk)
+        if len(ex) > 8:
             return ""
         return ex
 
@@ -414,10 +415,10 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
             seen, ex_list = set(), []
             for r in rows:
                 ex = clean_exchange(r.get("exchange"))
-                if not ex: 
+                if not ex:
                     continue
                 key = ex.lower()
-                if key in seen: 
+                if key in seen:
                     continue
                 seen.add(key)
                 ex_list.append(ex)
@@ -631,16 +632,16 @@ def build_site_pages(tree):
 
             # country page (loader & search) – default exchange preloaded handled by front-end JS below
             default_ex_slug = slug(all_exchanges[0]) if all_exchanges else ""
-            loader_js = """
+            loader_js = Template(r"""
 <script>
 (function(){
-  const BASE = "{BASE_URL}/static/exchanges/{gslug}/{cslug_dir}/";
+  const BASE = "$BASE_URL/static/exchanges/$gslug/$cslug_dir/";
   const chips = Array.from(document.querySelectorAll('.exchange-bar .exchip'));
   const tableHost = document.getElementById('ex-table');
   const searchEl = document.getElementById('cty-search');
   const PAGE_SIZE = 50;
 
-  let active = "{default_ex_slug}" || "all";
+  let active = "$default_ex_slug" || "all";
   let page = 1;
   let sortMode = 'chg-asc';
   const dataByEx = Object.create(null);
@@ -796,7 +797,12 @@ def build_site_pages(tree):
   activate(active || 'all');
 })();
 </script>
-""".format(BASE_URL=BASE_URL, gslug=gslug, cslug_dir=cslug_dir, default_ex_slug=default_ex_slug)
+""").substitute(
+                BASE_URL=BASE_URL,
+                gslug=gslug,
+                cslug_dir=cslug_dir,
+                default_ex_slug=default_ex_slug
+            )
 
             country_body = (
                 build_exchange_bar(gslug, cslug_dir, cname, all_exchanges)
