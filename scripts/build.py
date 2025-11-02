@@ -388,25 +388,21 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
 def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], base_url: str) -> str:
     """
     Gemini-style compact grid:
-    - Desktop 5 cols / Tablet 3 / Mobile 2
-    - Card = flag + country name (one line) + wrapped chips inside
-    - Card clicks to the country page; each chip links to that exchange page
-    - Uses Tailwind utility classes (your index.html already loads Tailwind via CDN)
+    - Card is a <div> (not <a>) so children never escape
+    - Country name row links to the country page
+    - Chips (links) wrap INSIDE the card
+    - 5/3/2 columns using Tailwind utilities already loaded by index.html
     """
     def clean_exchange(ex: str) -> str:
         ex = (ex or "").strip()
         if not ex:
             return ""
-        bad = {"unknown", "n/a", "na", "none", "-", "—", "_", "0"}
-        if ex.lower() in bad:
+        if ex.lower() in {"unknown", "n/a", "na", "none", "-", "—", "_", "0"}:
             return ""
-        ex = re.sub(r"\s+", "", ex)   # tighten
-        if len(ex) > 10:
-            return ""
-        return ex
+        ex = re.sub(r"\s+", "", ex)
+        return ex if len(ex) <= 10 else ""
 
-    # small helper to render one country card
-    def card_html(gslug: str, cslug_dir: str, cname: str, exchanges: List[str]) -> str:
+    def country_card_html(gslug: str, cslug_dir: str, cname: str, exchanges: List[str]) -> str:
         flag_url = f"{base_url}/logos/countryflags/{cslug_dir}.svg"
         country_href = f"/{gslug}/{cslug_dir}/"
         chips = "".join(
@@ -417,21 +413,19 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
             for ex in exchanges
         )
         return (
-            "<a class='flex flex-col gap-3 p-3 rounded-xl border border-slate-200 shadow-sm "
-            "bg-white hover:border-indigo-500 transition duration-150' "
-            f"href='{country_href}'>"
-            "  <div class='flex items-center space-x-2'>"
+            "<div class='flex flex-col gap-3 p-3 rounded-xl border border-slate-200 shadow-sm "
+            "bg-white hover:border-indigo-500 transition duration-150'>"
+            f"  <a href='{country_href}' class='flex items-center space-x-2'>"
             f"    <img src='{flag_url}' alt='{html.escape(cname)} Flag' "
             "         class='w-6 h-4 object-cover rounded shadow-md' "
             "         onerror=\"this.onerror=null;this.src='https://placehold.co/24x16/f1f5f9/64748b?text=+'\">"
             f"    <span class='text-base font-bold text-gray-800 whitespace-nowrap'>{html.escape(cname)}</span>"
-            "  </div>"
+            "  </a>"
             f"  <div class='flex flex-wrap gap-2 pt-1'>{chips}</div>"
-            "</a>"
+            "</div>"
         )
 
     sections = []
-
     for gslug in sorted(tree.keys()):
         first = next(iter(tree[gslug].values()))
         gname = first["group_name"]
@@ -446,15 +440,15 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
             seen, ex_list = set(), []
             for r in rows:
                 ex = clean_exchange(r.get("exchange"))
-                if not ex:
+                if not ex: 
                     continue
-                key = ex.lower()
-                if key in seen:
+                k = ex.lower()
+                if k in seen: 
                     continue
-                seen.add(key)
+                seen.add(k)
                 ex_list.append(ex)
 
-            cards.append(card_html(gslug, cslug_dir, cname, sorted(ex_list)))
+            cards.append(country_card_html(gslug, cslug_dir, cname, sorted(ex_list)))
 
         sections.append(
             "<div class='mb-10'>"
@@ -465,9 +459,8 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
             "</div>"
         )
 
-    # Scoped helpers (just like your Gemini sample)
     return (
-        "<!-- AUTO-INJECTED: Gemini-styled All Markets -->"
+        "<!-- AUTO-INJECTED: Gemini-styled All Markets (stable card structure) -->"
         "<style>.chip-text{font-size:11px}</style>"
         "<section class='pt-10 pb-20'>"
         "  <div class='max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10'>"
