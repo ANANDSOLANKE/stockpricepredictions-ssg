@@ -268,6 +268,26 @@ def merge_curated_maps(a: Dict[Tuple[str, str], str], b: Dict[Tuple[str, str], s
         merged.setdefault(k, v)
     return merged
 
+# ---------- site-logo fallback ----------
+def ensure_site_logo():
+    """Ensure dist/logos/site/logo.png exists by copying from common fallbacks if needed."""
+    dst = DIST / "logos" / "site" / "logo.png"
+    if dst.exists():
+        return
+    candidates = [
+        ROOT / "logos" / "site" / "logo.png",
+        ROOT / "logo.png",
+        ROOT / "Logo.png",
+        ROOT / "static" / "logo.png",
+    ]
+    src = next((p for p in candidates if p.exists()), None)
+    if src:
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+        print("✅ Site logo copied →", dst)
+    else:
+        print("⚠️ Site logo not found; expected one of:", ", ".join(str(p) for p in candidates))
+
 # ---------- logo resolver ----------
 class LogoResolver:
     def __init__(self):
@@ -365,7 +385,19 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
 
 # ---------- render markets (light theme) & inject into Ravensight homepage ----------
 def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], base_url: str) -> str:
-    """Light cards; each COUNTRY CARD links to its country page. Exchange chips link to exchanges."""
+    """Compact country cards + cleaned exchange chips for the homepage injection."""
+    def clean_exchange(ex: str) -> str:
+        ex = (ex or "").strip()
+        if not ex:
+            return ""
+        bad = {"unknown", "n/a", "na", "none", "-", "—", "_", "0"}
+        if ex.lower() in bad:
+            return ""
+        ex = re.sub(r"\s+", "", ex)
+        if len(ex) > 8:  # keep short codes only (prevents long junk)
+            return ""
+        return ex
+
     sections = []
     for gslug in sorted(tree.keys()):
         first = next(iter(tree[gslug].values()))
@@ -378,49 +410,50 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
             cslug_dir = slug(cslug_raw)
             rows = country["rows"]
 
-            # collect unique exchanges
+            # unique, cleaned exchanges
             seen, ex_list = set(), []
             for r in rows:
-                ex = (r.get("exchange") or "").strip()
-                if not ex or ex.upper() == "UNKNOWN":
+                ex = clean_exchange(r.get("exchange"))
+                if not ex: 
                     continue
                 key = ex.lower()
-                if key in seen:
+                if key in seen: 
                     continue
                 seen.add(key)
                 ex_list.append(ex)
 
             flag_url = f"{base_url}/logos/countryflags/{cslug_dir}.svg"
             chips = "".join(
-                f"<a href='/{gslug}/{cslug_dir}/{slug(ex)}/' class='px-2.5 py-1 rounded-full border text-xs text-slate-700 border-slate-300 hover:border-indigo-400 hover:text-indigo-700 transition'>{html.escape(ex)}</a>"
+                f"<a href='/{gslug}/{cslug_dir}/{slug(ex)}/' class='exchip px-2 py-[2px] rounded-full border text-[11px] text-slate-700 border-slate-300 hover:border-indigo-400 hover:text-indigo-700 transition'>{html.escape(ex)}</a>"
                 for ex in sorted(ex_list)
-            ) or "<span class='text-xs text-slate-400'>No exchanges</span>"
+            )
 
-            # MAKE THE WHOLE CARD CLICKABLE to the country page:
             country_href = f"/{gslug}/{cslug_dir}/"
             cards.append(
-                "<a href='{href}' class='block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:border-indigo-300 transition'>"
-                "  <img src='{flag}' alt='{cname} flag' class='w-8 h-5 rounded object-cover shadow-sm mb-2'/>"
-                "  <div class='font-semibold text-slate-800 mb-2'>{cname}</div>"
-                "  <div class='flex flex-wrap gap-2'>{chips}</div>"
+                "<a href='{href}' class='block rounded-xl border border-slate-200 bg-white p-3 shadow-sm hover:border-indigo-300 transition'>"
+                "  <div class='flex items-center gap-2 mb-1'>"
+                "    <img src='{flag}' alt='{cname} flag' class='w-6 h-4 rounded object-cover shadow-sm'/>"
+                "    <div class='font-semibold text-slate-800'>{cname}</div>"
+                "  </div>"
+                "  <div class='flex flex-wrap gap-1.5 min-h-[20px]'>{chips}</div>"
                 "</a>"
                 .format(href=country_href, flag=flag_url, cname=html.escape(cname), chips=chips)
             )
 
         region_block = (
-            "<section class='mb-10'>"
-            f"  <h3 class='text-lg font-bold text-slate-800 mb-4'>{html.escape(gname)}</h3>"
-            f"  <div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>{''.join(cards)}</div>"
+            "<section class='mb-6'>"
+            f"  <h3 class='text-base md:text-lg font-bold text-slate-800 mb-2'>{html.escape(gname)}</h3>"
+            f"  <div class='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3'>{''.join(cards)}</div>"
             "</section>"
         )
         sections.append(region_block)
 
     return (
-        "<!-- AUTO-INJECTED: All Markets section -->"
-        "<section id='all-markets' class='pt-6 pb-16'>"
-        "  <div class='max-w-6xl mx-auto px-4 md:px-8'>"
-        "    <h2 class='text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-4'>Browse All Markets</h2>"
-        "    <p class='text-slate-600 mb-6'>Explore countries and jump into their exchanges. Use the top Ravensight search box to find any stock by symbol or name.</p>"
+        "<!-- AUTO-INJECTED: All Markets section (compact) -->"
+        "<section id='all-markets' class='pt-6 pb-10'>"
+        "  <div class='max-w-6xl mx-auto px-3 md:px-6'>"
+        "    <h2 class='text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-2'>Browse All Markets</h2>"
+        "    <p class='text-slate-600 mb-4 text-sm md:text-base'>Explore countries and jump into their exchanges. Use the top Ravensight search box to find any stock by symbol or name.</p>"
         f"    {''.join(sections)}"
         "  </div>"
         "</section>"
@@ -761,7 +794,7 @@ def build_site_pages(tree):
   searchEl.addEventListener('input', function(){{ page=1; render(); }});
 
   activate(active || 'all');
-}})();
+})();
 </script>
 """
             country_body = (
@@ -785,6 +818,7 @@ def main() -> None:
     copy_static_assets()
     ensure_placeholder_logo()
     ensure_countryflags()
+    ensure_site_logo()  # <<< NEW: ensure /logos/site/logo.png exists
 
     tree = load_last_trading_day()
 
