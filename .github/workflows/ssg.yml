@@ -11,9 +11,13 @@ on:
       - ".github/workflows/ssg.yml"
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -32,8 +36,11 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas jinja2 python-slugify
+          pip install pandas jinja2 python-slugify || true
+          # if you later add requirements.txt, this also works (won't fail if missing):
+          [ -f requirements.txt ] && pip install -r requirements.txt || true
 
+      # Ensure logos are present quickly even before build.py runs
       - name: Ensure logos exist in dist (fast)
         run: |
           if [ -d logos ]; then
@@ -48,12 +55,21 @@ jobs:
 
       - name: Verify site logo present
         run: |
-         test -f dist/logos/site/logo.png || (echo "❌ dist/logos/site/logo.png missing!" && exit 1)
-         echo "✅ Verified logo: dist/logos/site/logo.png"
+          test -f dist/logos/site/logo.png || (echo "❌ dist/logos/site/logo.png missing!" && ls -R dist/logos || true && exit 1)
+          echo "✅ Verified logo: dist/logos/site/logo.png"
 
       # 🏗️ Build all region/country/exchange/stock pages
       - name: Build site (fast)
-        run: python -u scripts/build.py
+        run: |
+          python -u scripts/build.py
+          echo "—— Contents of dist/ (top 50) ——"
+          ls -lah dist | head -50
+
+      # Make sure the landing page made it into dist/
+      - name: Verify landing page
+        run: |
+          test -f dist/index.html || (echo "❌ dist/index.html missing! Check scripts/build.py copy step." && exit 1)
+          echo "✅ Landing page ready: dist/index.html"
 
       # 🔎 Global search (hero input) → builds /static/search_index.json + /static/search.js
       - name: Run search_setup.py
@@ -86,6 +102,13 @@ jobs:
         with:
           path: dist
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       # 🚀 Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
@@ -97,7 +120,6 @@ jobs:
         run: |
           SITEMAP_URL="https://stockpricepredictions.com/sitemap.xml"
           echo "🔍 Pinging search engines with $SITEMAP_URL ..."
-          # Google ping is deprecated (kept harmlessly)
           curl -fsS "https://www.google.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
           curl -fsS "https://www.bing.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
           curl -fsS "https://yandex.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
