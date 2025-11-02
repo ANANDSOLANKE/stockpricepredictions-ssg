@@ -387,10 +387,11 @@ def tpl_base(title: str, description: str, body: str, canonical: str) -> str:
 # ---------- render markets (light theme) & inject into Ravensight homepage ----------
 def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], base_url: str) -> str:
     """
-    Compact, aligned cards:
-    - Desktop 5 cols, tablet 3, mobile 2
-    - Card contains flag + country name (single line) and chips that wrap INSIDE the card
-    - All styles are namespaced with 'am-' to avoid site-wide CSS collisions
+    Gemini-style compact grid:
+    - Desktop 5 cols / Tablet 3 / Mobile 2
+    - Card = flag + country name (one line) + wrapped chips inside
+    - Card clicks to the country page; each chip links to that exchange page
+    - Uses Tailwind utility classes (your index.html already loads Tailwind via CDN)
     """
     def clean_exchange(ex: str) -> str:
         ex = (ex or "").strip()
@@ -399,36 +400,37 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
         bad = {"unknown", "n/a", "na", "none", "-", "—", "_", "0"}
         if ex.lower() in bad:
             return ""
-        # keep exchange tickers tight (no spaces); drop very long codes
-        ex = re.sub(r"\s+", "", ex)
-        if len(ex) > 8:
+        ex = re.sub(r"\s+", "", ex)   # tighten
+        if len(ex) > 10:
             return ""
         return ex
 
-    # --- namespaced CSS so nothing leaks/overrides existing site styles ---
-    scoped_css = """
-<style id="am-styles">
-  .am-wrap{max-width:1200px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px}
-  .am-title{font-weight:800;color:#0f172a;letter-spacing:-.01em}
-  .am-help{color:#475569}
-  .am-region{margin-bottom:16px}
-  .am-region h3{color:#0f172a;font-weight:700;margin:0 0 8px}
-  .am-grid{display:grid;gap:10px}
-  @media (max-width:639.98px){.am-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media (min-width:640px) and (max-width:1023.98px){.am-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-  @media (min-width:1024px){.am-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
-  .am-card{display:block;background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:12px;box-shadow:0 1px 2px rgba(0,0,0,.04);text-decoration:none}
-  .am-card:hover{border-color:#93c5fd}
-  .am-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-  .am-flag{width:24px;height:16px;border-radius:4px;object-fit:cover;box-shadow:0 0 0 1px rgba(0,0,0,.05)}
-  .am-name{font-weight:700;color:#0f172a;font-size:14px}
-  .am-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:20px}
-  .am-chip{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;border:1px solid #CBD5E1;border-radius:999px;font-size:11px;color:#334155;background:#fff;text-decoration:none}
-  .am-chip:hover{border-color:#93c5fd;color:#4338ca}
-</style>
-"""
+    # small helper to render one country card
+    def card_html(gslug: str, cslug_dir: str, cname: str, exchanges: List[str]) -> str:
+        flag_url = f"{base_url}/logos/countryflags/{cslug_dir}.svg"
+        country_href = f"/{gslug}/{cslug_dir}/"
+        chips = "".join(
+            f"<a href='/{gslug}/{cslug_dir}/{slug(ex)}/' "
+            f"class='chip-text font-medium text-slate-600 px-2 py-1 rounded-full border "
+            f"border-slate-300 hover:text-indigo-700 hover:border-indigo-300 "
+            f"transition duration-150 whitespace-nowrap'>{html.escape(ex)}</a>"
+            for ex in exchanges
+        )
+        return (
+            "<a class='flex flex-col gap-3 p-3 rounded-xl border border-slate-200 shadow-sm "
+            "bg-white hover:border-indigo-500 transition duration-150' "
+            f"href='{country_href}'>"
+            "  <div class='flex items-center space-x-2'>"
+            f"    <img src='{flag_url}' alt='{html.escape(cname)} Flag' "
+            "         class='w-6 h-4 object-cover rounded shadow-md' "
+            "         onerror=\"this.onerror=null;this.src='https://placehold.co/24x16/f1f5f9/64748b?text=+'\">"
+            f"    <span class='text-base font-bold text-gray-800 whitespace-nowrap'>{html.escape(cname)}</span>"
+            "  </div>"
+            f"  <div class='flex flex-wrap gap-2 pt-1'>{chips}</div>"
+            "</a>"
+        )
 
-    regions_html = []
+    sections = []
 
     for gslug in sorted(tree.keys()):
         first = next(iter(tree[gslug].values()))
@@ -441,53 +443,43 @@ def render_markets_section_light(tree: Dict[str, Dict[str, Dict[str, object]]], 
             cslug_dir = slug(cslug_raw)
             rows = country["rows"]
 
-            # unique, cleaned exchanges
             seen, ex_list = set(), []
             for r in rows:
                 ex = clean_exchange(r.get("exchange"))
                 if not ex:
                     continue
-                k = ex.lower()
-                if k in seen: 
+                key = ex.lower()
+                if key in seen:
                     continue
-                seen.add(k)
+                seen.add(key)
                 ex_list.append(ex)
 
-            flag_url = f"{base_url}/logos/countryflags/{cslug_dir}.svg"
-            country_href = f"/{gslug}/{cslug_dir}/"
+            cards.append(card_html(gslug, cslug_dir, cname, sorted(ex_list)))
 
-            chips_html = "".join(
-                f"<a class='am-chip' href='/{gslug}/{cslug_dir}/{slug(ex)}/'>{html.escape(ex)}</a>"
-                for ex in sorted(ex_list)
-            )
-
-            cards.append(
-                f"<a class='am-card' href='{country_href}'>"
-                f"  <div class='am-row'><img class='am-flag' src='{flag_url}' alt='{html.escape(cname)} flag'>"
-                f"  <span class='am-name'>{html.escape(cname)}</span></div>"
-                f"  <div class='am-chips'>{chips_html}</div>"
-                f"</a>"
-            )
-
-        regions_html.append(
-            "<section class='am-region'>"
-            f"  <h3>{html.escape(gname)}</h3>"
-            f"  <div class='am-grid'>{''.join(cards)}</div>"
-            "</section>"
+        sections.append(
+            "<div class='mb-10'>"
+            f"  <h2 class='text-lg font-semibold text-gray-700 mb-2'>{html.escape(gname)}</h2>"
+            "  <div class='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3'>"
+            f"    {''.join(cards)}"
+            "  </div>"
+            "</div>"
         )
 
+    # Scoped helpers (just like your Gemini sample)
     return (
-        "<!-- AUTO-INJECTED: All Markets section (scoped) -->"
-        f"{scoped_css}"
-        "<section id='all-markets' class='pt-6 pb-10'>"
-        "  <div class='am-wrap'>"
-        "    <h2 class='am-title' style='font-size:32px;margin:0 0 6px'>Browse All Markets</h2>"
-        "    <p class='am-help' style='margin:0 0 12px'>Explore countries and jump into their exchanges. Use the top Ravensight search box to find any stock by symbol or name.</p>"
-        f"    {''.join(regions_html)}"
+        "<!-- AUTO-INJECTED: Gemini-styled All Markets -->"
+        "<style>.chip-text{font-size:11px}</style>"
+        "<section class='pt-10 pb-20'>"
+        "  <div class='max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10'>"
+        "    <h1 class='text-3xl font-bold text-gray-800 mb-3'>Browse All Markets</h1>"
+        "    <p class='text-slate-600 mb-6'>Explore countries and jump into their exchanges. "
+        "Use the top Ravensight search box to find any stock by symbol or name.</p>"
+        f"    {''.join(sections)}"
         "  </div>"
         "</section>"
         "<!-- /AUTO-INJECTED -->"
     )
+
 
 def inject_into_home(dist_index: Path, markets_html: str, base_url: str) -> None:
     if not dist_index.exists():
