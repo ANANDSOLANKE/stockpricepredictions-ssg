@@ -1,25 +1,37 @@
-name: Build & Deploy SSG
+name: Auto download market data and build & deploy SSG
 
 on:
-  workflow_dispatch:
-  push:
-    paths:
-      - "index.html"
-      - "scripts/**"
-      - "templates/**"
-      - "static/**"
-      - "logos/**"
-      - ".github/workflows/ssg.yml"
+  workflow_dispatch: {}
+  schedule:
+    # --- Regional close-time passes (UTC) ---
+    # APAC ex-India (Japan/Korea/HK/SG/China)
+    - cron: "45 6 * * 1-5"
+
+    # India (NSE/BSE)
+    - cron: "15 10 * * 1-5"
+
+    # Gulf / Middle East (Sun–Thu)
+    - cron: "15 11 * * 0-4"
+
+    # Europe & UK
+    - cron: "15 16 * * 1-5"
+
+    # US & Canada
+    - cron: "15 21 * * 1-5"
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
+concurrency:
+  group: pages-and-data
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 600
+    timeout-minutes: 60
 
     steps:
       - name: Checkout repository
@@ -36,80 +48,116 @@ jobs:
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           else
-            pip install pandas jinja2 python-slugify
+            pip install pandas jinja2 python-slugify requests pytz python-dateutil beautifulsoup4 lxml
           fi
 
-      # ✅ Always sync logos (so logo updates are picked up every run)
-      - name: Sync logos into dist (always)
+      # --- Download data once per region (headless) ---
+      - name: Download latest market data (headless)
         run: |
-          mkdir -p dist/logos
-          if [ -d logos ]; then
-            rsync -a --delete logos/ dist/logos/
-            echo "Logos synced → dist/logos/"
+          echo "[START] $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          python downloader/run_headless.py --mode hourly --data-folder Data --window-mins 240 || true
+          echo "[END]   $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+
+      # --- Check for Data changes (skip build if unchanged) ---
+      - name: Detect data changes
+        id: diff
+        run: |
+          git add -A
+          if git diff --cached --quiet -- Data; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No Data changes."
           else
-            echo "No local logos/ folder found."
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Data changed."
           fi
 
-      - name: Verify site logo present
+      # --- Ensure logos exist in dist (fast) ---
+      - name: Ensure logos exist in dist (fast)
         run: |
-          test -f dist/logos/site/logo.png || (echo "❌ dist/logos/site/logo.png missing!" && exit 1)
-          echo "✅ Verified logo: dist/logos/site/logo.png"
+          if [ -d logos ]; then
+            mkdir -p dist
+            if [ ! -d dist/logos ]; then
+              cp -r logos dist/
+              echo "Copied logos → dist/logos (first time)"
+            else
+              echo "Logos already present, skipping copy"
+            fi
+          else
+            echo "No /logos folder found, skipping"
+          fi
 
-      # 🏗️ Build all region/country/exchange/stock pages
-      - name: Build site
-        run: python -u scripts/build.py
+      # --- Build site (fast) ---
+      - name: Build site (fast; skip logo rescan)
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          SKIP_LOGOS: "1"
+        run: |
+          python -u scripts/build.py
 
-      # 🔎 Global search (hero input) → builds /static/search_index.json + /static/search.js
+      - name: Ensure country flags present (robust)
+        run: |
+          mkdir -p dist/logos/countryflags
+          rsync -a logos/countryflags/ dist/logos/countryflags/ 2>/dev/null || true
+          if [ -z "$(ls -A dist/logos/countryflags 2>/dev/null)" ]; then
+            cp -r logos/countryflags/* dist/logos/countryflags/ 2>/dev/null || true
+          fi
+
+      # 🔎 Build global search (hero input)
       - name: Run search_setup.py
+        if: steps.diff.outputs.changed == 'true'
         run: python -u scripts/search_setup.py
 
-      # (Optional) Last-7 performance widget
-      - name: Inject last-7 performance (optional)
-        run: python -u scripts/build_last7.py
-        continue-on-error: true
-
-      # (Optional) Curated logo mappings
-      - name: Inject logos from mapping (optional)
+      # ✅ Inject logo mappings
+      - name: Inject logos from mapping
+        if: steps.diff.outputs.changed == 'true'
         run: python -u scripts/inject_logos.py
-        continue-on-error: true
 
-      # (Optional) V2 theme touchups for inner pages
-      - name: Apply full v2 rebuild (optional)
+      # 📊 Inject last-7-day performance
+      - name: Inject last-7 performance
+        if: steps.diff.outputs.changed == 'true'
+        run: python -u scripts/build_last7.py
+
+      # 🎨 Rebuild prediction pages (v2 theme)
+      - name: Apply v2 rebuild (prediction pages)
+        if: steps.diff.outputs.changed == 'true'
         run: python -u scripts/theme_rebuild_v2.py
-        continue-on-error: true
 
-      # 🧹 Clean old sitemap folder (if present)
       - name: Cleanup old sitemap folder
         run: |
-          rm -rf dist/sitemaps || true
-          echo "🧹 Old /sitemaps folder removed"
+         rm -rf dist/sitemaps || true
+         echo "🧹 Removed legacy /sitemaps folder"
 
-      # 🗺️ Split sitemap (keep if you’re using it; otherwise remove this step)
+      # Split sitemap into chunks + index
       - name: Split sitemap into chunks + index
+        if: steps.diff.outputs.changed == 'true'
         run: python -u scripts/sitemap_split.py
-        continue-on-error: true
 
-      # 🔁 Re-sync logos after build (belt & suspenders)
-      - name: Re-sync logos after build
+
+      # --- Commit & push only if Data changed ---
+      - name: Commit and push updated data + dist
+        if: steps.diff.outputs.changed == 'true'
         run: |
-          if [ -d logos ]; then
-            rsync -a --delete logos/ dist/logos/
-          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Data dist || true
+          git commit -m "Auto-update: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No changes to commit"
+          git push || true
 
-      # 📦 Upload artifact to GitHub Pages
+      # --- Deploy only if Data changed ---
       - name: Upload Pages artifact
+        if: steps.diff.outputs.changed == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
-      # 🚀 Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
+        if: steps.diff.outputs.changed == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
 
-      # 🔍 SEO Fast-Track — Ping major search engines
+      # 🔍 SEO Fast-Track — Ping all major search engines
       - name: Notify Search Engines (Google, Bing, Yandex, DuckDuckGo)
-        if: success()
+        if: steps.diff.outputs.changed == 'true'
         run: |
           SITEMAP_URL="https://stockpricepredictions.com/sitemap.xml"
           echo "🔍 Pinging search engines with $SITEMAP_URL ..."
@@ -117,4 +165,4 @@ jobs:
           curl -fsS "https://www.bing.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
           curl -fsS "https://yandex.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
           curl -fsS "https://duckduckgo.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
-          echo "✅ Sitemap ping sent."
+          echo "✅ Sitemap ping sent successfully to Google, Bing, Yandex, and DuckDuckGo."
