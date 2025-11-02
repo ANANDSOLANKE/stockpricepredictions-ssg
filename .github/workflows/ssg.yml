@@ -37,64 +37,66 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pandas jinja2 python-slugify || true
-          # if you later add requirements.txt, this also works (won't fail if missing):
           [ -f requirements.txt ] && pip install -r requirements.txt || true
 
-      # Ensure logos are present quickly even before build.py runs
+      # ---- Pre-warm logos so early steps don't fail
       - name: Ensure logos exist in dist (fast)
         run: |
           if [ -d logos ]; then
             mkdir -p dist
-            if [ ! -d dist/logos ]; then
-              cp -r logos dist/
-              echo "Copied logos → dist/logos"
-            else
-              echo "Logos already present"
-            fi
+            cp -rn logos dist/ || true
           fi
 
-      - name: Verify site logo present
+      - name: Verify site logo present (early)
         run: |
-          test -f dist/logos/site/logo.png || (echo "❌ dist/logos/site/logo.png missing!" && ls -R dist/logos || true && exit 1)
-          echo "✅ Verified logo: dist/logos/site/logo.png"
+          test -f dist/logos/site/logo.png || (echo "❌ dist/logos/site/logo.png missing (early)!" && ls -R dist/logos || true && exit 1)
+          echo "✅ Verified logo (early): dist/logos/site/logo.png"
 
-      # 🏗️ Build all region/country/exchange/stock pages
+      # 🏗️ Build everything
       - name: Build site (fast)
-        run: |
-          python -u scripts/build.py
-          echo "—— Contents of dist/ (top 50) ——"
-          ls -lah dist | head -50
+        run: python -u scripts/build.py
 
-      # Make sure the landing page made it into dist/
       - name: Verify landing page
         run: |
           test -f dist/index.html || (echo "❌ dist/index.html missing! Check scripts/build.py copy step." && exit 1)
           echo "✅ Landing page ready: dist/index.html"
 
-      # 🔎 Global search (hero input) → builds /static/search_index.json + /static/search.js
       - name: Run search_setup.py
         run: python -u scripts/search_setup.py
 
-      # (Optional) Last-7 performance widget (safe)
       - name: Inject last-7 performance
         run: python -u scripts/build_last7.py
 
-      # (Optional) Curated logo mappings (safe)
       - name: Inject logos from mapping
         run: python -u scripts/inject_logos.py
 
-      # 🎨 Rebuild ONLY prediction pages with V2 theme (safe for homepage)
       - name: Apply full v2 rebuild (webpage.html look)
         run: python -u scripts/theme_rebuild_v2.py
 
       - name: Cleanup old sitemap folder
         run: |
           rm -rf dist/sitemaps || true
-          echo "🧹 Old /sitemaps folder removed"
+          echo "🧹 Old /sitemaps removed"
 
-      # Split sitemap into chunks + index (root: /sitemap.xml + /sitemap1..4.xml)
       - name: Split sitemap into chunks + index
         run: python -u scripts/sitemap_split.py
+
+      # ---- FINAL PASS: ensure static assets survived later scripts
+      - name: Re-sync logos into dist (final)
+        run: |
+          if [ -d logos ]; then
+            mkdir -p dist/logos
+            rsync -a --delete logos/ dist/logos/
+          fi
+          # prevent any Jekyll processing just in case
+          touch dist/.nojekyll
+
+      - name: Verify site logo present (final)
+        run: |
+          test -f dist/logos/site/logo.png || (echo "❌ dist/logos/site/logo.png missing (final)!" && find dist -maxdepth 3 -type d -print && exit 1)
+          echo "✅ Verified logo (final): dist/logos/site/logo.png"
+          echo "—— dist tree (top) ——"
+          find dist -maxdepth 2 -type d -print
 
       # 📦 Upload artifact to GitHub Pages
       - name: Upload Pages artifact
@@ -109,19 +111,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # 🚀 Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      # 🔍 SEO Fast-Track — Ping all major search engines
-      - name: Notify Search Engines (Google, Bing, Yandex, DuckDuckGo)
-        if: success()
-        run: |
-          SITEMAP_URL="https://stockpricepredictions.com/sitemap.xml"
-          echo "🔍 Pinging search engines with $SITEMAP_URL ..."
-          curl -fsS "https://www.google.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
-          curl -fsS "https://www.bing.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
-          curl -fsS "https://yandex.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
-          curl -fsS "https://duckduckgo.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
-          echo "✅ Sitemap ping sent."
