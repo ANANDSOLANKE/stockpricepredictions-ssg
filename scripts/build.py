@@ -631,9 +631,9 @@ def build_site_pages(tree):
 
             # country page (loader & search) – default exchange preloaded handled by front-end JS below
             default_ex_slug = slug(all_exchanges[0]) if all_exchanges else ""
-            loader_js = f"""
+            loader_js = """
 <script>
-(function(){{
+(function(){
   const BASE = "{BASE_URL}/static/exchanges/{gslug}/{cslug_dir}/";
   const chips = Array.from(document.querySelectorAll('.exchange-bar .exchip'));
   const tableHost = document.getElementById('ex-table');
@@ -646,27 +646,27 @@ def build_site_pages(tree):
   const dataByEx = Object.create(null);
   let allMerged = [];
 
-  function ensureLoadMoreArea(){{
+  function ensureLoadMoreArea(){
     let wrap = document.getElementById('load-more-wrap');
-    if (!wrap){{
+    if (!wrap){
       wrap = document.createElement('div');
       wrap.id = 'load-more-wrap';
       wrap.className = 'loadmore-wrap';
       wrap.innerHTML = "<button id='load-more' class='btn'>Load more</button>";
       tableHost.insertAdjacentElement('afterend', wrap);
-      wrap.addEventListener('click', function(ev){{
+      wrap.addEventListener('click', function(ev){
         const btn = document.getElementById('load-more');
-        if (ev.target === btn) {{ page += 1; render(); }}
-      }});
-    }}
-  }}
+        if (ev.target === btn) { page += 1; render(); }
+      });
+    }
+  }
 
-  function compare(a,b,mode){{
+  function compare(a,b,mode){
     const sa = (a.symbol||'').toLowerCase(), sb = (b.symbol||'').toLowerCase();
     const na = (a.name||'').toLowerCase(), nb = (b.name||'').toLowerCase();
     const ca = (a.change_percent==null)?0:a.change_percent;
     const cb = (b.change_percent==null)?0:b.change_percent;
-    switch(mode){{
+    switch(mode){
       case 'sym-asc': return sa<sb?-1:sa>sb?1:0;
       case 'sym-desc': return sa>sb?-1:sa<sb?1:0;
       case 'name-asc': return na<nb?-1:na>nb?1:0;
@@ -674,30 +674,30 @@ def build_site_pages(tree):
       case 'chg-asc': return (ca - cb);
       case 'chg-desc': return (cb - ca);
       default: return 0;
-    }}
-  }}
+    }
+  }
 
-  function filterRows(rows, q){{
+  function filterRows(rows, q){
     if (!q) return rows;
     const s = q.toLowerCase();
     return rows.filter(r => (r.symbol && r.symbol.toLowerCase().includes(s)) || (r.name && r.name.toLowerCase().includes(s)));
-  }}
+  }
 
-  function fmt(v){{ return (v==null || v==='') ? '' : (''+v); }}
+  function fmt(v){ return (v==null || v==='') ? '' : (''+v); }
 
-  function headerArrow(mode){{
-    switch(mode){{
-      case 'sym-asc': return {{col:'sym', arrow:'▲'}};
-      case 'sym-desc': return {{col:'sym', arrow:'▼'}};
-      case 'name-asc': return {{col:'name', arrow:'▲'}};
-      case 'name-desc': return {{col:'name', arrow:'▼'}};
-      case 'chg-asc': return {{col:'chg', arrow:'▲'}};
-      case 'chg-desc': return {{col:'chg', arrow:'▼'}};
-      default: return {{col:'', arrow:''}};
-    }}
-  }}
+  function headerArrow(mode){
+    switch(mode){
+      case 'sym-asc': return {col:'sym', arrow:'▲'};
+      case 'sym-desc': return {col:'sym', arrow:'▼'};
+      case 'name-asc': return {col:'name', arrow:'▲'};
+      case 'name-desc': return {col:'name', arrow:'▼'};
+      case 'chg-asc': return {col:'chg', arrow:'▲'};
+      case 'chg-desc': return {col:'chg', arrow:'▼'};
+      default: return {col:'', arrow:''};
+    }
+  }
 
-  function render(){{
+  function render(){
     ensureLoadMoreArea();
     const q = searchEl.value.trim();
 
@@ -721,7 +721,7 @@ def build_site_pages(tree):
     html += "<th>Signal</th>";
     html += "</tr></thead><tbody>";
 
-    for (let i=0;i<view.length;i++) {{
+    for (let i=0;i<view.length;i++) {
       const r = view[i];
       const v = (r.change_percent==null) ? null : (r.change_percent*1);
       const chg = (v==null) ? "" : (v.toFixed(2) + "%");
@@ -737,66 +737,67 @@ def build_site_pages(tree):
            + "<td>" + (chg?("<span class='" + cls + "'>" + chg + "</span>"):"") + "</td>"
            + "<td><a class='btn' href='" + fmt(r.url) + "'>AI Prediction</a></td>"
            + "</tr>";
-    }}
+    }
     html += "</tbody></table></div>";
 
     tableHost.innerHTML = html;
 
-    Array.from(tableHost.querySelectorAll('.th-sort')).forEach(th => {{
-      th.addEventListener('click', () => {{
+    Array.from(tableHost.querySelectorAll('.th-sort')).forEach(th => {
+      th.addEventListener('click', () => {
         const k = th.getAttribute('data-sort');
         if (k==='sym') sortMode = (sortMode==='sym-asc') ? 'sym-desc' : 'sym-asc';
         if (k==='name') sortMode = (sortMode==='name-asc') ? 'name-desc' : 'name-asc';
         if (k==='chg') sortMode = (sortMode==='chg-asc') ? 'chg-desc' : 'chg-asc';
         page = 1; render();
-      }});
-    }});
+      });
+    });
 
     const moreBtn = document.getElementById('load-more');
     if (moreBtn) moreBtn.style.display = (upto < total) ? '' : 'none';
-  }}
+  }
 
-  async function fetchExchange(slug){{
-    if (slug==='all') {{
+  async function fetchExchange(slug){
+    if (slug==='all') {
       const exSlugs = chips.map(c=>c.dataset.ex).filter(x=>x && x!=='all');
       await Promise.all(exSlugs.map(s => fetchExchange(s)));
       const merged = []; const dedup = new Set();
-      exSlugs.forEach(s => {{
-        (dataByEx[s]||[]).forEach(r => {{
+      exSlugs.forEach(s => {
+        (dataByEx[s]||[]).forEach(r => {
           const key = (r.symbol||'') + "|" + (r.url||'');
-          if (!dedup.has(key)) {{ dedup.add(key); merged.push(r); }}
-        }});
-      }});
+          if (!dedup.has(key)) { dedup.add(key); merged.push(r); }
+        });
+      });
       allMerged = merged;
       return merged;
-    }}
+    }
     if (dataByEx[slug]) return dataByEx[slug];
-    try {{
+    try {
       const res = await fetch(BASE + slug + ".json");
       const data = await res.json();
       dataByEx[slug] = data.rows || [];
       return dataByEx[slug];
-    }} catch(e) {{
+    } catch(e) {
       dataByEx[slug] = [];
       return dataByEx[slug];
-    }}
-  }}
+    }
+  }
 
-  async function activate(slug){{
+  async function activate(slug){
     active = slug || 'all';
     page = 1;
     chips.forEach(c=>c.classList.toggle('active', c.dataset.ex===active));
     await fetchExchange(active);
     render();
-  }}
+  }
 
-  chips.forEach(c=>c.addEventListener('click', ev=>{{ ev.preventDefault(); activate(c.dataset.ex||'all'); }}));
-  searchEl.addEventListener('input', function(){{ page=1; render(); }});
+  chips.forEach(c=>c.addEventListener('click', ev=>{ ev.preventDefault(); activate(c.dataset.ex||'all'); }));
+  searchEl.addEventListener('input', function(){ page=1; render(); });
 
   activate(active || 'all');
 })();
 </script>
-"""
+""".format(BASE_URL=BASE_URL, gslug=gslug, cslug_dir=cslug_dir, default_ex_slug=default_ex_slug)
+
             country_body = (
                 build_exchange_bar(gslug, cslug_dir, cname, all_exchanges)
                 + "<div id='ex-table' class='card'><p class='small'>Loading…</p></div>"
@@ -818,7 +819,7 @@ def main() -> None:
     copy_static_assets()
     ensure_placeholder_logo()
     ensure_countryflags()
-    ensure_site_logo()  # <<< NEW: ensure /logos/site/logo.png exists
+    ensure_site_logo()  # ensure /logos/site/logo.png exists
 
     tree = load_last_trading_day()
 
