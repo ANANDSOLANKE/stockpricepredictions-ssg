@@ -31,7 +31,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
@@ -96,42 +96,29 @@ jobs:
 
       - name: Ensure country flags present (robust)
         run: |
-          mkdir -p dist/logos/countryflags
-          rsync -a logos/countryflags/ dist/logos/countryflags/ 2>/dev/null || true
-          if [ -z "$(ls -A dist/logos/countryflags 2>/dev/null)" ]; then
-            cp -r logos/countryflags/* dist/logos/countryflags/ 2>/dev/null || true
-          fi
+         mkdir -p dist/logos/countryflags
+         rsync -a logos/countryflags/ dist/logos/countryflags/ 2>/dev/null || true
+         if [ -z "$(ls -A dist/logos/countryflags 2>/dev/null)" ]; then
+         cp -r logos/countryflags/* dist/logos/countryflags/ 2>/dev/null || true
+         fi
 
-      # 🔎 Build global search (hero input)
+      # 🟩 ADD THESE 3 LINES BELOW
       - name: Run search_setup.py
-        if: steps.diff.outputs.changed == 'true'
-        run: python -u scripts/search_setup.py
+        run: |
+          python scripts/search_setup.py
 
-      # ✅ Inject logo mappings
+      # ✅ NEW STEP — Inject logos from mapping file
       - name: Inject logos from mapping
-        if: steps.diff.outputs.changed == 'true'
         run: python -u scripts/inject_logos.py
 
-      # 📊 Inject last-7-day performance
+      # --- Inject last-7 performance table ---
       - name: Inject last-7 performance
         if: steps.diff.outputs.changed == 'true'
-        run: python -u scripts/build_last7.py
-
-      # 🎨 Rebuild prediction pages (v2 theme)
-      - name: Apply v2 rebuild (prediction pages)
-        if: steps.diff.outputs.changed == 'true'
-        run: python -u scripts/theme_rebuild_v2.py
-
-      - name: Cleanup old sitemap folder
         run: |
-         rm -rf dist/sitemaps || true
-         echo "🧹 Removed legacy /sitemaps folder"
+          python -u scripts/build_last7.py
 
-      # Split sitemap into chunks + index
-      - name: Split sitemap into chunks + index
-        if: steps.diff.outputs.changed == 'true'
-        run: python -u scripts/sitemap_split.py
-
+      - name: Apply full v2 rebuild (webpage.html look)
+        run: python -u scripts/theme_rebuild_v2.py
 
       # --- Commit & push only if Data changed ---
       - name: Commit and push updated data + dist
@@ -154,15 +141,3 @@ jobs:
         if: steps.diff.outputs.changed == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
-
-      # 🔍 SEO Fast-Track — Ping all major search engines
-      - name: Notify Search Engines (Google, Bing, Yandex, DuckDuckGo)
-        if: steps.diff.outputs.changed == 'true'
-        run: |
-          SITEMAP_URL="https://stockpricepredictions.com/sitemap.xml"
-          echo "🔍 Pinging search engines with $SITEMAP_URL ..."
-          curl -fsS "https://www.google.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
-          curl -fsS "https://www.bing.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
-          curl -fsS "https://yandex.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
-          curl -fsS "https://duckduckgo.com/ping?sitemap=${SITEMAP_URL}" -o /dev/null || true
-          echo "✅ Sitemap ping sent successfully to Google, Bing, Yandex, and DuckDuckGo."
