@@ -73,11 +73,6 @@ jobs:
       - name: Apply full v2 rebuild (webpage.html look)
         run: python -u scripts/theme_rebuild_v2.py
 
-      - name: Cleanup old sitemap folder
-        run: |
-          rm -rf dist/sitemaps || true
-          echo "🧹 Old /sitemaps removed"
-
       - name: Split sitemap into chunks + index
         run: python -u scripts/sitemap_split.py
 
