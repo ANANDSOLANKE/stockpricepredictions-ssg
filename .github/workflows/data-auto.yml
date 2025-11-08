@@ -130,6 +130,10 @@ jobs:
           git commit -m "Auto-update: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No changes to commit"
           git push || true
 
+      - name: Split sitemap into chunks + index
+        if: steps.diff.outputs.changed == 'true'
+        run: python -u scripts/sitemap_split.py
+
       # --- Deploy only if Data changed ---
       - name: Upload Pages artifact
         if: steps.diff.outputs.changed == 'true'
