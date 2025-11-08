@@ -1,134 +1,94 @@
 # scripts/sitemap_split.py
-# Generates ONE public entry for GSC: /dist/sitemap-main.xml
-# - If total URLs <= 50,000: writes a single urlset at sitemap-main.xml
-# - If total URLs > 50,000: writes sitemap-main.xml as an index that points to
-#   /dist/sitemap1.xml, /dist/sitemap2.xml, ... (each <= 50k URLs)
-#
-# Also refreshes robots.txt to point at sitemap-main.xml.
-
+import os, json, math, datetime
 from pathlib import Path
-from urllib.parse import quote
-import datetime as dt
 
-# ---- config -------------------------------------------------
-DIST_DIR = Path("dist")
-DOMAIN   = "stockpricepredictions.com"
-BASE_URL = f"https://{DOMAIN}"
-MAX_URLS_PER_FILE = 50_000   # protocol limit
-STAMP = dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-# -------------------------------------------------------------
+DIST = Path("dist")
+CONF = Path("config.json")
+CHUNK = 45000  # a bit smaller than 50k to keep file size well under 50 MB
+TZ = datetime.timezone.utc
 
-def url_for_file(p: Path) -> str:
-    """ Map /dist file to canonical URL (prefer directory URLs for index.html). """
-    rel = p.relative_to(DIST_DIR)
-    parts = list(rel.parts)
+def load_base_url():
+    base = "https://stockpricepredictions.com"
+    try:
+        cfg = json.loads(CONF.read_text(encoding="utf-8"))
+        b = cfg.get("base_url") or base
+        return b.rstrip("/")
+    except Exception:
+        return base
 
-    # Skip our own outputs
-    if parts and parts[0].lower().startswith("sitemap"):
-        return ""
-    if rel.name.lower() == "robots.txt":
-        return ""
+def find_urls(base_url: str):
+    for p in DIST.rglob("index.html"):
+        rel = p.relative_to(DIST)
+        url_path = "/" + "/".join(rel.parts[:-1]) + "/"
+        url = base_url + ("" if url_path == "//" else url_path)
+        dt = datetime.datetime.fromtimestamp(p.stat().st_mtime, tz=TZ)
+        lastmod = dt.isoformat(timespec="seconds").replace("+00:00", "Z")
+        yield (url, lastmod)
 
-    if rel.name.lower() == "index.html":
-        url_path = "/".join(parts[:-1]) + ("/" if parts[:-1] else "/")
-    elif p.suffix.lower() == ".html":
-        url_path = "/".join(parts)
-    else:
-        return ""
+def write_sitemap_file(out_path: Path, items):
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for url, lastmod in items:
+        lines += [
+            "  <url>",
+            f"    <loc>{url}</loc>",
+            f"    <lastmod>{lastmod}</lastmod>",
+            "    <changefreq>daily</changefreq>",
+            "  </url>",
+        ]
+    lines.append("</urlset>")
+    xml = "\n".join(lines)
+    out_path.write_text(xml, encoding="utf-8")
+    print(f"[sitemap] wrote {out_path} ({len(items)} urls, {len(xml)/1_000_000:.2f} MB)")
 
-    return f"{BASE_URL}/{quote(url_path.lstrip('/'), safe='/')}"
-
-def collect_urls() -> list[str]:
-    if not DIST_DIR.exists():
-        raise SystemExit(f"[sitemap] dist folder not found: {DIST_DIR.resolve()}")
-
-    urls: list[str] = []
-    for fp in DIST_DIR.rglob("*.html"):
-        u = url_for_file(fp)
-        if u:
-            urls.append(u)
-
-    # De-dupe preserving order
-    seen, uniq = set(), []
-    for u in urls:
-        if u not in seen:
-            uniq.append(u); seen.add(u)
-
-    print(f"[sitemap] Collected {len(uniq)} HTML URLs")
-    return uniq
-
-def write_urlset(path: Path, urls: list[str]) -> None:
-    with path.open("w", encoding="utf-8", newline="\n") as f:
-        f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-        f.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-        for u in urls:
-            f.write("  <url>\n")
-            f.write(f"    <loc>{u}</loc>\n")
-            f.write(f"    <lastmod>{STAMP}</lastmod>\n")
-            f.write("    <changefreq>daily</changefreq>\n")
-            f.write("    <priority>0.5</priority>\n")
-            f.write("  </url>\n")
-        f.write("</urlset>\n")
-    print(f"[sitemap] wrote {path.name} ({len(urls)} urls)")
-
-def write_index(index_path: Path, part_files: list[Path]) -> None:
-    with index_path.open("w", encoding="utf-8", newline="\n") as f:
-        f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-        f.write('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-        for p in part_files:
-            f.write("  <sitemap>\n")
-            f.write(f"    <loc>{BASE_URL}/{p.name}</loc>\n")
-            f.write(f"    <lastmod>{STAMP}</lastmod>\n")
-            f.write("  </sitemap>\n")
-        f.write("</sitemapindex>\n")
-    print(f"[sitemap] wrote index {index_path.name} with {len(part_files)} part(s)")
-
-def ensure_robots(points_to_index: bool, part_files: list[Path]) -> None:
-    robots = DIST_DIR / "robots.txt"
-    lines = []
-    if robots.exists():
-        lines = robots.read_text(encoding="utf-8").splitlines()
-        # strip old Sitemap: lines
-        lines = [ln for ln in lines if not ln.strip().lower().startswith("sitemap:")]
-    else:
-        lines = ["User-agent: *", "Allow: /"]
-
-    # Always point to the single entry we want in GSC
-    lines.append(f"Sitemap: {BASE_URL}/sitemap-main.xml")
-
-    # Optional: also hint parts for other crawlers when split happens
-    if not points_to_index and part_files:
-        for p in part_files:
-            lines.append(f"Sitemap: {BASE_URL}/{p.name}")
-
-    robots.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"[sitemap] wrote robots.txt with {1 + (0 if points_to_index else len(part_files))} sitemap hint(s)")
+def write_index_file(index_path: Path, part_urls):
+    now = datetime.datetime.now(tz=TZ).isoformat(timespec="seconds").replace("+00:00","Z")
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for u in part_urls:
+        lines += [
+            "  <sitemap>",
+            f"    <loc>{u}</loc>",
+            f"    <lastmod>{now}</lastmod>",
+            "  </sitemap>",
+        ]
+    lines.append("</sitemapindex>")
+    index_path.parent.mkdir(parents=True, exist_ok=True)
+    index_path.write_text("\n".join(lines), encoding="utf-8")
+    print(f"[sitemap] wrote index {index_path} with {len(part_urls)} part(s)")
 
 def main():
-    urls = collect_urls()
-    if not urls:
-        print("[sitemap] No URLs found. Exiting.")
-        return
+    # ensure GitHub Pages serves files as-is (no Jekyll processing)
+    (DIST / ".nojekyll").write_text("", encoding="utf-8")
 
-    index_name = "sitemap-main.xml"
-    index_path = DIST_DIR / index_name
+    base = load_base_url()
+    all_items = list(find_urls(base))
+    if not all_items:
+        print("[sitemap] No pages found in dist/."); return
 
-    if len(urls) <= MAX_URLS_PER_FILE:
-        # Single-file sitemap (no split)
-        write_urlset(index_path, urls)
-        ensure_robots(points_to_index=True, part_files=[])
+    parts = [all_items[i:i+CHUNK] for i in range(0, len(all_items), CHUNK)]
+    part_urls = []
+    for idx, part in enumerate(parts, start=1):
+        fname = f"sitemaps/sitemap-{idx:04d}.xml"
+        write_sitemap_file(DIST / fname, part)
+        part_urls.append(f"{base}/{fname}")
+
+    write_index_file(DIST / "sitemap.xml", part_urls)
+
+    # robots.txt safety
+    robots = DIST / "robots.txt"
+    line = f"Sitemap: {base}/sitemap.xml\n"
+    if robots.exists():
+        txt = robots.read_text(encoding="utf-8")
+        if "Sitemap:" not in txt:
+            robots.write_text(txt.rstrip() + "\n" + line, encoding="utf-8")
     else:
-        # Must split to stay valid; index remains a single entry to submit in GSC
-        parts: list[Path] = []
-        for i in range(0, len(urls), MAX_URLS_PER_FILE):
-            chunk = urls[i:i + MAX_URLS_PER_FILE]
-            part_no = (i // MAX_URLS_PER_FILE) + 1
-            part_path = DIST_DIR / f"sitemap{part_no}.xml"
-            write_urlset(part_path, chunk)
-            parts.append(part_path)
-
-        write_index(index_path, parts)
-        ensure_robots(points_to_index=False, part_files=parts)
+        robots.write_text(f"User-agent: *\nAllow: /\n{line}", encoding="utf-8")
 
 if __name__ == "__main__":
     main()
