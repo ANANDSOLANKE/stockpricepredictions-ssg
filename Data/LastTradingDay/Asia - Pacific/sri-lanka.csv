@@ -118,7 +118,7 @@ AIZ,Air New Zealand Limited,ASX,Transportation,Airlines,0.535,0.542,0.535,0.54,0
 AJL,AJ Lucas Group Limited,ASX,Energy Minerals,Coal,0.009,0.009,0.009,0.009,-10.000000000000009,13757296.0,189255.0,AUD
 AJX,Alexium International Group Limited,ASX,Process Industries,Chemicals: Specialty,0.006,0.006,0.006,0.006,-14.285714285714285,11263913.0,1017000.0,AUD
 AKA,Aureka Limited,ASX,Non-Energy Minerals,Precious Metals,0.15,0.18,0.15,0.175,20.689655172413794,18582826.0,1246697.0,AUD
-AKG,Academies Australasia Group Limited,ASX,Consumer Services,Other Consumer Services,0.125,0.125,0.125,0.125,,16576809.0,1.0,AUD
+AKG,Academies Australasia Group Limited,ASX,Consumer Services,Other Consumer Services,0.125,0.125,0.125,0.125,0.0,16576809.0,1.0,AUD
 AKM,Aspire Mining Limited,ASX,Energy Minerals,Coal,0.26,0.26,0.25,0.25,0.0,126909248.0,36909.0,AUD
 AKN,AuKing Mining Ltd,ASX,Non-Energy Minerals,Other Metals/Minerals,0.006,0.006,0.005,0.005,-16.666666666666664,4920185.0,1629073.0,AUD
 AKO,Akora Resources Ltd.,ASX,Non-Energy Minerals,Other Metals/Minerals,0.08,0.08,0.08,0.08,0.0,13873979.0,50000.0,AUD
@@ -224,7 +224,7 @@ ATS,Australis Oil & Gas Ltd.,ASX,Energy Minerals,Oil & Gas Production,0.013,0.01
 ATT,Altitude Minerals Ltd,ASX,Non-Energy Minerals,Other Metals/Minerals,0.024,0.027,0.023,0.027,-3.5714285714285747,7256134.0,3938590.0,AUD
 ATV,Activeport Group Limited,ASX,Technology Services,Packaged Software,0.028,0.029,0.027,0.028,3.703703703703707,27291881.0,9061030.0,AUD
 ATX,Amplia Therapeutics Ltd.,ASX,Health Technology,Biotechnology,0.125,0.13,0.125,0.13,0.0,66699313.0,294615.0,AUD
-AU1,Agency Group Australia Ltd,ASX,Finance,Real Estate Development,0.026,0.027,0.026,0.027,,11428992.0,177309.0,AUD
+AU1,Agency Group Australia Ltd,ASX,Finance,Real Estate Development,0.026,0.027,0.026,0.027,3.84615384615385,11428992.0,177309.0,AUD
 AUA,Audeara Ltd.,ASX,Consumer Durables,Electronics/Appliances,0.032,0.032,0.032,0.032,0.0,5757901.0,307.0,AUD
 AUB,AUB Group Limited,ASX,Finance,Insurance Brokers/Services,39.56,39.56,38.73,38.73,-1.3750954927425674,4578388841.0,258945.0,AUD
 AUC,Ausgold Limited,ASX,Non-Energy Minerals,Precious Metals,0.835,0.835,0.8,0.8,-1.8404907975460003,353283621.0,243354.0,AUD
@@ -489,7 +489,7 @@ COL,Coles Group Ltd.,ASX,Retail Trade,Food Retail,22.3,22.53,22.26,22.45,0.67264
 CORE,Schroder Global Core Fund Active ETF Units Exchange Traded Fund,ASX,,,11.45,11.47,11.45,11.47,0.4378283712784651,,15900.0,AUD
 COS,Cosol Limited,ASX,Technology Services,Information Technology Services,0.44,0.45,0.44,0.45,-1.0989010989010999,82804906.0,13769.0,AUD
 COV,CLEO Diagnostics Ltd,ASX,Health Technology,Medical Specialties,0.49,0.53,0.48,0.53,7.070707070707077,63607501.0,354858.0,AUD
-COY,Coppermoly Limited,ASX,Non-Energy Minerals,Other Metals/Minerals,0.011,0.011,0.011,0.011,,9709231.0,50000.0,AUD
+COY,Coppermoly Limited,ASX,Non-Energy Minerals,Other Metals/Minerals,0.011,0.011,0.011,0.011,0.0,9709231.0,50000.0,AUD
 CP8,Canadian Phosphate Limited,ASX,Process Industries,Chemicals: Agricultural,0.047,0.047,0.046,0.046,-2.1276595744680873,14110984.0,1069.0,AUD
 CPM,Cooper Metals Limited,ASX,Non-Energy Minerals,Other Metals/Minerals,0.064,0.064,0.064,0.064,0.0,5014762.0,79.0,AUD
 CPN,Caspin Resources Ltd.,ASX,Non-Energy Minerals,Other Metals/Minerals,0.115,0.12,0.11,0.115,0.0,24541186.0,602093.0,AUD
@@ -687,7 +687,7 @@ ENL,Enlitic Inc Chess Depository intrests Repr 1 Shs,ASX,Technology Services,Pac
 ENR,Encounter Resources Limited,ASX,Non-Energy Minerals,Precious Metals,0.44,0.44,0.42,0.425,-1.1627906976744196,238592711.0,272871.0,AUD
 ENT,Enterprise Metals Limited,ASX,Non-Energy Minerals,Precious Metals,0.005,0.005,0.004,0.004,-20.0,5976603.0,466360.0,AUD
 ENV,Enova Mining Limited,ASX,Non-Energy Minerals,Other Metals/Minerals,0.007,0.007,0.007,0.007,0.0,11053200.0,5555612.0,AUD
-ENX,Enegex Limited,ASX,Non-Energy Minerals,Other Metals/Minerals,,,,,,14475039.0,,AUD
+ENX,Enegex Limited,ASX,Non-Energy Minerals,Other Metals/Minerals,0.185,0.19,0.185,0.185,2.7777777777777803,14475039.0,100741.4,AUD
 ENXDA,Enegex Limited TEMP,ASX,Non-Energy Minerals,Other Metals/Minerals,0.19,0.2,0.18,0.2,5.263157894736847,14475039.0,225783.0,AUD
 EOL,Energy One Limited,ASX,Technology Services,Packaged Software,17.97,18.36,17.67,18.17,0.7764836383804801,567469277.0,44639.0,AUD
 EOS,Electro Optic Systems Holdings Limited,ASX,Electronic Technology,Aerospace & Defense,5.2,5.21,4.975,5.0,-2.1526418786692822,985985192.0,2904598.0,AUD
@@ -838,7 +838,7 @@ GEAR,BetaShares Geared Australian Equity Fund,ASX,Miscellaneous,Investment Trust
 GED,Golden Deeps Limited,ASX,Non-Energy Minerals,Other Metals/Minerals,0.053,0.06,0.052,0.06,19.99999999999999,11070356.0,1600039.0,AUD
 GEM,G8 Education Limited,ASX,Consumer Services,Other Consumer Services,0.71,0.72,0.695,0.7,0.0,540091135.0,6687474.0,AUD
 GEN,Genmin Ltd.,ASX,Non-Energy Minerals,Steel,0.023,0.023,0.021,0.022,4.761904761904749,18633009.0,2517763.0,AUD
-GES,Genesis Resources Limited,ASX,Non-Energy Minerals,Other Metals/Minerals,0.007,0.007,0.007,0.007,,5479889.0,114341.0,AUD
+GES,Genesis Resources Limited,ASX,Non-Energy Minerals,Other Metals/Minerals,0.007,0.007,0.007,0.007,16.666666666666664,5479889.0,114341.0,AUD
 GFL,Global Masters Fund Limited,ASX,Miscellaneous,Investment Trusts/Mutual Funds,3.77,3.77,3.77,3.77,0.5333333333333339,42256125.0,126.0,AUD
 GG1,Green & Gold Minerals Limited,ASX,Non-Energy Minerals,Precious Metals,0.255,0.26,0.245,0.25,0.0,,125104.0,AUD
 GG8,Gorilla Gold Mines Ltd,ASX,Non-Energy Minerals,Precious Metals,0.415,0.415,0.385,0.385,-8.333333333333327,304699942.0,1471313.0,AUD
@@ -1283,7 +1283,7 @@ MEG,Megado Minerals Ltd.,ASX,Non-Energy Minerals,Precious Metals,0.029,0.029,0.0
 MEI,Meteoric Resources NL,ASX,Non-Energy Minerals,Precious Metals,0.175,0.18,0.175,0.175,-2.7777777777777803,475368198.0,2712785.0,AUD
 MEK,Meeka Metals Limited,ASX,Non-Energy Minerals,Precious Metals,0.225,0.235,0.225,0.235,2.1739130434782505,672552861.0,6197752.0,AUD
 MEL,Metgasco Ltd,ASX,Energy Minerals,Oil & Gas Production,0.002,0.002,0.002,0.002,0.0,3674174.0,12712.0,AUD
-MEM,Memphasys Ltd,ASX,Health Technology,Biotechnology,0.003,0.003,0.003,0.003,,10458459.0,4781.0,AUD
+MEM,Memphasys Ltd,ASX,Health Technology,Biotechnology,0.003,0.003,0.003,0.003,-25.0,10458459.0,4781.0,AUD
 MEU,Marmota Limited,ASX,Non-Energy Minerals,Precious Metals,0.068,0.07,0.065,0.068,3.030303030303033,77768181.0,1327647.0,AUD
 MEZ,Meridian Energy Limited,ASX,Utilities,Alternative Power Generation,5.13,5.16,5.06,5.16,2.9940119760479114,13502996970.603403,14688.0,AUD
 MFD,Mayfield Childcare Ltd.,ASX,Consumer Services,Other Consumer Services,0.49,0.49,0.485,0.485,0.0,36580935.0,135383.0,AUD
@@ -1590,7 +1590,7 @@ PPM,Pepper Money Ltd,ASX,Finance,Finance/Rental/Leasing,2.45,2.45,2.38,2.42,-0.8
 PPS,Praemium Ltd,ASX,Technology Services,Packaged Software,0.87,0.88,0.86,0.86,-0.5780346820809253,413837989.0,384015.0,AUD
 PPT,Perpetual Limited,ASX,Finance,Investment Managers,19.59,19.6,19.25,19.4,0.3621314019658577,2210143601.0,130865.0,AUD
 PPY,Papyrus Australia Ltd,ASX,Non-Energy Minerals,Forest Products,0.008,0.008,0.008,0.008,0.0,4823054.0,166666.0,AUD
-PR1,Pure Resources Limited,ASX,Non-Energy Minerals,Other Metals/Minerals,0.18,0.18,0.175,0.175,,8051539.0,13111.0,AUD
+PR1,Pure Resources Limited,ASX,Non-Energy Minerals,Other Metals/Minerals,0.18,0.18,0.175,0.175,0.0,8051539.0,13111.0,AUD
 PR2,Piche Resources Limited,ASX,Non-Energy Minerals,Precious Metals,0.15,0.15,0.14,0.15,-6.250000000000005,20921259.200000003,307839.0,AUD
 PRG,PRL Global Ltd,ASX,Non-Energy Minerals,Other Metals/Minerals,1.435,1.435,1.435,1.435,1.056338028169023,157265266.0,483.0,AUD
 PRM,Prominence Energy Limited,ASX,Energy Minerals,Oil & Gas Production,0.004,0.004,0.003,0.003,0.0,3112117.0,4275362.0,AUD
@@ -1643,7 +1643,7 @@ QRI,Qualitas Real Estate Income Fund Units,ASX,Finance,Real Estate Investment Tr
 QSML,VanEck MSCI International Small Companies Quality ETF,ASX,Miscellaneous,Investment Trusts/Mutual Funds,31.99,32.08,31.7,31.92,0.18832391713748362,,78709.0,AUD
 QUAL,VanEck MSCI International Quality ETF,ASX,Miscellaneous,Investment Trusts/Mutual Funds,62.0,62.34,62.0,62.27,0.662786938247662,,76312.0,AUD
 QUB,Qube Holdings Ltd.,ASX,Transportation,Other Transportation,4.39,4.41,4.35,4.37,-0.22831050228310015,7749920447.0,2336292.0,AUD
-QUE,Queste Communications Ltd,ASX,Finance,Financial Conglomerates,,,,,,1516051.0,,AUD
+QUE,Queste Communications Ltd,ASX,Finance,Financial Conglomerates,0.062,0.062,0.055,0.056,-15.151515151515154,1516051.0,10162.0,AUD
 QUS,BetaShares S&P 500 Equal Weight ETF,ASX,Miscellaneous,Investment Trusts/Mutual Funds,53.56,54.0,53.56,53.95,0.7281553398058263,,22179.0,AUD
 QXR,QX Resources Ltd,ASX,Process Industries,Chemicals: Agricultural,0.004,0.005,0.004,0.004,0.0,7370654.0,301000.0,AUD
 QYLD,Global X Nasdaq 100 Covered Call ETF,ASX,Miscellaneous,Investment Trusts/Mutual Funds,11.47,11.49,11.39,11.39,-0.2626970227670697,,5987.0,AUD
@@ -2098,7 +2098,7 @@ WAR,WAM Strategic Value Ltd,ASX,Miscellaneous,Investment Trusts/Mutual Funds,1.0
 WAT,Waterco Limited,ASX,Process Industries,Chemicals: Major Diversified,4.95,4.95,4.95,4.95,0.0,174061480.0,2.0,AUD
 WAX,WAM Research Ltd.,ASX,Miscellaneous,Investment Trusts/Mutual Funds,1.25,1.26,1.245,1.26,1.6129032258064528,256399650.0,224613.0,AUD
 WBC,Westpac Banking Corporation,ASX,Finance,Major Banks,40.16,40.56,39.86,39.86,-0.4744069912609182,136810396503.0,6304609.0,AUD
-WBCCD,Westpac Banking Corporation,ASX,Finance,Major Banks,,,,,,136810396503.0,,AUD
+WBCCD,Westpac Banking Corporation,ASX,Finance,Major Banks,40.69,40.69,40.41,40.41,29.270633397312846,136810396503.0,14750.0,AUD
 WBE,Whitebark Energy Ltd,ASX,Energy Minerals,Oil & Gas Production,0.009,0.01,0.009,0.01,25.0,6828102.0,3550301.0,AUD
 WBND,Betashares Global Aggregate Bond Currency Hedged ETF Exchange Traded Fund Units,ASX,Miscellaneous,Investment Trusts/Mutual Funds,50.56,50.56,50.56,50.56,-0.5507474429583027,,8000.0,AUD
 WBT,Weebit Nano Ltd.,ASX,Electronic Technology,Semiconductors,4.27,4.32,4.12,4.13,-3.0516431924882603,892616628.0,598473.0,AUD
@@ -2111,7 +2111,7 @@ WDIV,SPDR S&P Global Dividend ETF,ASX,Miscellaneous,Investment Trusts/Mutual Fun
 WDMF,iShares Edge MSCI World Multifactor ETF,ASX,Miscellaneous,Investment Trusts/Mutual Funds,53.82,53.93,53.82,53.93,0.5219012115563861,,1556.0,AUD
 WDS,Woodside Energy Group Ltd,ASX,Energy Minerals,Oil & Gas Production,26.74,26.925,26.66,26.92,1.3935969868173295,50419751420.0,4152356.0,AUD
 WEB,WEB Travel Group limited,ASX,Consumer Services,Other Consumer Services,4.2,4.23,4.145,4.17,-0.23923444976076047,1509702202.0,953217.0,AUD
-WEC,White Energy Company Limited,ASX,Energy Minerals,Coal,0.03,0.03,0.03,0.03,,9348597.0,3334.0,AUD
+WEC,White Energy Company Limited,ASX,Energy Minerals,Coal,0.03,0.03,0.03,0.03,0.0,9348597.0,3334.0,AUD
 WEL,Winchester Energy Ltd,ASX,Industrial Services,Contract Drilling,0.002,0.002,0.002,0.002,0.0,2726038.0,1000.0,AUD
 WEMG,SPDR S&P Emerging Markets Carbon Aware ETF,ASX,Miscellaneous,Investment Trusts/Mutual Funds,30.3,30.41,30.3,30.41,0.5289256198347112,,969.0,AUD
 WES,Wesfarmers Limited,ASX,Retail Trade,Home Improvement Chains,81.25,82.51,80.84,81.87,0.6887221743942963,92269020965.0,1237700.0,AUD
@@ -2159,9 +2159,9 @@ WZR,Wisr Ltd.,ASX,Finance,Finance/Rental/Leasing,0.032,0.032,0.031,0.031,-3.1250
 X2M,X2M Connect Limited,ASX,Technology Services,Information Technology Services,0.011,0.011,0.01,0.01,-9.090909090909085,11144516.0,1534975.0,AUD
 XALG,ALPHINITY GLOBAL EQUITY FUND Units,ASX,Miscellaneous,Investment Trusts/Mutual Funds,11.15,11.17,11.15,11.17,0.6306306306306332,,1906.0,AUD
 XARO,Activex Ardea Real Outcome Bond Fund Units,ASX,Miscellaneous,Investment Trusts/Mutual Funds,24.74,24.74,24.7,24.7,-0.04046944556860204,,6611.0,AUD
-XASG,Alphinity Global Sustainable Fund Units,ASX,Miscellaneous,Investment Trusts/Mutual Funds,,,,,,,,AUD
+XASG,Alphinity Global Sustainable Fund Units,ASX,Miscellaneous,Investment Trusts/Mutual Funds,7.12,7.13,7.11,7.13,-0.4189944134078247,,345.0,AUD
 XF1,Xref Ltd,ASX,Technology Services,Packaged Software,0.17,0.175,0.17,0.175,2.9411764705882213,37415261.0,45641.0,AUD
-XGL,Xamble Group Limited Chess Depository Interests,ASX,Commercial Services,Advertising/Marketing Services,0.015,0.015,0.015,0.015,,5085214.0,13133.0,AUD
+XGL,Xamble Group Limited Chess Depository Interests,ASX,Commercial Services,Advertising/Marketing Services,0.015,0.015,0.015,0.015,7.142857142857137,5085214.0,13133.0,AUD
 XGOV,Vaneck 10+ Year Australian Government Bond ETF,ASX,Miscellaneous,Investment Trusts/Mutual Funds,51.82,51.88,51.75,51.75,0.09671179883945291,,11465.0,AUD
 XMET,BetaShares Energy Transition Metals Exchange Traded Fund Units,ASX,Miscellaneous,Investment Trusts/Mutual Funds,12.47,12.72,12.29,12.29,-1.2851405622489973,,23659.0,AUD
 XPN,XPON Technologies Group Ltd.,ASX,Technology Services,Packaged Software,0.017,0.017,0.015,0.016,-5.8823529411764754,8336057.950000001,5336329.0,AUD
