@@ -653,7 +653,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 1846,EuroEyes International Eye Clinic Limited,HKEX,Health Services,Medical/Nursing Services,3.24,3.24,3.12,3.19,0.9493670886075887,1010482740.0,58000,HKD
 1847,"YCIH Green High-Performance Concrete Co., Ltd. Class H",HKEX,Non-Energy Minerals,Construction Materials,0.56,0.56,0.51,0.51,-17.741935483870964,83006843.0,422000,HKD
 1848,China Aircraft Leasing Group Holdings Ltd.,HKEX,Finance,Finance/Rental/Leasing,4.68,4.68,4.5,4.56,-1.5118790496760321,3463124223.0,1650500,HKD
-185,Zensun Enterprises Limited,HKEX,Finance,Real Estate Development,0.149,0.149,0.149,0.149,6.428571428571414,267874125.0,2000,HKD
+185,Zensun Enterprises Limited,HKEX,Finance,Real Estate Development,0.149,0.149,0.14,0.14,0.0,267874125.0,2000,HKD
 1850,HSC Resources Group Limited,HKEX,Commercial Services,Miscellaneous Commercial Services,0.57,0.57,0.55,0.57,0.0,98496001.0,6350000,HKD
 1851,"China Gingko Education Group Co., Ltd.",HKEX,Consumer Services,Other Consumer Services,2.0,2.0,1.99,2.0,-0.990099009900991,1009999990.0,322000,HKD
 1853,Jilin Province Chuncheng Heating Company Limited Class H,HKEX,Utilities,Electric Utilities,1.53,1.53,1.53,1.53,-4.3750000000000036,714050982.0,5000,HKD
@@ -1802,7 +1802,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 505,Xingye Alloy Materials Group Limited,HKEX,Non-Energy Minerals,Other Metals/Minerals,1.04,1.05,1.0,1.05,5.000000000000004,943176300.0,76000,HKD
 506,China Foods Limited,HKEX,Consumer Non-Durables,Beverages: Non-Alcoholic,4.16,4.16,3.99,4.01,-2.433090024330913,11496588501.0,3868000,HKD
 508,Dingyi Group Investment Limited,HKEX,Finance,Finance/Rental/Leasing,0.41,0.41,0.41,0.41,-1.204819277108435,353031481.0,5000,HKD
-51,Harbour Centre Development Limited,HKEX,Consumer Services,Hotels/Resorts/Cruise lines,4.26,4.38,4.26,4.3,-1.8264840182648419,3104325081.0,6000,HKD
+51,Harbour Centre Development Limited,HKEX,Consumer Services,Hotels/Resorts/Cruise lines,4.26,4.38,4.26,4.38,0.0,3104325081.0,6000,HKD
 510,CASH Financial Services Group Ltd,HKEX,Finance,Investment Banks/Brokers,0.495,0.5,0.495,0.5,0.0,215587387.0,126000,HKD
 511,Television Broadcasts Limited,HKEX,Consumer Services,Broadcasting,3.25,3.25,3.16,3.18,-1.2422360248447215,1503617180.0,448100,HKD
 512,Grand Pharmaceutical Group Limited,HKEX,Health Technology,Pharmaceuticals: Major,8.34,8.36,8.19,8.27,-0.12077294685990082,29390449326.0,3390500,HKD
@@ -2023,7 +2023,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 672,Zhong An Group Limited,HKEX,Finance,Real Estate Development,0.121,0.124,0.119,0.124,2.4793388429752086,681933013.0,290200,HKD
 673,China Health Group Ltd,HKEX,Distribution Services,Medical Distributors,0.67,0.7,0.67,0.7,4.477611940298495,897222687.0,24000,HKD
 674,China Tangshang Holdings Limited.,HKEX,Finance,Real Estate Development,0.107,0.107,0.107,0.107,3.8834951456310716,353132055.0,4000,HKD
-675,K&P International Holdings Ltd.,HKEX,Producer Manufacturing,Miscellaneous Manufacturing,0.385,0.385,0.37,0.37,0.0,101461831.0,4000,HKD
+675,K&P International Holdings Ltd.,HKEX,Producer Manufacturing,Miscellaneous Manufacturing,0.385,0.385,0.37,0.38,2.7027027027027053,101461831.0,4000,HKD
 677,Golden Resources Development International Limited,HKEX,Retail Trade,Food Retail,0.345,0.345,0.345,0.345,0.0,585605238.0,220000,HKD
 679,Asia Tele-Net and Technology Corp Ltd,HKEX,Electronic Technology,Electronic Components,0.93,0.93,0.91,0.91,-3.191489361702119,359017405.0,40000,HKD
 6805,Kimou Environmental Holding Limited,HKEX,Finance,Real Estate Development,2.22,2.22,2.22,2.22,0.0,2459205032.0,70000,HKD
@@ -2681,7 +2681,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 9088,ChinaAMC Hang Seng TECH Index ETF HKD,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,0.908,0.911,0.907,0.911,-4.7071129707112895,,141600,USD
 909,Ming Yuan Cloud Group Holdings Limited,HKEX,Technology Services,Packaged Software,3.13,3.16,3.03,3.12,-0.319488817891367,5830244947.0,14290965,HKD
 9096,CSOP USD Money Market ETF HKD,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,120.4,120.4,120.4,120.4,0.0,,800,USD
-9104,Global X ETF Series - Global X Emerging Markets Asia Active ETF HKD Counter,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,8.345,8.345,8.29,8.29,2.345679012345673,,3400,USD
+9104,Global X ETF Series - Global X Emerging Markets Asia Active ETF HKD Counter,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,8.345,8.345,8.28,8.28,2.2222222222222188,,3400,USD
 911,Qianhai Health Holdings Ltd.,HKEX,Distribution Services,Medical Distributors,0.285,0.285,0.28,0.285,5.555555555555539,45750154.0,60000,HKD
 9115,iShares Core Hang Seng Index ETF HKD,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,12.41,12.41,12.27,12.28,0.08149959250203576,,3500,USD
 912,Suga International Holdings Limited,HKEX,Electronic Technology,Electronic Production Equipment,1.18,1.18,1.14,1.15,-2.5423728813559343,336052229.0,109000,HKD
@@ -2698,7 +2698,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 918,Majestic Dragon AeroTech Holdings Limited,HKEX,Consumer Non-Durables,Apparel/Footwear,0.6,0.61,0.6,0.6,0.0,668441482.0,42000,HKD
 9181,Premia Asia Innovative Technology and Metaverse Theme ETF HKD Counter,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,16.05,16.05,16.05,16.05,0.9433962264150966,,50,USD
 9187,Samsung ETFs Trust II - Samsung S&P High Dividend APAC ex NZ REITs ETF HKD Counter,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,2.22,2.22,2.2,2.2,-2.2222222222222143,,200,USD
-9188,ChinaAMC CSI 300 Index ETF HKD,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,6.67,6.69,6.67,6.69,0.37509377344336614,,39600,USD
+9188,ChinaAMC CSI 300 Index ETF HKD,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,6.67,6.69,6.65,6.65,-0.22505626406601173,,39600,USD
 919,Modern Healthcare Technology Holdings Limited,HKEX,Consumer Services,Other Consumer Services,0.069,0.073,0.068,0.073,-1.3513513513513526,66931813.00000001,80000,HKD
 9191,Global X China Semiconductor ETF HKD Counter,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,8.0,8.0,7.0,7.015,-1.1971830985915488,,17500,USD
 9195,Hang Seng S&P 500 Index ETF HKD Counter,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,1.35,1.358,1.35,1.358,1.799100449775114,,10000,USD
@@ -2718,7 +2718,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 932,Shunten International (Holdings) Ltd.,HKEX,Consumer Non-Durables,Household/Personal Care,0.049,0.05,0.047,0.049,0.0,152286780.0,4328000,HKD
 933,Viva Goods Company Limited,HKEX,Consumer Services,Movies/Entertainment,0.65,0.67,0.62,0.65,1.5625000000000013,6377773607.0,7392000,HKD
 934,Sinopec Kantons Holdings Limited,HKEX,Industrial Services,Oil & Gas Pipelines,4.23,4.23,4.12,4.14,-0.7194244604316606,10367287023.0,1246000,HKD
-9347,CSOP Samsung Electronics Daily (-2x) Inverse Product HKD Counter,HKEX,,,0.224,0.224,0.217,0.224,-10.040160642570278,,23600,USD
+9347,CSOP Samsung Electronics Daily (-2x) Inverse Product HKD Counter,HKEX,,,0.224,0.225,0.217,0.225,-9.638554216867467,,23600,USD
 936,Kaisa Capital Investment Holdings Limited,HKEX,Finance,Finance/Rental/Leasing,0.51,0.55,0.48,0.495,-2.9411764705882377,540599990.0,620000,HKD
 9366,CSOP Tesla Daily (-2x) Inverse Product HKD Counter,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,1.57,1.596,1.57,1.596,1.1406844106463887,,7500,USD
 938,Man Sang International Limited,HKEX,Finance,Real Estate Development,0.48,0.48,0.45,0.455,-5.208333333333327,310655325.0,172000,HKD
