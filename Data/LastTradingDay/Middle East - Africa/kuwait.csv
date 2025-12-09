@@ -1,12 +1,12 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
-AAYAN,A'ayan Leasing & Investment Co.,KSE,Finance,Real Estate Development,212.0,215.0,211.0,214.0,0.9433962264150944,139783145.0,2021517,KWF
+AAYAN,A'ayan Leasing & Investment Co.,KSE,Finance,Real Estate Development,215.0,216.0,211.0,213.0,-0.46728971962616817,139783145.0,2541366,KWF
 AAYANRE,A'ayan Real Estate Company,KSE,Finance,Real Estate Development,136.0,138.0,136.0,137.0,-0.7246376811594203,59790141.0,493447,KWF
-ABAR,"Burgan Co. for Well Drilling, Trading & Maintenance SAK",KSE,Industrial Services,Contract Drilling,193.0,199.0,191.0,198.0,2.5906735751295336,50354899.0,302759,KWF
-ABK,Al Ahli Bank Of Kuwait,KSE,Finance,Major Banks,285.0,286.0,284.0,285.0,-0.34965034965034963,742094694.0,2958455,KWF
+ABAR,"Burgan Co. for Well Drilling, Trading & Maintenance SAK",KSE,Industrial Services,Contract Drilling,198.0,200.0,195.0,200.0,1.0101010101010102,50354899.0,736775,KWF
+ABK,Al Ahli Bank Of Kuwait,KSE,Finance,Major Banks,285.0,286.0,281.0,282.0,-1.0526315789473684,742094694.0,5426438,KWF
 ACICO,ACICO Industries Co. (K.S.C),KSE,Non-Energy Minerals,Construction Materials,333.0,343.0,331.0,341.0,2.710843373493976,112594705.0,2613173,KWF
 AINS,Al-Ahleia Insurance Co.,KSE,Finance,Property/Casualty Insurance,849.0,849.0,849.0,849.0,-0.1176470588235294,197134942.0,5,KWF
 ALAQARIA,Kuwait Real Estate Holding Co. KSHC,KSE,Finance,Real Estate Development,61.0,67.0,61.0,64.1,3.7216828478964357,12059018.0,2043375,KWF
-ALDEERA,Al-Deera Holding Company,KSE,Finance,Financial Conglomerates,535.0,536.0,520.0,529.0,0.5703422053231939,60076450.0,1736185,KWF
+ALDEERA,Al-Deera Holding Company,KSE,Finance,Financial Conglomerates,534.0,536.0,520.0,520.0,-1.7013232514177694,60076450.0,1894276,KWF
 ALG,Ali Alghanim Sons Automotive Company,KSE,Distribution Services,Wholesale Distributors,1130.0,1134.0,1128.0,1134.0,0.44286979627989376,405114636.0,904181,KWF
 ALIMTIAZ,Al Imtiaz Investment Group K.S.C.C,KSE,Finance,Investment Managers,61.0,61.0,60.4,60.8,0.49586776859503656,63074056.0,2746169,KWF
 ALKOUT,Al-Kout Industrial Projects Co. KSC,KSE,Process Industries,Chemicals: Specialty,1183.0,1183.0,1167.0,1167.0,-1.3524936601859678,117751233.0,245,KWF
@@ -41,8 +41,8 @@ DALQANRE,Dalqan Real Estate Co. KSC,KSE,Finance,Real Estate Development,173.0,19
 DIGITUS,Hayat Communications Co.,KSE,Industrial Services,Engineering & Construction,948.0,948.0,895.0,900.0,-3.225806451612903,78418238.0,195271,KWF
 EKHOLDING,Valmore Holding,KSE,Finance,Financial Conglomerates,209.0,212.0,207.0,209.0,1.4563106796116505,167276425.16829067,429865,KWF
 EKTTITAB,Ekttitab Holding Co. (S.A.K.),KSE,Finance,Financial Conglomerates,41.5,42.0,41.0,41.4,0.7299270072992631,13191042.0,11878619,KWF
-EMIRATES,Kuwait Emirates Holding Company K.S.C.P,KSE,Finance,Real Estate Development,159.0,159.0,150.0,153.0,-3.1645569620253164,26970363.0,308199,KWF
-ENERGYH,Energy House Holding Co.,KSE,Industrial Services,Contract Drilling,262.0,262.0,250.0,259.0,-1.520912547528517,11741229.0,57523,KWF
+EMIRATES,Kuwait Emirates Holding Company K.S.C.P,KSE,Finance,Real Estate Development,158.0,158.0,145.0,145.0,-5.228758169934641,26970363.0,830300,KWF
+ENERGYH,Energy House Holding Co.,KSE,Industrial Services,Contract Drilling,260.0,260.0,249.0,254.0,-1.9305019305019304,11741229.0,125516,KWF
 EQUIPMENT,Equipment Holding Co. KSCP,KSE,Finance,Finance/Rental/Leasing,552.0,552.0,530.0,540.0,-1.4598540145985401,13500001.0,362046,KWF
 ERESCO,Al-Enmaa Real Estate Company KSCP,KSE,Finance,Real Estate Development,87.0,87.9,87.0,87.5,0.22909507445590246,30601680.0,610417,KWF
 FACIL,Commercial Facilities Co. SAK,KSE,Finance,Finance/Rental/Leasing,272.0,275.0,272.0,275.0,0.36496350364963503,139650975.0,25820,KWF
@@ -55,7 +55,7 @@ GIH,Gulf Investment House KSCC,KSE,Finance,Investment Managers,532.0,532.0,518.0
 GINS,Gulf Insurance Group K.S.C.,KSE,Finance,Multi-Line Insurance,939.0,939.0,895.0,895.0,-4.989384288747346,267293498.0,158,KWF
 HUMANSOFT,Human Soft Holding Co. KSCC,KSE,Commercial Services,Miscellaneous Commercial Services,2490.0,2499.0,2481.0,2481.0,0.04032258064516129,332909565.0,61689,KWF
 IFA,International Financial Advisors Holding K.P.S.C.,KSE,Finance,Investment Managers,470.0,471.0,467.0,468.0,-0.21321961620469082,245243896.0,1429834,KWF
-IFAHR,IFA Hotels & Resorts Co. (K.S.C.),KSE,Consumer Services,Hotels/Resorts/Cruise lines,1057.0,1072.0,1057.0,1063.0,0.1885014137606032,309165598.0,1582576,KWF
+IFAHR,IFA Hotels & Resorts Co. (K.S.C.),KSE,Consumer Services,Hotels/Resorts/Cruise lines,1066.0,1066.0,1058.0,1064.0,0.09407337723424271,309165598.0,1640668,KWF
 INJAZZAT,Injazzat Real Estate Development. Co. C.S.C. Closed,KSE,Finance,Real Estate Development,173.0,174.0,169.0,174.0,2.3529411764705883,54666269.0,37431,KWF
 INOVEST,Inovest BSC,KSE,Finance,Real Estate Development,111.0,113.0,108.0,110.0,0.0,33349638.0,7644778,KWF
 INTEGRATED,Integrated Holding Co. KCSC,KSE,Finance,Finance/Rental/Leasing,480.0,480.0,472.0,475.0,0.21097046413502107,119922002.0,1542986,KWF
@@ -76,7 +76,7 @@ KIB,Kuwait International Bank KSC,KSE,Finance,Major Banks,279.0,282.0,278.0,282.
 KINS,Kuwait Insurance Company S.A.K.,KSE,Finance,Multi-Line Insurance,570.0,570.0,570.0,570.0,0.0,105335705.0,7575,KWF
 KINV,Kuwait Investment Company S.A.K.,KSE,Miscellaneous,Investment Trusts/Mutual Funds,239.0,245.0,238.0,245.0,2.510460251046025,134933753.0,3445304,KWF
 KMEFIC,Kuwait & Middle East Financial Investment Co. KSCC,KSE,Finance,Investment Banks/Brokers,143.0,148.0,143.0,146.0,2.097902097902098,31460001.0,331755,KWF
-KPPC,Privatization Holding Co. KSCC,KSE,Commercial Services,Miscellaneous Commercial Services,80.0,80.0,77.1,77.5,-3.0037546933667154,47275000.0,4401683,KWF
+KPPC,Privatization Holding Co. KSCC,KSE,Commercial Services,Miscellaneous Commercial Services,77.5,84.3,77.4,80.8,4.2580645161290285,47275000.0,17231503,KWF
 KPROJ,Kuwait Projects Company Holding (K.S.C.P.),KSE,Finance,Major Banks,85.9,86.7,85.5,85.7,-0.34883720930232226,411458202.0,3664495,KWF
 KRE,Kuwait Real Estate Company,KSE,Finance,Real Estate Development,397.0,399.0,395.0,397.0,0.25252525252525254,472434378.0,8613631,KWF
 KUWAITRE,Kuwait Reinsurance Co.,KSE,Finance,Property/Casualty Insurance,387.0,405.0,385.0,405.0,4.651162790697675,125163651.0,1068,KWF
@@ -92,7 +92,7 @@ MEZZAN,Mezzan Holding Company KSCC,KSE,Consumer Non-Durables,Food: Major Diversi
 MIDAN,Al-Maidan Clinic for Oral Health Services Co. (K.S.C.C),KSE,Health Services,Hospital/Nursing Management,797.0,797.0,797.0,797.0,0.8860759493670887,159962890.0,5000,KWF
 MKHZN,Agility Public Warehousing Co. K.S.C.,KSE,Transportation,Air Freight/Couriers,148.0,149.0,146.0,148.0,0.0,377535395.0,8427297,KWF
 MRC,Metal & Recycling Co. K.S.C.C.,KSE,Retail Trade,Specialty Stores,143.0,152.0,142.0,151.0,2.7210884353741496,13244814.0,274612,KWF
-MUBARRAD,Mubarrad Holding Co. (K.S.C.C),KSE,Finance,Real Estate Development,117.0,119.0,117.0,117.0,0.0,20109657.0,130634,KWF
+MUBARRAD,Mubarrad Holding Co. (K.S.C.C),KSE,Finance,Real Estate Development,119.0,119.0,117.0,117.0,0.0,20109657.0,69684,KWF
 MUNSHAAT,Munshaat Real Estate Projects Co. K.S.C.C.,KSE,Finance,Real Estate Development,250.0,255.0,247.0,253.0,1.2,81465997.0,691673,KWF
 MUNTAZAHAT,Kuwait Resorts Company K.P.S.C.,KSE,Consumer Services,Hotels/Resorts/Cruise lines,129.0,130.0,122.0,130.0,-1.5151515151515151,26175405.0,57394,KWF
 NAPESCO,National Petroleum Services Co. KSCC,KSE,Energy Minerals,Oil & Gas Production,1559.0,1559.0,1559.0,1559.0,0.0,151223001.0,281,KWF
@@ -125,7 +125,7 @@ STC,Kuwait Telecommunications Co.,KSE,Communications,Wireless Telecommunications
 TAHSSILAT,Credit Rating & Collection KSC,KSE,Commercial Services,Financial Publishing/Services,150.0,150.0,140.0,143.0,-2.7210884353741496,24255000.0,270829,KWF
 TAM,Tamdeen Real Estate Co. K.S.C.C.,KSE,Finance,Real Estate Development,425.0,435.0,421.0,435.0,-1.1363636363636365,176733825.0,32502,KWF
 TAMINV,"Tamdeen Investment Co., (K.S.C)",KSE,Finance,Investment Banks/Brokers,1150.0,1155.0,1150.0,1155.0,10.0,206543735.0,549,KWF
-THURAYA,Dar Al-Thuraya Real Estate Co.,KSE,Finance,Real Estate Development,185.0,194.0,185.0,194.0,0.0,28421001.0,14000,KWF
+THURAYA,Dar Al-Thuraya Real Estate Co.,KSE,Finance,Real Estate Development,185.0,194.0,185.0,185.0,-4.639175257731959,28421001.0,16000,KWF
 TIJARA,Tijara & Realestate Investment Co. K.S.C. Closed,KSE,Finance,Real Estate Development,99.5,104.0,99.4,100.7,1.7171717171717198,36630000.0,3307117,KWF
 UNICAP,UniCap Investment and Finance-Kuwaiti Public Shareholding Company,KSE,Commercial Services,Miscellaneous Commercial Services,311.0,325.0,311.0,313.0,0.6430868167202572,69539932.0,258127,KWF
 UPAC,United Projects Company for Aviation Services KSCP,KSE,Finance,Finance/Rental/Leasing,245.0,249.0,245.0,249.0,0.0,94041246.0,2166,KWF
@@ -133,6 +133,6 @@ URC,United Real Estate Company,KSE,Finance,Real Estate Development,221.0,229.0,2
 VALMORE,Valmore Holding,KSE,Finance,Financial Conglomerates,204.0,208.0,203.0,207.0,-0.4807692307692308,167276425.16829067,109112,KWF
 WARBABANK,Warba Bank KSC,KSE,Finance,Major Banks,302.0,303.0,300.0,301.0,0.0,1353962958.0,18445309,KWF
 WARBACAP,Warba Capital Holding Co.,KSE,Non-Energy Minerals,Construction Materials,769.0,770.0,750.0,766.0,-0.1303780964797914,23010001.0,171564,KWF
-WETHAQ,Wethaq Takaful Insurance Co. KCSC,KSE,Finance,Multi-Line Insurance,98.1,117.0,98.0,111.0,12.462006079027352,12188299.0,12801569,KWF
+WETHAQ,Wethaq Takaful Insurance Co. KCSC,KSE,Finance,Multi-Line Insurance,113.0,114.0,106.0,110.0,-0.9009009009009009,12188299.0,4394430,KWF
 WINSRE,Warba Insurance and Reinsurance Company,KSE,Finance,Multi-Line Insurance,173.0,174.0,172.0,174.0,2.9585798816568047,42148599.0,21000,KWF
 ZAIN,Mobile Telecommunications Company K.S.C.P,KSE,Communications,Wireless Telecommunications,519.0,522.0,518.0,521.0,0.5791505791505791,2254397901.0,3969576,KWF
