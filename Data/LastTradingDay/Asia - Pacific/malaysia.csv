@@ -4,14 +4,14 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 3REN,3Ren Bhd,MYX,Producer Manufacturing,Industrial Machinery,0.39,0.4,0.385,0.395,0.0,257245034.99999997,1325500,MYR
 99SMART,99 Speed Mart Retail Holdings Bhd,MYX,Retail Trade,Food Retail,3.88,3.88,3.79,3.81,-1.8041237113402022,32592000961.0,4093900,MYR
 A1AKK,A1 A.K. Koh Group Bhd.,MYX,Distribution Services,Food Distributors,0.225,0.245,0.225,0.245,6.521739130434775,193200004.0,1801200,MYR
-AASIA,Astral Asia Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.095,0.095,0.09,0.09,0.0,62312401.0,103900,MYR
+AASIA,Astral Asia Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.09,0.09,0.09,0.09,0.0,62312401.0,0,MYR
 AAX,AirAsia X Bhd.,MYX,Transportation,Airlines,1.75,1.76,1.7,1.74,-0.571428571428572,782377426.0,3042200,MYR
 ABFMY1,ABF Malaysia Bond Index Fund,MYX,Miscellaneous,Investment Trusts/Mutual Funds,1.231,1.231,1.231,1.231,0.0,,0,MYR
 ABLEGLOB,Able Global Bhd,MYX,Process Industries,Containers/Packaging,1.58,1.59,1.58,1.59,-0.6250000000000006,492100447.0,8100,MYR
 ABLEGRP,AbleGroup Bhd.,MYX,Non-Energy Minerals,Forest Products,0.07,0.07,0.07,0.07,0.0,18472989.0,0,MYR
 ABMB,Alliance Bank Malaysia Bhd.,MYX,Finance,Regional Banks,5.05,5.09,5.0,5.05,0.0,8737626593.0,620400,MYR
 ACME,Acme Holdings Bhd,MYX,Finance,Real Estate Development,0.11,0.11,0.11,0.11,4.761904761904766,37669652.0,10000,MYR
-ACO,ACO Group Bhd,MYX,Distribution Services,Wholesale Distributors,0.19,0.19,0.185,0.19,0.0,66000547.99999999,30200,MYR
+ACO,ACO Group Bhd,MYX,Distribution Services,Wholesale Distributors,0.19,0.19,0.19,0.19,0.0,66000547.99999999,0,MYR
 ADB,Autocount Dotcom Bhd,MYX,Technology Services,Packaged Software,0.725,0.73,0.72,0.72,-1.3698630136986314,401865010.0,127200,MYR
 ADVCON,Advancecon Holdings Bhd.,MYX,Industrial Services,Engineering & Construction,0.2,0.2,0.2,0.2,0.0,115070131.0,28000,MYR
 ADVENTA,Adventa Bhd.,MYX,Distribution Services,Medical Distributors,0.17,0.17,0.165,0.165,0.0,50419310.0,245900,MYR
@@ -42,7 +42,7 @@ ALRICH,Aldrich Resources Bhd,MYX,Commercial Services,Miscellaneous Commercial Se
 ALSREIT,Al-Salam Real Estate Investment Trust,MYX,Finance,Real Estate Investment Trusts,0.48,0.49,0.475,0.49,4.255319148936175,272599999.0,30000,MYR
 AMBANK,AMMB Holdings Bhd.,MYX,Finance,Regional Banks,6.49,6.52,6.44,6.5,0.15408320493065927,21474084624.0,2341700,MYR
 AME,AME Elite Consortium Berhad,MYX,Consumer Durables,Homebuilding,1.54,1.54,1.52,1.54,0.6535947712418306,980229071.0,27900,MYR
-AMEREIT,AME Real Estate Investment Trust,MYX,Finance,Real Estate Investment Trusts,1.68,1.68,1.65,1.66,0.6060606060606066,880248785.0,6000,MYR
+AMEREIT,AME Real Estate Investment Trust,MYX,Finance,Real Estate Investment Trusts,1.66,1.66,1.66,1.66,0.0,880248785.0,0,MYR
 AMFIRST,AmFIRST Real Estate Investment Trust,MYX,Finance,Real Estate Investment Trusts,0.31,0.315,0.31,0.315,1.6129032258064528,212784501.0,145000,MYR
 AMLEX,Amlex Holdings Bhd.,MYX,Electronic Technology,Semiconductors,0.22,0.22,0.22,0.22,37.5,42898095.0,1000,MYR
 AMTEL,Amtel Holdings Bhd.,MYX,Technology Services,Packaged Software,0.38,0.38,0.38,0.38,0.0,37348588.0,0,MYR
@@ -50,31 +50,31 @@ AMWAY,Amway (Malaysia) Holdings Bhd.,MYX,Retail Trade,Specialty Stores,4.92,4.92
 ANALABS,Analabs Resources Bhd.,MYX,Process Industries,Chemicals: Specialty,1.68,1.68,1.66,1.68,-1.176470588235295,185187633.0,10000,MYR
 ANCOMLB,Ancom Logistics Bhd.,MYX,Transportation,Air Freight/Couriers,0.1,0.1,0.1,0.1,0.0,47328632.0,50000,MYR
 ANCOMNY,Ancom Nylex Bhd,MYX,Process Industries,Chemicals: Major Diversified,0.88,0.88,0.875,0.88,0.0,1036084301.0000001,269800,MYR
-ANEKA,Aneka Jaringan Holdings Bhd,MYX,Industrial Services,Engineering & Construction,0.125,0.13,0.125,0.13,0.0,90285790.0,66200,MYR
+ANEKA,Aneka Jaringan Holdings Bhd,MYX,Industrial Services,Engineering & Construction,0.13,0.13,0.13,0.13,0.0,90285790.0,0,MYR
 ANNJOO,Ann Joo Resources Bhd.,MYX,Producer Manufacturing,Metal Fabrication,0.575,0.58,0.575,0.575,0.0,403500416.0,25700,MYR
 AORB,Alpha Ocean Resources Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,3.1,3.1,3.1,3.1,0.0,,0,MYR
 APB,APB Resources Bhd.,MYX,Producer Manufacturing,Industrial Machinery,0.16,0.17,0.16,0.165,-2.9411764705882377,20762237.0,76000,MYR
-APEX,Apex Equity Holdings Bhd.,MYX,Finance,Investment Banks/Brokers,0.885,0.885,0.885,0.885,-0.5617977528089892,179336573.0,90000,MYR
+APEX,Apex Equity Holdings Bhd.,MYX,Finance,Investment Banks/Brokers,0.885,0.885,0.885,0.885,0.0,179336573.0,0,MYR
 APM,APM Automotive Holdings Bhd.,MYX,Producer Manufacturing,Auto Parts: OEM,3.26,3.26,3.26,3.26,1.8749999999999878,625581748.0,600,MYR
 APOLLO,Apollo Food Holdings Bhd.,MYX,Consumer Non-Durables,Food: Specialty/Candy,6.27,6.39,6.22,6.33,-1.4018691588785024,513600006.0,17000,MYR
 APPASIA,AppAsia Bhd,MYX,Technology Services,Packaged Software,0.13,0.13,0.125,0.125,0.0,182180695.0,101000,MYR
 AQUAWALK,Aquawalk Group Bhd.,MYX,Consumer Services,Other Consumer Services,0.36,0.365,0.35,0.36,0.0,663480000.0,2988800,MYR
 ARANK,A-Rank Bhd.,MYX,Non-Energy Minerals,Aluminum,0.405,0.405,0.405,0.405,5.194805194805199,68820517.0,1200,MYR
 ARBB,ARB Bhd.,MYX,Technology Services,Information Technology Services,0.025,0.03,0.02,0.03,19.99999999999999,31245029.0,1217600,MYR
-ARK,ARK Resources Holdings Bhd.,MYX,Industrial Services,Engineering & Construction,0.23,0.23,0.23,0.23,0.0,22892370.0,1600,MYR
+ARK,ARK Resources Holdings Bhd.,MYX,Industrial Services,Engineering & Construction,0.23,0.23,0.23,0.23,0.0,22892370.0,0,MYR
 ARKA,ARKA Bhd,MYX,Commercial Services,Miscellaneous Commercial Services,0.69,0.69,0.69,0.69,0.0,45477587.0,0,MYR
 ARMADA,Bumi Armada Bhd.,MYX,Industrial Services,Oilfield Services/Equipment,0.305,0.305,0.29,0.295,-3.2786885245901667,1808012789.0,12129500,MYR
 ARREIT,AmanahRaya Real Estate Investment Trust,MYX,Finance,Real Estate Investment Trusts,0.335,0.34,0.335,0.335,-1.4705882352941189,194894751.0,50500,MYR
 ARTRONIQ,Artroniq Bhd.,MYX,Distribution Services,Electronics Distributors,0.14,0.145,0.13,0.145,3.5714285714285547,62825492.0,437900,MYR
 ASB,Advance Synergy Bhd.,MYX,Consumer Services,Other Consumer Services,0.07,0.075,0.07,0.07,-6.666666666666654,189689638.0,299600,MYR
 ASDION,Asdion Bhd.,MYX,Transportation,Air Freight/Couriers,0.02,0.02,0.02,0.02,0.0,10213772.0,5900,MYR
-ASIABRN,Asia Brands Bhd.,MYX,Distribution Services,Wholesale Distributors,0.525,0.525,0.525,0.525,0.9615384615384623,122139984.0,100,MYR
+ASIABRN,Asia Brands Bhd.,MYX,Distribution Services,Wholesale Distributors,0.525,0.525,0.525,0.525,0.0,122139984.0,0,MYR
 ASIAFLE,Asia File Corporation Bhd.,MYX,Process Industries,Pulp & Paper,1.34,1.45,1.34,1.45,6.617647058823518,266529497.0,33300,MYR
 ASIAPAC,Asian Pac Holdings Bhd.,MYX,Finance,Real Estate Development,0.105,0.105,0.105,0.105,0.0,156328922.0,369600,MYR
 ASIAPLY,Asia Poly Holdings Bhd.,MYX,Producer Manufacturing,Miscellaneous Manufacturing,0.125,0.135,0.125,0.13,4.0000000000000036,131794188.99999999,916900,MYR
-ASM,ASM Automation Group Berhad,MYX,Producer Manufacturing,Industrial Machinery,0.145,0.145,0.14,0.14,-3.4482758620689493,74867100.0,33100,MYR
+ASM,ASM Automation Group Berhad,MYX,Producer Manufacturing,Industrial Machinery,0.14,0.14,0.14,0.14,0.0,74867100.0,0,MYR
 ASTEEL,ASTEEL Group Bhd,MYX,Producer Manufacturing,Building Products,0.07,0.075,0.07,0.075,15.384615384615378,31516519.0,467300,MYR
-ASTINO,Astino Bhd.,MYX,Producer Manufacturing,Building Products,0.51,0.51,0.51,0.51,-1.9230769230769247,251638708.0,1800,MYR
+ASTINO,Astino Bhd.,MYX,Producer Manufacturing,Building Products,0.51,0.51,0.51,0.51,0.0,251638708.0,0,MYR
 ASTRA,Astramina Group Bhd.,MYX,Consumer Non-Durables,Food: Major Diversified,0.5,0.5,0.5,0.5,0.0,136081635.0,0,MYR
 ASTRO,Astro Malaysia Holdings Bhd.,MYX,Consumer Services,Cable/Satellite TV,0.1,0.105,0.1,0.1,-4.761904761904753,548713269.0,330800,MYR
 ATECH,Aurelius Technologies Bhd.,MYX,Electronic Technology,Semiconductors,0.815,0.82,0.81,0.82,0.0,1066552930.0000001,206700,MYR
@@ -99,7 +99,7 @@ AZRB,Ahmad Zaki Resources Bhd.,MYX,Industrial Services,Engineering & Constructio
 BABA,Baba Eco Group Bhd,MYX,Producer Manufacturing,Miscellaneous Manufacturing,0.44,0.44,0.44,0.44,0.0,89888008.0,0,MYR
 BAT,British American Tobacco Malaysia Bhd.,MYX,Consumer Non-Durables,Tobacco,4.47,4.5,4.42,4.43,-0.2252252252252404,1267753075.0,69500,MYR
 BAUTO,Bermaz Auto Berhad,MYX,Retail Trade,Specialty Stores,0.71,0.715,0.7,0.71,0.0,830471080.0,1899800,MYR
-BCB,BCB BHD,MYX,Finance,Real Estate Development,0.26,0.26,0.26,0.26,0.0,104973909.0,100,MYR
+BCB,BCB BHD,MYX,Finance,Real Estate Development,0.26,0.26,0.26,0.26,0.0,104973909.0,0,MYR
 BCMALL,BCM Alliance Bhd.,MYX,Consumer Durables,Electronics/Appliances,0.01,0.01,0.005,0.005,-50.0,20341121.0,16100,MYR
 BDB,Bina Darulaman Bhd.,MYX,Industrial Services,Engineering & Construction,0.245,0.245,0.245,0.245,-5.7692307692307745,79002292.0,5000,MYR
 BEDI,BEDI Berhad,MYX,Finance,Real Estate Development,0.3,0.3,0.3,0.3,0.0,260144725.0,2300,MYR
@@ -139,8 +139,8 @@ BWYS,BWYS Group Bhd,MYX,Producer Manufacturing,Building Products,0.215,0.22,0.21
 CAB,CAB Cakaran Corp. Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.595,0.61,0.59,0.6,1.6949152542372898,413794847.0,649800,MYR
 CABNET,Cabnet Holdings Bhd.,MYX,Industrial Services,Engineering & Construction,0.265,0.265,0.265,0.265,0.0,47368747.0,12500,MYR
 CAMAROE,Camaroe Berhad,MYX,Process Industries,Agricultural Commodities/Milling,0.105,0.11,0.105,0.11,4.761904761904766,51975000.0,220000,MYR
-CAMRES,CAM Resources Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.305,0.33,0.305,0.33,-2.9411764705882377,63167202.0,40000,MYR
-CANONE,Can-One Bhd.,MYX,Process Industries,Containers/Packaging,1.68,1.75,1.68,1.75,1.7441860465116297,336267723.0,7500,MYR
+CAMRES,CAM Resources Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.33,0.33,0.33,0.33,0.0,63167202.0,0,MYR
+CANONE,Can-One Bhd.,MYX,Process Industries,Containers/Packaging,1.75,1.75,1.75,1.75,0.0,336267723.0,0,MYR
 CAPITALA,Capital A Berhad,MYX,Transportation,Airlines,0.42,0.42,0.405,0.415,-1.1904761904761916,1858637960.0,11575500,MYR
 CAREPLS,Careplus Group Bhd.,MYX,Producer Manufacturing,Miscellaneous Manufacturing,0.085,0.085,0.08,0.085,0.0,65687023.99999999,281800,MYR
 CARIMIN,Carimin Petroleum Bhd,MYX,Industrial Services,Oilfield Services/Equipment,0.555,0.575,0.555,0.575,3.6036036036035863,129802294.99999999,2000,MYR
@@ -153,7 +153,7 @@ CCIB,CC International Bhd.,MYX,Commercial Services,Miscellaneous Commercial Serv
 CCK,CCK Consolidated Holdings Bhd.,MYX,Retail Trade,Food Retail,1.23,1.23,1.2,1.2,-2.4390243902439046,770773236.0,224500,MYR
 CDB,CelcomDigi Berhad,MYX,Communications,Major Telecommunications,3.2,3.21,3.19,3.19,-0.3125000000000072,37540825559.0,7768400,MYR
 CEB,Cape EMS Bhd,MYX,Electronic Technology,Electronic Production Equipment,0.27,0.27,0.265,0.27,0.0,267840011.0,1498600,MYR
-CEKD,CEKD Bhd,MYX,Producer Manufacturing,Industrial Machinery,0.315,0.315,0.315,0.315,0.0,61290494.0,100,MYR
+CEKD,CEKD Bhd,MYX,Producer Manufacturing,Industrial Machinery,0.315,0.315,0.315,0.315,0.0,61290494.0,0,MYR
 CENGILD,Cengild Medical Bhd.,MYX,Health Services,Medical/Nursing Services,0.23,0.23,0.22,0.225,-2.1739130434782625,191569901.0,33700,MYR
 CENSOF,Censof Holdings Bhd.,MYX,Technology Services,Packaged Software,0.225,0.225,0.22,0.225,0.0,124263347.0,67400,MYR
 CEPAT,Cepatwawasan Group Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.72,0.725,0.72,0.72,0.0,222456256.0,19000,MYR
@@ -163,7 +163,7 @@ CFM,Computer Forms (Malaysia) Bhd.,MYX,Commercial Services,Commercial Printing/F
 CGB,Central Global Bhd,MYX,Consumer Durables,Homebuilding,0.895,0.9,0.89,0.9,0.0,770442112.0,5822100,MYR
 CHB,Critical Holdings Bhd.,MYX,Industrial Services,Engineering & Construction,0.88,0.88,0.87,0.875,-0.5681818181818187,327130330.0,56200,MYR
 CHEEDING,CHEEDING Holdings Bhd,MYX,Industrial Services,Engineering & Construction,0.825,0.825,0.815,0.82,-0.6060606060606066,,399200,MYR
-CHEETAH,Cheetah Holdings Bhd.,MYX,Consumer Non-Durables,Apparel/Footwear,0.13,0.135,0.125,0.13,8.333333333333341,58233674.0,601200,MYR
+CHEETAH,Cheetah Holdings Bhd.,MYX,Consumer Non-Durables,Apparel/Footwear,0.13,0.13,0.13,0.13,0.0,58233674.0,0,MYR
 CHGP,Chin Hin Group Property Bhd.,MYX,Consumer Durables,Motor Vehicles,1.18,1.19,1.18,1.19,0.0,1649096182.0,37000,MYR
 CHHB,Country Heights Holdings Bhd.,MYX,Finance,Real Estate Development,0.18,0.18,0.18,0.18,0.0,58255007.0,0,MYR
 CHINA100-MYR,Vp-Dj Shariah China A-Shares 100 ETF MYR Exchange Traded Fund Units,MYX,Miscellaneous,Investment Trusts/Mutual Funds,1.37,1.37,1.37,1.37,0.7352941176470594,,1500,MYR
@@ -172,7 +172,7 @@ CHINAETF-USD,TradePlus S&P New China Tracker,MYX,Miscellaneous,Investment Trusts
 CHINHIN,Chin Hin Group Bhd,MYX,Distribution Services,Wholesale Distributors,2.5,2.53,2.48,2.53,2.0161290322580574,8779082607.0,352000,MYR
 CHINTEK,Chin Teck Plantations Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,10.3,10.5,10.3,10.48,-2.420856610800743,981241292.0,5000,MYR
 CHINWEL,Chin Well Holdings Bhd.,MYX,Producer Manufacturing,Metal Fabrication,0.72,0.72,0.72,0.72,0.6993006993007,204821308.0,8000,MYR
-CHOOBEE,Choo Bee Metal Industries Bhd.,MYX,Non-Energy Minerals,Steel,0.54,0.54,0.54,0.54,3.8461538461538494,106046278.0,52000,MYR
+CHOOBEE,Choo Bee Metal Industries Bhd.,MYX,Non-Energy Minerals,Steel,0.54,0.54,0.54,0.54,0.0,106046278.0,0,MYR
 CHUAN,Chuan Huat Resources Bhd.,MYX,Distribution Services,Wholesale Distributors,0.215,0.215,0.205,0.205,-2.380952380952383,35420670.0,64700,MYR
 CIHLDG,C.I. Holdings Bhd.,MYX,Producer Manufacturing,Building Products,2.68,2.68,2.68,2.68,0.3745318352060012,432540012.0,2600,MYR
 CIMB,CIMB Group Holdings Bhd,MYX,Finance,Regional Banks,8.23,8.25,8.12,8.25,0.24301336573511026,88807538039.0,14888600,MYR
@@ -189,7 +189,7 @@ CMSB,Cahya Mata Sarawak Bhd.,MYX,Non-Energy Minerals,Construction Materials,1.44
 CNASIA,CN Asia Corporation Bhd.,MYX,Producer Manufacturing,Industrial Machinery,0.065,0.065,0.065,0.065,0.0,17496862.0,12500,MYR
 CNERGEN,Cnergenz Bhd.,MYX,Electronic Technology,Electronic Production Equipment,0.475,0.48,0.44,0.44,1.1494252873563229,216630001.0,13600,MYR
 CNH,Citra Nusa Holdings Bhd,MYX,Consumer Non-Durables,Household/Personal Care,0.04,0.045,0.04,0.045,12.499999999999993,28799999.0,70500,MYR
-CNOUHUA,China Ouhua Winery Holdings Ltd.,MYX,Consumer Non-Durables,Beverages: Alcoholic,0.03,0.04,0.03,0.04,0.0,26719999.0,241000,MYR
+CNOUHUA,China Ouhua Winery Holdings Ltd.,MYX,Consumer Non-Durables,Beverages: Alcoholic,0.04,0.04,0.04,0.04,0.0,26719999.0,0,MYR
 COASTAL,Coastal Contracts Bhd.,MYX,Producer Manufacturing,Trucks/Construction/Farm Machinery,1.31,1.34,1.28,1.34,2.2900763358778646,715597543.0,57100,MYR
 COLFORM,Colform Group Berhad,MYX,Non-Energy Minerals,Steel,0.305,0.31,0.305,0.31,8.771929824561413,170999998.0,15500,MYR
 COMFORT,Comfort Gloves Bhd.,MYX,Producer Manufacturing,Miscellaneous Manufacturing,0.17,0.18,0.17,0.18,5.8823529411764595,98675310.0,338700,MYR
@@ -208,7 +208,7 @@ CUSCAPI,Cuscapi Bhd.,MYX,Commercial Services,Miscellaneous Commercial Services,0
 CVIEW,Country View Bhd.,MYX,Finance,Real Estate Development,2.99,2.99,2.95,2.95,0.6825938566552906,293000007.0,7900,MYR
 CWG,CWG Holdings Bhd.,MYX,Producer Manufacturing,Office Equipment/Supplies,0.17,0.185,0.17,0.185,8.823529411764696,44526844.0,20200,MYR
 CYBERE,Cyberjaya Education Group Bhd,MYX,Consumer Services,Other Consumer Services,0.945,0.945,0.905,0.905,0.0,155804660.0,26900,MYR
-CYL,CYL Corporation Berhad,MYX,Process Industries,Containers/Packaging,0.35,0.35,0.35,0.35,14.754098360655732,34999999.0,700,MYR
+CYL,CYL Corporation Berhad,MYX,Process Industries,Containers/Packaging,0.35,0.35,0.35,0.35,0.0,34999999.0,0,MYR
 CYPARK,Cypark Resources Bhd.,MYX,Utilities,Alternative Power Generation,0.685,0.7,0.68,0.69,0.7299270072992544,558410338.0,1532700,MYR
 D&O,D&O Green Technologies Bhd.,MYX,Electronic Technology,Semiconductors,0.725,0.75,0.71,0.75,4.1666666666666705,892428258.0,16764000,MYR
 DANCO,Dancomech Holdings Bhd,MYX,Distribution Services,Wholesale Distributors,0.375,0.38,0.375,0.38,0.0,168169086.0,14100,MYR
@@ -264,7 +264,7 @@ EIB,Ecoscience International Bhd.,MYX,Industrial Services,Engineering & Construc
 EIG,Esthetics International Group Bhd.,MYX,Consumer Services,Other Consumer Services,0.235,0.235,0.235,0.235,11.904761904761903,49810742.0,2000,MYR
 EITA,EITA Resources Bhd.,MYX,Producer Manufacturing,Building Products,0.485,0.49,0.48,0.485,1.0416666666666676,144868927.0,65000,MYR
 EKOVEST,Ekovest Bhd.,MYX,Industrial Services,Engineering & Construction,0.285,0.285,0.275,0.28,0.0,830314984.0,5031000,MYR
-EKSONS,Eksons Corp. Bhd.,MYX,Finance,Real Estate Development,0.41,0.41,0.41,0.41,1.2345679012345552,66879948.0,1000,MYR
+EKSONS,Eksons Corp. Bhd.,MYX,Finance,Real Estate Development,0.41,0.41,0.41,0.41,0.0,66879948.0,0,MYR
 ELKDESA,ELK-Desa Resources Bhd.,MYX,Finance,Finance/Rental/Leasing,1.11,1.11,1.1,1.11,-0.8928571428571435,509385490.0,301900,MYR
 ELRIDGE,Elridge Energy Holdings Berhad,MYX,Process Industries,Industrial Specialties,1.01,1.02,1.0,1.01,0.0,2019999981.0,1445900,MYR
 ELSOFT,Elsoft Research Bhd.,MYX,Commercial Services,Miscellaneous Commercial Services,0.24,0.255,0.235,0.255,6.250000000000005,166332858.0,125200,MYR
@@ -300,11 +300,11 @@ EWICAP,EWI Capital Bhd,MYX,Finance,Real Estate Development,0.21,0.215,0.21,0.215
 EXSIMHB,Exsim Hospitality Bhd,MYX,Consumer Services,Hotels/Resorts/Cruise lines,0.24,0.24,0.235,0.24,0.0,557320417.0,158600,MYR
 F&N,Fraser & Neave Holdings Bhd.,MYX,Consumer Non-Durables,Food: Meat/Fish/Dairy,35.8,35.8,35.46,35.5,-0.8379888268156346,13124798890.0,23100,MYR
 F4GBM-EA,FTSE4Good Bursa Malaysia ETF,MYX,Miscellaneous,Investment Trusts/Mutual Funds,1.77,1.77,1.76,1.77,0.2832861189801765,,8500,MYR
-FACBIND,FACB Industries Inc. Bhd.,MYX,Consumer Durables,Home Furnishings,1.55,1.55,1.55,1.55,0.0,130018331.99999999,1000,MYR
+FACBIND,FACB Industries Inc. Bhd.,MYX,Consumer Durables,Home Furnishings,1.55,1.55,1.55,1.55,0.0,130018331.99999999,0,MYR
 FAMIERA,Farmiera Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.225,0.225,0.22,0.225,0.0,,48800,MYR
 FAREAST,Far East Holdings Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,4.3,4.3,4.3,4.3,0.0,2553503568.0,0,MYR
 FARLIM,Farlim Group (Malaysia) Bhd.,MYX,Finance,Real Estate Development,0.155,0.16,0.155,0.16,-3.030303030303033,25249226.0,16800,MYR
-FAST,Fast Energy Holdings Bhd,MYX,Transportation,Marine Shipping,0.03,0.03,0.025,0.025,-16.66666666666666,10764060.0,56300,MYR
+FAST,Fast Energy Holdings Bhd,MYX,Transportation,Marine Shipping,0.025,0.025,0.025,0.025,0.0,10764060.0,0,MYR
 FAVCO,Favelle Favco Bhd.,MYX,Producer Manufacturing,Trucks/Construction/Farm Machinery,1.52,1.54,1.5,1.51,-1.9480519480519498,365242963.0,336100,MYR
 FBG,FBG Holdings Berhad,MYX,Industrial Services,Engineering & Construction,0.15,0.155,0.15,0.15,0.0,156991303.0,89800,MYR
 FCW,FCW Holdings Bhd.,MYX,Consumer Non-Durables,Household/Personal Care,1.8,1.8,1.8,1.8,0.0,449989414.0,400,MYR
@@ -335,7 +335,7 @@ G3,G3 Global Bhd,MYX,Technology Services,Packaged Software,0.02,0.02,0.015,0.02,
 GADANG,Gadang Holdings Bhd.,MYX,Industrial Services,Engineering & Construction,0.245,0.245,0.235,0.24,-2.040816326530614,196212465.0,2064000,MYR
 GAMUDA,Gamuda Bhd.,MYX,Industrial Services,Engineering & Construction,5.05,5.1,4.98,4.98,-1.3861386138613743,29803449026.0,9503900,MYR
 GASMSIA,Gas Malaysia Bhd.,MYX,Utilities,Gas Distributors,4.35,4.37,4.35,4.37,0.0,5611079853.0,50900,MYR
-GBAY,Greater Bay Holdings Bhd,MYX,Process Industries,Containers/Packaging,0.61,0.61,0.61,0.61,-1.6129032258064528,48777509.0,500,MYR
+GBAY,Greater Bay Holdings Bhd,MYX,Process Industries,Containers/Packaging,0.61,0.61,0.61,0.61,0.0,48777509.0,0,MYR
 GBGAQRS,Gabungan AQRS Bhd.,MYX,Industrial Services,Engineering & Construction,0.175,0.18,0.175,0.18,2.85714285714286,94984987.0,434000,MYR
 GCAP,G Capital Bhd.,MYX,Transportation,Other Transportation,0.205,0.205,0.2,0.205,-2.380952380952383,68856260.0,230100,MYR
 GCB,Guan Chong Bhd.,MYX,Consumer Non-Durables,Food: Specialty/Candy,0.745,0.745,0.72,0.73,-2.0134228187919483,2041697795.0,6276300,MYR
@@ -350,7 +350,7 @@ GENTING,Genting Bhd.,MYX,Consumer Services,Hotels/Resorts/Cruise lines,2.99,3.04
 GEOHAN,Geohan Corporation Berhad,MYX,Industrial Services,Engineering & Construction,0.49,0.495,0.48,0.495,1.020408163265307,,177200,MYR
 GESHEN,Ge-Shen Corp. Bhd.,MYX,Process Industries,Industrial Specialties,1.59,1.63,1.59,1.63,1.8749999999999878,646593857.0,3700,MYR
 GFM,GFM Services Bhd.,MYX,Commercial Services,Miscellaneous Commercial Services,0.165,0.17,0.165,0.17,3.030303030303033,125325924.0,869900,MYR
-GIIB,GIIB Holdings Bhd,MYX,Producer Manufacturing,Miscellaneous Manufacturing,0.075,0.075,0.07,0.075,0.0,48781734.0,1878500,MYR
+GIIB,GIIB Holdings Bhd,MYX,Producer Manufacturing,Miscellaneous Manufacturing,0.075,0.075,0.075,0.075,0.0,48781734.0,0,MYR
 GKENT,George Kent (Malaysia) Bhd.,MYX,Industrial Services,Engineering & Construction,0.325,0.33,0.32,0.33,0.0,172246492.0,67500,MYR
 GLBHD,Golden Land Bhd.,MYX,Finance,Real Estate Development,0.25,0.25,0.25,0.25,-3.8461538461538494,55773576.0,5000,MYR
 GLOMAC,Glomac Bhd.,MYX,Finance,Real Estate Development,0.335,0.345,0.33,0.345,2.9850746268656576,257302171.0,527100,MYR
@@ -362,7 +362,7 @@ GOCEAN,Green Ocean Corp. Bhd.,MYX,Process Industries,Agricultural Commodities/Mi
 GOHUB,GO Hub Capital Berhad,MYX,Technology Services,Packaged Software,0.585,0.595,0.585,0.595,-0.8333333333333341,240000010.0,221600,MYR
 GOINNO,GO INNOVATE ASIA BHD,MYX,Distribution Services,Wholesale Distributors,0.03,0.03,0.03,0.03,0.0,9000989.0,0,MYR
 GOLDETF,TradePlus Shariah Gold Tracker,MYX,Miscellaneous,Investment Trusts/Mutual Funds,5.44,5.5,5.38,5.46,0.36764705882352156,,290200,MYR
-GOPENG,Gopeng Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.77,0.77,0.765,0.765,-1.9230769230769247,308669930.0,5000,MYR
+GOPENG,Gopeng Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.765,0.765,0.765,0.765,0.0,308669930.0,0,MYR
 GPACKET,Green Packet Bhd.,MYX,Technology Services,Packaged Software,0.035,0.045,0.035,0.04,14.285714285714276,90768929.0,612600,MYR
 GPHAROS,Golden Pharos Bhd.,MYX,Producer Manufacturing,Building Products,0.25,0.27,0.25,0.255,2.0000000000000018,35193867.0,471000,MYR
 GPP,GPP Resources Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.28,0.28,0.28,0.28,0.0,43433090.0,0,MYR
@@ -431,9 +431,9 @@ ICENTS,Icents Group Holdings Berhad,MYX,Commercial Services,Miscellaneous Commer
 ICONIC,Iconic Worldwide Bhd.,MYX,Consumer Services,Other Consumer Services,0.07,0.07,0.065,0.07,0.0,118094205.0,321000,MYR
 ICTZONE,ICT Zone Asia Bhd.,MYX,Technology Services,Information Technology Services,0.17,0.175,0.17,0.17,-2.857142857142844,139204305.0,722100,MYR
 IDBTECH,IDB Technologies Bhd,MYX,Technology Services,Packaged Software,0.13,0.13,0.13,0.13,0.0,125000000.0,0,MYR
-IDEAL,Ideal Capital Berhad,MYX,Finance,Real Estate Development,3.5,3.5,3.5,3.5,4.477611940298504,1750002670.0,900,MYR
+IDEAL,Ideal Capital Berhad,MYX,Finance,Real Estate Development,3.5,3.5,3.5,3.5,0.0,1750002670.0,0,MYR
 IFCAMSC,IFCA MSC Bhd.,MYX,Technology Services,Packaged Software,0.24,0.24,0.235,0.24,0.0,145655915.0,41300,MYR
-IGBB,IGB Bhd.,MYX,Finance,Real Estate Development,3.05,3.05,3.04,3.05,0.0,4112563046.0,63600,MYR
+IGBB,IGB Bhd.,MYX,Finance,Real Estate Development,3.05,3.05,3.05,3.05,0.0,4112563046.0,0,MYR
 IGBCR,IGB Commercial Real Estate Investment Trust,MYX,Finance,Real Estate Investment Trusts,0.63,0.635,0.63,0.635,0.7936507936507943,1522994996.0,57300,MYR
 IGBREIT,IGB Real Estate Investment Trust,MYX,Finance,Real Estate Investment Trusts,2.7,2.74,2.7,2.73,0.7380073800738014,11715651713.0,957600,MYR
 IHB,Infraharta Holdings Bhd.,MYX,Consumer Durables,Homebuilding,0.13,0.135,0.125,0.135,0.0,59784176.0,212800,MYR
@@ -449,7 +449,7 @@ INNATURE,Innature bhd,MYX,Retail Trade,Specialty Stores,0.17,0.17,0.165,0.165,0.
 INNITY,Innity Corp. Bhd.,MYX,Commercial Services,Advertising/Marketing Services,0.225,0.225,0.225,0.225,0.0,31365770.0,1000,MYR
 INNO,Innoprise Plantations Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,1.86,1.89,1.86,1.86,-0.5347593582887704,895464351.0,102000,MYR
 INSAS,Insas Bhd.,MYX,Technology Services,Information Technology Services,0.875,0.875,0.865,0.875,0.0,580362869.0,197100,MYR
-INSAS-PB,Insas Bhd. Cum Red Pref Registered Shs 2020-2025,MYX,Technology Services,Information Technology Services,1.0,1.0,1.0,1.0,-0.990099009900991,580362869.0,100,MYR
+INSAS-PB,Insas Bhd. Cum Red Pref Registered Shs 2020-2025,MYX,Technology Services,Information Technology Services,1.0,1.0,1.0,1.0,0.0,580362869.0,0,MYR
 INTA,Inta Bina Group Bhd.,MYX,Consumer Durables,Homebuilding,0.39,0.395,0.39,0.395,0.0,242777267.0,129100,MYR
 IOICORP,IOI Corporation Berhad,MYX,Process Industries,Agricultural Commodities/Milling,4.0,4.02,3.99,4.0,0.25062656641603476,24932606075.0,2886400,MYR
 IOIPG,IOI Properties Group Bhd.,MYX,Finance,Real Estate Development,2.62,2.64,2.6,2.64,0.7633587786259549,14426100600.0,1741300,MYR
@@ -464,7 +464,7 @@ JAG,JAG Berhad,MYX,Industrial Services,Environmental Services,0.3,0.305,0.295,0.
 JAGAAPP,Jagasolution Berhad,MYX,Technology Services,Information Technology Services,0.05,0.05,0.05,0.05,0.0,4200134.0,0,MYR
 JAGCPTL,Jag Capital Berhad,MYX,Commercial Services,Miscellaneous Commercial Services,0.96,0.98,0.945,0.975,1.5625000000000013,534969539.00000006,236400,MYR
 JAKS,JAKS Resources Bhd.,MYX,Industrial Services,Engineering & Construction,0.095,0.1,0.095,0.1,0.0,262629081.0,690400,MYR
-JASKITA,Jasa Kita Bhd.,MYX,Distribution Services,Wholesale Distributors,0.26,0.26,0.26,0.26,0.0,116883000.0,17700,MYR
+JASKITA,Jasa Kita Bhd.,MYX,Distribution Services,Wholesale Distributors,0.26,0.26,0.26,0.26,0.0,116883000.0,0,MYR
 JAYCORP,Jaycorp Berhad,MYX,Consumer Durables,Home Furnishings,0.32,0.32,0.31,0.31,-3.1250000000000027,85994686.0,21600,MYR
 JCBNEXT,JcbNext Bhd.,MYX,Commercial Services,Personnel Services,1.8,1.8,1.8,1.8,0.0,232864722.0,5000,MYR
 JCY,JCY International Bhd.,MYX,Electronic Technology,Computer Peripherals,0.33,0.33,0.325,0.325,-1.5151515151515165,704308570.0,908300,MYR
@@ -502,8 +502,8 @@ KGW,KGW Group Bhd,MYX,Transportation,Marine Shipping,0.165,0.17,0.16,0.165,-2.94
 KHB,KHPT Holdings Bhd,MYX,Producer Manufacturing,Auto Parts: OEM,0.1,0.105,0.1,0.105,0.0,,802700,MYR
 KHEESAN,Khee San Bhd.,MYX,Consumer Non-Durables,Food: Specialty/Candy,0.095,0.105,0.095,0.1,11.111111111111121,98841603.0,18401300,MYR
 KHIND,Khind Holdings Bhd.,MYX,Consumer Durables,Electronics/Appliances,1.4,1.45,1.4,1.4,0.0,58854601.0,11000,MYR
-KHJB,Kim Hin Joo (Malaysia) Bhd.,MYX,Retail Trade,Apparel/Footwear Retail,0.115,0.115,0.115,0.115,-11.538461538461538,43700001.0,30000,MYR
-KIALIM,Kia Lim Bhd.,MYX,Non-Energy Minerals,Construction Materials,0.46,0.46,0.445,0.45,-2.1739130434782625,27871854.0,64900,MYR
+KHJB,Kim Hin Joo (Malaysia) Bhd.,MYX,Retail Trade,Apparel/Footwear Retail,0.115,0.115,0.115,0.115,0.0,43700001.0,0,MYR
+KIALIM,Kia Lim Bhd.,MYX,Non-Energy Minerals,Construction Materials,0.45,0.45,0.45,0.45,0.0,27871854.0,0,MYR
 KIMHIN,Kim Hin Industry Bhd.,MYX,Producer Manufacturing,Building Products,0.82,0.83,0.795,0.83,10.666666666666663,105179329.0,121300,MYR
 KIMLUN,Kimlun Corp. Bhd.,MYX,Industrial Services,Engineering & Construction,1.31,1.32,1.31,1.31,-0.7575757575757582,513082540.0,105100,MYR
 KINERGY,Kinergy Advancement Bhd,MYX,Industrial Services,Engineering & Construction,0.38,0.385,0.38,0.385,1.3157894736842117,830291362.0,4536600,MYR
@@ -531,7 +531,7 @@ KRETAM,Kretam Holdings Bhd.,MYX,Process Industries,Agricultural Commodities/Mill
 KRONO,Kronologi Asia Bhd.,MYX,Technology Services,Information Technology Services,0.165,0.17,0.16,0.17,3.030303030303033,146918205.0,477000,MYR
 KSENG,Keck Seng (Malaysia) Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,5.5,5.52,5.47,5.51,0.18181818181817794,1976169907.0,13300,MYR
 KSL,KSL Holdings Bhd.,MYX,Finance,Real Estate Development,2.91,2.92,2.88,2.91,0.0,3123664142.0,279000,MYR
-KSSC,K. Seng Seng Corp. Bhd.,MYX,Non-Energy Minerals,Steel,0.77,0.77,0.725,0.745,-3.2467532467532494,150703261.0,55300,MYR
+KSSC,K. Seng Seng Corp. Bhd.,MYX,Non-Energy Minerals,Steel,0.745,0.745,0.745,0.745,0.0,150703261.0,0,MYR
 KTC,Kim Teck Cheong Consolidated Bhd.,MYX,Transportation,Other Transportation,0.155,0.155,0.155,0.155,3.3333333333333366,102278681.0,600,MYR
 KTI,KTI Landmark Bhd.,MYX,Finance,Real Estate Development,0.42,0.42,0.41,0.41,-2.380952380952383,335999990.0,2178400,MYR
 KUCHAI,Kuchai Development Bhd.,MYX,Finance,Real Estate Development,0.005,0.005,0.005,0.005,0.0,3712420.0,0,MYR
@@ -545,12 +545,12 @@ LAMBO,Lambo Group Bhd.,MYX,Distribution Services,Wholesale Distributors,0.005,0.
 LANDMRK,Landmarks Bhd.,MYX,Consumer Services,Hotels/Resorts/Cruise lines,0.11,0.115,0.11,0.115,0.0,77224123.0,52100,MYR
 LAYHONG,Lay Hong Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.295,0.3,0.29,0.3,0.0,227609463.0,1523800,MYR
 LBALUM,LB Aluminium Bhd.,MYX,Non-Energy Minerals,Aluminum,0.465,0.465,0.46,0.465,1.0869565217391313,200031315.0,102600,MYR
-LBICAP,LBI Capital Bhd.,MYX,Finance,Real Estate Development,0.35,0.35,0.34,0.34,0.0,37605953.0,12300,MYR
+LBICAP,LBI Capital Bhd.,MYX,Finance,Real Estate Development,0.34,0.34,0.34,0.34,0.0,37605953.0,0,MYR
 LBS,LBS Bina Group Bhd.,MYX,Finance,Real Estate Development,0.38,0.385,0.375,0.38,0.0,597603384.0,1283000,MYR
 LBS-PA,LBS Bina Group Bhd Red Conv Perp Pref Registered Shs,MYX,Finance,Real Estate Development,0.85,0.85,0.845,0.845,-0.5882352941176475,597603384.0,101000,MYR
 LCTITAN,Lotte Chemical Titan Holdings Bhd,MYX,Process Industries,Chemicals: Specialty,0.395,0.395,0.385,0.385,-1.2820512820512833,888246962.0,1155800,MYR
 LEBTECH,Lebtech Bhd.,MYX,Industrial Services,Engineering & Construction,0.905,0.905,0.905,0.905,0.0,83937470.0,0,MYR
-LEESK,Lee Swee Kiat Group Bhd.,MYX,Non-Energy Minerals,Forest Products,0.415,0.415,0.39,0.39,-3.703703703703707,98153837.0,90400,MYR
+LEESK,Lee Swee Kiat Group Bhd.,MYX,Non-Energy Minerals,Forest Products,0.39,0.39,0.39,0.39,0.0,98153837.0,0,MYR
 LEFORM,Leform Bhd,MYX,Non-Energy Minerals,Steel,0.17,0.175,0.17,0.175,2.9411764705882213,251772202.0,695000,MYR
 LEONFB,Leon Fuat Bhd.,MYX,Non-Energy Minerals,Steel,0.37,0.37,0.37,0.37,0.0,126170002.0,37000,MYR
 LFECORP,LFE Corporation Bhd,MYX,Industrial Services,Engineering & Construction,0.17,0.17,0.17,0.17,0.0,197890295.0,32500,MYR
@@ -589,12 +589,12 @@ MALTON,Malton Bhd.,MYX,Finance,Real Estate Development,0.31,0.315,0.31,0.31,-1.5
 MANULFE,Manulife Holdings Bhd.,MYX,Finance,Multi-Line Insurance,2.19,2.2,2.18,2.18,0.0,504963239.0,6900,MYR
 MARCO,Marco Holdings Bhd.,MYX,Distribution Services,Wholesale Distributors,0.095,0.095,0.095,0.095,0.0,100159153.0,97400,MYR
 MASTEEL,Malaysia Steel Works (KL) Bhd.,MYX,Non-Energy Minerals,Steel,0.27,0.3,0.27,0.295,7.272727272727258,205317683.0,1874600,MYR
-MASTER,Master-Pack Group Bhd.,MYX,Process Industries,Containers/Packaging,1.85,1.85,1.85,1.85,-7.499999999999996,101047282.0,1000,MYR
+MASTER,Master-Pack Group Bhd.,MYX,Process Industries,Containers/Packaging,1.85,1.85,1.85,1.85,0.0,101047282.0,0,MYR
 MATANG,Matang Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.075,0.08,0.075,0.075,0.0,179190022.0,1227400,MYR
 MATRIX,Matrix Concepts Holdings Bhd.,MYX,Finance,Real Estate Development,1.31,1.32,1.3,1.3,-0.7633587786259549,2458896758.0,1310700,MYR
-MAXIM,Maxim Global Bhd.,MYX,Non-Energy Minerals,Forest Products,0.35,0.38,0.35,0.38,0.0,279222368.0,2500,MYR
+MAXIM,Maxim Global Bhd.,MYX,Non-Energy Minerals,Forest Products,0.38,0.38,0.38,0.38,0.0,279222368.0,0,MYR
 MAXIS,Maxis Bhd.,MYX,Communications,Major Telecommunications,3.86,3.86,3.79,3.79,-1.8134715025906696,30243427111.0,1398200,MYR
-MAXLAND,Maxland Bhd,MYX,Non-Energy Minerals,Forest Products,0.03,0.035,0.03,0.035,16.666666666666682,56127038.0,70000,MYR
+MAXLAND,Maxland Bhd,MYX,Non-Energy Minerals,Forest Products,0.035,0.035,0.035,0.035,0.0,56127038.0,0,MYR
 MAYBANK,Malayan Banking Bhd.,MYX,Finance,Regional Banks,10.5,10.5,10.4,10.48,-0.1904761904761864,126851607422.0,11101700,MYR
 MAYBULK,Maybulk Bhd,MYX,Transportation,Marine Shipping,0.345,0.35,0.345,0.35,1.449275362318842,310499999.0,1521400,MYR
 MAYU,MAYU GLOBAL GROUP Bhd,MYX,Consumer Durables,Home Furnishings,0.095,0.095,0.095,0.095,-5.000000000000004,48248988.0,5000,MYR
@@ -646,7 +646,7 @@ MMAG,MMAG Holdings Bhd.,MYX,Technology Services,Information Technology Services,
 MMIS,MMIS Bhd.,MYX,Producer Manufacturing,Metal Fabrication,0.2,0.2,0.2,0.2,0.0,120000002.0,0,MYR
 MMM,MMM Group Berhad,MYX,Commercial Services,Advertising/Marketing Services,0.015,0.015,0.015,0.015,0.0,4669536.0,0,MYR
 MMSV,MMS Ventures Bhd.,MYX,Producer Manufacturing,Industrial Machinery,0.355,0.365,0.35,0.36,1.4084507042253533,71082188.0,53400,MYR
-MNC,MNC Wireless Bhd.,MYX,Communications,Wireless Telecommunications,0.065,0.065,0.065,0.065,0.0,15470034.0,10000,MYR
+MNC,MNC Wireless Bhd.,MYX,Communications,Wireless Telecommunications,0.065,0.065,0.065,0.065,0.0,15470034.0,0,MYR
 MNC-PA,M N C Wireless Bhd Non-Cum Irred Conv Pref Registered Shs,MYX,Communications,Wireless Telecommunications,0.025,0.025,0.025,0.025,0.0,15470034.0,0,MYR
 MNHLDG,MN Holdings Bhd.,MYX,Industrial Services,Engineering & Construction,1.66,1.67,1.64,1.65,-0.6024096385542175,1092210552.0,1309400,MYR
 MNRB,MNRB Holdings Bhd.,MYX,Finance,Property/Casualty Insurance,2.07,2.1,2.05,2.08,0.9708737864077678,1613158621.0,509300,MYR
@@ -668,7 +668,7 @@ MTOUCHE,mTouche Technology Bhd.,MYX,Technology Services,Packaged Software,0.04,0
 MTRONIC,Metronic Global Bhd.,MYX,Technology Services,Information Technology Services,0.005,0.01,0.005,0.01,0.0,15310966.0,456700,MYR
 MUDA,Muda Holdings Bhd.,MYX,Process Industries,Containers/Packaging,0.72,0.72,0.72,0.72,-4.0000000000000036,228788132.0,4000,MYR
 MUDAJYA,Mudajaya Group Bhd.,MYX,Industrial Services,Engineering & Construction,0.45,0.45,0.45,0.45,0.0,239163788.0,25700,MYR
-MUH,Multi-Usage Holdings Bhd.,MYX,Finance,Real Estate Development,0.35,0.35,0.35,0.35,0.0,19746649.0,10000,MYR
+MUH,Multi-Usage Holdings Bhd.,MYX,Finance,Real Estate Development,0.35,0.35,0.35,0.35,0.0,19746649.0,0,MYR
 MUHIBAH,Muhibbah Engineering (M) Bhd.,MYX,Industrial Services,Engineering & Construction,0.515,0.515,0.505,0.51,-0.9708737864077678,376761529.0,981800,MYR
 MUIIND,Malayan United Industries Bhd.,MYX,Consumer Services,Restaurants,0.05,0.055,0.05,0.05,0.0,161290859.0,1153100,MYR
 MUIPROP,MUI Properties Bhd.,MYX,Finance,Real Estate Development,0.22,0.225,0.22,0.225,2.2727272727272747,163001214.0,201300,MYR
@@ -698,7 +698,7 @@ NIHSIN-PA,Ni Hsin Group Bhd Cum Red Conv Pref Registered shares,MYX,Consumer Dur
 NORTHERN,Northern Solar Holdings Bhd.,MYX,Industrial Services,Engineering & Construction,0.635,0.635,0.63,0.635,0.0,251206000.0,220500,MYR
 NOTION,Notion VTec Bhd.,MYX,Producer Manufacturing,Industrial Machinery,0.51,0.52,0.51,0.51,-0.9708737864077678,270887038.0,997500,MYR
 NOVA,Nova Wellness Group Bhd.,MYX,Health Technology,Pharmaceuticals: Other,0.385,0.385,0.385,0.385,0.0,122707127.0,0,MYR
-NOVAMSC,Nova MSC Bhd.,MYX,Technology Services,Packaged Software,0.05,0.055,0.05,0.055,0.0,118428132.0,413600,MYR
+NOVAMSC,Nova MSC Bhd.,MYX,Technology Services,Packaged Software,0.055,0.055,0.055,0.055,0.0,118428132.0,0,MYR
 NOVATECH,NOVA Technology services berhad,MYX,Technology Services,Data Processing Services,0.045,0.05,0.045,0.05,11.111111111111121,40213173.0,120100,MYR
 NP,Novelplus Technology Bhd,MYX,Technology Services,Internet Software/Services,0.275,0.275,0.275,0.275,0.0,110000002.0,0,MYR
 NPS,Nova Pharma Solutions Bhd.,MYX,Industrial Services,Engineering & Construction,0.135,0.135,0.135,0.135,0.0,64819136.0,0,MYR
@@ -706,7 +706,7 @@ NSOP,Negri Sembilan Oil Palms Bhd.,MYX,Process Industries,Agricultural Commoditi
 NTPM,NTPM Holdings Bhd.,MYX,Consumer Non-Durables,Household/Personal Care,0.24,0.25,0.235,0.25,2.040816326530614,275144815.0,29700,MYR
 OASIS,Oasis Harvest Corporation Bhd,MYX,Producer Manufacturing,Industrial Machinery,0.225,0.23,0.215,0.225,-6.249999999999995,35320184.0,223400,MYR
 OBHB,OB Holdings Bhd,MYX,Commercial Services,Miscellaneous Commercial Services,0.145,0.15,0.145,0.15,0.0,,164000,MYR
-OCB,OCB Bhd.,MYX,Distribution Services,Wholesale Distributors,0.8,0.8,0.8,0.8,0.0,82280000.0,25000,MYR
+OCB,OCB Bhd.,MYX,Distribution Services,Wholesale Distributors,0.8,0.8,0.8,0.8,0.0,82280000.0,0,MYR
 OCK,OCK Group Bhd.,MYX,Industrial Services,Engineering & Construction,0.38,0.38,0.37,0.375,0.0,407180008.0,3834700,MYR
 OCNCASH,Oceancash Pacific Bhd.,MYX,Process Industries,Textiles,0.165,0.17,0.165,0.17,3.030303030303033,43032000.0,21300,MYR
 OCR,OCR Group Bhd,MYX,Finance,Real Estate Development,0.035,0.045,0.035,0.04,0.0,133634772.0,19270700,MYR
@@ -717,7 +717,7 @@ OIB,Oriental Interest Bhd.,MYX,Industrial Services,Engineering & Construction,1.
 OKA,OKA Corporation Bhd.,MYX,Non-Energy Minerals,Construction Materials,0.445,0.445,0.445,0.445,-1.111111111111112,110427900.0,16100,MYR
 OLYMPIA,Olympia Industries Bhd.,MYX,Consumer Services,Movies/Entertainment,0.06,0.06,0.06,0.06,0.0,61405915.0,100000,MYR
 OMESTI,Omesti Bhd.,MYX,Technology Services,Packaged Software,0.085,0.085,0.08,0.085,0.0,197405737.0,5875300,MYR
-OMH,OM Holdings Ltd.,MYX,Miscellaneous,Miscellaneous,0.74,0.765,0.74,0.76,-0.6535947712418306,539141033.6631536,129200,MYR
+OMH,OM Holdings Ltd.,MYX,Miscellaneous,Miscellaneous,0.76,0.76,0.76,0.76,0.0,539141033.6631536,0,MYR
 ONEGLOVE,One Glove Group Bhd,MYX,Health Technology,Medical Specialties,0.165,0.165,0.16,0.165,6.451612903225811,90319789.0,8000,MYR
 OPENSYS,OpenSys (M) Bhd.,MYX,Technology Services,Packaged Software,0.305,0.31,0.305,0.31,1.6393442622950833,136285485.0,329600,MYR
 OPPSTAR,Oppstar Berhad,MYX,Electronic Technology,Semiconductors,0.315,0.32,0.305,0.31,-1.5873015873015885,202032777.0,475700,MYR
@@ -739,7 +739,7 @@ PAM-A40M,Principal FTSE ASEAN 40 Malaysia ETF,MYX,Miscellaneous,Investment Trust
 PAM-C50,Principal FTSE China 50 ETF,MYX,Miscellaneous,Investment Trusts/Mutual Funds,1.53,1.53,1.53,1.53,0.0,,1000,MYR
 PANAMY,Panasonic Manufacturing Malaysia Bhd.,MYX,Consumer Durables,Electronics/Appliances,7.15,7.32,7.15,7.26,1.5384615384615303,434332340.0,98500,MYR
 PANDA,Panda Eco System Bhd,MYX,Technology Services,Packaged Software,0.225,0.23,0.225,0.225,-2.1739130434782625,158849424.0,140000,MYR
-PANSAR,Pansar Bhd.,MYX,Distribution Services,Wholesale Distributors,0.54,0.545,0.54,0.54,0.9345794392523372,277220533.0,101000,MYR
+PANSAR,Pansar Bhd.,MYX,Distribution Services,Wholesale Distributors,0.54,0.54,0.54,0.54,0.0,277220533.0,0,MYR
 PANSAR-PA,Pansar Bhd Non-Cum Red Conv Pref Registered Shs 2020-2025,MYX,Distribution Services,Wholesale Distributors,0.55,0.55,0.55,0.55,0.0,277220533.0,0,MYR
 PANTECH,Pantech Group Holdings Bhd.,MYX,Non-Energy Minerals,Steel,0.61,0.615,0.58,0.6,-0.8264462809917362,513688663.0,3182600,MYR
 PAOS,Paos Holdings Bhd.,MYX,Consumer Non-Durables,Household/Personal Care,0.3,0.3,0.3,0.3,0.0,54349203.0,0,MYR
@@ -754,7 +754,7 @@ PAVREIT,Pavilion Real Estate Investment Trust,MYX,Finance,Real Estate Investment
 PBA,PBA Holdings Bhd.,MYX,Utilities,Water Utilities,1.89,1.89,1.88,1.89,0.0,625585266.0,35100,MYR
 PBBANK,Public Bank Bhd,MYX,Finance,Major Banks,4.52,4.55,4.47,4.54,0.0,88124538244.0,17273600,MYR
 PBSB,PBS Bhd,MYX,Transportation,Other Transportation,0.16,0.16,0.16,0.16,0.0,96512781.0,0,MYR
-PCCS,PCCS Group Bhd.,MYX,Consumer Non-Durables,Apparel/Footwear,0.295,0.3,0.295,0.3,1.6949152542372898,66906273.99999999,113200,MYR
+PCCS,PCCS Group Bhd.,MYX,Consumer Non-Durables,Apparel/Footwear,0.3,0.3,0.3,0.3,0.0,66906273.99999999,0,MYR
 PCHEM,PETRONAS Chemicals Group Bhd.,MYX,Process Industries,Chemicals: Specialty,3.62,3.65,3.56,3.63,0.276243093922646,28959999084.0,4402000,MYR
 PDZ,PDZ Holdings Bhd.,MYX,Transportation,Marine Shipping,0.025,0.035,0.025,0.035,16.666666666666682,17651010.0,6500,MYR
 PEB,Pimpinan Ehsan Berhad,MYX,Finance,Investment Managers,0.82,0.82,0.82,0.82,0.0,56682568.0,0,MYR
@@ -810,13 +810,13 @@ POWER,POWERTECHNIC GROUP BHD,MYX,Producer Manufacturing,Trucks/Construction/Farm
 PPB,PPB Group Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,11.06,11.08,11.02,11.06,0.0,15733944176.0,433500,MYR
 PPHB,Public Packages Holdings Bhd.,MYX,Process Industries,Containers/Packaging,0.64,0.645,0.625,0.635,-1.5503875968992262,172019751.0,259800,MYR
 PPJACK,Pappajack Bhd,MYX,Finance,Finance/Rental/Leasing,0.9,0.905,0.895,0.9,0.0,691379993.0,139500,MYR
-PRESTAR,Prestar Resources Bhd.,MYX,Producer Manufacturing,Industrial Machinery,0.3,0.3,0.295,0.295,-1.6666666666666683,106553684.0,15000,MYR
+PRESTAR,Prestar Resources Bhd.,MYX,Producer Manufacturing,Industrial Machinery,0.295,0.295,0.295,0.295,0.0,106553684.0,0,MYR
 PRG,PRG Holdings Berhad,MYX,Process Industries,Textiles,0.08,0.08,0.08,0.08,0.0,39043522.0,281000,MYR
 PRIVA,Privasia Technology Bhd.,MYX,Technology Services,Information Technology Services,0.08,0.08,0.08,0.08,0.0,54033759.0,4000,MYR
 PRKCORP,Perak Corp. Bhd.,MYX,Transportation,Marine Shipping,0.74,0.74,0.74,0.74,0.0,74000001.0,1000,MYR
 PRTASCO,Protasco Bhd.,MYX,Industrial Services,Engineering & Construction,0.24,0.24,0.235,0.24,0.0,115617698.0,190300,MYR
 PSP,PSP Energy Berhad,MYX,Distribution Services,Wholesale Distributors,0.145,0.145,0.135,0.135,-3.571428571428574,,1895100,MYR
-PTARAS,Pintaras Jaya Bhd.,MYX,Industrial Services,Engineering & Construction,1.55,1.56,1.54,1.56,0.0,258749066.00000003,52300,MYR
+PTARAS,Pintaras Jaya Bhd.,MYX,Industrial Services,Engineering & Construction,1.56,1.56,1.56,1.56,0.0,258749066.00000003,0,MYR
 PTRANS,Perak Transit Bhd.,MYX,Transportation,Other Transportation,0.28,0.28,0.275,0.28,0.0,335454835.0,10325500,MYR
 PTRB,PT Resources Holdings Bhd.,MYX,Consumer Non-Durables,Food: Meat/Fish/Dairy,0.27,0.27,0.27,0.27,0.0,144455411.0,2043200,MYR
 PTT,PTT Synergy Group Bhd.,MYX,Distribution Services,Wholesale Distributors,1.38,1.4,1.38,1.4,0.0,613254463.0,65800,MYR
@@ -847,7 +847,7 @@ RGTBHD,RGT Bhd.,MYX,Process Industries,Industrial Specialties,0.23,0.235,0.23,0.
 RGTECH,Radiant Globaltech Bhd.,MYX,Technology Services,Packaged Software,0.26,0.26,0.26,0.26,0.0,149985813.0,8000,MYR
 RHBBANK,RHB Bank Bhd.,MYX,Finance,Regional Banks,7.83,7.83,7.68,7.71,-1.5325670498084305,34153786777.0,9360200,MYR
 RHONEMA,Rhone Ma Holdings Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.71,0.71,0.675,0.69,-1.42857142857143,154858196.0,19500,MYR
-RKI,Rhong Khen International Bhd,MYX,Consumer Durables,Home Furnishings,1.02,1.02,1.02,1.02,0.990099009900991,200215789.0,3000,MYR
+RKI,Rhong Khen International Bhd,MYX,Consumer Durables,Home Furnishings,1.02,1.02,1.02,1.02,0.0,200215789.0,0,MYR
 RL,Reservoir Link Energy Bhd,MYX,Industrial Services,Oilfield Services/Equipment,0.21,0.21,0.205,0.21,2.4390243902439046,74296715.0,2842900,MYR
 ROHAS,Rohas Tecnic Bhd.,MYX,Producer Manufacturing,Miscellaneous Manufacturing,0.22,0.225,0.22,0.225,0.0,106347969.0,97100,MYR
 RPLANET,RedPlanet Bhd,MYX,Industrial Services,Engineering & Construction,0.3,0.3,0.3,0.3,0.0,51097584.0,0,MYR
@@ -866,7 +866,7 @@ SAMAIDEN,Samaiden Group Bhd,MYX,Electronic Technology,Semiconductors,1.42,1.42,1
 SAMCHEM,Samchem Holdings Bhd.,MYX,Distribution Services,Wholesale Distributors,0.33,0.335,0.31,0.325,-1.5151515151515165,179520007.0,180500,MYR
 SANCY,Sancy Bhd,MYX,Technology Services,Information Technology Services,0.33,0.35,0.33,0.35,16.666666666666664,203752278.0,10000,MYR
 SANICHI,Sanichi Technology Bhd.,MYX,Producer Manufacturing,Industrial Machinery,0.08,0.08,0.075,0.08,6.666666666666673,12323118.0,160100,MYR
-SAPIND,Sapura Industrial Bhd.,MYX,Producer Manufacturing,Auto Parts: OEM,0.78,0.78,0.78,0.78,0.0,56765070.0,400,MYR
+SAPIND,Sapura Industrial Bhd.,MYX,Producer Manufacturing,Auto Parts: OEM,0.78,0.78,0.78,0.78,0.0,56765070.0,0,MYR
 SAPRES,Sapura Resources Bhd.,MYX,Finance,Real Estate Development,0.215,0.215,0.215,0.215,0.0,55740286.0,95600,MYR
 SASBADI,Sasbadi Holdings Bhd,MYX,Consumer Services,Publishing: Books/Magazines,0.15,0.15,0.15,0.15,0.0,65420030.0,33600,MYR
 SBAGAN,Sungei Bagan Rubber Co. (Malaya) Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,5.59,5.59,5.59,5.59,0.0,519495434.00000006,2100,MYR
@@ -874,7 +874,7 @@ SBCCORP,SBC Corporation Berhad,MYX,Finance,Real Estate Development,0.28,0.28,0.2
 SBH,SBH Marine Holdings Bhd.,MYX,Consumer Non-Durables,Food: Meat/Fish/Dairy,0.185,0.19,0.185,0.19,2.7027027027027053,164280002.0,475000,MYR
 SCB,Sik Cheong Berhad,MYX,Commercial Services,Miscellaneous Commercial Services,0.135,0.14,0.135,0.14,0.0,37240000.0,19900,MYR
 SCBUILD,SC Estate Builder Bhd.,MYX,Industrial Services,Engineering & Construction,0.01,0.01,0.01,0.01,0.0,53199725.0,10000,MYR
-SCC,SCC Holdings Bhd.,MYX,Distribution Services,Wholesale Distributors,0.225,0.225,0.2,0.2,-11.111111111111107,28232029.0,38100,MYR
+SCC,SCC Holdings Bhd.,MYX,Distribution Services,Wholesale Distributors,0.2,0.2,0.2,0.2,0.0,28232029.0,0,MYR
 SCGBHD,Southern Cable Group Bhd.,MYX,Producer Manufacturing,Electrical Products,2.3,2.31,2.27,2.29,-0.4347826086956429,2594388997.0,1726000,MYR
 SCGM,SCGM Bhd.,MYX,Process Industries,Containers/Packaging,0.49,0.5,0.49,0.5,2.040816326530614,94354917.0,5100,MYR
 SCIB,Sarawak Consolidated Industries Bhd.,MYX,Non-Energy Minerals,Construction Materials,0.165,0.165,0.16,0.16,-3.030303030303033,121635399.0,1099900,MYR
@@ -891,7 +891,7 @@ SDS,SDS Group Bhd.,MYX,Consumer Non-Durables,Food: Specialty/Candy,0.725,0.725,0
 SEACERA,Seacera Group Bhd.,MYX,Producer Manufacturing,Building Products,0.06,0.06,0.06,0.06,0.0,37311012.0,0,MYR
 SEAL,Seal Incorporated Berhad,MYX,Finance,Real Estate Development,0.7,0.72,0.7,0.72,3.5971223021582768,308519337.0,34000,MYR
 SEALINK,Sealink International Bhd.,MYX,Producer Manufacturing,Trucks/Construction/Farm Machinery,0.32,0.325,0.315,0.315,-1.5625000000000013,159999996.0,4629700,MYR
-SEB,Seremban Engineering Bhd.,MYX,Producer Manufacturing,Industrial Machinery,0.73,0.73,0.73,0.73,0.0,58166981.0,40200,MYR
+SEB,Seremban Engineering Bhd.,MYX,Producer Manufacturing,Industrial Machinery,0.73,0.73,0.73,0.73,0.0,58166981.0,0,MYR
 SEDANIA,Sedania Innovator Bhd.,MYX,Communications,Specialty Telecommunications,0.105,0.105,0.1,0.1,-9.090909090909086,44874726.0,1403200,MYR
 SEEHUP,See Hup Consolidated Bhd.,MYX,Transportation,Air Freight/Couriers,0.79,0.8,0.79,0.8,1.2658227848101276,63242114.0,12000,MYR
 SEERS,Seers Bhd.,MYX,Producer Manufacturing,Industrial Machinery,0.1,0.1,0.1,0.1,0.0,77287622.0,0,MYR
@@ -906,7 +906,7 @@ SERSOL,Sersol Bhd.,MYX,Process Industries,Industrial Specialties,0.03,0.03,0.025
 SET,Swift Energy Technology Bhd.,MYX,Distribution Services,Wholesale Distributors,0.205,0.21,0.205,0.205,2.4999999999999885,200160001.0,670300,MYR
 SFPTECH,SFP Tech Holdings Bhd,MYX,Industrial Services,Engineering & Construction,0.14,0.14,0.13,0.14,0.0,336000001.0,4342400,MYR
 SG,Saudigold Group Bhd,MYX,Consumer Non-Durables,Food: Specialty/Candy,0.015,0.015,0.01,0.01,0.0,15616733.0,1791300,MYR
-SGBHD,Supergenics Bhd,MYX,Industrial Services,Engineering & Construction,0.25,0.25,0.25,0.25,21.95121951219513,29107454.0,1000,MYR
+SGBHD,Supergenics Bhd,MYX,Industrial Services,Engineering & Construction,0.25,0.25,0.25,0.25,0.0,29107454.0,0,MYR
 SHANG,Shangri-La Hotels Malaysia Bhd.,MYX,Consumer Services,Hotels/Resorts/Cruise lines,1.68,1.72,1.68,1.7,0.0,748000021.0,62900,MYR
 SHCHAN,Sin Heng Chan (Malaya) Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.235,0.235,0.235,0.235,0.0,92326184.0,26000,MYR
 SHH,SHH Resources Holdings Bhd.,MYX,Consumer Durables,Home Furnishings,1.11,1.11,1.11,1.11,0.0,110994454.0,0,MYR
@@ -965,7 +965,7 @@ SUNWAY,Sunway Bhd.,MYX,Industrial Services,Engineering & Construction,5.65,5.66,
 SUNZEN,Sunzen Group Bhd,MYX,Health Technology,Pharmaceuticals: Other,0.27,0.275,0.265,0.265,-1.8518518518518534,219345346.0,570000,MYR
 SUPERLN,Superlon Holdings Bhd.,MYX,Process Industries,Industrial Specialties,0.74,0.74,0.715,0.735,0.0,116660560.0,194500,MYR
 SUPERMX,Supermax Corp. Bhd.,MYX,Distribution Services,Medical Distributors,0.34,0.345,0.335,0.335,-1.4705882352941189,1074991193.0,2256800,MYR
-SUPREME,Supreme Consolidated Resources Bhd,MYX,Distribution Services,Food Distributors,0.21,0.21,0.21,0.21,-2.325581395348839,92450002.0,0,MYR
+SUPREME,Supreme Consolidated Resources Bhd,MYX,Distribution Services,Food Distributors,0.21,0.21,0.21,0.21,0.0,92450002.0,0,MYR
 SURIA,Suria Capital Holdings Bhd.,MYX,Transportation,Other Transportation,1.52,1.54,1.5,1.54,0.6535947712418306,529105769.0,47200,MYR
 SWIFT,Swift Haulage Berhad,MYX,Transportation,Air Freight/Couriers,0.375,0.385,0.375,0.385,1.3157894736842117,339463779.0,190000,MYR
 SWKPLNT,Sarawak Plantation Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,2.96,3.0,2.95,2.98,0.3367003367003295,828725630.0,50200,MYR
@@ -985,8 +985,8 @@ TALIWRK,Taliworks Corp. Bhd.,MYX,Utilities,Water Utilities,0.5,0.5,0.485,0.5,-0.
 TAMBUN,Tambun Indah Land Bhd.,MYX,Finance,Real Estate Development,0.78,0.785,0.78,0.785,0.6410256410256416,342663285.0,48000,MYR
 TANCO,Tanco Holdings Bhd.,MYX,Finance,Real Estate Development,1.15,1.17,1.15,1.16,0.8695652173913052,7054114453.0,54065300,MYR
 TAS,TAS Offshore Bhd.,MYX,Producer Manufacturing,Trucks/Construction/Farm Machinery,0.565,0.58,0.56,0.575,-1.7094017094017109,104895854.0,50900,MYR
-TASCO,TASCO Bhd,MYX,Transportation,Other Transportation,0.465,0.465,0.46,0.465,1.0869565217391313,372000003.0,10500,MYR
-TASHIN,Tashin Holdings Bhd.,MYX,Non-Energy Minerals,Steel,0.225,0.225,0.225,0.225,0.0,78522972.0,100000,MYR
+TASCO,TASCO Bhd,MYX,Transportation,Other Transportation,0.465,0.465,0.465,0.465,0.0,372000003.0,0,MYR
+TASHIN,Tashin Holdings Bhd.,MYX,Non-Energy Minerals,Steel,0.225,0.225,0.225,0.225,0.0,78522972.0,0,MYR
 TAWIN,TA Win Holdings Bhd.,MYX,Non-Energy Minerals,Other Metals/Minerals,0.01,0.015,0.01,0.015,49.999999999999986,36716313.0,460000,MYR
 TCHONG,Tan Chong Motor Holdings Bhd.,MYX,Consumer Durables,Motor Vehicles,0.61,0.61,0.6,0.61,-0.8130081300813016,401079028.0,376000,MYR
 TCS,TCS Group Holdings Bhd,MYX,Consumer Durables,Homebuilding,0.115,0.115,0.115,0.115,4.545454545454549,72672798.0,5000,MYR
@@ -1002,9 +1002,9 @@ TELADAN,Teladan Group Bhd,MYX,Finance,Real Estate Development,0.825,0.825,0.825,
 TENAGA,Tenaga Nasional Bhd,MYX,Utilities,Electric Utilities,13.78,13.84,13.66,13.72,-0.4354136429608035,80325576441.0,6348200,MYR
 TEOSENG,Teo Seng Capital Bhd.,MYX,Process Industries,Agricultural Commodities/Milling,0.99,0.995,0.975,0.975,-2.010050251256283,592297802.0,429900,MYR
 TEXCHEM,Texchem Resources Bhd.,MYX,Distribution Services,Wholesale Distributors,0.785,0.785,0.77,0.77,-3.1446540880503173,97661250.0,37900,MYR
-TEXCYCL,Tex Cycle Technology (M) Bhd.,MYX,Industrial Services,Environmental Services,1.03,1.05,1.03,1.05,0.0,291651810.0,27000,MYR
+TEXCYCL,Tex Cycle Technology (M) Bhd.,MYX,Industrial Services,Environmental Services,1.05,1.05,1.05,1.05,0.0,291651810.0,0,MYR
 TFP,TFP Solutions Bhd.,MYX,Commercial Services,Miscellaneous Commercial Services,0.025,0.03,0.025,0.025,-16.66666666666666,19429475.0,255000,MYR
-TGL,Teo Guan Lee Corp. Bhd.,MYX,Consumer Non-Durables,Apparel/Footwear,0.91,0.91,0.9,0.905,-0.5494505494505499,78189644.0,20000,MYR
+TGL,Teo Guan Lee Corp. Bhd.,MYX,Consumer Non-Durables,Apparel/Footwear,0.905,0.905,0.905,0.905,0.0,78189644.0,0,MYR
 TGUAN,Thong Guan Industries Bhd.,MYX,Process Industries,Containers/Packaging,1.16,1.18,1.16,1.17,0.0,469917157.0,44400,MYR
 THETA,Theta Edge Bhd.,MYX,Technology Services,Information Technology Services,0.665,0.675,0.655,0.67,0.7518796992481209,94138122.0,290400,MYR
 THMY,THMY Holdings Berhad,MYX,Industrial Services,Engineering & Construction,0.905,0.915,0.895,0.9,-0.5524861878453043,,503800,MYR
@@ -1013,7 +1013,7 @@ THRIVEN,Thriven Global Bhd.,MYX,Finance,Real Estate Development,0.07,0.07,0.07,0
 TIENWAH,Tien Wah Press Holdings Bhd.,MYX,Commercial Services,Commercial Printing/Forms,0.78,0.78,0.78,0.78,-3.105590062111804,116517708.0,3000,MYR
 TIMECOM,TIME dotCom Bhd.,MYX,Technology Services,Data Processing Services,5.71,5.71,5.59,5.59,-2.101576182136604,10556754297.0,3023200,MYR
 TIMWELL,Timberwell Bhd.,MYX,Non-Energy Minerals,Forest Products,0.745,0.755,0.74,0.75,0.671140939597316,66342759.0,185300,MYR
-TITIJYA,Titijaya Land Bhd.,MYX,Finance,Real Estate Development,0.22,0.22,0.215,0.215,-2.2727272727272747,269798471.0,14200,MYR
+TITIJYA,Titijaya Land Bhd.,MYX,Finance,Real Estate Development,0.215,0.215,0.215,0.215,0.0,269798471.0,0,MYR
 TJSETIA,Tuju Setia Bhd.,MYX,Industrial Services,Engineering & Construction,0.225,0.235,0.225,0.23,2.222222222222224,78415100.0,187600,MYR
 TM,Telekom Malaysia Bhd.,MYX,Communications,Specialty Telecommunications,8.05,8.07,7.94,8.05,0.0,30893795861.0,3101400,MYR
 TMCLIFE,TMC Life Sciences Bhd.,MYX,Health Services,Hospital/Nursing Management,0.445,0.45,0.44,0.45,0.0,783847025.0,157900,MYR
@@ -1029,7 +1029,7 @@ TOYOVEN,Toyo Ventures Holdings Bhd.,MYX,Process Industries,Industrial Specialtie
 TPC,TPC Plus Bhd.,MYX,Consumer Non-Durables,Food: Meat/Fish/Dairy,0.305,0.305,0.305,0.305,0.0,94011003.0,0,MYR
 TPTEC,TP Tec Holding Bhd.,MYX,Distribution Services,Wholesale Distributors,0.32,0.32,0.32,0.32,0.0,,0,MYR
 TRC,TRC Synergy Bhd.,MYX,Industrial Services,Engineering & Construction,0.36,0.36,0.34,0.36,0.0,166349054.0,1437000,MYR
-TRIMODE,Tri-Mode System (M) Bhd.,MYX,Transportation,Air Freight/Couriers,0.175,0.185,0.175,0.185,-2.6315789473684235,30710000.0,53000,MYR
+TRIMODE,Tri-Mode System (M) Bhd.,MYX,Transportation,Air Freight/Couriers,0.185,0.185,0.185,0.185,0.0,30710000.0,0,MYR
 TRIVE,Trive Property Group Bhd.,MYX,Electronic Technology,Semiconductors,0.015,0.015,0.015,0.015,0.0,21465580.0,107000,MYR
 TROP,Tropicana Corp. Bhd.,MYX,Finance,Real Estate Development,1.19,1.23,1.19,1.23,1.6528925619834725,3008286674.0,257200,MYR
 TSA,TSA Group Bhd,MYX,Distribution Services,Wholesale Distributors,0.725,0.74,0.725,0.74,-1.3333333333333344,231974991.0,32000,MYR
@@ -1067,7 +1067,7 @@ UUE,UUE Holdings Berhad,MYX,Industrial Services,Engineering & Construction,0.53,
 UWC,UWC Bhd.,MYX,Producer Manufacturing,Metal Fabrication,4.16,4.16,4.1,4.12,-0.9615384615384623,4588008582.0,690900,MYR
 UZMA,Uzma Bhd.,MYX,Industrial Services,Oilfield Services/Equipment,0.385,0.395,0.38,0.38,-1.2987012987012998,229197727.0,3526100,MYR
 VANTNRG,Vantris Energy Bhd,MYX,Industrial Services,Oilfield Services/Equipment,0.385,0.395,0.37,0.38,-1.2987012987012998,880629578.0,2335600,MYR
-VANZO,Vanzo Holdings Bhd,MYX,Process Industries,Chemicals: Major Diversified,0.14,0.145,0.14,0.145,3.5714285714285547,,189800,MYR
+VANZO,Vanzo Holdings Bhd,MYX,Process Industries,Chemicals: Major Diversified,0.145,0.145,0.145,0.145,0.0,,0,MYR
 VARIA,Varia Berhad,MYX,Finance,Real Estate Development,0.8,0.83,0.795,0.83,-1.1904761904761916,363299989.0,212000,MYR
 VELESTO,Velesto Energy Bhd.,MYX,Industrial Services,Contract Drilling,0.285,0.285,0.275,0.275,-3.508771929824545,2341452261.0,14776100,MYR
 VELOCITY,VELOCITY CAPITAL PARTNER Bhd,MYX,Producer Manufacturing,Building Products,0.045,0.045,0.045,0.045,0.0,62163476.0,180000,MYR
@@ -1087,7 +1087,7 @@ WAJA,Waja Konsortium Bhd,MYX,Electronic Technology,Electronic Components,0.045,0
 WANGZNG,Wang-Zheng Bhd.,MYX,Process Industries,Pulp & Paper,0.38,0.38,0.38,0.38,0.0,60502104.0,2100,MYR
 WARISAN,Warisan TC Holdings Bhd.,MYX,Commercial Services,Miscellaneous Commercial Services,0.735,0.735,0.735,0.735,-2.0000000000000018,48825296.0,100,MYR
 WASCO,Wasco Berhad,MYX,Non-Energy Minerals,Steel,0.88,0.89,0.87,0.885,1.142857142857144,677522369.0,686800,MYR
-WATTA,Watta Holding Bhd.,MYX,Distribution Services,Electronics Distributors,0.39,0.39,0.38,0.38,-15.555555555555555,32102401.0,35000,MYR
+WATTA,Watta Holding Bhd.,MYX,Distribution Services,Electronics Distributors,0.38,0.38,0.38,0.38,0.0,32102401.0,0,MYR
 WAVEFRNT,WaveFront Bhd,MYX,Process Industries,Chemicals: Specialty,0.2,0.2,0.195,0.195,-2.500000000000002,240572733.0,76400,MYR
 WCEHB,WCE Holdings Berhad,MYX,Producer Manufacturing,Electrical Products,0.67,0.675,0.67,0.67,0.0,2211210248.0,163500,MYR
 WCT,WCT Holdings Bhd.,MYX,Industrial Services,Engineering & Construction,0.58,0.585,0.575,0.58,0.0,904161988.0,1955600,MYR
@@ -1107,7 +1107,7 @@ WTEC,WTEC GROUP BHD,MYX,Process Industries,Industrial Specialties,0.15,0.155,0.1
 WTHORSE,White Horse Bhd.,MYX,Producer Manufacturing,Building Products,0.605,0.63,0.6,0.63,-3.0769230769230793,143341895.0,33000,MYR
 WTK,WTK Holdings Bhd.,MYX,Non-Energy Minerals,Forest Products,0.715,0.74,0.695,0.705,-0.7042253521126767,333261592.0,4836000,MYR
 XDL,XiDeLang Holdings Ltd.,MYX,Consumer Non-Durables,Apparel/Footwear,0.01,0.01,0.01,0.01,0.0,21162255.0,150000,MYR
-XIN,XIN Synergy Grp Bhd,MYX,Non-Energy Minerals,Construction Materials,0.2,0.2,0.2,0.2,0.0,113857448.0,161000,MYR
+XIN,XIN Synergy Grp Bhd,MYX,Non-Energy Minerals,Construction Materials,0.2,0.2,0.2,0.2,0.0,113857448.0,0,MYR
 XINHWA,Xin Hwa Holdings Bhd.,MYX,Transportation,Air Freight/Couriers,0.16,0.16,0.16,0.16,3.2258064516129057,39626970.0,1000,MYR
 XL,XL Holdings Bhd,MYX,Process Industries,Agricultural Commodities/Milling,0.68,0.69,0.675,0.69,0.0,305438665.0,1943500,MYR
 XOX,XOX Bhd.,MYX,Communications,Wireless Telecommunications,0.245,0.245,0.245,0.245,0.0,45452955.0,16700,MYR
@@ -1124,8 +1124,8 @@ YINSON,Yinson Holdings Bhd.,MYX,Producer Manufacturing,Trucks/Construction/Farm 
 YLI,YLI Holdings Bhd.,MYX,Producer Manufacturing,Metal Fabrication,0.235,0.285,0.235,0.285,21.276595744680847,26515020.0,30000,MYR
 YNHPROP,YNH Property Bhd.,MYX,Finance,Real Estate Development,0.27,0.275,0.265,0.27,0.0,143548495.0,2421700,MYR
 YOCB,Yoong Onn Corp. Bhd.,MYX,Consumer Durables,Home Furnishings,1.58,1.58,1.57,1.58,3.2679738562091534,242738642.0,37000,MYR
-YONGTAI,Yong Tai Bhd.,MYX,Finance,Real Estate Development,0.14,0.145,0.14,0.145,0.0,69155453.0,162800,MYR
-YONGTAI-PA,Yong Tai Bhd Irred Conv Pref Registered 2016-27.11.26,MYX,Finance,Real Estate Development,0.02,0.03,0.02,0.02,-20.000000000000004,69155453.0,8700,MYR
+YONGTAI,Yong Tai Bhd.,MYX,Finance,Real Estate Development,0.145,0.145,0.145,0.145,0.0,69155453.0,0,MYR
+YONGTAI-PA,Yong Tai Bhd Irred Conv Pref Registered 2016-27.11.26,MYX,Finance,Real Estate Development,0.02,0.02,0.02,0.02,0.0,69155453.0,0,MYR
 YSPSAH,Y.S.P. Southeast Asia Holding Bhd.,MYX,Health Technology,Pharmaceuticals: Major,2.08,2.09,2.08,2.09,0.48076923076922046,295037560.0,211500,MYR
 YTL,YTL Corp Bhd.,MYX,Utilities,Electric Utilities,2.07,2.07,2.04,2.04,-1.4492753623188313,24020606706.0,9385000,MYR
 YTLPOWR,YTL Power International Bhd.,MYX,Utilities,Electric Utilities,3.39,3.4,3.3,3.31,-2.6470588235294077,29336266643.0,7689500,MYR
