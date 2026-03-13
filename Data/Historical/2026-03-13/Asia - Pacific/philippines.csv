@@ -36,7 +36,7 @@ AREIT,AREIT Inc.,PSE,Finance,Real Estate Investment Trusts,39.85,40.0,38.95,39.3
 ASLAG,RASLAG Corp,PSE,Utilities,Alternative Power Generation,0.8,0.8,0.8,0.8,0.0,1200000018.0,11000,PHP
 AT,Atlas Consolidated Mining & Development Corp.,PSE,Non-Energy Minerals,Other Metals/Minerals,8.49,8.49,8.24,8.3,-1.8912529550827437,30096896269.0,792300,PHP
 ATI,"Asian Terminals, Inc.",PSE,Transportation,Other Transportation,29.0,29.0,27.0,29.0,0.0,56206371948.0,54900,PHP
-ATN,ATN Holdings Inc. Class A,PSE,Finance,Real Estate Development,0.455,0.455,0.445,0.445,0.0,3037149613.0,400000,PHP
+ATN,ATN Holdings Inc. Class A,PSE,Finance,Real Estate Development,0.455,0.455,0.45,0.45,1.1235955056179785,3037149613.0,400000,PHP
 ATNB,ATN Holdings Inc. Class B,PSE,Finance,Real Estate Development,0.465,0.465,0.46,0.46,3.3707865168539355,3037149613.0,210000,PHP
 AUB,Asia United Bank Corp.,PSE,Finance,Regional Banks,42.0,42.6,41.9,42.6,1.067615658362996,61367520874.0,4600,PHP
 AXLM,Axelum Resources Corp.,PSE,Consumer Non-Durables,Food: Major Diversified,2.03,2.06,2.02,2.02,-0.49261083743841316,7710763092.0,97000,PHP
@@ -49,7 +49,7 @@ BEL,Belle Corp.,PSE,Finance,Real Estate Development,1.38,1.38,1.3,1.37,-0.724637
 BHI,Boulevard Holdings Inc.,PSE,Consumer Services,Hotels/Resorts/Cruise lines,0.035,0.035,0.034,0.034,-2.8571428571428594,504000002.0,10100000,PHP
 BKR,Bright Kindle Resources & Investments Inc.,PSE,Finance,Finance/Rental/Leasing,0.61,0.61,0.61,0.61,0.0,932369161.0,1000,PHP
 BLOOM,Bloomberry Resorts Corporation,PSE,Consumer Services,Casinos/Gaming,2.32,2.33,2.29,2.3,-0.4329004329004429,26535273884.0,8860000,PHP
-BNCOM,Bank of Commerce,PSE,Finance,Major Banks,8.62,9.13,8.62,8.76,1.7421602787456487,12079949335.0,49700,PHP
+BNCOM,Bank of Commerce,PSE,Finance,Major Banks,8.62,9.13,8.62,9.12,5.923344947735189,12079949335.0,49700,PHP
 BPI,Bank of the Philippine Islands,PSE,Finance,Major Banks,101.7,101.9,100.0,100.0,-1.9607843137254901,538946982422.0,2354110,PHP
 BRN,"A Brown Co., Inc.",PSE,Producer Manufacturing,Trucks/Construction/Farm Machinery,0.87,0.9,0.85,0.85,0.0,1944347869.0,59000,PHP
 BRNP,"A Brown Co., Inc. Pfd Registered Shs Series A",PSE,Producer Manufacturing,Trucks/Construction/Farm Machinery,98.0,98.0,98.0,98.0,0.0,1944347869.0,10,PHP
@@ -196,11 +196,11 @@ MWP6A,Megawide Construction Corporation Pfd Registered Shs Non-Voting Perpetual 
 MWP6B,Megawide Construction Corporation Pfd Registered Shs Non-Voting Perpetual Series 6B Pfd Shs,PSE,Industrial Services,Engineering & Construction,102.9,102.9,102.9,102.9,1.8811881188118866,5964492938.0,10,PHP
 MWP6C,Megawide Construction Corporation Pfd Registered Shs Non-Voting Perpetual Series 6C Pfd Shs,PSE,Industrial Services,Engineering & Construction,103.9,103.9,103.0,103.0,-0.8662175168431239,5964492938.0,2480,PHP
 MWP7A,Megawide Construction Corporation Pfd Registered Shs Non-Voting Perpetual Series 7A Pfd Shs,PSE,Industrial Services,Engineering & Construction,100.1,100.1,100.1,100.1,0.0,5964492938.0,40,PHP
-MWP7B,Megawide Construction Corporation Pfd Registered Shs Non-Voting Perpetual Series 7B Pfd Shs,PSE,Industrial Services,Engineering & Construction,100.5,101.0,100.5,101.0,0.6979062811565333,5964492938.0,40,PHP
+MWP7B,Megawide Construction Corporation Pfd Registered Shs Non-Voting Perpetual Series 7B Pfd Shs,PSE,Industrial Services,Engineering & Construction,100.5,100.5,100.5,100.5,0.1994017946161544,5964492938.0,40,PHP
 MYNLD,"Maynilad Water Services, Inc.",PSE,Utilities,Water Utilities,19.86,20.0,19.62,19.88,-0.10050251256281194,150183260250.0,1709600,PHP
 NI,"NiHAO Mineral Resources International, Inc.",PSE,Non-Energy Minerals,Other Metals/Minerals,0.42,0.45,0.42,0.45,0.0,454499988.0,60000,PHP
 NIKL,Nickel Asia Corp.,PSE,Non-Energy Minerals,Other Metals/Minerals,5.07,5.07,4.93,4.95,-2.559055118110234,70770113937.0,2217500,PHP
-NOW,Now Corporation,PSE,Communications,Major Telecommunications,0.59,0.6,0.59,0.6,1.6949152542372898,1065968480.0,212000,PHP
+NOW,Now Corporation,PSE,Communications,Major Telecommunications,0.59,0.6,0.59,0.59,0.0,1065968480.0,212000,PHP
 NRCP,National Reinsurance Corporation of the Philippines,PSE,Finance,Property/Casualty Insurance,0.71,0.72,0.69,0.7,1.449275362318842,1465287937.0,3523000,PHP
 OGP,"OceanaGold Philippines, Inc.",PSE,Non-Energy Minerals,Precious Metals,37.1,37.3,36.5,36.7,-2.002670226969292,85386001740.0,313600,PHP
 OM,Omico Corp.,PSE,Finance,Real Estate Development,0.104,0.104,0.104,0.104,0.9708737864077679,108197565.0,660000,PHP
