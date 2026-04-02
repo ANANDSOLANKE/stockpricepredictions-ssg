@@ -6,7 +6,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 1001,Hong Kong Shanghai Alliance Holdings Ltd.,HKEX,Non-Energy Minerals,Steel,0.375,0.38,0.36,0.38,-1.2987012987012998,241752314.0,54000,HKD
 1002,V.S. International Group Limited,HKEX,Producer Manufacturing,Miscellaneous Manufacturing,0.05,0.05,0.048,0.048,-5.882352941176463,128065317.99999999,660000,HKD
 1003,Huanxi Media Group Ltd.,HKEX,Consumer Services,Movies/Entertainment,0.239,0.239,0.228,0.236,0.42553191489361747,826362696.0,2497156,HKD
-1004,China Smarter Energy Group Holdings Limited,HKEX,Consumer Non-Durables,Apparel/Footwear,0.33,0.33,0.33,0.33,4.761904761904765,147646030.0,7000,HKD
+1004,China Smarter Energy Group Holdings Limited,HKEX,Consumer Non-Durables,Apparel/Footwear,0.31,0.315,0.31,0.315,0.0,147646030.0,12100,HKD
 1005,Matrix Holdings Limited,HKEX,Consumer Durables,Recreational Products,0.43,0.43,0.43,0.43,8.86075949367088,298700315.0,40000,HKD
 1008,Litu Holdings Limited,HKEX,Process Industries,Containers/Packaging,0.186,0.186,0.185,0.185,-3.645833333333336,302601742.0,112000,HKD
 1009,International Entertainment Corporation,HKEX,Finance,Finance/Rental/Leasing,1.08,1.08,1.02,1.04,-3.703703703703707,1437615023.0,108000,HKD
@@ -175,7 +175,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 1215,Kai Yuan Holdings Limited,HKEX,Consumer Services,Hotels/Resorts/Cruise lines,0.022,0.022,0.02,0.022,0.0,281135356.0,12940000,HKD
 1216,"Zhongyuan Bank Co., Ltd. Class H",HKEX,Finance,Regional Banks,0.33,0.335,0.33,0.335,1.5151515151515165,11878692144.0,612000,HKD
 1217,China Innovation Investment Limited,HKEX,Finance,Financial Conglomerates,0.013,0.014,0.013,0.013,0.0,179222113.0,15640000,HKD
-1218,Easyknit International Holdings Ltd,HKEX,Distribution Services,Wholesale Distributors,2.89,2.89,2.89,2.89,0.0,213826476.0,12,HKD
+1218,Easyknit International Holdings Ltd,HKEX,Distribution Services,Wholesale Distributors,2.89,2.89,2.89,2.89,-2.0338983050847474,213826476.0,1150,HKD
 122,Crocodile Garments Limited,HKEX,Consumer Non-Durables,Apparel/Footwear,1.42,1.42,1.34,1.42,-1.3888888888888902,149065231.0,74500,HKD
 1221,Sino Hotels (Holdings) Ltd.,HKEX,Consumer Services,Hotels/Resorts/Cruise lines,1.65,1.69,1.62,1.69,0.5952380952380958,1996131905.0,18000,HKD
 1222,Wang On Group Limited,HKEX,Finance,Real Estate Development,0.021,0.022,0.021,0.022,4.761904761904749,261448910.0,1038026,HKD
@@ -332,7 +332,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 1419,Human Health Holdings Ltd.,HKEX,Health Services,Medical/Nursing Services,0.82,0.82,0.82,0.82,-2.380952380952383,303641777.0,12000,HKD
 142,First Pacific Co. Ltd.,HKEX,Consumer Non-Durables,Food: Major Diversified,5.55,5.62,5.37,5.4,-2.3508137432188043,23329451800.0,3470853,HKD
 1420,Chuan Holdings Limited,HKEX,Industrial Services,Engineering & Construction,0.265,0.28,0.265,0.28,0.0,347442500.0,184000,HKD
-1421,Prosperity Group International Limited,HKEX,Industrial Services,Engineering & Construction,0.37,0.375,0.37,0.375,5.633802816901413,70068321.0,35000,HKD
+1421,Prosperity Group International Limited,HKEX,Industrial Services,Engineering & Construction,0.37,0.375,0.37,0.375,7.1428571428571495,70068321.0,35000,HKD
 1425,Justin Allen Holdings Limited,HKEX,Consumer Non-Durables,Apparel/Footwear,0.66,0.67,0.65,0.67,0.0,812499970.0,1170000,HKD
 1426,Spring Real Estate Investment Trust,HKEX,Finance,Real Estate Investment Trusts,1.57,1.58,1.57,1.58,0.6369426751592362,2359075225.0,188000,HKD
 1427,China Tianbao Group Development Company Limited,HKEX,Finance,Real Estate Development,0.165,0.167,0.164,0.167,-16.08040201005025,175587197.0,25000,HKD
@@ -640,7 +640,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 1820,Pacific Millennium Packaging Group Corp.,HKEX,Process Industries,Containers/Packaging,2.52,2.52,2.52,2.52,0.3984063745020013,757592605.0,2000,HKD
 1822,"China Wood International Holding Co., Limited",HKEX,Finance,Finance/Rental/Leasing,0.135,0.148,0.135,0.148,4.9645390070922035,146061034.0,180000,HKD
 1823,Huayu Expressway Group Limited,HKEX,Distribution Services,Food Distributors,1.75,1.76,1.75,1.76,1.1494252873563229,753772814.0,60000,HKD
-1825,Sterling Group Holdings Limited,HKEX,Consumer Non-Durables,Apparel/Footwear,1.0,1.0,0.81,0.81,-9.999999999999996,41472000.0,6000,HKD
+1825,Sterling Group Holdings Limited,HKEX,Consumer Non-Durables,Apparel/Footwear,1.0,1.0,0.81,0.81,-18.999999999999993,41472000.0,6000,HKD
 1826,FDB Holdings Limited,HKEX,Industrial Services,Engineering & Construction,0.168,0.17,0.16,0.16,0.0,242956796.0,480000,HKD
 1827,Miricor Enterprises Holdings Ltd,HKEX,Health Services,Medical/Nursing Services,0.95,0.95,0.94,0.94,0.0,375999999.0,30000,HKD
 1828,FWD Group Holdings Limited,HKEX,Finance,Multi-Line Insurance,31.64,31.64,30.5,31.18,-1.5161086544535705,38765038394.0,218027,HKD
@@ -1618,7 +1618,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 3447,CSOP FTSE Asia PacificSelect REITs ETF,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,7.68,7.68,7.66,7.66,-0.5194805194805199,,100,HKD
 3448,Global X China Core TECH ETF,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,108.35,108.35,106.0,106.35,-2.965328467153285,,16823,HKD
 345,Vitasoy International Holdings Limited,HKEX,Consumer Non-Durables,Food: Major Diversified,6.33,6.44,6.3,6.42,1.2618296529968467,6342707351.0,1152000,HKD
-3450,Global X US Treasury 3-5 Year ETF,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,55.78,55.78,55.78,55.78,0.0,,2600,HKD
+3450,Global X US Treasury 3-5 Year ETF,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,55.78,55.78,55.78,55.78,0.17959770114942786,,2600,HKD
 3451,Global X Nasdaq 100 Covered Call Active ETF,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,78.48,78.48,77.7,77.7,-0.7662835249042074,,21450,HKD
 3453,Premia FTSE TWSE Taiwan 50 ETF HKD Counter Units,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,116.05,116.05,112.85,112.85,-3.0914555603263274,,40150,HKD
 3454,CSOP MAG Seven ETF,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,9.595,9.61,9.55,9.56,-1.5954709212557834,,112100,HKD
@@ -1710,7 +1710,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 376,Yunfeng Financial Group Limited,HKEX,Finance,Life/Health Insurance,2.84,2.88,2.76,2.85,0.35211267605634616,11243282496.0,4521000,HKD
 3768,"Kunming Dianchi Water Treatment Co., Ltd. Class H",HKEX,Utilities,Water Utilities,0.63,0.63,0.63,0.63,1.6129032258064528,668922132.0,3000,HKD
 3773,Yinsheng Digifavor Company Limited,HKEX,Commercial Services,Miscellaneous Commercial Services,1.84,1.91,1.83,1.88,1.621621621621611,780199998.0,368000,HKD
-3778,China Weaving Materials Holdings Ltd.,HKEX,Process Industries,Textiles,3.0,3.0,3.0,3.0,0.0,375704979.0,36000,HKD
+3778,China Weaving Materials Holdings Ltd.,HKEX,Process Industries,Textiles,3.0,3.0,3.0,3.0,-2.9126213592232966,375704979.0,36000,HKD
 3788,Hanking Gold International Limited,HKEX,Process Industries,Chemicals: Specialty,4.2,4.4,4.18,4.24,-1.1655011655011613,9031230470.0,6837300,HKD
 3789,Royal Deluxe Holdings Ltd.,HKEX,Industrial Services,Engineering & Construction,0.1,0.1,0.1,0.1,0.0,120000002.0,120000,HKD
 379,"China Ever Grand Financial Leasing Group Co., Ltd.",HKEX,Finance,Finance/Rental/Leasing,0.071,0.071,0.071,0.071,0.0,126547710.0,15000,HKD
@@ -1914,7 +1914,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 57,Chen Hsong Holdings Limited,HKEX,Producer Manufacturing,Industrial Machinery,1.64,1.64,1.61,1.61,-1.2269938650306624,1008850503.0,6000,HKD
 570,China Traditional Chinese Medicine Holdings Co. Ltd.,HKEX,Health Technology,Pharmaceuticals: Major,1.82,1.82,1.79,1.8,-0.5524861878453043,8913368151.0,17440000,HKD
 571,eSun Holdings Limited,HKEX,Finance,Real Estate Development,0.049,0.05,0.049,0.05,8.695652173913052,80770334.0,76000,HKD
-572,Future World Holdings Limited,HKEX,Producer Manufacturing,Industrial Machinery,0.415,0.415,0.415,0.415,0.0,125125778.0,12,HKD
+572,Future World Holdings Limited,HKEX,Producer Manufacturing,Industrial Machinery,0.44,0.44,0.415,0.415,-2.35294117647059,125125778.0,96000,HKD
 573,Tao Heung Holdings Limited,HKEX,Consumer Services,Restaurants,0.29,0.29,0.275,0.275,-6.77966101694914,289089183.0,94000,HKD
 574,Pa Shun International Holdings Limited,HKEX,Health Technology,Pharmaceuticals: Major,0.04,0.04,0.039,0.039,-2.500000000000002,64899688.0,704000,HKD
 575,Regent Pacific Group Limited,HKEX,Health Technology,Pharmaceuticals: Major,0.7,0.7,0.7,0.7,-4.109589041095894,239288951.0,20000,HKD
@@ -2031,7 +2031,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 641,CHTC Fong's International Company Limited,HKEX,Producer Manufacturing,Industrial Machinery,0.28,0.28,0.265,0.28,0.0,308060670.0,8000,HKD
 643,Carry Wealth Holdings Limited,HKEX,Consumer Non-Durables,Apparel/Footwear,0.245,0.245,0.236,0.239,-2.0491803278688545,218662477.0,370000,HKD
 645,Ares Asia Limited,HKEX,Distribution Services,Wholesale Distributors,0.178,0.178,0.177,0.177,-0.5617977528089892,90832049.0,242000,HKD
-646,China Environmental Technology Holdings Limited,HKEX,Industrial Services,Engineering & Construction,0.151,0.151,0.151,0.151,-1.3071895424836615,51747386.0,3200,HKD
+646,China Environmental Technology Holdings Limited,HKEX,Industrial Services,Engineering & Construction,0.141,0.153,0.14,0.153,7.746478873239444,51747386.0,64000,HKD
 648,SoftMedX Healthcare Limited,HKEX,Health Services,Medical/Nursing Services,0.246,0.25,0.243,0.25,-1.960784313725492,542139390.0,515825,HKD
 65,"Grand Ocean Advanced Resources Co., Ltd.",HKEX,Energy Minerals,Coal,0.32,0.32,0.32,0.32,0.0,79799498.0,24288,HKD
 650,Productive Technologies Company Limited,HKEX,Energy Minerals,Integrated Oil,0.255,0.265,0.25,0.25,0.0,1890461764.0,1664000,HKD
@@ -2395,11 +2395,11 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 815,China Silver Group Ltd.,HKEX,Producer Manufacturing,Metal Fabrication,0.5,0.5,0.47,0.475,-4.040404040404044,1427078575.0,15202000,HKD
 8152,M&L Holdings Group Limited,HKEX,Distribution Services,Wholesale Distributors,0.081,0.082,0.08,0.082,-1.2048192771084347,49200001.0,570000,HKD
 8153,Jiading International Group Holdings Limited,HKEX,Producer Manufacturing,Trucks/Construction/Farm Machinery,0.85,0.91,0.85,0.9,4.651162790697678,29812052.0,75000,HKD
-8156,Sinopharm Tech Holdings Limited,HKEX,Consumer Services,Movies/Entertainment,0.29,0.29,0.29,0.29,0.0,183770980.0,200,HKD
+8156,Sinopharm Tech Holdings Limited,HKEX,Consumer Services,Movies/Entertainment,0.28,0.29,0.28,0.29,-1.6949152542372898,183770980.0,105000,HKD
 8158,China Regenerative Medicine International Limited,HKEX,Health Technology,Pharmaceuticals: Major,0.35,0.35,0.295,0.3,-6.250000000000005,94318267.0,91500,HKD
 8159,China United Venture Investment Limited,HKEX,Electronic Technology,Computer Peripherals,0.075,0.076,0.075,0.076,4.109589041095894,60360001.0,10000,HKD
 816,"Jinmao Property Services Co., Ltd.",HKEX,Finance,Real Estate Development,2.49,2.5,2.46,2.46,-1.2048192771084436,2206221275.0,184531,HKD
-8160,Goldway Education Group Ltd.,HKEX,Commercial Services,Miscellaneous Commercial Services,0.58,0.58,0.58,0.58,3.5714285714285547,113832288.0,24000,HKD
+8160,Goldway Education Group Ltd.,HKEX,Commercial Services,Miscellaneous Commercial Services,0.58,0.58,0.58,0.58,0.0,113832288.0,24000,HKD
 8161,MediNet Group Ltd.,HKEX,Health Services,Medical/Nursing Services,0.49,0.54,0.49,0.54,0.0,22464000.0,124000,HKD
 8162,Loco Hong Kong Holdings Ltd,HKEX,Distribution Services,Wholesale Distributors,0.445,0.49,0.43,0.49,8.888888888888884,442901724.0,1230000,HKD
 8163,NOIZ Group Limited,HKEX,Finance,Finance/Rental/Leasing,0.03,0.03,0.03,0.03,0.0,27757668.0,200000,HKD
@@ -2494,7 +2494,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 8292,VSING Limited,HKEX,Transportation,Air Freight/Couriers,0.23,0.23,0.23,0.23,0.0,248013592.0,20000,HKD
 8293,SingAsia Holdings Ltd.,HKEX,Commercial Services,Personnel Services,0.315,0.325,0.315,0.325,3.174603174603177,69888030.0,80000,HKD
 8295,Kingwisoft Technology Group Company Limited,HKEX,Finance,Investment Managers,0.025,0.028,0.024,0.028,3.703703703703707,133728551.00000001,1580000,HKD
-8296,Sino-Life Group Limited,HKEX,Consumer Services,Other Consumer Services,0.305,0.305,0.305,0.305,0.0,28822501.0,2000,HKD
+8296,Sino-Life Group Limited,HKEX,Consumer Services,Other Consumer Services,0.25,0.305,0.25,0.305,0.0,28822501.0,14000,HKD
 8299,GT Gold Holdings Limited,HKEX,Non-Energy Minerals,Precious Metals,0.57,0.57,0.495,0.52,-8.771929824561392,4487404689.0,101502666,HKD
 83,Sino Land Co. Ltd.,HKEX,Finance,Real Estate Development,11.84,11.84,11.48,11.55,-1.28205128205127,108976835505.0,4284015,HKD
 830,China State Construction Development Holdings Limited,HKEX,Finance,Financial Conglomerates,0.89,0.9,0.83,0.87,-3.333333333333336,2097191793.0,3660000,HKD
@@ -2524,9 +2524,9 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 8313,ZACD Group Ltd.,HKEX,Finance,Financial Conglomerates,0.029,0.029,0.025,0.025,0.0,50000001.0,150000,HKD
 83140,ChinaAMC HK-US AI ETF,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,6.22,6.245,6.22,6.245,-8.765522279035789,,30000,CNY
 83146,ChinaAMC Global ETF Series - ChinaAMC 20+ Year US Treasury Bond ETF HKS Counter,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,645.2,645.2,645.2,645.2,0.7259386464756992,,600,CNY
-83147,CSOP ETF Series - SZSE ChiNext,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,11.28,11.28,11.28,11.28,1.2567324955116588,,27800,CNY
+83147,CSOP ETF Series - SZSE ChiNext,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,11.14,11.14,11.14,11.14,-2.0228671943711403,,40400,CNY
 8315,Century Plaza Hotel Group,HKEX,Commercial Services,Miscellaneous Commercial Services,0.1,0.1,0.085,0.09,2.2727272727272747,52329806.0,66000,HKD
-83151,Premia China STAR50 ETF HKD,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,7.885,7.885,7.885,7.885,2.4691358024691294,,20800,CNY
+83151,Premia China STAR50 ETF HKD,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,7.72,7.72,7.695,7.695,-1.9120458891013319,,600,CNY
 8316,China Hongbao Holdings Limited,HKEX,Industrial Services,Engineering & Construction,0.142,0.164,0.142,0.158,10.489510489510499,145866522.0,186000,HKD
 83161,ChinaAMC Global ETF Series - ChinaAMC RMB Money Market ETF HKD Counter,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,1059.55,1059.55,1059.55,1059.55,0.03304380664651709,,350,CNY
 83167,ICBC CSOP S&P New China Sectors ETF,HKEX,Miscellaneous,Investment Trusts/Mutual Funds,54.8,54.8,54.78,54.78,-0.1822157434402358,,3950,CNY
@@ -2649,7 +2649,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 8510,Top Standard Corp.,HKEX,Consumer Services,Restaurants,0.16,0.16,0.16,0.16,0.0,38220595.0,160000,HKD
 8511,Min Fu International Holding Limited,HKEX,Technology Services,Information Technology Services,0.93,0.93,0.93,0.93,-1.0638297872340319,23063751.0,1800,HKD
 8512,Hyfusin Group Holdings Ltd.,HKEX,Producer Manufacturing,Industrial Conglomerates,0.335,0.335,0.315,0.325,0.0,293919993.0,440000,HKD
-8513,MaxWin International Holdings Limited,HKEX,Producer Manufacturing,Miscellaneous Manufacturing,0.57,0.57,0.57,0.57,1.7857142857142672,45015045.0,5000,HKD
+8513,MaxWin International Holdings Limited,HKEX,Producer Manufacturing,Miscellaneous Manufacturing,0.57,0.57,0.57,0.57,3.636363636363619,45015045.0,5000,HKD
 8516,Zhong Ying International Group Limited,HKEX,Industrial Services,Engineering & Construction,1.37,1.37,1.2,1.2,-10.44776119402986,84596145.0,130000,HKD
 8519,XinXiang Era Group Company Limited,HKEX,Consumer Services,Restaurants,0.275,0.275,0.27,0.27,-1.8181818181818195,39867439.0,40000,HKD
 8521,WebX International Holdings Company Limited,HKEX,Consumer Non-Durables,Apparel/Footwear,0.8,0.87,0.8,0.84,1.204819277108435,523979995.00000006,130000,HKD
