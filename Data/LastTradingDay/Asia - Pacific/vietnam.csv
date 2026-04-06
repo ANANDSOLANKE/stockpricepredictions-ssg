@@ -1,9 +1,9 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
 A32,32 JSC,UPCOM,Consumer Non-Durables,Apparel/Footwear,33100,33100,32500,33100,0.30303030303030304,224400000000.0,1714,VND
 AAA,An Phat Plastic and Green Environment Joint Stock Company,HOSE,Process Industries,Containers/Packaging,6940,6980,6880,6880,-0.8645533141210375,2732574381714.0,402804,VND
-AAH,Hop Nhat Joint Stock Company,UPCOM,,,3200,3300,3100,3200,-3.0303030303030303,,729877,VND
+AAH,Hop Nhat Joint Stock Company,UPCOM,,,3200,3300,3100,3100,-6.0606060606060606,,730177,VND
 AAM,Mekong Fisheries JSC,HOSE,Consumer Non-Durables,Food: Meat/Fish/Dairy,6320,6320,6320,6320,1.935483870967742,64797324753.0,1084,VND
-AAS,SmartInvest Securities Joint Stock Co,UPCOM,Finance,Investment Banks/Brokers,8300,8400,8200,8200,-1.2048192771084338,1954995928500.0,630868,VND
+AAS,SmartInvest Securities Joint Stock Co,UPCOM,Finance,Investment Banks/Brokers,8300,8400,8200,8300,0.0,1954995928500.0,630968,VND
 AAT,Tien Son Thanh Hoa Group Joint Stock Company,HOSE,Consumer Durables,Home Furnishings,2900,2920,2860,2920,-0.3412969283276451,207499961319.0,14939,VND
 AAV,AAV Group JSC,HNX,Finance,Real Estate Development,9000,9100,8500,8800,-2.2222222222222223,620888969421.0,676104,VND
 ABB,An Binh Commercial Joint Stock Bank,UPCOM,Finance,Regional Banks,14600,14600,14500,14600,0.6896551724137931,14904529372800.0,957343,VND
@@ -41,7 +41,7 @@ ALV,MCST Group JSC,UPCOM,Industrial Services,Engineering & Construction,7600,770
 AMC,Asia Mineral JSC,HNX,Process Industries,Chemicals: Specialty,12700,12700,12700,12700,0.0,54292374039.0,300,VND
 AME,Alphanam E&C Joint Stock Company,HNX,Producer Manufacturing,Industrial Machinery,6900,6900,6900,6900,0.0,449879978943.0,1300,VND
 AMP,Armephaco Joint Stock Co,UPCOM,,,12300,12500,12300,12500,-13.194444444444445,,200,VND
-AMS,AMECC Mechanical Construction JSC,UPCOM,,,9500,9800,9000,9000,-4.25531914893617,,64954,VND
+AMS,AMECC Mechanical Construction JSC,UPCOM,,,9500,9800,9000,9400,0.0,,86754,VND
 AMV,"American Vietnamese Biotech, Inc.",HNX,Health Technology,Medical Specialties,1800,1800,1700,1800,0.0,235990173340.0,166974,VND
 ANT,An Giang Fruit - Vegetables & Foodstuff JSC,HOSE,Consumer Non-Durables,Food: Specialty/Candy,36900,36900,35650,35650,-1.5193370165745856,,7502,VND
 ANV,Nam Viet Corp.,HOSE,Consumer Non-Durables,Food: Meat/Fish/Dairy,23500,23700,22800,22800,-3.389830508474576,6000435760498.0,663085,VND
@@ -75,7 +75,7 @@ BCM,Becamex Investment And Industrial Development Group,HOSE,Consumer Durables,H
 BCP,ENLIE Pharmaceutical JSC,UPCOM,Health Technology,Pharmaceuticals: Major,10900,10900,10000,10000,4.166666666666666,57600000000.0,201,VND
 BCR,BCG Land Joint Stock Company,UPCOM,Finance,Real Estate Development,1300,1300,1200,1300,0.0,615940000000.0,799439,VND
 BDG,Protrade Garment Joint Stock Co,UPCOM,,,39400,39500,39200,39200,0.5128205128205128,,700,VND
-BDT,DongThap Building Materials & Construction JSC,UPCOM,,,9000,9500,9000,9200,1.098901098901099,,5000,VND
+BDT,DongThap Building Materials & Construction JSC,UPCOM,,,9000,9500,9000,9200,1.098901098901099,,5100,VND
 BDW,Binhdinh Water Supply and Sewerage Joint Stock Co,UPCOM,Utilities,Water Utilities,27000,27000,27000,27000,0.0,335091600000.0,100,VND
 BFC,Binh Dien Fertilizer JSC,HOSE,Process Industries,Chemicals: Agricultural,55500,56400,52000,54900,-0.9025270758122743,3167106736755.0,100550,VND
 BGE,BCG Energy Joint Stock Company,UPCOM,Utilities,Alternative Power Generation,3300,3500,3300,3300,-2.941176470588235,2482000000000.0,580714,VND
@@ -101,7 +101,7 @@ BMI,Bao Minh Insurance Corp.,HOSE,Finance,Property/Casualty Insurance,16400,1650
 BMJ,Becamex Mineral JSC,UPCOM,,,9600,9600,9600,9600,-1.0309278350515463,,1000,VND
 BMK,Black Cat Insulation Technical Joint Stock Company,UPCOM,,,14000,14000,14000,14000,0.0,,200,VND
 BMP,Binh Minh Plastics JSC,HOSE,Process Industries,Industrial Specialties,126300,127000,124900,125000,-0.8723235527359239,10322664411163.0,130657,VND
-BMS,BaoMinh Securities Company,UPCOM,Finance,Investment Banks/Brokers,14500,14500,13800,14200,-1.3888888888888888,1128737610000.0,228906,VND
+BMS,BaoMinh Securities Company,UPCOM,Finance,Investment Banks/Brokers,14500,14500,13800,14300,-0.6944444444444444,1128737610000.0,230206,VND
 BMV,Vinafood 1 Flour Joint Stock Co,UPCOM,,,4900,4900,4900,4900,0.0,,100,VND
 BNA,Bao Ngoc Investment Production Corp.,HNX,Consumer Non-Durables,Food: Specialty/Candy,5900,5900,5800,5800,0.0,181246493149.0,28628,VND
 BNW,Bac Ninh Clean Water Joint Stock Co,UPCOM,,,17000,17000,17000,17000,-2.857142857142857,,100,VND
@@ -129,7 +129,7 @@ BTT,Ben Thanh Trading & Service JSC,HOSE,Distribution Services,Wholesale Distrib
 BTU,Bentre urban project joint stock Co,UPCOM,,,16500,16800,16500,16800,1.8181818181818181,,200,VND
 BTV,Ben Thanh Tourist Service Corporation,UPCOM,,,12500,12500,12500,12500,0.0,,300,VND
 BTW,Ben Thanh Water Supply JSC,HNX,Utilities,Water Utilities,65300,65300,65300,65300,0.0,611207977581.0,29900,VND
-BVB,Viet Capital Commercial Joint Stock Bank,UPCOM,,,12300,12300,11900,12000,-0.8264462809917356,,879727,VND
+BVB,Viet Capital Commercial Joint Stock Bank,UPCOM,,,12300,12300,11900,12100,0.0,,880827,VND
 BVG,BVG Investment JSC,UPCOM,Producer Manufacturing,Metal Fabrication,2800,2800,2700,2800,3.7037037037037033,26327565000.0,35300,VND
 BVH,Bao Viet Holdings,HOSE,Finance,Life/Health Insurance,85000,85100,81200,81200,-4.470588235294118,63097434082031.0,349382,VND
 BVL,BV Land JSC,UPCOM,,,15100,15100,15000,15000,0.0,,3600,VND
@@ -142,7 +142,7 @@ C21,Century 21 JSC,UPCOM,Finance,Real Estate Development,17500,20100,17500,20100
 C22,22 Joint Stock Co,UPCOM,,,18000,18000,17500,17500,-7.4074074074074066,,800,VND
 C32,3-2 Investment and Construction JSC,HOSE,Non-Energy Minerals,Construction Materials,10300,10750,10000,10750,0.0,323126602173.0,2600,VND
 C47,Construction JSCNo. 47,HOSE,Industrial Services,Engineering & Construction,9500,9850,9400,9850,2.284527518172378,349976059113.0,16582,VND
-C4G,Cienco 4 JSC,UPCOM,Industrial Services,Engineering & Construction,7000,7200,7000,7000,1.4492753623188406,2536835353400.0,349755,VND
+C4G,Cienco 4 JSC,UPCOM,Industrial Services,Engineering & Construction,7000,7200,7000,7000,1.4492753623188406,2536835353400.0,352755,VND
 C69,1369 Construction JSC,HNX,Industrial Services,Engineering & Construction,15800,16000,15700,16000,0.628930817610063,982619563293.0,294538,VND
 C92,Construction & Investment JSC No. 492,UPCOM,Industrial Services,Engineering & Construction,4100,4100,3900,4100,-2.380952380952381,19657804346.0,2700,VND
 CAD,Cadovimex Seafood Import-Export and Processing Joint Stock Company,UPCOM,Consumer Non-Durables,Food: Meat/Fish/Dairy,500,600,400,500,0.0,,21178,VND
@@ -181,7 +181,7 @@ CID,Construction Corporation and Infrastructure Development,UPCOM,Industrial Ser
 CIG,COMA18 JSC,HOSE,Finance,Real Estate Development,6260,6490,6170,6300,0.8,318999648094.0,11303,VND
 CII,Ho Chi Minh City Infrastructure Investment JSC,HOSE,Finance,Real Estate Development,17950,18450,17400,17400,-3.3333333333333335,12095735229492.0,13276330,VND
 CIP,Construction And Industrial Production Joint Stock Co,UPCOM,,,2600,2800,2600,2800,12.0,,63053,VND
-CKA,An Giang Mechanical Joint Stock Co,UPCOM,Producer Manufacturing,Industrial Machinery,62600,62900,62200,62200,-1.2698412698412698,214273540800.0,7602,VND
+CKA,An Giang Mechanical Joint Stock Co,UPCOM,Producer Manufacturing,Industrial Machinery,62600,62900,62200,62700,-0.4761904761904762,214273540800.0,7702,VND
 CKD,Dong Anh Mechanical JSC,UPCOM,,,30100,30100,30100,30100,-7.951070336391437,,420,VND
 CKG,CIC Group Joint Stock Company,HOSE,Industrial Services,Engineering & Construction,8650,8650,8500,8610,0.11627906976744186,1391544720459.0,220124,VND
 CLC,Cat Loi JSC,HOSE,Process Industries,Containers/Packaging,55900,55900,55900,55900,0.0,1465003966904.0,1008,VND
@@ -231,7 +231,7 @@ CTR,Viettel Construction JSC,HOSE,Industrial Services,Engineering & Construction
 CTS,VietinBank Securities JSC,HOSE,Finance,Investment Banks/Brokers,27150,27600,26750,26750,-1.6544117647058825,5785261450195.0,594570,VND
 CTT,Vinacomin - Machinery JSC,HNX,Producer Manufacturing,Trucks/Construction/Farm Machinery,14400,14400,14400,14400,-10.0,75157615662.0,100,VND
 CTW,Can Tho Water Supply - Sewerage Joint Stock Co,UPCOM,,,26000,26000,26000,26000,0.0,,200,VND
-CTX,Vietnam Investment Construction & Trading JSC,UPCOM,Finance,Real Estate Development,6400,6400,5600,5600,-3.4482758620689653,599695269775.0,137828,VND
+CTX,Vietnam Investment Construction & Trading JSC,UPCOM,Finance,Real Estate Development,6400,6400,5600,5900,1.7241379310344827,599695269775.0,137928,VND
 CVN,Vinam Joint Stock Company,UPCOM,Industrial Services,Engineering & Construction,1200,1200,1100,1100,10.0,56429979706.0,718850,VND
 CVT,CMC Joint Stock Company,HOSE,Industrial Services,Engineering & Construction,25550,25550,25550,25550,4.285714285714286,937452174377.0,1111,VND
 CX8,Constrexim No. 8 Investment & Construction JSC,HNX,Industrial Services,Engineering & Construction,9600,9600,9600,9600,-3.0303030303030303,25282333088.0,2000,VND
@@ -263,14 +263,14 @@ DDB,Dong Duong Construction And Trading Joint Stock Company,UPCOM,,,9400,9400,94
 DDG,Indochine Import Export Investment Industrial JSC,HNX,Utilities,Electric Utilities,900,1000,800,800,-11.11111111111111,63871905518.0,3037702,VND
 DDM,Dong Do Marine Joint Stock Company,UPCOM,Transportation,Marine Shipping,1800,1800,1800,1800,-14.285714285714285,25713433200.0,5000,VND
 DDN,Da Nang Pharmaceutical Medical Equipment JSC,UPCOM,Distribution Services,Medical Distributors,9000,9100,9000,9000,0.0,,3000,VND
-DDV,DAP-VINACHEM Joint Stock Co,UPCOM,Process Industries,Chemicals: Agricultural,27400,27500,26900,26900,-1.824817518248175,,759476,VND
+DDV,DAP-VINACHEM Joint Stock Co,UPCOM,Process Industries,Chemicals: Agricultural,27400,27500,26900,26900,-1.824817518248175,,759576,VND
 DFC,Dong Anh C&F Joint Stock Co,UPCOM,Producer Manufacturing,Miscellaneous Manufacturing,28800,29000,28800,29000,0.6944444444444444,198000000000.0,700,VND
 DFF,Dua Fat Group Joint Stock Company,UPCOM,,,600,600,500,600,0.0,,311391,VND
 DGC,Duc Giang Chemicals Group Joint Stock Company,HOSE,Process Industries,Chemicals: Specialty,56300,56300,53000,53000,-6.1946902654867255,21457480270386.0,3485008,VND
 DGT,Dona Transportation Construction JSC,UPCOM,Distribution Services,Wholesale Distributors,4300,4400,4000,4100,-4.651162790697675,323900000000.0,55420,VND
 DGW,Digiworld Corp.,HOSE,Distribution Services,Electronics Distributors,43900,44150,42500,43700,-0.45558086560364464,9709305981445.0,1453923,VND
 DHA,Hoa An Joint Stock Company,HOSE,Non-Energy Minerals,Construction Materials,45800,45800,44700,44750,-1.8640350877192982,671280935669.0,42634,VND
-DHB,Ha Bac Nitrogenous Fertilizer & Chemicals Joint Stock Co,UPCOM,,,12000,12200,11400,11400,-5.0,,33529,VND
+DHB,Ha Bac Nitrogenous Fertilizer & Chemicals Joint Stock Co,UPCOM,,,12000,12200,11400,11600,-3.3333333333333335,,34029,VND
 DHC,Dong Hai JSC of Ben Tre,HOSE,Process Industries,Pulp & Paper,34600,34600,33750,33800,-2.170767004341534,3337226021576.0,366102,VND
 DHD,Hai Duong Pharmaceutical Medical Material Joint Stock Co,UPCOM,Health Technology,Pharmaceuticals: Major,38200,38600,38200,38600,0.5208333333333333,,1600,VND
 DHG,DHG Pharmaceutical Joint Stock Company,HOSE,Health Technology,Pharmaceuticals: Major,101000,101000,99900,100000,-0.6951340615690168,13166128567505.0,8575,VND
@@ -313,7 +313,7 @@ DSC,DSC Securities Corporation,HOSE,Finance,Investment Banks/Brokers,12750,13100
 DSD,DHC Suoi Doi Corporation,UPCOM,,,12300,12300,12300,12300,9.821428571428571,,200,VND
 DSE,DNSE Securities Join Stock Company,HOSE,Finance,Investment Banks/Brokers,23000,23250,22850,23000,0.0,9849750000000.0,206495,VND
 DSG,Dap Cau Sheet Glass Joint Stock Co,UPCOM,,,6700,7000,6700,7000,4.477611940298507,,7612,VND
-DSH,Dong Son Infrastructure Investment Joint Stock Company,UPCOM,,,13800,14700,13500,14100,2.9197080291970803,,479530,VND
+DSH,Dong Son Infrastructure Investment Joint Stock Company,UPCOM,,,13800,14700,13500,14100,2.9197080291970803,,480530,VND
 DSN,Dam Sen Water Park Corp.,HOSE,Consumer Services,Movies/Entertainment,38600,38600,37900,38000,-1.5544041450777202,466404138374.0,14738,VND
 DSP,Phu Tho Tourist Service JSC,UPCOM,Consumer Services,Other Consumer Services,12100,12100,12100,12100,0.0,1436076400000.0,100,VND
 DST,Sao Thang Long Investment JSC,HNX,Consumer Services,Publishing: Books/Magazines,8000,8000,8000,8000,0.0,257752014160.0,3100,VND
@@ -367,7 +367,7 @@ FIR,First Real Estate JSC,HOSE,Finance,Real Estate Development,4920,5050,4920,50
 FIT,F.I.T Group Joint Stock Company,HOSE,Health Technology,Pharmaceuticals: Major,4230,4270,4170,4170,-1.4184397163120568,1437916777954.0,316691,VND
 FMC,Sao Ta Foods Joint Stock Company,HOSE,Consumer Non-Durables,Food: Meat/Fish/Dairy,38100,38250,37550,37600,-1.6993464052287581,2501125162125.0,18951,VND
 FOC,FPT Online Joint Stock Co,UPCOM,,,68300,68400,67000,67000,-1.6152716593245229,,10457,VND
-FOX,FPT Telecom JSC,UPCOM,Technology Services,Internet Software/Services,81400,81400,77100,78500,-3.6809815950920246,61612917600000.0,283821,VND
+FOX,FPT Telecom JSC,UPCOM,Technology Services,Internet Software/Services,81400,81400,77100,78200,-4.049079754601228,61612917600000.0,289823,VND
 FPT,FPT Corp.,HOSE,Technology Services,Information Technology Services,74000,74500,73500,73900,-0.13513513513513514,125674004882812.0,4641686,VND
 FRC,Forest Products Export Joint-Stock Co of Quang Nam,UPCOM,,,25000,25000,25000,25000,0.0,,1800,VND
 FRT,FPT Digital Retail JSC,HOSE,Distribution Services,Electronics Distributors,153000,153000,147500,148000,-2.631578947368421,25885871826172.0,274868,VND
@@ -457,7 +457,7 @@ HDG,Ha Do Group Joint Stock Company,HOSE,Finance,Real Estate Development,28800,2
 HDM,Hue Textile Garment Joint Stock Co,UPCOM,,,36500,36600,36400,36600,-1.3477088948787064,,1500,VND
 HDP,HaTinh Pharmaceutical Joint Stock Co,UPCOM,Health Technology,Pharmaceuticals: Major,26700,26700,26000,26000,-2.6217228464419478,201299856000.0,1247,VND
 HDW,Hai Duong Water Joint Stock Co,UPCOM,,,17600,17600,17600,17600,-1.1235955056179776,,400,VND
-HEC,Hydraulic Engineering Consultant Corporation II,UPCOM,,,62000,66800,62000,66800,7.741935483870968,,1600,VND
+HEC,Hydraulic Engineering Consultant Corporation II,UPCOM,,,62000,66800,62000,66800,7.741935483870968,,1800,VND
 HEJ,Vietnam Hydraulic Engineering Consultants Corporation - JSC,UPCOM,Industrial Services,Engineering & Construction,15100,15100,14800,14800,-3.896103896103896,,1000,VND
 HEP,Hue Urban Environment and Public Works Joint Stock Co,UPCOM,,,14900,14900,14900,14900,-1.3245033112582782,,2300,VND
 HEV,Higher Educational & Vocational Book JSC,HNX,Consumer Services,Publishing: Books/Magazines,7000,7000,7000,7000,-1.4084507042253522,35000000000.0,100,VND
@@ -510,7 +510,7 @@ HSI,General Materials Biochemistry Fertilizer JSC,UPCOM,Process Industries,Chemi
 HSL,Hong Ha Food Investment Development Joint Stock Co,HOSE,Consumer Non-Durables,Food: Major Diversified,4900,5000,4900,5000,0.0,192836818695.0,51076,VND
 HSM,Hanoi Textile and Garment Joint Stock Corporation,UPCOM,Process Industries,Textiles,6800,6800,6800,6800,0.0,141450000000.0,100,VND
 HSP,Hanoi Synthetic Paint Joint Stock Co,UPCOM,,,14200,14200,14200,14200,0.0,,14000,VND
-HSV,HSV Viet Nam Group Joint Stock Company,UPCOM,,,4600,4900,4500,4700,2.1739130434782608,,44550,VND
+HSV,HSV Viet Nam Group Joint Stock Company,UPCOM,,,4600,4900,4500,4700,2.1739130434782608,,45550,VND
 HT1,Vicem Ha Tien Cement JSC,HOSE,Non-Energy Minerals,Construction Materials,14900,14900,14600,14600,-2.341137123745819,5703908155823.0,227798,VND
 HTC,Hocmon Trade Joint Stock Company,HNX,Distribution Services,Wholesale Distributors,33300,33300,33300,33300,-9.264305177111716,549449745940.99994,135,VND
 HTE,Ho Chi Minh City Electric Power Trading Investment Corporation,UPCOM,,,3200,3300,3200,3300,3.125,,11479,VND
@@ -559,7 +559,7 @@ INC,IDICO Investment Consultancy JSC,HNX,Industrial Services,Engineering & Const
 INN,Agriculture Printing & Packaging JSC,HNX,Commercial Services,Commercial Printing/Forms,39000,39900,39000,39300,1.0282776349614395,1050300000000.0,3700,VND
 IPA,IPA Investment Group Joint Stock Co,HNX,Distribution Services,Wholesale Distributors,15400,15600,15000,15400,0.0,3293071087646.0,37229,VND
 ISG,International Shipping and Labour Cooperation J.S.C,UPCOM,,,8900,8900,8900,8900,-1.1111111111111112,,1000,VND
-ISH,IDICO Srok Phu Mieng Hydropower Joint Stock Co,UPCOM,Utilities,Electric Utilities,25000,25000,24100,24100,-3.5999999999999996,1080000000000.0,1111,VND
+ISH,IDICO Srok Phu Mieng Hydropower Joint Stock Co,UPCOM,Utilities,Electric Utilities,25000,25000,24100,24100,-3.5999999999999996,1080000000000.0,1211,VND
 IST,Tan Cang Song Than ICD Joint Stock Co,UPCOM,Transportation,Air Freight/Couriers,38400,38400,38400,38400,0.0,,200,VND
 ITC,Investment & Trading of Real Estate Joint Stock Co.,HOSE,Finance,Real Estate Development,11600,11650,11400,11400,-1.7241379310344827,1112846502686.0,45337,VND
 ITD,ITD Technology Corporation,HOSE,Transportation,Other Transportation,16100,16250,15850,16250,-0.3067484662576687,426616734314.0,4759,VND
@@ -675,7 +675,7 @@ MRF,Merufa JSC,UPCOM,,,21300,21500,21300,21500,2.380952380952381,,3000,VND
 MSB,Vietnam Maritime Commercial Joint Stock Bank,HOSE,Finance,Regional Banks,11550,11600,11450,11500,0.0,35880000000000.0,5834800,VND
 MSH,Song Hong Garment JSC,HOSE,Consumer Non-Durables,Apparel/Footwear,37100,37150,36450,36450,-1.2195121951219512,4152025881958.0,155006,VND
 MSN,Masan Group Corporation,HOSE,Consumer Non-Durables,Food: Specialty/Candy,75100,76200,74500,75300,0.0,108877439208984.0,5448158,VND
-MSR,Masan High-Tech Materials Corp.,UPCOM,Distribution Services,Wholesale Distributors,47400,49400,47400,47500,-1.6563146997929608,,944325,VND
+MSR,Masan High-Tech Materials Corp.,UPCOM,Distribution Services,Wholesale Distributors,47400,49400,47400,47500,-1.6563146997929608,,947859,VND
 MST,MST Investment JSC,HNX,Industrial Services,Engineering & Construction,9000,9000,8500,8600,-4.444444444444445,1022437957764.0,3780647,VND
 MTA,Ha Tinh Minerals and Trading Joint Stock Corporation,UPCOM,Non-Energy Minerals,Other Metals/Minerals,13100,13200,12800,13000,-2.2556390977443606,1541590316000.0,12100,VND
 MTG,MT Gas JSC,UPCOM,Utilities,Gas Distributors,7000,7000,7000,7000,0.0,62883016000.0,100,VND
@@ -684,7 +684,7 @@ MTL,Tu Liem Urban Environment Service Joint Stock Co,UPCOM,,,5600,5600,5600,5600
 MTP,Medipharco Pharmaceutical Joint Stock Co,UPCOM,,,14600,14600,14000,14000,0.0,,640,VND
 MTV,Vung Tau Environment Services and Urban Project Joint Stock Co,UPCOM,,,16000,16000,16000,16000,0.0,,100,VND
 MVB,Vinacomin - Viet bac Mining Industry Holding Corporation,HNX,Energy Minerals,Integrated Oil,16700,16700,16500,16500,-1.7857142857142856,1732500000000.0,300,VND
-MVC,Binh Duong Building Materials & Construction Corporation,UPCOM,,,16300,16300,15400,15500,-3.125,,22011,VND
+MVC,Binh Duong Building Materials & Construction Corporation,UPCOM,,,16300,16300,15400,16000,0.0,,22411,VND
 MVN,Vietnam Maritime Corp,UPCOM,Transportation,Other Transportation,49500,49500,48200,48400,-3.2,276465900000.0,2519,VND
 MWG,Mobile World Investment Corp,HOSE,Retail Trade,Specialty Stores,78300,79300,77600,78300,-1.2610340479192939,116445980529785.0,6789051,VND
 MZG,Miza Corporation,UPCOM,,,12900,13100,12800,13000,0.7751937984496124,,154063,VND
@@ -746,7 +746,7 @@ OCB,Orient Commercial Joint Stock Bank,HOSE,Finance,Major Banks,11000,11050,1090
 OCH,One Capital Hospitality Joint Stock Company,HNX,Consumer Services,Hotels/Resorts/Cruise lines,5600,5700,5400,5700,1.7857142857142856,1120000000000.0,59200,VND
 ODE,ODE Media and Entertainment Group Joint Stock Co,UPCOM,,,45000,45200,44800,44800,0.22371364653243847,,12900,VND
 OGC,Ocean Group JSC,HOSE,Retail Trade,Food Retail,2960,3010,2950,2950,0.0,885000000000.0,141234,VND
-OIL,PetroVietnam Oil Corp.,UPCOM,Energy Minerals,Oil Refining/Marketing,15100,15200,14000,14300,-5.298013245033113,,3113610,VND
+OIL,PetroVietnam Oil Corp.,UPCOM,Energy Minerals,Oil Refining/Marketing,15100,15200,14000,14300,-5.298013245033113,,3131138,VND
 ONE,One Communication Technology Corp.,HNX,Distribution Services,Electronics Distributors,10500,10500,10400,10500,0.0,82883410692.0,811,VND
 ONW,One World Services Joint Stock Co,UPCOM,,,5000,5000,5000,5000,38.88888888888889,,100,VND
 OPC,OPC Pharmaceutical Joint Stock Company,HOSE,Health Technology,Pharmaceuticals: Major,22050,22050,22050,22050,-1.5625,1412322081757.0,350,VND
@@ -763,7 +763,7 @@ PBT,Binh Son Petroleum Packaging and Trading JSC,UPCOM,Finance,Real Estate Devel
 PC1,PC1 Group JSC,HOSE,Industrial Services,Engineering & Construction,26050,26700,25700,25750,-3.5580524344569286,10981318560791.0,6361461,VND
 PCC,Petrolimex Construction 1 Joint Stock Company Group,UPCOM,Industrial Services,Engineering & Construction,35100,35100,35100,35100,-1.9553072625698324,379500000000.0,100,VND
 PCE,Central PetroVietnam Fertilizer & Chemicals JSC,HNX,Process Industries,Chemicals: Agricultural,19600,19600,19600,19600,0.0,196000000000.0,1000,VND
-PCF,Petec Coffee Joint Stock Co,UPCOM,,,4300,4300,4000,4100,-4.651162790697675,,16000,VND
+PCF,Petec Coffee Joint Stock Co,UPCOM,,,4300,4300,4000,4100,-4.651162790697675,,16200,VND
 PCG,Petro Viet Nam Gas City Investment & Development JSC,UPCOM,Energy Minerals,Oil & Gas Production,2800,2800,2800,2800,-9.67741935483871,35853001595.0,1000,VND
 PCH,Picomat Plastic Joint Stock Company,HNX,Process Industries,Chemicals: Specialty,20200,20200,20000,20100,-0.49504950495049505,533607753000.0,83600,VND
 PCM,Post and Telecommunication Construction MaterialJoint Stock Co,UPCOM,,,11600,11600,11600,11600,-14.074074074074074,,100,VND
@@ -777,7 +777,7 @@ PEG,Petec Trading and Investment Corporation,UPCOM,,,4000,4300,4000,4300,13.1578
 PEN,Petrolimex Installation No.III Joint Stock Company,HNX,Industrial Services,Engineering & Construction,10200,10200,10200,10200,0.0,51000000000.0,202,VND
 PEQ,Petrolimex Equipment JSC,UPCOM,,,40000,46000,40000,46000,0.0,,302,VND
 PET,Petrovietnam General Services JSC,HOSE,Distribution Services,Electronics Distributors,49600,51500,48000,48000,-3.225806451612903,5263027648926.0,973383,VND
-PFL,Petroleum Dong Do JSC,UPCOM,Industrial Services,Engineering & Construction,2500,2500,2100,2100,-8.695652173913043,120000000000.0,154806,VND
+PFL,Petroleum Dong Do JSC,UPCOM,Industrial Services,Engineering & Construction,2500,2500,2100,2200,-4.3478260869565215,120000000000.0,155106,VND
 PGB,Prosperity and Growth Commercial Joint Stock Bank,UPCOM,Finance,Regional Banks,12000,12000,11800,11900,-0.8333333333333334,5451600000000.0,2407,VND
 PGC,Petrolimex Gas JSC,HOSE,Utilities,Gas Distributors,14000,14000,13750,13850,0.0,835699122238.0,34533,VND
 PGD,PetroVietnam Low Pressure Gas Distribution JSC,HOSE,Utilities,Gas Distributors,23600,23600,23600,23600,0.425531914893617,2326436889648.0,137,VND
@@ -849,7 +849,7 @@ PTM,PTM Automobile Service Trading & Manufacturing JSC,UPCOM,Finance,Finance/Ren
 PTP,PTP JSC,UPCOM,,,11900,11900,11900,11900,6.25,,105,VND
 PTS,Hai Phong Petrolimex Transportation & Services JSC,HNX,Distribution Services,Wholesale Distributors,9100,9100,9100,9100,0.0,50668798542.0,200,VND
 PTT,Indochina Petroleum Transportation Joint Stock Co,UPCOM,Process Industries,Industrial Specialties,9700,9700,9700,9700,14.117647058823529,161633360000.0,2700,VND
-PTV,Petroleum Trading Joint Stock Co,UPCOM,,,6600,6600,5900,5900,-9.230769230769232,,21140,VND
+PTV,Petroleum Trading Joint Stock Co,UPCOM,,,6600,6600,5600,5600,-13.846153846153847,,24840,VND
 PTX,Petrolimex Nghe Tinh Transportation and Service Joint Stock Co,HNX,Industrial Services,Oil & Gas Pipelines,23000,23000,23000,23000,4.545454545454546,,100,VND
 PV2,PV2 Investment JSC,HNX,Finance,Real Estate Development,2200,2300,2100,2200,-4.3478260869565215,84798242569.0,433952,VND
 PVB,Petrovietnam Coating JSC,HNX,Industrial Services,Engineering & Construction,28500,28700,28100,28100,-2.0905923344947737,619919956207.0,92703,VND
@@ -861,7 +861,7 @@ PVH,Thanh Hoa Petroleum Construction JSC,UPCOM,,,600,700,600,700,16.666666666666
 PVI,PVI Holdings,HNX,Finance,Multi-Line Insurance,81100,81100,78000,78000,-3.9408866995073892,19020437127686.0,115280,VND
 PVL,Petroleum Real Estate Joint Stock Company,UPCOM,Finance,Real Estate Development,3000,3400,3000,3200,0.0,110000000000.0,40001,VND
 PVM,Petrovietnam Machinery - Technology JSC,UPCOM,,,19500,19500,19300,19500,-1.015228426395939,,5000,VND
-PVO,PV OIL LUBE Joint Stock Co,UPCOM,,,7300,7300,7000,7000,-4.10958904109589,,20397,VND
+PVO,PV OIL LUBE Joint Stock Co,UPCOM,,,7300,7300,7000,7000,-4.10958904109589,,21297,VND
 PVP,Pacific Petroleum Transportation JSC,HOSE,Industrial Services,Oil & Gas Pipelines,14700,14700,14400,14400,-1.7064846416382253,1519240945435.0,232839,VND
 PVR,PetroVietnam Premier Recreation JSC,UPCOM,Consumer Durables,Homebuilding,1000,1000,900,1000,0.0,51906713000.0,25800,VND
 PVS,PetroVietnam Technical Services Corporation,HNX,Industrial Services,Oilfield Services/Equipment,40400,40700,37600,37800,-6.435643564356436,20661372241211.0,6956268,VND
@@ -888,7 +888,7 @@ QNU,Quang Nam Urban Environment Joint Stock Co,UPCOM,,,10000,10000,10000,10000,0
 QPH,Que Phong Hydro power Joint Stock Co,UPCOM,,,35000,35000,34000,34000,-4.225352112676056,,2089,VND
 QSP,Quy Nhon New Port Joint Stock Co,UPCOM,,,25000,25000,25000,25000,2.880658436213992,,1100,VND
 QTC,Quang Nam Transportation Construction JSC,HNX,Industrial Services,Engineering & Construction,29700,36000,29700,36000,9.090909090909092,97200001717.0,1800,VND
-QTP,Quang Ninh Thermal power joint stock Co,UPCOM,Utilities,Electric Utilities,13100,13100,12700,12900,-1.5267175572519083,,781433,VND
+QTP,Quang Ninh Thermal power joint stock Co,UPCOM,Utilities,Electric Utilities,13100,13100,12700,12800,-2.2900763358778624,,784433,VND
 RAL,Rangdong Light Source & Vacuum Flask JSC,HOSE,Producer Manufacturing,Electrical Products,86600,86700,86200,86700,0.11547344110854503,2039206615448.0,3411,VND
 RAT,Railway Transport and Trade Joint Stock Co,UPCOM,,,20400,20400,20400,20400,0.0,,10001,VND
 RBC,Rubber Industry & Import - Export Corporation,UPCOM,,,6800,6800,6800,6800,11.475409836065573,,150,VND
@@ -963,7 +963,7 @@ SGD,Educational Book JSC in Ho Chi Minh City,HNX,Consumer Services,Publishing: B
 SGH,Saigon Hotel Corp.,HNX,Consumer Services,Hotels/Resorts/Cruise lines,19500,19500,19500,19500,1.5625,241099940300.0,538,VND
 SGI,SGI HOLDINGS INVESTMENT JSC (SGI HOLDINGS),UPCOM,,,12400,12400,10200,10200,-5.555555555555555,,200,VND
 SGN,Sai Gon Ground Services JSC,HOSE,Transportation,Other Transportation,52100,52100,51700,51700,-1.5238095238095237,1758675899506.0,3609,VND
-SGP,Saigon Port Joint Stock Co,UPCOM,Transportation,Other Transportation,24200,24700,21500,23600,-2.479338842975207,,56870,VND
+SGP,Saigon Port Joint Stock Co,UPCOM,Transportation,Other Transportation,24200,24700,21500,24000,-0.8264462809917356,,56970,VND
 SGR,Saigon Real Estate JSC,HOSE,Finance,Real Estate Development,15100,15800,15100,15450,-1.9047619047619049,1100530889511.0,160136,VND
 SGT,Saigon Telecommunication & Technologies Corp.,HOSE,Finance,Real Estate Development,15100,15350,14550,15350,-0.967741935483871,2294044700623.0,4408,VND
 SHA,Sonha Saigon JSC,HOSE,Producer Manufacturing,Industrial Machinery,3980,3980,3980,3980,0.0,139772160416.0,999342,VND
@@ -1024,7 +1024,7 @@ STT,Saigontourist Transport Corporation,UPCOM,Consumer Services,Other Consumer S
 SVC,Saigon General Service Corp.,HOSE,Retail Trade,Specialty Stores,18100,18100,18000,18000,-1.098901098901099,1697473809814.0,3253,VND
 SVD,Vu Dang Investment & Trading Joint Stock Co,HOSE,Consumer Durables,Home Furnishings,3520,3520,3200,3200,-6.432748538011696,94412203445.0,5606,VND
 SVG,Industrial Gas and Welding Electrode JSC,UPCOM,,,6900,6900,6900,6900,0.0,,100,VND
-SVN,Vexilla Viet Nam Group JSC,HNX,Distribution Services,Wholesale Distributors,2000,2000,2000,2000,5.263157894736842,39900000000.0,212465,VND
+SVN,Vexilla Viet Nam Group JSC,HNX,Distribution Services,Wholesale Distributors,2000,2000,2000,2000,5.263157894736842,39900000000.0,212565,VND
 SVT,Sai Gon Vien Dong Technology JSC,HOSE,Process Industries,Pulp & Paper,10900,11500,10900,11500,0.0,199076246262.0,5400,VND
 SWC,Southern Waterborne Transport Corporation,UPCOM,Industrial Services,Engineering & Construction,25200,25200,24300,24800,-1.9762845849802373,1858670000000.0,27889,VND
 SZB,Sonadezi Long Binh Shareholding Co.,HNX,Finance,Real Estate Development,41600,41900,41500,41600,0.0,1248000000000.0,2116,VND
@@ -1106,7 +1106,7 @@ TNS,Thong Nhat Flat steel Joint Stock Co,UPCOM,Non-Energy Minerals,Steel,3700,38
 TNT,Tai Nguyen Corp.,HOSE,Distribution Services,Wholesale Distributors,7880,8230,7800,8230,6.883116883116883,392700000000.0,65901,VND
 TNV,Thong Nhat Ha Noi Joint Stock Company,UPCOM,,,16700,16700,16700,16700,1.2121212121212122,,1400,VND
 TNW,Thai Nguyen Water Joint Stock Co,UPCOM,,,12000,12000,12000,12000,0.0,,100,VND
-TOS,Tan Cang Offshore Services Joint Stock Co,UPCOM,,,168100,171000,165000,169800,-1.2790697674418605,,18417,VND
+TOS,Tan Cang Offshore Services Joint Stock Co,UPCOM,,,168100,171000,165000,171000,-0.5813953488372093,,20417,VND
 TOT,Transimex Logistics Joint Stock Co,HNX,Transportation,Trucking,16200,16200,16200,16200,-0.6134969325153374,150087822533.0,606,VND
 TOW,Tra Noc - O Mon Water Supply JSC,UPCOM,Utilities,Water Utilities,38000,38000,38000,38000,7.042253521126761,,1500,VND
 TPB,Tien Phong Commercial Joint Stock Bank,HOSE,Finance,Major Banks,16000,16100,15850,15850,-0.9375,44384746093750.0,4722932,VND
@@ -1164,7 +1164,7 @@ V21,Vinaconex 21 JSC,HNX,Finance,Real Estate Development,5700,6000,5600,6000,5.2
 VAB,VietNam- Asia Commercial Joint Stock Bank,HOSE,Finance,Regional Banks,10100,10250,10000,10050,1.0050251256281406,8122789141846.0,488543,VND
 VAF,Van Dien Fused Magnesium Phosphate Fertilizer Joint Stock Company,HOSE,Process Industries,Chemicals: Agricultural,19900,20000,19900,20000,-6.323185011709602,753306961060.0,3190,VND
 VAV,VIWACO JSC,UPCOM,Industrial Services,Engineering & Construction,35200,35200,35200,35200,0.5714285714285714,,121,VND
-VBB,Vietnam Thuong Tin Commercial Joint Stock Bank,UPCOM,Finance,Major Banks,11100,11800,10900,10900,-2.6785714285714284,8538738312000.001,100242,VND
+VBB,Vietnam Thuong Tin Commercial Joint Stock Bank,UPCOM,Finance,Major Banks,11100,11800,10900,10900,-2.6785714285714284,8538738312000.001,105242,VND
 VBC,Vinh Plastic & Bags JSC,HNX,Process Industries,Containers/Packaging,22000,22000,22000,22000,0.0,164999118805.0,3100,VND
 VC1,Construction JSC No. 1,HNX,Industrial Services,Engineering & Construction,14900,14900,14900,14900,-0.6666666666666667,178800000000.0,1000,VND
 VC2,Vina2 Invest & Construction Joint Stock Company,HNX,Industrial Services,Engineering & Construction,4900,4900,4800,4800,-2.0408163265306123,370663063049.0,67582,VND
@@ -1203,7 +1203,7 @@ VFR,Transport & Chartering Corp.,UPCOM,Transportation,Air Freight/Couriers,10000
 VFS,Viet First Securities Corporation,HNX,Finance,Investment Banks/Brokers,13200,13200,12800,12800,-3.0303030303030303,1847570178223.0,1019154,VND
 VGC,Viglacera Corp.,HOSE,Distribution Services,Wholesale Distributors,44850,44950,43800,43900,-2.118171683389075,20108499142456.0,665209,VND
 VGG,Viet Tien Garment Corp.,UPCOM,Consumer Non-Durables,Apparel/Footwear,42100,42300,42100,42300,0.4750593824228029,,401,VND
-VGI,Viettel Global Investment JSC,UPCOM,Communications,Specialty Telecommunications,91500,91500,88500,88600,-2.207505518763797,,525982,VND
+VGI,Viettel Global Investment JSC,UPCOM,Communications,Specialty Telecommunications,91500,91500,88500,88600,-2.207505518763797,,526382,VND
 VGL,Vingal-Vnsteel Industries JSC,UPCOM,,,18900,18900,18900,18900,-0.5263157894736842,,200,VND
 VGP,Vegetexco Port JSC,HNX,Transportation,Other Transportation,24800,24800,24700,24700,-0.4032258064516129,194082865906.0,10124,VND
 VGR,Vip GreenPort Joint Stock Co,UPCOM,Transportation,Other Transportation,80000,80000,79900,79900,-0.125,4724775000000.0,1832,VND
@@ -1285,7 +1285,7 @@ VST,Vietnam Sea Transport & Chartering JSC,UPCOM,Transportation,Marine Shipping,
 VTA,Vitaly JSC,UPCOM,Non-Energy Minerals,Construction Materials,2000,2000,1900,1900,-5.0,16800000000.0,4135,VND
 VTB,Viettronics Tan Binh JSC,HOSE,Producer Manufacturing,Industrial Machinery,14300,14300,14300,14300,0.0,154504631042.0,433,VND
 VTC,VTC Telecommunications JSC,HNX,Distribution Services,Electronics Distributors,12400,12400,12100,12100,-2.4193548387096775,54802628565.0,6400,VND
-VTD,Vietourist Travel Joint Stock Co,UPCOM,,,6100,6100,5900,5900,-1.6666666666666667,,15660,VND
+VTD,Vietourist Travel Joint Stock Co,UPCOM,,,6100,6100,5900,5900,-1.6666666666666667,,15760,VND
 VTE,Vinacap Telecom Electronics Joint Stock Co,UPCOM,Producer Manufacturing,Electrical Products,8300,8300,8300,8300,5.063291139240507,,100,VND
 VTG,Ba Ria - Vung Tau Tourist Joint Stock Co,UPCOM,,,4100,4100,4100,4100,-18.0,,101,VND
 VTH,Viet Thai Electric Cable Corporation,HNX,Producer Manufacturing,Electrical Products,8700,8700,8700,8700,0.0,94829905415.0,500,VND
