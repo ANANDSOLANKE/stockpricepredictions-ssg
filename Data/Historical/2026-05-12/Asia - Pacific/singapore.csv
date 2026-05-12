@@ -7,7 +7,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 1C0,Emerging Towns & Cities Singapore Ltd,SGX,Finance,Real Estate Development,0.023,0.023,0.021,0.023,0.0,44857887.0,2453300,SGD
 1D0,Kimly Ltd.,SGX,Consumer Services,Restaurants,0.415,0.42,0.415,0.415,0.0,516322098.0,1067900,SGD
 1D1,UnUsUal Ltd.,SGX,Commercial Services,Miscellaneous Commercial Services,0.025,0.025,0.024,0.024,-7.692307692307685,26758663.0,1124900,SGD
-1D4,Aoxin Q&M Dental Group Ltd.,SGX,Health Services,Medical/Nursing Services,0.265,0.265,0.26,0.26,0.0,300831446.0,5786300,SGD
+1D4,Aoxin Q&M Dental Group Ltd.,SGX,Health Services,Medical/Nursing Services,0.265,0.265,0.26,0.26,0.0,300831446.0,5836300,SGD
 1D5,Capital World Ltd.,SGX,Non-Energy Minerals,Construction Materials,0.001,0.001,0.001,0.001,0.0,16099981.0,500000,SGD
 1E3,Sanli Environmental Ltd.,SGX,Industrial Services,Engineering & Construction,0.187,0.19,0.187,0.189,0.5319148936170218,63335854.0,458500,SGD
 1F0,Shopper360 Ltd.,SGX,Commercial Services,Miscellaneous Commercial Services,0.064,0.065,0.064,0.065,1.5625000000000013,7072234.0,89800,SGD
@@ -62,7 +62,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 544,CSE Global Limited,SGX,Technology Services,Information Technology Services,1.54,1.72,1.53,1.64,9.333333333333327,1080708710.0,32529500,SGD
 546,Medtecs International Corporation Ltd.,SGX,Health Technology,Medical Specialties,0.146,0.147,0.135,0.137,-2.8368794326240967,77043988.0,17470600,SGD
 554,King Wan Corporation Limited,SGX,Industrial Services,Engineering & Construction,0.053,0.053,0.053,0.053,0.0,40722749.0,125000,SGD
-558,UMS Integration Limited,SGX,Electronic Technology,Semiconductors,2.41,2.71,2.41,2.6,10.169491525423737,2094507177.0,31118400,SGD
+558,UMS Integration Limited,SGX,Electronic Technology,Semiconductors,2.41,2.71,2.41,2.6,10.169491525423737,2094507177.0,31118900,SGD
 566,SHS Holdings Ltd.,SGX,Industrial Services,Engineering & Construction,0.116,0.116,0.116,0.116,0.0,75692200.0,500,SGD
 569,VicPlas International Ltd.,SGX,Health Technology,Medical Specialties,0.085,0.085,0.085,0.085,0.0,43441519.0,100,SGD
 570,Abundante Limited,SGX,Industrial Services,Engineering & Construction,0.142,0.142,0.142,0.142,-16.47058823529413,17729435.0,1000,SGD
@@ -149,17 +149,17 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 5WV,AsiaPhos Limited,SGX,Process Industries,Chemicals: Specialty,0.009,0.009,0.009,0.009,12.49999999999999,13316644.0,100,SGD
 8A1,Heptamax International Limited,SGX,Commercial Services,Miscellaneous Commercial Services,0.1,0.1,0.1,0.1,5.263157894736847,4664500.0,9000,SGD
 8A8,China Medical System Holdings Ltd.,SGX,Health Technology,Pharmaceuticals: Major,2.1,2.1,1.98,1.98,-1.0000000000000009,4946716595.201167,4800,SGD
-8AZ,Aztech Global Ltd.,SGX,Electronic Technology,Computer Peripherals,0.98,1.05,0.98,1.05,7.6923076923077,752498758.0,14979300,SGD
-8C8U,Centurion Accommodation REIT,SGX,Finance,Real Estate Investment Trusts,1.1,1.12,1.09,1.11,0.9090909090909097,1946352115.0,1826300,SGD
+8AZ,Aztech Global Ltd.,SGX,Electronic Technology,Computer Peripherals,0.98,1.05,0.98,1.05,7.6923076923077,752498758.0,15079300,SGD
+8C8U,Centurion Accommodation REIT,SGX,Finance,Real Estate Investment Trusts,1.1,1.12,1.09,1.11,0.9090909090909097,1894679050.0,1826300,SGD
 8K7,UG Healthcare Corp. Ltd.,SGX,Health Technology,Medical Specialties,0.1,0.1,0.09,0.093,-3.1250000000000027,59887278.0,5060700,SGD
 8U7U,IREIT Global,SGX,Finance,Real Estate Investment Trusts,0.158,0.158,0.158,0.158,-3.06748466257669,316036787.63509417,8300,EUR
 8YY,Embracing Future Holdings Limited,SGX,Health Technology,Biotechnology,0.048,0.049,0.048,0.048,0.0,83205212.0,735500,SGD
-8YZ,Yangzijiang Maritime Development Ltd.,SGX,Finance,Financial Conglomerates,0.675,0.695,0.665,0.68,0.7407407407407414,2372580248.0,10208500,SGD
+8YZ,Yangzijiang Maritime Development Ltd.,SGX,Finance,Financial Conglomerates,0.675,0.695,0.665,0.68,0.7407407407407414,2355134805.0,10208500,SGD
 9A4U,ESR-REIT,SGX,Finance,Real Estate Investment Trusts,2.41,2.41,2.39,2.39,-1.2396694214875952,1951611897.0,434800,SGD
 9CI,CapitaLand Investment Limited,SGX,Finance,Real Estate Investment Trusts,2.62,2.64,2.61,2.62,-0.7575757575757582,13167968709.0,7505300,SGD
 9G2,Singapore Institute of Advanced Medicine Holdings Ltd.,SGX,Health Services,Hospital/Nursing Management,0.049,0.053,0.049,0.05,2.0408163265306136,60343235.0,7629500,SGD
 9I7,Bromat Holdings Ltd.,SGX,Consumer Services,Restaurants,0.016,0.016,0.016,0.016,0.0,7252147.0,100,SGD
-9MT,MetaOptics Ltd,SGX,Electronic Technology,Electronic Components,0.865,0.865,0.835,0.85,-1.7341040462427761,215956942.5,366000,SGD
+9MT,MetaOptics Ltd,SGX,Electronic Technology,Electronic Components,0.865,0.865,0.835,0.85,-1.7341040462427761,209890736.25,366000,SGD
 9QX,Beverly Wilshire Ltd.,SGX,Distribution Services,Wholesale Distributors,0.01,0.01,0.01,0.01,0.0,11920227.0,24200,SGD
 9VW,Spackman Entertainment Group Ltd,SGX,Consumer Services,Movies/Entertainment,0.127,0.139,0.127,0.139,-0.7142857142857149,2570948.0,2400,SGD
 A04,ASL Marine Holdings Ltd.,SGX,Producer Manufacturing,Trucks/Construction/Farm Machinery,0.385,0.405,0.385,0.405,3.8461538461538494,401322839.0,3129700,SGD
@@ -257,7 +257,7 @@ BTOU,Manulife US REIT,SGX,Finance,Real Estate Investment Trusts,0.057,0.058,0.05
 BTP,Baker Technology Limited,SGX,Industrial Services,Oilfield Services/Equipment,0.495,0.5,0.495,0.5,1.010101010101011,100424591.0,36300,SGD
 BTX,Anchun International Holdings Ltd.,SGX,Producer Manufacturing,Industrial Machinery,0.465,0.47,0.465,0.465,0.0,22408768.0,34200,SGD
 BUOU,Frasers Logistics & Commercial Trust,SGX,Finance,Real Estate Investment Trusts,0.985,0.985,0.965,0.97,-1.52284263959391,3744242847.0,17034300,SGD
-BVA,Top Glove Corporation Bhd.,SGX,Health Technology,Medical Specialties,0.285,0.285,0.265,0.28,0.0,2215224281.681939,29093600,SGD
+BVA,Top Glove Corporation Bhd.,SGX,Health Technology,Medical Specialties,0.285,0.285,0.265,0.28,0.0,2215224281.681939,29108600,SGD
 BWM,"Zheneng Jinjiang Environment Holding Co., Ltd.",SGX,Utilities,Electric Utilities,0.59,0.605,0.59,0.595,0.8474576271186449,857874582.0,727800,SGD
 BXE,CDW Holding Limited,SGX,Electronic Technology,Electronic Production Equipment,0.093,0.093,0.093,0.093,0.0,20644830.0,200,SGD
 BYI,Phillip SGX APAC Dividend Leaders REIT ETF,SGX,Miscellaneous,Investment Trusts/Mutual Funds,0.888,0.888,0.888,0.888,0.90909090909091,,520,USD
@@ -304,15 +304,15 @@ D03,Del Monte Pacific Limited,SGX,Consumer Non-Durables,Food: Major Diversified,
 D05,DBS Group Holdings Ltd,SGX,Finance,Major Banks,59.04,59.15,58.5,59.1,0.5615109749872355,167004799128.0,5294900,SGD
 D07,State Street SPDR Dow Jones Industrial Average ETF Trust,SGX,Miscellaneous,Investment Trusts/Mutual Funds,498.85,499.55,498.85,499.55,-0.08999999999999773,,14,USD
 D5IU,Landmark REIT,SGX,Finance,Real Estate Investment Trusts,0.008,0.008,0.007,0.007,0.0,119170738.0,2015700,SGD
-D8DU,First Ship Lease Trust Shipping Business Trust Units,SGX,Transportation,Marine Shipping,0.042,0.045,0.042,0.044,4.761904761904749,81330760.0,29100,SGD
+D8DU,First Ship Lease Trust Shipping Business Trust Units,SGX,Transportation,Marine Shipping,0.042,0.045,0.042,0.044,4.761904761904749,74258520.0,29100,SGD
 DCRU,Digital Core REIT,SGX,Finance,Real Estate Investment Trusts,0.52,0.52,0.515,0.52,0.9708737864077678,847129737.4228729,1719600,USD
-DHLU,Daiwa House Logistics Trust,SGX,Finance,Real Estate Investment Trusts,0.495,0.495,0.49,0.49,0.0,343362243.0,154800,SGD
+DHLU,Daiwa House Logistics Trust,SGX,Finance,Real Estate Investment Trusts,0.495,0.495,0.49,0.49,0.0,343362243.0,454800,SGD
 DM0,PSC Corporation Ltd,SGX,Consumer Non-Durables,Household/Personal Care,0.455,0.465,0.455,0.46,-2.1276595744680753,260105412.0,59400,SGD
 DU4,"Mermaid Maritime Public Co., Ltd.",SGX,Energy Minerals,Oil & Gas Production,0.12,0.123,0.12,0.12,0.0,226889189.0,1018100,SGD
 E27,Place Holdings Limited,SGX,Commercial Services,Miscellaneous Commercial Services,0.004,0.004,0.004,0.004,33.33333333333333,17641963.0,1000,SGD
-E28,Frencken Group Limited,SGX,Electronic Technology,Electronic Production Equipment,2.94,3.21,2.94,3.15,8.620689655172415,1241453508.0,10717600,SGD
+E28,Frencken Group Limited,SGX,Electronic Technology,Electronic Production Equipment,2.94,3.21,2.94,3.15,8.620689655172415,1241453508.0,10719600,SGD
 E3B,Wee Hur Holdings Ltd.,SGX,Industrial Services,Engineering & Construction,0.72,0.745,0.715,0.745,3.472222222222225,661856467.0,4205500,SGD
-E5H,Golden Agri-Resources Ltd,SGX,Process Industries,Agricultural Commodities/Milling,0.325,0.33,0.325,0.33,0.0,4188384336.0,21259600,SGD
+E5H,Golden Agri-Resources Ltd,SGX,Process Industries,Agricultural Commodities/Milling,0.325,0.33,0.325,0.33,0.0,4188384336.0,23409800,SGD
 E6R,Le Tree Holdings Limited,SGX,Non-Energy Minerals,Forest Products,0.003,0.003,0.003,0.003,-25.0,38530736.0,1000000,SGD
 E9L,Joyas International Holdings Limited,SGX,Finance,Finance/Rental/Leasing,0.003,0.004,0.003,0.004,33.33333333333333,6641331.0,20049300,SGD
 EAA,Lion-China Merchants Emerging Asia Select ETF,SGX,Miscellaneous,Investment Trusts/Mutual Funds,1.201,1.201,1.201,1.201,0.08333333333334267,,12,SGD
@@ -325,7 +325,7 @@ ES3,State Street SPDR Straits Times Index ETF Units,SGX,Miscellaneous,Investment
 ESG,Lion-OCBC Securities Singapore Low Carbon ETF Units,SGX,Miscellaneous,Investment Trusts/Mutual Funds,1.383,1.383,1.376,1.381,-0.1446131597975417,,53272,SGD
 ESU,Lion-OCBC Securities Singapore Low Carbon ETF Units,SGX,Miscellaneous,Investment Trusts/Mutual Funds,1.089,1.089,1.089,1.089,0.0,,355,USD
 EVS,Amova-StraitsTrading MSCI China Electric Vehicles and Future Mobility Index ETF,SGX,Miscellaneous,Investment Trusts/Mutual Funds,0.715,0.715,0.71,0.715,-0.6944444444444451,,8790,SGD
-F03,Food Empire Holdings Limited,SGX,Consumer Non-Durables,Food: Specialty/Candy,2.93,3.06,2.9,3.05,5.902777777777776,1563432425.0,2373800,SGD
+F03,Food Empire Holdings Limited,SGX,Consumer Non-Durables,Food: Specialty/Candy,2.93,3.06,2.9,3.05,5.902777777777776,1563432425.0,2378800,SGD
 F10,FJ Benjamin Holdings Ltd.,SGX,Retail Trade,Apparel/Footwear Retail,0.007,0.008,0.007,0.008,14.285714285714285,8311197.0,1879900,SGD
 F13,Fu Yu Corporation Limited,SGX,Producer Manufacturing,Miscellaneous Manufacturing,0.12,0.124,0.117,0.121,-0.8196721311475417,92963361.0,8231400,SGD
 F17,GuocoLand Limited,SGX,Finance,Real Estate Development,2.39,2.43,2.38,2.4,0.41841004184099523,2652346406.0,166200,SGD
@@ -394,7 +394,7 @@ HXXD,Xiaomi Corporation Shs UnSp Singapore Depositary Receipt Repr 1/2 Sh,SGX,El
 HYDD,BYD Company Limited Shs UnSp Singapore Depositary Receipt Repr 1/10 Sh,SGX,Producer Manufacturing,Electrical Products,1.66,1.66,1.61,1.61,-1.829268292682915,158222661437.3108,366600,SGD
 HZGD,Zijin Gold International Company Limited Shs UnSp Singapore Depositary Receipt Repr 1/10 Sh,SGX,Non-Energy Minerals,Precious Metals,2.73,2.78,2.65,2.68,0.7518796992481209,71144090684.43947,118700,SGD
 I06,Intraco Ltd.,SGX,Distribution Services,Wholesale Distributors,0.38,0.38,0.38,0.38,-1.2987012987012998,42870414.0,11000,SGD
-I07,ISDN Holdings Limited,SGX,Commercial Services,Miscellaneous Commercial Services,0.72,0.765,0.72,0.74,3.4965034965034993,324182446.0,15934400,SGD
+I07,ISDN Holdings Limited,SGX,Commercial Services,Miscellaneous Commercial Services,0.72,0.765,0.72,0.74,3.4965034965034993,324182446.0,15937400,SGD
 I11,Renaissance United Limited,SGX,Utilities,Gas Distributors,0.001,0.001,0.001,0.001,0.0,6180800.0,322000,SGD
 I49,IFS Capital Ltd.,SGX,Finance,Finance/Rental/Leasing,0.205,0.205,0.2,0.2,-2.4390243902438913,77073781.0,120100,SGD
 I98,iShares MSCI India Climate Transition ETF,SGX,Miscellaneous,Investment Trusts/Mutual Funds,12.2,12.37,12.05,12.14,-2.0177562550443904,,3377,USD
@@ -417,7 +417,7 @@ JYEU,Lendlease Global Commercial REIT,SGX,Finance,Real Estate Investment Trusts,
 K03,Khong Guan Limited,SGX,Distribution Services,Food Distributors,0.96,0.965,0.96,0.965,9.039548022598867,24909080.0,200,SGD
 K29,Karin Technology Holdings Limited,SGX,Technology Services,Information Technology Services,0.25,0.255,0.25,0.25,0.0,54087002.0,57300,SGD
 K6S,Prudential plc,SGX,Finance,Multi-Line Insurance,15.2,15.8,15.2,15.8,4.63576158940398,49387455864.13629,700,USD
-K71U,Keppel REIT,SGX,Finance,Real Estate Investment Trusts,0.855,0.875,0.85,0.87,-0.571428571428572,4346425354.0,35571200,SGD
+K71U,Keppel REIT,SGX,Finance,Real Estate Investment Trusts,0.855,0.875,0.85,0.87,-0.571428571428572,4346425354.0,35769300,SGD
 K75,Koh Brothers Group Limited,SGX,Industrial Services,Engineering & Construction,0.475,0.49,0.46,0.47,-1.0526315789473695,195918073.0,1847300,SGD
 KIN,Kin Global Ltd.,SGX,Consumer Services,Movies/Entertainment,0.25,0.25,0.24,0.25,0.0,,145000,SGD
 KJ5,BBR Holdings (S) Ltd,SGX,Industrial Services,Engineering & Construction,0.2,0.205,0.2,0.205,2.4999999999999885,64477247.00000001,315100,SGD
@@ -475,7 +475,7 @@ NTDU,NTT DC REIT,SGX,Finance,Real Estate Investment Trusts,1.0,1.01,0.995,1.01,0
 NXR,iWOW Technology Limited,SGX,Technology Services,Packaged Software,0.4,0.405,0.4,0.405,3.8461538461538494,112643517.0,46200,SGD
 O08,Ossia International Limited,SGX,Retail Trade,Apparel/Footwear Retail,0.17,0.17,0.17,0.17,-4.494382022471899,42947013.0,2000,SGD
 O10,Far East Orchard Ltd.,SGX,Finance,Real Estate Development,1.25,1.25,1.22,1.23,-0.8064516129032264,608764737.0,70300,SGD
-O39,Oversea-Chinese Banking Corporation Limited,SGX,Finance,Major Banks,22.42,22.48,22.06,22.33,-0.7555555555555631,101117889404.0,8406700,SGD
+O39,Oversea-Chinese Banking Corporation Limited,SGX,Finance,Major Banks,22.42,22.48,22.06,22.33,-0.7555555555555631,101117889404.0,8407200,SGD
 O5RU,AIMS APAC REIT,SGX,Finance,Real Estate Investment Trusts,1.56,1.57,1.54,1.56,0.0,1277085327.0,2005900,SGD
 O87,SPDR Gold Shares,SGX,Miscellaneous,Investment Trusts/Mutual Funds,436.0,436.89,430.79,431.41,0.5149114631873337,,26928,USD
 O9A,Xtrackers MSCI SINGAPORE UCITS ETF Capitalisation 1C,SGX,Miscellaneous,Investment Trusts/Mutual Funds,2.373,2.373,2.373,2.373,-0.9185803757828727,,1000,USD
@@ -499,7 +499,7 @@ P52,Pan-United Corporation Ltd.,SGX,Non-Energy Minerals,Construction Materials,1
 P74,China Kangda Food Co. Ltd.,SGX,Consumer Non-Durables,Food: Meat/Fish/Dairy,0.022,0.025,0.022,0.025,-51.92307692307692,22025380.584528487,40000,SGD
 P7VU,Hutchison Port Holdings Trust,SGX,Transportation,Other Transportation,0.265,0.265,0.265,0.265,0.0,2321780766.594745,82500,SGD
 P8A,Cordlife Group Limited,SGX,Health Services,Medical/Nursing Services,0.152,0.152,0.152,0.152,0.6622516556291397,38805820.0,100,SGD
-P8Z,Bumitama Agri Ltd.,SGX,Process Industries,Agricultural Commodities/Milling,1.84,1.89,1.78,1.82,-1.0869565217391313,3190825115.0,2265500,SGD
+P8Z,Bumitama Agri Ltd.,SGX,Process Industries,Agricultural Commodities/Milling,1.84,1.89,1.78,1.82,-1.0869565217391313,3190825115.0,2266900,SGD
 P9D,Civmec Limited,SGX,Industrial Services,Engineering & Construction,1.43,1.43,1.4,1.41,-1.3986013986014,747815485.4491686,111100,SGD
 PA3,TA Corporation Ltd.,SGX,Industrial Services,Engineering & Construction,0.115,0.115,0.115,0.115,-0.8620689655172421,68617658.0,50800,SGD
 PCT,PC Partner Group Limited,SGX,Electronic Technology,Computer Peripherals,2.09,2.13,2.05,2.07,-0.956937799043063,810676831.0,2017500,SGD
@@ -536,8 +536,8 @@ S45U,Singapore Index Fund Units,SGX,Miscellaneous,Investment Trusts/Mutual Funds
 S56,Samudera Shipping Line Ltd,SGX,Transportation,Marine Shipping,1.03,1.05,1.02,1.03,0.0,554179339.0,817000,SGD
 S58,SATS Ltd,SGX,Transportation,Other Transportation,3.26,3.29,3.25,3.28,0.9230769230769171,4829173889.0,4815100,SGD
 S59,SIA Engineering Co. Ltd.,SGX,Transportation,Other Transportation,3.28,3.32,3.24,3.28,3.1446540880503036,3569586952.0,1143200,SGD
-S61,SBS Transit Ltd,SGX,Transportation,Other Transportation,3.59,3.6,3.55,3.55,-1.1142061281337057,1124152905.0,142500,SGD
-S63,Singapore Technologies Engineering Ltd,SGX,Electronic Technology,Aerospace & Defense,10.58,10.69,10.56,10.64,0.0940733772342407,33125506883.0,3475400,SGD
+S61,SBS Transit Ltd,SGX,Transportation,Other Transportation,3.59,3.6,3.55,3.55,-1.1142061281337057,1124152905.0,142700,SGD
+S63,Singapore Technologies Engineering Ltd,SGX,Electronic Technology,Aerospace & Defense,10.58,10.69,10.56,10.64,0.0940733772342407,33125506883.0,3745600,SGD
 S68,Singapore Exchange Ltd.,SGX,Finance,Investment Banks/Brokers,20.9,21.14,20.81,21.1,0.6679389312977126,22444676774.0,1681700,SGD
 S69,Serial System Ltd,SGX,Distribution Services,Electronics Distributors,0.075,0.085,0.075,0.085,11.842105263157904,68083979.0,5992600,SGD
 S71,Sunright Limited,SGX,Commercial Services,Miscellaneous Commercial Services,0.86,0.89,0.85,0.855,-0.5813953488372098,105613162.0,674500,SGD
@@ -554,7 +554,7 @@ SES,Shanaya Limited,SGX,Electronic Technology,Electronic Components,0.052,0.052,
 SET,Stoneweg European Stapled Trust,SGX,Finance,Real Estate Investment Trusts,1.57,1.58,1.56,1.58,0.0,1310933378.511648,54800,EUR
 SGR,Sheffield Green,SGX,Commercial Services,Personnel Services,0.168,0.168,0.168,0.168,0.0,31290940.0,1000,SGD
 SHD,SOP Investments III VCC - CSOP Huatai-PB SSE Dividend Index ETF -RMB-,SGX,Miscellaneous,Investment Trusts/Mutual Funds,1.17,1.17,1.17,1.17,-1.349072512647556,,200,SGD
-SHE,Soon Hock Enterprise Holding Limited,SGX,Finance,Real Estate Development,0.65,0.655,0.65,0.65,0.0,203509810.0,219000,SGD
+SHE,Soon Hock Enterprise Holding Limited,SGX,Finance,Real Estate Development,0.65,0.655,0.65,0.65,0.0,201956300.0,219000,SGD
 SJY,MeGroup Ltd.,SGX,Retail Trade,Specialty Stores,0.09,0.09,0.086,0.09,-6.250000000000005,11474238.0,488200,SGD
 SQQ,CSOP iEdge SoutheastAsia+ TECH Index ETF,SGX,Miscellaneous,Investment Trusts/Mutual Funds,1.097,1.097,1.085,1.089,-1.0899182561307912,,2247,SGD
 SQU,CSOP iEdge SoutheastAsia+ TECH Index ETF,SGX,Miscellaneous,Investment Trusts/Mutual Funds,0.847,0.847,0.847,0.847,-4.401805869074496,,2,USD
@@ -567,12 +567,12 @@ T13,RH Petrogas Limited,SGX,Energy Minerals,Integrated Oil,0.19,0.193,0.19,0.192
 T14,Tianjin Pharmaceutical Da Ren Tang Group Corporation Limited Class S,SGX,Health Technology,Pharmaceuticals: Major,3.28,3.31,3.25,3.27,-0.3048780487804813,5382064544.348685,133000,USD
 T15,Tan Chong International Limited,SGX,Producer Manufacturing,Trucks/Construction/Farm Machinery,1.79,1.79,1.79,1.79,0.0,561296615.3187411,20000,HKD
 T24,Tuan Sing Holdings Limited,SGX,Finance,Real Estate Development,0.34,0.34,0.335,0.335,-1.4705882352941189,425028850.0,302600,SGD
-T41,Telechoice International Limited,SGX,Distribution Services,Electronics Distributors,0.24,0.245,0.05,0.235,-2.0833333333333353,108875842.0,594800,SGD
+T41,Telechoice International Limited,SGX,Distribution Services,Electronics Distributors,0.24,0.245,0.05,0.235,-2.0833333333333353,108875842.0,604800,SGD
 T55,TIH Limited,SGX,Finance,Financial Conglomerates,0.21,0.21,0.21,0.21,0.0,50753979.0,2300,SGD
 T6I,ValueMax Group Ltd.,SGX,Retail Trade,Specialty Stores,1.09,1.11,1.07,1.1,1.8518518518518534,1022558991.0,399900,SGD
 T82U,Suntec Real Estate Investment Trust,SGX,Finance,Real Estate Investment Trusts,1.48,1.48,1.45,1.47,-0.6756756756756763,4378706883.0,5725200,SGD
 TADD,"Advanced Info Service Public Co., Ltd. Shs Singapore Depositary Receipt Repr 1 NDVR",SGX,Communications,Wireless Telecommunications,1.39,1.39,1.38,1.39,1.4598540145985253,40864712894.00617,1100,SGD
-TAP,Assembly Place Holdings Ltd.,SGX,Miscellaneous,Miscellaneous,0.25,0.255,0.25,0.25,2.040816326530614,95750000.0,363200,SGD
+TAP,Assembly Place Holdings Ltd.,SGX,Miscellaneous,Miscellaneous,0.25,0.255,0.25,0.25,2.040816326530614,93835000.0,363200,SGD
 TATD,Airports of Thailand Public Co Ltd Shs Singapore Depositary Receipt Repr 1 NDVR,SGX,Transportation,Other Transportation,1.98,1.99,1.98,1.98,0.0,28460753753.430836,700,SGD
 TBDD,Bangkok Dusit Medical Services Public Co. Ltd. UnSp Singapore Depositary Receipt Repr 2/1 Sh,SGX,Health Services,Hospital/Nursing Management,1.45,1.45,1.45,1.45,0.0,11479031384.73632,14200,SGD
 TCPD,CP ALL Public Company Limited Shs Singapore Depositary Receipt Repr 1 NDVR,SGX,Retail Trade,Food Retail,1.73,1.73,1.73,1.73,-0.5747126436781614,15516285378.101698,700,SGD
@@ -601,7 +601,7 @@ U9E,China Everbright Water Limited,SGX,Industrial Services,Environmental Service
 UD1U,IREIT Global,SGX,Finance,Real Estate Investment Trusts,0.235,0.235,0.235,0.235,0.0,316036846.0,1096800,SGD
 UIBU,UI Boustead REIT,SGX,Finance,Real Estate Investment Trusts,0.815,0.825,0.815,0.815,0.0,1113186332.0,6090000,SGD
 UIX,China Environmental Resources Group Ltd.,SGX,Distribution Services,Wholesale Distributors,0.093,0.095,0.093,0.093,4.494382022471914,58390367.38903413,80800,SGD
-ULG,UltraGreen.ai Limited,SGX,Technology Services,Packaged Software,1.32,1.34,1.31,1.33,2.3076923076923097,1848098256.846732,1539500,USD
+ULG,UltraGreen.ai Limited,SGX,Technology Services,Packaged Software,1.32,1.34,1.31,1.33,2.3076923076923097,1820096768.1066298,1539500,USD
 UPD,UOBAM Ping An FTSE ASEAN Dividend Index ETF Units,SGX,Miscellaneous,Investment Trusts/Mutual Funds,0.973,0.973,0.965,0.965,-0.7201646090534986,,241671,SGD
 UPU,UOBAM Ping An FTSE ASEAN Dividend Index ETF Units,SGX,Miscellaneous,Investment Trusts/Mutual Funds,0.768,0.768,0.768,0.768,-0.25974025974025994,,1200,USD
 URR,Sim Leisure Group Ltd.,SGX,Consumer Services,Movies/Entertainment,0.47,0.47,0.47,0.47,-5.0505050505050555,77721646.0,2400,SGD
