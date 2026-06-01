@@ -2,9 +2,9 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 AAISA,Administradora Americana de Inversiones SA,BCS,Finance,Financial Conglomerates,446.0,458.5,446.0,454.75,2.1611664008267257,445130004883.0,96124,CLP
 AAPL,Apple Inc.,BCS,Electronic Technology,Telecommunications Equipment,310.66,310.66,298.0,298.0,0.0,4099585346471527.0,16,USD
 AAPLCL,Apple Inc.,BCS,Electronic Technology,Telecommunications Equipment,277810.0,277810.0,252300.0,252300.0,0.0,4099585345676207.5,1,CLP
-ABC,Abc SA,BCS,Retail Trade,Department Stores,11.7,11.7,11.55,11.55,0.4347826086956583,64423376221.0,216063,CLP
+ABC,Abc SA,BCS,Retail Trade,Department Stores,11.7,11.7,11.5,11.5,0.0,64423376221.0,216063,CLP
 ABTCL,Abbott Laboratories,BCS,Health Technology,Medical Specialties,77020.0,108200.0,77020.0,108200.0,0.0,133362376469588.55,75,CLP
-ADBE,Adobe Inc.,BCS,Technology Services,Packaged Software,274.0,274.0,274.0,274.0,13.223140495867769,93714384374173.44,7,USD
+ADBE,Adobe Inc.,BCS,Technology Services,Packaged Software,274.0,274.0,242.0,242.0,0.0,93714384374173.44,7,USD
 ADP,"Automatic Data Processing, Inc.",BCS,Technology Services,Packaged Software,221.58,221.58,221.58,221.58,-5.023574796399485,79317577811452.02,44,USD
 ADPCL,"Automatic Data Processing, Inc.",BCS,Technology Services,Packaged Software,194990.0,194990.0,194990.0,194990.0,4.597146228945393,79317577796064.39,6,CLP
 AFPCAPITAL,AFP Capital SA,BCS,Finance,Investment Managers,247.5,247.5,247.5,247.5,0.0,773132475586.0,560,CLP
@@ -20,11 +20,11 @@ ANTARCHILE,AntarChile S.A.,BCS,Finance,Financial Conglomerates,8080.0,8080.0,806
 ARACL,"Aclara Resources, Inc.",BCS,Non-Energy Minerals,Other Metals/Minerals,2796.2,2796.2,2796.2,2796.2,-1.9186923427689597,617273974726.7441,205,CLP
 AVGOCL,Broadcom Inc.,BCS,Electronic Technology,Semiconductors,378720.0,378720.0,365000.0,365000.0,0.0,1892046114831842.5,13,CLP
 AXPCL,American Express Company,BCS,Finance,Finance/Rental/Leasing,284410.0,299810.0,284410.0,299810.0,0.0,193144760025939.16,4,CLP
-AZUL_AZUL,Azul Azul S.A.,BCS,Consumer Services,Movies/Entertainment,493.0,493.0,493.0,493.0,-5.18683770217513,23590451875.0,100,CLP
-BACCL,Bank of America Corp,BCS,Finance,Major Banks,45660.0,45660.0,45660.0,45660.0,0.2921343378654425,327534928715563.5,3,CLP
+AZUL_AZUL,Azul Azul S.A.,BCS,Consumer Services,Movies/Entertainment,519.97,519.97,519.97,519.97,0.0,23590451875.0,100,CLP
+BACCL,Bank of America Corp,BCS,Finance,Major Banks,45660.0,45660.0,45527.0,45527.0,0.0,327534928715563.5,3,CLP
 BANVIDA,Banvida S.A.,BCS,Finance,Investment Managers,755.91,755.91,755.91,755.91,1.464429530201338,1192049017944.0,27466,CLP
 BCI,Banco de Credito e Inversiones,BCS,Finance,Major Banks,60101.0,60724.0,58245.0,58652.0,-2.329686433198448,13127404615768.0,164855,CLP
-BESALCO,Besalco SA,BCS,Industrial Services,Engineering & Construction,1257.0,1257.0,1257.0,1257.0,0.5599999999999999,720215835571.0,2838,CLP
+BESALCO,Besalco SA,BCS,Industrial Services,Engineering & Construction,1257.0,1257.0,1250.0,1250.0,0.0,720215835571.0,2838,CLP
 BICE,Bicecorp S.A.,BCS,Finance,Life/Health Insurance,392.7,394.99,389.01,393.0,1.4481530240842597,3943335645194.0,561701,CLP
 BINT,Banco Internacional,BCS,Finance,Major Banks,122.39,122.39,122.39,122.39,0.0,528639219980.99994,200,CLP
 BKNGCL,Booking Holdings Inc.,BCS,Consumer Services,Other Consumer Services,151650.0,194504.0,151650.0,194504.0,0.0,116044622401610.02,25,CLP
@@ -38,7 +38,7 @@ CAP,CAP S.A.,BCS,Non-Energy Minerals,Steel,6800.1,6850.0,6505.3,6600.0,-3.635567
 CAROZZI,Carozzi S.A.,BCS,Consumer Non-Durables,Food: Major Diversified,3600.0,3600.0,3396.3,3396.3,0.0,757587905170.0,312,CLP
 CAT,Caterpillar Inc.,BCS,Producer Manufacturing,Trucks/Construction/Farm Machinery,874.3,875.99,870.3,874.62,-2.711902113459399,360874908743533.9,214,USD
 CATCL,Caterpillar Inc.,BCS,Producer Manufacturing,Trucks/Construction/Farm Machinery,805710.0,809470.0,805710.0,809470.0,0.0,360874908673524.1,6,CLP
-CCL,Citigroup Inc.,BCS,Finance,Major Banks,112730.0,112730.0,112730.0,112730.0,58.0157272816473,193118831107334.53,2,CLP
+CCL,Citigroup Inc.,BCS,Finance,Major Banks,112730.0,112730.0,71341.0,71341.0,0.0,193118831107334.53,2,CLP
 CCU,Compania Cervecerias Unidas S.A.,BCS,Consumer Non-Durables,Beverages: Alcoholic,5348.7,5350.0,5225.4,5235.0,-2.149532710280374,1976840347290.0,973671,CLP
 CENCOMALLS,Cencosud Shopping SA,BCS,Finance,Real Estate Development,2425.0,2425.0,2301.0,2361.0,-2.7594728171334433,4141758097168.0,592442,CLP
 CENCOSUD,Cencosud S.A.,BCS,Retail Trade,Specialty Stores,2122.0,2169.0,2099.0,2146.0,2.2391615054787994,5936192354004.0,9248359,CLP
@@ -49,10 +49,10 @@ CFIAFE3F,Fondo de Inversion Activa Financiamiento Estructurado III 2025-27.03.30
 CFIALBIONA,FYNSA ADM GENERAL FI ALBION PORTFOLIO ONE A,BCS,,,1056.42,1056.42,1056.42,1056.42,0.03314174249814278,,22117,CLP
 CFIALEHI_E,Ameris Cap Adm Cuota De Fondo De Inversion,BCS,,,43380.68,43380.68,43380.68,43380.68,5.48744991370008,,25628,CLP
 CFIALT2A_E,Ameris Cap Adm Ameris Alterna Ii Fi 'A Clp,BCS,,,977.19,977.19,977.19,977.19,3.95638297872341,,50000,CLP
-CFIAMDVAMA,Compass DVA Multiaxis Fondo de Inversion Series A,BCS,Miscellaneous,Investment Trusts/Mutual Funds,1783.0,1783.0,1783.0,1783.0,0.5640157924421884,,1250,CLP
+CFIAMDVAMA,Compass DVA Multiaxis Fondo de Inversion Series A,BCS,Miscellaneous,Investment Trusts/Mutual Funds,1783.0,1783.0,1773.0,1773.0,0.0,,1250,CLP
 CFIAMG3R_E,Ameris NM Private Credit Fondo de Inversion 2020-13.04.29 Series R,BCS,,,625.0,625.0,625.0,625.0,-11.381456747061407,,48082,CLP
 CFIASXIB_E,Ameris Cap Adm Ameris Dover St Xi Fi B,BCS,,,1326.69,1326.69,1326.69,1326.69,2.5754225363002323,,9060,CLP
-CFIB1ALT,BICE Alternativos Fondo de Inversion Series A,BCS,,,2171.94,2171.94,2171.94,2171.94,-0.47016772064887563,,2082,CLP
+CFIB1ALT,BICE Alternativos Fondo de Inversion Series A,BCS,,,2171.94,2182.2,2171.94,2182.2,0.0,,2082,CLP
 CFIBMPEU_E,Fondo de Inversion Marketplus Europa Series A,BCS,Miscellaneous,Investment Trusts/Mutual Funds,2138.38,2138.38,2138.38,2138.38,0.9941766281118288,,38477,CLP
 CFIBPDCCHA,Celfin Deuda Corporativa Chile Fondo de Inversion CFICDCCH Cuotas,BCS,,,50636.25,50788.61,50500.0,50500.0,-0.17160599768990706,,1259,CLP
 CFIBPDPI2B,BTG Pactual Deuda Privada Inmobiliaria II Fondo de Inversion Shs 2024-27.09.29 Series B,BCS,,,10393.0,10393.0,10185.0,10185.0,0.0,,286,CLP
@@ -63,15 +63,15 @@ CFID1HS,Fondo de Inversion Deuda Hipotecaria con Subsidio Habitacional Cuotas,BC
 CFIFALCSCA,Fondo de Inversion Falcom Small Cap Chile Series A,BCS,,,1513.22,1513.22,1485.84,1485.84,0.0,,727,CLP
 CFIFTCLP_E,FRONTAL TRUST ADM COR REND CON LIQUIDE CLPP,BCS,,,125.43,125.44,125.43,125.43,0.2718043009033523,,461433,CLP
 CFIFTMPP_E,Frontal Trust Adm Cuota De Fondo De Inversion,BCS,,,100.48,100.48,100.48,100.48,-0.2580901330156749,,2846827,CLP
-CFIFTUFP_E,FRONTAL TRUST ADM COR REND CON LIQUIDE UFP,BCS,,,123.83,123.83,123.83,123.83,-1.1100463184794767,,26427,CLP
+CFIFTUFP_E,FRONTAL TRUST ADM COR REND CON LIQUIDE UFP,BCS,,,123.83,125.22,123.83,125.22,0.0,,26427,CLP
 CFIFYNDIIE,Fondo de Inversion FYNSA Desarrollo Inmobiliario II 2018-27.07.24 Series -Ejecutiva-,BCS,,,39820.44,39820.44,39820.44,39820.44,-0.058026943375530056,,7722,CLP
 CFIGIIA4_E,Moneda GSI Rentas Logisticas II Fondo de Inversion Series -A4-,BCS,,,36758.05,36758.05,36758.05,36758.05,-7.445423643459642,,545,CLP
 CFIIMSCLB,Fondo de Inversion IMT Spread Corporativo Local Cuotas Series B,BCS,,,1644.33,1644.33,1644.33,1644.33,0.13336256348422346,,6140,CLP
 CFIIMSCLD,Fondo de Inversion IMT Spread Corporativo Local Series D Cuotas,BCS,Miscellaneous,Investment Trusts/Mutual Funds,1705.13,1705.13,1705.13,1705.13,0.10273691131749815,,117293,CLP
 CFIIMSCLI,Fondo de Inversion IMT Spread Corporativo Local Cuotas,BCS,,,2236.49,2237.15,2236.49,2236.49,0.1069782015129078,,76256,CLP
-CFILGTVA_E,Ameris LGT Secondaries V Fondo de Inversion Series A 2020-07.07.36 Series A,BCS,,,2305.0,2305.0,2305.0,2305.0,-2.536997885835095,,703,CLP
+CFILGTVA_E,Ameris LGT Secondaries V Fondo de Inversion Series A 2020-07.07.36 Series A,BCS,,,2305.0,2365.0,2305.0,2365.0,0.0,,703,CLP
 CFILVCOR_A,Larrain Vial Deuda Corporativa Chile Fondo de Inversion CFILVCORCL Cuotas Series A,BCS,,,44255.14,44255.14,44255.14,44255.14,0.27016555683694665,,3539,CLP
-CFILVDPU_E,Fondo de Inversion LarrainVial Deuda Privada 2017-22.06.27,BCS,,,1666.0,1666.0,1666.0,1666.0,-0.23952095808383234,,2221,CLP
+CFILVDPU_E,Fondo de Inversion LarrainVial Deuda Privada 2017-22.06.27,BCS,,,1666.0,1670.0,1666.0,1670.0,0.0,,2221,CLP
 CFILVPA1RI,Fondo de Inversion LV-PATIO Renta Inmobiliaria I,BCS,,,13849.0,13849.0,13849.0,13849.0,-0.18105652826990684,,79,CLP
 CFILVRR_A,Fondo de Inversion LarrainVial Rentas Residenciales 2018-13.12.28,BCS,Miscellaneous,Investment Trusts/Mutual Funds,12300.0,12300.0,12300.0,12300.0,0.0,,6,CLP
 CFIMBD4C_E,MBI Deuda Privada IV Fondo de Inversion 2024-15.10.29 Series C,BCS,,,40037.18,40037.18,40037.18,40037.18,1.2750065577909033,,406,CLP
@@ -103,17 +103,17 @@ CFI_FMVPSE,Fondo de Inversion Falcom Portfolio Advisors MVP Private Equity Serie
 CFI_FYNUAE,Fynsa Adm General Fi Fynsa Upper Resi Us I 'A,BCS,,,0.53,0.53,0.53,0.53,3.921568627450984,,39423,USD
 CFI_HMCRGE,Fondo de Inversion HMC RV Global 2020-03.04.40,BCS,Miscellaneous,Investment Trusts/Mutual Funds,1.47,1.49,1.47,1.49,0.0,,4081633,USD
 CFI_LGTVAE,Ameris Cap Adm Amer Lgt Sec V Fi A,BCS,,,2.641,2.641,2.641,2.641,0.0,,1033,USD
-CFI_MBICHA,Mbi Admin Gen Fdo Mbi/Chl Deu Estruc Fi A Usd,BCS,,,9.121,9.121,9.121,9.121,15.30973451327434,,6790,USD
+CFI_MBICHA,Mbi Admin Gen Fdo Mbi/Chl Deu Estruc Fi A Usd,BCS,,,7.91,7.91,7.91,7.91,0.0,,6790,USD
 CFI_MDLATR,Moneda SA ADM GEN LATINOAMERICANA FI R,BCS,,,213.49,213.49,213.49,213.49,0.1595120806943483,,112,USD
 CFI_OREIAE,SINGULAR ASSET M A FI SING OAKTR R EST A USD,BCS,,,106.89,106.89,106.89,106.89,-0.3077783995523207,,755,USD
 CFI_PCP8CE,Picton - Clearlake Capital Partners VIII Fondo de Inversion 2024-08.01.38 Series C,BCS,,,0.639,0.639,0.639,0.639,-11.00278551532033,,790781,USD
 CFMCGEQLA,Fondo Mutuo Compass Equilibrio Series A,BCS,,,1426.49,1426.49,1426.49,1426.49,0.0,,462,CLP
-CGE,Compania General de Electricidad S.A.,BCS,Utilities,Electric Utilities,228.0,228.0,228.0,228.0,-1.1789181692094308,466030603833.0,11606,CLP
+CGE,Compania General de Electricidad S.A.,BCS,Utilities,Electric Utilities,228.0,230.72,228.0,230.72,0.0,466030603833.0,11606,CLP
 CGET,CGE Transmision SA,BCS,Utilities,Electric Utilities,119.46,119.46,119.46,119.46,0.0,,12553,CLP
 CHILE,Banco de Chile,BCS,Finance,Major Banks,168.0,169.8,166.0,166.59,-0.6381963497554534,16936523688373.0,94117200,CLP
-CIC,Companias CIC S.A.,BCS,Consumer Durables,Home Furnishings,20.0,20.0,20.0,20.0,-31.03448275862069,34261188353.999996,4000,CLP
-CINTAC,Cintac S.A.,BCS,Non-Energy Minerals,Steel,60.2,60.2,60.2,60.2,0.033233632436030454,68948943338.0,766,CLP
-CMCSACL,Comcast Corporation Class A,BCS,Consumer Services,Cable/Satellite TV,22191.0,22191.0,22191.0,22191.0,-31.950321987120518,79464514448121.64,32,CLP
+CIC,Companias CIC S.A.,BCS,Consumer Durables,Home Furnishings,29.0,29.0,29.0,29.0,0.0,34261188353.999996,4000,CLP
+CINTAC,Cintac S.A.,BCS,Non-Energy Minerals,Steel,60.2,60.2,60.18,60.18,0.0,68948943338.0,766,CLP
+CMCSACL,Comcast Corporation Class A,BCS,Consumer Services,Cable/Satellite TV,22191.0,32610.0,22191.0,32610.0,0.0,79464514448121.64,32,CLP
 CMPC,Empresas CMPC S.A.,BCS,Process Industries,Pulp & Paper,1103.5,1103.5,1065.0,1065.0,-0.09380863039399624,2665000000000.0,7440959,CLP
 COLBUN,Colbun SA,BCS,Utilities,Electric Utilities,134.0,135.02,132.0,134.91,0.9805389221556904,2342832147657.0,3490366,CLP
 COLO_COLO,Blanco Y Negro S.A.,BCS,Consumer Services,Movies/Entertainment,160.0,160.0,160.0,160.0,0.0,16000000000.0,2093,CLP
@@ -124,12 +124,12 @@ COSTCL,Costco Wholesale Corporation,BCS,Retail Trade,Specialty Stores,897790.0,8
 CPKCL,Chesapeake Utilities Corporation,BCS,Utilities,Gas Distributors,111730.0,111730.0,111730.0,111730.0,-4.991496598639456,2647824081395.3486,10,CLP
 CRISTALES,Cristalerias De Chile S.A.,BCS,Consumer Non-Durables,Beverages: Alcoholic,2250.0,2250.0,2250.0,2250.0,0.0,144000000000.0,2158,CLP
 CRMCL,"Salesforce, Inc.",BCS,Technology Services,Packaged Software,171730.0,171730.0,171730.0,171730.0,6.996884735202492,139991864936493.73,9,CLP
-CRUZADOS,Cruzados SADP Class A,BCS,Consumer Services,Movies/Entertainment,82.0,82.0,82.0,82.0,58.9763474214812,15061979155.0,16555,CLP
+CRUZADOS,Cruzados SADP Class A,BCS,Consumer Services,Movies/Entertainment,82.0,82.0,51.58,51.58,0.0,15061979155.0,16555,CLP
 CSCO,"Cisco Systems, Inc.",BCS,Electronic Technology,Telecommunications Equipment,118.21,118.21,64.2,64.2,0.0,424532713086831.6,41,USD
-CSCOCL,"Cisco Systems, Inc.",BCS,Electronic Technology,Telecommunications Equipment,107070.0,107070.0,107070.0,107070.0,1.9714285714285715,424532713004472.25,18,CLP
+CSCOCL,"Cisco Systems, Inc.",BCS,Electronic Technology,Telecommunications Equipment,107070.0,107070.0,105000.0,105000.0,0.0,424532713004472.25,18,CLP
 CTC,Telefonica Chile S.A.,BCS,Communications,Major Telecommunications,392.0,392.0,392.0,392.0,0.0,481792404297.0,385,CLP
 CUPRUM,Administradora de Fondos de Pensiones Cuprum SA,BCS,Finance,Investment Managers,111.02,112.24,111.0,112.24,-3.739279588336192,1489012155319.0,104063,CLP
-CVSCL,CVS Health Corporation,BCS,Retail Trade,Drugstore Chains,81132.0,81132.0,81132.0,81132.0,30.294854499903646,103831721943649.38,1,CLP
+CVSCL,CVS Health Corporation,BCS,Retail Trade,Drugstore Chains,81132.0,81132.0,62268.0,62268.0,0.0,103831721943649.38,1,CLP
 DISCL,Walt Disney Company,BCS,Consumer Services,Movies/Entertainment,92690.0,92690.0,92000.0,92000.0,0.0,158165433102862.25,15,CLP
 DUNCANFOX,Duncan Fox S.A.,BCS,Consumer Non-Durables,Food: Specialty/Candy,1500.0,1500.0,1500.0,1500.0,0.0,150000000000.0,575,CLP
 ECL,Engie Energia Chile S.A.,BCS,Utilities,Electric Utilities,1844.9,1879.9,1792.4,1860.0,0.5405405405405406,1948622930908.0,628038,CLP
@@ -145,16 +145,16 @@ ENELAM,Enel Americas S.A.,BCS,Utilities,Electric Utilities,78.5,78.57,78.0,78.0,
 ENELCHILE,Enel Chile SA,BCS,Utilities,Electric Utilities,78.0,78.0,75.1,75.1,-2.8460543337645574,5346575492330.0,62325017,CLP
 ENELDXCH,Enel Distribucion Chile S.A.,BCS,Utilities,Electric Utilities,450.0,450.0,450.0,450.0,0.0,517833929443.0,160,CLP
 ENELGXCH,Enel Generacion Chile S.A.,BCS,Utilities,Electric Utilities,539.0,539.6,537.0,538.54,-0.1964418087472311,4425666734527.0,75367,CLP
-ENJOY,Enjoy S.A.,BCS,Consumer Services,Hotels/Resorts/Cruise lines,0.161,0.161,0.161,0.161,-0.6172839506172845,8478895877.000001,5857672,CLP
-ENLASA,Energia Latina S.A.,BCS,Utilities,Electric Utilities,1001.0,1001.0,1001.0,1001.0,0.1,43762313843.0,623,CLP
+ENJOY,Enjoy S.A.,BCS,Consumer Services,Hotels/Resorts/Cruise lines,0.162,0.162,0.162,0.162,0.0,8478895877.000001,5857672,CLP
+ENLASA,Energia Latina S.A.,BCS,Utilities,Electric Utilities,1000.0,1000.0,1000.0,1000.0,0.0,43762313843.0,623,CLP
 ENTEL,Empresa Nacional de Telecomunicaciones S.A.,BCS,Communications,Wireless Telecommunications,3556.0,3700.0,3556.0,3590.8,-0.2555555555555505,1087261633301.0001,72921,CLP
 ESPANOLA,Compania de Inversiones la Espanola S.A.,BCS,Finance,Financial Conglomerates,4400.0,4400.0,4000.0,4000.0,0.0,123101104736.0,250,CLP
-ESSBIO_C,Essbio S.A. Pfd Series C,BCS,Utilities,Water Utilities,9.11,9.11,9.11,9.11,-8.808808808808816,264206793572.0,20790,CLP
-ESVAL_C,Esval SA Class C,BCS,Utilities,Water Utilities,0.029,0.029,0.029,0.029,-17.142857142857146,523741312399.0,400000,CLP
+ESSBIO_C,Essbio S.A. Pfd Series C,BCS,Utilities,Water Utilities,9.99,9.99,9.99,9.99,0.0,264206793572.0,20790,CLP
+ESVAL_C,Esval SA Class C,BCS,Utilities,Water Utilities,0.035,0.035,0.035,0.035,0.0,523741312399.0,400000,CLP
 FALABELLA,Falabella S.A.,BCS,Retail Trade,Department Stores,5705.0,5780.0,5587.9,5645.0,-0.9649122807017544,14300414941406.0,3127421,CLP
 FORUS,Forus S.A.,BCS,Consumer Non-Durables,Apparel/Footwear,2065.1,2081.1,2065.1,2081.1,0.0,537899848947.0,104,CLP
-FROWARD,Portuaria Cabo Froward S.A.,BCS,Transportation,Other Transportation,469.0,469.0,469.0,469.0,-0.2127659574468085,53221949158.0,1853,CLP
-GASCO,Empresas Gasco SA,BCS,Distribution Services,Wholesale Distributors,1500.0,1500.0,1500.0,1500.0,0.2472766156519445,251378408203.0,289,CLP
+FROWARD,Portuaria Cabo Froward S.A.,BCS,Transportation,Other Transportation,469.0,470.0,469.0,470.0,0.0,53221949158.0,1853,CLP
+GASCO,Empresas Gasco SA,BCS,Distribution Services,Wholesale Distributors,1496.3,1496.3,1496.3,1496.3,0.0,251378408203.0,289,CLP
 GASCOINV,Gasco Inversiones SA,BCS,Finance,Real Estate Development,135.0,135.0,135.0,135.0,0.0,22680000000.0,248,CLP
 GE,GE Aerospace,BCS,Electronic Technology,Aerospace & Defense,319.06,319.06,319.06,319.06,1.0195035460992996,302138540353784.8,1100,USD
 GECL,GE Aerospace,BCS,Electronic Technology,Aerospace & Defense,288160.0,295000.0,288160.0,295000.0,0.0,302138540295169.94,4,CLP
@@ -163,45 +163,45 @@ GOOGCL,Alphabet Inc. Class C,BCS,Technology Services,Internet Software/Services,
 GOOGL,Alphabet Inc. Class A,BCS,Technology Services,Internet Software/Services,387.51,388.48,387.51,387.53,-0.22913341228568126,4102780874551753.5,59,USD
 GOOGLCL,Alphabet Inc. Class A,BCS,Technology Services,Internet Software/Services,342230.0,350700.0,342230.0,350700.0,0.0,4102780873755814.0,3,CLP
 HABITAT,AFP Habitat SA,BCS,Finance,Investment Managers,1372.0,1372.0,1345.0,1353.0,-1.3632718524458733,1371699951172.0,117940,CLP
-HALCL,Halliburton Company,BCS,Industrial Services,Oilfield Services/Equipment,35510.0,35510.0,35510.0,35510.0,20.581344018472613,29029697619856.887,8,CLP
+HALCL,Halliburton Company,BCS,Industrial Services,Oilfield Services/Equipment,35510.0,35510.0,29449.0,29449.0,0.0,29029697619856.887,8,CLP
 HIPERMARC,Hipermarc S.A.,BCS,Distribution Services,Wholesale Distributors,14.49,14.49,14.49,14.49,-9.944064636420133,20303160407.0,71010,CLP
-HITES,Empresas Hites S.A.,BCS,Retail Trade,Department Stores,133.47,133.47,133.47,133.47,-2.576642335766424,92983440247.0,19520,CLP
+HITES,Empresas Hites S.A.,BCS,Retail Trade,Department Stores,133.47,137.0,133.47,137.0,0.0,92983440247.0,19520,CLP
 HONCL,Honeywell International Inc.,BCS,Electronic Technology,Aerospace & Defense,208090.0,208090.0,183740.0,183740.0,0.0,134812822542933.8,25,CLP
-HPQCL,HP Inc.,BCS,Technology Services,Information Technology Services,26310.0,26310.0,26310.0,26310.0,25.285714285714285,22118689430232.56,75,CLP
+HPQCL,HP Inc.,BCS,Technology Services,Information Technology Services,26310.0,26310.0,21000.0,21000.0,0.0,22118689430232.56,75,CLP
 HWM,Howmet Aerospace Inc.,BCS,Electronic Technology,Aerospace & Defense,257.13,257.13,253.0,253.0,0.0,92421965547446.86,19,USD
 HWMCL,Howmet Aerospace Inc.,BCS,Electronic Technology,Aerospace & Defense,229480.0,229480.0,193500.0,193500.0,0.0,92421965529516.98,9,CLP
 IAM,Inversiones Aguas Metropolitanas S.A.,BCS,Utilities,Water Utilities,933.04,955.01,932.0,933.01,-2.302617801047121,955000000000.0,177604,CLP
-IANSA,Empresas Iansa S.A.,BCS,Process Industries,Agricultural Commodities/Milling,31.39,31.39,31.39,31.39,-1.258257313620631,126647762436.0,32,CLP
+IANSA,Empresas Iansa S.A.,BCS,Process Industries,Agricultural Commodities/Milling,31.79,31.79,31.79,31.79,0.0,126647762436.0,32,CLP
 IBM,International Business Machines Corporation,BCS,Technology Services,Information Technology Services,288.05,288.05,288.05,288.05,8.920063525674973,250355829333005.53,45,USD
 IBMCL,International Business Machines Corporation,BCS,Technology Services,Information Technology Services,222890.0,274120.0,222890.0,274120.0,0.0,250355829284436.47,8,CLP
 ILC,Inversiones La Construccion SA,BCS,Finance,Investment Managers,22983.0,23500.0,22000.0,22700.0,-2.575107296137339,2330000000000.0,93218,CLP
-INDISA,Instituto de Diagnostico S.A.,BCS,Health Services,Hospital/Nursing Management,2713.3,2713.3,2713.3,2713.3,0.49259259259259935,415886434937.0,635,CLP
-INGEVEC,Ingevec S.A.,BCS,Industrial Services,Engineering & Construction,198.72,199.66,198.72,199.66,-0.015023286093445408,215665202637.0,29720,CLP
+INDISA,Instituto de Diagnostico S.A.,BCS,Health Services,Hospital/Nursing Management,2713.3,2713.3,2700.0,2700.0,0.0,415886434937.0,635,CLP
+INGEVEC,Ingevec S.A.,BCS,Industrial Services,Engineering & Construction,198.72,199.69,198.72,199.69,0.0,215665202637.0,29720,CLP
 INTCCL,Intel Corporation,BCS,Electronic Technology,Semiconductors,105340.0,105340.0,98280.0,98280.0,-6.705650060753341,515547121228980.3,300,CLP
 INVERCAP,Invercap SA INVERCAP,BCS,Utilities,Alternative Power Generation,1950.0,1950.0,1940.0,1943.5,-0.4762392462105671,291842266465.0,6350,CLP
 INVIESPA,Inversiones Union Espanola S.A.,BCS,Finance,Real Estate Investment Trusts,1682.0,1682.0,1602.0,1602.0,0.0,37006200611.0,4583,CLP
 ISANPA,Inmobiliaria San Patricio S.A.,BCS,Finance,Real Estate Development,3.8,3.8,3.8,3.8,0.0,21607775705.0,34575,CLP
 ITAUCL,Banco Itau Chile,BCS,Finance,Major Banks,18250.0,18257.0,17770.0,18000.0,0.0,3894133392334.0,474769,CLP
-KOCL,Coca-Cola Company,BCS,Consumer Non-Durables,Beverages: Non-Alcoholic,70290.0,70290.0,70290.0,70290.0,4.1950785650756,304060058446332.75,55,CLP
+KOCL,Coca-Cola Company,BCS,Consumer Non-Durables,Beverages: Non-Alcoholic,70290.0,70290.0,67460.0,67460.0,0.0,304060058446332.75,55,CLP
 LAS_CONDES,Clinica Las Condes S.A.,BCS,Health Services,Hospital/Nursing Management,11300.0,11500.0,11200.0,11391.0,1.768962744572501,258329870470.0,9861,CLP
 LIPIGAS,Empresas Lipigas SA,BCS,Utilities,Gas Distributors,8400.0,8470.0,8370.0,8452.3,0.6465825196475264,953798787857.0,3359,CLP
 LITORAL,Compania Electrica del Litoral S.A.,BCS,Utilities,Electric Utilities,10550.0,10550.0,10550.0,10550.0,0.0,26375000000.0,9,CLP
 LLY,Eli Lilly and Company,BCS,Health Technology,Pharmaceuticals: Major,1083.5,1083.5,1080.0,1080.0,8.0,930790912897031.4,14,USD
-LLYCL,Eli Lilly and Company,BCS,Health Technology,Pharmaceuticals: Major,967700.0,967700.0,967700.0,967700.0,-3.9916343645857415,930790912716457.9,4,CLP
-LTM,LATAM Airlines Group SA,BCS,Transportation,Airlines,23.7,23.71,22.89,23.08,-4.232365145228228,13838605819046.0,848386871,CLP
+LLYCL,Eli Lilly and Company,BCS,Health Technology,Pharmaceuticals: Major,967700.0,1007933.0,967700.0,1007933.0,0.0,930790912716457.9,4,CLP
+LTM,LATAM Airlines Group SA,BCS,Transportation,Airlines,23.7,23.71,22.89,23.08,-4.232365145228228,13838605819046.0,848386870,CLP
 MA,Mastercard Incorporated Class A,BCS,Finance,Finance/Rental/Leasing,493.54,493.54,493.54,493.54,-0.6561996779388065,390404986383430.9,125,USD
-MACL,Mastercard Incorporated Class A,BCS,Finance,Finance/Rental/Leasing,440200.0,441750.0,440200.0,441750.0,-0.9307019511101143,390404986307692.3,3,CLP
+MACL,Mastercard Incorporated Class A,BCS,Finance,Finance/Rental/Leasing,440200.0,445900.0,440200.0,445900.0,0.0,390404986307692.3,3,CLP
 MALLPLAZA,Plaza SA,BCS,Finance,Real Estate Development,3880.0,3989.0,3672.9,3799.0,-2.087628865979381,8497200000000.0,2080888,CLP
 MANQUEHUE,Inmobiliaria Manquehue SA,BCS,Consumer Durables,Homebuilding,103.29,103.29,103.29,103.29,-0.16431471099940798,61202373721.0,6966,CLP
-MARINSA,Maritima de Inversiones S.A.,BCS,Finance,Financial Conglomerates,97.43,97.43,97.43,97.43,-1.316722374151724,277925441530.0,1070,CLP
+MARINSA,Maritima de Inversiones S.A.,BCS,Finance,Financial Conglomerates,98.73,98.73,98.73,98.73,0.0,277925441530.0,1070,CLP
 MASISA,Masisa S.A.,BCS,Non-Energy Minerals,Forest Products,13.79,14.5,13.79,14.2,0.14104372355429884,106078982879.0,4361814,CLP
-MCDCL,McDonald's Corporation,BCS,Consumer Services,Restaurants,246020.0,246020.0,246020.0,246020.0,4.312062751748993,177435818077817.53,1,CLP
+MCDCL,McDonald's Corporation,BCS,Consumer Services,Restaurants,246020.0,246020.0,235850.0,235850.0,0.0,177435818077817.53,1,CLP
 MELON,Melon SA,BCS,Non-Energy Minerals,Construction Materials,0.68,0.68,0.68,0.68,0.0,190028573249.0,196866,CLP
 META,Meta Platforms Inc Class A,BCS,Technology Services,Internet Software/Services,609.49,609.49,609.49,609.49,0.13965562565720668,1436116311829590.5,36,USD
 METACL,Meta Platforms Inc Class A,BCS,Technology Services,Internet Software/Services,546870.0,546870.0,540200.0,543331.0,-0.47242219413456427,1436116311550983.8,19,CLP
-MINERA,Minera Valparaiso S.A.,BCS,Utilities,Electric Utilities,11779.0,11779.0,11598.0,11599.0,0.4242424242424243,1443750000000.0,553,CLP
+MINERA,Minera Valparaiso S.A.,BCS,Utilities,Electric Utilities,11779.0,11779.0,11550.0,11550.0,0.0,1443750000000.0,553,CLP
 MOLLER,Empresa Constructora Moller y Perez Cotapos SA,BCS,Industrial Services,Engineering & Construction,340.0,340.0,340.0,340.0,-4.489016236867244,105748442377.0,850,CLP
-MOLYMET,Molibdenos y Metales S.A.,BCS,Producer Manufacturing,Metal Fabrication,10000.0,10000.0,10000.0,10000.0,-2.922046403261819,1370025769684.0,135,CLP
+MOLYMET,Molibdenos y Metales S.A.,BCS,Producer Manufacturing,Metal Fabrication,10000.0,10301.0,10000.0,10301.0,0.0,1370025769684.0,135,CLP
 MRKCL,"Merck & Co., Inc.",BCS,Health Technology,Pharmaceuticals: Major,101870.0,105700.0,101870.0,105700.0,0.0,262269734569767.44,18,CLP
 MS,Morgan Stanley,BCS,Finance,Investment Managers,191.19,191.19,174.4,174.4,0.0,293448355798431.7,10,USD
 MSFT,Microsoft Corporation,BCS,Technology Services,Packaged Software,415.26,415.41,415.26,415.41,-2.1298150547767616,2991572727229739.0,25,USD
@@ -211,10 +211,10 @@ NAVARINO,Navarino SA NAVARINO,BCS,Finance,Financial Conglomerates,1676.8,1676.8,
 NAVIERA,Grupo Empresas Navieras S.A.,BCS,Transportation,Marine Shipping,38.0,38.0,38.0,38.0,0.0,262573542969.0,68050,CLP
 NEMCL,Newmont Corporation,BCS,Non-Energy Minerals,Precious Metals,99377.0,106570.0,99377.0,106570.0,0.0,104855065433810.38,5,CLP
 NFLX,"Netflix, Inc.",BCS,Technology Services,Internet Software/Services,88.0,88.0,88.0,88.0,-4.761904761904768,323982879363389.4,480,USD
-NFLXCL,"Netflix, Inc.",BCS,Technology Services,Internet Software/Services,76400.0,77000.0,76400.0,77000.0,-2.4081115335868186,323982879300536.7,89,CLP
+NFLXCL,"Netflix, Inc.",BCS,Technology Services,Internet Software/Services,76400.0,78900.0,76400.0,78900.0,0.0,323982879300536.7,89,CLP
 NKECL,"NIKE, Inc. Class B",BCS,Consumer Non-Durables,Apparel/Footwear,41180.0,41180.0,37900.0,37900.0,0.0,61235615118067.984,12,CLP
-NORTEGRAN,Norte Grande S.A.,BCS,Finance,Financial Conglomerates,15.5,15.5,15.5,15.5,0.7802340702210612,3036638276970.0,2742,CLP
-NTGCLGAS,Naturgy Chile Gas Natural SA,BCS,Utilities,Gas Distributors,623.0,624.0,623.0,623.0,-0.05454487117785347,1309731140920.0,4525,CLP
+NORTEGRAN,Norte Grande S.A.,BCS,Finance,Financial Conglomerates,14.6,15.6,14.6,15.38,0.0,3036638276970.0,2742,CLP
+NTGCLGAS,Naturgy Chile Gas Natural SA,BCS,Utilities,Gas Distributors,623.0,624.0,623.0,623.34,0.0,1309731140920.0,4525,CLP
 NUAM,Holding Bursatil Regional SA,BCS,Miscellaneous,Miscellaneous,5208.5,5282.5,5140.9,5253.1,2.3337813881908356,453660344063.0,44407,CLP
 NUTRAVALOR,Inversiones Nutravalor SA,BCS,Consumer Non-Durables,Food: Meat/Fish/Dairy,89.99,89.99,89.99,89.99,0.0,27978496714.0,120,CLP
 NVDA,NVIDIA Corporation,BCS,Electronic Technology,Semiconductors,220.51,220.51,220.51,220.51,3.7157236254174197,4570293368712218.0,75,USD
@@ -223,44 +223,44 @@ ORCLCL,Oracle Corporation,BCS,Technology Services,Packaged Software,201630.0,217
 ORO_BLANCO,Sociedad De Inversiones Oro Blanco S.A.,BCS,Finance,Financial Conglomerates,11.75,11.84,11.55,11.64,-1.272264631043245,2716692687773.0,39582088,CLP
 OXIQUIM,Oxiquim S.A.,BCS,Distribution Services,Wholesale Distributors,12441.0,12441.0,12441.0,12441.0,0.0,309615501863.0,269,CLP
 PARAUCO,Parque Arauco S.A.,BCS,Finance,Real Estate Development,3890.0,3890.0,3702.9,3800.0,-2.564102564102564,3532291937256.0,5417150,CLP
-PASUR,Forestal Constructora y Comercial del Pacifico Sur S.A.,BCS,Non-Energy Minerals,Forest Products,5230.0,5230.0,5230.0,5230.0,-1.3207547169811322,662500000000.0,270,CLP
-PAZ,PAZ Corp S.A.,BCS,Finance,Real Estate Development,827.48,827.48,827.48,827.48,-0.904159132007228,236621818247.0,1117,CLP
-PEHUENCHE,Empresa Electrica Pehuenche S.A.,BCS,Utilities,Electric Utilities,2690.0,2690.0,2690.0,2690.0,1.0290693307293657,1631177172461.0,312,CLP
-PEPCL,"PepsiCo, Inc.",BCS,Consumer Non-Durables,Food: Specialty/Candy,126820.0,127000.0,126820.0,127000.0,-3.201219512195122,176274010407871.2,8,CLP
-PFECL,Pfizer Inc.,BCS,Health Technology,Pharmaceuticals: Major,23010.0,23010.0,23010.0,23010.0,-6.081632653061225,133462827970483.0,3,CLP
-PGCL,Procter & Gamble Company,BCS,Consumer Non-Durables,Household/Personal Care,125660.0,125660.0,125660.0,125660.0,-16.14280947614281,299010450929338.06,2,CLP
+PASUR,Forestal Constructora y Comercial del Pacifico Sur S.A.,BCS,Non-Energy Minerals,Forest Products,5300.0,5300.0,5300.0,5300.0,0.0,662500000000.0,270,CLP
+PAZ,PAZ Corp S.A.,BCS,Finance,Real Estate Development,827.48,835.03,827.48,835.03,0.0,236621818247.0,1117,CLP
+PEHUENCHE,Empresa Electrica Pehuenche S.A.,BCS,Utilities,Electric Utilities,2662.6,2662.6,2662.6,2662.6,0.0,1631177172461.0,312,CLP
+PEPCL,"PepsiCo, Inc.",BCS,Consumer Non-Durables,Food: Specialty/Candy,126820.0,131200.0,126820.0,131200.0,0.0,176274010407871.2,8,CLP
+PFECL,Pfizer Inc.,BCS,Health Technology,Pharmaceuticals: Major,23010.0,24500.0,23010.0,24500.0,0.0,133462827970483.0,3,CLP
+PGCL,Procter & Gamble Company,BCS,Consumer Non-Durables,Household/Personal Care,125660.0,149850.0,125660.0,149850.0,0.0,299010450929338.06,2,CLP
 PLANVITAL,Administradora de Fondos de Pensiones Planvital SA,BCS,Finance,Investment Managers,278.0,278.0,278.0,278.0,0.39362969918023,563979988146.0,10315,CLP
-POLO,Club de Polo y Equitacion San Cristobal S.A.,BCS,Consumer Services,Movies/Entertainment,3000000.0,3000000.0,3000000.0,3000000.0,3.4482758620689653,45312500000.0,2,CLP
-POLPAICO,Cemento Polpaico S.A.,BCS,Non-Energy Minerals,Construction Materials,6000.0,6000.0,6000.0,6000.0,-21.681242657616497,285207365959.0,100,CLP
+POLO,Club de Polo y Equitacion San Cristobal S.A.,BCS,Consumer Services,Movies/Entertainment,2900000.0,2900000.0,2900000.0,2900000.0,0.0,45312500000.0,2,CLP
+POLPAICO,Cemento Polpaico S.A.,BCS,Non-Energy Minerals,Construction Materials,7661.0,7661.0,7661.0,7661.0,0.0,285207365959.0,100,CLP
 POTASIOS_A,Potasios De Chile S.A. Class A,BCS,Finance,Financial Conglomerates,406.0,406.0,405.8,406.0,0.9121865135585256,1013891481861.0,56190,CLP
 POTASIOS_B,Potasios De Chile S.A. Class B,BCS,Finance,Financial Conglomerates,398.0,398.0,398.0,398.0,2.0486654188354168,1013891481861.0,63027,CLP
 PROVIDA,Administradora de Fondos de Pensiones ProVida S.A.,BCS,Finance,Investment Managers,5260.0,5260.0,5130.0,5175.6,-2.4888369727000295,1741008758856.0,1733,CLP
 PUCOBRE,Sociedad Punta del Cobre S.A.,BCS,Non-Energy Minerals,Other Metals/Minerals,17400.0,17400.0,17100.0,17203.0,-2.7969262063510003,2206381002289.0,576,CLP
 QCOM,QUALCOMM Incorporated,BCS,Electronic Technology,Semiconductors,231.36,231.36,231.36,231.36,18.646153846153855,236650343966303.75,110,USD
-QCOMCL,QUALCOMM Incorporated,BCS,Electronic Technology,Semiconductors,209640.0,209640.0,209640.0,209640.0,4.993764680546304,236650343920393.56,4,CLP
+QCOMCL,QUALCOMM Incorporated,BCS,Electronic Technology,Semiconductors,209640.0,209640.0,199669.0,199669.0,0.0,236650343920393.56,4,CLP
 QUILICURA,Quilicura S.A.,BCS,Finance,Financial Conglomerates,1080.0,1080.0,1080.0,1080.0,0.0,21600000000.0,126,CLP
 QUINENCO,Quinenco S.A.,BCS,Finance,Major Banks,3941.0,3970.1,3925.0,3927.0,0.6923076923076923,6484762133789.0,542773,CLP
 RIPLEY,Ripley Corp S.A.,BCS,Retail Trade,Department Stores,380.41,384.54,367.5,372.69,-3.0816039943829048,744489594197.0,2761255,CLP
-RTX,RTX Corporation,BCS,Electronic Technology,Aerospace & Defense,177.36,177.36,177.36,177.36,-0.43785786460086046,216408886914076.34,11,USD
+RTX,RTX Corporation,BCS,Electronic Technology,Aerospace & Defense,177.36,178.14,177.36,178.14,0.0,216408886914076.34,11,USD
 SALFACORP,Salfacorp S.A.,BCS,Finance,Real Estate Development,1340.0,1374.0,1340.0,1374.0,0.0,755563723755.0,258935,CLP
 SALMOCAM,Salmones Camanchaca SA,BCS,Process Industries,Agricultural Commodities/Milling,5255.0,5255.0,5255.0,5255.0,0.0,389895565338.0,1,CLP
 SBUX,Starbucks Corporation,BCS,Consumer Services,Restaurants,101.22,101.22,94.93,94.93,0.0,101084661318358.19,30,USD
-SCHWAGER,Schwager S.A.,BCS,Utilities,Gas Distributors,2.44,2.501,2.4,2.488,3.1509121061359897,48027502565.0,728189722,CLP
+SCHWAGER,Schwager S.A.,BCS,Utilities,Gas Distributors,2.44,2.501,2.4,2.488,3.1509121061359897,48027502565.0,728189720,CLP
 SCOTIABKCL,Scotiabank Chile Class A,BCS,Finance,Major Banks,320.0,320.0,250.0,250.0,0.0,3060642578125.0,2000,CLP
 SIEMEL,Inversiones Agricolas e Industriales SA SIEMEL,BCS,Finance,Financial Conglomerates,379.0,379.0,379.0,379.0,0.0,137415478546.0,303,CLP
 SK,Sigdo Koppers S.A.,BCS,Process Industries,Chemicals: Agricultural,1631.8,1636.2,1631.8,1635.9,-0.5350519851644648,1763806583915.0,15476,CLP
-SMSAAM,Sociedad Matriz Saam S.A.,BCS,Transportation,Marine Shipping,157.79,157.79,157.79,157.79,0.2477763659466241,1532571000142.0,26232,CLP
+SMSAAM,Sociedad Matriz Saam S.A.,BCS,Transportation,Marine Shipping,157.79,157.79,157.4,157.4,0.0,1532571000142.0,26232,CLP
 SMU,SMU SA,BCS,Retail Trade,Food Retail,145.0,148.27,140.99,141.99,-2.075862068965511,837023686523.0,25149847,CLP
 SOCOVESA,Socovesa S.A.,BCS,Finance,Real Estate Development,117.3,117.34,117.3,117.34,-0.5593220338983022,144424423340.0,84156,CLP
-SOFRUCO,Sociedad Agricola la Rosa Sofruco SA,BCS,Consumer Non-Durables,Food: Specialty/Candy,2201.0,2201.0,2201.0,2201.0,10.05,22000000000.0,1708,CLP
+SOFRUCO,Sociedad Agricola la Rosa Sofruco SA,BCS,Consumer Non-Durables,Food: Specialty/Candy,2201.0,2201.0,2000.0,2000.0,0.0,22000000000.0,1708,CLP
 SONDA,Sonda S.A.,BCS,Technology Services,Information Technology Services,282.0,285.0,279.18,281.58,-0.8521126760563436,247380224609.0,193678,CLP
-SOQUICOM,Soquimich Comercial S.A.,BCS,Process Industries,Chemicals: Agricultural,384.99,384.99,384.99,384.99,1.58583566415114,103126801225.0,12780,CLP
+SOQUICOM,Soquimich Comercial S.A.,BCS,Process Industries,Chemicals: Agricultural,384.99,384.99,378.98,378.98,0.0,103126801225.0,12780,CLP
 SPORTING,Valparaiso Sporting Club S.A.,BCS,Consumer Services,Movies/Entertainment,3900000.0,4300000.0,3900000.0,4300000.0,0.0,27520001307.0,1,CLP
 SQM_A,Sociedad Quimica y Minera de Chile SA Pfd Series A,BCS,Process Industries,Chemicals: Specialty,68790.0,68790.0,67500.0,67500.0,-1.4699227816135578,20666895820007.0,3554,CLP
 SQM_B,Sociedad Quimica y Minera de Chile SA Pfd Series B,BCS,Process Industries,Chemicals: Specialty,76200.0,76200.0,73750.0,74450.0,-2.2965879265091864,20666895820007.0,333697,CLP
 TCL,AT&T Inc,BCS,Communications,Wireless Telecommunications,22460.0,22460.0,12808.0,12808.0,0.0,154131304655635.06,1,CLP
 TGTCL,Target Corporation,BCS,Retail Trade,Specialty Stores,107200.0,107200.0,98025.0,98025.0,0.0,51620907471377.46,2,CLP
-TRICAHUE,Inversiones Tricahue S.A.,BCS,Finance,Financial Conglomerates,1489.0,1489.0,1489.0,1489.0,0.47233468286099867,49487212830.0,450,CLP
+TRICAHUE,Inversiones Tricahue S.A.,BCS,Finance,Financial Conglomerates,1482.0,1482.0,1482.0,1482.0,0.0,49487212830.0,450,CLP
 TRICOT,Empresas Tricot SA,BCS,Retail Trade,Apparel/Footwear Retail,640.0,640.0,640.0,640.0,0.0,274374082031.0,1,CLP
 TSLA,"Tesla, Inc.",BCS,Consumer Durables,Motor Vehicles,440.5,446.8,440.5,446.8,0.0,1463959601389553.8,4,USD
 TSLACL,"Tesla, Inc.",BCS,Consumer Durables,Motor Vehicles,391410.0,399500.0,391410.0,399500.0,0.0,1463959601105545.5,1,CLP
@@ -269,14 +269,14 @@ UNHCL,UnitedHealth Group Incorporated,BCS,Health Services,Managed Health Care,35
 UNION_GOLF,Union El Golf S.A.,BCS,Consumer Services,Movies/Entertainment,1490000.0,1490000.0,1490000.0,1490000.0,0.0,6257999777.0,8,CLP
 V,Visa Inc. Class A,BCS,Finance,Finance/Rental/Leasing,329.17,329.17,327.5,327.5,0.0,550002650306163.9,10,USD
 VAPORES,Compania Sud Americana de Vapores S.A.,BCS,Transportation,Marine Shipping,43.99,43.99,42.2,42.65,-4.135760845133745,2283221324889.0,183475719,CLP
-VCL,Visa Inc. Class A,BCS,Finance,Finance/Rental/Leasing,286080.0,286080.0,286080.0,286080.0,-5.6871866047321245,550002650199463.3,4,CLP
+VCL,Visa Inc. Class A,BCS,Finance,Finance/Rental/Leasing,286080.0,303331.0,286080.0,303331.0,0.0,550002650199463.3,4,CLP
 VENTANAS,Puerto Ventanas S.A.,BCS,Transportation,Railroads,170.0,170.0,170.0,170.0,0.0,197041450476.0,200,CLP
 VICONTO,Fruticola Viconto S.A.,BCS,Process Industries,Agricultural Commodities/Milling,24.5,24.5,24.5,24.5,0.0,19560308624.0,89,CLP
 VOLCAN,Compania Industrial el Volcan S.A.,BCS,Non-Energy Minerals,Construction Materials,3107.6,3107.6,3107.6,3107.6,0.0,233070007324.0,7,CLP
 VSPT,Vina San Pedro Tarapaca S.A.,BCS,Consumer Non-Durables,Beverages: Alcoholic,4.0,4.0,4.0,4.0,0.0,159878781250.0,11,CLP
 VZ,Verizon Communications Inc.,BCS,Communications,Wireless Telecommunications,47.73,47.73,37.65,37.65,0.0,178563046050741.4,136,USD
 VZCL,Verizon Communications Inc.,BCS,Communications,Wireless Telecommunications,43055.0,45670.0,43055.0,45670.0,0.0,178563046016100.16,1,CLP
-WALMARTCL,Walmart Inc.,BCS,Retail Trade,Specialty Stores,103600.0,105640.0,102390.0,102390.0,-3.0774036595639953,825261338235241.5,36,CLP
+WALMARTCL,Walmart Inc.,BCS,Retail Trade,Specialty Stores,103600.0,105641.0,102390.0,105641.0,0.0,825261338235241.5,36,CLP
 WATTS,Watt's SA,BCS,Consumer Non-Durables,Food: Specialty/Candy,761.06,761.06,761.06,761.06,0.0,239860200631.0,588,CLP
 WFC,Wells Fargo & Company,BCS,Finance,Major Banks,76.5,76.51,76.5,76.5,-0.4035932821247263,212242480360495.25,1124,USD
 WMT,Walmart Inc.,BCS,Retail Trade,Specialty Stores,120.07,125.99,120.07,125.99,0.0,825261338395342.2,15,USD
