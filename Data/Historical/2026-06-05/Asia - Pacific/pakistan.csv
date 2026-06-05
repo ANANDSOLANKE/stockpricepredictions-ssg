@@ -1,474 +1,475 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
-786,786 Investments Limited,PSX,Finance,Investment Managers,26.59,26.99,26.57,26.75,0.18726591760299893,,83592,PKR
-AABS,Al-Abbas Sugar Mills Ltd.,PSX,Process Industries,Chemicals: Specialty,905.79,915.0,905.65,905.65,0.07845824032531688,15711840594.0,151,PKR
-AATM,Ali Asghar Textile Mills Limited,PSX,Process Industries,Textiles,53.98,57.65,52.11,57.65,9.99809196718184,,16881,PKR
-ABL,Allied Bank Limited,PSX,Finance,Major Banks,182.3,186.0,180.36,182.2,-0.10964912280702688,208861441449.0,15154,PKR
-ABOT,Abbott Laboratories Pakistan Limited,PSX,Health Technology,Pharmaceuticals: Major,890.23,894.9,889.0,890.0,0.022476961114862384,87111691708.0,6506,PKR
-ACPL,Attock Cement Pakistan Limited,PSX,Non-Energy Minerals,Construction Materials,209.28,233.0,209.28,233.0,0.2021244570593037,31955889952.0,4008,PKR
-ADAMS,Adam Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,63.2,64.0,62.0,63.95,1.2347633370270716,1092272943.0,7488,PKR
-ADMM,Artistic Denim Mills Limited,PSX,Consumer Non-Durables,Apparel/Footwear,69.0,69.97,67.89,68.4,-0.014617745943562205,5746440308.0,201478,PKR
-AGHA,Agha Steel Industries Ltd.,PSX,Non-Energy Minerals,Steel,8.0,8.19,7.97,8.09,1.8891687657430662,4802740004.0,4114831,PKR
-AGIC,Askari General Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,42.0,42.0,40.12,41.3,0.780868716447048,,38091,PKR
-AGIL,Agriauto Industries Limited,PSX,Producer Manufacturing,Auto Parts: OEM,167.2,168.2,164.9,168.2,0.7065022153035435,6012720154.0,58026,PKR
-AGL,Agritech Limited,PSX,Process Industries,Chemicals: Agricultural,46.6,47.0,46.24,46.75,-0.06412997007268306,28025159479.0,89808,PKR
-AGP,AGP Limited,PSX,Health Technology,Pharmaceuticals: Major,186.88,186.88,184.01,186.0,0.5514109633473945,51794398804.0,128230,PKR
-AGSML,Abdullah Shah Ghazi Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,10.49,10.57,10.16,10.4,0.6776379477250754,,381826,PKR
-AGTL,Al-Ghazi Tractors Ltd.,PSX,Producer Manufacturing,Trucks/Construction/Farm Machinery,349.49,349.49,344.0,346.0,0.46165906913271243,19963450013.0,6622,PKR
-AHCL,Arif Habib Corporation Limited,PSX,Utilities,Alternative Power Generation,14.49,14.66,14.4,14.5,0.138121546961323,61032724360.0,1292686,PKR
-AHL,Arif Habib Limited,PSX,Finance,Investment Banks/Brokers,110.0,110.0,108.12,109.45,0.3852150784187854,7124019721.0,3982,PKR
-AHTM,Ahmed Hassan Textile Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,80.01,80.01,80.01,80.01,-3.625632377740293,703306785.0,1,PKR
-AICL,Adamjee Insurance Co. Limited,PSX,Finance,Multi-Line Insurance,73.5,74.45,73.11,74.2,0.7330980179201823,25781001282.0,64904,PKR
-AIRLINK,Air Link Communication Ltd.,PSX,Distribution Services,Electronics Distributors,155.45,156.5,153.9,153.9,0.07152610702907448,60788451624.0,663830,PKR
-AKBL,Askari Bank Limited,PSX,Finance,Major Banks,96.9,97.5,96.33,96.5,0.33270950301517277,139393596954.0,155359,PKR
-AKDHL,AKD Hospitality Limited,PSX,Finance,Real Estate Development,171.99,171.99,157.0,163.99,0.45944621416319525,409287252.0,2487,PKR
-AKDSL,AKD Securities Limited,PSX,Finance,Investment Banks/Brokers,39.51,41.44,39.01,39.12,0.6431695394906097,21683013494.0,1967719,PKR
-AKGL,Al-Khair Gadoon Limited,PSX,Process Industries,Industrial Specialties,53.43,53.43,50.0,53.0,1.864309052469727,,115,PKR
-ALAC,Askari Life Assurance Co. Ltd.,PSX,Finance,Life/Health Insurance,21.38,23.28,21.0,23.28,10.018903591682424,,4976348,PKR
-ALIFE,Adamjee Life Assurance Company Limited,PSX,Finance,Life/Health Insurance,32.8,32.8,32.53,32.8,3.6007580543272173,8310749959.999999,28,PKR
-ALNRS,Al-Noor Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,125.99,134.0,125.99,130.0,0.007692899453797142,2661376567.0,2470,PKR
-ALTN,Altern Energy Limited,PSX,Utilities,Electric Utilities,8.2,8.39,8.2,8.34,1.58343483556637,2983349854.0,80489,PKR
-AMBL,Apna Microfinance Bank Limited,PSX,Finance,Major Banks,23.73,25.0,22.2,23.55,-0.7585335018963325,10179812782.0,5854,PKR
-AMTEX,Amtex Limited,PSX,Process Industries,Textiles,4.68,4.98,4.55,4.79,3.232758620689663,,1206837,PKR
-ANL,Azgard Nine Limited,PSX,Process Industries,Textiles,10.2,10.35,10.15,10.22,0.788954635108482,4972165925.0,211281,PKR
+786,786 Investments Limited,PSX,Finance,Investment Managers,26.59,29.37,26.51,27.68,3.670411985018728,,309423,PKR
+AABS,Al-Abbas Sugar Mills Ltd.,PSX,Process Industries,Chemicals: Specialty,905.79,915.0,900.01,904.87,-0.007735319468699584,15711840594.0,172,PKR
+AATM,Ali Asghar Textile Mills Limited,PSX,Process Industries,Textiles,53.98,57.65,52.11,57.65,9.99809196718184,,17834,PKR
+ABL,Allied Bank Limited,PSX,Finance,Major Banks,182.3,186.0,180.36,181.82,-0.3179824561403577,208861441449.0,18251,PKR
+ABOT,Abbott Laboratories Pakistan Limited,PSX,Health Technology,Pharmaceuticals: Major,890.23,894.9,888.0,889.73,-0.007866936390192892,87111691708.0,9718,PKR
+ACPL,Attock Cement Pakistan Limited,PSX,Non-Energy Minerals,Construction Materials,209.28,233.0,209.28,231.19,-0.5762697286371665,31955889952.0,49639,PKR
+ADAMS,Adam Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,63.2,64.0,62.0,63.94,1.2189330378344088,1092272943.0,8278,PKR
+ADMM,Artistic Denim Mills Limited,PSX,Consumer Non-Durables,Apparel/Footwear,69.0,69.97,67.02,67.47,-1.3740681186960937,5746440308.0,275174,PKR
+AGHA,Agha Steel Industries Ltd.,PSX,Non-Energy Minerals,Steel,8.0,8.19,7.97,8.07,1.6372795969773284,4802740004.0,5646607,PKR
+AGIC,Askari General Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,42.0,42.0,40.12,41.0,0.04880429477794809,,40392,PKR
+AGIL,Agriauto Industries Limited,PSX,Producer Manufacturing,Auto Parts: OEM,167.2,168.83,164.9,168.16,0.6825529876661396,6012720154.0,58272,PKR
+AGL,Agritech Limited,PSX,Process Industries,Chemicals: Agricultural,46.6,47.0,46.02,46.39,-0.8336896109448494,28025159479.0,114977,PKR
+AGP,AGP Limited,PSX,Health Technology,Pharmaceuticals: Major,186.88,186.88,184.01,185.03,0.02702994918370168,51794398804.0,240513,PKR
+AGSML,Abdullah Shah Ghazi Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,10.49,10.57,9.81,10.13,-1.936108422071629,,639621,PKR
+AGTL,Al-Ghazi Tractors Ltd.,PSX,Producer Manufacturing,Trucks/Construction/Farm Machinery,349.49,349.49,344.0,345.32,0.2642199703841259,19963450013.0,8798,PKR
+AHCL,Arif Habib Corporation Limited,PSX,Utilities,Alternative Power Generation,14.49,14.66,14.4,14.5,0.138121546961323,61032724360.0,1623081,PKR
+AHL,Arif Habib Limited,PSX,Finance,Investment Banks/Brokers,110.0,110.0,108.12,108.92,-0.10088966339539525,7124019721.0,5682,PKR
+AHTM,Ahmed Hassan Textile Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,80.01,80.01,80.01,83.02,0.0,703306785.0,1,PKR
+AICL,Adamjee Insurance Co. Limited,PSX,Finance,Multi-Line Insurance,73.5,74.94,72.7,73.95,0.3937007874015833,25781001282.0,202196,PKR
+AIRLINK,Air Link Communication Ltd.,PSX,Distribution Services,Electronics Distributors,155.45,156.5,151.2,152.63,-0.754275310488326,60788451624.0,1024947,PKR
+AKBL,Askari Bank Limited,PSX,Finance,Major Banks,96.9,97.5,95.66,96.5,0.33270950301517277,139393596954.0,891884,PKR
+AKDHL,AKD Hospitality Limited,PSX,Finance,Real Estate Development,171.99,177.0,157.0,170.01,4.147267826513098,409287252.0,8912,PKR
+AKDSL,AKD Securities Limited,PSX,Finance,Investment Banks/Brokers,39.51,41.44,38.51,38.95,0.205814252637009,21683013494.0,2359169,PKR
+AKGL,Al-Khair Gadoon Limited,PSX,Process Industries,Industrial Specialties,53.43,53.43,50.0,52.03,0.0,,115,PKR
+ALAC,Askari Life Assurance Co. Ltd.,PSX,Finance,Life/Health Insurance,21.38,23.28,21.0,23.28,10.018903591682424,,5020335,PKR
+ALIFE,Adamjee Life Assurance Company Limited,PSX,Finance,Life/Health Insurance,32.8,32.8,32.53,31.66,0.0,8310749959.999999,28,PKR
+ALNRS,Al-Noor Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,125.99,134.0,125.99,129.21,-0.6000461573967237,2661376567.0,2478,PKR
+ALTN,Altern Energy Limited,PSX,Utilities,Electric Utilities,8.2,8.39,8.2,8.23,0.24360535931789978,2983349854.0,110265,PKR
+AMBL,Apna Microfinance Bank Limited,PSX,Finance,Major Banks,23.73,25.0,22.2,23.38,-1.4749262536873216,10179812782.0,13273,PKR
+AMTEX,Amtex Limited,PSX,Process Industries,Textiles,4.68,4.98,4.55,4.87,4.956896551724147,,1762019,PKR
+ANL,Azgard Nine Limited,PSX,Process Industries,Textiles,10.2,10.35,10.15,10.22,0.788954635108482,4972165925.0,427287,PKR
 ANLNV,Azgard Nine Limited,PSX,Process Industries,Textiles,8.42,8.43,8.4,8.4,13.055181695827734,4972165925.0,1064,PKR
-ANSM,Ansari Sugar Mills Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,16.61,17.23,16.25,16.42,4.452926208651406,882468274.0,698763,PKR
-ANTM,AN Textile Mills Limited,PSX,Process Industries,Textiles,31.0,34.95,29.1,34.85,9.591194968553461,,4545,PKR
-APL,Attock Petroleum Limited,PSX,Energy Minerals,Oil Refining/Marketing,532.05,535.99,527.51,530.0,-0.37219444340013125,66186821444.99999,171952,PKR
-ARCTM,Arctic Textile Mills Limited,PSX,Process Industries,Textiles,28.5,29.4,28.0,28.45,1.24555160142348,,65520,PKR
-ARPAK,Arpak International Investments Ltd.,PSX,Finance,Investment Banks/Brokers,117.0,117.0,113.0,113.0,-0.08841732979663512,,1050,PKR
-ARPL,Archroma Pakistan Limited,PSX,Process Industries,Industrial Specialties,392.39,393.0,389.99,389.99,0.046176342320619485,13473135182.0,1981,PKR
-ARUJ,Aruj Industries Ltd.,PSX,Process Industries,Textiles,11.29,11.3,10.53,11.2,1.6333938294010864,,2379,PKR
-ASC,Al Shaheer Corp. Ltd.,PSX,Distribution Services,Food Distributors,10.88,11.25,10.72,11.1,3.544776119402976,4019180266.0,1663066,PKR
-ASHT,Ashfaq Textile Mills Limited,PSX,Process Industries,Textiles,33.45,35.69,33.45,35.2,5.23168908819133,,3765,PKR
-ASIC,Asia Insurance Co. Ltd. (Pakistan),PSX,Finance,Property/Casualty Insurance,37.0,37.2,36.0,37.2,9.929078014184395,,20,PKR
-ASL,Aisha Steel Mills Ltd.,PSX,Non-Energy Minerals,Steel,12.48,12.48,12.35,12.35,0.16220600162205656,11476576390.0,195133,PKR
-ASTL,Amreli Steels Ltd.,PSX,Non-Energy Minerals,Steel,16.43,16.5,16.21,16.22,0.0,5466325392.0,525942,PKR
-ASTM,Asim Textile Mills Ltd.,PSX,Process Industries,Textiles,19.0,20.24,18.54,19.34,0.9394572025052178,,28536,PKR
-ATBA,Atlas Battery Limited,PSX,Producer Manufacturing,Electrical Products,220.0,222.75,215.2,219.4,0.36137413659027123,7655074357.0,14153,PKR
-ATIL,Atlas Insurance Limited,PSX,Finance,Property/Casualty Insurance,74.99,75.0,73.2,74.61,0.5525606469002649,11086642995.0,1979,PKR
-ATLH,Atlas Honda Limited,PSX,Consumer Durables,Motor Vehicles,1782.62,1798.0,1782.62,1787.01,0.24626673099146765,221201636582.0,3878,PKR
-ATRL,Attock Refinery Ltd,PSX,Energy Minerals,Oil Refining/Marketing,885.0,888.0,880.5,880.5,-0.5433125120014397,94388431217.0,182496,PKR
-AVN,Avanceon Ltd.,PSX,Electronic Technology,Electronic Equipment/Instruments,33.2,33.92,33.2,33.76,1.168714414144443,14264855773.0,314986,PKR
+ANSM,Ansari Sugar Mills Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,16.61,17.23,16.01,16.32,3.8167938931297685,882468274.0,876623,PKR
+ANTM,AN Textile Mills Limited,PSX,Process Industries,Textiles,31.0,34.95,29.1,33.91,6.635220125786151,,6482,PKR
+APL,Attock Petroleum Limited,PSX,Energy Minerals,Oil Refining/Marketing,532.05,535.99,525.0,526.62,-1.007556675062975,66186821444.99999,212673,PKR
+ARCTM,Arctic Textile Mills Limited,PSX,Process Industries,Textiles,28.5,29.4,28.0,28.48,1.3523131672597828,,100655,PKR
+ARPAK,Arpak International Investments Ltd.,PSX,Finance,Investment Banks/Brokers,117.0,123.0,112.0,119.6,5.74712643678161,,4242,PKR
+ARPL,Archroma Pakistan Limited,PSX,Process Industries,Industrial Specialties,392.39,393.0,389.99,390.0,0.048741694671762585,13473135182.0,2147,PKR
+ARUJ,Aruj Industries Ltd.,PSX,Process Industries,Textiles,11.29,11.3,10.53,10.86,-1.4519056261343026,,2758,PKR
+ASC,Al Shaheer Corp. Ltd.,PSX,Distribution Services,Food Distributors,10.88,11.25,10.72,10.95,2.1455223880596885,4019180266.0,1803302,PKR
+ASHT,Ashfaq Textile Mills Limited,PSX,Process Industries,Textiles,33.45,35.69,33.45,34.56,3.3183856502242133,,4945,PKR
+ASIC,Asia Insurance Co. Ltd. (Pakistan),PSX,Finance,Property/Casualty Insurance,37.0,37.2,36.0,33.84,0.0,,230,PKR
+ASL,Aisha Steel Mills Ltd.,PSX,Non-Energy Minerals,Steel,12.48,12.48,12.25,12.29,-0.32441200324412756,11476576390.0,384914,PKR
+ASTL,Amreli Steels Ltd.,PSX,Non-Energy Minerals,Steel,16.43,16.5,16.15,16.22,0.0,5466325392.0,625835,PKR
+ASTM,Asim Textile Mills Ltd.,PSX,Process Industries,Textiles,19.0,20.24,18.54,19.45,1.5135699373695153,,29364,PKR
+ATBA,Atlas Battery Limited,PSX,Producer Manufacturing,Electrical Products,220.0,222.75,215.2,219.0,0.17839989021544592,7655074357.0,16525,PKR
+ATIL,Atlas Insurance Limited,PSX,Finance,Property/Casualty Insurance,74.99,75.15,73.2,75.03,1.118598382749324,11086642995.0,6734,PKR
+ATLH,Atlas Honda Limited,PSX,Consumer Durables,Motor Vehicles,1782.62,1798.0,1782.62,1789.59,0.3909975205035301,221201636582.0,6407,PKR
+ATRL,Attock Refinery Ltd,PSX,Energy Minerals,Oil Refining/Marketing,885.0,888.0,868.01,872.46,-1.4514689769685092,94388431217.0,585778,PKR
+AVN,Avanceon Ltd.,PSX,Electronic Technology,Electronic Equipment/Instruments,33.2,33.92,33.2,33.65,0.8390770152831919,14264855773.0,489177,PKR
 AWTX,Allawasaya Textile & Finishing Mills Limited,PSX,Process Industries,Textiles,1707.26,1707.26,1707.26,1552.05,0.0,1241640058.0,1,PKR
-BAFL,Bank Alfalah Limited,PSX,Finance,Regional Banks,58.46,58.69,58.31,58.4,-0.08554319931566169,184370609743.0,225965,PKR
-BAFS,Baba Farid Sugar Mills Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,298.0,298.0,271.3,285.0,-0.6968641114982579,2712149945.0,847,PKR
-BAHL,Bank Al Habib Ltd.,PSX,Finance,Regional Banks,171.4,171.45,169.15,170.0,0.502512562814067,187997602170.0,25987,PKR
-BAPL,Bawany Air Products Limited.,PSX,Process Industries,Chemicals: Specialty,33.25,35.0,32.26,34.11,1.7297942141365887,20369549979.0,19241,PKR
-BATA,Bata Pakistan Limited,PSX,Consumer Non-Durables,Apparel/Footwear,984.2,985.0,975.1,975.1,-0.995024875621886,7445844128.0,526,PKR
-BBFL,Big Bird Foods Limited,PSX,Process Industries,Agricultural Commodities/Milling,45.0,46.7,44.27,46.25,3.3057851239669347,13382012455.0,1243053,PKR
-BCL,Bolan Castings Ltd.,PSX,Producer Manufacturing,Auto Parts: OEM,77.0,77.0,76.0,76.3,0.39473684210525944,871912235.0,5154,PKR
-BECO,Beco Steel Limited,PSX,Process Industries,Textiles,6.09,6.17,5.82,5.88,-2.487562189054732,,19562397,PKR
-BELA,Bela Automotives Ltd.,PSX,Distribution Services,Wholesale Distributors,61.97,61.97,57.3,59.57,0.9832174944905887,,19,PKR
-BERG,Berger Paints Pakistan Limited.,PSX,Process Industries,Industrial Specialties,94.9,96.0,94.11,95.0,0.4759386567953494,2321358857.0,2895,PKR
-BFAGRO,Barkat Frisian Agro Limited,PSX,Process Industries,Agricultural Commodities/Milling,33.53,33.9,33.53,33.6,0.2087682672233829,10393977296.0,60918,PKR
-BFBIO,BF Biosciences Ltd,PSX,Health Technology,Pharmaceuticals: Major,140.0,142.0,139.15,141.3,1.4430325220762577,12303949761.0,87037,PKR
-BFMOD,BF Modaraba,PSX,Finance,Investment Managers,22.23,23.68,21.7,23.68,9.986065954482111,,203873,PKR
-BGL,Balochistan Glass Ltd.,PSX,Process Industries,Containers/Packaging,10.64,10.95,10.45,10.75,2.7724665391969325,6678836433.0,146241,PKR
-BHAT,Bhanero Textile Mills Limited.,PSX,Process Industries,Textiles,867.01,934.0,850.0,860.0,-3.153153153153153,2700376144.0,218,PKR
-BIFO,Biafo Industries Limited,PSX,Process Industries,Industrial Specialties,135.48,135.5,132.5,133.0,-1.6272189349112343,6270939089.0,77316,PKR
-BIPL,BankIslami Pakistan Limited,PSX,Finance,Major Banks,25.64,25.65,25.42,25.45,0.11801730920534059,28183236625.0,208623,PKR
-BLUEX,Blue Ex Limited,PSX,Transportation,Air Freight/Couriers,6.46,6.46,6.3,6.45,0.7812499999999972,,18260,PKR
-BML,Bank Makramah Limited,PSX,Finance,Major Banks,53.69,58.03,53.65,57.6,9.194312796208534,52750000000.0,1379009,PKR
-BNL,Bunny's Ltd.,PSX,Consumer Non-Durables,Food: Specialty/Candy,7.08,7.13,7.03,7.1,0.5665722379603405,4716451836.0,1920205,PKR
-BNWM,Bannu Woollen Mills Limited,PSX,Process Industries,Textiles,63.12,64.78,63.12,63.15,-1.0808270676691805,606879026.0,656,PKR
-BOK,Bank of Khyber,PSX,Finance,Regional Banks,33.2,33.4,32.69,33.2,0.5146836209506561,38250540883.0,10115,PKR
-BOP,Bank of Punjab,PSX,Finance,Major Banks,34.5,34.5,33.9,33.95,-0.8759124087591158,112051249756.0,8522694,PKR
-BPL,Burshane LPG (Pakistan) Limited,PSX,Utilities,Gas Distributors,56.12,56.7,55.0,55.5,-1.0695187165775426,,43783,PKR
-BRRG,B.R.R. Guardian limited,PSX,Finance,Financial Conglomerates,44.0,45.6,44.0,45.0,6.182161396885317,,14767,PKR
-BTL,Blessed Textiles Limited,PSX,Process Industries,Textiles,1125.0,1130.2,1115.0,1130.2,0.16218084493562882,7257675989.0,73,PKR
-BUXL,Buxly Paints Limited,PSX,Process Industries,Industrial Specialties,160.0,160.0,160.0,160.0,0.37011479831880273,229550414.0,13,PKR
-BWCL,Bestway Cement Limited,PSX,Non-Energy Minerals,Construction Materials,446.0,450.98,446.0,448.98,0.9102555458161984,265290757326.00003,8776,PKR
-BWHL,Baluchistan Wheels Limited,PSX,Producer Manufacturing,Auto Parts: OEM,237.0,245.0,236.0,236.0,0.03390979993218571,3145816342.0,49286,PKR
-CCM,Crescent Cotton Mills Limited,PSX,Process Industries,Textiles,39.45,39.45,35.11,38.9,2.638522427440633,858818728.0,1348,PKR
-CENI,"Century Insurance Co., Ltd.",PSX,Finance,Property/Casualty Insurance,53.24,53.24,52.06,52.09,-0.28713629402756236,2890255653.0,885,PKR
-CEPB,Century Paper & Board Mills Limited,PSX,Process Industries,Pulp & Paper,29.49,30.7,29.1,30.4,4.575163398692805,11677795382.0,500539,PKR
-CFL,Crescent Fibres Limited,PSX,Process Industries,Textiles,56.1,59.99,56.1,59.99,0.0,744948417.0,25,PKR
-CHAS,Chashma Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,74.0,76.0,74.0,74.0,-0.6578064169687138,2137266977.0000002,1806,PKR
-CHBL,Chenab Limited,PSX,Process Industries,Textiles,9.94,9.94,9.52,9.74,-1.1167512690355272,1132750044.0,306508,PKR
-CHCC,Cherat Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,285.0,293.66,285.0,292.0,2.456140350877193,55374087524.0,436296,PKR
-CJPL,Crescent Jute Products Ltd.,PSX,Process Industries,Textiles,12.77,12.96,12.12,12.96,1.4878621769773006,303459519.0,11111,PKR
-CLOV,Clover Pakistan Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,8.8,8.85,8.66,8.73,0.11467889908256636,3394593544.0,928862,PKR
-CLVL,Cordoba Logistics & Ventures Limited,PSX,Process Industries,Textiles,12.45,12.8,12.4,12.8,-0.23382696804364272,925109733.0,21050,PKR
-CNERGY,Cnergyico Pk Limited,PSX,Distribution Services,Wholesale Distributors,8.18,8.27,8.13,8.2,0.49019607843136215,44826528849.0,4306746,PKR
-COLG,Colgate-Palmolive (Pakistan) Limited,PSX,Consumer Non-Durables,Household/Personal Care,1164.4,1189.9,1160.0,1163.99,-0.035211267605640834,282685218879.0,24474,PKR
-CPHL,Citi Pharma Ltd.,PSX,Health Technology,Pharmaceuticals: Major,78.49,78.5,77.2,77.65,-0.4487179487179414,17819973358.0,707199,PKR
-CPPL,Cherat Packaging Limited,PSX,Process Industries,Containers/Packaging,77.99,77.99,75.9,77.0,0.038976224503054616,3778872546.0,71154,PKR
-CRTM,Crescent Textile Mills Ltd.,PSX,Process Industries,Textiles,73.45,73.45,71.0,71.0,-1.1004318150160275,7179000092.0,5497,PKR
-CSAP,Crescent Steel & Allied Products Ltd,PSX,Non-Energy Minerals,Steel,94.7,94.7,93.48,94.15,0.7167308515190433,7257084906.0,149225,PKR
-CSIL,Crescent Star Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,6.2,6.24,6.12,6.15,0.49019607843137664,,643700,PKR
-CTM,Colony Textile Mills Ltd.,PSX,Process Industries,Textiles,7.57,7.8,7.57,7.71,0.652741514360311,3814756365.0,234313,PKR
-DAAG,Data Agro Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,81.0,82.5,80.1,82.5,3.125,,3109,PKR
-DADX,Dadex Eternit Limited,PSX,Non-Energy Minerals,Construction Materials,110.12,118.95,110.02,111.25,-2.051417503081527,1222575133.0,3493,PKR
-DBCI,Dadabhoy Cement Industries Limited,PSX,Non-Energy Minerals,Construction Materials,7.16,8.16,7.16,8.16,13.966480446927374,,2354104,PKR
-DCL,Dewan Cement Ltd.,PSX,Non-Energy Minerals,Construction Materials,12.4,12.4,11.77,11.84,-4.051863857374392,5973958718.0,10002156,PKR
-DEL,Dawood Equities Limited,PSX,Finance,Investment Banks/Brokers,19.98,19.98,18.6,19.5,-2.4024024024024047,,126931,PKR
-DFML,Dewan Farooque Motors Limited,PSX,Consumer Durables,Motor Vehicles,20.91,21.25,20.74,20.99,0.14312977099235488,6287825741.0,586177,PKR
-DFSM,Dewan Farooque Spinning Mills Limited,PSX,Process Industries,Textiles,17.0,17.39,16.58,17.0,0.0,,95621,PKR
-DGKC,D.G. Khan Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,198.7,200.9,197.5,199.2,0.8760824429027142,86515381208.0,2779844,PKR
-DIIL,Diamond Industries Limited,PSX,Consumer Non-Durables,Household/Personal Care,70.98,72.5,69.0,70.0,-0.014283673760898606,,38214,PKR
-DINT,Din Textile Mills Limited,PSX,Process Industries,Textiles,54.0,59.25,54.0,55.2,-2.679830747531728,2975914403.0,271,PKR
-DLL,Dawood Lawrencepur Limited,PSX,Process Industries,Textiles,609.88,629.99,600.0,628.0,3.808516265538211,48443168857.0,31505,PKR
-DMC,D.M. Corporation Limited,PSX,Process Industries,Textiles,223.0,225.0,206.1,206.1,-5.289278985340755,664232738.0,3,PKR
-DNCC,Dandot Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,20.9,20.9,19.81,20.35,1.143141153081513,6365065543.0,171355,PKR
-DOL,Descon Oxychem Limited,PSX,Process Industries,Chemicals: Specialty,31.61,31.95,31.61,31.92,0.980702309395768,5532732614.0,26229,PKR
-DSIL,D.S. Industries Ltd.,PSX,Process Industries,Textiles,10.51,11.19,10.5,11.19,10.029498525073741,,8938963,PKR
-DSL,Dost Steel Ltd.,PSX,Non-Energy Minerals,Steel,5.52,5.52,5.33,5.37,-0.5555555555555601,2401356048.0,1677227,PKR
-DWAE,Dewan Automotive Engineering Ltd.,PSX,Producer Manufacturing,Trucks/Construction/Farm Machinery,26.5,29.0,26.0,28.2,6.980273141122913,,144255,PKR
-DWSM,Dewan Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,6.8,6.96,6.8,6.95,0.7246376811594177,631432763.0,67138,PKR
-DWTM,Dewan Textile Mills Limited,PSX,Process Industries,Textiles,10.13,10.44,9.57,9.75,-3.7512339585390007,466634500.0,68162,PKR
-DYNO,Dynea Pakistan Limited,PSX,Process Industries,Chemicals: Specialty,334.9,337.0,326.0,335.0,0.0716931533038622,6317724903.0,2821,PKR
-ECOP,Ecopack Limited,PSX,Process Industries,Containers/Packaging,47.5,48.45,47.5,48.18,0.8793969849246267,2304822012.0,37848,PKR
-EFERT,Engro Fertilizers Ltd.,PSX,Process Industries,Chemicals: Agricultural,202.6,202.88,200.2,201.45,-0.14869888475836995,269396637085.0,263739,PKR
-EFUG,EFU General Insurance Ltd.,PSX,Finance,Multi-Line Insurance,128.46,131.0,124.01,127.59,2.0720000000000027,25000000000.0,16139,PKR
-EFUL,EFU Life Assurance Limited,PSX,Finance,Life/Health Insurance,152.5,164.69,150.25,160.01,6.872829281325135,15720600128.0,80175,PKR
-ELCM,Elahi Cotton Mills Limited,PSX,Process Industries,Textiles,195.0,199.6,191.6,199.6,1.6448541019503944,255280984.0,701,PKR
+BAFL,Bank Alfalah Limited,PSX,Finance,Regional Banks,58.46,58.69,58.12,58.35,-0.17108639863131123,184370609743.0,418517,PKR
+BAFS,Baba Farid Sugar Mills Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,298.0,298.0,271.3,285.76,-0.4320557491289231,2712149945.0,857,PKR
+BAHL,Bank Al Habib Ltd.,PSX,Finance,Regional Banks,171.4,171.45,168.82,169.09,-0.03547147502217102,187997602170.0,44216,PKR
+BAPL,Bawany Air Products Limited.,PSX,Process Industries,Chemicals: Specialty,33.25,35.0,32.26,33.75,0.6561288398449115,20369549979.0,26177,PKR
+BATA,Bata Pakistan Limited,PSX,Consumer Non-Durables,Apparel/Footwear,984.2,985.0,975.01,975.3,-0.9747182455071604,7445844128.0,620,PKR
+BBFL,Big Bird Foods Limited,PSX,Process Industries,Agricultural Commodities/Milling,45.0,46.7,44.27,46.07,2.903730176457443,13382012455.0,1734229,PKR
+BCL,Bolan Castings Ltd.,PSX,Producer Manufacturing,Auto Parts: OEM,77.0,77.0,76.0,76.86,1.1315789473684204,871912235.0,6904,PKR
+BECO,Beco Steel Limited,PSX,Process Industries,Textiles,6.09,6.17,5.79,5.83,-3.316749585406305,,26493657,PKR
+BELA,Bela Automotives Ltd.,PSX,Distribution Services,Wholesale Distributors,61.97,61.97,55.31,55.85,-5.322936090862859,,1062,PKR
+BERG,Berger Paints Pakistan Limited.,PSX,Process Industries,Industrial Specialties,94.9,96.0,94.11,95.63,1.1422527763088295,2321358857.0,5117,PKR
+BFAGRO,Barkat Frisian Agro Limited,PSX,Process Industries,Agricultural Commodities/Milling,33.53,33.9,33.5,33.6,0.2087682672233829,10393977296.0,132930,PKR
+BFBIO,BF Biosciences Ltd,PSX,Health Technology,Pharmaceuticals: Major,140.0,142.0,139.15,140.38,0.7825400244095079,12303949761.0,140797,PKR
+BFMOD,BF Modaraba,PSX,Finance,Investment Managers,22.23,23.68,21.7,23.68,9.986065954482111,,207526,PKR
+BGL,Balochistan Glass Ltd.,PSX,Process Industries,Containers/Packaging,10.64,11.1,10.45,10.88,4.01529636711281,6678836433.0,425761,PKR
+BHAT,Bhanero Textile Mills Limited.,PSX,Process Industries,Textiles,867.01,934.0,850.0,870.1,-2.0157657657657633,2700376144.0,312,PKR
+BIFO,Biafo Industries Limited,PSX,Process Industries,Industrial Specialties,135.48,135.5,131.8,132.12,-2.278106508875728,6270939089.0,133303,PKR
+BIPL,BankIslami Pakistan Limited,PSX,Finance,Major Banks,25.64,25.65,25.42,25.54,0.4720692368213904,28183236625.0,271314,PKR
+BLUEX,Blue Ex Limited,PSX,Transportation,Air Freight/Couriers,6.46,6.46,6.3,6.37,-0.4687500000000039,,36456,PKR
+BML,Bank Makramah Limited,PSX,Finance,Major Banks,53.69,58.03,53.65,57.9,9.763033175355448,52750000000.0,1725172,PKR
+BNL,Bunny's Ltd.,PSX,Consumer Non-Durables,Food: Specialty/Candy,7.08,7.13,7.03,7.06,0.0,4716451836.0,2763679,PKR
+BNWM,Bannu Woollen Mills Limited,PSX,Process Industries,Textiles,63.12,66.5,63.12,64.77,1.4567669172932214,606879026.0,13056,PKR
+BOK,Bank of Khyber,PSX,Finance,Regional Banks,33.2,33.4,32.5,32.59,-1.3321223130487365,38250540883.0,21958,PKR
+BOP,Bank of Punjab,PSX,Finance,Major Banks,34.5,34.5,33.72,33.79,-1.3430656934306595,112051249756.0,15286456,PKR
+BPL,Burshane LPG (Pakistan) Limited,PSX,Utilities,Gas Distributors,56.12,56.7,54.0,54.09,-3.582887700534756,,87421,PKR
+BRRG,B.R.R. Guardian limited,PSX,Finance,Financial Conglomerates,44.0,45.6,44.0,44.99,6.158565361019347,,14795,PKR
+BTL,Blessed Textiles Limited,PSX,Process Industries,Textiles,1125.0,1130.2,1115.0,1125.81,-0.22687593608479006,7257675989.0,74,PKR
+BUXL,Buxly Paints Limited,PSX,Process Industries,Industrial Specialties,160.0,160.0,160.0,159.41,0.0,229550414.0,13,PKR
+BWCL,Bestway Cement Limited,PSX,Non-Energy Minerals,Construction Materials,446.0,450.98,445.0,446.63,0.3820825747870426,265290757326.00003,13005,PKR
+BWHL,Baluchistan Wheels Limited,PSX,Producer Manufacturing,Auto Parts: OEM,237.0,245.0,233.0,234.77,-0.48745337402508365,3145816342.0,57308,PKR
+CCM,Crescent Cotton Mills Limited,PSX,Process Industries,Textiles,39.45,39.49,35.11,39.09,3.1398416886543665,858818728.0,2948,PKR
+CENI,"Century Insurance Co., Ltd.",PSX,Finance,Property/Casualty Insurance,53.24,53.24,52.06,53.01,1.473966309341493,2890255653.0,1086,PKR
+CEPB,Century Paper & Board Mills Limited,PSX,Process Industries,Pulp & Paper,29.49,30.7,29.1,29.43,1.238390092879255,11677795382.0,847948,PKR
+CFL,Crescent Fibres Limited,PSX,Process Industries,Textiles,62.99,62.99,62.99,59.99,0.0,744948417.0,8,PKR
+CHAS,Chashma Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,74.0,77.0,74.0,75.5,1.3558866962008391,2137266977.0000002,2308,PKR
+CHBL,Chenab Limited,PSX,Process Industries,Textiles,9.94,9.94,9.37,9.45,-4.0609137055837605,1132750044.0,552645,PKR
+CHCC,Cherat Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,285.0,293.66,284.05,286.74,0.6105263157894769,55374087524.0,631460,PKR
+CJPL,Crescent Jute Products Ltd.,PSX,Process Industries,Textiles,12.77,14.05,12.12,13.39,4.855129209083798,303459519.0,152124,PKR
+CLOV,Clover Pakistan Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,8.8,8.85,8.63,8.67,-0.5733944954128521,3394593544.0,1339152,PKR
+CLVL,Cordoba Logistics & Ventures Limited,PSX,Process Industries,Textiles,12.45,13.5,12.4,13.26,3.351519875292282,925109733.0,30305,PKR
+CNERGY,Cnergyico Pk Limited,PSX,Distribution Services,Wholesale Distributors,8.18,8.27,8.13,8.15,-0.12254901960784054,44826528849.0,6902292,PKR
+COLG,Colgate-Palmolive (Pakistan) Limited,PSX,Consumer Non-Durables,Household/Personal Care,1164.4,1189.9,1160.0,1162.75,-0.14170388182755847,282685218879.0,25011,PKR
+CPHL,Citi Pharma Ltd.,PSX,Health Technology,Pharmaceuticals: Major,78.49,78.5,77.2,77.75,-0.3205128205128205,17819973358.0,839006,PKR
+CPPL,Cherat Packaging Limited,PSX,Process Industries,Containers/Packaging,77.99,77.99,75.9,77.67,0.9094452384045768,3778872546.0,79255,PKR
+CRTM,Crescent Textile Mills Ltd.,PSX,Process Industries,Textiles,73.45,73.45,71.0,71.03,-1.0586432650787088,7179000092.0,8046,PKR
+CSAP,Crescent Steel & Allied Products Ltd,PSX,Non-Energy Minerals,Steel,94.7,94.7,93.48,93.98,0.5348737697903294,7257084906.0,221746,PKR
+CSIL,Crescent Star Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,6.2,6.24,6.05,6.06,-0.9803921568627533,,1230591,PKR
+CTM,Colony Textile Mills Ltd.,PSX,Process Industries,Textiles,7.57,7.8,7.57,7.67,0.13054830287205987,3814756365.0,394474,PKR
+DAAG,Data Agro Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,81.0,82.5,78.01,79.81,-0.23749999999999719,,3609,PKR
+DADX,Dadex Eternit Limited,PSX,Non-Energy Minerals,Construction Materials,110.12,118.95,110.02,111.52,-1.8136995949991217,1222575133.0,3822,PKR
+DBCI,Dadabhoy Cement Industries Limited,PSX,Non-Energy Minerals,Construction Materials,7.16,8.16,7.16,8.16,13.966480446927374,,2534077,PKR
+DCL,Dewan Cement Ltd.,PSX,Non-Energy Minerals,Construction Materials,12.4,12.4,11.74,11.79,-4.457050243111837,5973958718.0,13148808,PKR
+DEL,Dawood Equities Limited,PSX,Finance,Investment Banks/Brokers,19.98,20.1,18.6,19.41,-2.852852852852854,,162687,PKR
+DFML,Dewan Farooque Motors Limited,PSX,Consumer Durables,Motor Vehicles,20.91,21.25,20.65,20.71,-1.1927480916030533,6287825741.0,851391,PKR
+DFSM,Dewan Farooque Spinning Mills Limited,PSX,Process Industries,Textiles,17.0,17.39,16.58,16.65,-2.058823529411773,,161522,PKR
+DGKC,D.G. Khan Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,198.7,200.9,196.25,197.2,-0.1367296298171926,86515381208.0,3541626,PKR
+DIIL,Diamond Industries Limited,PSX,Consumer Non-Durables,Household/Personal Care,70.98,72.5,67.0,67.65,-3.3709470075703463,,51436,PKR
+DINT,Din Textile Mills Limited,PSX,Process Industries,Textiles,54.0,59.25,54.0,56.72,0.0,2975914403.0,271,PKR
+DLL,Dawood Lawrencepur Limited,PSX,Process Industries,Textiles,609.88,629.99,600.0,624.83,3.284514678656441,48443168857.0,31505,PKR
+DMC,D.M. Corporation Limited,PSX,Process Industries,Textiles,223.0,225.0,206.1,217.61,0.0,664232738.0,88,PKR
+DNCC,Dandot Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,20.9,20.9,19.81,20.41,1.4413518886679877,6365065543.0,287799,PKR
+DOL,Descon Oxychem Limited,PSX,Process Industries,Chemicals: Specialty,31.61,31.95,31.4,31.48,-0.4112622587788643,5532732614.0,103295,PKR
+DSIL,D.S. Industries Ltd.,PSX,Process Industries,Textiles,10.51,11.19,10.5,11.19,10.029498525073741,,8996184,PKR
+DSL,Dost Steel Ltd.,PSX,Non-Energy Minerals,Steel,5.52,5.52,5.33,5.45,0.9259259259259226,2401356048.0,3308911,PKR
+DWAE,Dewan Automotive Engineering Ltd.,PSX,Producer Manufacturing,Trucks/Construction/Farm Machinery,26.5,29.0,26.0,28.8,9.25644916540213,,255927,PKR
+DWSM,Dewan Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,6.8,6.96,6.8,6.84,-0.8695652173913114,631432763.0,112447,PKR
+DWTM,Dewan Textile Mills Limited,PSX,Process Industries,Textiles,10.13,10.44,9.57,9.65,-4.738400789733468,466634500.0,107903,PKR
+DYNO,Dynea Pakistan Limited,PSX,Process Industries,Chemicals: Specialty,334.9,337.0,326.0,335.65,0.2658621101684749,6317724903.0,2910,PKR
+ECOP,Ecopack Limited,PSX,Process Industries,Containers/Packaging,47.5,48.45,47.5,47.87,0.23031825795644773,2304822012.0,70952,PKR
+EFERT,Engro Fertilizers Ltd.,PSX,Process Industries,Chemicals: Agricultural,202.6,202.88,200.0,200.4,-0.6691449814126366,269396637085.0,539209,PKR
+EFUG,EFU General Insurance Ltd.,PSX,Finance,Multi-Line Insurance,128.46,131.0,124.01,124.56,-0.3519999999999982,25000000000.0,22958,PKR
+EFUL,EFU Life Assurance Limited,PSX,Finance,Life/Health Insurance,152.5,164.69,150.25,160.58,7.253539941223626,15720600128.0,90631,PKR
+ELCM,Elahi Cotton Mills Limited,PSX,Process Industries,Textiles,195.0,199.6,191.6,195.84,-0.2698986606915522,255280984.0,702,PKR
 ELSM,Ellcot Spinning Mills Limited,PSX,Process Industries,Textiles,112.0,112.0,112.0,112.0,0.0,1226399979.0,21,PKR
-EMCO,Emco Industries Limited,PSX,Producer Manufacturing,Electrical Products,44.89,46.72,44.89,45.65,1.2419605233976383,,10769,PKR
-ENGROH,Engro Holdings Limited,PSX,Process Industries,Chemicals: Agricultural,263.48,265.5,262.11,263.52,0.46511627906975617,315870053501.0,649372,PKR
-EPCL,Engro Polymer & Chemicals Limited,PSX,Process Industries,Chemicals: Specialty,33.31,33.71,33.25,33.53,-0.44536817102137344,30712520485.0,233701,PKR
-EPQL,Engro Powergen Qadirpur Ltd,PSX,Utilities,Electric Utilities,24.79,24.84,23.75,24.75,-0.1613553852359788,8030239450.0,64766,PKR
-ESBL,Escorts Investment Bank Limited,PSX,Finance,Investment Banks/Brokers,14.48,14.59,13.66,13.92,2.428256070640177,,391337,PKR
-EWIC,East West Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,55.5,55.5,55.5,55.5,6.118546845124289,16192726491.0,1,PKR
-EXIDE,Exide Pakistan Ltd.,PSX,Producer Manufacturing,Auto Parts: OEM,548.0,548.0,540.07,542.0,0.37222911535398634,4194976015.9999995,608,PKR
-FABL,Faysal Bank Limited,PSX,Finance,Regional Banks,89.97,90.5,89.51,90.0,0.547424868729745,135849019929.0,711025,PKR
-FANM,First Al-Noor Modaraba,PSX,Finance,Investment Banks/Brokers,6.7,6.8,6.4,6.5,-3.129657228017883,,102464,PKR
-FASM,Faisal Spinning Mills Limited,PSX,Process Industries,Textiles,349.0,349.0,335.0,335.0,0.7518796992481203,3325000000.0,58,PKR
-FATIMA,Fatima Fertilizer Co. Ltd.,PSX,Process Industries,Chemicals: Agricultural,141.95,142.95,141.9,142.27,0.2960874162848191,297885012817.0,138840,PKR
-FCCL,Fauji Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,54.24,54.5,53.65,53.98,0.16700686583781094,132183932385.0,3149378,PKR
-FCEL,First Capital Equities Ltd.,PSX,Finance,Investment Banks/Brokers,5.19,5.51,4.92,5.19,8.577405857740589,675583628.0,45337,PKR
-FCEPL,Frieslandcampina Engro Pakistan Limited,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,111.99,112.15,110.0,110.13,-1.581769436997328,85782108158.0,509299,PKR
-FCIBL,First Credit & Investment Bank Limited,PSX,Finance,Investment Banks/Brokers,47.0,47.0,40.49,40.69,-9.55767948432986,,329392,PKR
-FCL,Fast Cables Ltd.,PSX,Producer Manufacturing,Electrical Products,24.4,24.48,24.03,24.15,-0.535420098846798,15650290631.0,505988,PKR
-FCSC,First Capital Securities Corporation Limited,PSX,Finance,Investment Banks/Brokers,5.31,5.47,5.15,5.43,4.022988505747126,1652704854.0,2853296,PKR
-FDPL,First Dawood Properties Limited,PSX,Finance,Investment Banks/Brokers,5.2,5.23,4.98,5.04,-2.8901734104046306,770144185.0,934916,PKR
-FECM,First Elite Capital Modaraba,PSX,Finance,Investment Banks/Brokers,17.55,17.55,17.15,17.37,-1.082004555808643,,6622,PKR
-FECTC,Fecto Cement Limited,PSX,Non-Energy Minerals,Construction Materials,102.99,103.76,99.99,101.2,-0.8232065856526884,5118326430.0,161153,PKR
-FEM,First Equity Modaraba,PSX,Finance,Investment Managers,11.01,12.24,11.0,11.61,4.312668463611848,,98748,PKR
-FEROZ,Ferozsons Laboratories Limited,PSX,Health Technology,Pharmaceuticals: Major,373.0,400.0,372.0,395.01,5.97751723767874,16202219991.0,110357,PKR
-FFC,Fauji Fertilizer Co. Ltd.,PSX,Process Industries,Chemicals: Agricultural,560.5,563.9,559.1,561.0,0.29498525073745907,804917588073.0,529961,PKR
-FFL,Fauji Foods Limited,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,18.1,18.2,17.86,17.9,-0.7210205213533142,45434937050.0,1533488,PKR
-FFLM,First Fidelity Leasing Modaraba,PSX,Finance,Investment Managers,6.8,7.76,6.76,7.76,14.792899408284024,,1980159,PKR
-FHAM,First Habib Modaraba,PSX,Finance,Finance/Rental/Leasing,32.99,32.99,32.6,32.76,0.36764705882352156,3617507379.0,8918,PKR
-FIBLM,First IBL Modaraba,PSX,Finance,Finance/Rental/Leasing,11.49,12.35,10.6,11.29,-1.0517090271691585,247454372.0,74027,PKR
-FIL,Fateh Industries Ltd,PSX,Process Industries,Textiles,166.02,166.02,166.02,166.02,-7.7974008663778696,,50,PKR
-FIMM,First Imrooz Modaraba,PSX,Distribution Services,Wholesale Distributors,201.01,219.0,201.01,202.05,-3.6618509512229913,,167,PKR
-FLYNG,Flying Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,42.1,42.1,41.33,41.99,-0.023809523809519072,29181599487.0,5055,PKR
-FML,Feroze1888 Mills Limited,PSX,Process Industries,Textiles,52.8,53.45,52.0,52.0,-0.6495987772258376,20905068539.0,11827,PKR
-FNEL,First National Equities Limited,PSX,Finance,Investment Banks/Brokers,1.32,1.33,1.29,1.31,0.7692307692307698,3474722138.0,4776037,PKR
-FPJM,First Punjab Modaraba Services Pvt Ltd.,PSX,Finance,Investment Managers,8.2,8.2,8.0,8.05,-0.739827373612808,275902192.0,115401,PKR
-FPRM,First Paramount Modaraba,PSX,Finance,Finance/Rental/Leasing,14.02,14.75,14.02,14.02,-2.9085872576177283,,516,PKR
-FRCL,Frontier Ceramics Limited,PSX,Consumer Durables,Home Furnishings,75.02,75.1,75.0,75.0,-4.628687690742625,,2042,PKR
+EMCO,Emco Industries Limited,PSX,Producer Manufacturing,Electrical Products,44.89,46.72,44.89,45.64,1.219782656908399,,11681,PKR
+ENGROH,Engro Holdings Limited,PSX,Process Industries,Chemicals: Agricultural,263.48,265.5,261.1,262.21,-0.034311856652699896,315870053501.0,1384500,PKR
+EPCL,Engro Polymer & Chemicals Limited,PSX,Process Industries,Chemicals: Specialty,33.31,33.71,33.23,33.35,-0.9798099762470258,30712520485.0,367888,PKR
+EPQL,Engro Powergen Qadirpur Ltd,PSX,Utilities,Electric Utilities,24.79,24.84,23.75,24.77,-0.0806776926179894,8030239450.0,114598,PKR
+ESBL,Escorts Investment Bank Limited,PSX,Finance,Investment Banks/Brokers,14.48,14.59,13.66,13.84,1.839587932303164,,455189,PKR
+EWIC,East West Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,55.5,55.5,55.5,52.3,0.0,16192726491.0,1,PKR
+EXIDE,Exide Pakistan Ltd.,PSX,Producer Manufacturing,Auto Parts: OEM,548.0,548.0,535.05,537.12,-0.5314913239134066,4194976015.9999995,876,PKR
+FABL,Faysal Bank Limited,PSX,Finance,Regional Banks,89.97,91.49,89.51,90.03,0.580940677019323,135849019929.0,2034289,PKR
+FANM,First Al-Noor Modaraba,PSX,Finance,Investment Banks/Brokers,6.7,6.8,6.02,6.48,-3.4277198211624373,,173261,PKR
+FASM,Faisal Spinning Mills Limited,PSX,Process Industries,Textiles,349.0,349.0,335.0,332.5,0.0,3325000000.0,59,PKR
+FATIMA,Fatima Fertilizer Co. Ltd.,PSX,Process Industries,Chemicals: Agricultural,141.95,142.95,141.16,141.61,-0.16919280930559089,297885012817.0,212632,PKR
+FCCL,Fauji Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,54.24,54.5,53.3,53.49,-0.7422527370569653,132183932385.0,4199390,PKR
+FCEL,First Capital Equities Ltd.,PSX,Finance,Investment Banks/Brokers,5.19,5.51,4.92,5.3,10.8786610878661,675583628.0,61504,PKR
+FCEPL,Frieslandcampina Engro Pakistan Limited,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,111.99,112.15,108.75,109.77,-1.9034852546916974,85782108158.0,916914,PKR
+FCIBL,First Credit & Investment Bank Limited,PSX,Finance,Investment Banks/Brokers,47.0,47.0,40.49,40.49,-10.002222716159146,,355107,PKR
+FCL,Fast Cables Ltd.,PSX,Producer Manufacturing,Electrical Products,24.4,24.48,24.03,24.12,-0.6589785831960466,15650290631.0,846980,PKR
+FCSC,First Capital Securities Corporation Limited,PSX,Finance,Investment Banks/Brokers,5.31,5.7,5.15,5.4,3.4482758620689773,1652704854.0,7941826,PKR
+FDPL,First Dawood Properties Limited,PSX,Finance,Investment Banks/Brokers,5.2,5.23,4.98,5.02,-3.275529865125256,770144185.0,1633529,PKR
+FECM,First Elite Capital Modaraba,PSX,Finance,Investment Banks/Brokers,17.55,17.55,17.15,17.36,-1.1389521640091078,,7474,PKR
+FECTC,Fecto Cement Limited,PSX,Non-Energy Minerals,Construction Materials,102.99,103.76,99.01,99.85,-2.1462171697373695,5118326430.0,304012,PKR
+FEM,First Equity Modaraba,PSX,Finance,Investment Managers,11.01,12.24,11.0,11.5,3.324348607367468,,115022,PKR
+FEROZ,Ferozsons Laboratories Limited,PSX,Health Technology,Pharmaceuticals: Major,373.0,401.49,372.0,391.1,4.928500523166904,16202219991.0,203870,PKR
+FFC,Fauji Fertilizer Co. Ltd.,PSX,Process Industries,Chemicals: Agricultural,560.5,563.9,556.0,558.07,-0.22883704299633015,804917588073.0,1015528,PKR
+FFL,Fauji Foods Limited,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,18.1,18.2,17.78,17.84,-1.0537992235163687,45434937050.0,2937344,PKR
+FFLM,First Fidelity Leasing Modaraba,PSX,Finance,Investment Managers,6.8,7.76,6.76,7.76,14.792899408284024,,2144655,PKR
+FHAM,First Habib Modaraba,PSX,Finance,Finance/Rental/Leasing,32.99,32.99,32.6,32.77,0.39828431372549805,3617507379.0,12271,PKR
+FIBLM,First IBL Modaraba,PSX,Finance,Finance/Rental/Leasing,11.49,12.35,10.6,11.02,-3.4180543382997417,247454372.0,137897,PKR
+FIL,Fateh Industries Ltd,PSX,Process Industries,Textiles,166.02,166.02,166.02,180.06,0.0,,51,PKR
+FIMM,First Imrooz Modaraba,PSX,Distribution Services,Wholesale Distributors,201.01,219.0,201.01,214.64,2.3411052305344953,,167,PKR
+FLYNG,Flying Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,42.1,42.1,41.33,41.95,-0.11904761904761227,29181599487.0,7505,PKR
+FML,Feroze1888 Mills Limited,PSX,Process Industries,Textiles,52.8,53.45,50.31,52.0,-0.6495987772258376,20905068539.0,17153,PKR
+FNEL,First National Equities Limited,PSX,Finance,Investment Banks/Brokers,1.32,1.33,1.29,1.3,0.0,3474722138.0,7252599,PKR
+FPJM,First Punjab Modaraba Services Pvt Ltd.,PSX,Finance,Investment Managers,8.2,8.2,7.6,7.85,-3.2059186189889,275902192.0,168182,PKR
+FPRM,First Paramount Modaraba,PSX,Finance,Finance/Rental/Leasing,14.02,14.75,14.0,14.24,-1.3850415512465326,,38752,PKR
+FRCL,Frontier Ceramics Limited,PSX,Consumer Durables,Home Furnishings,75.02,76.0,75.0,75.03,-4.590539165818921,,2043,PKR
 FRSM,Faran Sugar Mills Ltd,PSX,Process Industries,Agricultural Commodities/Milling,45.0,46.9,45.0,46.77,4.771505376344091,1763770576.0,2513,PKR
-FSWL,Fateh Sports Wear Ltd.,PSX,Consumer Non-Durables,Apparel/Footwear,86.5,88.29,84.0,84.0,4.620749782040097,,86,PKR
-FTMM,First Treet Manufacturing Modaraba,PSX,Producer Manufacturing,Electrical Products,16.43,16.75,16.3,16.73,3.271604938271612,3168720248.0,1108,PKR
-FTSM,First Tri-Star Modaraba,PSX,Finance,Finance/Rental/Leasing,23.0,23.67,22.11,22.2,-0.8042895442359237,,720,PKR
-FZCM,Fazal Cloth Mills Limited,PSX,Process Industries,Textiles,254.89,260.0,240.05,257.99,1.9159358457770492,7594199982.0,3121,PKR
-GADT,Gadoon Textile Mills Limited,PSX,Process Industries,Textiles,304.95,319.95,299.91,303.1,1.0670223407802752,8406072335.999999,30334,PKR
-GAL,Ghandhara Automobiles Limited,PSX,Producer Manufacturing,Trucks/Construction/Farm Machinery,459.75,476.0,458.01,473.3,3.732439125956129,26008529422.0,1038930,PKR
-GAMON,Gammon Pakistan Limited,PSX,Industrial Services,Engineering & Construction,19.5,20.48,19.25,20.4,3.2388663967611184,558540742.0,2924,PKR
-GATI,Gatron Industries Ltd.,PSX,Process Industries,Textiles,89.7,91.97,89.1,89.98,0.2562674094707565,9758423992.0,16632,PKR
-GATM,Gul Ahmed Textile Mills Limited,PSX,Process Industries,Textiles,23.22,23.8,22.98,23.28,0.3015941404567009,14297921837.0,318952,PKR
-GCIL,Ghani Chemical Industries Limited,PSX,Process Industries,Chemicals: Specialty,29.9,30.99,29.85,30.4,1.8766756032171539,17022286733.0,1759888,PKR
-GCWL,Ghani ChemWorld Limited Registered Shs,PSX,Process Industries,Chemicals: Specialty,17.0,17.25,16.92,17.03,0.8886255924170743,,830100,PKR
-GDL,GHANI DAIRIES LIMITED,PSX,Process Industries,Agricultural Commodities/Milling,20.65,21.24,20.46,20.55,-0.19426906265176855,,1596935,PKR
-GEMBCEM,Burj Clean Energy Modaraba,PSX,Utilities,Electric Utilities,11.0,11.4,11.0,11.4,3.63636363636364,,22053,PKR
-GEMMEL,Mughal Energy Ltd.,PSX,Utilities,Electric Utilities,21.3,21.3,21.3,22.48,0.0,,21,PKR
+FSWL,Fateh Sports Wear Ltd.,PSX,Consumer Non-Durables,Apparel/Footwear,86.5,88.29,84.0,80.29,0.0,,86,PKR
+FTMM,First Treet Manufacturing Modaraba,PSX,Producer Manufacturing,Electrical Products,16.43,16.75,16.03,16.43,1.4197530864197556,3168720248.0,1409,PKR
+FTSM,First Tri-Star Modaraba,PSX,Finance,Finance/Rental/Leasing,23.0,23.67,22.11,22.14,-1.0723860589812264,,5833,PKR
+FZCM,Fazal Cloth Mills Limited,PSX,Process Industries,Textiles,254.89,260.0,240.05,253.1,-0.015801532748673477,7594199982.0,3478,PKR
+GADT,Gadoon Textile Mills Limited,PSX,Process Industries,Textiles,304.95,319.95,299.91,303.95,1.3504501500500206,8406072335.999999,37990,PKR
+GAL,Ghandhara Automobiles Limited,PSX,Producer Manufacturing,Trucks/Construction/Farm Machinery,459.75,476.0,458.01,471.53,3.3445109255484677,26008529422.0,1335781,PKR
+GAMON,Gammon Pakistan Limited,PSX,Industrial Services,Engineering & Construction,19.5,20.48,19.25,19.89,0.6578947368421002,558540742.0,3056,PKR
+GATI,Gatron Industries Ltd.,PSX,Process Industries,Textiles,89.7,91.97,88.2,89.45,-0.33426183844010826,9758423992.0,27464,PKR
+GATM,Gul Ahmed Textile Mills Limited,PSX,Process Industries,Textiles,23.22,23.8,22.98,23.32,0.47393364928909704,14297921837.0,420871,PKR
+GCIL,Ghani Chemical Industries Limited,PSX,Process Industries,Chemicals: Specialty,29.9,30.99,29.85,30.1,0.8713136729222573,17022286733.0,2119373,PKR
+GCWL,Ghani ChemWorld Limited Registered Shs,PSX,Process Industries,Chemicals: Specialty,17.0,17.25,16.92,17.01,0.770142180094802,,1098247,PKR
+GDL,GHANI DAIRIES LIMITED,PSX,Process Industries,Agricultural Commodities/Milling,20.65,21.24,20.46,20.52,-0.3399708596406036,,1851410,PKR
+GEMBCEM,Burj Clean Energy Modaraba,PSX,Utilities,Electric Utilities,11.0,11.4,11.0,11.01,0.09090909090908897,,22053,PKR
+GEMMEL,Mughal Energy Ltd.,PSX,Utilities,Electric Utilities,21.3,21.3,21.3,22.48,0.0,,1,PKR
 GEMNETS,Nets International Communication Limited,PSX,Technology Services,Information Technology Services,27.95,27.95,27.95,25.41,9.999999999999993,,10,PKR
 GEMPAPL,Pak Agro Packaging Limited,PSX,Commercial Services,Miscellaneous Commercial Services,10.0,10.0,10.0,10.0,-2.4390243902439024,,86948,PKR
-GFIL,Ghazi Fabrics International Limited,PSX,Process Industries,Textiles,32.44,33.3,30.4,30.96,-4.562268803945737,,276316,PKR
-GGGL,Ghani Global Glass Ltd,PSX,Consumer Durables,Home Furnishings,8.5,8.65,8.41,8.59,1.6568047337278176,2027999954.0,723727,PKR
-GGL,Ghani Global Holdings Limited,PSX,Process Industries,Chemicals: Specialty,20.01,20.82,20.01,20.35,2.7777777777777812,7011567778.0,2481614,PKR
-GHGL,Ghani Glass Limited,PSX,Consumer Durables,Home Furnishings,34.41,35.2,34.41,35.01,1.743679163034006,34400185521.0,223327,PKR
-GHNI,Ghandhara Industries Limited,PSX,Consumer Durables,Motor Vehicles,955.01,962.0,943.0,949.0,0.9069933118547081,40072338980.0,478990,PKR
-GLAXO,GlaxoSmithKline Pakistan Limited,PSX,Health Technology,Pharmaceuticals: Major,348.89,355.38,348.89,353.9,1.6136441943264055,110915775057.0,83380,PKR
-GOC,GOC (Pak) Ltd.,PSX,Consumer Durables,Recreational Products,98.25,107.39,98.25,107.39,9.996927174024384,717478006.0,6428,PKR
-GRR,Globe Residency REIT,PSX,Finance,Real Estate Investment Trusts,19.9,20.22,19.63,19.7,-0.10141987829614389,,360797,PKR
-GRYL,Grays Leasing Limited,PSX,Finance,Finance/Rental/Leasing,25.14,25.14,23.55,25.14,10.021881838074394,,438965,PKR
-GSPM,Gulshan Spinning Mills Ltd,PSX,Process Industries,Textiles,5.73,7.1,5.72,5.96,-2.7732463295269154,,204145,PKR
-GTYR,Ghandhara Tyre and Rubber Co Limited,PSX,Consumer Durables,Automotive Aftermarket,29.1,29.47,29.0,29.3,0.4801097393690006,3555576456.0,46025,PKR
-GUSM,Gulistan Spinning Mills Limited,PSX,Process Industries,Textiles,7.5,7.9,7.5,7.85,11.189801699716714,,26302,PKR
-GVGL,Ghani Value Glass Limited,PSX,Process Industries,Industrial Specialties,58.99,58.99,56.51,58.0,2.6548672566371683,8471732559.0,8656,PKR
-GWLC,Gharibwal Cement Limited,PSX,Non-Energy Minerals,Construction Materials,50.38,50.99,49.52,50.73,1.5412329863891032,19997684966.0,136043,PKR
-HABSM,Habib Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,73.5,74.43,73.14,73.99,0.5708848715509063,9931949959.0,5083,PKR
-HAEL,Hala Enterprises Ltd.,PSX,Consumer Non-Durables,Consumer Sundries,22.97,23.57,22.7,23.39,1.65145588874402,,604,PKR
-HAFL,Hafiz Limited,PSX,Finance,Real Estate Development,395.17,395.17,395.17,395.17,0.0,,199,PKR
-HALEON,Haleon Pakistan Limited,PSX,Health Technology,Pharmaceuticals: Major,774.0,775.0,761.26,768.0,-0.34645178870333077,90210398781.0,9812,PKR
-HASCOL,Hascol Petroleum Ltd.,PSX,Retail Trade,Specialty Stores,22.97,23.65,22.9,23.0,0.8771929824561372,22779950434.0,18852505,PKR
-HBL,Habib Bank Limited,PSX,Finance,Major Banks,287.0,288.9,285.11,286.7,0.22372928756204516,419607833743.0,656382,PKR
-HCAR,Honda Atlas Cars (Pakistan) Ltd.,PSX,Consumer Durables,Motor Vehicles,277.9,278.9,269.0,272.7,-1.2063906097163295,39417084668.0,847178,PKR
-HICL,Habib Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,10.28,11.22,10.1,10.42,2.1568627450980458,,842688,PKR
-HINO,Hinopak Motors Limited.,PSX,Producer Manufacturing,Trucks/Construction/Farm Machinery,359.41,372.0,359.41,365.0,1.5553267855652249,8913799009.0,15221,PKR
-HINOON,Highnoon Laboratories Limited,PSX,Health Technology,Pharmaceuticals: Major,980.0,994.89,975.0,980.0,0.3810382267382337,51726603985.0,7507,PKR
-HIRAT,Hira Textile Mills Limited,PSX,Process Industries,Textiles,6.95,7.4,6.85,7.2,5.417276720351392,591327180.0,1655720,PKR
-HMB,Habib Metropolitan Bank Limited,PSX,Finance,Major Banks,118.4,118.4,115.33,116.49,-0.4358974358974403,122596290527.0,37335,PKR
-HPL,Hoechst Pakistan Limited,PSX,Health Technology,Pharmaceuticals: Major,4149.9,4149.9,4016.0,4028.98,0.4983786480419062,38665843369.0,40,PKR
-HRPL,Habib Rice Products Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,18.79,18.9,18.6,18.85,0.8021390374331664,748000031.0,2470,PKR
-HTL,Hi-Tech Lubricants Ltd.,PSX,Process Industries,Industrial Specialties,41.98,42.0,41.5,41.74,0.5056585600770548,5781175318.0,59825,PKR
-HUBC,Hub Power Co. Ltd.,PSX,Utilities,Electric Utilities,215.97,217.5,215.15,215.25,-0.06963788300835919,279407053924.0,1095006,PKR
-HUMNL,Hum Network Limited,PSX,Consumer Services,Broadcasting,11.15,11.45,11.05,11.25,2.272727272727273,12474000000.0,3742505,PKR
-HUSI,Husein Industries Ltd,PSX,Process Industries,Textiles,34.1,39.0,34.01,37.49,4.138888888888895,,16,PKR
-HWQS,Haseeb Waqas Sugar Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,21.44,21.45,21.44,21.45,6.663351566384883,651564050.0,300,PKR
-IBFL,Ibrahim Fibres Limited,PSX,Process Industries,Textiles,241.44,241.94,215.5,215.5,-7.510729613733906,72348128326.0,103,PKR
-IBLHL,IBL Healthcare Limited,PSX,Distribution Services,Medical Distributors,46.5,51.13,46.0,51.13,10.004302925989686,4579487771.0,857053,PKR
-ICCI,ICC Industries Limited,PSX,Process Industries,Textiles,13.01,13.58,12.87,13.11,-0.3041825095057104,,69349,PKR
-ICIBL,Invest Capital Investment Bank Limited,PSX,Finance,Finance/Rental/Leasing,4.38,4.93,4.37,4.55,5.324074074074063,,5732927,PKR
-ICL,Ittehad Chemicals Limited,PSX,Process Industries,Chemicals: Specialty,137.99,140.2,137.99,140.0,1.9590707158983305,13730999756.0,12560,PKR
-IDRT,Idrees Textile Mills Ltd.,PSX,Process Industries,Textiles,58.99,63.69,55.78,60.0,2.3716089404538487,,125371,PKR
-IDSM,Ideal Dynamics Limited,PSX,Process Industries,Textiles,83.5,86.9,80.0,81.02,1.617960617082644,,30814,PKR
-IDYM,Indus Dyeing & Manufacturing Co. Ltd.,PSX,Process Industries,Textiles,139.99,143.5,139.99,140.3,0.6600660066006715,7557349923.0,13891,PKR
-IGIHL,IGI Holdings Limited,PSX,Finance,Multi-Line Insurance,235.75,235.75,233.0,235.0,0.21321961620469082,33446864960.0,14319,PKR
-IGIL,IGI Life Insurance Limited,PSX,Finance,Life/Health Insurance,21.75,21.75,21.75,21.75,8.641358641358645,3414755416.0,5500,PKR
-ILP,Interloop Ltd.,PSX,Consumer Non-Durables,Apparel/Footwear,81.99,82.8,81.25,81.7,0.0367331945634886,114477610065.0,198335,PKR
-IMAGE,Image Pakistan Limited,PSX,Process Industries,Textiles,24.65,25.3,24.6,24.98,1.3387423935091354,5678612017.0,343791,PKR
-IML,Imperial Limited,PSX,Process Industries,Agricultural Commodities/Milling,25.0,25.0,25.0,25.0,6.473594548551957,2324989476.0,500,PKR
-IMS,Intermarket Securities Ltd,PSX,Finance,Investment Banks/Brokers,16.0,16.8,16.0,16.5,2.867830423940155,20651665651.0,75138,PKR
-INDU,Indus Motor Co. Ltd.,PSX,Consumer Durables,Motor Vehicles,2044.95,2044.95,2025.0,2038.0,0.1454516864533393,159954143965.0,2111,PKR
-INIL,International Industries Limited,PSX,Non-Energy Minerals,Steel,158.4,161.0,157.5,158.99,1.138676844783728,20731829004.0,61340,PKR
-INKL,International Knitwear Limited,PSX,Consumer Non-Durables,Apparel/Footwear,80.3,87.0,80.0,86.85,3.8254632396891677,,224293,PKR
-IPAK,International Packaging Films Ltd.,PSX,Process Industries,Containers/Packaging,31.9,34.66,31.5,33.0,4.7286575690257004,23166467961.0,2900760,PKR
-IREIT,Image REIT,PSX,Finance,Real Estate Investment Trusts,8.1,8.14,8.06,8.09,0.0,,111548,PKR
-ISIL,Ismail Industries Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,1968.0,1970.0,1933.0,1970.0,2.60363227274858,127405991366.0,30,PKR
-ISL,International Steels limited,PSX,Process Industries,Industrial Specialties,78.0,79.5,78.0,78.22,0.824954885279712,33747300797.000004,272327,PKR
-ITANZ,Itanz Technologies Limited,PSX,Process Industries,Agricultural Commodities/Milling,43.65,46.0,43.5,45.7,3.463889517772246,,2734097,PKR
-ITTEFAQ,Ittefaq Iron Industries Limited,PSX,Non-Energy Minerals,Steel,8.24,8.49,8.17,8.33,1.0922330097087363,1189389198.0,398961,PKR
-JATM,J.A. Textile Mills Ltd.,PSX,Process Industries,Textiles,24.88,24.88,23.5,24.0,0.41841004184101016,,9168,PKR
-JDMT,Janana De Malucho Textile Mills Limited,PSX,Process Industries,Textiles,105.75,105.75,102.0,103.98,1.7815191855912367,,4,PKR
-JDWS,JDW Sugar Mills Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,921.0,929.0,915.0,926.0,0.5428881650380022,53212304707.0,264,PKR
-JGICL,Jubilee General Insurance Co. Ltd.,PSX,Finance,Multi-Line Insurance,73.7,73.7,72.5,73.66,1.5299793246037208,14400550137.0,13391,PKR
+GFIL,Ghazi Fabrics International Limited,PSX,Process Industries,Textiles,32.44,33.3,29.2,29.96,-7.644882860665836,,577395,PKR
+GGGL,Ghani Global Glass Ltd,PSX,Consumer Durables,Home Furnishings,8.5,8.65,8.4,8.43,-0.23668639053253934,2027999954.0,907595,PKR
+GGL,Ghani Global Holdings Limited,PSX,Process Industries,Chemicals: Specialty,20.01,20.82,20.01,20.35,2.7777777777777812,7011567778.0,2905739,PKR
+GHGL,Ghani Glass Limited,PSX,Consumer Durables,Home Furnishings,34.41,35.2,34.41,34.83,1.220575414123806,34400185521.0,259542,PKR
+GHNI,Ghandhara Industries Limited,PSX,Consumer Durables,Motor Vehicles,955.01,962.0,935.01,939.14,-0.14141865237594403,40072338980.0,589934,PKR
+GLAXO,GlaxoSmithKline Pakistan Limited,PSX,Health Technology,Pharmaceuticals: Major,348.89,355.38,348.89,350.87,0.7436545308372666,110915775057.0,110111,PKR
+GOC,GOC (Pak) Ltd.,PSX,Consumer Durables,Recreational Products,98.25,107.39,98.25,107.39,9.996927174024384,717478006.0,7530,PKR
+GRR,Globe Residency REIT,PSX,Finance,Real Estate Investment Trusts,19.9,20.22,19.63,19.66,-0.30425963488843166,,448281,PKR
+GRYL,Grays Leasing Limited,PSX,Finance,Finance/Rental/Leasing,25.14,25.14,23.55,25.14,10.021881838074394,,439590,PKR
+GSPM,Gulshan Spinning Mills Ltd,PSX,Process Industries,Textiles,5.73,7.1,5.72,6.23,1.6313213703099598,,315598,PKR
+GTYR,Ghandhara Tyre and Rubber Co Limited,PSX,Consumer Durables,Automotive Aftermarket,29.1,29.47,29.0,29.2,0.1371742112482824,3555576456.0,55728,PKR
+GUSM,Gulistan Spinning Mills Limited,PSX,Process Industries,Textiles,7.5,8.06,7.5,8.03,13.739376770538241,,74815,PKR
+GVGL,Ghani Value Glass Limited,PSX,Process Industries,Industrial Specialties,58.99,58.99,56.51,57.34,1.4867256637168202,8471732559.0,9615,PKR
+GWLC,Gharibwal Cement Limited,PSX,Non-Energy Minerals,Construction Materials,50.38,51.19,49.52,50.84,1.7614091273018468,19997684966.0,254555,PKR
+HABSM,Habib Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,73.5,74.43,73.14,74.0,0.5844773684926015,9931949959.0,6714,PKR
+HAEL,Hala Enterprises Ltd.,PSX,Consumer Non-Durables,Consumer Sundries,22.97,23.57,22.7,22.8,-0.9126466753585434,,3399,PKR
+HAFL,Hafiz Limited,PSX,Finance,Real Estate Development,395.17,405.0,395.0,395.18,0.0025305564693653125,,241,PKR
+HALEON,Haleon Pakistan Limited,PSX,Health Technology,Pharmaceuticals: Major,774.0,775.0,750.51,762.32,-1.0834728223493726,90210398781.0,18902,PKR
+HASCOL,Hascol Petroleum Ltd.,PSX,Retail Trade,Specialty Stores,22.97,23.65,22.71,22.79,-0.04385964912281387,22779950434.0,23842888,PKR
+HBL,Habib Bank Limited,PSX,Finance,Major Banks,287.0,288.9,285.11,285.69,-0.1293434943718117,419607833743.0,771805,PKR
+HCAR,Honda Atlas Cars (Pakistan) Ltd.,PSX,Consumer Durables,Motor Vehicles,277.9,278.9,267.5,269.12,-2.5033510850269787,39417084668.0,1201405,PKR
+HICL,Habib Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,10.28,11.22,10.1,10.58,3.725490196078439,,1161652,PKR
+HINO,Hinopak Motors Limited.,PSX,Producer Manufacturing,Trucks/Construction/Farm Machinery,359.41,372.0,359.41,364.42,1.3939511977963859,8913799009.0,19160,PKR
+HINOON,Highnoon Laboratories Limited,PSX,Health Technology,Pharmaceuticals: Major,980.0,994.89,975.0,978.5,0.22739378047281797,51726603985.0,9140,PKR
+HIRAT,Hira Textile Mills Limited,PSX,Process Industries,Textiles,6.95,7.4,6.85,7.06,3.367496339677885,591327180.0,1884913,PKR
+HMB,Habib Metropolitan Bank Limited,PSX,Finance,Major Banks,118.4,118.4,115.0,115.51,-1.2735042735042692,122596290527.0,74529,PKR
+HPL,Hoechst Pakistan Limited,PSX,Health Technology,Pharmaceuticals: Major,4149.9,4149.9,4016.0,4052.5,1.0850586181092543,38665843369.0,46,PKR
+HRPL,Habib Rice Products Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,18.79,18.9,18.6,18.6,-0.5347593582887586,748000031.0,2999,PKR
+HTL,Hi-Tech Lubricants Ltd.,PSX,Process Industries,Industrial Specialties,41.98,42.24,41.5,42.07,1.3002648687695622,5781175318.0,154007,PKR
+HUBC,Hub Power Co. Ltd.,PSX,Utilities,Electric Utilities,215.97,217.5,213.5,214.12,-0.5942432683379764,279407053924.0,2263682,PKR
+HUMNL,Hum Network Limited,PSX,Consumer Services,Broadcasting,11.15,11.45,11.05,11.11,0.9999999999999948,12474000000.0,4476409,PKR
+HUSI,Husein Industries Ltd,PSX,Process Industries,Textiles,34.1,39.0,34.01,36.0,0.0,,86,PKR
+HWQS,Haseeb Waqas Sugar Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,21.44,21.45,19.25,19.49,-3.0830432620586823,651564050.0,2394,PKR
+IBFL,Ibrahim Fibres Limited,PSX,Process Industries,Textiles,241.44,241.94,215.5,235.1,0.9012875536480662,72348128326.0,356,PKR
+IBLHL,IBL Healthcare Limited,PSX,Distribution Services,Medical Distributors,46.5,51.13,46.0,51.13,10.004302925989686,4579487771.0,918521,PKR
+ICCI,ICC Industries Limited,PSX,Process Industries,Textiles,13.01,13.58,12.87,13.32,1.292775665399239,,82914,PKR
+ICIBL,Invest Capital Investment Bank Limited,PSX,Finance,Finance/Rental/Leasing,4.38,4.93,4.37,4.51,4.398148148148136,,6209888,PKR
+ICL,Ittehad Chemicals Limited,PSX,Process Industries,Chemicals: Specialty,137.99,141.0,137.99,140.29,2.170271648095543,13730999756.0,25851,PKR
+IDRT,Idrees Textile Mills Ltd.,PSX,Process Industries,Textiles,58.99,63.69,55.78,61.89,5.596314622078145,,311710,PKR
+IDSM,Ideal Dynamics Limited,PSX,Process Industries,Textiles,83.5,87.7,80.0,85.82,7.6382791922739095,,71020,PKR
+IDYM,Indus Dyeing & Manufacturing Co. Ltd.,PSX,Process Industries,Textiles,139.99,143.5,139.99,141.91,1.815181518151816,7557349923.0,31374,PKR
+IGIHL,IGI Holdings Limited,PSX,Finance,Multi-Line Insurance,235.75,239.95,233.0,236.51,0.8571428571428532,33446864960.0,24772,PKR
+IGIL,IGI Life Insurance Limited,PSX,Finance,Life/Health Insurance,21.75,21.75,21.0,21.0,4.895104895104898,3414755416.0,6500,PKR
+ILP,Interloop Ltd.,PSX,Consumer Non-Durables,Apparel/Footwear,81.99,82.8,81.25,81.51,-0.1959103710052609,114477610065.0,349690,PKR
+IMAGE,Image Pakistan Limited,PSX,Process Industries,Textiles,24.65,25.3,24.6,25.0,1.4198782961460505,5678612017.0,528330,PKR
+IML,Imperial Limited,PSX,Process Industries,Agricultural Commodities/Milling,25.0,25.0,24.9,24.98,6.388415672913117,2324989476.0,650,PKR
+IMS,Intermarket Securities Ltd,PSX,Finance,Investment Banks/Brokers,16.0,16.8,16.0,16.59,3.4289276807980094,20651665651.0,108576,PKR
+INDU,Indus Motor Co. Ltd.,PSX,Consumer Durables,Motor Vehicles,2044.95,2044.95,2025.0,2032.8,-0.11007154650522885,159954143965.0,5501,PKR
+INIL,International Industries Limited,PSX,Non-Energy Minerals,Steel,158.4,161.0,156.88,157.27,0.044529262086527736,20731829004.0,109148,PKR
+INKL,International Knitwear Limited,PSX,Consumer Non-Durables,Apparel/Footwear,80.3,87.3,80.0,87.13,4.160191273161972,,315006,PKR
+IPAK,International Packaging Films Ltd.,PSX,Process Industries,Containers/Packaging,31.9,34.66,31.5,33.49,6.2837194541415435,23166467961.0,3350151,PKR
+IREIT,Image REIT,PSX,Finance,Real Estate Investment Trusts,8.1,8.14,8.04,8.06,-0.3708281829418957,,205106,PKR
+ISIL,Ismail Industries Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,1968.0,1970.0,1933.0,1940.0,1.041140410727028,127405991366.0,70,PKR
+ISL,International Steels limited,PSX,Process Industries,Industrial Specialties,78.0,79.5,77.85,78.13,0.7089456045372482,33747300797.000004,442176,PKR
+ITANZ,Itanz Technologies Limited,PSX,Process Industries,Agricultural Commodities/Milling,43.65,48.59,43.5,47.55,7.65225266017658,,7589155,PKR
+ITTEFAQ,Ittefaq Iron Industries Limited,PSX,Non-Energy Minerals,Steel,8.24,8.49,8.17,8.38,1.699029126213599,1189389198.0,587056,PKR
+JATM,J.A. Textile Mills Ltd.,PSX,Process Industries,Textiles,24.88,24.88,23.5,23.57,-1.3807531380753069,,9178,PKR
+JDMT,Janana De Malucho Textile Mills Limited,PSX,Process Industries,Textiles,105.75,105.75,102.0,102.16,0.0,,4,PKR
+JDWS,JDW Sugar Mills Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,921.0,929.0,915.0,925.69,0.5092290988056519,53212304707.0,325,PKR
+JGICL,Jubilee General Insurance Co. Ltd.,PSX,Finance,Multi-Line Insurance,73.7,73.7,72.36,72.81,0.3583735354927707,14400550137.0,32643,PKR
 JKSM,JK Spinning Mills Ltd.,PSX,Process Industries,Textiles,158.72,158.72,158.53,158.91,0.0,16259273863.0,203,PKR
-JLICL,Jubilee Life Insurance Co. Ltd.,PSX,Finance,Multi-Line Insurance,169.85,169.85,169.85,169.85,1.5181399796784365,16790111989.0,11,PKR
-JSBL,JS Bank Limited,PSX,Finance,Regional Banks,12.85,13.49,12.8,12.99,0.5417956656346771,26494560918.0,1058348,PKR
-JSCL,Jahangir Siddiqui & Co. Ltd,PSX,Finance,Major Banks,20.0,20.24,19.5,19.75,-0.8036162732295337,18236412702.0,121157,PKR
-JSGCL,JS Global Capital Limited,PSX,Finance,Investment Banks/Brokers,145.04,163.0,145.04,160.0,3.225806451612903,4258981009.0,37,PKR
-JSIL,JS Investments Limited,PSX,Finance,Investment Managers,38.01,45.0,38.01,41.75,-0.5952380952380952,2594518822.0,2210,PKR
-JSML,Jauharabad Sugar Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,77.28,80.5,74.94,75.32,-3.311938382541736,2658606783.0,531044,PKR
-JSRR,JS RENTAL REIT,PSX,Finance,Real Estate Investment Trusts,10.5,10.6,10.25,10.59,1.3397129186602927,,2636,PKR
-JUBS,Jubilee Spinning & Weaving Mills Limited,PSX,Process Industries,Textiles,52.0,53.88,50.5,50.71,-2.0096618357487905,,8693,PKR
-JVDC,Javedan Corporation Limited,PSX,Non-Energy Minerals,Construction Materials,134.25,134.49,133.0,133.5,0.09747319487140695,50795355439.0,84172,PKR
-KAPCO,Kot Addu Power Co. Ltd.,PSX,Utilities,Electric Utilities,27.8,27.84,27.5,27.75,-0.17985611510791621,24471039258.0,511938,PKR
-KCL,Karam Ceramics Limited,PSX,Producer Manufacturing,Building Products,144.0,147.16,144.0,147.0,9.881895649573927,,88,PKR
-KEL,K-Electric Ltd.,PSX,Utilities,Electric Utilities,8.18,8.22,8.07,8.12,0.12330456226880132,223959224503.0,3878559,PKR
-KHTC,Khyber Tobacco Co. Ltd.,PSX,Consumer Non-Durables,Tobacco,313.87,313.9,308.01,313.49,-0.127433177227684,2172862208.0,1045,PKR
-KHYT,Khyber Textile Mills Limited,PSX,Process Industries,Textiles,1510.0,1575.0,1510.0,1550.0,-0.44958253050738595,,24,PKR
-KML,Kohinoor Mills Limited,PSX,Process Industries,Textiles,8.35,8.43,8.22,8.41,2.5609756097561083,4174703034.0,328686,PKR
-KOHC,Kohat Cement Co Ltd,PSX,Non-Energy Minerals,Construction Materials,91.89,94.29,91.08,92.85,1.5531007328010362,84052195272.0,459158,PKR
-KOHE,Kohinoor Energy Limited,PSX,Utilities,Alternative Power Generation,16.19,16.19,15.56,15.87,0.5066497783407224,2675751333.0,56572,PKR
-KOHP,Kohinoor Power Co. Ltd.,PSX,Utilities,Electric Utilities,26.3,28.51,26.05,28.51,9.992283950617283,,178007,PKR
-KOHTM,Kohat Textile Mills Limited,PSX,Process Industries,Textiles,93.97,99.8,90.0,99.8,9.996693486167743,1887184001.0,1487395,PKR
-KOIL,Kohinoor Industries Ltd.,PSX,Process Industries,Textiles,46.76,47.39,46.7,46.9,0.29940119760479167,1416948584.0,173204,PKR
-KOSM,Kohinoor Spinning Mills Limited,PSX,Process Industries,Textiles,5.38,5.53,5.38,5.48,1.8587360594795637,2344142954.0,4871894,PKR
-KPUS,Khairpur Sugar Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,2428.0,2580.0,2390.0,2445.0,3.006787072964189,38019616467.0,12996,PKR
-KSBP,KSB Pumps Company Limited,PSX,Producer Manufacturing,Industrial Machinery,198.78,199.6,197.21,198.8,0.7245275371130399,6098732774.0,1727,PKR
-KSTM,Khalid Siraj Textile Mills Limited,PSX,Process Industries,Textiles,11.57,11.57,10.66,10.66,-4.821428571428564,,12032,PKR
-KTML,Kohinoor Textiles Mills Ltd,PSX,Non-Energy Minerals,Construction Materials,47.99,51.51,47.62,50.25,5.8786346396965845,63904755518.0,714481,PKR
-LCI,Lucky Core Industries Limited,PSX,Process Industries,Chemicals: Specialty,227.5,228.8,226.8,227.02,-0.04843041430017401,104887559106.0,39438,PKR
-LEUL,Leather Up Limited,PSX,Consumer Non-Durables,Apparel/Footwear,32.45,33.47,31.8,33.0,0.21257212268448308,,2156,PKR
-LIVEN,Liven Pharma Ltd,PSX,Health Technology,Pharmaceuticals: Major,37.05,39.29,37.05,38.81,0.4139715394566719,,43565,PKR
-LOADS,Loads Ltd.,PSX,Producer Manufacturing,Auto Parts: OEM,13.57,13.59,13.26,13.55,0.8935219657483321,4985887613.0,1465818,PKR
-LOTCHEM,Lotte Chemical Pakistan Ltd.,PSX,Process Industries,Textiles,27.51,28.8,27.51,28.16,2.6239067055393543,41549848445.0,1813162,PKR
-LPGL,Leiner Pak Gelatine Limited,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,94.0,99.09,90.08,99.09,10.002220248667856,,77149,PKR
-LPL,Lalpir Power Ltd.,PSX,Utilities,Electric Utilities,20.28,20.28,19.61,19.99,0.9595959595959481,5540806336.0,1054,PKR
-LSECL,Lse Capital limited,PSX,Commercial Services,Miscellaneous Commercial Services,5.54,5.54,5.41,5.43,-0.36697247706422864,,873058,PKR
-LSEFSL,LSE Financial Services Limited,PSX,Finance,Finance/Rental/Leasing,21.14,23.34,20.66,21.9,-2.796271637816256,,16413,PKR
-LSEVL,LSE Ventures Limited,PSX,Finance,Financial Conglomerates,9.56,9.59,9.2,9.41,-0.2120890774125087,,200556,PKR
-LUCK,Lucky Cement Ltd.,PSX,Non-Energy Minerals,Construction Materials,435.6,437.67,433.56,435.1,0.1611418047882241,636395991058.0,607663,PKR
-MACFL,Macpac Films Limited,PSX,Process Industries,Containers/Packaging,58.0,63.15,57.95,61.25,6.688730186378685,3404479086.0,1470392,PKR
-MACTER,Macter International Ltd.,PSX,Health Technology,Pharmaceuticals: Major,269.5,269.5,267.01,268.11,0.2093066716501597,12256737814.0,3855,PKR
-MARI,Mari Energies Limited,PSX,Energy Minerals,Oil & Gas Production,658.88,658.88,653.0,655.99,0.027446973971129395,787380277220.0,320362,PKR
-MCB,MCB Bank Limited,PSX,Finance,Major Banks,414.99,415.5,409.5,410.0,-0.6349667975376871,488979475591.0,58084,PKR
-MCBIM,MCB Investment Management Limited,PSX,Finance,Investment Managers,162.76,168.99,162.76,168.99,0.8714857040530102,12062159912.0,65,PKR
-MDTL,Media Times Limited,PSX,Consumer Services,Publishing: Newspapers,5.82,6.12,5.71,6.0,4.529616724738672,1026604775.0,6303933,PKR
-MEBL,Meezan Bank Limited.,PSX,Finance,Major Banks,493.5,496.8,490.0,490.52,-0.4626623376623436,887313267864.0,273080,PKR
-MEHT,Mahmood Textile Mills Limited,PSX,Process Industries,Textiles,220.0,242.95,220.0,224.49,1.5929764221387563,6629100037.0,1028,PKR
-MERIT,Merit Packaging Limited,PSX,Commercial Services,Commercial Printing/Forms,9.39,10.2,9.28,10.02,7.165775401069519,1869611301.0,423025,PKR
-MFFL,Mitchell'S Fruit Farms Limited,PSX,Consumer Non-Durables,Food: Major Diversified,159.5,161.0,159.5,159.5,0.9557566934616056,3614021376.0,5692,PKR
-MFL,Matco Foods Ltd,PSX,Process Industries,Agricultural Commodities/Milling,48.5,48.9,47.31,47.5,0.592969080897927,5779761005.0,18759,PKR
-MIRKS,Mirpurkhas Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,31.83,31.83,30.2,31.47,0.8977236293683796,2075940682.0,792,PKR
-MLCF,Maple Leaf Cement Factory Ltd,PSX,Non-Energy Minerals,Construction Materials,88.9,89.6,88.03,88.5,0.5110732538330527,92237892070.0,11185090,PKR
-MQTM,Maqbool Textile Mills Limited,PSX,Process Industries,Textiles,21.5,21.59,20.27,21.59,0.27868091035763454,396840956.0,5434,PKR
-MRNS,Mehran Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,63.25,63.25,62.0,62.79,0.4800768122899618,4682226619.0,12866,PKR
-MSCL,Metropolitan Steel Corporation Limited,PSX,Non-Energy Minerals,Steel,29.02,29.5,28.16,29.4,0.6504621704895506,,30020,PKR
-MSOT,Masood Textile Mills Limited,PSX,Consumer Non-Durables,Apparel/Footwear,79.95,80.0,76.0,78.25,1.3601036269430016,5210999794.0,19598,PKR
-MTL,Millat Tractors Limited,PSX,Producer Manufacturing,Trucks/Construction/Farm Machinery,561.0,565.0,561.0,563.08,0.843526693769371,222807451996.0,92392,PKR
-MUGHAL,Mughal Iron & Steel Industries Ltd,PSX,Non-Energy Minerals,Steel,75.9,78.9,75.72,77.45,2.6643690349947047,27814267070.0,1599065,PKR
-MUGHALC,Mughal Iron & Steel Industries Ltd. Class C,PSX,Non-Energy Minerals,Steel,64.99,65.99,61.1,61.1,-0.6665582832059772,27814267070.0,31,PKR
-MUREB,"Murree Brewery Co., Ltd.",PSX,Consumer Non-Durables,Beverages: Alcoholic,948.97,948.97,920.0,929.0,0.0064589747454028715,25697855628.0,1631,PKR
-MWMP,Mandviwala Mauser Plastic Industries Ltd.,PSX,Producer Manufacturing,Miscellaneous Manufacturing,68.0,70.89,68.0,69.99,1.4347826086956448,1983621157.0,30638,PKR
-NAGC,Nagina Cotton Mills Limited,PSX,Process Industries,Textiles,68.75,70.9,68.75,70.74,6.761243585873815,1239062090.0,2104,PKR
-NATF,National Foods Ltd. (Pakistan),PSX,Consumer Non-Durables,Food: Specialty/Candy,365.0,366.5,351.0,361.8,-0.7706864869312422,84996147754.0,91358,PKR
-NBP,National Bank of Pakistan,PSX,Finance,Major Banks,187.0,187.54,184.51,184.84,-0.8794508794508722,396738558332.0,1560309,PKR
-NCL,Nishat Chunian Ltd.,PSX,Process Industries,Textiles,38.7,38.7,38.21,38.34,-0.13024225058608274,9218169562.0,78017,PKR
-NCML,Nazir Cotton Mills Ltd,PSX,Process Industries,Textiles,12.9,12.99,12.85,12.85,3.5455278001611563,,2500,PKR
-NCPL,Nishat Chunian Power Limited,PSX,Utilities,Electric Utilities,63.98,66.25,63.05,64.9,2.0761245674740603,23355918090.0,5826894,PKR
-NESTLE,Nestle Pakistan Ltd.,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,7710.0,7750.0,7710.0,7750.0,0.20467613202192256,350741407776.0,67,PKR
-NETSOL,Netsol Technologies Limited,PSX,Technology Services,Information Technology Services,129.0,130.5,128.01,129.0,-0.1857010213556245,11610524253.0,262766,PKR
-NEXT,Next Capital Limited,PSX,Finance,Investment Banks/Brokers,12.71,13.3,12.3,12.6,-3.6697247706422047,,6052,PKR
-NICL,Nimir Industrial Chemicals Ltd.,PSX,Process Industries,Chemicals: Specialty,186.15,206.0,186.15,202.0,5.24122121496301,21226749603.0,229034,PKR
-NML,Nishat Mills Limited,PSX,Process Industries,Textiles,146.44,147.5,145.0,145.49,-0.11671014691747048,51214035951.0,1454517,PKR
-NONS,Noon Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,89.89,89.89,87.0,88.0,0.22779043280182557,1450232525.0,2199,PKR
-NPL,Nishat Power Limited,PSX,Utilities,Electric Utilities,68.88,72.29,68.24,71.0,4.059797742928325,24159459610.0,3266122,PKR
-NRL,National Refinery Limited,PSX,Energy Minerals,Oil Refining/Marketing,371.0,372.99,366.0,367.5,-0.5305039787798354,29544444709.0,435865,PKR
-NRSL,Nimir Resins Ltd.,PSX,Process Industries,Chemicals: Specialty,34.2,34.2,33.6,34.0,0.8902077151335227,4762520864.0,57692,PKR
+JLICL,Jubilee Life Insurance Co. Ltd.,PSX,Finance,Multi-Line Insurance,169.85,173.99,169.5,171.88,2.7314565776104196,16790111989.0,1861,PKR
+JSBL,JS Bank Limited,PSX,Finance,Regional Banks,12.85,13.49,12.8,12.92,0.0,26494560918.0,1308905,PKR
+JSCL,Jahangir Siddiqui & Co. Ltd,PSX,Finance,Major Banks,20.0,21.25,19.5,20.79,4.419889502762426,18236412702.0,1042821,PKR
+JSGCL,JS Global Capital Limited,PSX,Finance,Investment Banks/Brokers,145.04,163.0,145.04,155.0,0.0,4258981009.0,204,PKR
+JSIL,JS Investments Limited,PSX,Finance,Investment Managers,38.01,45.0,38.01,40.01,-4.738095238095243,2594518822.0,3530,PKR
+JSML,Jauharabad Sugar Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,77.28,80.5,74.0,74.84,-3.9281129653401825,2658606783.0,817567,PKR
+JSRR,JS RENTAL REIT,PSX,Finance,Real Estate Investment Trusts,10.5,10.6,10.25,10.6,1.4354066985645968,,37153,PKR
+JUBS,Jubilee Spinning & Weaving Mills Limited,PSX,Process Industries,Textiles,52.0,53.88,50.5,51.1,-1.2560386473429923,,8948,PKR
+JVDC,Javedan Corporation Limited,PSX,Non-Energy Minerals,Construction Materials,134.25,138.1,132.5,136.8,2.571792756991832,50795355439.0,1283675,PKR
+KAPCO,Kot Addu Power Co. Ltd.,PSX,Utilities,Electric Utilities,27.8,27.84,27.5,27.66,-0.5035971223021604,24471039258.0,659073,PKR
+KCL,Karam Ceramics Limited,PSX,Producer Manufacturing,Building Products,144.0,147.16,144.0,136.79,2.2499626252055545,,174,PKR
+KEL,K-Electric Ltd.,PSX,Utilities,Electric Utilities,8.18,8.22,7.99,8.02,-1.109741060419234,223959224503.0,11560365,PKR
+KHTC,Khyber Tobacco Co. Ltd.,PSX,Consumer Non-Durables,Tobacco,313.87,313.9,308.01,309.99,-1.2424734779699824,2172862208.0,2018,PKR
+KHYT,Khyber Textile Mills Limited,PSX,Process Industries,Textiles,1510.0,1575.0,1510.0,1527.83,-1.873474630700069,,61,PKR
+KML,Kohinoor Mills Limited,PSX,Process Industries,Textiles,8.35,8.43,8.22,8.4,2.4390243902439157,4174703034.0,463325,PKR
+KOHC,Kohat Cement Co Ltd,PSX,Non-Energy Minerals,Construction Materials,91.89,94.29,90.29,91.47,0.04374931641692228,84052195272.0,593319,PKR
+KOHE,Kohinoor Energy Limited,PSX,Utilities,Alternative Power Generation,16.19,16.19,15.56,15.73,-0.3799873337555334,2675751333.0,119562,PKR
+KOHP,Kohinoor Power Co. Ltd.,PSX,Utilities,Electric Utilities,26.3,28.51,26.05,28.51,9.992283950617283,,182910,PKR
+KOHTM,Kohat Textile Mills Limited,PSX,Process Industries,Textiles,93.97,99.8,90.0,99.8,9.996693486167743,1887184001.0,1560328,PKR
+KOIL,Kohinoor Industries Ltd.,PSX,Process Industries,Textiles,46.76,47.39,46.6,46.72,-0.08554319931565259,1416948584.0,215076,PKR
+KOSM,Kohinoor Spinning Mills Limited,PSX,Process Industries,Textiles,5.38,5.53,5.38,5.45,1.301115241635693,2344142954.0,7089343,PKR
+KPUS,Khairpur Sugar Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,2428.0,2580.0,2151.0,2420.84,1.9889367761614083,38019616467.0,21476,PKR
+KSBP,KSB Pumps Company Limited,PSX,Producer Manufacturing,Industrial Machinery,198.78,199.99,197.21,198.23,0.43572984749454585,6098732774.0,8076,PKR
+KSTM,Khalid Siraj Textile Mills Limited,PSX,Process Industries,Textiles,11.57,11.57,10.66,10.93,-2.410714285714282,,15033,PKR
+KTML,Kohinoor Textiles Mills Ltd,PSX,Non-Energy Minerals,Construction Materials,47.99,51.51,47.62,49.53,4.36156763590392,63904755518.0,1084579,PKR
+LCI,Lucky Core Industries Limited,PSX,Process Industries,Chemicals: Specialty,227.5,228.8,226.8,227.08,-0.022013824681892728,104887559106.0,47909,PKR
+LEUL,Leather Up Limited,PSX,Consumer Non-Durables,Apparel/Footwear,32.45,33.47,31.8,32.01,-2.7938050409960575,,5770,PKR
+LIVEN,Liven Pharma Ltd,PSX,Health Technology,Pharmaceuticals: Major,37.05,39.29,37.05,38.79,0.36222509702458106,,59583,PKR
+LOADS,Loads Ltd.,PSX,Producer Manufacturing,Auto Parts: OEM,13.57,13.69,13.26,13.49,0.44676098287416605,4985887613.0,2582242,PKR
+LOTCHEM,Lotte Chemical Pakistan Ltd.,PSX,Process Industries,Textiles,27.51,28.8,27.51,28.05,2.2230320699708432,41549848445.0,2209838,PKR
+LPGL,Leiner Pak Gelatine Limited,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,94.0,99.09,90.08,99.09,10.002220248667856,,79109,PKR
+LPL,Lalpir Power Ltd.,PSX,Utilities,Electric Utilities,20.28,20.28,19.61,19.81,0.05050505050504046,5540806336.0,12883,PKR
+LSECL,Lse Capital limited,PSX,Commercial Services,Miscellaneous Commercial Services,5.54,5.54,5.41,5.45,0.0,,1027886,PKR
+LSEFSL,LSE Financial Services Limited,PSX,Finance,Finance/Rental/Leasing,21.14,23.34,20.66,22.08,-1.9973368841544732,,85565,PKR
+LSEVL,LSE Ventures Limited,PSX,Finance,Financial Conglomerates,9.56,9.59,9.2,9.56,1.3785790031813445,,675846,PKR
+LUCK,Lucky Cement Ltd.,PSX,Non-Energy Minerals,Construction Materials,435.6,437.67,430.2,431.5,-0.667587476979737,636395991058.0,850824,PKR
+MACFL,Macpac Films Limited,PSX,Process Industries,Containers/Packaging,58.0,63.15,57.95,59.95,4.4243163211984085,3404479086.0,1783906,PKR
+MACTER,Macter International Ltd.,PSX,Health Technology,Pharmaceuticals: Major,269.5,269.5,267.01,268.07,0.1943561951037121,12256737814.0,6990,PKR
+MARI,Mari Energies Limited,PSX,Energy Minerals,Oil & Gas Production,658.88,658.88,647.06,649.67,-0.9362467787926361,787380277220.0,606551,PKR
+MCB,MCB Bank Limited,PSX,Finance,Major Banks,414.99,415.5,406.51,407.61,-1.2141922349861838,488979475591.0,120160,PKR
+MCBIM,MCB Investment Management Limited,PSX,Finance,Investment Managers,162.76,171.0,162.76,169.81,1.3609502775622284,12062159912.0,1286,PKR
+MDTL,Media Times Limited,PSX,Consumer Services,Publishing: Newspapers,5.82,6.12,5.71,5.94,3.4843205574912925,1026604775.0,9147200,PKR
+MEBL,Meezan Bank Limited.,PSX,Finance,Major Banks,493.5,496.8,486.02,489.31,-0.7081980519480537,887313267864.0,618768,PKR
+MEHT,Mahmood Textile Mills Limited,PSX,Process Industries,Textiles,220.0,242.95,220.0,222.85,0.8507942254604677,6629100037.0,1092,PKR
+MERIT,Merit Packaging Limited,PSX,Commercial Services,Commercial Printing/Forms,9.39,10.35,9.28,10.35,10.695187165775401,1869611301.0,893766,PKR
+MFFL,Mitchell'S Fruit Farms Limited,PSX,Consumer Non-Durables,Food: Major Diversified,159.5,161.0,156.75,157.24,-0.4747135894676878,3614021376.0,8061,PKR
+MFL,Matco Foods Ltd,PSX,Process Industries,Agricultural Commodities/Milling,48.5,48.9,47.31,48.15,1.9695044472681063,5779761005.0,24325,PKR
+MIRKS,Mirpurkhas Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,31.83,31.83,30.2,30.93,-0.8336005129849361,2075940682.0,2409,PKR
+MLCF,Maple Leaf Cement Factory Ltd,PSX,Non-Energy Minerals,Construction Materials,88.9,89.6,87.05,87.4,-0.7382169222032839,92237892070.0,14973631,PKR
+MQTM,Maqbool Textile Mills Limited,PSX,Process Industries,Textiles,21.5,21.59,20.27,21.5,-0.13934045517882554,396840956.0,10045,PKR
+MRNS,Mehran Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,63.25,63.25,61.63,62.35,-0.22403584573531857,4682226619.0,21320,PKR
+MSCL,Metropolitan Steel Corporation Limited,PSX,Non-Energy Minerals,Steel,29.02,31.0,28.16,30.32,3.8000684697021545,,287362,PKR
+MSOT,Masood Textile Mills Limited,PSX,Consumer Non-Durables,Apparel/Footwear,79.95,82.25,76.0,78.75,2.007772020725385,5210999794.0,51658,PKR
+MTL,Millat Tractors Limited,PSX,Producer Manufacturing,Trucks/Construction/Farm Machinery,561.0,565.0,561.0,563.63,0.9420276877339382,222807451996.0,146045,PKR
+MUGHAL,Mughal Iron & Steel Industries Ltd,PSX,Non-Energy Minerals,Steel,75.9,78.9,75.72,77.52,2.7571580063626704,27814267070.0,2027407,PKR
+MUGHALC,Mughal Iron & Steel Industries Ltd. Class C,PSX,Non-Energy Minerals,Steel,64.99,65.99,61.1,61.51,0.0,27814267070.0,81,PKR
+MUREB,"Murree Brewery Co., Ltd.",PSX,Consumer Non-Durables,Beverages: Alcoholic,948.97,948.97,920.0,928.95,0.0010764957909004786,25697855628.0,1743,PKR
+MWMP,Mandviwala Mauser Plastic Industries Ltd.,PSX,Producer Manufacturing,Miscellaneous Manufacturing,68.0,70.89,63.3,65.92,-4.463768115942027,1983621157.0,62317,PKR
+NAGC,Nagina Cotton Mills Limited,PSX,Process Industries,Textiles,68.75,70.9,68.75,70.85,6.927256263205537,1239062090.0,2104,PKR
+NATF,National Foods Ltd. (Pakistan),PSX,Consumer Non-Durables,Food: Specialty/Candy,365.0,366.5,351.0,359.08,-1.5166890650283946,84996147754.0,169187,PKR
+NATM,Nadeem Textile Mills Limited,PSX,Process Industries,Textiles,80.0,80.0,80.0,80.0,11.11111111111111,1701338806.0,8,PKR
+NBP,National Bank of Pakistan,PSX,Finance,Major Banks,187.0,187.54,183.0,184.24,-1.201201201201191,396738558332.0,2496681,PKR
+NCL,Nishat Chunian Ltd.,PSX,Process Industries,Textiles,38.7,38.7,38.01,38.16,-0.599114352696025,9218169562.0,148322,PKR
+NCML,Nazir Cotton Mills Ltd,PSX,Process Industries,Textiles,12.9,12.99,12.5,12.53,0.9669621273166737,,3800,PKR
+NCPL,Nishat Chunian Power Limited,PSX,Utilities,Electric Utilities,63.98,66.25,63.05,64.48,1.415539477823224,23355918090.0,6939200,PKR
+NESTLE,Nestle Pakistan Ltd.,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,7710.0,7750.0,7700.0,7730.19,-0.0514599498071606,350741407776.0,119,PKR
+NETSOL,Netsol Technologies Limited,PSX,Technology Services,Information Technology Services,129.0,130.5,127.75,128.01,-0.9517177344475535,11610524253.0,407150,PKR
+NEXT,Next Capital Limited,PSX,Finance,Investment Banks/Brokers,12.71,13.3,12.3,12.94,-1.0703363914373132,,6988,PKR
+NICL,Nimir Industrial Chemicals Ltd.,PSX,Process Industries,Chemicals: Specialty,186.15,206.0,186.15,197.68,2.9905178701677655,21226749603.0,243587,PKR
+NML,Nishat Mills Limited,PSX,Process Industries,Textiles,146.44,147.5,143.9,144.23,-0.9817382946587991,51214035951.0,1907501,PKR
+NONS,Noon Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,89.89,89.89,86.75,87.67,-0.14806378132117934,1450232525.0,3319,PKR
+NPL,Nishat Power Limited,PSX,Utilities,Electric Utilities,68.88,72.29,68.24,70.62,3.5028579803605457,24159459610.0,3790321,PKR
+NRL,National Refinery Limited,PSX,Energy Minerals,Oil Refining/Marketing,371.0,372.99,363.52,364.66,-1.2991934174200062,29544444709.0,699600,PKR
+NRSL,Nimir Resins Ltd.,PSX,Process Industries,Chemicals: Specialty,34.2,34.2,33.4,33.49,-0.6231454005934743,4762520864.0,97136,PKR
 NSRM,National Silk & Rayon Mills Ltd.,PSX,Process Industries,Textiles,134.5,134.5,134.0,133.5,0.0,2076343257.0,11,PKR
-OBOY,Oilboy Energy Limited,PSX,Industrial Services,Engineering & Construction,15.37,15.85,14.8,15.21,0.8620689655172465,,9696007,PKR
-OCTOPUS,Octopus Digital Ltd.,PSX,Technology Services,Information Technology Services,31.65,32.0,31.55,31.89,0.5676442762535469,5734812558.0,148578,PKR
-OGDC,Oil & Gas Development Co. Ltd.,PSX,Energy Minerals,Oil & Gas Production,325.0,326.39,322.0,322.98,-0.48681291594773973,1395909411922.0,827474,PKR
-OLPL,OLP Financial Services Pakistan Limited,PSX,Finance,Finance/Rental/Leasing,49.5,50.0,49.5,50.0,0.5025125628140703,8726530018.0,10288,PKR
-OLPM,OLP Modaraba,PSX,Finance,Finance/Rental/Leasing,23.62,24.0,23.56,24.0,0.0834028356964119,1088296929.0,1005,PKR
-OML,Olympia Mills Limited,PSX,Process Industries,Textiles,30.32,30.32,30.32,30.32,0.23140495867768687,,620,PKR
-ORM,Orient Rental Modaraba,PSX,Finance,Finance/Rental/Leasing,9.7,10.25,9.61,10.0,3.305785123966945,,69815,PKR
-OTSU,Otsuka Pakistan Limited,PSX,Health Technology,Pharmaceuticals: Major,285.0,298.0,278.51,290.26,1.674372985848386,3454308242.0,8894,PKR
-PABC,Pakistan Aluminium Beverage Cans Ltd.,PSX,Process Industries,Containers/Packaging,107.97,108.7,107.0,107.89,0.8035130337288605,38649415112.0,10435,PKR
-PACE,Pace Pakistan Ltd.,PSX,Finance,Real Estate Development,10.8,11.71,10.65,11.5,7.276119402985068,3321730532.0,19720739,PKR
-PAEL,Pak Elektron Ltd.,PSX,Producer Manufacturing,Electrical Products,40.14,40.9,40.01,40.69,1.8778167250876314,36890558767.0,4551609,PKR
-PAKD,Pak Datacom Limited,PSX,Communications,Specialty Telecommunications,149.5,150.0,145.03,146.0,-2.3998930409786774,,17858,PKR
-PAKL,Pak Leather Crafts Limited,PSX,Consumer Non-Durables,Apparel/Footwear,41.0,41.0,41.0,41.0,0.4901960784313796,,50,PKR
-PAKOXY,Pakistan Oxygen Limited,PSX,Process Industries,Chemicals: Specialty,278.0,278.0,267.52,274.95,-0.5317994356414251,24082880669.0,715,PKR
-PAKQATAR,Pak-Qatar Family Takaful Ltd.,PSX,Finance,Life/Health Insurance,26.38,27.97,26.1,27.97,9.988202909948876,,3865842,PKR
-PAKRI,Pakistan Reinsurance Co.,PSX,Finance,Multi-Line Insurance,16.21,16.21,15.75,15.97,0.31407035175879844,14328000069.0,553184,PKR
-PAKT,Pakistan Tobacco Co. Ltd.,PSX,Consumer Non-Durables,Tobacco,1348.9,1348.9,1335.0,1335.0,-0.3195746968520379,342177730118.0,3405,PKR
-PASL,Pervez Ahmed Consultancy Services Limited,PSX,Commercial Services,Miscellaneous Commercial Services,2.8,3.09,2.79,2.95,5.734767025089611,,17945709,PKR
-PASM,Paramount Spinning Mills Limited,PSX,Process Industries,Textiles,7.48,8.41,7.48,8.4,13.36032388663968,,813944,PKR
-PCAL,Pakistan Cables Limited,PSX,Producer Manufacturing,Electrical Products,149.99,150.49,147.3,150.0,0.19370783514794737,8152820195.0,1603,PKR
-PECO,Pakistan Engineering Co. Ltd.,PSX,Producer Manufacturing,Electrical Products,598.95,598.95,597.99,597.99,2.539524675057454,3318410986.0,14,PKR
-PGLC,Pak-Gulf Leasing Co. Ltd.,PSX,Finance,Finance/Rental/Leasing,14.47,14.98,13.85,14.98,8.472121650977552,,19277,PKR
-PIAHCLA,PIA Holding Company Limited Class A,PSX,Transportation,Airlines,26.44,26.75,26.21,26.33,0.611387084447828,136967557357.00002,1741911,PKR
-PIAHCLB,PIA Holding Company Limited Class B,PSX,Transportation,Airlines,18899.99,18899.99,17509.0,17532.0,-2.535023348899266,136967557357.00002,10,PKR
-PIBTL,Pakistan International Bulk Terminal Ltd.,PSX,Transportation,Other Transportation,17.49,17.6,17.25,17.29,-0.1732101616628241,30935126291.0,5001859,PKR
-PICT,Pakistan International Container Terminal Limited,PSX,Transportation,Other Transportation,38.55,38.87,38.0,38.25,-0.8810572687224757,4212219876.0,93874,PKR
-PIL,PICIC Insurance Limited,PSX,Finance,Property/Casualty Insurance,5.66,5.85,5.55,5.75,1.7699115044247724,,162025,PKR
-PIM,Popular Islamic Modaraba,PSX,Finance,Finance/Rental/Leasing,23.3,23.3,23.3,23.3,-0.2141327623126369,,150,PKR
-PINL,Premier Insurance Co. of Pakistan Ltd.,PSX,Finance,Property/Casualty Insurance,9.2,9.3,8.92,9.24,2.5527192008879074,455591612.0,24402,PKR
-PIOC,Pioneer Cement Limited,PSX,Non-Energy Minerals,Construction Materials,277.0,282.0,270.02,276.5,0.377550279532426,62570407529.0,113314,PKR
-PKGI,Pakistan General Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,19.29,19.39,19.0,19.39,1.6780283167278462,,12081,PKR
-PKGP,Pakgen Power Limited,PSX,Utilities,Electric Utilities,39.97,40.29,39.9,40.24,1.8734177215189922,14697223358.0,5194,PKR
-PKGS,Packages Limited,PSX,Process Industries,Pulp & Paper,729.92,743.0,725.02,730.01,1.102416730143347,64536473362.0,1405,PKR
+OBOY,Oilboy Energy Limited,PSX,Industrial Services,Engineering & Construction,15.37,15.85,14.8,15.29,1.392572944297076,,11946295,PKR
+OCTOPUS,Octopus Digital Ltd.,PSX,Technology Services,Information Technology Services,31.65,32.0,31.55,31.67,-0.12614317250078572,5734812558.0,184139,PKR
+OGDC,Oil & Gas Development Co. Ltd.,PSX,Energy Minerals,Oil & Gas Production,325.0,326.39,319.75,320.31,-1.3094651220113385,1395909411922.0,2032744,PKR
+OLPL,OLP Financial Services Pakistan Limited,PSX,Finance,Finance/Rental/Leasing,49.5,50.0,49.5,49.5,-0.5025125628140703,8726530018.0,10690,PKR
+OLPM,OLP Modaraba,PSX,Finance,Finance/Rental/Leasing,23.62,24.0,23.56,24.0,0.0834028356964119,1088296929.0,2005,PKR
+OML,Olympia Mills Limited,PSX,Process Industries,Textiles,30.32,33.0,30.32,32.33,6.8760330578512345,,3620,PKR
+ORM,Orient Rental Modaraba,PSX,Finance,Finance/Rental/Leasing,9.7,10.25,9.61,10.09,4.235537190082646,,105334,PKR
+OTSU,Otsuka Pakistan Limited,PSX,Health Technology,Pharmaceuticals: Major,285.0,298.0,278.51,285.8,0.1120919153706015,3454308242.0,13117,PKR
+PABC,Pakistan Aluminium Beverage Cans Ltd.,PSX,Process Industries,Containers/Packaging,107.97,108.7,107.0,107.19,0.14949079697280818,38649415112.0,10882,PKR
+PACE,Pace Pakistan Ltd.,PSX,Finance,Real Estate Development,10.8,11.79,10.65,11.62,8.395522388059689,3321730532.0,41811517,PKR
+PAEL,Pak Elektron Ltd.,PSX,Producer Manufacturing,Electrical Products,40.14,40.9,40.01,40.25,0.77616424636956,36890558767.0,6281766,PKR
+PAKD,Pak Datacom Limited,PSX,Communications,Specialty Telecommunications,149.5,150.0,145.03,147.05,-1.6979744635336531,,20281,PKR
+PAKL,Pak Leather Crafts Limited,PSX,Consumer Non-Durables,Apparel/Footwear,41.0,41.12,41.0,40.8,0.0,,320,PKR
+PAKOXY,Pakistan Oxygen Limited,PSX,Process Industries,Chemicals: Specialty,278.0,278.0,267.52,274.84,-0.5715939512336448,24082880669.0,3008,PKR
+PAKQATAR,Pak-Qatar Family Takaful Ltd.,PSX,Finance,Life/Health Insurance,26.38,27.97,26.1,27.97,9.988202909948876,,3921255,PKR
+PAKRI,Pakistan Reinsurance Co.,PSX,Finance,Multi-Line Insurance,16.21,16.21,15.75,15.86,-0.3768844221105559,14328000069.0,626717,PKR
+PAKT,Pakistan Tobacco Co. Ltd.,PSX,Consumer Non-Durables,Tobacco,1348.9,1348.9,1334.0,1335.5,-0.282241204229136,342177730118.0,3952,PKR
+PASL,Pervez Ahmed Consultancy Services Limited,PSX,Commercial Services,Miscellaneous Commercial Services,2.8,3.09,2.79,2.87,2.8673835125448055,,22157441,PKR
+PASM,Paramount Spinning Mills Limited,PSX,Process Industries,Textiles,7.48,8.41,7.48,8.41,13.49527665317139,,827146,PKR
+PCAL,Pakistan Cables Limited,PSX,Producer Manufacturing,Electrical Products,149.99,150.49,147.3,148.06,-1.1021307861866312,8152820195.0,36127,PKR
+PECO,Pakistan Engineering Co. Ltd.,PSX,Producer Manufacturing,Electrical Products,598.95,600.0,596.98,599.56,2.808738296923762,3318410986.0,245,PKR
+PGLC,Pak-Gulf Leasing Co. Ltd.,PSX,Finance,Finance/Rental/Leasing,14.47,15.19,13.85,15.16,9.775524981897172,,191157,PKR
+PIAHCLA,PIA Holding Company Limited Class A,PSX,Transportation,Airlines,26.44,26.75,26.05,26.12,-0.191058463889953,136967557357.00002,2435158,PKR
+PIAHCLB,PIA Holding Company Limited Class B,PSX,Transportation,Airlines,18899.99,18899.99,17509.0,18000.0,0.06671114076050699,136967557357.00002,16,PKR
+PIBTL,Pakistan International Bulk Terminal Ltd.,PSX,Transportation,Other Transportation,17.49,17.6,17.01,17.14,-1.0392609699769038,30935126291.0,7588742,PKR
+PICT,Pakistan International Container Terminal Limited,PSX,Transportation,Other Transportation,38.55,38.87,38.0,38.28,-0.8033169214822552,4212219876.0,106700,PKR
+PIL,PICIC Insurance Limited,PSX,Finance,Property/Casualty Insurance,5.66,5.85,5.55,5.73,1.415929203539824,,177192,PKR
+PIM,Popular Islamic Modaraba,PSX,Finance,Finance/Rental/Leasing,23.3,23.3,21.53,23.35,0.0,,348,PKR
+PINL,Premier Insurance Co. of Pakistan Ltd.,PSX,Finance,Property/Casualty Insurance,9.2,9.3,8.92,9.19,1.997780244173138,455591612.0,26154,PKR
+PIOC,Pioneer Cement Limited,PSX,Non-Energy Minerals,Construction Materials,277.0,282.0,270.02,274.58,-0.319465621142814,62570407529.0,158864,PKR
+PKGI,Pakistan General Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,19.29,19.39,17.77,18.69,-1.9926586261143102,,53423,PKR
+PKGP,Pakgen Power Limited,PSX,Utilities,Electric Utilities,39.97,40.29,39.4,39.6,0.25316455696202894,14697223358.0,5994,PKR
+PKGS,Packages Limited,PSX,Process Industries,Pulp & Paper,729.92,743.0,725.02,727.27,0.7229416245412406,64536473362.0,1713,PKR
 PMRS,Premier Sugar Mills & Distillery Co. Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,470.0,470.0,420.0,443.79,0.0,1664212532.0,20,PKR
-PNSC,Pakistan National Shipping Corporation,PSX,Transportation,Marine Shipping,514.99,514.99,505.0,505.2,-0.9877704609595525,101076014845.0,8702,PKR
-POL,Pakistan Oilfields Limited,PSX,Energy Minerals,Integrated Oil,676.5,679.9,674.5,677.05,0.3230251752189236,191565291665.0,101365,PKR
-POML,Punjab Oil Mills Limited,PSX,Process Industries,Chemicals: Specialty,159.99,159.99,150.01,154.98,1.2941176470588167,,298,PKR
-POWER,Power Cement Ltd,PSX,Non-Energy Minerals,Construction Materials,20.99,21.25,20.7,20.8,0.28929604628737837,26765460862.0,1122550,PKR
-PPL,Pakistan Petroleum Limited,PSX,Energy Minerals,Integrated Oil,233.5,234.09,231.55,231.99,-0.33937623507173814,633386818148.0,1123258,PKR
-PPP,Pakistan Paper Products Limited,PSX,Consumer Services,Publishing: Books/Magazines,128.99,130.97,128.11,129.0,1.2320489680608908,1019440002.0,2750,PKR
-PPVC,Pakistan PVC Limited,PSX,Producer Manufacturing,Miscellaneous Manufacturing,19.82,19.82,17.66,19.78,9.766925638179808,,3320,PKR
-PQGTL,Pak-Qatar General Takaful Ltd.,PSX,Finance,Insurance Brokers/Services,16.3,16.7,16.02,16.7,10.013175230566532,,11751981,PKR
-PREMA,At-Tahur Ltd.,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,34.49,34.8,34.2,34.3,0.5275498241500578,7459977282.0,322053,PKR
-PRET,Premium Textile Mills Ltd,PSX,Process Industries,Textiles,499.0,500.0,499.0,499.0,3.936679858362836,,1032,PKR
-PRL,Pakistan Refinery Limited,PSX,Energy Minerals,Oil Refining/Marketing,35.1,35.1,34.65,34.7,-0.7153075822603718,22018500481.0,2030086,PKR
-PRWM,Prosperity Weaving Mills Limited,PSX,Process Industries,Textiles,67.9,71.0,65.01,67.0,1.7927681555758235,1216353564.0,35680,PKR
-PSEL,Pakistan Services Limited,PSX,Consumer Services,Hotels/Resorts/Cruise lines,850.02,873.95,850.02,873.85,2.0090119536794964,27861574023.0,39,PKR
-PSO,Pakistan State Oil Co. Ltd. Class I,PSX,Energy Minerals,Oil Refining/Marketing,353.88,354.2,351.25,351.8,0.1736951507730897,164874339079.0,528342,PKR
-PSX,Pakistan Stock Exchange Ltd,PSX,Finance,Investment Banks/Brokers,39.01,41.59,39.0,41.25,6.534090909090912,31033175842.0,4164083,PKR
-PSYL,Pakistan Synthetics Limited,PSX,Process Industries,Textiles,140.1,140.1,120.0,124.99,-1.860866834170858,17664705378.0,127021,PKR
-PTC,Pakistan Telecommunication Co. Ltd. Class A,PSX,Communications,Major Telecommunications,68.0,68.2,66.05,67.6,0.0592066311426762,344556004043.0,9564703,PKR
-PTL,Panther Tyres Limited,PSX,Consumer Durables,Automotive Aftermarket,51.98,52.4,51.05,52.26,1.4757281553398018,8652000000.0,19279,PKR
-QTECH,Quantum Data Technologies Limited,PSX,Process Industries,Textiles,31.02,31.49,30.52,30.65,-1.6367137355584132,,45969,PKR
-QUET,Quetta Textile Mills Limited,PSX,Process Industries,Textiles,16.2,16.5,15.2,15.2,-2.187902187902187,,7970,PKR
-QUICE,Quice Food Industries Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,35.99,37.7,35.9,36.82,5.200000000000001,,5866144,PKR
-REDCO,Redco Textiles Limited,PSX,Process Industries,Textiles,26.6,27.4,26.0,26.2,-1.057401812688826,,1556,PKR
-REWM,Reliance Weaving Mills Limited,PSX,Process Industries,Textiles,181.01,181.01,177.5,180.0,-0.5360004420622196,,365,PKR
-RICL,Reliance Insurance Co Ltd,PSX,Finance,Property/Casualty Insurance,11.93,12.25,11.7,11.98,2.8326180257510734,1521653032.0,3935,PKR
-RMPL,Rafhan Maize Products Co. Ltd.,PSX,Consumer Non-Durables,Food: Specialty/Candy,9780.0,9780.0,9563.0,9563.0,-1.3703772843489113,89554940609.0,16,PKR
-RPL,Roshan Packages Ltd,PSX,Commercial Services,Miscellaneous Commercial Services,15.97,15.97,15.01,15.65,0.32051282051282504,2213639959.0,124247,PKR
-RUBY,Ruby Textile Mills Limited,PSX,Process Industries,Textiles,20.5,20.54,18.72,20.54,10.016068559185845,,17387,PKR
-RUPL,Rupali Polyester Limited,PSX,Process Industries,Textiles,25.2,28.98,25.2,25.6,-3.97599399849962,908266219.0,588,PKR
-SAIF,Saif Textile Mills Limited,PSX,Process Industries,Textiles,32.5,34.19,32.05,33.9,6.771653543307083,838609604.0,94114,PKR
-SANSM,Sanghar Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,134.6,139.62,115.16,139.0,9.509178287244932,1516305796.0,9519,PKR
-SAPT,Sapphire Textile Mills Limited,PSX,Process Industries,Textiles,1382.0,1383.0,1375.0,1375.0,-0.4906714527638244,29970522300.0,11,PKR
-SARC,Sardar Chemical Industries Ltd.,PSX,Process Industries,Textiles,74.9,75.65,73.9,75.5,1.9856814804808844,,8031,PKR
+PNSC,Pakistan National Shipping Corporation,PSX,Transportation,Marine Shipping,514.99,514.99,505.0,507.8,-0.4782063342740666,101076014845.0,11075,PKR
+POL,Pakistan Oilfields Limited,PSX,Energy Minerals,Integrated Oil,676.5,679.9,674.5,676.54,0.24745506542000073,191565291665.0,128130,PKR
+POML,Punjab Oil Mills Limited,PSX,Process Industries,Chemicals: Specialty,159.99,159.99,150.01,153.94,0.6143790849673187,,564,PKR
+POWER,Power Cement Ltd,PSX,Non-Energy Minerals,Construction Materials,20.99,21.25,20.52,20.71,-0.14464802314367206,26765460862.0,1352509,PKR
+PPL,Pakistan Petroleum Limited,PSX,Energy Minerals,Integrated Oil,233.5,234.09,228.01,228.73,-1.7398401924564015,633386818148.0,2750296,PKR
+PPP,Pakistan Paper Products Limited,PSX,Consumer Services,Publishing: Books/Magazines,128.99,130.97,128.11,129.2,1.3889978811896584,1019440002.0,5335,PKR
+PPVC,Pakistan PVC Limited,PSX,Producer Manufacturing,Miscellaneous Manufacturing,19.82,19.82,17.66,17.75,-1.4983351831298535,,3422,PKR
+PQGTL,Pak-Qatar General Takaful Ltd.,PSX,Finance,Insurance Brokers/Services,16.3,16.7,16.02,16.7,10.013175230566532,,11790948,PKR
+PREMA,At-Tahur Ltd.,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,34.49,34.8,33.7,33.9,-0.644783118405624,7459977282.0,1013944,PKR
+PRET,Premium Textile Mills Ltd,PSX,Process Industries,Textiles,499.0,500.0,495.0,495.0,3.1035200999791663,,1106,PKR
+PRL,Pakistan Refinery Limited,PSX,Energy Minerals,Oil Refining/Marketing,35.1,35.1,34.37,34.49,-1.3161659513590866,22018500481.0,4027305,PKR
+PRWM,Prosperity Weaving Mills Limited,PSX,Process Industries,Textiles,67.9,71.0,63.0,63.94,-2.856274688544509,1216353564.0,58629,PKR
+PSEL,Pakistan Services Limited,PSX,Consumer Services,Hotels/Resorts/Cruise lines,850.02,873.95,845.51,858.6,0.22880089652596614,27861574023.0,630,PKR
+PSO,Pakistan State Oil Co. Ltd. Class I,PSX,Energy Minerals,Oil Refining/Marketing,353.88,355.0,350.0,351.5,0.08827130613058523,164874339079.0,1453950,PKR
+PSX,Pakistan Stock Exchange Ltd,PSX,Finance,Investment Banks/Brokers,39.01,42.59,39.0,42.59,9.994834710743813,31033175842.0,7263781,PKR
+PSYL,Pakistan Synthetics Limited,PSX,Process Industries,Textiles,140.1,140.1,120.0,126.17,-0.9343592964824102,17664705378.0,132618,PKR
+PTC,Pakistan Telecommunication Co. Ltd. Class A,PSX,Communications,Major Telecommunications,68.0,68.2,66.05,67.54,-0.0296033155713381,344556004043.0,14725109,PKR
+PTL,Panther Tyres Limited,PSX,Consumer Durables,Automotive Aftermarket,51.98,52.4,51.05,52.04,1.0485436893203868,8652000000.0,21616,PKR
+QTECH,Quantum Data Technologies Limited,PSX,Process Industries,Textiles,31.02,31.49,30.52,30.86,-0.9627727856225954,,163405,PKR
+QUET,Quetta Textile Mills Limited,PSX,Process Industries,Textiles,16.2,16.5,15.11,15.15,-2.509652509652502,,9918,PKR
+QUICE,Quice Food Industries Limited,PSX,Consumer Non-Durables,Food: Specialty/Candy,35.99,37.7,35.71,35.95,2.7142857142857224,,6517976,PKR
+REDCO,Redco Textiles Limited,PSX,Process Industries,Textiles,26.6,27.4,26.0,26.2,-1.057401812688826,,2908,PKR
+REWM,Reliance Weaving Mills Limited,PSX,Process Industries,Textiles,181.01,181.01,177.5,180.68,-0.1602475548433398,,370,PKR
+RICL,Reliance Insurance Co Ltd,PSX,Finance,Property/Casualty Insurance,11.93,12.25,11.7,11.72,0.6008583690987149,1521653032.0,6701,PKR
+RMPL,Rafhan Maize Products Co. Ltd.,PSX,Consumer Non-Durables,Food: Specialty/Candy,9780.0,9780.0,9563.0,9624.46,-0.7364991486065888,89554940609.0,20,PKR
+RPL,Roshan Packages Ltd,PSX,Commercial Services,Miscellaneous Commercial Services,15.97,16.0,15.01,15.95,2.2435897435897414,2213639959.0,183429,PKR
+RUBY,Ruby Textile Mills Limited,PSX,Process Industries,Textiles,20.5,20.54,18.72,20.54,10.016068559185845,,19581,PKR
+RUPL,Rupali Polyester Limited,PSX,Process Industries,Textiles,25.2,28.98,25.2,26.5,-0.6001500375093779,908266219.0,3265,PKR
+SAIF,Saif Textile Mills Limited,PSX,Process Industries,Textiles,32.5,34.93,32.05,34.73,9.385826771653534,838609604.0,349278,PKR
+SANSM,Sanghar Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,134.6,139.62,115.16,127.5,0.4490664145592005,1516305796.0,10162,PKR
+SAPT,Sapphire Textile Mills Limited,PSX,Process Industries,Textiles,1382.0,1383.0,1375.0,1378.13,-0.2641520357799262,29970522300.0,24,PKR
+SARC,Sardar Chemical Industries Ltd.,PSX,Process Industries,Textiles,74.9,75.65,73.9,73.91,-0.1620964473862009,,8041,PKR
 SASML,Sindh Abadgars Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,415.0,420.01,405.0,419.98,5.0081260157519765,4169478954.0,388,PKR
-SAZEW,Sazgar Engineering Works Limited,PSX,Consumer Durables,Motor Vehicles,2130.0,2138.79,2124.11,2130.99,0.33004077251197106,128386011061.0,64293,PKR
-SBL,Samba Bank Limited,PSX,Finance,Major Banks,9.9,10.11,9.8,10.1,2.956167176350654,9890821555.0,223512,PKR
-SCBPL,Standard Chartered Bank (Pakistan) Limited,PSX,Finance,Major Banks,66.94,67.8,65.5,65.51,-2.1362414102180947,259163906737.0,29276,PKR
-SCL,Shield Corporation Limited,PSX,Consumer Non-Durables,Household/Personal Care,750.0,750.0,750.0,750.0,-2.0043379413071354,,6,PKR
-SEARL,Searle Company Ltd,PSX,Health Technology,Pharmaceuticals: Major,91.4,92.23,90.69,91.75,0.9017925877048203,53486714467.0,1779492,PKR
-SEL,Sitara Energy Limited.,PSX,Utilities,Electric Utilities,33.8,33.81,31.8,32.5,0.37059913526867644,,13074,PKR
-SEPL,Security Papers Limited.,PSX,Process Industries,Pulp & Paper,142.99,144.49,142.04,144.0,1.3798929878907407,8416719748.0,3572,PKR
-SERT,Service Industries Textiles Ltd,PSX,Process Industries,Textiles,32.62,34.9,32.6,34.66,1.4934114202049722,,9893,PKR
+SAZEW,Sazgar Engineering Works Limited,PSX,Consumer Durables,Motor Vehicles,2130.0,2140.0,2117.18,2132.39,0.39595476416914727,128386011061.0,107958,PKR
+SBL,Samba Bank Limited,PSX,Finance,Major Banks,9.9,10.11,9.8,9.92,1.1213047910295557,9890821555.0,367950,PKR
+SCBPL,Standard Chartered Bank (Pakistan) Limited,PSX,Finance,Major Banks,66.94,67.8,65.5,66.99,0.07469375560202743,259163906737.0,47936,PKR
+SCL,Shield Corporation Limited,PSX,Consumer Non-Durables,Household/Personal Care,750.0,750.0,750.0,765.34,0.0,,6,PKR
+SEARL,Searle Company Ltd,PSX,Health Technology,Pharmaceuticals: Major,91.4,92.23,90.53,90.93,0.0,53486714467.0,2609234,PKR
+SEL,Sitara Energy Limited.,PSX,Utilities,Electric Utilities,33.8,33.81,31.8,32.23,-0.463248919085873,,22430,PKR
+SEPL,Security Papers Limited.,PSX,Process Industries,Pulp & Paper,142.99,144.49,142.04,143.1,0.7462686567164195,8416719748.0,5305,PKR
+SERT,Service Industries Textiles Ltd,PSX,Process Industries,Textiles,32.62,34.9,32.6,34.41,0.7613469985358654,,10073,PKR
 SFL,Sapphire Fibres Limited,PSX,Process Industries,Textiles,999.98,999.98,991.0,995.0,0.0,20568517523.0,20,PKR
-SGF,Service Global Footwear Limited,PSX,Consumer Non-Durables,Apparel/Footwear,124.0,125.94,123.5,124.0,0.39672900979677345,25500814408.0,166401,PKR
-SGPL,S.G. Power Ltd.,PSX,Utilities,Electric Utilities,47.51,48.5,46.0,46.71,-1.2682308180088804,,620881,PKR
-SHCM,Shadman Cotton Mills Limited,PSX,Process Industries,Textiles,51.64,53.55,49.2,52.5,1.606347977549832,,2266,PKR
-SHDT,Shadab Textile Mills Limited,PSX,Process Industries,Textiles,50.05,53.5,50.05,53.5,9.991776315789473,,435518,PKR
-SHEZ,Shezan International Limited,PSX,Consumer Non-Durables,Beverages: Non-Alcoholic,235.5,235.5,225.0,228.5,-0.6521739130434783,2222503624.0,2992,PKR
-SHFA,Shifa International Hospitals Limited,PSX,Health Services,Hospital/Nursing Management,474.0,476.75,470.0,474.0,0.10771082810618827,29931377197.0,3033,PKR
-SHJS,Shahtaj Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,163.05,178.94,163.05,171.0,1.3813956245924068,2025929074.0,72,PKR
-SHNI,Shaheen Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,7.2,7.5,7.2,7.2,1.4084507042253596,744168740.0,34164,PKR
-SHSML,Shahmurad Sugar Mills Limited,PSX,Process Industries,Chemicals: Specialty,369.0,375.0,362.1,374.9,1.7146888056866878,7783916112.0,193,PKR
-SIBL,Security Investment Bank Limited,PSX,Finance,Investment Banks/Brokers,7.0,7.74,7.0,7.74,8.25174825174825,,2752,PKR
-SIEM,Siemens Pakistan Engineering Co. Limited,PSX,Producer Manufacturing,Electrical Products,1573.0,1573.0,1573.0,1573.0,3.743470690655832,12418542795.0,1,PKR
-SINDM,Sindh Modaraba,PSX,Finance,Finance/Rental/Leasing,24.25,24.49,23.5,24.0,0.41841004184101016,,10776,PKR
-SITC,Sitara Chemicals Industries Ltd.,PSX,Process Industries,Chemicals: Specialty,873.58,900.0,870.02,884.0,0.4305790663591601,18862378912.0,2439,PKR
-SKRS,Sakrand Sugar Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,27.8,28.49,27.8,28.05,0.7181328545780944,1242555648.0,455418,PKR
-SLGL,SECURE LOGISTICS - TRAX GROUP LIMITED,PSX,Transportation,Air Freight/Couriers,15.61,16.18,15.61,15.75,4.442970822281167,6360654044.0,3753051,PKR
-SLYT,Sally Textile Mills Ltd,PSX,Process Industries,Textiles,14.15,14.75,14.1,14.1,3.8291605301914546,,5585,PKR
-SMCPL,Safe Mix Concrete Ltd.,PSX,Non-Energy Minerals,Construction Materials,42.0,42.5,41.0,42.5,2.607436021245771,,3963,PKR
-SML,Shakarganj Ltd.,PSX,Consumer Non-Durables,Food: Specialty/Candy,133.0,133.0,110.0,122.1,-0.03274930407729348,15267499924.0,3073,PKR
-SNAI,Sana Industries Limited,PSX,Process Industries,Textiles,41.7,42.65,38.0,40.15,-3.7631831255992334,832939831.0,30253,PKR
-SNBL,Soneri Bank Limited,PSX,Finance,Regional Banks,20.15,20.15,19.9,19.99,0.3514056224899434,21961073024.0,129455,PKR
-SNGP,Sui Northern Gas Pipelines Limited,PSX,Utilities,Gas Distributors,99.8,101.75,99.5,100.0,0.391526955124988,63174323364.0,857355,PKR
-SPAC1,LSE SPAC-I LIMITED ,PSX,Finance,Finance/Rental/Leasing,16.59,16.98,16.07,16.5,1.4760147601475917,,510379,PKR
-SPEL,SPEL Limited,PSX,Process Industries,Chemicals: Specialty,44.1,44.9,44.0,44.4,1.2773722627737116,8756427277.0,158973,PKR
-SPL,Sitara Peroxide Limited,PSX,Process Industries,Chemicals: Specialty,65.67,67.98,63.2,66.6,-0.7007603995825241,,4238,PKR
-SPSL,Sitara Petroleum Service Limited,PSX,Retail Trade,Specialty Stores,20.15,20.64,20.15,20.36,1.2935323383084478,,8271676,PKR
-SPWL,Saif Power Ltd,PSX,Utilities,Electric Utilities,9.35,9.45,9.3,9.41,0.6417112299465294,3613511209.0,54249,PKR
-SRR,Signature Residency REIT,PSX,Finance,Real Estate Investment Trusts,16.08,16.17,16.0,16.15,0.43532338308457896,,36333,PKR
-SRVI,Service Industries Ltd,PSX,Consumer Durables,Automotive Aftermarket,2089.0,2089.0,2062.12,2079.0,0.9213502781526401,96795189096.0,417,PKR
-SSGC,Sui Southern Gas Co. Ltd.,PSX,Utilities,Gas Distributors,27.37,27.39,26.92,27.09,-0.29444239970556435,23934496503.0,5725274,PKR
-SSML,Saritow Spinning Mills Limited,PSX,Process Industries,Textiles,23.7,24.78,23.7,24.78,-0.8006405124099251,,1057,PKR
-SSOM,S.S. Oil Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,411.5,424.9,411.5,420.0,1.2707062426156732,,10252,PKR
-STCL,Shabbir Tiles & Ceramics Limited,PSX,Producer Manufacturing,Building Products,11.3,11.79,11.01,11.6,3.479036574487054,2682782423.0,306016,PKR
-STJT,Shahtaj Textile Mills Ltd.,PSX,Process Industries,Textiles,135.0,143.0,129.0,132.0,0.0,1275119980.0,1000,PKR
-STL,Supernet Technologies Limited,PSX,Finance,Property/Casualty Insurance,51.83,52.88,51.01,51.99,1.6621040281580002,,358444,PKR
-STML,Shams Textile Mills Ltd,PSX,Process Industries,Textiles,41.14,41.14,36.81,38.0,-6.519065190651903,351216027.0,567,PKR
-STPL,Siddiqsons Tin Plate Limited,PSX,Non-Energy Minerals,Steel,7.78,7.89,7.55,7.86,3.5573122529644325,1740225613.0,907223,PKR
-STYLERS,Stylers International Limited,PSX,Consumer Non-Durables,Apparel/Footwear,48.5,49.99,47.0,47.0,0.04257130693912969,22965129318.0,627,PKR
-SUHJ,Suhail Jute Mills Ltd.,PSX,Process Industries,Textiles,99.65,99.65,89.01,89.01,-6.305263157894732,,2,PKR
-SURC,Suraj Cotton Mills Limited.,PSX,Process Industries,Textiles,134.0,143.0,134.0,138.0,2.7473754746482,6555606097.0,104649,PKR
-SUTM,Sunrays Textile Mills Ltd.,PSX,Process Industries,Textiles,114.85,114.85,106.5,110.5,-2.1431101664895515,2337444048.0,3818,PKR
-SYM,Symmetry Group Ltd.,PSX,Commercial Services,Advertising/Marketing Services,10.24,10.39,10.15,10.25,0.7866273352999024,,842868,PKR
-SYS,Systems Ltd.,PSX,Technology Services,Information Technology Services,149.5,150.0,148.01,150.0,0.745516824501319,219375183037.0,970184,PKR
-SZTM,Shahzad Textile Mills Limited,PSX,Process Industries,Textiles,71.2,74.0,67.0,69.2,-6.738544474393531,,59025,PKR
-TATM,Tata Textile Mills Limited,PSX,Process Industries,Textiles,133.2,139.88,131.5,136.0,4.889711553293232,7260132222.0,161920,PKR
-TBL,Treet Battery Ltd.,PSX,Producer Manufacturing,Electrical Products,10.6,10.91,10.57,10.63,0.5676442762535525,,6528034,PKR
-TCORP,Tariq Corporation Limited,PSX,Process Industries,Agricultural Commodities/Milling,24.28,24.28,23.0,23.23,-0.9803921568627468,1553198636.0,63732,PKR
-TELE,Telecard Limited,PSX,Communications,Specialty Telecommunications,8.69,8.85,8.5,8.65,0.9334889148191373,2902016147.0,6336268,PKR
-TGL,Tariq Glass Industries Limited,PSX,Process Industries,Containers/Packaging,176.85,178.85,176.0,177.5,0.4754896411185347,30415056513.0,34555,PKR
-THALL,Thal Limited,PSX,Producer Manufacturing,Auto Parts: OEM,647.99,647.99,620.0,630.0,1.6129032258064515,50238551941.0,744,PKR
-THCCL,Thatta Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,61.38,66.09,61.1,65.0,8.099118576417757,29078305532.0,10857310,PKR
-TICL,Thal Industries Corp. Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,990.02,1009.98,990.02,1009.98,0.7280488291379172,15063462101.0,316,PKR
-TOMCL,Organic Meat Company Limited,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,34.97,34.99,34.5,34.8,1.1040092969203819,6758033869.0,398469,PKR
-TOWL,Towellers Ltd.,PSX,Consumer Durables,Home Furnishings,117.8,119.89,116.02,118.88,0.8568762195639186,,16903,PKR
-TPL,TPL Corp Ltd,PSX,Electronic Technology,Telecommunications Equipment,11.55,12.7,11.55,12.3,5.038428693424422,3130056780.0,38009241,PKR
-TPLI,TPL Insurance Ltd,PSX,Finance,Property/Casualty Insurance,25.01,26.0,23.65,25.99,0.0,5162769735.0,65503,PKR
-TPLL,TPL Life Insurance Limited,PSX,Process Industries,Textiles,19.5,20.0,18.8,20.0,-0.04997501249376093,,2120,PKR
-TPLP,TPL Properties Ltd.,PSX,Finance,Real Estate Development,8.84,9.56,8.84,9.49,8.33333333333334,4915120961.0,34047769,PKR
-TPLT,TPL Trakker Ltd.,PSX,Communications,Specialty Telecommunications,19.5,21.15,19.08,21.15,9.98439937597503,3601069174.0,1726342,PKR
-TREET,Treet Corp. Ltd.,PSX,Consumer Non-Durables,Household/Personal Care,24.41,24.92,24.4,24.6,0.24449877750612176,9105047303.0,1321632,PKR
-TRG,TRG Pakistan Limited,PSX,Commercial Services,Miscellaneous Commercial Services,71.98,73.7,71.8,72.0,0.34843205574912894,39131777344.0,12143516,PKR
-TRIPF,Tri-Pack Films Ltd.,PSX,Process Industries,Containers/Packaging,146.0,147.9,144.0,145.88,0.15791280466871938,5651219652.0,53842,PKR
-TRSM,Trust Modaraba Ltd.,PSX,Finance,Investment Managers,15.99,17.39,15.85,16.78,6.135357368753957,,2422487,PKR
-TSBL,Trust Securities & Brokerage Limited,PSX,Finance,Investment Banks/Brokers,1.79,1.92,1.78,1.83,2.2346368715083815,,6391142,PKR
-TSML,Tandlianwala Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,400.0,400.0,395.0,395.0,-2.5220867676817598,47696949646.0,42,PKR
-TSPL,Tri-Star Power Limited,PSX,Utilities,Alternative Power Generation,15.38,16.57,14.05,16.0,5.680317040951119,227100005.0,331792,PKR
-UBDL,United Brands Limited,PSX,Consumer Durables,Electronics/Appliances,24.99,25.2,24.1,24.1,-2.0325203252032518,,1566,PKR
-UBL,United Bank Limited,PSX,Finance,Major Banks,405.05,407.0,400.7,401.5,-0.7956117809843909,1013519173780.0,795441,PKR
-UCAPM,Unicap Modaraba,PSX,Finance,Investment Managers,5.36,5.8,5.12,5.57,2.389705882352939,,121751,PKR
-UDLI,UDL International Limited,PSX,Commercial Services,Miscellaneous Commercial Services,20.35,21.99,19.5,20.4,1.5936254980079698,,1357609,PKR
-UDPL,United Distributors Pakistan Limited.,PSX,Process Industries,Agricultural Commodities/Milling,116.2,117.0,113.52,115.0,-1.406035665294925,,25106,PKR
-UNIC,United Insurance Co. of Pakistan Ltd.,PSX,Finance,Multi-Line Insurance,12.53,12.82,12.43,12.8,2.9766693483507725,6206547843.0,16870,PKR
-UNITY,Unity Foods Ltd,PSX,Process Industries,Agricultural Commodities/Milling,11.7,11.8,11.4,11.5,-1.4567266495287055,13934564161.0,12921547,PKR
-UPFL,Unilever Pakistan Foods Limited,PSX,Consumer Non-Durables,Food: Major Diversified,25995.0,26000.0,25851.0,26000.0,0.056762971301026546,165524280042.0,7,PKR
-UVIC,Universal Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,21.4,25.4,21.4,22.3,-5.588484335309061,,58,PKR
-WAFI,Wafi Energy Pakistan Limited,PSX,Distribution Services,Wholesale Distributors,201.84,201.84,197.31,198.0,-0.37735849056603776,42537400818.0,1816,PKR
-WAHDAT,Wahdat Poultry Farm Limited,PSX,Process Industries,Agricultural Commodities/Milling,19.15,19.87,19.0,19.13,-0.3645833333333348,,1223949,PKR
-WAHN,Wah Nobel Chemicals Limited,PSX,Process Industries,Chemicals: Specialty,286.0,291.0,282.0,285.0,-0.7383672332125956,2584079956.0,961,PKR
-WASL,Wasl Mobility Modaraba,PSX,Finance,Finance/Rental/Leasing,6.13,6.24,5.95,6.13,-0.1628664495113972,,2029502,PKR
-WAVES,Waves Corporation Ltd,PSX,Consumer Durables,Electronics/Appliances,10.02,10.98,10.02,10.98,10.020040080160319,2808432723.0,12114883,PKR
-WAVESAPP,Waves Home Appliances Ltd,PSX,Consumer Durables,Electronics/Appliances,8.02,8.98,8.02,8.98,12.531328320802004,,16674064,PKR
-WTL,Worldcall Telecom Limited,PSX,Communications,Specialty Telecommunications,1.27,1.28,1.25,1.27,0.7936507936507943,6277684171.0,13564221,PKR
-YOUW,Yousaf Weaving Mills Limited,PSX,Process Industries,Textiles,6.0,6.0,5.91,5.97,0.5050505050504942,,766960,PKR
-ZAHID,ZAHIDJEE Textile Mills Limited,PSX,Process Industries,Textiles,59.88,60.8,59.88,60.8,10.005427899402921,10579844951.0,80020,PKR
-ZAL,Zarea Ltd.,PSX,Technology Services,Packaged Software,46.5,47.3,46.0,46.03,-0.19514310494361733,12106499720.0,341729,PKR
-ZIL,ZIL Limited,PSX,Consumer Non-Durables,Household/Personal Care,330.0,345.0,330.0,344.5,5.152310603748243,,2483,PKR
-ZTL,Zephyr Textiles Limited,PSX,Process Industries,Textiles,17.57,17.57,17.2,17.57,10.018785222291795,949076773.0,974717,PKR
+SGF,Service Global Footwear Limited,PSX,Consumer Non-Durables,Apparel/Footwear,124.0,125.94,122.5,122.73,-0.6315278115132387,25500814408.0,245907,PKR
+SGPL,S.G. Power Ltd.,PSX,Utilities,Electric Utilities,47.51,48.5,45.15,45.7,-3.40308602832382,,1078553,PKR
+SHCM,Shadman Cotton Mills Limited,PSX,Process Industries,Textiles,51.64,53.55,49.2,51.07,-1.161215405457715,,2654,PKR
+SHDT,Shadab Textile Mills Limited,PSX,Process Industries,Textiles,50.05,53.5,50.05,53.12,9.210526315789467,,766270,PKR
+SHEZ,Shezan International Limited,PSX,Consumer Non-Durables,Beverages: Non-Alcoholic,235.5,235.5,225.0,229.99,-0.0043478260869525675,2222503624.0,3203,PKR
+SHFA,Shifa International Hospitals Limited,PSX,Health Services,Hospital/Nursing Management,474.0,476.75,470.0,473.02,-0.09926292001943594,29931377197.0,4186,PKR
+SHJS,Shahtaj Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,163.05,178.94,163.05,171.0,1.3813956245924068,2025929074.0,550,PKR
+SHNI,Shaheen Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,7.2,7.5,7.2,7.35,3.5211267605633805,744168740.0,48389,PKR
+SHSML,Shahmurad Sugar Mills Limited,PSX,Process Industries,Chemicals: Specialty,369.0,375.0,362.1,373.49,1.3321395626458368,7783916112.0,987,PKR
+SIBL,Security Investment Bank Limited,PSX,Finance,Investment Banks/Brokers,7.0,7.74,7.0,7.72,7.972027972027964,,3066,PKR
+SIEM,Siemens Pakistan Engineering Co. Limited,PSX,Producer Manufacturing,Electrical Products,1573.0,1573.0,1545.0,1516.24,0.0,12418542795.0,2,PKR
+SINDM,Sindh Modaraba,PSX,Finance,Finance/Rental/Leasing,24.25,24.49,23.25,23.47,-1.799163179916317,,14740,PKR
+SITC,Sitara Chemicals Industries Ltd.,PSX,Process Industries,Chemicals: Specialty,873.58,900.0,870.02,882.94,0.3101532588814054,18862378912.0,3480,PKR
+SKRS,Sakrand Sugar Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,27.8,28.49,27.8,27.97,0.43087971274684894,1242555648.0,584865,PKR
+SLGL,SECURE LOGISTICS - TRAX GROUP LIMITED,PSX,Transportation,Air Freight/Couriers,15.61,16.18,15.6,15.65,3.779840848806368,6360654044.0,4113405,PKR
+SLYT,Sally Textile Mills Ltd,PSX,Process Industries,Textiles,14.15,14.75,14.1,14.11,3.902798232695135,,5585,PKR
+SMCPL,Safe Mix Concrete Ltd.,PSX,Non-Energy Minerals,Construction Materials,42.0,42.5,41.0,42.31,2.148720424915501,,9496,PKR
+SML,Shakarganj Ltd.,PSX,Consumer Non-Durables,Food: Specialty/Candy,133.0,133.0,110.0,122.1,-0.03274930407729348,15267499924.0,3575,PKR
+SNAI,Sana Industries Limited,PSX,Process Industries,Textiles,41.7,42.65,38.0,39.7,-4.841802492809195,832939831.0,32583,PKR
+SNBL,Soneri Bank Limited,PSX,Finance,Regional Banks,20.15,20.15,19.75,19.9,-0.1004016064257185,21961073024.0,399625,PKR
+SNGP,Sui Northern Gas Pipelines Limited,PSX,Utilities,Gas Distributors,99.8,101.75,98.4,98.83,-0.783053910249976,63174323364.0,1521421,PKR
+SPAC1,LSE SPAC-I LIMITED ,PSX,Finance,Finance/Rental/Leasing,16.59,16.98,16.07,16.29,0.1845018450184353,,751008,PKR
+SPEL,SPEL Limited,PSX,Process Industries,Chemicals: Specialty,44.1,44.9,44.0,44.27,0.9808394160583935,8756427277.0,191409,PKR
+SPL,Sitara Peroxide Limited,PSX,Process Industries,Chemicals: Specialty,65.67,67.98,63.2,65.4,-2.489935887878318,,11870,PKR
+SPSL,Sitara Petroleum Service Limited,PSX,Retail Trade,Specialty Stores,20.15,20.64,20.15,20.18,0.3980099502487477,,10642580,PKR
+SPWL,Saif Power Ltd,PSX,Utilities,Electric Utilities,9.35,9.45,9.3,9.35,0.0,3613511209.0,72895,PKR
+SRR,Signature Residency REIT,PSX,Finance,Real Estate Investment Trusts,16.08,16.17,16.0,16.03,-0.31094527363182317,,56133,PKR
+SRVI,Service Industries Ltd,PSX,Consumer Durables,Automotive Aftermarket,2089.0,2089.0,2050.0,2050.41,-0.46650032523956697,96795189096.0,880,PKR
+SSGC,Sui Southern Gas Co. Ltd.,PSX,Utilities,Gas Distributors,27.37,27.39,26.7,26.83,-1.2513801987486324,23934496503.0,6882032,PKR
+SSML,Saritow Spinning Mills Limited,PSX,Process Industries,Textiles,26.8,26.8,25.63,24.78,0.0,,23,PKR
+SSOM,S.S. Oil Mills Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,411.5,424.9,411.5,418.29,0.8583897957707429,,16125,PKR
+STCL,Shabbir Tiles & Ceramics Limited,PSX,Producer Manufacturing,Building Products,11.3,11.81,11.01,11.65,3.925066904549505,2682782423.0,476410,PKR
+STJT,Shahtaj Textile Mills Ltd.,PSX,Process Industries,Textiles,135.0,143.0,129.0,134.28,1.727272727272728,1275119980.0,1003,PKR
+STL,Supernet Technologies Limited,PSX,Finance,Property/Casualty Insurance,51.83,52.88,51.01,51.33,0.3715291357059009,,535051,PKR
+STML,Shams Textile Mills Ltd,PSX,Process Industries,Textiles,41.14,41.14,36.81,38.17,-6.100861008610078,351216027.0,5748,PKR
+STPL,Siddiqsons Tin Plate Limited,PSX,Non-Energy Minerals,Steel,7.78,7.89,7.55,7.67,1.054018445322794,1740225613.0,1408661,PKR
+STYLERS,Stylers International Limited,PSX,Consumer Non-Durables,Apparel/Footwear,48.5,49.99,47.0,48.03,2.2349936143039684,22965129318.0,647,PKR
+SUHJ,Suhail Jute Mills Ltd.,PSX,Process Industries,Textiles,99.65,99.65,89.01,95.0,0.0,,3,PKR
+SURC,Suraj Cotton Mills Limited.,PSX,Process Industries,Textiles,134.0,143.0,134.0,138.94,3.447248901794353,6555606097.0,134502,PKR
+SUTM,Sunrays Textile Mills Ltd.,PSX,Process Industries,Textiles,114.85,114.85,106.5,110.97,-1.7268862911795986,2337444048.0,7218,PKR
+SYM,Symmetry Group Ltd.,PSX,Commercial Services,Advertising/Marketing Services,10.24,10.39,10.15,10.21,0.3933136676499599,,1018072,PKR
+SYS,Systems Ltd.,PSX,Technology Services,Information Technology Services,149.5,150.0,147.85,147.97,-0.6179058365235998,219375183037.0,1358190,PKR
+SZTM,Shahzad Textile Mills Limited,PSX,Process Industries,Textiles,71.2,74.0,66.78,66.8,-9.973045822102433,,74550,PKR
+TATM,Tata Textile Mills Limited,PSX,Process Industries,Textiles,133.2,139.88,131.5,137.21,5.82292148696592,7260132222.0,229480,PKR
+TBL,Treet Battery Ltd.,PSX,Producer Manufacturing,Electrical Products,10.6,10.91,10.45,10.5,-0.6622516556291418,,9033379,PKR
+TCORP,Tariq Corporation Limited,PSX,Process Industries,Agricultural Commodities/Milling,24.28,24.28,23.0,23.09,-1.5771526001705072,1553198636.0,81597,PKR
+TELE,Telecard Limited,PSX,Communications,Specialty Telecommunications,8.69,8.85,8.5,8.53,-0.46674445740957904,2902016147.0,8181325,PKR
+TGL,Tariq Glass Industries Limited,PSX,Process Industries,Containers/Packaging,176.85,178.85,176.0,177.08,0.2377448205592754,30415056513.0,55708,PKR
+THALL,Thal Limited,PSX,Producer Manufacturing,Auto Parts: OEM,647.99,647.99,620.0,628.29,1.3370967741935424,50238551941.0,9953,PKR
+THCCL,Thatta Cement Co. Ltd.,PSX,Non-Energy Minerals,Construction Materials,61.38,66.14,61.1,66.14,9.995010809911854,29078305532.0,12973595,PKR
+TICL,Thal Industries Corp. Ltd.,PSX,Process Industries,Agricultural Commodities/Milling,990.02,1009.98,980.02,987.96,-1.4680655842342436,15063462101.0,729,PKR
+TOMCL,Organic Meat Company Limited,PSX,Consumer Non-Durables,Food: Meat/Fish/Dairy,34.97,34.99,34.12,34.27,-0.4357931435212044,6758033869.0,672004,PKR
+TOWL,Towellers Ltd.,PSX,Consumer Durables,Home Furnishings,117.8,119.89,116.02,118.0,0.11029099855772923,,19337,PKR
+TPL,TPL Corp Ltd,PSX,Electronic Technology,Telecommunications Equipment,11.55,12.7,11.55,12.2,4.184457728437219,3130056780.0,41999765,PKR
+TPLI,TPL Insurance Ltd,PSX,Finance,Property/Casualty Insurance,25.01,26.0,23.65,25.88,-0.4232397075798362,5162769735.0,65718,PKR
+TPLL,TPL Life Insurance Limited,PSX,Process Industries,Textiles,19.5,21.99,18.8,21.43,7.096451774112935,,4987,PKR
+TPLP,TPL Properties Ltd.,PSX,Finance,Real Estate Development,8.84,9.56,8.84,9.33,6.5068493150684965,4915120961.0,42057629,PKR
+TPLT,TPL Trakker Ltd.,PSX,Communications,Specialty Telecommunications,19.5,21.15,19.08,21.15,9.98439937597503,3601069174.0,1749849,PKR
+TREET,Treet Corp. Ltd.,PSX,Consumer Non-Durables,Household/Personal Care,24.41,24.92,24.4,24.51,-0.12224938875304639,9105047303.0,3117126,PKR
+TRG,TRG Pakistan Limited,PSX,Commercial Services,Miscellaneous Commercial Services,71.98,73.7,71.4,71.61,-0.195121951219513,39131777344.0,14096215,PKR
+TRIPF,Tri-Pack Films Ltd.,PSX,Process Industries,Containers/Packaging,146.0,147.9,144.0,145.36,-0.1991074493649104,5651219652.0,66192,PKR
+TRSM,Trust Modaraba Ltd.,PSX,Finance,Investment Managers,15.99,17.39,15.85,16.56,4.743833017077788,,2827352,PKR
+TSBL,Trust Securities & Brokerage Limited,PSX,Finance,Investment Banks/Brokers,1.79,1.92,1.77,1.79,0.0,,9912968,PKR
+TSML,Tandlianwala Sugar Mills Limited,PSX,Process Industries,Agricultural Commodities/Milling,400.0,404.89,385.0,385.55,-4.854153299442282,47696949646.0,710,PKR
+TSPL,Tri-Star Power Limited,PSX,Utilities,Alternative Power Generation,15.38,16.57,14.05,15.88,4.88771466314399,227100005.0,391412,PKR
+UBDL,United Brands Limited,PSX,Consumer Durables,Electronics/Appliances,24.99,25.2,24.07,24.47,-0.528455284552856,,6216,PKR
+UBL,United Bank Limited,PSX,Finance,Major Banks,405.05,407.0,397.02,399.57,-1.2724846807669583,1013519173780.0,1485387,PKR
+UCAPM,Unicap Modaraba,PSX,Finance,Investment Managers,5.36,5.8,5.12,5.54,1.8382352941176405,,247558,PKR
+UDLI,UDL International Limited,PSX,Commercial Services,Miscellaneous Commercial Services,20.35,21.99,19.3,19.86,-1.0956175298804727,,1477008,PKR
+UDPL,United Distributors Pakistan Limited.,PSX,Process Industries,Agricultural Commodities/Milling,116.2,117.0,113.52,114.93,-1.4660493827160441,,29402,PKR
+UNIC,United Insurance Co. of Pakistan Ltd.,PSX,Finance,Multi-Line Insurance,12.53,12.82,12.43,12.6,1.367658889782783,6206547843.0,18921,PKR
+UNITY,Unity Foods Ltd,PSX,Process Industries,Agricultural Commodities/Milling,11.7,11.8,11.4,11.56,-0.9425878320479815,13934564161.0,15013265,PKR
+UPFL,Unilever Pakistan Foods Limited,PSX,Consumer Non-Durables,Food: Major Diversified,25995.0,26049.0,25851.0,26024.5,0.15104722871629098,165524280042.0,11,PKR
+UVIC,Universal Insurance Co. Ltd.,PSX,Finance,Property/Casualty Insurance,21.4,25.4,21.4,23.62,0.0,,63,PKR
+WAFI,Wafi Energy Pakistan Limited,PSX,Distribution Services,Wholesale Distributors,201.84,201.84,195.0,195.88,-1.4440251572327067,42537400818.0,28443,PKR
+WAHDAT,Wahdat Poultry Farm Limited,PSX,Process Industries,Agricultural Commodities/Milling,19.15,19.87,18.79,18.82,-1.9791666666666616,,1880154,PKR
+WAHN,Wah Nobel Chemicals Limited,PSX,Process Industries,Chemicals: Specialty,286.0,291.0,282.0,284.44,-0.9334076344385647,2584079956.0,1476,PKR
+WASL,Wasl Mobility Modaraba,PSX,Finance,Finance/Rental/Leasing,6.13,6.24,5.8,5.93,-3.420195439739413,,2840194,PKR
+WAVES,Waves Corporation Ltd,PSX,Consumer Durables,Electronics/Appliances,10.02,10.98,10.02,10.98,10.020040080160319,2808432723.0,12358994,PKR
+WAVESAPP,Waves Home Appliances Ltd,PSX,Consumer Durables,Electronics/Appliances,8.02,8.98,8.02,8.98,12.531328320802004,,17319572,PKR
+WTL,Worldcall Telecom Limited,PSX,Communications,Specialty Telecommunications,1.27,1.28,1.25,1.28,1.5873015873015885,6277684171.0,18104460,PKR
+YOUW,Yousaf Weaving Mills Limited,PSX,Process Industries,Textiles,6.0,6.0,5.85,5.9,-0.673400673400674,,1343902,PKR
+ZAHID,ZAHIDJEE Textile Mills Limited,PSX,Process Industries,Textiles,59.88,60.8,59.88,60.8,10.005427899402921,10579844951.0,106731,PKR
+ZAL,Zarea Ltd.,PSX,Technology Services,Packaged Software,46.5,47.3,45.51,45.84,-0.6071118820468214,12106499720.0,508198,PKR
+ZIL,ZIL Limited,PSX,Consumer Non-Durables,Household/Personal Care,330.0,345.0,330.0,343.25,4.770771015200536,,2704,PKR
+ZTL,Zephyr Textiles Limited,PSX,Process Industries,Textiles,17.57,17.57,17.2,17.57,10.018785222291795,949076773.0,980731,PKR
