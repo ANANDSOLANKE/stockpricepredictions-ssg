@@ -1,56 +1,56 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
 ABQK,AHLI BANK Q.P.S.C.,QSE,Finance,Regional Banks,4.05,4.055,4.05,4.055,0.12345679012345416,10332142760.0,5176,QAR
-AHCS,Aamal Company Q.S.C.,QSE,Distribution Services,Medical Distributors,0.777,0.78,0.775,0.775,-0.6410256410256416,4914000201.0,137067,QAR
-AKHI,Al Khaleej Takaful Group,QSE,Finance,Property/Casualty Insurance,3.035,3.09,3.018,3.067,0.5903574942604211,778345792.0,1656856,QAR
+AHCS,Aamal Company Q.S.C.,QSE,Distribution Services,Medical Distributors,0.777,0.78,0.775,0.78,0.0,4914000201.0,145792,QAR
+AKHI,Al Khaleej Takaful Group,QSE,Finance,Property/Casualty Insurance,3.035,3.09,3.018,3.08,1.0167267956707162,778345792.0,1757716,QAR
 BEMA,Damaan Islamic Insurance Company (Beema),QSE,Finance,Multi-Line Insurance,4.295,4.295,4.295,4.295,0.0,859000015.0,2816,QAR
-BLDN,Baladna Q.P.S.C,QSE,Process Industries,Agricultural Commodities/Milling,1.338,1.342,1.331,1.332,-0.07501875468866391,2857932030.0,6736968,QAR
-BRES,Barwa Real Estate Co.,QSE,Finance,Real Estate Development,2.381,2.388,2.354,2.359,-1.420810697868776,9311752976.0,3836815,QAR
-CBQK,Commercial Bank (Q.S.C.),QSE,Finance,Investment Banks/Brokers,4.061,4.085,4.045,4.05,-0.8082292432035356,16524937442.999998,1092613,QAR
-DBIS,Dlala Brokerage and Investment Holding Company,QSE,Finance,Investment Banks/Brokers,1.361,1.434,1.361,1.402,1.8895348837209323,261972783.0,3198482,QAR
-DHBK,Doha Bank,QSE,Finance,Major Banks,2.862,2.894,2.86,2.878,0.10434782608696049,8913842743.0,774806,QAR
+BLDN,Baladna Q.P.S.C,QSE,Process Industries,Agricultural Commodities/Milling,1.338,1.342,1.331,1.332,-0.07501875468866391,2857932030.0,6766968,QAR
+BRES,Barwa Real Estate Co.,QSE,Finance,Real Estate Development,2.381,2.388,2.354,2.357,-1.5043877977434013,9311752976.0,3958764,QAR
+CBQK,Commercial Bank (Q.S.C.),QSE,Finance,Investment Banks/Brokers,4.061,4.085,4.045,4.06,-0.5633112907176236,16524937442.999998,1437792,QAR
+DBIS,Dlala Brokerage and Investment Holding Company,QSE,Finance,Investment Banks/Brokers,1.361,1.434,1.361,1.402,1.8895348837209323,261972783.0,3289753,QAR
+DHBK,Doha Bank,QSE,Finance,Major Banks,2.862,2.894,2.86,2.868,-0.2434782608695693,8913842743.0,801992,QAR
 DOHI,Doha Insurance Co.,QSE,Finance,Property/Casualty Insurance,2.807,2.833,2.807,2.823,0.3198294243070326,1407000065.0,166789,QAR
-DUBK,Dukhan Bank Q.P.S.C.,QSE,Finance,Regional Banks,3.356,3.388,3.342,3.386,0.8939213349225342,17436936723.0,1604855,QAR
-ERES,Ezdan Holding Group,QSE,Finance,Real Estate Development,0.873,0.873,0.863,0.863,-1.0321100917431203,23129770490.0,3806391,QAR
-FALH,Al Faleh Educational Holding Co.,QSE,Commercial Services,Miscellaneous Commercial Services,0.598,0.599,0.593,0.594,-1.0000000000000009,144000006.0,1172663,QAR
-GISS,Gulf International Services QSC,QSE,Energy Minerals,Oil & Gas Production,2.092,2.106,2.07,2.077,-0.7170172084130079,3887790997.0,1824198,QAR
-GWCS,Gulf Warehousing Co.,QSE,Transportation,Other Transportation,2.299,2.299,2.261,2.278,0.3082342580361126,1330877470.0,1278186,QAR
-IGRD,Estithmar Holding Q.P.S.C,QSE,Finance,Financial Conglomerates,4.37,4.385,4.35,4.37,-0.3420752565564351,19703251280.0,1568747,QAR
+DUBK,Dukhan Bank Q.P.S.C.,QSE,Finance,Regional Banks,3.356,3.388,3.342,3.388,0.9535160905840294,17436936723.0,1795011,QAR
+ERES,Ezdan Holding Group,QSE,Finance,Real Estate Development,0.873,0.873,0.863,0.863,-1.0321100917431203,23129770490.0,3807667,QAR
+FALH,Al Faleh Educational Holding Co.,QSE,Commercial Services,Miscellaneous Commercial Services,0.598,0.599,0.593,0.597,-0.5000000000000004,144000006.0,1187663,QAR
+GISS,Gulf International Services QSC,QSE,Energy Minerals,Oil & Gas Production,2.092,2.106,2.07,2.08,-0.573613766730402,3887790997.0,1990666,QAR
+GWCS,Gulf Warehousing Co.,QSE,Transportation,Other Transportation,2.299,2.299,2.261,2.279,0.3522677234698374,1330877470.0,1322118,QAR
+IGRD,Estithmar Holding Q.P.S.C,QSE,Finance,Financial Conglomerates,4.37,4.385,4.35,4.379,-0.13683010262258216,19703251280.0,2103991,QAR
 IHGS,Inma Holding Company,QSE,Finance,Investment Banks/Brokers,2.9,2.9,2.862,2.898,-1.3614703880190617,166395999.0,304527,QAR
-IQCD,Industries of Qatar Co.,QSE,Non-Energy Minerals,Steel,11.1,11.11,11.0,11.08,-0.4492362982929084,67336500692.0,2533292,QAR
-MARK,AlRayan Bank,QSE,Finance,Investment Banks/Brokers,2.038,2.039,2.026,2.03,-0.441392839627285,18962700319.0,8618947,QAR
-MCCS,Mannai Corporation Q.P.S.C.,QSE,Technology Services,Information Technology Services,5.425,5.481,5.366,5.42,-0.09216589861750955,2474841612.0,393238,QAR
-MCGS,Medicare Group QSC,QSE,Health Services,Hospital/Nursing Management,5.9,6.049,5.881,5.99,1.6977928692699582,1657687509.0,3619820,QAR
-MERS,Almeera Consumer Goods Co. QSC,QSE,Retail Trade,Specialty Stores,13.32,13.32,13.19,13.24,-1.3412816691505194,2847455518.0,27242,QAR
-MEZA,Meeza QSTP LLC,QSE,Technology Services,Data Processing Services,3.322,3.324,3.303,3.31,-0.1809408926417305,2152017605.0,438120,QAR
-MFMS,Mosanada Facilities Management Services Q.P.S.C.,QSE,Commercial Services,Miscellaneous Commercial Services,8.5,8.502,8.5,8.502,0.02352941176471374,595000000.0,2578,QAR
-MHAR,Al Mahhar Holding Company QPSC,QSE,Electronic Technology,Electronic Equipment/Instruments,2.15,2.15,2.133,2.133,-0.5594405594405599,444014996.0,38248,QAR
+IQCD,Industries of Qatar Co.,QSE,Non-Energy Minerals,Steel,11.1,11.11,11.0,11.08,-0.4492362982929084,67336500692.0,2659734,QAR
+MARK,AlRayan Bank,QSE,Finance,Investment Banks/Brokers,2.038,2.039,2.026,2.03,-0.441392839627285,18962700319.0,9424221,QAR
+MCCS,Mannai Corporation Q.P.S.C.,QSE,Technology Services,Information Technology Services,5.425,5.481,5.366,5.42,-0.09216589861750955,2474841612.0,393249,QAR
+MCGS,Medicare Group QSC,QSE,Health Services,Hospital/Nursing Management,5.9,6.049,5.881,5.997,1.816638370118849,1657687509.0,3842865,QAR
+MERS,Almeera Consumer Goods Co. QSC,QSE,Retail Trade,Specialty Stores,13.32,13.32,13.19,13.23,-1.4157973174366578,2847455518.0,27963,QAR
+MEZA,Meeza QSTP LLC,QSE,Technology Services,Data Processing Services,3.322,3.324,3.3,3.3,-0.4825090470446326,2152017605.0,536657,QAR
+MFMS,Mosanada Facilities Management Services Q.P.S.C.,QSE,Commercial Services,Miscellaneous Commercial Services,8.5,8.502,8.5,8.502,0.02352941176471374,595000000.0,2703,QAR
+MHAR,Al Mahhar Holding Company QPSC,QSE,Electronic Technology,Electronic Equipment/Instruments,2.15,2.15,2.133,2.14,-0.23310023310022812,444014996.0,38348,QAR
 MKDM,Mekdam Holding Group Company,QSE,Industrial Services,Engineering & Construction,2.259,2.259,2.244,2.258,-0.04426737494466091,384030011.0,99251,QAR
-MPHC,Mesaieed Petrochemical Holding Company Q.S.C.,QSE,Process Industries,Chemicals: Specialty,1.158,1.166,1.151,1.159,-0.6855184233076269,14661225692.0,7598616,QAR
-MRDS,Mazaya Real Estate Development Company,QSE,Finance,Real Estate Development,0.572,0.575,0.57,0.57,-0.6968641114982586,573999966.0,3864177,QAR
-NLCS,Alijarah Holding,QSE,Finance,Real Estate Development,0.731,0.75,0.73,0.74,1.2311901504787974,361700266.0,1397255,QAR
-ORDS,Ooredoo Q.P.S.C,QSE,Communications,Wireless Telecommunications,13.26,13.26,13.04,13.08,-0.9090909090909032,42282238745.0,1254715,QAR
-QAMC,Qatar Aluminium Manufacturing Company,QSE,Non-Energy Minerals,Aluminum,1.695,1.695,1.65,1.656,-1.42857142857143,9374602169.0,2190552,QAR
-QATI,Qatar Insurance Co.,QSE,Finance,Multi-Line Insurance,2.01,2.01,1.994,2.001,-0.09985022466301667,6542001009.0,4174302,QAR
+MPHC,Mesaieed Petrochemical Holding Company Q.S.C.,QSE,Process Industries,Chemicals: Specialty,1.158,1.166,1.151,1.161,-0.5141388174807203,14661225692.0,8291300,QAR
+MRDS,Mazaya Real Estate Development Company,QSE,Finance,Real Estate Development,0.572,0.575,0.57,0.57,-0.6968641114982586,573999966.0,4668177,QAR
+NLCS,Alijarah Holding,QSE,Finance,Real Estate Development,0.731,0.75,0.73,0.739,1.0943912448700421,361700266.0,1523698,QAR
+ORDS,Ooredoo Q.P.S.C,QSE,Communications,Wireless Telecommunications,13.26,13.26,13.04,13.12,-0.6060606060606066,42282238745.0,1454183,QAR
+QAMC,Qatar Aluminium Manufacturing Company,QSE,Non-Energy Minerals,Aluminum,1.695,1.695,1.65,1.666,-0.8333333333333341,9374602169.0,2490840,QAR
+QATI,Qatar Insurance Co.,QSE,Finance,Multi-Line Insurance,2.01,2.01,1.994,1.998,-0.24962556165751948,6542001009.0,4362382,QAR
 QCFS,Qatar Cinema & Film Distribution Co.,QSE,Consumer Services,Movies/Entertainment,2.48,2.48,2.48,2.48,0.0,155763724.0,0,QAR
-QEWS,Nebras Energy,QSE,Utilities,Electric Utilities,14.43,14.45,14.37,14.41,0.3481894150417877,15795999622.0,77790,QAR
-QFBQ,Lesha Bank L.L.C,QSE,Finance,Investment Managers,2.963,2.99,2.904,2.96,0.1692047377326529,3309599915.0,3460062,QAR
-QFLS,Qatar Fuel-Woqod QSC,QSE,Energy Minerals,Oil Refining/Marketing,14.08,14.08,13.99,13.99,-0.6392045454545444,13999120705.0,301819,QAR
-QGMD,Qatar German For Medical Devices,QSE,Distribution Services,Medical Distributors,1.375,1.376,1.345,1.354,-1.8129079042784564,159274494.0,6545918,QAR
-QGRI,Qatar General Insurance & Reinsurance Company Q.P.S.C.,QSE,Finance,Multi-Line Insurance,1.925,1.925,1.867,1.924,-0.20746887966804997,1687129185.0,133335,QAR
-QGTS,Qatar Gas Transport Co.,QSE,Transportation,Marine Shipping,4.327,4.398,4.327,4.35,0.5780346820809125,23961639324.0,2448504,QAR
-QIBK,Qatar Islamic Bank,QSE,Finance,Major Banks,21.7,21.72,21.53,21.55,-0.9195402298850541,51393768494.0,432372,QAR
-QIGD,Qatari Investors Group,QSE,Non-Energy Minerals,Construction Materials,1.389,1.398,1.385,1.389,0.0,1726898929.0,547202,QAR
-QIIK,Qatar International Islamic Bank,QSE,Finance,Regional Banks,11.38,11.4,11.23,11.28,-0.9657594381036102,17240901145.0,620543,QAR
-QIMD,Qatar Industrial Manufacturing Co.,QSE,Producer Manufacturing,Industrial Conglomerates,2.325,2.339,2.249,2.257,-3.340471092077081,1109592047.0,909098,QAR
-QISI,Qatar Islamic Insurance Group,QSE,Finance,Multi-Line Insurance,8.451,8.465,8.45,8.451,-0.224321133412044,1270500040.0,19919,QAR
+QEWS,Nebras Energy,QSE,Utilities,Electric Utilities,14.43,14.45,14.37,14.44,0.5571030640668528,15795999622.0,100097,QAR
+QFBQ,Lesha Bank L.L.C,QSE,Finance,Investment Managers,2.963,2.99,2.904,2.929,-0.8798646362098221,3309599915.0,3937563,QAR
+QFLS,Qatar Fuel-Woqod QSC,QSE,Energy Minerals,Oil Refining/Marketing,14.08,14.08,13.99,14.0,-0.5681818181818187,13999120705.0,341219,QAR
+QGMD,Qatar German For Medical Devices,QSE,Distribution Services,Medical Distributors,1.375,1.376,1.345,1.35,-2.1029731689630107,159274494.0,6628185,QAR
+QGRI,Qatar General Insurance & Reinsurance Company Q.P.S.C.,QSE,Finance,Multi-Line Insurance,1.925,1.925,1.867,1.924,-0.20746887966804997,1687129185.0,139387,QAR
+QGTS,Qatar Gas Transport Co.,QSE,Transportation,Marine Shipping,4.327,4.398,4.327,4.35,0.5780346820809125,23961639324.0,3426507,QAR
+QIBK,Qatar Islamic Bank,QSE,Finance,Major Banks,21.7,21.72,21.53,21.59,-0.7356321839080466,51393768494.0,514152,QAR
+QIGD,Qatari Investors Group,QSE,Non-Energy Minerals,Construction Materials,1.389,1.398,1.385,1.396,0.5039596832253344,1726898929.0,552702,QAR
+QIIK,Qatar International Islamic Bank,QSE,Finance,Regional Banks,11.38,11.4,11.23,11.3,-0.7901668129938529,17240901145.0,906544,QAR
+QIMD,Qatar Industrial Manufacturing Co.,QSE,Producer Manufacturing,Industrial Conglomerates,2.325,2.339,2.249,2.286,-2.0985010706638088,1109592047.0,934124,QAR
+QISI,Qatar Islamic Insurance Group,QSE,Finance,Multi-Line Insurance,8.451,8.5,8.45,8.5,0.35419126328216477,1270500040.0,23376,QAR
 QLMI,QLM Life & Medical Insurance Company QPSC,QSE,Finance,Multi-Line Insurance,2.25,2.25,2.25,2.25,0.7613076578593777,781550014.0,19506,QAR
-QNBK,Qatar National Bank QPSC,QSE,Finance,Regional Banks,17.52,17.68,17.45,17.59,0.5142857142857135,161637502441.0,1790533,QAR
+QNBK,Qatar National Bank QPSC,QSE,Finance,Regional Banks,17.52,17.69,17.45,17.69,1.085714285714293,161637502441.0,2420285,QAR
 QNCD,Qatar National Cement Co.,QSE,Non-Energy Minerals,Construction Materials,2.792,2.792,2.716,2.781,-0.35829451809386553,1823999173.0,91818,QAR
-QNNS,Qatar Navigation QSC,QSE,Transportation,Air Freight/Couriers,10.0,10.01,9.98,9.998,-0.5174129353233967,11327129237.0,1252602,QAR
-QOIS,Qatar Oman Investment Co.,QSE,Finance,Financial Conglomerates,0.795,0.795,0.795,0.795,-0.7490636704119856,144180000.0,3498,QAR
-SIIS,Salam International Investment Ltd.,QSE,Retail Trade,Department Stores,0.795,0.795,0.788,0.793,-0.7509386733416776,913373582.0,164127,QAR
+QNNS,Qatar Navigation QSC,QSE,Transportation,Air Freight/Couriers,10.0,10.1,9.98,10.1,0.49751243781093457,11327129237.0,1358695,QAR
+QOIS,Qatar Oman Investment Co.,QSE,Finance,Financial Conglomerates,0.795,0.795,0.795,0.795,-0.7490636704119856,144180000.0,3575,QAR
+SIIS,Salam International Investment Ltd.,QSE,Retail Trade,Department Stores,0.795,0.795,0.788,0.793,-0.7509386733416776,913373582.0,164294,QAR
 TQES,Qatar Electronic Systems Co. (Techno Q) QPSC,QSE,Consumer Durables,Electronics/Appliances,2.153,2.153,2.153,2.153,0.13953488372093553,181675008.0,4596,QAR
-UDCD,United Development Co.,QSE,Finance,Real Estate Development,0.883,0.891,0.879,0.883,0.0,3126581688.0,2984020,QAR
-VFQS,Vodafone Qatar QSC,QSE,Communications,Wireless Telecommunications,2.599,2.6,2.564,2.577,-0.8846153846153896,10990199597.0,1121545,QAR
-WDAM,Widam Food Company Q. S. C,QSE,Distribution Services,Food Distributors,1.516,1.525,1.5,1.5,-0.9900990099009837,272699997.0,2151986,QAR
-ZHCD,Zad Holding Co.,QSE,Consumer Non-Durables,Food: Specialty/Candy,13.41,13.41,13.32,13.34,-0.5961251862891213,3857154077.0,24083,QAR
+UDCD,United Development Co.,QSE,Finance,Real Estate Development,0.883,0.891,0.879,0.886,0.33975084937712374,3126581688.0,3037638,QAR
+VFQS,Vodafone Qatar QSC,QSE,Communications,Wireless Telecommunications,2.599,2.6,2.564,2.6,0.0,10990199597.0,2115499,QAR
+WDAM,Widam Food Company Q. S. C,QSE,Distribution Services,Food Distributors,1.516,1.525,1.5,1.509,-0.3960396039603964,272699997.0,2163170,QAR
+ZHCD,Zad Holding Co.,QSE,Consumer Non-Durables,Food: Specialty/Candy,13.41,13.41,13.32,13.34,-0.5961251862891213,3857154077.0,24087,QAR
