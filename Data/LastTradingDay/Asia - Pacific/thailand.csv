@@ -17,11 +17,11 @@ AAI.R,Asian Alliance International Public Company Limited NVDR,SET,Consumer Non-
 AAPL01,Apple Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Electronic Technology,Telecommunications Equipment,31.0,31.0,30.5,31.0,0.8130081300813009,154271064020952.7,14163,THB
 AAPL03,Apple Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Electronic Technology,Telecommunications Equipment,3.5,3.52,3.48,3.5,0.0,154271064020952.7,9436,THB
 AAPL19,Apple Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Electronic Technology,Telecommunications Equipment,6.95,7.0,6.95,6.95,-0.7142857142857117,154271064020952.7,412,THB
-AAPL80,Apple Inc. Units Thailand Depository Receipt Repr 0.001 Sh,SET,Electronic Technology,Telecommunications Equipment,10.5,10.6,10.4,10.6,0.0,154271064020952.7,403879,THB
+AAPL80,Apple Inc. Units Thailand Depository Receipt Repr 0.001 Sh,SET,Electronic Technology,Telecommunications Equipment,10.5,10.5,10.5,10.5,-0.943396226415091,154271064020952.7,500,THB
 AAV,"Asia Aviation Public Co., Ltd.",SET,Transportation,Airlines,1.08,1.09,1.07,1.08,-0.9174311926605512,14006500429.0,35918811,THB
 AAV.R,"Asia Aviation Public Co., Ltd. NVDR",SET,Transportation,Airlines,1.08,1.09,1.07,1.08,-0.9174311926605512,14006500429.0,35918300,THB
-ABBV19,"AbbVie, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Health Technology,Pharmaceuticals: Major,8.3,8.5,8.15,8.5,1.1904761904761862,14600465444337.11,178013,THB
-ABBV80,"AbbVie, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Health Technology,Pharmaceuticals: Major,8.3,8.35,8.2,8.25,-1.7857142857142898,14600465444337.11,52096,THB
+ABBV19,"AbbVie, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Health Technology,Pharmaceuticals: Major,8.35,8.35,8.3,8.3,-2.35294117647058,14600465444337.11,954,THB
+ABBV80,"AbbVie, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Health Technology,Pharmaceuticals: Major,8.3,8.35,8.3,8.35,1.2121212121212077,14600465444337.11,7810,THB
 ABM,"Asia Biomass Public Co., Ltd.",SET,Process Industries,Chemicals: Specialty,0.5,0.5,0.49,0.49,-2.0000000000000018,346060211.0,10400,THB
 ABM.R,"Asia Biomass Public Co., Ltd. NVDR",SET,Process Industries,Chemicals: Specialty,0.5,0.5,0.49,0.49,-2.0000000000000018,346060211.0,10400,THB
 ABNB06,"Airbnb, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Consumer Services,Hotels/Resorts/Cruise lines,4.98,4.98,4.92,4.94,2.06611570247935,2983810750999.3345,14921,THB
@@ -33,8 +33,8 @@ ACG,Autocorp Holding Public Co. Ltd.,SET,Distribution Services,Wholesale Distrib
 ACG.R,Autocorp Holding Public Company Ltd NVDR,SET,Distribution Services,Wholesale Distributors,0.75,0.75,0.73,0.74,-1.3333333333333344,450000000.0,21100,THB
 ADB,Applied DB Public Company Limited,SET,Process Industries,Industrial Specialties,0.68,0.7,0.68,0.7,2.9411764705882213,493679964.0,599600,THB
 ADB.R,Applied DB Public Company Limited NVDR,SET,Process Industries,Industrial Specialties,0.68,0.7,0.68,0.7,2.9411764705882213,493679964.0,599600,THB
-ADBE03,Adobe Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,1.67,1.68,1.66,1.68,1.204819277108435,2961255821352.432,122215,THB
-ADBE06,Adobe Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,1.87,1.89,1.86,1.88,0.5347593582887586,2961255821352.432,432862,THB
+ADBE03,Adobe Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,1.68,1.68,1.68,1.68,0.0,2961255821352.432,284,THB
+ADBE06,Adobe Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,1.88,1.89,1.88,1.89,0.5319148936170218,2961255821352.432,15750,THB
 ADD,"AddTech Hub Public Co., Ltd.",SET,Technology Services,Information Technology Services,3.38,3.38,3.34,3.38,0.5952380952380958,564480022.0,27110,THB
 ADD.R,"AddTech Hub Public Co., Ltd. NVDR",SET,Technology Services,Information Technology Services,3.38,3.38,3.34,3.38,0.5952380952380958,564480022.0,27000,THB
 ADVANC,"Advanced Info Service Public Co., Ltd.",SET,Communications,Wireless Telecommunications,373.0,376.0,372.0,376.0,0.8042895442359249,1109380224365.0,4299229,THB
@@ -99,9 +99,9 @@ AMARC,Asia Medical and Agricultural Laboratory and Research Center PCL,SET,Comme
 AMARC.R,Asia Medical and Agricultural Laboratory and Research Center PCL NVDR,SET,Commercial Services,Miscellaneous Commercial Services,3.76,3.76,3.6,3.6,-2.702702702702705,1554000020.0,4930900,THB
 AMARIN,Amarin Corporations Public Company Limited,SET,Consumer Services,Publishing: Books/Magazines,2.08,2.12,2.0,2.06,-7.207207207207213,2216185217.0,203300,THB
 AMARIN.R,Amarin Corporations Public Company Limited NVDR,SET,Consumer Services,Publishing: Books/Magazines,2.08,2.12,2.0,2.06,-7.207207207207213,2216185217.0,203300,THB
-AMAT01,"Applied Materials, Inc. Thailand Depositary Receipts Repr 1 Sh",SET,Producer Manufacturing,Industrial Machinery,5.45,5.6,5.3,5.4,0.9345794392523498,15934728364490.342,884448,THB
+AMAT01,"Applied Materials, Inc. Thailand Depositary Receipts Repr 1 Sh",SET,Producer Manufacturing,Industrial Machinery,5.4,5.4,5.35,5.35,-0.925925925925939,15934728364490.342,36902,THB
 AMAT19,"Applied Materials, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Producer Manufacturing,Industrial Machinery,4.88,5.05,4.76,4.88,1.6666666666666683,15934728364490.342,231,THB
-AMAT23,"Applied Materials, Inc. Thailand Depositary Receipts Repr 1 Sh",SET,Producer Manufacturing,Industrial Machinery,7.85,8.15,7.65,7.8,1.298701298701294,15934728364490.342,83208,THB
+AMAT23,"Applied Materials, Inc. Thailand Depositary Receipts Repr 1 Sh",SET,Producer Manufacturing,Industrial Machinery,7.7,7.7,7.7,7.7,-1.2820512820512775,15934728364490.342,100,THB
 AMATA,Amata Corporation Public Company,SET,Finance,Real Estate Development,28.5,28.5,27.5,27.75,-2.631578947368421,32775000000.0,9925718,THB
 AMATA.R,Amata Corporation Public Company NVDR,SET,Finance,Real Estate Development,28.5,28.5,27.5,27.75,-2.631578947368421,32775000000.0,9924900,THB
 AMATAR,Amata Summit Growth Freehold and Leasehold Real Estate Investment Trust,SET,Finance,Real Estate Investment Trusts,7.45,7.5,7.4,7.45,0.0,2666280086.0,31214,THB
@@ -109,22 +109,22 @@ AMATAV,Amata VN Public Company Limited,SET,Finance,Real Estate Development,2.14,
 AMATAV.R,Amata VN Public Company Limited NVDR,SET,Finance,Real Estate Development,2.14,2.14,2.06,2.14,0.0,2281022246.0,45000,THB
 AMC,Asia Metal Public Co. Ltd.,SET,Non-Energy Minerals,Steel,2.06,2.06,2.04,2.06,0.0,988998315.0,44500,THB
 AMC.R,Asia Metal Public Co. Ltd. NVDR,SET,Non-Energy Minerals,Steel,2.06,2.06,2.04,2.06,0.0,988998315.0,44500,THB
-AMD03,"Advanced Micro Devices, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,9.15,9.3,9.0,9.05,-0.5494505494505377,30302990831912.062,23335,THB
-AMD23,"Advanced Micro Devices, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,7.7,7.75,7.5,7.55,0.6666666666666643,30302990831912.062,663672,THB
-AMD80,"Advanced Micro Devices, Inc. nits Thailand Depository Receipt Repr 0.01 Sh",SET,Electronic Technology,Semiconductors,3.66,3.72,3.58,3.62,0.555555555555556,30302990831912.062,14499684,THB
+AMD03,"Advanced Micro Devices, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,9.1,9.1,9.05,9.05,0.0,30302990831912.062,1001,THB
+AMD23,"Advanced Micro Devices, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,7.55,7.55,7.55,7.55,0.0,30302990831912.062,3720,THB
+AMD80,"Advanced Micro Devices, Inc. nits Thailand Depository Receipt Repr 0.01 Sh",SET,Electronic Technology,Semiconductors,3.64,3.64,3.62,3.64,0.5524861878453043,30302990831912.062,57086,THB
 AMGN06,Amgen Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Health Technology,Biotechnology,3.0,3.04,3.0,3.02,-0.6578947368421059,6533130898834.11,35357,THB
 AMR,"AMR Asia Public Co., Ltd.",SET,Technology Services,Information Technology Services,0.39,0.4,0.39,0.4,0.0,236284012.0,3313,THB
 AMR.R,"AMR Asia Public Co., Ltd. NVDR",SET,Technology Services,Information Technology Services,0.39,0.4,0.39,0.4,0.0,236284012.0,3300,THB
-AMZN01,"Amazon.com, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Retail Trade,Internet Retail,24.1,24.5,24.0,24.0,-1.2345679012345707,87913030468654.23,32709,THB
-AMZN03,"Amazon.com, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Retail Trade,Internet Retail,4.12,4.16,4.12,4.12,0.0,87913030468654.23,1050,THB
-AMZN06,"Amazon.com, Inc.Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Retail Trade,Internet Retail,2.04,2.08,2.04,2.04,-1.9230769230769247,87913030468654.23,52169,THB
-AMZN19,"Amazon.com, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Retail Trade,Internet Retail,2.06,2.06,2.04,2.04,0.0,87913030468654.23,997,THB
-AMZN23,"Amazon.com, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Retail Trade,Internet Retail,2.72,2.78,2.7,2.72,-1.449275362318826,87913030468654.23,174122,THB
-AMZN80,"Amazon.com, Inc. Units Thailand Depository Receipt Repr 0.00025 Sh",SET,Retail Trade,Internet Retail,2.04,2.1,2.02,2.06,0.0,87913030468654.23,2812612,THB
+AMZN01,"Amazon.com, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Retail Trade,Internet Retail,24.1,24.1,24.1,24.1,0.41666666666667257,87913030468654.23,1,THB
+AMZN03,"Amazon.com, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Retail Trade,Internet Retail,4.12,4.12,4.12,4.12,0.0,87913030468654.23,1,THB
+AMZN06,"Amazon.com, Inc.Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Retail Trade,Internet Retail,2.06,2.06,2.06,2.06,0.980392156862746,87913030468654.23,728,THB
+AMZN19,"Amazon.com, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Retail Trade,Internet Retail,2.06,2.06,2.06,2.06,0.980392156862746,87913030468654.23,1,THB
+AMZN23,"Amazon.com, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Retail Trade,Internet Retail,2.74,2.74,2.74,2.74,0.7352941176470594,87913030468654.23,1,THB
+AMZN80,"Amazon.com, Inc. Units Thailand Depository Receipt Repr 0.00025 Sh",SET,Retail Trade,Internet Retail,2.04,2.06,2.04,2.06,0.0,87913030468654.23,202,THB
 ANAN,Ananda Development Public Co. Ltd.,SET,Finance,Real Estate Development,0.33,0.33,0.32,0.33,0.0,1374864327.0,314312,THB
 ANAN.R,Ananda Development Public Co. Ltd. NVDR,SET,Finance,Real Estate Development,0.33,0.33,0.32,0.33,0.0,1374864327.0,314300,THB
-ANET23,Arista Networks Inc Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,3.44,3.5,3.36,3.5,3.550295857988169,7842123031812.126,1119243,THB
-ANET80,Arista Networks Inc Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,6.2,6.3,6.1,6.3,4.132231404958678,7842123031812.126,249786,THB
+ANET23,Arista Networks Inc Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,3.48,3.48,3.48,3.48,-0.571428571428572,7842123031812.126,201,THB
+ANET80,Arista Networks Inc Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,6.3,6.3,6.3,6.3,0.0,7842123031812.126,100,THB
 ANI,Asia Network International Public Company Limited,SET,Transportation,Airlines,2.8,2.84,2.78,2.84,0.7092198581560291,5211359877.0,49101,THB
 ANI.R,Asia Network International Public Company Limited NVDR,SET,Transportation,Airlines,2.8,2.84,2.78,2.84,0.7092198581560291,5211359877.0,49100,THB
 ANTA13,ANTA Sports Products Ltd. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Consumer Non-Durables,Apparel/Footwear,1.93,1.93,1.88,1.88,-0.5291005291005296,860127339470.0483,2002,THB
@@ -137,12 +137,12 @@ APCO,"Asian Phytoceuticals Public Co., Ltd.",SET,Consumer Non-Durables,Household
 APCO.R,"Asian Phytoceuticals Public Co., Ltd. NVDR",SET,Consumer Non-Durables,Household/Personal Care,2.6,2.62,2.58,2.62,0.7692307692307698,1559999943.0,103800,THB
 APCS,Asia Precision PCL,SET,Industrial Services,Engineering & Construction,1.27,1.4,1.27,1.4,3.7037037037036904,923999813.0,2700,THB
 APCS.R,Asia Precision PCL NVDR,SET,Industrial Services,Engineering & Construction,1.27,1.4,1.27,1.4,3.7037037037036904,923999813.0,2700,THB
-APLD03,Applied Digital Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Data Processing Services,3.4,3.62,3.36,3.4,-5.55555555555556,296526342071.9521,564136,THB
+APLD03,Applied Digital Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Data Processing Services,3.4,3.4,3.4,3.4,0.0,296526342071.9521,800,THB
 APO,ASIAN PALM OIL PUBLIC COMPANY LIMITED,SET,Process Industries,Agricultural Commodities/Milling,2.04,2.08,2.04,2.04,0.0,693599987.0,289853,THB
 APO.R,ASIAN PALM OIL PUBLIC COMPANY LIMITED NVDR,SET,Process Industries,Agricultural Commodities/Milling,2.04,2.08,2.04,2.04,0.0,693599987.0,289800,THB
 APP,"AppliCad Public Co., Ltd.",SET,Distribution Services,Electronics Distributors,2.64,2.64,2.56,2.62,0.0,733599968.0,239920,THB
 APP.R,"AppliCad Public Co., Ltd. NVDR",SET,Distribution Services,Electronics Distributors,2.64,2.64,2.56,2.62,0.0,733599968.0,239900,THB
-APPL03,AppLovin Corp. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,2.82,2.96,2.8,2.84,-2.0689655172413812,5673379819053.964,458394,THB
+APPL03,AppLovin Corp. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,2.84,2.84,2.84,2.84,0.0,5673379819053.964,1,THB
 APURE,"AgriPure Holdings Public Co., Ltd.",SET,Consumer Non-Durables,Food: Specialty/Candy,2.02,2.1,2.02,2.06,1.980198019801982,1877970458.0,182401,THB
 APURE.R,"AgriPure Holdings Public Co., Ltd. NVDR",SET,Consumer Non-Durables,Food: Specialty/Candy,2.02,2.1,2.02,2.06,1.980198019801982,1877970458.0,182400,THB
 AQUA,AQUA Corp. Public Co. Ltd.,SET,Commercial Services,Advertising/Marketing Services,0.1,0.1,0.09,0.1,0.0,571245712.0,542400,THB
@@ -170,15 +170,15 @@ ASIMAR,"Asian Marine Services Public Co., Ltd.",SET,Producer Manufacturing,Truck
 ASIMAR.R,"Asian Marine Services Public Co., Ltd. NVDR",SET,Producer Manufacturing,Trucks/Construction/Farm Machinery,1.4,1.4,1.39,1.4,0.0,361607544.0,93600,THB
 ASK,"Asia Sermkij Leasing Public Co., Ltd.",SET,Finance,Finance/Rental/Leasing,11.7,12.4,11.7,12.2,2.5210084033613356,8375115723.000001,2860150,THB
 ASK.R,"Asia Sermkij Leasing Public Co., Ltd. NVDR",SET,Finance,Finance/Rental/Leasing,11.7,12.4,11.7,12.2,2.5210084033613356,8375115723.000001,2860100,THB
-ASML01,ASML Holding NV Units Thailand Depository Receipt Repr Sh,SET,Electronic Technology,Semiconductors,50.0,50.25,48.75,49.25,-1.0050251256281406,22784879772213.844,126767,THB
+ASML01,ASML Holding NV Units Thailand Depository Receipt Repr Sh,SET,Electronic Technology,Semiconductors,49.25,49.25,49.0,49.25,0.0,22784879772213.844,13130,THB
 ASN,ASN Broker Public Company Limited,SET,Finance,Insurance Brokers/Services,0.95,1.02,0.95,1.0,3.092783505154642,181584002.0,27816,THB
 ASN.R,ASN Broker Public Company Limited NVDR,SET,Finance,Insurance Brokers/Services,0.95,1.02,0.95,1.0,3.092783505154642,181584002.0,27800,THB
 ASP,Asia Plus Group Holdings Public Co. Ltd.,SET,Finance,Investment Banks/Brokers,2.32,2.38,2.32,2.34,0.8620689655172422,4714093165.0,2068536,THB
 ASP.R,Asia Plus Group Holdings Public Co. Ltd. NVDR,SET,Finance,Investment Banks/Brokers,2.32,2.38,2.32,2.34,0.8620689655172422,4714093165.0,2068500,THB
 ASTR,Astra Enterprise Public Company Limited,SET,Consumer Services,Movies/Entertainment,4.94,4.96,4.8,4.8,-1.6393442622950833,7915033740.0,65900,THB
 ASTR.R,Astra Enterprise Public Company Limited NVDR,SET,Consumer Services,Movies/Entertainment,4.94,4.96,4.8,4.8,-1.6393442622950833,7915033740.0,65900,THB
-ASTS01,"AST SpaceMobile, Inc. Thailand Depositary Receipts Repr 1 Sh",SET,Communications,Specialty Telecommunications,3.2,3.3,3.16,3.2,-1.8404907975460003,947944451399.0674,960573,THB
-ASTS03,"AST SpaceMobile, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Communications,Specialty Telecommunications,2.4,2.48,2.38,2.4,-1.6393442622950833,947944451399.0674,1708950,THB
+ASTS01,"AST SpaceMobile, Inc. Thailand Depositary Receipts Repr 1 Sh",SET,Communications,Specialty Telecommunications,3.22,3.22,3.22,3.22,0.6250000000000006,947944451399.0674,3411,THB
+ASTS03,"AST SpaceMobile, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Communications,Specialty Telecommunications,2.42,2.42,2.42,2.42,0.8333333333333341,947944451399.0674,111,THB
 ASW,AssetWise Public Company Limited,SET,Finance,Real Estate Development,7.35,7.65,7.25,7.6,2.7027027027026933,6658109888.0,761304,THB
 ASW.R,AssetWise Public Company Limited NVDR,SET,Finance,Real Estate Development,7.35,7.65,7.25,7.6,2.7027027027026933,6658109888.0,761100,THB
 ATLAS,Atlas Energy Public Company Limited,SET,Energy Minerals,Oil Refining/Marketing,1.83,1.86,1.82,1.84,1.0989010989010999,2581524400.0,4656911,THB
@@ -191,8 +191,8 @@ AUCT,"Union Auction Public Co., Ltd.",SET,Retail Trade,Internet Retail,4.44,4.44
 AUCT.R,"Union Auction Public Co., Ltd. NVDR",SET,Retail Trade,Internet Retail,4.44,4.44,4.4,4.44,0.45248868778281587,2431000042.0,570500,THB
 AURA,Aurora Design Public Company Limited,SET,Consumer Durables,Other Consumer Specialties,14.1,14.4,13.9,14.4,2.1276595744680904,18861530234.0,4106649,THB
 AURA.R,Aurora Design Public Company Limited NVDR,SET,Consumer Durables,Other Consumer Specialties,14.1,14.4,13.9,14.4,2.1276595744680904,18861530234.0,4106000,THB
-AVGO23,Broadcom Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.0,3.04,2.94,2.98,-0.6666666666666672,63387385398234.51,508354,THB
-AVGO80,Broadcom Inc. Units Thailand Depository Receipt Repr 0.01 Sh,SET,Electronic Technology,Semiconductors,2.64,2.68,2.58,2.62,-0.7575757575757582,63387385398234.51,2386248,THB
+AVGO23,Broadcom Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,2.98,2.98,2.98,2.98,0.0,63387385398234.51,550,THB
+AVGO80,Broadcom Inc. Units Thailand Depository Receipt Repr 0.01 Sh,SET,Electronic Technology,Semiconductors,2.62,2.62,2.62,2.62,0.0,63387385398234.51,9765,THB
 AWC,Asset World Corporation Public Company Limited,SET,Finance,Real Estate Development,2.58,2.66,2.56,2.64,2.325581395348839,82628483455.0,44041949,THB
 AWC.R,Asset World Corporation Public Company Limited NVDR,SET,Finance,Real Estate Development,2.58,2.66,2.56,2.64,2.325581395348839,82628483455.0,44041300,THB
 AXP06,American Express Company Shs Thailand Depositary Receipts Repr 1 Sh,SET,Finance,Finance/Rental/Leasing,2.94,2.96,2.92,2.94,0.6849315068493157,7968353956195.869,4763,THB
@@ -240,7 +240,7 @@ BCT,Birla Carbon (Thailand) Public Co. Ltd.,SET,Process Industries,Chemicals: Sp
 BCT.R,Birla Carbon (Thailand) Public Co. Ltd. NVDR,SET,Process Industries,Chemicals: Specialty,49.25,50.0,49.25,50.0,0.0,15000000000.0,500,THB
 BDMS,Bangkok Dusit Medical Services Public Co. Ltd.,SET,Health Services,Hospital/Nursing Management,19.5,19.6,19.3,19.4,-1.0204081632653206,311483244344.0,58243096,THB
 BDMS.R,Bangkok Dusit Medical Services Public Co. Ltd. NVDR,SET,Health Services,Hospital/Nursing Management,19.5,19.6,19.3,19.4,-1.0204081632653206,311483244344.0,58236700,THB
-BDX06,"Becton, Dickinson and Company Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Health Technology,Medical Specialties,1.68,1.7,1.66,1.69,0.5952380952380958,1394590755729.5137,70948,THB
+BDX06,"Becton, Dickinson and Company Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Health Technology,Medical Specialties,1.69,1.69,1.69,1.69,0.0,1394590755729.5137,888,THB
 BE8,Beryl 8 Plus Public Company Limited,SET,Technology Services,Information Technology Services,6.0,6.25,5.95,6.2,2.4793388429752126,1601490329.0,982395,THB
 BE8.R,Beryl 8 Plus Public Company Limited NVDR,SET,Technology Services,Information Technology Services,6.0,6.25,5.95,6.2,2.4793388429752126,1601490329.0,982300,THB
 BEAUTY,Beauty Community PCL,SET,Retail Trade,Specialty Stores,0.35,0.38,0.35,0.37,2.7777777777777803,1073346722.0,18793830,THB
@@ -285,8 +285,8 @@ BKGI,Bangkok Genomics Innovation Public Company Limited,SET,Commercial Services,
 BKGI.R,Bangkok Genomics Innovation Public Company Limited NVDR,SET,Commercial Services,Miscellaneous Commercial Services,2.1,2.12,2.08,2.08,-1.8867924528301903,1271999931.0,517600,THB
 BKIH,BKI Holdings Public Company Limited,SET,Miscellaneous,Miscellaneous,374.0,374.0,371.0,371.0,-0.2688172043010753,38704432800.0,7403,THB
 BKIH.R,BKI Holdings Public Company Limited NVDR,SET,Miscellaneous,Miscellaneous,374.0,374.0,371.0,371.0,-0.2688172043010753,38704432800.0,7400,THB
-BKNG03,Booking Holdings Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Consumer Services,Other Consumer Services,2.48,2.5,2.44,2.48,2.4793388429752086,4604615606528.98,1331,THB
-BKNG80,Booking Holdings Inc.UNITS THAILAND DEPOSITORY RECEIPT REPR 0.00002 SH,SET,Consumer Services,Other Consumer Services,2.98,3.02,2.96,3.0,2.739726027397263,4604615606528.98,142710,THB
+BKNG03,Booking Holdings Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Consumer Services,Other Consumer Services,2.5,2.5,2.5,2.5,0.8064516129032264,4604615606528.98,1,THB
+BKNG80,Booking Holdings Inc.UNITS THAILAND DEPOSITORY RECEIPT REPR 0.00002 SH,SET,Consumer Services,Other Consumer Services,3.02,3.02,3.02,3.02,0.6666666666666672,4604615606528.98,4,THB
 BLA,"Bangkok Life Assurance Public Co., Ltd.",SET,Finance,Life/Health Insurance,27.5,27.5,26.75,27.0,-1.8181818181818181,46958066101.0,2034662,THB
 BLA.R,"Bangkok Life Assurance Public Co., Ltd. NVDR",SET,Finance,Life/Health Insurance,27.5,27.5,26.75,27.0,-1.8181818181818181,46958066101.0,2034500,THB
 BLAND,Bangkok Land Public Co. Ltd.,SET,Finance,Real Estate Development,0.45,0.46,0.45,0.45,0.0,7798882118.0,1298079,THB
@@ -295,7 +295,7 @@ BLC,Bangkok Lab and Cosmetic Public Company Limited,SET,Consumer Non-Durables,Ho
 BLC.R,Bangkok Lab and Cosmetic Public Company Limited NVDR,SET,Consumer Non-Durables,Household/Personal Care,3.96,4.02,3.96,4.02,1.0050251256281304,2388000011.0,479400,THB
 BLESS,Bless Asset Group Public Company Limited,SET,Finance,Real Estate Development,0.25,0.27,0.25,0.26,4.0000000000000036,200000000.0,817050,THB
 BLESS.R,Bless Asset Group Public Company Limited NVDR,SET,Finance,Real Estate Development,0.25,0.27,0.25,0.26,4.0000000000000036,200000000.0,817000,THB
-BLK06,"BlackRock, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Finance,Investment Managers,3.46,3.5,3.4,3.44,1.7751479289940846,5612054836675.551,67168,THB
+BLK06,"BlackRock, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Finance,Investment Managers,3.44,3.44,3.44,3.44,0.0,5612054836675.551,344,THB
 BM,Bangkok Sheet Metal Public Co. Ltd.,SET,Producer Manufacturing,Metal Fabrication,1.19,1.19,1.18,1.18,-0.8403361344537823,835538813.0,1254215,THB
 BM.R,Bangkok Sheet Metal Public Co. Ltd. NVDR,SET,Producer Manufacturing,Metal Fabrication,1.19,1.19,1.18,1.18,-0.8403361344537823,835538813.0,1254100,THB
 BMSCG,BCAP Mid Small CG ETF,SET,Miscellaneous,Investment Trusts/Mutual Funds,9.52,9.57,9.52,9.57,0.5252100840336209,,13320,THB
@@ -315,7 +315,7 @@ BR.R,Bangkok Ranch Public Co Ltd NVDR,SET,Process Industries,Agricultural Commod
 BRI,Britania Public Company Limited,SET,Finance,Real Estate Development,1.3,1.32,1.29,1.31,0.7692307692307698,1889174308.0,339707,THB
 BRI.R,Britania Public Company Limited NVDR,SET,Finance,Real Estate Development,1.3,1.32,1.29,1.31,0.7692307692307698,1889174308.0,339600,THB
 BRKB23,Berkshire Hathaway Inc. Shs Thailand Depositary Receipts Repr 1 Shs,SET,Finance,Property/Casualty Insurance,5.55,5.55,5.5,5.55,0.0,35457970968021.32,642,THB
-BRKB80,Berkshire Hathaway Inc. units Thailand Depository Receipt Repr 0.0001 Sh,SET,Finance,Property/Casualty Insurance,1.66,1.66,1.64,1.66,0.0,35457970968021.32,4710581,THB
+BRKB80,Berkshire Hathaway Inc. units Thailand Depository Receipt Repr 0.0001 Sh,SET,Finance,Property/Casualty Insurance,1.66,1.66,1.66,1.66,0.0,35457970968021.32,250,THB
 BROCK,"Baan Rock Garden Public Co., Ltd.",SET,Finance,Real Estate Development,1.14,1.14,1.0,1.12,-4.273504273504258,1199250242.0,71800,THB
 BROCK.R,"Baan Rock Garden Public Co., Ltd. NVDR",SET,Finance,Real Estate Development,1.14,1.14,1.0,1.12,-4.273504273504258,1199250242.0,71800,THB
 BRR,Buriram Sugar Public Co. Ltd.,SET,Process Industries,Agricultural Commodities/Milling,3.58,3.64,3.58,3.64,0.5524861878453043,2939803365.0,134350,THB
@@ -361,7 +361,7 @@ CCET.R,"Cal-Comp Electronics (Thailand) Public Co., Ltd. NVDR",SET,Electronic Te
 CCJ23,Cameco Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Non-Energy Minerals,Other Metals/Minerals,1.99,2.04,1.97,2.0,0.0,1392899077914.274,258504,THB
 CCP,"Chonburi Concrete Product Public Co., Ltd.",SET,Non-Energy Minerals,Construction Materials,0.26,0.29,0.26,0.29,11.538461538461526,719687845.0,6870211,THB
 CCP.R,"Chonburi Concrete Product Public Co., Ltd. NVDR",SET,Non-Energy Minerals,Construction Materials,0.26,0.29,0.26,0.29,11.538461538461526,719687845.0,6870200,THB
-CDNS23,"Cadence Design Systems, Inc. shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,6.45,6.55,6.4,6.45,-1.526717557251903,3529654899433.711,11206,THB
+CDNS23,"Cadence Design Systems, Inc. shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,6.5,6.55,6.5,6.55,1.5503875968992191,3529654899433.711,10001,THB
 CEG23,Constellation Energy Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Utilities,Electric Utilities,2.1,2.12,2.06,2.08,0.0,3007030899633.578,319427,THB
 CEN,Capital Engineering Network Public Co. Ltd.,SET,Non-Energy Minerals,Steel,0.61,0.61,0.59,0.6,-1.6393442622950833,454549195.0,150150,THB
 CEN.R,Capital Engineering Network Public Co. Ltd. NVDR,SET,Non-Energy Minerals,Steel,0.61,0.61,0.59,0.6,-1.6393442622950833,454549195.0,150100,THB
@@ -441,18 +441,18 @@ CNT.R,Christiani & Nielsen Thailand Public Co. Ltd. NVDR,SET,Industrial Services
 CNTECH01,ChinaAMC Global ETF Series Units Thailand Depository Receipt Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,25.75,25.75,25.25,25.75,0.0,,64101,THB
 COCOCO,Thai Coconut Public Company Limited,SET,Consumer Non-Durables,Food: Major Diversified,5.8,6.15,5.75,6.1,5.172413793103446,8526000280.0,8091483,THB
 COCOCO.R,Thai Coconut Public Company Limited NVDR,SET,Consumer Non-Durables,Food: Major Diversified,5.8,6.15,5.75,6.1,5.172413793103446,8526000280.0,8091200,THB
-COHR23,Coherent Corp. Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,5.3,5.5,5.15,5.2,-3.703703703703707,2114755560859.4272,125877,THB
-COHR80,Depositary Receipt on COHR Issued by KTB,SET,,,11.0,11.0,10.3,10.5,,,2846,THB
+COHR23,Coherent Corp. Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,5.25,5.25,5.25,5.25,0.9615384615384581,2114755560859.4272,1196,THB
+COHR80,Depositary Receipt on COHR Issued by KTB,SET,,,10.6,10.6,10.3,10.5,0.0,,1440,THB
 COIN01,"Coinbase Global, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Finance,Investment Banks/Brokers,3.3,3.48,3.24,3.26,-4.117647058823533,,992572,THB
 COIN23,"Coinbase Global, Inc. Thailand Depositary Receipts Repr 1 Sh",SET,Finance,Investment Banks/Brokers,2.64,2.8,2.62,2.64,-2.9411764705882377,,177388,THB
-COIN80,"Coinbase Global, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Finance,Investment Banks/Brokers,5.25,5.6,5.2,5.3,-1.8518518518518614,,192866,THB
+COIN80,"Coinbase Global, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Finance,Investment Banks/Brokers,5.3,5.3,5.3,5.3,0.0,,2,THB
 COLOR,Salee Colour PCL,SET,Producer Manufacturing,Miscellaneous Manufacturing,1.0,1.0,0.97,0.99,-1.0000000000000009,588965088.0,56300,THB
 COLOR.R,Salee Colour PCL NVDR,SET,Producer Manufacturing,Miscellaneous Manufacturing,1.0,1.0,0.97,0.99,-1.0000000000000009,588965088.0,56300,THB
 COM7,Com7 Public Co. Ltd.,SET,Retail Trade,Electronics/Appliance Stores,30.0,30.0,29.0,29.0,-1.694915254237288,70437112549.0,12139257,THB
 COM7.R,Com7 Public Company Limited NVDR,SET,Retail Trade,Electronics/Appliance Stores,30.0,30.0,29.0,29.0,-1.694915254237288,70437112549.0,12138800,THB
 COMAN,Comanche International Public Co. Ltd.,SET,Technology Services,Information Technology Services,0.5,0.51,0.5,0.5,0.0,83703827.0,1300,THB
 COMAN.R,Comanche International Public Company Ltd NVDR,SET,Technology Services,Information Technology Services,0.5,0.51,0.5,0.5,0.0,83703827.0,1300,THB
-COSTCO19,Costco Wholesale Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Retail Trade,Specialty Stores,30.75,30.75,30.25,30.75,0.0,13535558612891.406,18907,THB
+COSTCO19,Costco Wholesale Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Retail Trade,Specialty Stores,30.75,30.75,30.75,30.75,0.0,13535558612891.406,1,THB
 COSTCO80,Depositary Receipt on COSTCO Issued by KTB,SET,,,3.06,3.08,3.06,3.08,,,7202,THB
 CPALL,CP ALL Public Company Limited,SET,Retail Trade,Food Retail,46.5,47.0,46.25,46.5,-0.53475935828877,419959952393.0,32325652,THB
 CPALL.R,CP ALL Public Company Limited NVDR,SET,Retail Trade,Food Retail,46.5,47.0,46.25,46.5,-0.53475935828877,419959952393.0,32318000,THB
@@ -488,16 +488,16 @@ CRD.R,Chiangmai Rimdoi Public Co. Ltd. NVDR,SET,Consumer Durables,Homebuilding,0
 CRDO23,Credo Technology Group Holding Ltd. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Information Technology Services,8.45,8.95,8.25,8.4,-5.617977528089887,1601337003997.3352,124161,THB
 CREDIT,Thai Credit Bank Public Company Limited,SET,Finance,Regional Banks,23.7,24.2,23.3,23.5,-0.8438818565400814,29265690774.0,1913464,THB
 CREDIT.R,Thai Credit Bank Public Company Limited NVDR,SET,Finance,Regional Banks,23.7,24.2,23.3,23.5,-0.8438818565400814,29265690774.0,1912900,THB
-CRM01,"Salesforce, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Technology Services,Packaged Software,3.04,3.08,3.02,3.06,0.6578947368421059,4455665756129.247,107894,THB
+CRM01,"Salesforce, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Technology Services,Packaged Software,3.08,3.08,3.08,3.08,0.6535947712418306,4455665756129.247,1000,THB
 CRM06,"Salesforce, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,2.16,2.2,2.16,2.2,0.9174311926605512,4455665756129.247,12657,THB
 CRM80,"Salesforce, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,5.45,5.55,5.45,5.5,0.9174311926605472,4455665756129.247,85473,THB
 CRSP03,CRISPR Therapeutics AG Shs Thailand Depositary Receipts Repr 1 Sh,SET,Health Technology,Biotechnology,3.54,3.76,3.48,3.54,-6.842105263157889,171403826782.14523,226340,THB
 CRWD06,"CrowdStrike Holdings, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Technology Services,Packaged Software,4.96,5.3,4.94,5.0,-5.660377358490563,6349026118421.054,93221,THB
-CRWD80,"CrowdStrike Holdings, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Technology Services,Packaged Software,25.25,26.75,24.5,25.25,-4.716981132075472,6349026118421.054,173387,THB
-CRWV03,"CoreWeave, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,2.92,3.02,2.86,2.9,-2.684563758389264,1615266199433.711,718439,THB
+CRWD80,"CrowdStrike Holdings, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Technology Services,Packaged Software,25.0,25.0,25.0,25.0,-0.9900990099009901,6349026118421.054,2261,THB
+CRWV03,"CoreWeave, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,2.9,2.9,2.9,2.9,0.0,1615266199433.711,300,THB
 CSC,"Crown Seal Public Co., Ltd.",SET,Process Industries,Containers/Packaging,44.25,44.25,44.25,44.25,0.0,2421317625.0,2118,THB
 CSC.R,"Crown Seal Public Co., Ltd. NVDR",SET,Process Industries,Containers/Packaging,44.25,44.25,44.25,44.25,0.0,2421317625.0,2100,THB
-CSCO06,"Cisco Systems, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Electronic Technology,Telecommunications Equipment,5.05,5.05,4.92,5.0,1.6260162601626031,15927230103897.402,97028,THB
+CSCO06,"Cisco Systems, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Electronic Technology,Telecommunications Equipment,5.05,5.05,5.05,5.05,0.9999999999999963,15927230103897.402,1,THB
 CSP,CSP Steel Center Public Co. Ltd.,SET,Non-Energy Minerals,Steel,0.39,0.41,0.39,0.4,0.0,198467544.0,92100,THB
 CSP.R,CSP Steel Center Public Co. Ltd. NVDR,SET,Non-Energy Minerals,Steel,0.39,0.41,0.39,0.4,0.0,198467544.0,92100,THB
 CSR,"City Sports & Recreation Public Co., Ltd.",SET,Consumer Services,Movies/Entertainment,71.5,71.5,71.5,71.5,-0.34843205574912894,1470875000.0,100,THB
@@ -524,7 +524,7 @@ DDD,Do Day Dream Public Co. Ltd.,SET,Consumer Non-Durables,Household/Personal Ca
 DDD.R,Do Day Dream Public Co. Ltd. NVDR,SET,Consumer Non-Durables,Household/Personal Care,5.15,5.15,4.96,5.1,0.0,1621227371.0,30600,THB
 DDOG19,"Datadog, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Technology Services,Packaged Software,8.55,9.05,8.5,8.6,-5.4945054945054945,3053763893770.8193,2154093,THB
 DEAM19,Invesco MDAX UCITS ETF shs Thailand Depositary Repr 1 Sh,SET,,,4.02,4.04,4.0,4.0,-0.990099009900991,,1229,THB
-DELL19,"Dell Technologies, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Electronic Technology,Computer Processing Hardware,14.2,15.1,14.0,14.2,-3.4013605442176873,9393164757461.693,1498186,THB
+DELL19,"Dell Technologies, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Electronic Technology,Computer Processing Hardware,14.2,14.3,14.2,14.2,0.0,9393164757461.693,168911,THB
 DELTA,Delta Electronics (Thailand) Public Co. Ltd.,SET,Electronic Technology,Electronic Production Equipment,310.0,315.0,306.0,313.0,0.0,3904304535156.0,8004299,THB
 DELTA.R,Delta Electronics (Thailand) Public Co. Ltd. NVDR,SET,Electronic Technology,Electronic Production Equipment,310.0,315.0,306.0,313.0,0.0,3904304535156.0,7991100,THB
 DEMCO,Demco Public Co. Ltd.,SET,Industrial Services,Engineering & Construction,3.76,3.92,3.76,3.86,2.1164021164021185,2849212123.0,1266510,THB
@@ -555,7 +555,7 @@ DRT,Diamond Building Products Public Co. Ltd.,SET,Non-Energy Minerals,Constructi
 DRT.R,Diamond Building Products Public Co. Ltd. NVDR,SET,Non-Energy Minerals,Construction Materials,5.15,5.15,5.1,5.15,0.0,4403420763.0,193000,THB
 DTCENT,D.T.C. Enterprise Public Company Limited,SET,Technology Services,Packaged Software,0.94,0.95,0.93,0.95,0.0,1249985678.0,331495,THB
 DTCENT.R,D.T.C. Enterprise Public Company Limited NVDR,SET,Technology Services,Packaged Software,0.94,0.95,0.93,0.95,0.0,1249985678.0,331300,THB
-DUOL06,"Duolingo, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,2.62,2.72,2.62,2.64,-3.6496350364963535,193636168321.11926,91282,THB
+DUOL06,"Duolingo, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,2.64,2.64,2.64,2.64,0.0,193636168321.11926,5,THB
 DUSIT,Dusit Thani Public Co. Ltd.,SET,Consumer Services,Hotels/Resorts/Cruise lines,11.5,11.5,11.2,11.5,0.0,9720777191.0,201401,THB
 DUSIT.R,Dusit Thani Public Co. Ltd. NVDR,SET,Consumer Services,Hotels/Resorts/Cruise lines,11.5,11.5,11.2,11.5,0.0,9720777191.0,201400,THB
 E1VFVN3001,VFMVN30 ETF Fund Units Depository Receipt Repr 1 Unit,SET,Miscellaneous,Investment Trusts/Mutual Funds,44.25,44.5,43.5,43.5,-2.247191011235955,,142353,THB
@@ -580,7 +580,7 @@ EMC,Emc Public Company Limited,SET,Industrial Services,Engineering & Constructio
 EMC.R,Emc Public Company Limited NVDR,SET,Industrial Services,Engineering & Construction,0.02,0.02,0.01,0.02,0.0,251412651.0,291000,THB
 EMPIRE,Origin Global Empire Public Company Limited,SET,Distribution Services,Wholesale Distributors,0.2,0.22,0.19,0.2,0.0,126100002.0,19169413,THB
 EMPIRE.R,Origin Global Empire Public Company Limited NVDR,SET,Distribution Services,Wholesale Distributors,0.2,0.22,0.19,0.2,0.0,126100002.0,19169400,THB
-EOSE03,"Eos Energy Enterprises, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Producer Manufacturing,Electrical Products,0.73,0.78,0.7,0.73,-6.410256410256415,51767813057.96136,25000297,THB
+EOSE03,"Eos Energy Enterprises, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Producer Manufacturing,Electrical Products,0.73,0.73,0.72,0.73,0.0,51767813057.96136,608206,THB
 EP,Eastern Power Group Public Co. Ltd.,SET,Utilities,Alternative Power Generation,1.18,1.19,1.17,1.18,0.0,1100358489.0,41307,THB
 EP.R,Eastern Power Group Public Co. Ltd. NVDR,SET,Utilities,Alternative Power Generation,1.18,1.19,1.17,1.18,0.0,1100358489.0,41300,THB
 EPG,Eastern Polymer Group Public Company Ltd,SET,Process Industries,Industrial Specialties,6.05,6.25,6.0,6.25,2.459016393442629,17079999733.0,27045495,THB
@@ -601,10 +601,10 @@ EURO,Euro Creations Public Company Limited,SET,Distribution Services,Wholesale D
 EURO.R,Euro Creations Public Company Limited NVDR,SET,Distribution Services,Wholesale Distributors,5.9,5.9,5.75,5.75,-2.542372881355938,1799500029.0,6100,THB
 EVER,Everland Public Co. Ltd.,SET,Finance,Real Estate Development,0.06,0.09,0.06,0.09,28.57142857142855,339834928.0,5676078,THB
 EVER.R,Everland Public Co. Ltd. NVDR,SET,Finance,Real Estate Development,0.06,0.09,0.06,0.09,28.57142857142855,339834928.0,5676000,THB
-EXPE06,"Expedia Group, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Consumer Services,Other Consumer Services,3.64,3.64,3.54,3.54,0.0,1082793322784.81,30934,THB
+EXPE06,"Expedia Group, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Consumer Services,Other Consumer Services,3.64,3.64,3.64,3.64,2.8248587570621493,1082793322784.81,8,THB
 F&D,Food and Drinks Public Company Limited,SET,Consumer Non-Durables,Food: Major Diversified,52.25,52.25,52.25,52.25,0.0,920870173.0,1000,THB
 F&D.R,Food and Drinks Public Company Limited NVDR,SET,Consumer Non-Durables,Food: Major Diversified,52.25,52.25,52.25,52.25,0.0,920870173.0,1000,THB
-FABRINET23,Fabrinet shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.96,4.08,3.88,3.92,-2.4875621890547177,562307292804.7968,216998,THB
+FABRINET23,Fabrinet shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.92,3.92,3.9,3.92,0.0,562307292804.7968,3178,THB
 FANCY,"Fancy Wood Industries Public Co., Ltd.",SET,Consumer Durables,Home Furnishings,0.25,0.26,0.24,0.25,0.0,153750000.0,91000,THB
 FANCY.R,"Fancy Wood Industries Public Co., Ltd. NVDR",SET,Consumer Durables,Home Furnishings,0.25,0.26,0.24,0.25,0.0,153750000.0,91000,THB
 FANUC23,Fanuc Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Industrial Machinery,2.64,2.66,2.56,2.66,-2.9197080291970825,1362441041109.8293,30653,THB
@@ -664,8 +664,8 @@ GEL,"General Engineering Public Co., Ltd.",SET,Non-Energy Minerals,Construction 
 GEL.R,"General Engineering Public Co., Ltd. NVDR",SET,Non-Energy Minerals,Construction Materials,0.04,0.04,0.03,0.04,0.0,344481945.0,784300,THB
 GENCO,General Environmental Conservation Public Co. Ltd.,SET,Industrial Services,Environmental Services,0.33,0.34,0.33,0.34,3.030303030303033,370358225.0,297000,THB
 GENCO.R,General Environmental Conservation Public Co. Ltd. NVDR,SET,Industrial Services,Environmental Services,0.33,0.34,0.33,0.34,3.030303030303033,370358225.0,297000,THB
-GEV23,GE Vernova Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Electrical Products,3.3,3.34,3.2,3.26,1.2422360248447077,9771041882045.303,433590,THB
-GEV80,GE Vernova Inc Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Electrical Products,36.25,36.5,35.5,35.75,0.0,9771041882045.303,11858,THB
+GEV23,GE Vernova Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Electrical Products,3.26,3.26,3.26,3.26,0.0,9771041882045.303,3790,THB
+GEV80,GE Vernova Inc Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Electrical Products,36.0,36.0,36.0,36.0,0.6993006993006993,9771041882045.303,1,THB
 GFC,Genesis Fertility Center Public Company Limited,SET,Health Services,Medical/Nursing Services,2.3,2.3,2.28,2.28,0.0,501599994.0,19100,THB
 GFC.R,Genesis Fertility Center Public Company Limited NVDR,SET,Health Services,Medical/Nursing Services,2.3,2.3,2.28,2.28,0.0,501599994.0,19100,THB
 GFPT,GFPT Public Co. Ltd.,SET,Consumer Non-Durables,Food: Meat/Fish/Dairy,9.2,9.25,9.2,9.25,0.543478260869573,11535153374.0,1275724,THB
@@ -685,16 +685,16 @@ GLORY.W1.R,Glory Forever Public Company Limited NVDR,SET,Technology Services,Int
 GLW80,Depositary Receipt on GLW Issued by KTB,SET,,,6.15,6.2,6.1,6.2,,,21655,THB
 GOLD03,SPDR Gold Trust Units Thailand Depositary Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,3.14,3.14,3.1,3.12,-0.6369426751592362,,345202,THB
 GOLD19,SPDR Gold Trust Units Thailand Depository Receipt Repr 0.001 Sh,SET,Finance,Investment Banks/Brokers,12.6,12.6,12.4,12.6,0.0,,169790,THB
-GOLDM01,SPDR Gold Minishares Trust Shs Thailand Depositary Receipts Repr 1 Sh,SET,,,3.86,3.88,3.82,3.86,-0.5154639175257737,,715539,THB
-GOLDUS03,SPDR Gold Trust Thailand Depositary Receipts Repr 1,SET,Miscellaneous,Investment Trusts/Mutual Funds,3.14,3.16,3.1,3.14,-0.6329113924050638,,137072,THB
-GOLDUS19,SPDR Gold Trust Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Finance,Investment Banks/Brokers,41.5,42.0,41.25,41.5,-0.5988023952095809,,122851,THB
-GOLDUS80,SPDR Gold Trust Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,12.5,12.6,12.4,12.5,-0.7936507936507908,,80319,THB
-GOOG06,Depositary Receipt on GOOG Issued by KKPS,SET,,,3.96,3.96,3.94,3.94,,,3262,THB
-GOOG23,Alphabet Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Internet Software/Services,2.96,2.98,2.92,2.98,0.0,144115941835642.9,339914,THB
-GOOG80,Alphabet Inc. Units Thailand Depository Receipt Repr 0.0005 Sh,SET,Technology Services,Internet Software/Services,5.9,5.95,5.85,5.95,0.8474576271186409,144115941835642.9,2711804,THB
-GOOGL01,Alphabet Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Internet Software/Services,35.0,35.25,34.5,35.25,0.0,144115941835642.9,50876,THB
-GOOGL03,Alphabet Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Internet Software/Services,6.0,6.0,5.9,5.95,-0.8333333333333304,144115941835642.9,111465,THB
-GOOGL19,Alphabet Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Internet Software/Services,5.9,5.95,5.9,5.95,-0.8333333333333304,144115941835642.9,12950,THB
+GOLDM01,SPDR Gold Minishares Trust Shs Thailand Depositary Receipts Repr 1 Sh,SET,,,3.84,3.84,3.84,3.84,-0.5181347150259072,,90020,THB
+GOLDUS03,SPDR Gold Trust Thailand Depositary Receipts Repr 1,SET,Miscellaneous,Investment Trusts/Mutual Funds,3.12,3.12,3.12,3.12,-0.6369426751592362,,14420,THB
+GOLDUS19,SPDR Gold Trust Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Finance,Investment Banks/Brokers,41.5,41.5,41.5,41.5,0.0,,2826,THB
+GOLDUS80,SPDR Gold Trust Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,12.5,12.5,12.5,12.5,0.0,,32,THB
+GOOG06,Depositary Receipt on GOOG Issued by KKPS,SET,,,3.96,3.96,3.94,3.94,0.0,,14,THB
+GOOG23,Alphabet Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Internet Software/Services,2.98,2.98,2.96,2.96,-0.671140939597316,144115941835642.9,2101,THB
+GOOG80,Alphabet Inc. Units Thailand Depository Receipt Repr 0.0005 Sh,SET,Technology Services,Internet Software/Services,5.95,5.95,5.9,5.9,-0.8403361344537785,144115941835642.9,3501,THB
+GOOGL01,Alphabet Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Internet Software/Services,35.25,35.25,35.0,35.0,-0.7092198581560284,144115941835642.9,5836,THB
+GOOGL03,Alphabet Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Internet Software/Services,6.0,6.0,6.0,6.0,0.8403361344537785,144115941835642.9,167,THB
+GOOGL19,Alphabet Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Internet Software/Services,5.95,5.95,5.95,5.95,0.0,144115941835642.9,1,THB
 GPI,Grand Prix International Co. Ltd.,SET,Commercial Services,Miscellaneous Commercial Services,1.78,1.79,1.74,1.78,0.56497175141243,1061999988.9999999,382723,THB
 GPI.R,Grand Prix International Public Company Ltd NVDR,SET,Commercial Services,Miscellaneous Commercial Services,1.78,1.79,1.74,1.78,0.56497175141243,1061999988.9999999,382700,THB
 GPSC,Global Power Synergy Public Company Ltd,SET,Utilities,Electric Utilities,49.0,49.75,48.5,49.25,0.0,138871677490.0,9338648,THB
@@ -708,7 +708,7 @@ GREEN,Green Resources Public Company Limited,SET,Utilities,Electric Utilities,0.
 GREEN.R,Green Resources Public Company Limited NVDR,SET,Utilities,Electric Utilities,0.69,0.7,0.69,0.7,-1.4084507042253533,580797490.0,219900,THB
 GROREIT,Grande Royal Orchid Hospitality Real Estate Investment Trust with Buy-Back Condition,SET,Finance,Real Estate Investment Trusts,9.15,9.15,8.95,9.0,-1.098901098901095,2866500120.0,249114,THB
 GSEMI24,Global X Semiconductor ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,2.5,2.52,2.5,2.5,-1.5748031496063006,,102985,THB
-GSUS06,"Goldman Sachs Group, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Finance,Investment Banks/Brokers,5.05,5.05,5.0,5.05,0.0,10369285170519.654,23536,THB
+GSUS06,"Goldman Sachs Group, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Finance,Investment Banks/Brokers,5.05,5.05,5.05,5.05,0.0,10369285170519.654,2,THB
 GTB,Getabec Public Company Ltd,SET,Producer Manufacturing,Industrial Machinery,0.69,0.72,0.69,0.71,2.898550724637684,662399998.0,944800,THB
 GTB.R,Getabec Public Company Ltd NVDR,SET,Producer Manufacturing,Industrial Machinery,0.69,0.72,0.69,0.71,2.898550724637684,662399998.0,944800,THB
 GTV,Green Tech Ventures Public Company Limited,SET,Utilities,Alternative Power Generation,0.03,0.03,0.02,0.03,49.999999999999986,262619115.00000003,2977615,THB
@@ -730,7 +730,7 @@ HARN,Harn Engineering Solutions Public Co. Ltd.,SET,Distribution Services,Wholes
 HARN.R,Harn Engineering Solutions Public Co. Ltd. NVDR,SET,Distribution Services,Wholesale Distributors,2.06,2.08,2.06,2.08,0.0,1215759828.0,226500,THB
 HENG,Heng Leasing and Capital Public Company Limited,SET,Finance,Finance/Rental/Leasing,0.94,0.96,0.93,0.95,2.150537634408592,3543300027.0,5920120,THB
 HENG.R,Heng Leasing and Capital Public Company Limited NVDR,SET,Finance,Finance/Rental/Leasing,0.94,0.96,0.93,0.95,2.150537634408592,3543300027.0,5920100,THB
-HERMES80,Hermes International S.A. Units Thailand Depository Receipt Repr 0.0001 Sh,SET,Consumer Non-Durables,Apparel/Footwear,6.25,6.3,6.15,6.25,0.0,6530274433238.861,18161,THB
+HERMES80,Hermes International S.A. Units Thailand Depository Receipt Repr 0.0001 Sh,SET,Consumer Non-Durables,Apparel/Footwear,6.3,6.3,6.3,6.3,0.7999999999999973,6530274433238.861,100,THB
 HFT,Hwa Fong Rubber (Thailand) Public Co. Ltd.,SET,Consumer Durables,Automotive Aftermarket,4.02,4.02,3.98,3.98,-0.5000000000000004,2633737305.0,30800,THB
 HFT.R,Hwa Fong Rubber (Thailand) Public Co. Ltd. NVDR,SET,Consumer Durables,Automotive Aftermarket,4.02,4.02,3.98,3.98,-0.5000000000000004,2633737305.0,30800,THB
 HIMS03,"HIMS & HERS HEALTH, INC. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Health Services,Medical/Nursing Services,5.7,6.0,5.55,5.65,-5.042016806722685,265073817854.76352,1310195,THB
@@ -746,8 +746,8 @@ HMPRO,"Home Product Center Public Co., Ltd.",SET,Retail Trade,Home Improvement C
 HMPRO.R,"Home Product Center Public Co., Ltd. NVDR",SET,Retail Trade,Home Improvement Chains,6.5,6.65,6.5,6.55,0.0,86140350995.0,20323300,THB
 HONDA19,"Honda Motor Co., Ltd. Units Thailand Depository Receipt Repr 0.01 Sh",SET,Consumer Durables,Motor Vehicles,3.1,3.1,3.06,3.08,-0.6451612903225812,1198391095074.6594,25782,THB
 HOOD03,"ROBINHOOD MARKETS, INC. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Finance,Investment Banks/Brokers,3.7,4.0,3.66,3.66,-6.153846153846148,3361730743770.82,117346,THB
-HOOD06,"Robinhood Markets, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Finance,Investment Banks/Brokers,3.7,3.96,3.64,3.68,-5.641025641025635,3361730743770.82,174687,THB
-HOOD80,"Robinhood Markets, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Finance,Investment Banks/Brokers,3.7,3.98,3.64,3.7,-5.612244897959178,3361730743770.82,1129691,THB
+HOOD06,"Robinhood Markets, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Finance,Investment Banks/Brokers,3.7,3.72,3.7,3.72,1.0869565217391313,3361730743770.82,15,THB
+HOOD80,"Robinhood Markets, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Finance,Investment Banks/Brokers,3.74,3.74,3.74,3.74,1.081081081081082,3361730743770.82,1,THB
 HORIZON23,Horizon Robotics Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,1.19,1.2,1.16,1.18,0.0,275292068091.5147,133462,THB
 HPF,Hemaraj Industrial Property & Leasehold Fund,SET,Miscellaneous,Investment Trusts/Mutual Funds,6.25,6.25,6.2,6.2,0.8130081300812979,2890500000.0,31400,THB
 HPG19,Hoa Phat Group JSC Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Non-Energy Minerals,Steel,2.92,2.92,2.86,2.9,-1.360544217687076,245273472359.57217,688888,THB
@@ -767,7 +767,7 @@ HYDROGEN,Hydrogen Freehold & Leasehold Real Estate Investment Trust,SET,Finance,
 HYGON80,Depositary Receipt on HYGON Issued by KTB,SET,,,17.9,54.0,17.0,17.1,,,55370,THB
 I2,I2 Enterprise Public Company Limited,SET,Technology Services,Information Technology Services,0.84,0.84,0.82,0.82,-1.204819277108435,348599993.0,369800,THB
 I2.R,I2 Enterprise Public Company Limited NVDR,SET,Technology Services,Information Technology Services,0.84,0.84,0.82,0.82,-1.204819277108435,348599993.0,369800,THB
-IBM06,International Business Machines Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Information Technology Services,3.82,3.98,3.8,3.88,-2.020202020202022,9003111303097.936,285485,THB
+IBM06,International Business Machines Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Information Technology Services,3.88,3.88,3.88,3.88,0.0,9003111303097.936,100,THB
 ICBC06,Industrial and Commercial Bank of China Limited Units Thailand Depository Receipts Repr 0.01 Sh,SET,Finance,Major Banks,2.92,2.92,2.88,2.92,2.8169014084507067,12163979058847.74,8263,THB
 ICBC19,Industrial and Commercial Bank of China Limited Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Finance,Major Banks,2.9,2.92,2.88,2.92,2.8169014084507067,12163979058847.74,122352,THB
 ICC,"I.C.C. International Public Co., Ltd.",SET,Distribution Services,Wholesale Distributors,24.0,24.5,24.0,24.5,2.083333333333333,12000000000.0,2100,THB
@@ -809,12 +809,12 @@ INSET,"Infraset Public Co., Ltd.",SET,Technology Services,Data Processing Servic
 INSET.R,"Infraset Public Co., Ltd. NVDR",SET,Technology Services,Data Processing Services,4.54,4.62,4.38,4.58,0.0,3722500325.0,22779400,THB
 INSURE,Indara Insurance Public Co. Ltd.,SET,Finance,Property/Casualty Insurance,51.25,51.25,51.25,51.25,-0.48543689320388345,618000000.0,100,THB
 INSURE.R,Indara Insurance Public Co. Ltd. NVDR,SET,Finance,Property/Casualty Insurance,51.25,51.25,51.25,51.25,-0.48543689320388345,618000000.0,100,THB
-INTEL01,Intel Corporation Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.58,3.68,3.5,3.58,-1.6483516483516498,18389600985809.46,5176737,THB
-INTEL03,INTEL CORPORATION Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,7.2,7.45,7.0,7.15,-2.054794520547938,18389600985809.46,1436751,THB
-INTEL19,Intel Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.58,3.66,3.52,3.54,-2.2099447513812174,18389600985809.46,4704,THB
-INTEL23,Intel Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,5.15,5.3,5.0,5.1,-2.857142857142864,18389600985809.46,308068,THB
-IONQ03,"IonQ, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Computer Processing Hardware,2.84,3.04,2.78,2.8,-6.666666666666672,532923029347.1019,3025983,THB
-IONQ23,"IonQ, Inc.Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Computer Processing Hardware,2.84,3.02,2.78,2.82,-6.622516556291397,532923029347.1019,3018068,THB
+INTEL01,Intel Corporation Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.56,3.58,3.56,3.56,-0.5586592178770954,18389600985809.46,1312700,THB
+INTEL03,INTEL CORPORATION Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,7.1,7.2,7.1,7.15,0.0,18389600985809.46,81895,THB
+INTEL19,Intel Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.58,3.58,3.56,3.56,0.56497175141243,18389600985809.46,285,THB
+INTEL23,Intel Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,5.05,5.05,5.05,5.05,-0.9803921568627416,18389600985809.46,100,THB
+IONQ03,"IonQ, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Computer Processing Hardware,2.82,2.82,2.82,2.82,0.714285714285715,532923029347.1019,2369,THB
+IONQ23,"IonQ, Inc.Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Computer Processing Hardware,2.82,2.82,2.82,2.82,0.0,532923029347.1019,1200,THB
 IP,Inter Pharma Public Company Limited,SET,Health Technology,Pharmaceuticals: Major,4.88,4.88,4.82,4.84,0.41493775933609073,2917760509.0,104391,THB
 IP.R,Inter Pharma Public Company Limited NVDR,SET,Health Technology,Pharmaceuticals: Major,4.88,4.88,4.82,4.84,0.41493775933609073,2917760509.0,104300,THB
 IRC,Inoue Rubber (Thailand) Public Co. Ltd.,SET,Consumer Durables,Automotive Aftermarket,12.0,12.0,12.0,12.0,0.8403361344537785,2194543252.0,4104,THB
@@ -825,7 +825,7 @@ IROYAL,Interroyal Engineering Public Company Limited,SET,Distribution Services,W
 IROYAL.R,Interroyal Engineering Public Company Limited NVDR,SET,Distribution Services,Wholesale Distributors,4.6,4.68,4.6,4.66,1.3043478260869674,1057999978.0,971000,THB
 IRPC,"IRPC Public Co., Ltd.",SET,Energy Minerals,Oil Refining/Marketing,1.89,1.93,1.88,1.92,3.225806451612894,37963701034.0,182173124,THB
 IRPC.R,"IRPC Public Co., Ltd. NVDR",SET,Energy Minerals,Oil Refining/Marketing,1.89,1.93,1.88,1.92,3.225806451612894,37963701034.0,182171700,THB
-ISRG01,"Intuitive Surgical, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Health Technology,Medical Specialties,3.0,3.08,2.98,3.04,-0.6535947712418306,4799012670019.987,352377,THB
+ISRG01,"Intuitive Surgical, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Health Technology,Medical Specialties,3.06,3.06,3.06,3.06,0.6578947368421059,4799012670019.987,3100,THB
 ISRG06,"Intuitive Surgical, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Health Technology,Medical Specialties,2.74,2.74,2.7,2.74,-0.7246376811594049,4799012670019.987,136578,THB
 ISRG19,"Intuitive Surgical, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Health Technology,Medical Specialties,3.44,3.44,3.38,3.4,-1.7341040462427761,4799012670019.987,9530,THB
 ISRG80,Depositary Receipt on ISRG Issued by KTB,SET,,,13.8,13.8,13.7,13.7,,,115,THB
@@ -864,26 +864,26 @@ JD80,"JD.com, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Retail T
 JDF,"JD Food Public Co., Ltd.",SET,Process Industries,Agricultural Commodities/Milling,2.02,2.06,1.99,2.06,4.040404040404044,1188000011.0,817118,THB
 JDF.R,"JD Food Public Co., Ltd. NVDR",SET,Process Industries,Agricultural Commodities/Milling,2.02,2.06,1.99,2.06,4.040404040404044,1188000011.0,817100,THB
 JDHEAL19,"JD Health International, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Retail Trade,Drugstore Chains,3.14,3.14,3.12,3.14,-2.484472049689443,508736412979.0071,49423,THB
-JEPI19,JPMorgan Equity Premium Income ETF Thailand Depositary Receipts Repr 1,SET,Miscellaneous,Investment Trusts/Mutual Funds,6.35,6.35,6.3,6.35,0.0,,2288591,THB
+JEPI19,JPMorgan Equity Premium Income ETF Thailand Depositary Receipts Repr 1,SET,Miscellaneous,Investment Trusts/Mutual Funds,6.35,6.35,6.35,6.35,0.0,,22748,THB
 JGRO19,JPMorgan Active Growth ETF Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,10.8,10.8,10.7,10.7,-0.925925925925939,,3864,THB
 JLMAG80,"Jl Mag Rare-Earth Co., Ltd. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Producer Manufacturing,Metal Fabrication,7.2,7.2,7.05,7.15,-3.378378378378378,176804743392.7109,6764,THB
 JMART,Jaymart Group Holdings Public Company Limited,SET,Distribution Services,Electronics Distributors,12.2,12.5,12.1,12.1,-1.62601626016261,18102053821.0,25350752,THB
 JMART.R,Jaymart Group Holdings Public Company Limited NVDR,SET,Distribution Services,Electronics Distributors,12.2,12.5,12.1,12.1,-1.62601626016261,18102053821.0,25349400,THB
 JMT,JMT Network Services Public Co. Ltd.,SET,Commercial Services,Miscellaneous Commercial Services,12.5,13.0,12.5,12.6,0.0,18392719820.0,20941121,THB
 JMT.R,JMT Network Services Public Co. Ltd. NVDR,SET,Commercial Services,Miscellaneous Commercial Services,12.5,13.0,12.5,12.6,0.0,18392719820.0,20939800,THB
-JNJ03,Johnson & Johnson Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Health Technology,Pharmaceuticals: Major,4.3,4.34,4.26,4.3,-0.9216589861751161,20606484398634.242,100430,THB
+JNJ03,Johnson & Johnson Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Health Technology,Pharmaceuticals: Major,4.32,4.32,4.32,4.32,0.4651162790697782,20606484398634.242,100,THB
 JPANIME24,Global X Japan Games & Animation ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,1.25,1.25,1.24,1.24,-0.8000000000000007,,1601,THB
 JPARK,Jenkongklai Public Company Limited,SET,Consumer Services,Other Consumer Services,3.38,3.8,3.38,3.74,10.000000000000009,1360000038.0,9979218,THB
 JPARK.R,Jenkongklai Public Company Limited NVDR,SET,Consumer Services,Other Consumer Services,3.38,3.8,3.38,3.74,10.000000000000009,1360000038.0,9979100,THB
-JPMUS06,JPMorgan Chase & Co. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Finance,Major Banks,3.76,3.76,3.72,3.76,0.0,30032485980446.37,60974,THB
-JPMUS19,JPMorgan Chase & Co. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Finance,Major Banks,22.6,22.6,22.4,22.5,0.44642857142857784,30032485980446.37,149379,THB
+JPMUS06,JPMorgan Chase & Co. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Finance,Major Banks,3.76,3.76,3.76,3.76,0.0,30032485980446.37,201,THB
+JPMUS19,JPMorgan Chase & Co. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Finance,Major Banks,22.6,22.6,22.6,22.6,0.44444444444445075,30032485980446.37,1,THB
 JPROBOAI24,Global X Japan Robotics & AI ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,1.43,1.43,1.39,1.41,-4.081632653061228,,6082,THB
 JPSEMI24,Global X Japan Semiconductor ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,1.66,1.67,1.63,1.65,-1.1976047904191627,,32673,THB
 JR,JRW Utility Public Co. Ltd.,SET,Industrial Services,Engineering & Construction,1.75,1.76,1.67,1.76,0.0,1337599993.0,207402,THB
 JR.R,JRW Utility Public Co. Ltd. NVDR,SET,Industrial Services,Engineering & Construction,1.75,1.76,1.67,1.76,0.0,1337599993.0,207400,THB
 JSP,JSP Pharmaceutical Manufacturing (Thailand) Public Company Limited,SET,Health Technology,Pharmaceuticals: Major,1.78,1.79,1.78,1.79,1.12994350282486,839997655.0,19429,THB
 JSP.R,JSP Pharmaceutical Manufacturing (Thailand) Public Company Limited NVDR,SET,Health Technology,Pharmaceuticals: Major,1.78,1.79,1.78,1.79,1.12994350282486,839997655.0,19400,THB
-JTEK19,JPMorgan U.S. Tech Leaders ETF Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,11.6,11.6,11.5,11.5,-1.7094017094017033,,55,THB
+JTEK19,JPMorgan U.S. Tech Leaders ETF Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,11.5,11.5,11.5,11.5,0.0,,412,THB
 JTS,Jasmine Technology Solution Public Company Limited,SET,Technology Services,Information Technology Services,29.75,31.75,29.75,30.75,1.6528925619834711,21136616989.0,1045552,THB
 JTS.R,Jasmine Technology Solution Public Company Limited NVDR,SET,Technology Services,Information Technology Services,29.75,31.75,29.75,30.75,1.6528925619834711,21136616989.0,1045200,THB
 JUBILE,Jubilee Enterprise PCL,SET,Retail Trade,Specialty Stores,7.25,7.35,7.2,7.3,0.0,1272193899.0,51021,THB
@@ -930,12 +930,12 @@ KK,K&K Superstore Southern PCL,SET,Retail Trade,Specialty Stores,1.02,1.03,1.01,
 KK.R,K&K Superstore Southern PCL NVDR,SET,Retail Trade,Specialty Stores,1.02,1.03,1.01,1.01,0.0,243914998.0,104300,THB
 KKP,Kiatnakin Phatra Bank Public Co. Ltd.,SET,Finance,Regional Banks,103.5,107.5,103.0,106.5,2.403846153846154,93124084473.0,8473750,THB
 KKP.R,Kiatnakin Phatra Bank Public Co. Ltd. NVDR,SET,Finance,Regional Banks,103.5,107.5,103.0,106.5,2.403846153846154,93124084473.0,8463000,THB
-KLAC01,KLA Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,5.0,5.1,4.9,5.05,0.0,10074245694770.154,1125566,THB
+KLAC01,KLA Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,4.96,4.98,4.96,4.96,-1.7821782178217795,10074245694770.154,1220,THB
 KLAC19,KLA Corporation Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.68,3.78,3.68,3.68,-2.1276595744680753,10074245694770.154,72,THB
-KLAC23,KLA Corporation Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,7.55,7.7,7.4,7.55,0.0,10074245694770.154,38794,THB
+KLAC23,KLA Corporation Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,7.5,7.5,7.5,7.5,-0.6622516556291367,10074245694770.154,1,THB
 KLINIQ,Klinique Medical Clinic Public Co. Ltd.,SET,Health Services,Medical/Nursing Services,26.75,27.75,26.5,27.5,2.803738317757009,5885000000.0,555773,THB
 KLINIQ.R,Klinique Medical Clinic Public Co. Ltd. NVDR,SET,Health Services,Medical/Nursing Services,26.75,27.75,26.5,27.5,2.803738317757009,5885000000.0,555500,THB
-KO80,Coca-Cola Company Units THAILAND DEPOSITORY RECEIPT REPR 0.001 SH,SET,Consumer Non-Durables,Beverages: Non-Alcoholic,2.8,2.84,2.76,2.8,0.0,11965831052998.002,167873,THB
+KO80,Coca-Cola Company Units THAILAND DEPOSITORY RECEIPT REPR 0.001 SH,SET,Consumer Non-Durables,Beverages: Non-Alcoholic,2.8,2.8,2.78,2.8,0.0,11965831052998.002,16768,THB
 KONAMI24,KONAMI GROUP CORPORATION ShS Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,1.02,1.02,1.0,1.0,-0.990099009900991,517103147989.387,1610,THB
 KOOL,CL Venture Public Company Limited,SET,Producer Manufacturing,Industrial Machinery,0.3,0.3,0.28,0.29,0.0,605917175.0,531109,THB
 KOOL.R,CL Venture Public Company Limited NVDR,SET,Producer Manufacturing,Industrial Machinery,0.3,0.3,0.28,0.29,0.0,605917175.0,531100,THB
@@ -989,11 +989,11 @@ LHRREIT,Land and Houses Residential Freehold and Leasehold Real Estate Investmen
 LHSC,LH Shopping Centers Leasehold Real Estate Investment Trust,SET,Finance,Real Estate Investment Trusts,15.2,15.3,15.1,15.2,0.6622516556291367,11748777226.0,276788,THB
 LIT,Lease IT Public Co. Ltd.,SET,Finance,Finance/Rental/Leasing,0.9,0.91,0.85,0.87,-2.247191011235957,394180010.0,1145642,THB
 LIT.R,Lease IT Public Co. Ltd. NVDR,SET,Finance,Finance/Rental/Leasing,0.9,0.91,0.85,0.87,-2.247191011235957,394180010.0,1145600,THB
-LITE01,Lumentum Holdings Inc Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Electrical Products,3.58,3.68,3.48,3.54,0.0,2078493711092.605,1904873,THB
-LITE23,Lumentum Holdings Inc DR,SET,Producer Manufacturing,Electrical Products,5.25,5.4,5.1,5.15,0.0,2078493711092.605,823182,THB
-LITE80,Depositary Receipt on LITE Issued by KTB,SET,,,2.6,2.6,2.56,2.6,,,16009,THB
-LLY23,Eli Lilly and Company Thailand Depositary Receipts Repr 1 Sh,SET,Health Technology,Pharmaceuticals: Major,4.0,4.08,3.96,4.0,-1.960784313725492,37286307286675.55,36844,THB
-LLY80,Eli Lilly & Co Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Health Technology,Pharmaceuticals: Major,1.98,2.06,1.97,1.99,-3.398058252427187,37286307286675.55,4969650,THB
+LITE01,Lumentum Holdings Inc Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Electrical Products,3.54,3.54,3.54,3.54,0.0,2078493711092.605,2000,THB
+LITE23,Lumentum Holdings Inc DR,SET,Producer Manufacturing,Electrical Products,5.2,5.2,5.2,5.2,0.9708737864077635,2078493711092.605,1,THB
+LITE80,Depositary Receipt on LITE Issued by KTB,SET,,,2.6,2.6,2.6,2.6,0.0,,500,THB
+LLY23,Eli Lilly and Company Thailand Depositary Receipts Repr 1 Sh,SET,Health Technology,Pharmaceuticals: Major,3.98,3.98,3.98,3.98,-0.5000000000000004,37286307286675.55,2958,THB
+LLY80,Eli Lilly & Co Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Health Technology,Pharmaceuticals: Major,1.99,2.0,1.99,1.99,0.0,37286307286675.55,111050,THB
 LOREAL80,L'Oreal S.A. Units Thailand Depository Receipt Repr 0.0001 Sh,SET,Consumer Non-Durables,Household/Personal Care,1.45,1.46,1.45,1.46,1.3888888888888902,7691687302016.547,2475,THB
 LOXLEY,Loxley Public Co. Ltd.,SET,Distribution Services,Wholesale Distributors,1.42,1.45,1.41,1.44,1.4084507042253533,3216236114.0,1643838,THB
 LOXLEY.R,Loxley Public Co. Ltd. NVDR,SET,Distribution Services,Wholesale Distributors,1.42,1.45,1.41,1.44,1.4084507042253533,3216236114.0,1643800,THB
@@ -1002,26 +1002,26 @@ LPH,Ladprao General Hospital Public Company Ltd,SET,Health Services,Hospital/Nur
 LPH.R,Ladprao General Hospital Public Company Ltd NVDR,SET,Health Services,Hospital/Nursing Management,3.56,3.58,3.54,3.56,0.0,2669999957.0,42200,THB
 LPN,"L.P.N. Development Public Co., Ltd.",SET,Finance,Real Estate Development,1.56,1.58,1.56,1.57,0.0,2283091910.0,449150,THB
 LPN.R,"L.P.N. Development Public Co., Ltd. NVDR",SET,Finance,Real Estate Development,1.56,1.58,1.56,1.57,0.0,2283091910.0,449100,THB
-LRCX01,Lam Research Corporation Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Industrial Machinery,4.72,4.86,4.64,4.74,-2.0661157024793315,14594021897901.4,328749,THB
-LRCX19,Lam Research Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Industrial Machinery,4.32,4.42,4.3,4.32,-2.702702702702705,14594021897901.4,24,THB
-LRCX23,Lam Research Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Industrial Machinery,4.36,4.54,4.26,4.36,-2.678571428571431,14594021897901.4,336809,THB
-LRCX80,Depositary Receipt on LRCX Issued by KTB,SET,,,11.3,11.4,11.1,11.3,-5.201342281879188,,2860,THB
+LRCX01,Lam Research Corporation Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Industrial Machinery,4.74,4.74,4.68,4.68,-1.2658227848101369,14594021897901.4,80201,THB
+LRCX19,Lam Research Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Industrial Machinery,4.38,4.38,4.38,4.38,1.3888888888888797,14594021897901.4,1,THB
+LRCX23,Lam Research Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Industrial Machinery,4.36,4.36,4.32,4.32,-0.9174311926605512,14594021897901.4,273,THB
+LRCX80,Depositary Receipt on LRCX Issued by KTB,SET,,,11.4,11.4,11.2,11.2,-0.8849557522124019,,300,THB
 LST,Lam Soon (Thailand) Public Co. Ltd.,SET,Consumer Non-Durables,Food: Specialty/Candy,4.78,4.8,4.76,4.76,-0.4184100418410139,3919599781.0,6302,THB
 LST.R,Lam Soon (Thailand) Public Co. Ltd. NVDR,SET,Consumer Non-Durables,Food: Specialty/Candy,4.78,4.8,4.76,4.76,-0.4184100418410139,3919599781.0,6300,THB
 LTMH,"LTMH Public Co., Ltd.",SET,Technology Services,Internet Software/Services,7.45,7.8,7.45,7.7,4.054054054054052,1480000019.0,232512,THB
 LTMH.R,"LTMH Public Co., Ltd. NVDR",SET,Technology Services,Internet Software/Services,7.45,7.8,7.45,7.7,4.054054054054052,1480000019.0,232500,THB
 LTS,Light Up Total Solution Company Limited,SET,Distribution Services,Wholesale Distributors,2.5,2.58,2.48,2.54,0.7936507936507943,601272011.0,612910,THB
 LTS.R,Light Up Total Solution Company Limited NVDR,SET,Distribution Services,Wholesale Distributors,2.5,2.58,2.48,2.54,0.7936507936507943,601272011.0,612900,THB
-LULU06,lululemon athletica inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Consumer Non-Durables,Apparel/Footwear,1.99,2.02,1.95,1.99,2.5773195876288684,471438324683.5444,41464,THB
+LULU06,lululemon athletica inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Consumer Non-Durables,Apparel/Footwear,2.0,2.0,2.0,2.0,0.5025125628140708,471438324683.5444,104,THB
 LUXF,Luxury Real Estate Investment Fund Units,SET,Finance,Real Estate Investment Trusts,9.2,9.2,9.15,9.2,0.0,1807800000.0,11500,THB
-LVMH01,LVMH Moet Hennessy Louis Vuitton SE Units Thailand Depository Receipt Repr 0.000625 Sh,SET,Consumer Non-Durables,Apparel/Footwear,11.6,11.8,11.5,11.7,0.0,9192546639362.436,110691,THB
+LVMH01,LVMH Moet Hennessy Louis Vuitton SE Units Thailand Depository Receipt Repr 0.000625 Sh,SET,Consumer Non-Durables,Apparel/Footwear,11.8,11.8,11.8,11.8,0.854700854700867,9192546639362.436,3311,THB
 M,MK Restaurant Group PCL,SET,Consumer Services,Restaurants,21.8,22.2,21.5,22.1,1.376146788990829,20075140826.0,2346653,THB
 M-CHAI,Mahachai Hospital Public Co. Ltd.,SET,Health Services,Hospital/Nursing Management,19.6,19.6,18.9,19.0,-3.5532994923857837,3152000122.0,11906,THB
 M-CHAI.R,Mahachai Hospital Public Co. Ltd. NVDR,SET,Health Services,Hospital/Nursing Management,19.6,19.6,18.9,19.0,-3.5532994923857837,3152000122.0,11900,THB
 M-PAT,MFC Patong Heritage Property Fund,SET,Finance,Real Estate Investment Trusts,1.59,1.59,1.59,1.59,6.000000000000005,139650005.0,100,THB
 M-STOR,MFC-Strategic Storage Fund Units,SET,Miscellaneous,Investment Trusts/Mutual Funds,8.35,8.75,8.35,8.75,12.903225806451612,471200000.0,410,THB
 M.R,MK Restaurant Group PCL NVDR,SET,Consumer Services,Restaurants,21.8,22.2,21.5,22.1,1.376146788990829,20075140826.0,2346300,THB
-MA80,Mastercard Incorporated Units Thailand Depository Receipt Repr 0.01 Sh,SET,Finance,Finance/Rental/Leasing,1.74,1.76,1.73,1.74,-1.1363636363636374,15503629722218.521,487137,THB
+MA80,Mastercard Incorporated Units Thailand Depository Receipt Repr 0.01 Sh,SET,Finance,Finance/Rental/Leasing,1.76,1.76,1.76,1.76,1.1494252873563229,15503629722218.521,16,THB
 MADAME,Madame Bioscience Public Company Limited,SET,Process Industries,Containers/Packaging,0.5,0.51,0.5,0.5,0.0,403904419.0,446329,THB
 MADAME.R,Madame Bioscience Public Company Limited NVDR,SET,Process Industries,Containers/Packaging,0.5,0.51,0.5,0.5,0.0,403904419.0,446200,THB
 MAGURO,Maguro Group Public Company Limited,SET,Consumer Services,Restaurants,18.5,18.5,18.2,18.2,-1.6216216216216255,2331000000.0,525467,THB
@@ -1070,10 +1070,10 @@ MENA,Mena Transport Public Company Limited,SET,Transportation,Trucking,0.74,0.75
 MENA.R,Mena Transport Public Company Limited NVDR,SET,Transportation,Trucking,0.74,0.75,0.73,0.73,-1.3513513513513526,543160007.0,862800,THB
 META,Meta Corporation Public Company Limited,SET,Utilities,Electric Utilities,0.03,0.04,0.02,0.02,-33.33333333333333,61389818.0,20637781,THB
 META.R,Meta Corporation Public Company Limited NVDR,SET,Utilities,Electric Utilities,0.03,0.04,0.02,0.02,-33.33333333333333,61389818.0,20637700,THB
-META01,Meta Platforms Inc Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Internet Software/Services,6.5,6.6,6.35,6.5,4.0,56586881946402.4,681686,THB
-META06,Meta Platforms Inc Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Internet Software/Services,2.78,2.8,2.7,2.8,4.477611940298495,56586881946402.4,3665431,THB
-META23,Meta Platforms Inc Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Internet Software/Services,2.64,2.68,2.58,2.64,3.1250000000000027,56586881946402.4,667846,THB
-META80,Meta Platforms Inc Units Thailand Depository Receipt Repr 0.000125 Sh,SET,Technology Services,Internet Software/Services,2.78,2.82,2.7,2.8,3.7037037037036904,56586881946402.4,34320429,THB
+META01,Meta Platforms Inc Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Internet Software/Services,6.55,6.55,6.55,6.55,0.7692307692307665,56586881946402.4,1,THB
+META06,Meta Platforms Inc Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Internet Software/Services,2.78,2.78,2.78,2.78,-0.714285714285715,56586881946402.4,3901,THB
+META23,Meta Platforms Inc Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Internet Software/Services,2.66,2.66,2.66,2.66,0.7575757575757582,56586881946402.4,4,THB
+META80,Meta Platforms Inc Units Thailand Depository Receipt Repr 0.000125 Sh,SET,Technology Services,Internet Software/Services,2.78,2.78,2.76,2.76,-1.42857142857143,56586881946402.4,1142718,THB
 METCO,"Muramoto Electron (Thailand) Public Co., Ltd.",SET,Distribution Services,Electronics Distributors,295.0,297.0,295.0,296.0,0.3389830508474576,6164939470.0,8852,THB
 METCO.R,"Muramoto Electron (Thailand) Public Co., Ltd. NVDR",SET,Distribution Services,Electronics Distributors,295.0,297.0,295.0,296.0,0.3389830508474576,6164939470.0,8800,THB
 MFC,"MFC Asset Management Public Co., Ltd.",SET,Finance,Investment Managers,19.8,20.0,19.7,19.7,-0.5050505050505122,2487190911.0,123990,THB
@@ -1088,11 +1088,11 @@ MGT,Megachem (Thailand) Public Company Ltd,SET,Distribution Services,Wholesale D
 MGT.R,Megachem (Thailand) Public Co. Ltd. NVDR,SET,Distribution Services,Wholesale Distributors,1.82,1.9,1.82,1.89,3.2786885245901543,731999969.0,230900,THB
 MICRO,Micro Leasing Public Company Limited,SET,Finance,Finance/Rental/Leasing,1.15,1.3,1.15,1.22,7.964601769911512,1056549996.0,12525029,THB
 MICRO.R,Micro Leasing Public Company Limited NVDR,SET,Finance,Finance/Rental/Leasing,1.15,1.3,1.15,1.22,7.964601769911512,1056549996.0,12525000,THB
-MICRON01,"Micron Technology, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Electronic Technology,Semiconductors,19.5,20.8,19.0,19.3,-4.455445544554449,36842592143404.4,6892606,THB
-MICRON03,"Micron Technology, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,10.5,11.1,10.3,10.3,-5.5045871559633,36842592143404.4,218144,THB
-MICRON19,"Micron Technology, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Electronic Technology,Semiconductors,20.8,22.1,20.3,20.6,-4.62962962962963,36842592143404.4,441136,THB
-MICRON23,"Micron Technology, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,6.25,6.65,6.1,6.25,-3.1007751937984525,36842592143404.4,1671918,THB
-MICRON80,"Micron Technology, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,31.25,33.25,30.5,31.25,-3.10077519379845,36842592143404.4,677941,THB
+MICRON01,"Micron Technology, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Electronic Technology,Semiconductors,19.4,19.6,19.3,19.4,0.5181347150258957,36842592143404.4,136790,THB
+MICRON03,"Micron Technology, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,10.5,10.5,10.4,10.4,0.9708737864077635,36842592143404.4,601,THB
+MICRON19,"Micron Technology, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Electronic Technology,Semiconductors,20.7,20.9,20.7,20.7,0.4854368932038731,36842592143404.4,45,THB
+MICRON23,"Micron Technology, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,6.25,6.3,6.25,6.3,0.7999999999999973,36842592143404.4,10952,THB
+MICRON80,"Micron Technology, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,31.25,31.25,31.0,31.25,0.0,36842592143404.4,202,THB
 MIDA,Mida Assets Public Co. Ltd.,SET,Finance,Finance/Rental/Leasing,0.49,0.52,0.49,0.5,0.0,1252049072.0,2555510,THB
 MIDA.R,Mida Assets Public Co. Ltd. NVDR,SET,Finance,Finance/Rental/Leasing,0.49,0.52,0.49,0.5,0.0,1252049072.0,2555500,THB
 MIDEA80,Midea Group Co. Ltd. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Consumer Durables,Electronics/Appliances,3.8,3.82,3.78,3.8,0.0,2903336624402.9507,55685,THB
@@ -1138,21 +1138,21 @@ MP23,MP Materials Corp Shs Thailand Depositary Receipts Repr 1 Sh,SET,Non-Energy
 MP80,MP Materials Corp Shs Thailand Depositary Receipts Repr 1 Sh,SET,Non-Energy Minerals,Other Metals/Minerals,17.2,17.5,17.0,17.3,0.0,309611558261.1593,11547,THB
 MPJ,MPJ Logistics Public Company Limited,SET,Transportation,Air Freight/Couriers,3.72,3.76,3.72,3.74,0.5376344086021511,744000006.0,166516,THB
 MPJ.R,MPJ Logistics Public Company Limited NVDR,SET,Transportation,Air Freight/Couriers,3.72,3.76,3.72,3.74,0.5376344086021511,744000006.0,166500,THB
-MPWR23,"Monolithic Power Systems, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,4.44,4.54,4.4,4.48,-1.3215859030836918,2213861331279.1475,201460,THB
+MPWR23,"Monolithic Power Systems, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,4.4,4.4,4.4,4.4,-1.785714285714287,2213861331279.1475,604,THB
 MRDIYT,MR.D.I.Y. Holding (Thailand) Public Company Limited,SET,Retail Trade,Discount Stores,10.0,10.2,9.95,10.1,0.0,60772683692.0,5034278,THB
 MRDIYT.R,MR.D.I.Y. Holding (Thailand) Public Company Limited NVDR,SET,Retail Trade,Discount Stores,10.0,10.2,9.95,10.1,0.0,60772683692.0,5033600,THB
-MRVL06,"Marvell Technology, Inc. Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,7.7,8.0,7.55,7.55,-4.430379746835449,6871638340639.573,172531,THB
-MRVL23,"Marvell Technology, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,6.45,6.65,6.3,6.35,-4.511278195488732,6871638340639.573,541330,THB
-MRVL80,"Marvell Technology, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,7.7,8.05,7.55,7.7,-3.1446540880503147,6871638340639.573,2881299,THB
-MS06,Morgan Stanley Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Finance,Investment Managers,4.96,4.96,4.92,4.94,0.0,11678843715456.363,9056,THB
+MRVL06,"Marvell Technology, Inc. Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,7.7,7.7,7.65,7.65,1.3245033112582854,6871638340639.573,60001,THB
+MRVL23,"Marvell Technology, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,6.4,6.4,6.4,6.4,0.7874015748031609,6871638340639.573,1001,THB
+MRVL80,"Marvell Technology, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Semiconductors,7.7,7.7,7.6,7.6,-1.2987012987013056,6871638340639.573,3685,THB
+MS06,Morgan Stanley Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Finance,Investment Managers,4.94,4.94,4.94,4.94,0.0,11678843715456.363,4253,THB
 MSC,Metro Systems Corp. Public Co. Ltd.,SET,Technology Services,Information Technology Services,6.2,6.2,6.05,6.05,-2.4193548387096833,2231999931.0,9901,THB
 MSC.R,Metro Systems Corp. Public Co. Ltd. NVDR,SET,Technology Services,Information Technology Services,6.2,6.2,6.05,6.05,-2.4193548387096833,2231999931.0,9900,THB
-MSFT01,Microsoft Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,3.8,3.84,3.74,3.8,-0.5235602094240842,95292811404630.27,1366451,THB
+MSFT01,Microsoft Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,3.8,3.8,3.8,3.8,0.0,95292811404630.27,4,THB
 MSFT03,Microsoft Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,2.56,2.62,2.54,2.6,0.0,95292811404630.27,60405,THB
-MSFT06,Microsoft Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,3.22,3.24,3.18,3.24,0.0,95292811404630.27,288233,THB
-MSFT19,Microsoft Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,4.3,4.34,4.24,4.32,0.0,95292811404630.27,3662,THB
+MSFT06,Microsoft Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,3.24,3.26,3.24,3.26,0.6172839506172707,95292811404630.27,19464,THB
+MSFT19,Microsoft Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,4.3,4.3,4.3,4.3,-0.4629629629629736,95292811404630.27,5400,THB
 MSFT23,Microsoft Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,2.38,2.4,2.36,2.4,0.0,95292811404630.27,328226,THB
-MSFT80,Microsoft Corporation Units Thailand Depository Receipt Repr 0.0005 Sh,SET,Technology Services,Packaged Software,6.45,6.55,6.35,6.45,-0.7692307692307665,95292811404630.27,1877282,THB
+MSFT80,Microsoft Corporation Units Thailand Depository Receipt Repr 0.0005 Sh,SET,Technology Services,Packaged Software,6.5,6.5,6.5,6.5,0.7751937984496096,95292811404630.27,16840,THB
 MSN11,Masan Group Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Consumer Non-Durables,Food: Specialty/Candy,3.48,3.48,3.42,3.48,-1.1363636363636374,133676760284.81012,53908,THB
 MSN19,Masan Group Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Consumer Non-Durables,Food: Specialty/Candy,2.88,2.9,2.84,2.88,-0.6896551724137937,133676760284.81012,5038,THB
 MST,Maybank Securities (Thailand) Public Company Limited,SET,Finance,Investment Banks/Brokers,7.85,8.05,7.85,7.95,1.2738853503184782,4480893882.0,111510,THB
@@ -1179,10 +1179,10 @@ NATION,Nation Group (Thailand) Public Company Limited,SET,Consumer Services,Broa
 NATION.R,Nation Group (Thailand) Public Company Limited NVDR,SET,Consumer Services,Broadcasting,0.03,0.04,0.03,0.04,33.33333333333334,530813600.99999994,112300,THB
 NAURA23,NAURA Technology Group Co Ltd Shs Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Industrial Machinery,4.38,4.38,4.16,4.18,-5.000000000000014,2839479535624.293,215567,THB
 NAURA80,NAURA Technology Group Co Ltd Shs Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Industrial Machinery,39.25,39.25,37.0,37.75,-5.031446540880504,2839479535624.293,16491,THB
-NBIS01,Nebius Group N.V. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,4.16,4.38,4.08,4.18,0.0,1841273050233.178,1919668,THB
-NBIS03,Nebius Group N.V. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,7.1,7.45,6.9,7.05,-1.398601398601406,1841273050233.178,2370188,THB
-NBIS23,Nebius Group N.V. Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,7.05,7.5,6.95,7.1,-1.3888888888888962,1841273050233.178,2224786,THB
-NBIS80,Depositary Receipt on NBIS Issued by KTB,SET,,,7.25,7.25,6.95,7.05,,,4925,THB
+NBIS01,Nebius Group N.V. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,4.18,4.18,4.18,4.18,0.0,1841273050233.178,2000,THB
+NBIS03,Nebius Group N.V. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,7.1,7.1,7.1,7.1,0.7092198581560258,1841273050233.178,2228,THB
+NBIS23,Nebius Group N.V. Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,7.1,7.1,7.1,7.1,0.0,1841273050233.178,71700,THB
+NBIS80,Depositary Receipt on NBIS Issued by KTB,SET,,,7.1,7.1,7.1,7.1,0.7092198581560258,,1001,THB
 NC,"Newcity (Bangkok) Public Co., Ltd.",SET,Retail Trade,Apparel/Footwear Retail,1.96,1.96,1.88,1.91,-3.04568527918782,300424794.0,283400,THB
 NC.R,"Newcity (Bangkok) Public Co., Ltd. NVDR",SET,Retail Trade,Apparel/Footwear Retail,1.96,1.96,1.88,1.91,-3.04568527918782,300424794.0,283400,THB
 NCAP,"Next Capital Public Co., Ltd.",SET,Finance,Finance/Rental/Leasing,3.1,3.16,3.08,3.08,-1.2820512820512833,4211999845.9999995,12582943,THB
@@ -1193,20 +1193,20 @@ NCL,"NCL International Logistics Co., Ltd.",SET,Transportation,Other Transportat
 NCL.R,"NCL International Logistics Co., Ltd. NVDR",SET,Transportation,Other Transportation,0.19,0.2,0.18,0.19,0.0,136654460.0,319800,THB
 NCP,Nice Call Public Company Limited,SET,Distribution Services,Medical Distributors,1.06,1.08,1.06,1.07,0.9433962264150951,190800000.0,68800,THB
 NCP.R,Nice Call Public Company Limited NVDR,SET,Distribution Services,Medical Distributors,1.06,1.08,1.06,1.07,0.9433962264150951,190800000.0,68800,THB
-NDAQ06,"Nasdaq, Inc. Units Thailand Depositery Receipts Repr 0.01 Shs",SET,Finance,Investment Banks/Brokers,2.94,2.96,2.92,2.94,0.6849315068493157,1659321704330.4465,163410,THB
+NDAQ06,"Nasdaq, Inc. Units Thailand Depositery Receipts Repr 0.01 Shs",SET,Finance,Investment Banks/Brokers,2.94,2.94,2.94,2.94,0.0,1659321704330.4465,680,THB
 NDR,N.D. Rubber Public Company Limited,SET,Distribution Services,Wholesale Distributors,1.8,1.81,1.79,1.8,0.0,822404916.0,98800,THB
 NDR.R,N.D. Rubber Public Company Limited NVDR,SET,Distribution Services,Wholesale Distributors,1.8,1.81,1.79,1.8,0.0,822404916.0,98800,THB
 NDX01,ChinaAMC NASDAQ 100 ETF Thailand Depository Receipt Repr 0.1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,25.75,26.0,25.5,25.75,-0.9615384615384616,,98333,THB
 NEE80,"NextEra Energy, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Utilities,Electric Utilities,2.94,2.94,2.9,2.92,0.6896551724137937,6110921223251.167,526386,THB
-NEM06,Newmont Corporation Thailand Depositary Receipts Repr 1 Sh,SET,Non-Energy Minerals,Precious Metals,3.14,3.18,3.1,3.14,-0.6329113924050638,3388644271685.543,38257,THB
-NEM23,Newmont Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Non-Energy Minerals,Precious Metals,1.96,1.99,1.95,1.98,0.0,3388644271685.543,27434,THB
+NEM06,Newmont Corporation Thailand Depositary Receipts Repr 1 Sh,SET,Non-Energy Minerals,Precious Metals,3.16,3.16,3.14,3.16,0.6369426751592362,3388644271685.543,255298,THB
+NEM23,Newmont Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Non-Energy Minerals,Precious Metals,1.98,1.98,1.97,1.98,0.0,3388644271685.543,2201,THB
 NEO,Neo Corporate Public Company Limited,SET,Consumer Non-Durables,Household/Personal Care,20.9,22.2,20.5,21.6,5.882352941176485,6119999886.0,4207255,THB
 NEO.R,Neo Corporate Public Company Limited NVDR,SET,Consumer Non-Durables,Household/Personal Care,20.9,22.2,20.5,21.6,5.882352941176485,6119999886.0,4206800,THB
 NEP,NEP Realty & Industry Public Co. Ltd.,SET,Consumer Durables,Homebuilding,0.19,0.19,0.18,0.18,-5.263157894736847,441822311.0,38910,THB
 NEP.R,NEP Realty & Industry Public Co. Ltd. NVDR,SET,Consumer Durables,Homebuilding,0.19,0.19,0.18,0.18,-5.263157894736847,441822311.0,38900,THB
 NER,North East Rubber Public Company Limited,SET,Producer Manufacturing,Miscellaneous Manufacturing,4.46,4.5,4.44,4.5,0.896860986547086,8241257431.0,11957480,THB
 NER.R,North East Rubber Public Company Limited NVDR,SET,Producer Manufacturing,Miscellaneous Manufacturing,4.46,4.5,4.44,4.5,0.896860986547086,8241257431.0,11957400,THB
-NET03,Cloudflare Inc Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Information Technology Services,4.46,4.68,4.44,4.48,-3.8626609442060027,3175048027215.1904,339410,THB
+NET03,Cloudflare Inc Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Information Technology Services,4.48,4.5,4.48,4.5,0.44642857142856185,3175048027215.1904,98,THB
 NETBAY,Netbay Public Co. Ltd.,SET,Technology Services,Packaged Software,14.0,14.4,13.9,14.1,0.0,2820000076.0,1882570,THB
 NETBAY.R,Netbay Public Co. Ltd. NVDR,SET,Technology Services,Packaged Software,14.0,14.4,13.9,14.1,0.0,2820000076.0,1882300,THB
 NETEASE80,Netease Inc Shs Thailand Depository Receipt Repr 0.01 Sh,SET,Technology Services,Packaged Software,8.75,8.9,8.7,8.85,1.1428571428571388,2803897465591.9053,6713,THB
@@ -1215,8 +1215,8 @@ NEW.R,Wattana Karnpaet Public Company Limited NVDR,SET,Health Services,Hospital/
 NEX,"Nex Point Public Co., Ltd.",SET,Retail Trade,Electronics/Appliance Stores,1.01,1.07,1.0,1.06,4.950495049504955,6049293351.0,55758227,THB
 NEX.R,"Nex Point Public Co., Ltd. NVDR",SET,Retail Trade,Electronics/Appliance Stores,1.01,1.07,1.0,1.06,4.950495049504955,6049293351.0,55758000,THB
 NFLX06,"Netflix, Inc. Units Thailand Depositery Receipts Repr 0.001 Sh",SET,Technology Services,Internet Software/Services,2.46,2.52,2.42,2.48,-2.362204724409451,10291348626249.168,551315,THB
-NFLX80,"Netflix, Inc. Units THAILAND DEPOSITORY RECEIPT REPR 0.0001 SH",SET,Technology Services,Internet Software/Services,2.46,2.54,2.42,2.46,-3.1496062992126013,10291348626249.168,9265232,THB
-NIKE80,"NIKE, Inc. units Thailand Depository Receipt Repr 0.01 Sh",SET,Consumer Non-Durables,Apparel/Footwear,0.73,0.74,0.72,0.74,2.7777777777777803,2188773034010.6594,1554240,THB
+NFLX80,"Netflix, Inc. Units THAILAND DEPOSITORY RECEIPT REPR 0.0001 SH",SET,Technology Services,Internet Software/Services,2.48,2.48,2.46,2.46,0.0,10291348626249.168,2191,THB
+NIKE80,"NIKE, Inc. units Thailand Depository Receipt Repr 0.01 Sh",SET,Consumer Non-Durables,Apparel/Footwear,0.74,0.74,0.74,0.74,0.0,2188773034010.6594,3850,THB
 NIKKEI80,Next Funds Nikkei 225 Exchange Traded Fund Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,14.6,14.6,14.2,14.4,-2.702702702702705,,92383,THB
 NINTENDO19,"Nintendo Co., Ltd. Units Thailand Depository Repr 0.01 SH",SET,Consumer Durables,Recreational Products,14.6,14.7,14.5,14.7,0.6849315068493127,1668361754567.6125,132215,THB
 NINTENDO23,"Nintendo Co., Ltd. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Consumer Durables,Recreational Products,1.28,1.33,1.28,1.33,2.3076923076923097,1668361754567.6125,1862,THB
@@ -1234,7 +1234,7 @@ NONGFU80,"Nongfu Spring Co., Ltd. Units Thailand Depositery Receipts Repr 0.01 S
 NOVA,"Nova Empire Public Co., Ltd.",SET,Producer Manufacturing,Metal Fabrication,6.95,6.95,6.95,6.95,-0.7142857142857117,820618568.0,500,THB
 NOVA.R,"Nova Empire Public Co., Ltd. NVDR",SET,Producer Manufacturing,Metal Fabrication,6.95,6.95,6.95,6.95,-0.7142857142857117,820618568.0,500,THB
 NOVOB80,Novo Nordisk A/S Units Thailand Depository Receipt Repr 0.001 Sh,SET,Health Technology,Pharmaceuticals: Major,1.64,1.65,1.63,1.64,0.6134969325153381,7247117046774.508,2524042,THB
-NOW19,"ServiceNow, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Technology Services,Packaged Software,3.6,3.74,3.54,3.64,-2.1505376344086042,3700272549900.0664,2002427,THB
+NOW19,"ServiceNow, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Technology Services,Packaged Software,3.64,3.66,3.64,3.66,0.5494505494505499,3700272549900.0664,9841,THB
 NPK,New Plus Knitting Public Co. Ltd.,SET,Consumer Non-Durables,Apparel/Footwear,12.9,12.9,12.9,12.9,0.0,128999996.00000001,200,THB
 NPK.R,New Plus Knitting Public Co. Ltd. NVDR,SET,Consumer Non-Durables,Apparel/Footwear,12.9,12.9,12.9,12.9,0.0,128999996.00000001,200,THB
 NRF,NR Instant Produce PCL,SET,Consumer Non-Durables,Food: Major Diversified,0.24,0.25,0.24,0.25,0.0,375956818.0,368283,THB
@@ -1253,13 +1253,13 @@ NV,Nova Organic Public Company Limited,SET,Health Technology,Pharmaceuticals: Ot
 NV.R,Nova Organic Public Company Limited NVDR,SET,Health Technology,Pharmaceuticals: Other,0.61,0.61,0.59,0.6,-1.6393442622950833,366000009.0,155900,THB
 NVD,Nirvana Development Public Company Limited,SET,Finance,Real Estate Development,0.85,0.86,0.82,0.85,0.0,1574116310.0,556900,THB
 NVD.R,Nirvana Development Public Company Limited NVDR,SET,Finance,Real Estate Development,0.85,0.86,0.82,0.85,0.0,1574116310.0,556900,THB
-NVDA01,NVIDIA Corporation Units Thailand Depository Receipt Repr 0.1 Sh,SET,Electronic Technology,Semiconductors,20.5,20.7,19.7,20.4,2.512562814070352,170061031394936.75,727880,THB
-NVDA03,NVIDIA Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Electronic Technology,Semiconductors,4.66,4.68,4.48,4.6,2.2222222222222143,170061031394936.75,349688,THB
-NVDA06,NVIDIA Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Electronic Technology,Semiconductors,4.6,4.68,4.48,4.62,2.6666666666666687,170061031394936.75,1260655,THB
+NVDA01,NVIDIA Corporation Units Thailand Depository Receipt Repr 0.1 Sh,SET,Electronic Technology,Semiconductors,20.4,20.4,20.4,20.4,0.0,170061031394936.75,18360,THB
+NVDA03,NVIDIA Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Electronic Technology,Semiconductors,4.62,4.62,4.62,4.62,0.43478260869566226,170061031394936.75,2,THB
+NVDA06,NVIDIA Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Electronic Technology,Semiconductors,4.64,4.64,4.64,4.64,0.4329004329004236,170061031394936.75,518,THB
 NVDA19,NVIDIA Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Electronic Technology,Semiconductors,27.75,28.0,27.0,27.75,2.7777777777777777,170061031394936.75,178775,THB
-NVDA23,NVIDIA Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.3,3.34,3.2,3.3,2.4844720496894293,170061031394936.75,1231737,THB
-NVDA80,NVIDIA Corporation Units Thailand Depository Receipt Repr 0.01 Sh,SET,Electronic Technology,Semiconductors,34.75,35.25,33.5,34.75,2.9629629629629632,170061031394936.75,1683337,THB
-NVTS03,Navitas Semiconductor Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,4.42,4.72,4.32,4.36,-6.837606837606826,106339341339.10725,3010519,THB
+NVDA23,NVIDIA Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.32,3.32,3.32,3.32,0.6060606060606066,170061031394936.75,310,THB
+NVDA80,NVIDIA Corporation Units Thailand Depository Receipt Repr 0.01 Sh,SET,Electronic Technology,Semiconductors,34.75,34.75,34.75,34.75,0.0,170061031394936.75,3,THB
+NVTS03,Navitas Semiconductor Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,4.38,4.38,4.36,4.36,0.0,106339341339.10725,1000,THB
 NVTS23,Navitas Semiconductor Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,4.44,4.66,4.32,4.34,-6.866952789699576,106339341339.10725,557813,THB
 NYT,Namyong Terminal Public Co. Ltd.,SET,Transportation,Marine Shipping,4.04,4.12,4.02,4.12,2.48756218905474,4984799976.0,3291076,THB
 NYT.R,Namyong Terminal Public Co. Ltd. NVDR,SET,Transportation,Marine Shipping,4.04,4.12,4.02,4.12,2.48756218905474,4984799976.0,3290700,THB
@@ -1273,7 +1273,7 @@ OIL03,Global X S&P Crude Oil Futures Enhanced ER ETF Units Thailand Depositery R
 OIL24,Global X S&P Crude Oil Futures Enhanced ER ETF Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,15.6,15.8,15.6,15.8,3.2679738562091507,,67959,THB
 OKJ,Pluk Phak Praw Rak Mae Public Company Limited,SET,Consumer Services,Restaurants,3.78,3.84,3.74,3.8,0.0,2314199971.0,1074427,THB
 OKJ.R,Pluk Phak Praw Rak Mae Public Company Limited NVDR,SET,Consumer Services,Restaurants,3.78,3.84,3.74,3.8,0.0,2314199971.0,1074400,THB
-OKLO23,Oklo Inc. Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Industrial Machinery,4.04,4.22,3.98,4.02,-3.365384615384629,283126555896.06934,209262,THB
+OKLO23,Oklo Inc. Thailand Depositary Receipts Repr 1 Sh,SET,Producer Manufacturing,Industrial Machinery,4.02,4.02,4.02,4.02,0.0,283126555896.06934,226,THB
 ON23,ON SEMICONDUCTOR CORPORATION Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,6.2,6.45,6.2,6.3,-2.3255813953488427,1244045655529.647,8915,THB
 ONEE,One Enterprise Public Co. Ltd.,SET,Consumer Services,Movies/Entertainment,3.24,3.4,3.24,3.34,3.0864197530864086,7715250023.0,985791,THB
 ONEE.R,One Enterprise Public Co. Ltd. NVDR,SET,Consumer Services,Movies/Entertainment,3.24,3.4,3.24,3.34,3.0864197530864086,7715250023.0,985200,THB
@@ -1282,10 +1282,10 @@ ONSENS,Onsen Retreat and Spa Group Public Company Limited,SET,Consumer Services,
 ONSENS.R,Onsen Retreat and Spa Group Public Company Limited NVDR,SET,Consumer Services,Other Consumer Services,1.18,1.18,1.17,1.17,-1.6806722689075646,,532300,THB
 OR,PTT Oil and Retail Business Public Co Limited,SET,Distribution Services,Wholesale Distributors,12.7,12.9,12.6,12.8,0.7874015748031609,152399997711.0,13895425,THB
 OR.R,PTT Oil and Retail Business Public Co Limited NVDR,SET,Distribution Services,Wholesale Distributors,12.7,12.9,12.6,12.8,0.7874015748031609,152399997711.0,13893100,THB
-ORCL01,Oracle Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,2.92,3.04,2.88,2.94,-3.2894736842105288,13494651307961.36,3521761,THB
-ORCL06,Oracle Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,1.87,1.96,1.85,1.89,-3.5714285714285747,13494651307961.36,1931356,THB
-ORCL19,Oracle Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,4.66,4.84,4.62,4.72,-3.2786885245901667,13494651307961.36,636237,THB
-ORCL80,Depositary Receipt on ORCL Issued by KTB,SET,,,4.86,4.86,4.62,4.72,,,42704,THB
+ORCL01,Oracle Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,2.94,2.94,2.94,2.94,0.0,13494651307961.36,1,THB
+ORCL06,Oracle Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,1.88,1.88,1.88,1.88,-0.5291005291005296,13494651307961.36,146,THB
+ORCL19,Oracle Corporation Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,4.7,4.7,4.66,4.68,-0.8474576271186449,13494651307961.36,8129,THB
+ORCL80,Depositary Receipt on ORCL Issued by KTB,SET,,,4.7,4.7,4.68,4.68,-0.8474576271186449,,42,THB
 ORI,Origin Property Public Company Ltd,SET,Consumer Durables,Homebuilding,1.84,1.86,1.81,1.83,-1.081081081081082,4540126792.0,1322966,THB
 ORI.R,Origin Property Public Company Ltd NVDR,SET,Consumer Durables,Homebuilding,1.84,1.86,1.81,1.83,-1.081081081081082,4540126792.0,1322900,THB
 ORN,ORNSIRIN HOLDING PUBLIC COMPANY LIMITED,SET,Finance,Real Estate Development,0.79,0.8,0.78,0.79,0.0,1185000032.0,1061960,THB
@@ -1320,13 +1320,13 @@ PEACE,Peace & Living Public Company Limited,SET,Finance,Real Estate Development,
 PEACE.R,Peace & Living Public Company Limited NVDR,SET,Finance,Real Estate Development,1.48,1.49,1.48,1.48,0.680272108843538,740880014.0,38200,THB
 PEER,PEER FOR YOU PUBLIC COMPANY LIMITED,SET,Commercial Services,Miscellaneous Commercial Services,0.1,0.1,0.09,0.1,0.0,105492653.0,86000,THB
 PEER.R,PEER FOR YOU PUBLIC COMPANY LIMITED NVDR,SET,Commercial Services,Miscellaneous Commercial Services,0.1,0.1,0.09,0.1,0.0,105492653.0,86000,THB
-PEP80,"PepsiCo, Inc. Units Thailand Depository Receipt Repr 0.0002 Sh",SET,Consumer Non-Durables,Food: Specialty/Candy,0.92,0.93,0.9,0.92,-1.0752688172043021,6246129184443.705,2157431,THB
+PEP80,"PepsiCo, Inc. Units Thailand Depository Receipt Repr 0.0002 Sh",SET,Consumer Non-Durables,Food: Specialty/Candy,0.93,0.93,0.93,0.93,1.0869565217391313,6246129184443.705,100212,THB
 PERM,"Permsin Steel Works Public Co., Ltd.",SET,Non-Energy Minerals,Steel,0.25,0.25,0.23,0.24,0.0,181284840.0,152700,THB
 PERM.R,"Permsin Steel Works Public Co., Ltd. NVDR",SET,Non-Energy Minerals,Steel,0.25,0.25,0.23,0.24,0.0,181284840.0,152700,THB
 PETROCN80,"PetroChina Co., Ltd. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Energy Minerals,Integrated Oil,3.9,3.96,3.9,3.96,2.5906735751295358,8183264481481.705,16799,THB
 PF,Property Perfect Public Co. Ltd.,SET,Finance,Real Estate Development,0.05,0.05,0.04,0.05,0.0,500566951.0,644617,THB
 PF.R,Property Perfect Public Co. Ltd. NVDR,SET,Finance,Real Estate Development,0.05,0.05,0.04,0.05,0.0,500566951.0,644600,THB
-PFIZER19,Pfizer Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Health Technology,Pharmaceuticals: Major,16.2,16.3,16.1,16.3,0.6172839506172928,4588792745936.043,82549,THB
+PFIZER19,Pfizer Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Health Technology,Pharmaceuticals: Major,16.2,16.2,16.2,16.2,-0.6134969325153461,4588792745936.043,2106,THB
 PG,"People's Garment Public Co., Ltd.",SET,Consumer Non-Durables,Apparel/Footwear,6.7,6.7,6.65,6.65,1.5267175572519165,628800018.0,605,THB
 PG.R,"People's Garment Public Co., Ltd. NVDR",SET,Consumer Non-Durables,Apparel/Footwear,6.7,6.7,6.65,6.65,1.5267175572519165,628800018.0,600,THB
 PHG,Patrangsit Healthcare Group Public Company Limited,SET,Health Services,Hospital/Nursing Management,10.2,10.3,10.2,10.2,-0.9708737864077808,3090000057.0,61901,THB
@@ -1357,9 +1357,9 @@ PLE,"Power Line Engineering Public Co., Ltd.",SET,Industrial Services,Engineerin
 PLE.R,"Power Line Engineering Public Co., Ltd. NVDR",SET,Industrial Services,Engineering & Construction,0.08,0.09,0.08,0.08,0.0,176063609.0,3055600,THB
 PLT,Pilatus Marine Public Company Limited,SET,Utilities,Gas Distributors,0.53,0.53,0.52,0.53,0.0,508799973.0,1851200,THB
 PLT.R,Pilatus Marine Public Company Limited NVDR,SET,Utilities,Gas Distributors,0.53,0.53,0.52,0.53,0.0,508799973.0,1851200,THB
-PLTR01,Palantir Technologies Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,3.82,4.0,3.8,3.86,-2.0304568527918803,10125090850266.488,802570,THB
+PLTR01,Palantir Technologies Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,3.88,3.88,3.88,3.88,0.5181347150259072,10125090850266.488,4598,THB
 PLTR03,Palantir Technologies Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,2.82,2.92,2.8,2.82,-2.758620689655175,10125090850266.488,17396,THB
-PLTR06,Palantir Technologies Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,2.8,2.94,2.78,2.82,-2.0833333333333353,10125090850266.488,1568422,THB
+PLTR06,Palantir Technologies Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,2.84,2.86,2.84,2.86,1.4184397163120581,10125090850266.488,898,THB
 PLTR23,Palantir Technologies Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,2.22,2.32,2.2,2.24,-2.608695652173896,10125090850266.488,792208,THB
 PLUS,Royal Plus Public Company Limited,SET,Consumer Non-Durables,Beverages: Non-Alcoholic,1.39,1.45,1.36,1.4,2.1897810218977956,917900003.0,6906531,THB
 PLUS.R,Royal Plus Public Company Limited NVDR,SET,Consumer Non-Durables,Beverages: Non-Alcoholic,1.39,1.45,1.36,1.4,2.1897810218977956,917900003.0,6906500,THB
@@ -1444,10 +1444,10 @@ PTTGC,PTT Global Chemical Public Company Limited,SET,Energy Minerals,Oil Refinin
 PTTGC.R,PTT Global Chemical Public Company Limited NVDR,SET,Energy Minerals,Oil Refining/Marketing,34.75,35.0,34.0,34.5,0.7299270072992701,154428082397.0,29429500,THB
 PYLON,Pylon Public Co. Ltd.,SET,Industrial Services,Engineering & Construction,3.6,3.74,3.6,3.72,3.9106145251396685,2684546762.0,2349996,THB
 PYLON.R,Pylon Public Co. Ltd. NVDR,SET,Industrial Services,Engineering & Construction,3.6,3.74,3.6,3.72,3.9106145251396685,2684546762.0,2349900,THB
-PYPL06,"PayPal Holdings, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Commercial Services,Miscellaneous Commercial Services,3.1,3.1,3.06,3.1,2.6490066225165587,1361063553297.8015,4025,THB
+PYPL06,"PayPal Holdings, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Commercial Services,Miscellaneous Commercial Services,3.1,3.1,3.1,3.1,0.0,1361063553297.8015,1097,THB
 Q-CON,"Quality Construction Products Public Co., Ltd.",SET,Non-Energy Minerals,Construction Materials,6.2,6.25,6.15,6.25,0.8064516129032229,2479999924.0,58412,THB
 Q-CON.R,"Quality Construction Products Public Co., Ltd. NVDR",SET,Non-Energy Minerals,Construction Materials,6.2,6.25,6.15,6.25,0.8064516129032229,2479999924.0,58400,THB
-QCOM06,QUALCOMM Incorporated Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.08,3.16,3.04,3.06,-3.1645569620253196,6641393866089.274,618909,THB
+QCOM06,QUALCOMM Incorporated Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Semiconductors,3.08,3.08,3.08,3.08,0.6535947712418306,6641393866089.274,1007,THB
 QDC,Quantum D C Public Company Limited,SET,Finance,Real Estate Development,0.06,0.07,0.06,0.07,0.0,26033124.0,2625721,THB
 QDC.R,Quantum D C Public Company Limited NVDR,SET,Finance,Real Estate Development,0.06,0.07,0.06,0.07,0.0,26033124.0,2625700,THB
 QH,Quality Houses Public Co. Ltd.,SET,Finance,Real Estate Development,1.38,1.39,1.37,1.38,-0.7194244604316554,14892989241.0,11753224,THB
@@ -1457,7 +1457,7 @@ QHHRREIT,Quality Houses Hotel and Residence Freehold and Leasehold REIT,SET,Fina
 QHOP,Quality Hospitality Leasehold Property Fund Units,SET,Miscellaneous,Investment Trusts/Mutual Funds,3.24,3.36,3.24,3.36,0.0,642768000.0,28200,THB
 QLT,Qualitech Public Company Limited.,SET,Industrial Services,Engineering & Construction,1.95,2.0,1.94,1.94,4.301075268817196,183337377.0,10100,THB
 QLT.R,Qualitech Public Company Limited. NVDR,SET,Industrial Services,Engineering & Construction,1.95,2.0,1.94,1.94,4.301075268817196,183337377.0,10100,THB
-QQQM19,Invesco NASDAQ 100 ETF Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,19.8,19.9,19.6,19.8,-0.5025125628140596,,200291,THB
+QQQM19,Invesco NASDAQ 100 ETF Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,19.7,19.7,19.7,19.7,-0.5050505050505122,,50,THB
 QTC,QTC Energy PCL,SET,Producer Manufacturing,Electrical Products,4.56,4.56,4.5,4.54,0.4424778761062049,1541738226.0,36704,THB
 QTC.R,QTC Energy PCL NVDR,SET,Producer Manufacturing,Electrical Products,4.56,4.56,4.5,4.54,0.4424778761062049,1541738226.0,36700,THB
 QTCG,QTCG Public Company Limited,SET,Industrial Services,Engineering & Construction,0.1,0.1,0.09,0.09,-10.000000000000009,300000004.0,35818,THB
@@ -1472,21 +1472,21 @@ RATCH,Ratch Group Public Co. Ltd.,SET,Utilities,Electric Utilities,36.0,37.25,36
 RATCH.R,Ratch Group Public Co. Ltd. NVDR,SET,Utilities,Electric Utilities,36.0,37.25,36.0,37.25,2.7586206896551726,78843750000.0,11682700,THB
 RBF,R&B Food Supply Public Company Limited,SET,Consumer Non-Durables,Food: Specialty/Candy,5.1,5.15,5.05,5.1,0.0,10199999809.0,641602,THB
 RBF.R,R&B Food Supply Public Company Ltd NVDR,SET,Consumer Non-Durables,Food: Specialty/Candy,5.1,5.15,5.05,5.1,0.0,10199999809.0,641500,THB
-RBLX06,Roblox Corp. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,1.53,1.6,1.51,1.55,-0.6410256410256416,1320100742205.1965,1242004,THB
+RBLX06,Roblox Corp. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,1.55,1.55,1.55,1.55,0.0,1320100742205.1965,2,THB
 RCL,Regional Container Lines Public Co. Ltd.,SET,Transportation,Marine Shipping,32.25,32.75,32.0,32.0,-1.5384615384615385,26934375000.0,2996753,THB
 RCL.R,Regional Container Lines Public Co. Ltd. NVDR,SET,Transportation,Marine Shipping,32.25,32.75,32.0,32.0,-1.5384615384615385,26934375000.0,2996300,THB
 READY,Readyplanet Public Company Limited,SET,Commercial Services,Advertising/Marketing Services,3.04,3.1,3.0,3.08,1.986754966887419,362399929.0,140900,THB
 READY.R,Readyplanet Public Company Limited NVDR,SET,Commercial Services,Advertising/Marketing Services,3.04,3.1,3.0,3.08,1.986754966887419,362399929.0,140900,THB
-REMX03,VanEck Rare Earth and Strategic Metals ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,2.66,3.4,2.58,2.62,-1.5037593984962419,,251469,THB
-RGTI03,"Rigetti Computing, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Computer Processing Hardware,2.72,2.86,2.7,2.72,-4.2253521126760445,183140456962.02533,269762,THB
+REMX03,VanEck Rare Earth and Strategic Metals ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,2.62,2.62,2.62,2.62,0.0,,12371,THB
+RGTI03,"Rigetti Computing, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Computer Processing Hardware,2.72,2.72,2.72,2.72,0.0,183140456962.02533,7600,THB
 RICHY,Richy Place 2002 Public Co. Ltd.,SET,Finance,Real Estate Development,0.16,0.16,0.15,0.16,6.666666666666673,244256186.0,218410,THB
 RICHY.R,Richy Place 2002 Public Co. Ltd. NVDR,SET,Finance,Real Estate Development,0.16,0.16,0.15,0.16,6.666666666666673,244256186.0,218300,THB
 RJH,Rajthanee Hospital Public Company Limited,SET,Health Services,Hospital/Nursing Management,13.9,14.1,13.9,14.1,1.4388489208633042,4169999885.9999995,81668,THB
 RJH.R,Rajthanee Hospital Public Company Limited NVDR,SET,Health Services,Hospital/Nursing Management,13.9,14.1,13.9,14.1,1.4388489208633042,4169999885.9999995,81500,THB
-RKLB01,Rocket Lab Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Aerospace & Defense,2.66,2.76,2.62,2.66,-3.623188405797089,1614807528081.2793,1416032,THB
-RKLB03,Rocket Lab Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Aerospace & Defense,5.35,5.6,5.25,5.4,-1.818181818181812,1614807528081.2793,2476621,THB
-RKLB23,Rocket Lab Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Aerospace & Defense,1.34,1.4,1.32,1.34,-2.898550724637668,1614807528081.2793,1766428,THB
-RKLB80,Rocket Lab Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Aerospace & Defense,2.68,2.78,2.64,2.68,-3.597122302158261,1614807528081.2793,7211254,THB
+RKLB01,Rocket Lab Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Aerospace & Defense,2.7,2.7,2.66,2.66,0.0,1614807528081.2793,545,THB
+RKLB03,Rocket Lab Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Aerospace & Defense,5.4,5.4,5.35,5.4,0.0,1614807528081.2793,31038,THB
+RKLB23,Rocket Lab Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Aerospace & Defense,1.35,1.35,1.35,1.35,0.7462686567164185,1614807528081.2793,1,THB
+RKLB80,Rocket Lab Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Aerospace & Defense,2.7,2.7,2.68,2.7,0.7462686567164185,1614807528081.2793,14980,THB
 RML,Raimon Land Public Co Ltd,SET,Finance,Real Estate Development,0.09,0.1,0.09,0.1,11.111111111111121,521569928.0,156848,THB
 RML.R,Raimon Land Public Co Ltd NVDR,SET,Finance,Real Estate Development,0.09,0.1,0.09,0.1,11.111111111111121,521569928.0,156800,THB
 ROCK,Rockworth Public Co. Ltd.,SET,Producer Manufacturing,Office Equipment/Supplies,10.4,11.0,10.4,10.5,0.9615384615384581,207999992.0,6100,THB
@@ -1591,7 +1591,7 @@ SE-ED.R,SE-Education Public Co. Ltd. NVDR,SET,Consumer Services,Publishing: Book
 SE.R,SiamEast Solutions Public Co. Ltd. NVDR,SET,Producer Manufacturing,Industrial Machinery,0.51,0.51,0.5,0.5,-1.960784313725492,346521928.0,230700,THB
 SEAFCO,"Seafco Public Co., Ltd.",SET,Industrial Services,Engineering & Construction,2.92,2.96,2.9,2.96,0.0,2408486305.0,931185,THB
 SEAFCO.R,"Seafco Public Co., Ltd. NVDR",SET,Industrial Services,Engineering & Construction,2.92,2.96,2.9,2.96,0.0,2408486305.0,931100,THB
-SEAGATE23,Seagate Technology Holdings PLC Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,6.15,6.4,6.0,6.0,-1.6393442622950762,6799621037541.639,366841,THB
+SEAGATE23,Seagate Technology Holdings PLC Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,6.1,6.1,6.05,6.1,1.6666666666666607,6799621037541.639,1200,THB
 SEAOIL,Sea Oil Public Co. Ltd.,SET,Transportation,Marine Shipping,3.16,3.18,3.14,3.14,0.6410256410256416,2305631737.0,284026,THB
 SEAOIL.R,Sea Oil Public Co. Ltd. NVDR,SET,Transportation,Marine Shipping,3.16,3.18,3.14,3.14,0.6410256410256416,2305631737.0,284000,THB
 SECURE,Nforce Secure Public Co. Ltd.,SET,Distribution Services,Electronics Distributors,13.2,13.5,13.1,13.3,0.7575757575757683,1356181145.0,305835,THB
@@ -1622,7 +1622,7 @@ SHANG.R,Shangri-La Hotel Public Co. Ltd. NVDR,SET,Consumer Services,Hotels/Resor
 SHINCHEM19,"Shin-Etsu Chemical Co., Ltd. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Process Industries,Chemicals: Specialty,3.06,3.06,3.02,3.04,0.6622516556291397,2974036035725.596,317296,THB
 SHINCHEM80,Depositary Receipt on SHINCHEM Issued by KTB,SET,,,15.3,15.3,15.2,15.2,,,7738,THB
 SHOP03,"Shopify, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Commercial Services,Miscellaneous Commercial Services,2.74,2.88,2.74,2.78,0.0,5295892328755.759,24677,THB
-SHOP06,"Shopify, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Commercial Services,Miscellaneous Commercial Services,2.06,2.16,2.06,2.08,-0.9523809523809532,5295892328755.759,1737148,THB
+SHOP06,"Shopify, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Commercial Services,Miscellaneous Commercial Services,2.1,2.12,2.1,2.12,1.9230769230769247,5295892328755.759,4,THB
 SHR,"S Hotels & Resorts Public Co., Ltd.",SET,Consumer Services,Hotels/Resorts/Cruise lines,1.7,1.71,1.69,1.69,-1.1695906432748548,6145124353.0,883505,THB
 SHR.R,"S Hotels & Resorts Public Co., Ltd. NVDR",SET,Consumer Services,Hotels/Resorts/Cruise lines,1.7,1.71,1.69,1.69,-1.1695906432748548,6145124353.0,883500,THB
 SIA19,Singapore Airlines Ltd Units Thailand Depository Receipt Repr 0.01 Sh,SET,Transportation,Airlines,19.7,19.8,19.6,19.7,-0.5050505050505122,625260230466.106,22417,THB
@@ -1630,7 +1630,7 @@ SIAM,Siam Steel International Public Co. Ltd.,SET,Producer Manufacturing,Office 
 SIAM.R,Siam Steel International Public Co. Ltd. NVDR,SET,Producer Manufacturing,Office Equipment/Supplies,0.78,0.79,0.78,0.79,1.2820512820512833,462638102.0,32700,THB
 SICT,"Silicon Craft Technology Public Co., Ltd.",SET,Electronic Technology,Semiconductors,3.06,3.1,3.0,3.1,0.6493506493506499,1478399963.0,1749811,THB
 SICT.R,"Silicon Craft Technology Public Co., Ltd. NVDR",SET,Electronic Technology,Semiconductors,3.06,3.1,3.0,3.1,0.6493506493506499,1478399963.0,1749800,THB
-SIL03,Global X Silver Miners ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,2.52,2.56,2.5,2.54,-0.7812500000000007,,262894,THB
+SIL03,Global X Silver Miners ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,2.54,2.54,2.54,2.54,0.0,,9205,THB
 SIMAT,Simat Technologies Public Co. Ltd.,SET,Commercial Services,Commercial Printing/Forms,1.26,1.28,1.22,1.24,-1.5873015873015885,817191435.0,1681700,THB
 SIMAT.R,Simat Technologies Public Co. Ltd. NVDR,SET,Commercial Services,Commercial Printing/Forms,1.26,1.28,1.22,1.24,-1.5873015873015885,817191435.0,1681700,THB
 SINGER,Singer Thailand Public Co. Ltd.,SET,Distribution Services,Wholesale Distributors,12.7,13.1,12.3,12.6,-0.7874015748031469,10351798215.0,15152198,THB
@@ -1666,7 +1666,7 @@ SLP,Salee Printing Co. Ltd.,SET,Commercial Services,Commercial Printing/Forms,0.
 SLP.R,Salee Printing Co. Ltd. NVDR,SET,Commercial Services,Commercial Printing/Forms,0.51,0.52,0.5,0.51,-1.9230769230769247,623999977.0,48000,THB
 SMART,Smart Concrete Public Company Ltd,SET,Non-Energy Minerals,Construction Materials,0.53,0.54,0.53,0.54,0.0,562446014.0,495500,THB
 SMART.R,Smart Concrete Public Company Ltd NVDR,SET,Non-Energy Minerals,Construction Materials,0.53,0.54,0.53,0.54,0.0,562446014.0,495500,THB
-SMCI03,"Super Micro Computer, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Computer Processing Hardware,1.87,1.94,1.84,1.85,-1.5957446808510536,610025778947.3684,503076,THB
+SMCI03,"Super Micro Computer, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Computer Processing Hardware,1.86,1.86,1.86,1.86,0.540540540540541,610025778947.3684,6,THB
 SMD100,SMD Rise Public Company Limited,SET,Distribution Services,Medical Distributors,1.15,1.16,1.1,1.14,0.0,256157992.99999997,216076,THB
 SMD100.R,SMD Rise Public Company Limited NVDR,SET,Distribution Services,Medical Distributors,1.15,1.16,1.1,1.14,0.0,256157992.99999997,215800,THB
 SMFG19,"Sumitomo Mitsui Financial Group, Inc. Units Thailand Depository Receipt Repr 0.003333333 Sh",SET,Finance,Major Banks,14.5,14.5,14.3,14.5,2.1126760563380333,5354023804906.002,18816,THB
@@ -1684,20 +1684,20 @@ SMT,Stars Microelectronics (Thailand) Public Co. Ltd.,SET,Electronic Technology,
 SMT.R,Stars Microelectronics (Thailand) Public Co. Ltd. NVDR,SET,Electronic Technology,Semiconductors,3.72,3.8,3.62,3.68,-0.540540540540541,3102423618.0,12131200,THB
 SNC,"SNC Former Public Co., Ltd.",SET,Producer Manufacturing,Metal Fabrication,8.2,8.25,8.1,8.25,0.0,2988317780.0,127970,THB
 SNC.R,"SNC Former Public Co., Ltd. NVDR",SET,Producer Manufacturing,Metal Fabrication,8.2,8.25,8.1,8.25,0.0,2988317780.0,127800,THB
-SNDK03,SanDisk Corporation Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,15.2,16.3,14.7,15.0,-1.315789473684206,9451304256229.182,2024358,THB
-SNDK23,SanDisk Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,7.65,8.1,7.4,7.45,-1.3245033112582734,9451304256229.182,5144751,THB
-SNDK80,Sandisk Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,6.1,6.5,5.9,6.0,0.0,9451304256229.182,6495022,THB
+SNDK03,SanDisk Corporation Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,15.2,15.2,15.1,15.1,0.6666666666666643,9451304256229.182,915,THB
+SNDK23,SanDisk Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,7.55,7.55,7.55,7.55,1.342281879194626,9451304256229.182,4533,THB
+SNDK80,Sandisk Corporation Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Computer Peripherals,6.05,6.1,6.0,6.05,0.8333333333333304,9451304256229.182,120330,THB
 SNNP,Srinanaporn Marketing Public Company Limited,SET,Consumer Non-Durables,Food: Specialty/Candy,6.9,7.05,6.85,7.05,2.173913043478253,6210035462.0,996619,THB
 SNNP.R,Srinanaporn Marketing Public Company Limited NVDR,SET,Consumer Non-Durables,Food: Specialty/Candy,6.9,7.05,6.85,7.05,2.173913043478253,6210035462.0,996100,THB
-SNOW06,"Snowflake, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Technology Services,Packaged Software,4.36,4.56,4.32,4.36,-2.242152466367705,3018606789706.8623,84247,THB
-SNOW23,"Snowflake, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,3.94,4.14,3.92,4.0,-1.960784313725492,3018606789706.8623,217545,THB
+SNOW06,"Snowflake, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Technology Services,Packaged Software,4.38,4.4,4.38,4.4,0.9174311926605512,3018606789706.8623,6683,THB
+SNOW23,"Snowflake, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,3.96,4.0,3.96,4.0,0.0,3018606789706.8623,501,THB
 SNP,S&P Syndicate Public Co. Ltd.,SET,Consumer Services,Restaurants,8.9,8.9,8.9,8.9,0.0,4552463336.0,1501,THB
 SNP.R,S&P Syndicate Public Co. Ltd. NVDR,SET,Consumer Services,Restaurants,8.9,8.9,8.9,8.9,0.0,4552463336.0,1500,THB
 SNPS,Specialty Natural Products Public Company Limited,SET,Health Technology,Pharmaceuticals: Other,4.5,4.5,4.46,4.48,-0.8849557522123707,1830599992.0,28000,THB
 SNPS.R,Specialty Natural Products Public Company Limited NVDR,SET,Health Technology,Pharmaceuticals: Other,4.5,4.5,4.46,4.48,-0.8849557522123707,1830599992.0,28000,THB
 SO,SiamRajathanee Public Company Limited,SET,Commercial Services,Miscellaneous Commercial Services,4.62,4.66,4.62,4.64,0.0,2209335908.0,78650,THB
 SO.R,SiamRajathanee Public Company Limited NVDR,SET,Commercial Services,Miscellaneous Commercial Services,4.62,4.66,4.62,4.64,0.0,2209335908.0,78600,THB
-SOFI23,SoFi Technologies Inc Thailand Depositary Receipts Repr 1 Sh,SET,Finance,Finance/Rental/Leasing,6.25,6.55,6.15,6.35,0.7936507936507908,802461053364.4237,382867,THB
+SOFI23,SoFi Technologies Inc Thailand Depositary Receipts Repr 1 Sh,SET,Finance,Finance/Rental/Leasing,6.4,6.45,6.4,6.45,1.574803149606308,802461053364.4237,30000,THB
 SOFTBANK23,SoftBank Group Corp. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Communications,Specialty Telecommunications,2.5,2.5,2.44,2.46,0.0,7485823087866.54,352956,THB
 SOFTBANK80,SoftBank Group Corp. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Communications,Specialty Telecommunications,12.9,13.1,12.9,13.1,0.7692307692307665,7485823087866.54,23896,THB
 SOLAR,Solartron Public Co. Ltd.,SET,Utilities,Alternative Power Generation,0.23,0.23,0.22,0.23,0.0,275326963.0,661312,THB
@@ -1709,14 +1709,14 @@ SORKON,S. Khonkaen Foods Public Co. Ltd.,SET,Distribution Services,Food Distribu
 SORKON.R,S. Khonkaen Foods Public Co. Ltd. NVDR,SET,Distribution Services,Food Distributors,3.46,3.5,3.46,3.5,0.0,1094682144.0,71400,THB
 SP50001,Hang Seng Investment Index Funds Series IV - Hang Seng S&P 500 Index ETF units Thailand Depositary Receipt Repr 2 Shs,SET,Miscellaneous,Investment Trusts/Mutual Funds,25.5,25.5,25.25,25.25,-0.9803921568627451,,45318,THB
 SP500US19,State Street SPDR Portfolio S&P 500 ETF NVDR,SET,Miscellaneous,Investment Trusts/Mutual Funds,14.8,14.8,14.7,14.8,0.0,,21798,THB
-SP500US80,State Street SPDR Portfolio S&P 500 ETF Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,2.96,2.96,2.94,2.96,0.0,,591131,THB
+SP500US80,State Street SPDR Portfolio S&P 500 ETF Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,2.96,2.96,2.96,2.96,0.0,,3,THB
 SPA,Siam Wellness Group Public Company Limited,SET,Consumer Services,Other Consumer Services,3.28,3.28,3.24,3.26,-0.6097560975609762,4206597160.9999995,733828,THB
 SPA.R,Siam Wellness Group Public Company Limited NVDR,SET,Consumer Services,Other Consumer Services,3.28,3.28,3.24,3.26,-0.6097560975609762,4206597160.9999995,733800,THB
-SPACEX01,Depositary Receipt on SPACEX Issued by BLS,SET,,,3.2,3.24,3.18,3.22,,,9539153,THB
-SPACEX03,Depositary Receipt on SPACEX Issued by PI,SET,,,1.6,1.61,1.59,1.61,,,485766,THB
-SPACEX06,Depositary Receipt on SPACEX Issued by KKPS,SET,,,3.2,3.22,3.18,3.22,,,61524,THB
-SPACEX23,Depositary Receipt on SPACEX Issued by INVX,SET,,,4.02,4.04,3.98,4.04,,,752210,THB
-SPACEX80,Depositary Receipt on SPACEX Issued by KTB,SET,,,5.5,5.5,4.76,4.8,,,2926634,THB
+SPACEX01,Depositary Receipt on SPACEX Issued by BLS,SET,,,3.22,3.22,3.2,3.2,-0.6211180124223608,,625539,THB
+SPACEX03,Depositary Receipt on SPACEX Issued by PI,SET,,,1.61,1.61,1.6,1.6,-0.6211180124223608,,7130,THB
+SPACEX06,Depositary Receipt on SPACEX Issued by KKPS,SET,,,3.22,3.22,3.2,3.2,-0.6211180124223608,,14375,THB
+SPACEX23,Depositary Receipt on SPACEX Issued by INVX,SET,,,4.02,4.02,4.02,4.02,-0.4950495049505065,,55503,THB
+SPACEX80,Depositary Receipt on SPACEX Issued by KTB,SET,,,4.8,4.82,4.8,4.8,0.0,,161811,THB
 SPACK,"S. Pack & Print Public Co., Ltd.",SET,Commercial Services,Commercial Printing/Forms,1.44,1.5,1.44,1.47,2.0833333333333353,432000017.0,81040,THB
 SPACK.R,"S. Pack & Print Public Co., Ltd. NVDR",SET,Commercial Services,Commercial Printing/Forms,1.44,1.5,1.44,1.47,2.0833333333333353,432000017.0,81000,THB
 SPALI,"Supalai Public Co., Ltd.",SET,Finance,Real Estate Development,15.8,15.9,15.7,15.7,-1.2578616352201324,27954033497.0,3924147,THB
@@ -1728,10 +1728,10 @@ SPCG,SPCG Public Co. Ltd.,SET,Utilities,Alternative Power Generation,9.05,9.35,9
 SPCG.R,SPCG Public Co. Ltd. NVDR,SET,Utilities,Alternative Power Generation,9.05,9.35,9.05,9.3,2.7624309392265194,9554900055.0,2766900,THB
 SPCOM80,State Street Communication Services Select Sector SPDR ETF Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,3.72,3.92,3.68,3.76,0.5347593582887586,,20245,THB
 SPENGY80,State Street Energy Select Sector SPDR ETF Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,3.72,3.76,3.62,3.74,1.630434782608697,,133128,THB
-SPFIN80,State Street Financial Select Sector SPDR ETF units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,18.6,18.7,18.5,18.7,1.0810810810810774,,270,THB
+SPFIN80,State Street Financial Select Sector SPDR ETF units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,18.7,18.7,18.7,18.7,0.0,,1,THB
 SPG,Siam Pan Group Public Co. Ltd.,SET,Process Industries,Industrial Specialties,11.0,11.0,11.0,11.0,0.0,3795000000.0,400,THB
 SPG.R,Siam Pan Group Public Co. Ltd. NVDR,SET,Process Industries,Industrial Specialties,11.0,11.0,11.0,11.0,0.0,3795000000.0,400,THB
-SPHLTH80,State Street Health Care Select Sector SPDR ETF Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,5.4,5.4,5.3,5.4,-0.9174311926605472,,83244,THB
+SPHLTH80,State Street Health Care Select Sector SPDR ETF Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,5.4,5.4,5.4,5.4,0.0,,100,THB
 SPI,Saha Pathana Inter-Holding Public Co. Ltd.,SET,Finance,Real Estate Development,33.25,33.25,32.5,32.5,-2.2556390977443606,42787501923.0,1104,THB
 SPI.R,Saha Pathana Inter-Holding Public Co. Ltd. NVDR,SET,Finance,Real Estate Development,33.25,33.25,32.5,32.5,-2.2556390977443606,42787501923.0,1100,THB
 SPOT06,Spotify Technology SA Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Internet Software/Services,2.0,2.02,1.99,1.99,-0.5000000000000004,3289549398900.733,12511,THB
@@ -1740,7 +1740,7 @@ SPRC.R,Star Petroleum Refining Public Co. Ltd. NVDR,SET,Energy Minerals,Oil Refi
 SPREME,Supreme Distribution Public Company Limited,SET,Distribution Services,Electronics Distributors,1.54,1.56,1.53,1.56,1.960784313725492,1132199979.0,705608,THB
 SPREME.R,Supreme Distribution Public Company Limited NVDR,SET,Distribution Services,Electronics Distributors,1.54,1.56,1.53,1.56,1.960784313725492,1132199979.0,705500,THB
 SPRIME,S Prime Growth Leasehold Real Estate Investment Trust,SET,Finance,Real Estate Investment Trusts,4.12,4.16,4.12,4.14,0.0,1849545067.0,83341,THB
-SPTECH80,State Street Technology Select Sector SPDR ETF Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,12.3,12.4,12.1,12.3,-0.8064516129032229,,5938,THB
+SPTECH80,State Street Technology Select Sector SPDR ETF Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,12.3,12.3,12.3,12.3,0.0,,110,THB
 SPTX,SPT X Public Company Limited,SET,Technology Services,Information Technology Services,0.01,0.01,0.01,0.01,0.0,2086448703.0,2379699,THB
 SPTX.R,SPT X Public Company Limited NVDR,SET,Technology Services,Information Technology Services,0.01,0.01,0.01,0.01,0.0,2086448703.0,2379500,THB
 SPVI,S P V I Public Company Ltd,SET,Distribution Services,Electronics Distributors,3.38,3.44,3.38,3.44,2.380952380952383,1344000053.0,1093555,THB
@@ -1819,8 +1819,8 @@ SYMC,"Symphony Communication Public Co., Ltd.",SET,Communications,Specialty Tele
 SYMC.R,"Symphony Communication Public Co., Ltd. NVDR",SET,Communications,Specialty Telecommunications,5.75,6.1,5.7,5.95,4.385964912280701,2471832715.0,574300,THB
 SYNEX,"Synnex (Thailand) Public Co., Ltd.",SET,Distribution Services,Electronics Distributors,9.45,9.7,9.35,9.65,2.6595744680851063,7965195014.0,8018028,THB
 SYNEX.R,"Synnex (Thailand) Public Co., Ltd. NVDR",SET,Distribution Services,Electronics Distributors,9.45,9.7,9.35,9.65,2.6595744680851063,7965195014.0,8017600,THB
-SYNP03,"Synopsys, Inc.Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,2.94,2.96,2.94,2.96,1.3698630136986314,2841573584077.2817,2001,THB
-SYNP23,"Synopsys, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,5.95,6.0,5.85,6.0,0.8403361344537785,2841573584077.2817,5187,THB
+SYNP03,"Synopsys, Inc.Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,3.0,3.0,3.0,3.0,1.3513513513513526,2841573584077.2817,4001,THB
+SYNP23,"Synopsys, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Technology Services,Packaged Software,6.0,6.0,6.0,6.0,0.0,2841573584077.2817,1265,THB
 SYNTEC,Syntec Construction Public Co. Ltd.,SET,Industrial Services,Engineering & Construction,1.78,1.8,1.77,1.8,1.6949152542372896,2799993478.0,1601801,THB
 SYNTEC.R,Syntec Construction Public Co. Ltd. NVDR,SET,Industrial Services,Engineering & Construction,1.78,1.8,1.77,1.8,1.6949152542372896,2799993478.0,1601800,THB
 TACC,T.A.C. Consumer Public Co. Ltd.,SET,Consumer Non-Durables,Food: Specialty/Candy,6.35,6.4,6.3,6.35,0.0,3860799942.0,1065826,THB
@@ -1871,7 +1871,7 @@ TENCENT13,Tencent Holdings Ltd Units Thailand Depositery Receipts Repr 0.01 Sh,S
 TENCENT19,Tencent Holdings Ltd Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Technology Services,Packaged Software,9.85,9.85,9.75,9.8,0.0,17611412733097.82,83138,THB
 TENCENT23,Tencent Holdings Ltd Shs Thailand Depositary Receipts Repr 1 Sh,SET,Technology Services,Packaged Software,2.2,2.22,2.18,2.22,0.0,17611412733097.82,91719,THB
 TENCENT80,Tencent Holdings Ltd Units Thailand Depository Receipt Repr 0.01 Sh,SET,Technology Services,Packaged Software,19.9,19.9,19.5,19.6,0.0,17611412733097.82,562671,THB
-TER01,"Teradyne, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Electronic Production Equipment,4.18,4.3,4.1,4.16,-1.8867924528301903,1875168611059.294,425714,THB
+TER01,"Teradyne, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Electronic Production Equipment,4.14,4.14,4.12,4.12,-0.9615384615384623,1875168611059.294,60200,THB
 TER23,"Teradyne, Inc. Thailand Depositary Receipts Repr 1 Sh",SET,Electronic Technology,Electronic Production Equipment,5.9,6.05,5.75,5.8,-3.333333333333336,1875168611059.294,214448,THB
 TER80,Depositary Receipt on TER Issued by KTB,SET,,,11.7,11.7,11.5,11.7,,,46,THB
 TERA,Terabyte Plus Public Company Limited,SET,Distribution Services,Electronics Distributors,1.2,1.2,1.15,1.16,-0.8547008547008554,280800000.0,77360,THB
@@ -2041,7 +2041,7 @@ TSI.R,"Thai Setakij Insurance Public Co., Ltd. NVDR",SET,Finance,Property/Casual
 TSLA01,"Tesla, Inc. Units Thailand Depository Receipt Repr 0.1 Sh",SET,Consumer Durables,Motor Vehicles,39.75,40.25,39.25,39.75,0.6329113924050633,51013787648001.336,21671,THB
 TSLA03,"Tesla, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Consumer Durables,Motor Vehicles,4.52,4.58,4.44,4.46,-0.4464285714285817,51013787648001.336,12926,THB
 TSLA23,"Tesla, Inc. Shs Thailand Depositary Receipts Repr 1 Sh",SET,Consumer Durables,Motor Vehicles,2.6,2.64,2.56,2.6,0.0,51013787648001.336,105802,THB
-TSLA80,"Tesla, Inc. Units Thailand Depository Receipt Repr 0.005 Sh",SET,Consumer Durables,Motor Vehicles,2.7,2.74,2.66,2.68,0.0,51013787648001.336,3168642,THB
+TSLA80,"Tesla, Inc. Units Thailand Depository Receipt Repr 0.005 Sh",SET,Consumer Durables,Motor Vehicles,2.68,2.7,2.68,2.7,0.7462686567164185,51013787648001.336,1506,THB
 TSTE,Tste Public Company Limited,SET,Transportation,Other Transportation,10.4,10.6,10.1,10.5,5.0,4024935379.0,54600,THB
 TSTE.R,Tste Public Company Limited NVDR,SET,Transportation,Other Transportation,10.4,10.6,10.1,10.5,5.0,4024935379.0,54600,THB
 TSTH,Tata Steel (Thailand) Public Co. Ltd.,SET,Non-Energy Minerals,Steel,0.92,0.94,0.9,0.92,1.0989010989010999,7663602545.0,5765147,THB
@@ -2086,7 +2086,7 @@ UBA,Utility Business Alliance Public Company Limited,SET,Utilities,Water Utiliti
 UBA.R,Utility Business Alliance Public Company Limited NVDR,SET,Utilities,Water Utilities,1.1,1.1,1.09,1.1,0.0,660000014.0,90200,THB
 UBE,Ubon Bio Ethanol Public Company Limited,SET,Energy Minerals,Oil Refining/Marketing,0.61,0.64,0.6,0.6,3.448275862068969,2270285750.0,30168008,THB
 UBE.R,Ubon Bio Ethanol Public Company Limited NVDR,SET,Energy Minerals,Oil Refining/Marketing,0.61,0.64,0.6,0.6,3.448275862068969,2270285750.0,30167900,THB
-UBER06,"Uber Technologies, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Transportation,Other Transportation,2.48,2.54,2.46,2.48,0.0,5054415431412.393,472711,THB
+UBER06,"Uber Technologies, Inc. Units Thailand Depositery Receipts Repr 0.01 Sh",SET,Transportation,Other Transportation,2.5,2.5,2.5,2.5,0.8064516129032264,5054415431412.393,36,THB
 UBIS,UBIS (Asia) PCL,SET,Process Industries,Industrial Specialties,1.38,1.43,1.36,1.4,1.449275362318842,393299999.0,102704,THB
 UBIS.R,UBIS (Asia) PCL NVDR,SET,Process Industries,Industrial Specialties,1.38,1.43,1.36,1.4,1.449275362318842,393299999.0,102700,THB
 UBOT,United Robotics & Artificial Intelligence ETF Exchange Traded Fund Units,SET,Miscellaneous,Investment Trusts/Mutual Funds,14.04,14.04,14.04,14.04,2.4817518248175174,,512,THB
@@ -2100,7 +2100,7 @@ UMI,Union Mosaic Industry Public Co. Ltd.,SET,Producer Manufacturing,Building Pr
 UMI.R,Union Mosaic Industry Public Co. Ltd. NVDR,SET,Producer Manufacturing,Building Products,0.92,0.93,0.91,0.92,-1.0752688172043021,777949433.0,294600,THB
 UMS,Unique Mining Services Public Co. Ltd.,SET,Energy Minerals,Coal,0.66,0.84,0.63,0.81,24.61538461538462,1552427189.0,42221193,THB
 UMS.R,Unique Mining Services Public Co. Ltd. NVDR,SET,Energy Minerals,Coal,0.66,0.84,0.63,0.81,24.61538461538462,1552427189.0,42220800,THB
-UNH19,UnitedHealth Group Incorporated Units Thailand Depository Receipts Repr 0.01 Sh,SET,Health Services,Managed Health Care,7.1,7.2,7.05,7.1,-0.6993006993007091,12845311414890.072,24413,THB
+UNH19,UnitedHealth Group Incorporated Units Thailand Depository Receipts Repr 0.01 Sh,SET,Health Services,Managed Health Care,7.1,7.1,7.1,7.1,0.0,12845311414890.072,1,THB
 UNIQ,Unique Engineering & Construction Pcl,SET,Industrial Services,Engineering & Construction,2.64,2.68,2.64,2.68,1.5151515151515165,2853882717.0,133311,THB
 UNIQ.R,Unique Engineering & Construction Pcl NVDR,SET,Industrial Services,Engineering & Construction,2.64,2.68,2.64,2.68,1.5151515151515165,2853882717.0,133300,THB
 UNIQLO80,"FAST RETAILING CO., LTD. Units Thailand Depository Receipt Repr 0.001 Sh",SET,Retail Trade,Apparel/Footwear Retail,16.9,16.9,16.6,16.8,-1.7543859649122848,5312862507020.818,34230,THB
@@ -2143,8 +2143,8 @@ VIBHA.R,Vibhavadi Medical Center Public Co. Ltd. NVDR,SET,Health Services,Hospit
 VICR80,Depositary Receipt on VICR Issued by KTB,SET,,,9.35,9.35,8.8,8.85,,,1298,THB
 VIH,Srivichaivejvivat Public Co. Ltd.,SET,Health Services,Hospital/Nursing Management,8.5,8.6,8.5,8.55,0.0,5362806016.0,191035,THB
 VIH.R,Srivichaivejvivat Public Co. Ltd. NVDR,SET,Health Services,Hospital/Nursing Management,8.5,8.6,8.5,8.55,0.0,5362806016.0,191000,THB
-VISA06,Visa Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Finance,Finance/Rental/Leasing,1.45,1.47,1.43,1.47,0.6849315068493157,21902167088307.797,46836,THB
-VISA80,Visa Inc. units Thailand Depository Receipt Repr 0.01 Sh,SET,Finance,Finance/Rental/Leasing,1.45,1.47,1.44,1.46,0.0,21902167088307.797,680259,THB
+VISA06,Visa Inc. Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Finance,Finance/Rental/Leasing,1.47,1.47,1.47,1.47,0.0,21902167088307.797,100,THB
+VISA80,Visa Inc. units Thailand Depository Receipt Repr 0.01 Sh,SET,Finance,Finance/Rental/Leasing,1.46,1.47,1.46,1.47,0.6849315068493157,21902167088307.797,2689,THB
 VL,"V.L. Enterprise Public Co., Ltd.",SET,Transportation,Marine Shipping,0.84,0.84,0.8,0.8,0.0,946901186.0,106998,THB
 VL.R,"V.L. Enterprise Public Co., Ltd. NVDR",SET,Transportation,Marine Shipping,0.84,0.84,0.8,0.8,0.0,946901186.0,106900,THB
 VNFIN24,SSIAM VNFIN LEAD ETF Units Thailand Depository Receipt Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,1.86,1.86,1.83,1.84,-1.6042780748663115,,74326,THB
@@ -2155,12 +2155,12 @@ VPO,Vichitbhan Palmoil PCL,SET,Consumer Non-Durables,Food: Specialty/Candy,0.47,
 VPO.R,Vichitbhan Palmoil PCL NVDR,SET,Consumer Non-Durables,Food: Specialty/Candy,0.47,0.5,0.47,0.48,2.1276595744680873,441799999.0,3213100,THB
 VRANDA,"Veranda Resort Public Co., Ltd.",SET,Consumer Services,Hotels/Resorts/Cruise lines,4.54,4.56,4.54,4.54,-0.4385964912280609,1457748402.0,174000,THB
 VRANDA.R,"Veranda Resort Public Co., Ltd. NVDR",SET,Consumer Services,Hotels/Resorts/Cruise lines,4.54,4.56,4.54,4.54,-0.4385964912280609,1457748402.0,174000,THB
-VRT01,Vertiv Holdings Co. Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Electronic Production Equipment,4.06,4.14,3.96,4.08,-1.9230769230769247,4079844587974.684,242616,THB
-VRT23,Vertiv Holdings Co. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Electronic Production Equipment,3.12,3.16,3.04,3.06,-3.1645569620253196,4079844587974.684,885141,THB
-VRT80,Depositary Receipt on VRT Issued by KTB,SET,,,10.9,10.9,10.3,10.5,,,2392,THB
+VRT01,Vertiv Holdings Co. Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Electronic Production Equipment,4.04,4.04,4.0,4.0,-1.960784313725492,4079844587974.684,1427,THB
+VRT23,Vertiv Holdings Co. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Electronic Technology,Electronic Production Equipment,3.06,3.06,3.06,3.06,0.0,4079844587974.684,10815,THB
+VRT80,Depositary Receipt on VRT Issued by KTB,SET,,,10.5,10.5,10.4,10.4,-0.952380952380949,,212,THB
 VS,Viserve Enterprise Public Company Limited,SET,Commercial Services,Miscellaneous Commercial Services,0.38,0.38,0.38,0.38,0.0,170999998.0,21101,THB
 VS.R,Viserve Enterprise Public Company Limited NVDR,SET,Commercial Services,Miscellaneous Commercial Services,0.38,0.38,0.38,0.38,0.0,170999998.0,21100,THB
-VT03,Vanguard Total World Stock ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,3.52,3.52,3.48,3.52,0.0,,179543,THB
+VT03,Vanguard Total World Stock ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,3.52,3.52,3.5,3.5,-0.5681818181818187,,3516,THB
 WACOAL,Thai Wacoal Public Co. Ltd.,SET,Consumer Non-Durables,Apparel/Footwear,15.7,15.7,15.7,15.7,-0.6329113924050722,1896000023.0,1008,THB
 WACOAL.R,Thai Wacoal Public Co. Ltd. NVDR,SET,Consumer Non-Durables,Apparel/Footwear,15.7,15.7,15.7,15.7,-0.6329113924050722,1896000023.0,1000,THB
 WARRIX,Warrix Sport PCL,SET,Consumer Non-Durables,Apparel/Footwear,1.36,1.37,1.33,1.34,-2.189781021897812,822000003.0,3751112,THB
@@ -2192,12 +2192,12 @@ WINMED,Winnergy Medical Public Company Limited,SET,Distribution Services,Medical
 WINMED.R,Winnergy Medical Public Company Limited NVDR,SET,Distribution Services,Medical Distributors,0.84,0.89,0.82,0.89,7.228915662650609,331999993.0,559100,THB
 WINNER,Winner Group Enterprise PCL,SET,Consumer Non-Durables,Food: Major Diversified,2.18,2.2,2.16,2.18,0.0,1307944822.0,347736,THB
 WINNER.R,Winner Group Enterprise PCL NVDR,SET,Consumer Non-Durables,Food: Major Diversified,2.18,2.2,2.16,2.18,0.0,1307944822.0,347700,THB
-WMT06,Walmart Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Retail Trade,Specialty Stores,3.8,3.84,3.72,3.84,3.225806451612894,30194044697235.18,98614,THB
-WMT80,Depositary Receipt on WMT Issued by KTB,SET,,,3.78,3.84,3.78,3.84,,,953,THB
+WMT06,Walmart Inc. Shs Thailand Depositary Receipts Repr 1 Sh,SET,Retail Trade,Specialty Stores,3.84,3.84,3.84,3.84,0.0,30194044697235.18,3,THB
+WMT80,Depositary Receipt on WMT Issued by KTB,SET,,,3.84,3.84,3.84,3.84,0.0,,1,THB
 WORK,"Workpoint Entertainment Public Co., Ltd.",SET,Consumer Services,Broadcasting,3.46,3.54,3.46,3.52,0.571428571428572,1545461594.0,81128,THB
 WORK.R,"Workpoint Entertainment Public Co., Ltd. NVDR",SET,Consumer Services,Broadcasting,3.46,3.54,3.46,3.52,0.571428571428572,1545461594.0,81000,THB
 WORLD03,Global X Innovative Bluechip Top 10+ ETF Units Thailand Depositery Receipts Repr 0.01 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,4.32,4.34,4.3,4.32,-0.4608294930875478,,11816,THB
-WORLDA01,Invesco MSCI World UCITS ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,5.2,5.2,5.15,5.2,0.0,,29011,THB
+WORLDA01,Invesco MSCI World UCITS ETF Shs Thailand Depositary Receipts Repr 1 Sh,SET,Miscellaneous,Investment Trusts/Mutual Funds,5.2,5.2,5.2,5.2,0.0,,10000,THB
 WP,WP Energy Public Company Ltd,SET,Energy Minerals,Oil Refining/Marketing,3.7,3.72,3.66,3.72,0.540540540540541,1918450025.0,158409,THB
 WP.R,WP Energy Public Company Ltd NVDR,SET,Energy Minerals,Oil Refining/Marketing,3.7,3.72,3.66,3.72,0.540540540540541,1918450025.0,158400,THB
 WPH,Wattanapat Hospital Trang Public Company Limited,SET,Health Services,Hospital/Nursing Management,5.9,5.95,5.7,5.75,-2.542372881355938,4213337928.0,1267680,THB
