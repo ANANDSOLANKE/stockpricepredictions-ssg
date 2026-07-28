@@ -1,22 +1,22 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
-ABSA,Absa Bank Kenya Plc,NSEKE,Finance,Regional Banks,33.0,33.05,32.75,33.0,0.0,177882808350.0,739550,KES
+ABSA,Absa Bank Kenya Plc,NSEKE,Finance,Regional Banks,33.0,33.05,32.75,33.05,0.15151515151514292,177882808350.0,739804,KES
 AMAC,Africa Mega Agricorp PLC,NSEKE,Process Industries,Agricultural Commodities/Milling,115.0,118.0,115.0,116.75,1.5217391304347827,1502350675.0,762,KES
 BAT,British American Tobacco Kenya PLC,NSEKE,Consumer Non-Durables,Tobacco,580.0,580.0,568.0,577.0,1.2280701754385965,57800000000.0,13771,KES
-BKG,BK Group Plc,NSEKE,Finance,Major Banks,58.0,60.0,56.0,56.0,-3.0303030303030303,52012038086.0,9049,KES
+BKG,BK Group Plc,NSEKE,Finance,Major Banks,58.0,60.0,56.0,56.0,-3.0303030303030303,52012038086.0,10485,KES
 BOC,B.O.C Kenya Ltd,NSEKE,Process Industries,Chemicals: Specialty,172.25,175.0,172.25,175.0,0.0,3368139424.0,4736,KES
-BRIT,Britam Holdings PLC,NSEKE,Finance,Multi-Line Insurance,17.0,17.2,16.35,16.35,-3.8235294117646976,45170413051.0,386548,KES
-CARB,Carbacid Investments Ltd,NSEKE,Process Industries,Chemicals: Specialty,34.95,35.0,34.85,34.95,0.0,8958047828.0,64564,KES
+BRIT,Britam Holdings PLC,NSEKE,Finance,Multi-Line Insurance,17.0,17.2,16.35,16.5,-2.941176470588235,45170413051.0,386964,KES
+CARB,Carbacid Investments Ltd,NSEKE,Process Industries,Chemicals: Specialty,34.95,35.0,34.85,34.95,0.0,8958047828.0,64566,KES
 CGEN,Car & General (Kenya) PLC,NSEKE,Distribution Services,Wholesale Distributors,132.5,144.5,132.5,144.5,7.037037037037037,10547170433.0,20886,KES
-CIC,CIC Insurance Group PLC,NSEKE,Finance,Multi-Line Insurance,4.7,4.8,4.68,4.8,2.1276595744680775,13493564127.0,183010,KES
-COOP,Co-operative Bank of Kenya Ltd.,NSEKE,Finance,Regional Banks,35.0,35.6,34.9,35.0,0.0,205351101074.0,1004601,KES
+CIC,CIC Insurance Group PLC,NSEKE,Finance,Multi-Line Insurance,4.7,4.8,4.68,4.8,2.1276595744680775,13493564127.0,183023,KES
+COOP,Co-operative Bank of Kenya Ltd.,NSEKE,Finance,Regional Banks,35.0,35.6,34.9,35.0,0.0,205351101074.0,1004681,KES
 CRWN,Crown Paints Kenya PLC,NSEKE,Process Industries,Industrial Specialties,59.5,60.0,59.0,59.25,1.282051282051282,8506129471.0,3747,KES
-CTUM,Centum Investment Company PLC,NSEKE,Finance,Financial Conglomerates,15.35,15.6,15.0,15.5,0.9771986970684062,10114714814.0,43310,KES
-DTK,Diamond Trust Bank Kenya Ltd.,NSEKE,Finance,Regional Banks,155.5,157.0,150.5,154.0,-0.6451612903225806,43058744019.0,212176,KES
-EABL,East African Breweries Plc,NSEKE,Distribution Services,Food Distributors,277.25,277.25,272.0,273.75,-1.1732851985559567,216679388428.0,16556,KES
+CTUM,Centum Investment Company PLC,NSEKE,Finance,Financial Conglomerates,15.35,15.6,15.0,15.6,1.6286644951140066,10114714814.0,47375,KES
+DTK,Diamond Trust Bank Kenya Ltd.,NSEKE,Finance,Regional Banks,155.5,157.0,150.5,154.0,-0.6451612903225806,43058744019.0,212243,KES
+EABL,East African Breweries Plc,NSEKE,Distribution Services,Food Distributors,277.25,277.25,272.0,273.75,-1.1732851985559567,216679388428.0,16586,KES
 EGAD,Eaagads Ltd,NSEKE,Consumer Non-Durables,Food: Specialty/Candy,30.1,30.5,30.1,30.5,-0.3267973856209197,979180720.0,254,KES
-EQTY,Equity Group Holdings Limited,NSEKE,Finance,Regional Banks,88.0,88.0,86.5,87.0,0.2881844380403458,328309708008.0,1055000,KES
+EQTY,Equity Group Holdings Limited,NSEKE,Finance,Regional Banks,88.0,88.0,86.25,87.0,0.2881844380403458,328309708008.0,2055171,KES
 EVRD,Eveready East Africa PLC,NSEKE,Producer Manufacturing,Electrical Products,1.02,1.06,1.02,1.05,0.0,218399992.0,347242,KES
-FMLY,Family Bank Limited,NSEKE,Finance,Regional Banks,28.25,29.3,28.05,29.2,3.362831858407077,46637467140.0,1266568,KES
+FMLY,Family Bank Limited,NSEKE,Finance,Regional Banks,28.25,29.3,28.05,29.2,3.362831858407077,46637467140.0,1267912,KES
 FTGH,Flame Tree Group Holdings Ltd,NSEKE,Producer Manufacturing,Miscellaneous Manufacturing,1.92,1.92,1.83,1.9,-2.5641025641025665,327618392.0,25392,KES
 GLD,NEW GOLD ISSUER LTD.,NSEKE,Miscellaneous,Investment Trusts/Mutual Funds,4980.0,5130.0,4880.0,5100.0,2.4096385542168677,,769,KES
 HAFR,Home Afrika Ltd.,NSEKE,Consumer Durables,Homebuilding,1.03,1.05,1.02,1.02,-0.9708737864077678,421465507.0,582447,KES
@@ -25,28 +25,28 @@ HFCK,HFCB Group Plc,NSEKE,Finance,Finance/Rental/Leasing,11.85,11.95,11.65,11.8,
 IMH,I&M Group Plc,NSEKE,Finance,Regional Banks,68.75,69.0,67.5,68.25,0.0,112446259277.0,155802,KES
 JUB,Jubilee Holdings Ltd,NSEKE,Finance,Multi-Line Insurance,380.0,380.0,375.0,375.0,-1.3157894736842104,27412894773.0,3324,KES
 KAPC,Kapchorua Tea Kenya PLC,NSEKE,Process Industries,Agricultural Commodities/Milling,370.0,375.0,370.0,375.0,1.6260162601626018,5785847913.0,9070,KES
-KCB,KCB Group PLC,NSEKE,Finance,Regional Banks,83.75,85.0,83.75,84.0,0.2985074626865672,269127496643.0,2455894,KES
-KEGN,Kenya Electricity Generating Company PLC,NSEKE,Utilities,Electric Utilities,10.55,10.7,10.5,10.65,0.9478672985781956,69572208069.0,2820399,KES
+KCB,KCB Group PLC,NSEKE,Finance,Regional Banks,83.75,85.0,83.75,84.0,0.2985074626865672,269127496643.0,2456382,KES
+KEGN,Kenya Electricity Generating Company PLC,NSEKE,Utilities,Electric Utilities,10.55,10.7,10.5,10.6,0.47393364928908943,69572208069.0,3182723,KES
 KNRE,Kenya Re-Insurance Corporation Ltd.,NSEKE,Finance,Multi-Line Insurance,3.55,3.62,3.5,3.62,1.971830985915501,19710564737.0,3174241,KES
-KPC,Kenya Pipeline Company PLC,NSEKE,Industrial Services,Oil & Gas Pipelines,9.08,9.16,9.08,9.1,-0.21929824561403044,165740486880.0,284539,KES
-KPLC,Kenya Power & Lighting Company Plc,NSEKE,Utilities,Electric Utilities,20.95,21.5,20.8,21.45,2.386634844868735,40102646204.0,950270,KES
-KQ,Kenya Airways PLC,NSEKE,Transportation,Airlines,5.8,5.8,5.46,5.5,0.0,31129612940.0,688149,KES
+KPC,Kenya Pipeline Company PLC,NSEKE,Industrial Services,Oil & Gas Pipelines,9.08,9.16,9.08,9.12,0.0,165740486880.0,284569,KES
+KPLC,Kenya Power & Lighting Company Plc,NSEKE,Utilities,Electric Utilities,20.95,21.5,20.8,21.5,2.625298329355612,40102646204.0,981510,KES
+KQ,Kenya Airways PLC,NSEKE,Transportation,Airlines,5.8,5.8,5.46,5.5,0.0,31129612940.0,696653,KES
 KUKZ,Kakuzi PLC,NSEKE,Process Industries,Agricultural Commodities/Milling,437.5,437.5,430.0,430.0,-0.9216589861751152,8452500164.999999,186,KES
 KURV,Kurwitu Ventures Ltd,NSEKE,Finance,Financial Conglomerates,1450.0,1450.0,1450.0,1450.0,-2.684563758389262,,3,KES
 LBTY,Liberty Kenya Holdings Ltd.,NSEKE,Finance,Multi-Line Insurance,9.2,9.8,8.9,9.3,1.086956521739146,4939223473.0,26390,KES
 LIMT,Limuru Tea Plc,NSEKE,Process Industries,Agricultural Commodities/Milling,528.0,528.0,528.0,528.0,-0.1890359168241966,1291200051.0,7,KES
 LKL,Longhorn Publishers Limited,NSEKE,Consumer Services,Publishing: Books/Magazines,2.9,2.9,2.86,2.88,0.0,781902776.0,2463,KES
-NBV,Nairobi Business Ventures Ltd.,NSEKE,Consumer Non-Durables,Apparel/Footwear,1.37,1.4,1.34,1.4,5.26315789473683,1841048222.0,27963,KES
+NBV,Nairobi Business Ventures Ltd.,NSEKE,Consumer Non-Durables,Apparel/Footwear,1.37,1.4,1.34,1.4,5.26315789473683,1841048222.0,28063,KES
 NCBA,NCBA Group PLC,NSEKE,Finance,Major Banks,89.75,91.5,89.5,91.0,1.392757660167131,147864877930.0,697101,KES
 NMG,Nation Media Group Limited,NSEKE,Consumer Services,Publishing: Newspapers,13.0,13.0,12.0,13.0,0.0,2445292760.0,8259,KES
-NSE,Nairobi Securities Exchange PLC,NSEKE,Finance,Investment Banks/Brokers,23.8,24.0,23.65,24.0,0.8403361344537785,6202068865.0,160739,KES
+NSE,Nairobi Securities Exchange PLC,NSEKE,Finance,Investment Banks/Brokers,23.8,24.0,23.65,24.0,0.8403361344537785,6202068865.0,181859,KES
 OCH,Olympia Capital Holdings Limited,NSEKE,Producer Manufacturing,Building Products,7.2,7.2,6.7,7.0,-2.77777777777778,280799999.0,27052,KES
 PORT,East African Portland Cement Co. Ltd.,NSEKE,Non-Energy Minerals,Construction Materials,114.0,114.0,110.0,111.0,-1.7699115044247788,9945000000.0,1711,KES
 SASN,Sasini PLC,NSEKE,Process Industries,Agricultural Commodities/Milling,24.5,24.5,24.0,24.0,-2.0408163265306123,5564554021.0,34068,KES
 SBIC,Stanbic Holdings Plc,NSEKE,Finance,Regional Banks,293.0,293.0,281.5,292.0,-0.3412969283276451,114840931992.0,1792,KES
 SCAN,WPP Scangroup Plc,NSEKE,Commercial Services,Advertising/Marketing Services,2.05,2.2,2.05,2.1,2.4390243902439157,885919791.0,103834,KES
-SCBK,Standard Chartered Bank Kenya Ltd,NSEKE,Finance,Regional Banks,337.0,344.0,330.25,334.0,-0.8902077151335311,126489181747.0,39635,KES
-SCOM,Safaricom PLC,NSEKE,Communications,Wireless Telecommunications,35.9,36.0,35.8,36.0,0.2785515320334302,1420349211811.0,1944658,KES
+SCBK,Standard Chartered Bank Kenya Ltd,NSEKE,Finance,Regional Banks,337.0,344.0,330.25,334.0,-0.8902077151335311,126489181747.0,39636,KES
+SCOM,Safaricom PLC,NSEKE,Communications,Wireless Telecommunications,35.9,36.0,35.8,36.0,0.2785515320334302,1420349211811.0,1946833,KES
 SGL,Standard Group PLC,NSEKE,Consumer Services,Publishing: Newspapers,6.38,6.38,5.82,6.3,3.2786885245901667,495294727.0,1195,KES
 SKL,Shri Krishana Overseas Ltd,NSEKE,Process Industries,Containers/Packaging,10.05,10.25,10.0,10.25,2.5,,3835,KES
 SLAM,Sanlam Allianz Holdings (Kenya) PLC,NSEKE,Finance,Multi-Line Insurance,8.9,9.28,8.9,9.28,4.269662921348303,5757359730.0,16570,KES
