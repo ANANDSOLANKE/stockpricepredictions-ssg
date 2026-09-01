@@ -29,7 +29,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 36ID,iShares iBonds Dec 2036 Term USD Corp UCITS ETF USD,EURONEXT,,,4.9705,4.985,4.969,4.97,-0.10050251256281194,,504,USD
 37ID,iShares iBonds Dec 2037 Term EUR Corp UCITS ETF USD,EURONEXT,,,4.9845,4.9845,4.9785,4.9785,-0.02008233758408366,,240,USD
 3AAP,Leverage Shares 3x Apple ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,112.37,120.02,112.1,120.02,4.365217391304344,,122,EUR
-3AMD,Leverage Shares 3x AMD ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.566,3.566,3.165,3.25,-6.434432128976537,,37602,EUR
+3AMD,Leverage Shares 3x AMD ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.566,3.566,3.165,3.2805,-5.556355261263857,,37627,EUR
 3AMZ,Leverage Shares 3x Amazon ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.601,7.601,7.0,7.077,-13.558079882740925,,10630,EUR
 3ARKK,Leverage Shares 3x Long ARK Innovation ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,29.54,29.54,29.54,29.54,5.068468788902724,,0,EUR
 3BAB,Leverage Shares 3x Alibaba ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1.4706,1.4706,1.44,1.44,-8.28025477707007,,5651,EUR
@@ -37,122 +37,122 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 3CON,Leverage Shares 3x Long Coinbase ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.2619,0.2619,0.228,0.2434,7.508833922261491,,120389,EUR
 3CRM,Leverage Shares 3x Salesforce.Com ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1.619,1.619,1.5538,1.5628,-2.1782674011016487,,42516,EUR
 3DIS,Leverage Shares 3x Disney ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.1283,0.1283,0.1283,0.1283,-0.9266409266409318,,0,EUR
-3FB,Leverage Shares 3x Facebook ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.539,2.539,2.42,2.42,-4.461113304382155,,213,EUR
+3FB,Leverage Shares 3x Facebook ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.539,2.621,2.42,2.621,3.4741413343861063,,343,EUR
 3GDX,Leverage Shares 3x Long Gold Miners ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.337,9.337,8.4,8.759,-5.5327868852459,,18785,EUR
-3GOO,Leverage Shares 3x Alphabet ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,143.09,143.11,137.07,139.96,-0.765740215541679,,607,EUR
+3GOO,Leverage Shares 3x Alphabet ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,143.09,143.11,137.07,140.0,-0.7373794668179184,,614,EUR
 3JD,Leverage Shares 3x JD.Com ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1.9608,1.984,1.9182,1.984,-6.63529411764706,,8530,EUR
-3KWE,Leverage Shares 3x Long China ETP Securities,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.344,5.363,5.344,5.363,-3.3867771572689556,,4920,EUR
+3KWE,Leverage Shares 3x Long China ETP Securities,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.344,5.363,5.306,5.306,-4.41361916771753,,7113,EUR
 3MSF,Leverage Shares 3x Microsoft ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,47.15,47.15,45.07,46.42,-4.0314244366342695,,1793,EUR
 3NFL,Leverage Shares 3x Netflix ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.285,39.285,39.285,39.285,-1.405446103651656,,0,EUR
 3NIO,Leverage Shares 3x Long NIO ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.9005,4.6175,3.9005,4.2685,-20.689334819769588,,2983,EUR
-3NVD,Leverage Shares 3x NVIDIA ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,54.66,54.66,51.0,52.6,-2.7546681456831243,,3411,EUR
-3PLT,Leverage Shares 3x Palantir ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,767.54,767.54,723.26,745.0,-2.0226728740892703,,12,EUR
+3NVD,Leverage Shares 3x NVIDIA ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,54.66,54.66,51.0,53.44,-1.2017008689221773,,3531,EUR
+3PLT,Leverage Shares 3x Palantir ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,767.54,767.54,723.26,746.37,-1.8424998027302126,,35,EUR
 3PYP,Leverage Shares 3x PayPal ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.185,2.185,2.1465,2.1465,-6.99740034662044,,14,EUR
 3SMH,Leverage Shares 3x Long Semiconductors ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.566,12.566,11.71,11.85,-1.250000000000003,,3153,EUR
 3SQ,Leverage Shares 3x Square ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.5755,3.5755,3.5755,3.5755,-2.8660690029883225,,0,EUR
-3TSL,Leverage Shares 3x Tesla ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.783,5.783,5.292,5.333,-6.208230742173756,,49003,EUR
+3TSL,Leverage Shares 3x Tesla ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.783,5.783,5.292,5.364,-5.663032008441788,,49041,EUR
 3TSM,Leverage Shares 3x Long Taiwan Semiconductor ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,13.688,13.688,13.688,13.688,-0.8115942028985514,,0,EUR
 500E,Amundi Index Solutions - S&P 500 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,132.4669,132.4784,131.6024,131.9328,-0.23290845185451173,,2227,EUR
-500X,State Street SPDR S&P 500 Leaders UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,49.03,49.11,48.755,48.755,-0.3780138945647633,,2695,EUR
+500X,State Street SPDR S&P 500 Leaders UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,49.03,49.11,48.755,48.755,-0.3780138945647633,,2697,EUR
 5QQQ,Leverage Shares 5x Long Nasdaq 100 ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.1015,2.1015,1.9476,1.9476,-5.133950316609837,,285606,EUR
 5SPY,Leverage Shares 5x Long S&P 500 ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.6385,4.6385,4.4705,4.4945,-3.62388763804009,,107,EUR
 600X,State Street SPDR STOXX Europe 600 SRI UCITS ETF Accum Unhedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.11,39.16,38.79,38.88,-0.8163265306122455,,1770,EUR
 AADA-USD,21Shares Cardano ADA ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.6041,3.6041,3.5564,3.5564,11.906859660163626,,2848,USD
-AALB,Aalberts N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,43.78,44.08,42.58,42.82,-2.3266423357664303,4736284345.0,89563,EUR
-AAPY,IncomeShares Apple (AAPL) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.737,7.052,6.737,7.052,0.0,,0,EUR
+AALB,Aalberts N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,43.78,44.08,42.58,42.88,-2.189781021897812,4736284345.0,177079,EUR
+AAPY,IncomeShares Apple (AAPL) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.916,6.916,6.916,6.916,-1.9285309132160982,,1,EUR
 AAVE,21Shares Aave ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,14.3568,14.44,14.3568,14.44,-0.7560137457044755,,104,USD
 ABCH,21Shares Bitcoin Cash ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.638,10.638,10.241,10.241,-10.543326345213144,,10140,USD
-ABN,ABN AMRO Bank N.V. Depositary receipts,EURONEXT,Finance,Major Banks,41.82,41.98,41.2,41.56,-0.35962598897146625,33990967843.0,593214,EUR
-ACOMO,Acomo N.V.,EURONEXT,Distribution Services,Wholesale Distributors,24.15,24.35,24.05,24.05,-0.41407867494823136,714583292.0,5614,EUR
+ABN,ABN AMRO Bank N.V. Depositary receipts,EURONEXT,Finance,Major Banks,41.82,41.98,41.2,41.69,-0.047950131862870116,33990967843.0,1688881,EUR
+ACOMO,Acomo N.V.,EURONEXT,Distribution Services,Wholesale Distributors,24.15,24.35,24.05,24.2,0.20703933747412304,714583292.0,12486,EUR
 ACSW,iShares VI PLC - iShares MSCI ACWI Swap UCITS ETF Accum- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.508,5.511,5.466,5.466,-0.7084468664850082,,81193,USD
-AD,Koninklijke Ahold Delhaize N.V.,EURONEXT,Retail Trade,Food Retail,30.66,31.06,30.48,30.94,0.9461663947797804,26797284939.0,1051924,EUR
+AD,Koninklijke Ahold Delhaize N.V.,EURONEXT,Retail Trade,Food Retail,30.66,31.06,30.48,30.84,0.6199021207177856,26797284939.0,2800740,EUR
 ADAVE-XAMS,Valour Cardano ADA ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1.645,1.645,1.637,1.637,-4.991294254207782,,12650,EUR
 ADOT,21Shares Polkadot ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.4096,0.4296,0.4096,0.4296,16.675719717544798,,5000,USD
-ADPT,Leverage Shares Public Limited Company PANTARAI ADAPT ETP 2025-15.09.75 Structured Instrument,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.602,10.672,10.602,10.672,0.6602527824938718,,0,EUR
-ADYEN,Adyen NV,EURONEXT,Commercial Services,Miscellaneous Commercial Services,1040.6,1043.4,1008.6,1012.4,-3.341607790719888,33185356912.000004,63102,EUR
+ADPT,Leverage Shares Public Limited Company PANTARAI ADAPT ETP 2025-15.09.75 Structured Instrument,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.602,10.602,10.564,10.564,-0.35842293906810274,,0,EUR
+ADYEN,Adyen NV,EURONEXT,Commercial Services,Miscellaneous Commercial Services,1040.6,1043.4,1006.8,1006.8,-3.8762650372350707,33185356912.000004,112050,EUR
 AEME-USD,Amundi Core MSCI Emerging Markets -UCITS ETF DR- Capitalisation,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,118.73,118.73,117.24,117.24,-0.2891648239496542,,1892,USD
 AETH-USD,21Shares Ethereum ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.5938,27.7028,27.5938,27.7028,1.4907000685084584,,1800,USD
 AFET,21Shares Artificial Superintelligence Alliance ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.12,5.12,4.9453,4.9453,21.482263928466132,,1000,USD
-AGAC,iShares III PLC - iShares Core Global Aggregate Bond UCITS ETF Accum- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.445,5.45,5.443,5.448,-0.1466275659824048,,29350,USD
-AGED,iShares Ageing Population UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.459,9.46,9.405,9.442,-0.24300052826201468,,1308,EUR
+AGAC,iShares III PLC - iShares Core Global Aggregate Bond UCITS ETF Accum- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.445,5.45,5.443,5.45,-0.10997067448680767,,47559,USD
+AGED,iShares Ageing Population UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.459,9.46,9.405,9.431,-0.3592181722134252,,1378,EUR
 AGGD,iShares Global Aggregate Bond ESG SRI UCITS ETF Accum Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.535,5.535,5.534,5.534,0.10853835021708083,,5391,USD
-AGGE,iShares Global Aggregate Bond ESG SRI UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.994,3.994,3.994,3.994,-0.050050050050044544,,600,USD
-AGGH,iShares Core Global Aggregate Bond UCITS ETF Accum Hedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.8755,4.879,4.8695,4.875,0.010257462303820348,,26173,EUR
+AGGE,iShares Global Aggregate Bond ESG SRI UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.986,3.986,3.982,3.982,-0.3004506760140213,,2160,USD
+AGGH,iShares Core Global Aggregate Bond UCITS ETF Accum Hedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.8755,4.879,4.8695,4.8735,-0.020514924607658917,,29781,EUR
 AGIL,Agility Capital Holding Inc.,EURONEXT,Consumer Services,Casinos/Gaming,2.12,2.12,2.1,2.1,-0.9433962264150951,1483533.4962240001,200,USD
-AGN,Aegon Ltd.,EURONEXT,Finance,Multi-Line Insurance,7.97,8.034,7.888,7.982,0.47834843907351776,11868697067.0,2519482,EUR
-AGUG,iShares Core Global Aggregate Bond UCITS ETF Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.428,4.4355,4.428,4.4295,-0.11275228323373307,,40,USD
-AIAA,iShares AI Adopters & Applications UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.226,6.237,6.203,6.237,-0.6214149139579302,,457,USD
-AINF,iShares AI Infrastructure UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.106,11.106,10.852,10.886,-0.8561020036429982,,26747,USD
+AGN,Aegon Ltd.,EURONEXT,Finance,Multi-Line Insurance,7.97,8.034,7.888,7.994,0.6294058408862012,11868697067.0,5505061,EUR
+AGUG,iShares Core Global Aggregate Bond UCITS ETF Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.428,4.4355,4.428,4.435,0.0112752283233673,,181,USD
+AIAA,iShares AI Adopters & Applications UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.236,6.236,6.181,6.181,-0.897867564534232,,4,USD
+AINF,iShares AI Infrastructure UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.106,11.106,10.852,10.894,-0.7832422586520974,,141938,USD
 AINJ,21Shares Injective Staking ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.0589,5.1743,5.0589,5.1743,0.7692607307003082,,2671,USD
-AIRR,First Trust Global Funds ICAV - First Trust Rba American Industrial Renaissance UCITS ETF Accum A USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,26.46,26.473,25.948,25.948,-1.1128048780487731,,42978,USD
-AJAX,AFC Ajax N.V.,EURONEXT,Consumer Durables,Recreational Products,9.1,9.12,9.02,9.08,-1.304347826086948,168666661.0,825,EUR
-AKZA,Akzo Nobel N.V.,EURONEXT,Process Industries,Industrial Specialties,61.56,62.08,59.77,60.08,-2.6256077795786132,10578011155.0,198872,EUR
-ALFEN,Alfen NV,EURONEXT,Producer Manufacturing,Electrical Products,11.44,11.51,11.1,11.1,-3.141361256544513,248619932.0,223026,EUR
+AIRR,First Trust Global Funds ICAV - First Trust Rba American Industrial Renaissance UCITS ETF Accum A USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,26.46,26.473,25.948,25.976,-1.0060975609756073,,43073,USD
+AJAX,AFC Ajax N.V.,EURONEXT,Consumer Durables,Recreational Products,9.1,9.12,9.02,9.08,-1.304347826086948,168666661.0,996,EUR
+AKZA,Akzo Nobel N.V.,EURONEXT,Process Industries,Industrial Specialties,61.56,62.08,59.77,60.1,-2.5931928687196133,10578011155.0,428470,EUR
+ALFEN,Alfen NV,EURONEXT,Producer Manufacturing,Electrical Products,11.44,11.51,11.1,11.18,-2.4432809773124005,248619932.0,384713,EUR
 ALGO-USD,21Shares Algorand ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.8844,0.89,0.8844,0.89,10.806772908366533,,10,USD
 ALINK-USD,21Shares Chainlink ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.006,12.006,11.958,11.958,-0.7939470867866217,,470,USD
-ALLFG,Allfunds Group plc,EURONEXT,Finance,Investment Banks/Brokers,8.9,9.015,8.9,9.015,1.692047377326569,5332729683.0,164197,EUR
-ALTC,WisdomTree Physical Crypto Altcoins,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.721,2.721,2.721,2.721,0.554323725055437,,0,USD
+ALLFG,Allfunds Group plc,EURONEXT,Finance,Investment Banks/Brokers,8.9,9.045,8.9,9.045,2.030456852791875,5332729683.0,329362,EUR
+ALTC,WisdomTree Physical Crypto Altcoins,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.721,2.721,2.6895,2.6895,-0.6097560975609823,,0,USD
 ALTS,21Shares Crypto Mid-Cap Index (ALTS) ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.8431,12.8431,12.7823,12.7823,-2.800632670752676,,37,USD
-ALX,ALUMEXX N.V.,EURONEXT,Non-Energy Minerals,Aluminum,1.4,1.42,1.4,1.42,0.7092198581560291,10357176.0,1060,EUR
+ALX,ALUMEXX N.V.,EURONEXT,Non-Energy Minerals,Aluminum,1.4,1.42,1.4,1.41,0.0,10357176.0,1262,EUR
 AMDY,IncomeShares AMD Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,37.04,37.04,35.04,35.04,-5.399568034557236,,38,EUR
-AMG,AMG Critical Materials N.V.,EURONEXT,Non-Energy Minerals,Other Metals/Minerals,32.78,33.06,31.38,31.6,-2.8887523048555552,1185996043.0,103148,EUR
+AMG,AMG Critical Materials N.V.,EURONEXT,Non-Energy Minerals,Other Metals/Minerals,32.78,33.06,31.38,31.84,-2.151198524892438,1185996043.0,148654,EUR
 AMINA-USD,AMINA Crypto Asset Select Index ETP,EURONEXT,,,24.157,24.157,23.447,23.447,2.7701073854919915,,7,USD
 AMUND,Almunda Professionals N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,1.04,1.04,1.04,1.04,8.333333333333341,22538659.0,105,EUR
 AMZN,Leverage Shares 1x Amazon Tracker ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.857,6.857,6.857,6.857,-0.2763234438627127,,0,EUR
-AMZY,IncomeShares Amazon (AMZN) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.718,6.718,6.6,6.6,-3.5087719298245648,,26974,EUR
+AMZY,IncomeShares Amazon (AMZN) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.718,6.718,6.542,6.542,-4.356725146198831,,26976,EUR
 AOPT,21Shares Optimism ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.9054,0.9078,0.9054,0.9078,-18.48060344827585,,2,USD
-APAM,Aperam S.A.,EURONEXT,Non-Energy Minerals,Steel,47.24,47.6,45.98,46.8,-0.34071550255537414,3339956130.0,47696,EUR
+APAM,Aperam S.A.,EURONEXT,Non-Energy Minerals,Steel,47.24,47.6,45.98,46.98,0.04258943781941231,3339956130.0,76627,EUR
 APTOS-USD,21Shares Aptos Staking ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.943,0.943,0.943,0.943,10.421545667447303,,2500,USD
-ARCAD,Arcadis NV,EURONEXT,Industrial Services,Engineering & Construction,44.5,44.82,44.02,44.16,-0.9865470852018046,3596116008.0,31248,EUR
+ARCAD,Arcadis NV,EURONEXT,Industrial Services,Engineering & Construction,44.5,44.82,44.0,44.26,-0.7623318385650301,3596116008.0,129316,EUR
 ARCPF,Arcona Property Fund N.V.,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.1,6.1,6.1,6.1,0.8264462809917326,24170859.6,10,EUR
-ASIG,iShares USD Asia Investment Grade Corp Bond UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.428,5.468,5.428,5.457,-0.14638609332113464,,52102,USD
-ASM,ASM International N.V.,EURONEXT,Producer Manufacturing,Industrial Machinery,802.8,818.6,787.2,789.4,-2.301980198019805,39317720642.0,73638,EUR
-ASML,ASML Holding NV,EURONEXT,Electronic Technology,Semiconductors,1446.2,1474.6,1423.4,1428.4,-1.611792257886752,554565554552.0,312859,EUR
+ASIG,iShares USD Asia Investment Grade Corp Bond UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.428,5.468,5.428,5.461,-0.07319304666055919,,62471,USD
+ASM,ASM International N.V.,EURONEXT,Producer Manufacturing,Industrial Machinery,802.8,818.6,785.8,786.0,-2.722772277227723,39317720642.0,143550,EUR
+ASML,ASML Holding NV,EURONEXT,Electronic Technology,Semiconductors,1446.2,1474.6,1423.4,1435.4,-1.1296321807411396,554565554552.0,491209,EUR
 ASN,ASN Beleggingsfondsen UCITS N.V. - ASN Duurzaam Aandelenfonds,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,223.51,223.51,223.51,223.51,-0.343320848938831,,4737,EUR
 ASNO,ASN Beleggingsfondsen AIF N.V. - ASN Duurzaam Mixfonds Offensief,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,86.53,86.53,86.53,86.53,-0.37992171310154077,,6083,EUR
 ASOL,21Shares AG Solana ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,71.5642,71.5642,70.4374,70.4374,1.296306948918539,,208,USD
-ASRNL,ASR Nederland N.V.,EURONEXT,Finance,Multi-Line Insurance,72.68,72.96,71.88,72.66,0.19305019305019383,14507769404.0,142851,EUR
+ASRNL,ASR Nederland N.V.,EURONEXT,Finance,Multi-Line Insurance,72.68,72.96,71.88,72.82,0.41367898510755263,14507769404.0,463320,EUR
 ASUI,21Shares Sui Staking ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,20.5361,20.6336,20.3905,20.4336,-4.703363942897392,,4612,USD
 ATAO,21Shares Bittensor ETP 2025-open end,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.252,11.29,11.252,11.29,1.8953068592057678,,132,USD
 ATIA-USD,21Shares Celestia Staking ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.3633,0.3736,0.3625,0.3736,-2.0450970110120683,,4666,USD
-AUCO,L&G Gold Mining UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,108.2,108.46,104.42,105.66,-1.6567386448250196,,6328,EUR
+AUCO,L&G Gold Mining UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,108.2,108.46,104.42,105.42,-1.8801191362620964,,6913,EUR
 AUNI,21Shares Uniswap ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.7945,7.8225,7.6545,7.6545,11.672794117647053,,2000,USD
 AVAX,21Shares Avalanche ETP 2021-ohne festen Verfall auf Avalanche Exchange Traded Product,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1.344,1.366,1.344,1.365,12.623762376237627,,42671,USD
-AVGY,IncomeShares Broadcom (AVGO) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,23.965,25.74,23.965,25.74,0.0,,0,EUR
-AVTX,Avantium N.V.,EURONEXT,Producer Manufacturing,Industrial Machinery,4.85,4.92,4.77,4.805,-1.5368852459016429,123008789.0,112911,EUR
+AVGY,IncomeShares Broadcom (AVGO) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,23.965,24.04,23.965,24.04,-6.604506604506602,,0,EUR
+AVTX,Avantium N.V.,EURONEXT,Producer Manufacturing,Industrial Machinery,4.85,4.92,4.77,4.79,-1.8442622950819645,123008789.0,123234,EUR
 AWSR,UBS MSCI ACWI Socially Responsible UCITS ETF Accum h EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,22.75,22.75,22.51,22.51,-0.9896635144050928,,51,EUR
 AXEE,iShares Asia ex Japan Equity Enhanced Active UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.832,8.832,8.813,8.822,-0.664339601396251,,24561,USD
 AXLM,21Shares Stellar XLM ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.256,8.4478,8.2274,8.4478,-4.630842176563554,,219,USD
-AXRP,21Shares Ripple XRP ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,38.4423,38.4423,38.37,38.37,-2.781507963453751,,500,USD
-AXS,Accsys Technologies PLC,EURONEXT,Process Industries,Industrial Specialties,0.825,0.825,0.811,0.815,-0.24479804161566732,205287912.18969744,70498,EUR
+AXRP,21Shares Ripple XRP ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,37.3626,37.3626,36.9632,36.9632,-3.6664060463904016,,12,USD
+AXS,Accsys Technologies PLC,EURONEXT,Process Industries,Industrial Specialties,0.825,0.825,0.811,0.813,-0.48959608323133463,205287912.18969744,71560,EUR
 AXTZ,21Shares Tezos ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1.2222,1.2331,1.2186,1.2331,-5.357279914037905,,77930,USD
-AZRN,Azerion Group N.V,EURONEXT,Finance,Finance/Rental/Leasing,0.916,0.97,0.916,0.95,2.150537634408592,111861727.0,96516,EUR
+AZRN,Azerion Group N.V,EURONEXT,Finance,Finance/Rental/Leasing,0.916,0.97,0.916,0.96,3.225806451612894,111861727.0,101616,EUR
 B1TA,iShares III Plc - iShares AT1 Bond Active UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.02,5.02,5.002,5.002,-0.07990411506193464,,42050,EUR
 B1UH,iShares AT1 Bond Active UCITS ETF - Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.004,5.011,5.004,5.011,,,59652,USD
-BABY,Leverage Shares 3x Long NIO ETP USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.672,16.818,15.672,16.818,0.0,,0,EUR
-BAMNB,Koninklijke BAM Groep NV,EURONEXT,Industrial Services,Engineering & Construction,11.63,11.79,11.55,11.69,0.6024096385542194,3160639969.0,289291,EUR
-BATT,L&G Battery Value-Chain UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.5688,27.6214,26.9499,27.1741,-0.6692936411621058,,2107,EUR
+BABY,Leverage Shares 3x Long NIO ETP USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.492,15.492,15.492,15.492,-7.884409561184448,,10,EUR
+BAMNB,Koninklijke BAM Groep NV,EURONEXT,Industrial Services,Engineering & Construction,11.63,11.79,11.55,11.61,-0.08605851979345772,3160639969.0,593292,EUR
+BATT,L&G Battery Value-Chain UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.5688,27.6214,26.9499,27.0715,-1.0443320222829768,,2111,EUR
 BD27,iShares iBonds Dec 2027 Term Corp UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.032,5.032,5.029,5.029,-0.03975352812561678,,24365,USD
 BEEC,BlueSphere European Equity UCITS ETF - Accumulating CZK Hedged,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,249.35,249.85,249.35,249.6,0.36188178528347636,,53,CZK
 BEEH,BlueSphere European Equity UCITS ETF - Accumulating HUF Hedged,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3685.0,3685.0,3685.0,3685.0,0.43608612701008453,,100,HUF
-BESI,BE Semiconductor Industries N.V.,EURONEXT,Producer Manufacturing,Industrial Machinery,194.65,197.8,187.95,189.45,-3.094629156010236,15781655167.0,182694,EUR
-BFIT,Basic-Fit NV,EURONEXT,Consumer Services,Other Consumer Services,33.3,33.38,32.88,33.1,-1.252983293556091,2212320030.0,71321,EUR
+BESI,BE Semiconductor Industries N.V.,EURONEXT,Producer Manufacturing,Industrial Machinery,194.65,197.8,187.95,189.15,-3.2480818414322226,15781655167.0,321597,EUR
+BFIT,Basic-Fit NV,EURONEXT,Consumer Services,Other Consumer Services,33.3,33.38,32.88,33.36,-0.477326968973758,2212320030.0,137482,EUR
 BGPSF,BNP Paribas Fund III N.V. - BNP Paribas Global Property Securities Fund Classic,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,58.24,58.24,58.24,58.24,-0.7836456558773438,,154,EUR
 BIOT,Legal & General UCITS ETF Plc - Pharma Breakthrough,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,13.4079,13.408,13.4079,13.408,0.8120300751879606,,3,EUR
 BITC-XAMS,CoinShares Bitcoin ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,65.244,65.31,64.263,64.946,-0.14299112839988856,,2984,EUR
-BITC_XAMS,CoinShares Bitcoin ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,65.244,65.31,64.263,64.946,-0.056937968391742665,,2984,EUR
+BITC_XAMS,CoinShares Bitcoin ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,65.244,65.31,64.263,64.625,-0.5509133157902899,,2984,EUR
 BLDR-USD,iShares II PLC - iShares Europe Infrastructure Builders UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.857,5.872,5.857,5.872,-1.078167115902966,,32,USD
-BLKC,iShares Blockchain Technology UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,17.356,17.36,16.65,16.848,-0.2250384934265087,,810,USD
+BLKC,iShares Blockchain Technology UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,17.356,17.36,16.65,16.878,-0.04737652493189103,,815,USD
 BLNT,iShares Brazil LTN BRL Govt Bond UCITS ETF De Accumulating Units USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,97.34,98.21,97.3,97.57,-0.12283754734364269,,181,EUR
-BLOC_USD,WisdomTree Physical Crypto Market,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.257,6.257,6.257,6.257,0.465639049454077,,0,USD
-BLTN,iShares Brazil LTN BRL Govt Bond UCITS ETF De Accumulating Units USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,112.86,114.5,112.65,114.0,0.546833656729586,,10114,USD
+BLOC_USD,WisdomTree Physical Crypto Market,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.257,6.257,6.18,6.18,-0.7707129094412338,,0,USD
+BLTN,iShares Brazil LTN BRL Govt Bond UCITS ETF De Accumulating Units USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,112.86,114.5,112.65,114.05,0.5909331451755175,,10250,USD
 BNBA,21Shares Binance BNB ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,45.6,45.6227,45.6,45.6227,-2.189563502272525,,1,USD
 BNEH,iShares V PLC - iShares S&P U.S. Banks UCITS ETF Accum- Hedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.173,5.173,5.157,5.173,-0.6911115377231636,,7280,EUR
-BNJ,Banijay Group N.V. Class A,EURONEXT,Consumer Services,Movies/Entertainment,8.72,8.72,8.7,8.7,0.0,3725759785.0,3625,EUR
+BNJ,Banijay Group N.V. Class A,EURONEXT,Consumer Services,Movies/Entertainment,8.72,8.74,8.7,8.74,0.4597701149425394,3725759785.0,4005,EUR
 BNKT,iShares S&P U.S. Banks UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.205,6.215,6.205,6.212,-0.5443483829651088,,848,USD
 BOLD,21Shares Bitcoin Gold ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,49.9125,49.9125,49.8038,49.8038,0.07635765927605667,,1000,USD
-BRIC,iShares BIC 50 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,19.994,20.075,19.86,20.075,0.1496632576702299,,15212,EUR
-BRNL,Brunel International N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,7.52,7.64,7.52,7.58,-0.13175230566534632,385073518.0,55065,EUR
+BRIC,iShares BIC 50 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,19.994,20.075,19.86,20.07,0.1247193813918612,,15215,EUR
+BRNL,Brunel International N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,7.52,7.64,7.52,7.58,-0.13175230566534632,385073518.0,63432,EUR
 BSEU,BlueSphere European Equity UCITS ETF - Accumulating,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.274,10.274,10.274,10.274,-0.5421103581800671,,5,EUR
 BSTC,BlueSphere US Technology UCITS ETF - Accumulating CZK Hedged,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,207.29,207.29,206.0,206.0,-0.11636927851047764,,49,CZK
 BSTE,BlueSphere US Technology UCITS ETF - Accumulating,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.307,8.307,8.3,8.3,-2.616449606945899,,159,EUR
@@ -168,153 +168,153 @@ BTC0E-XAMS,Valour Bitcoin Zero,EURONEXT,Miscellaneous,Investment Trusts/Mutual F
 BTC2,Bitwise Core Bitcoin ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.843,7.843,7.8128,7.8128,-0.2081976216934284,,21,USD
 BTCE-USD,Bitwise Physical Bitcoin ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,68.82,69.132,68.82,69.132,-0.4521498718428606,,1374,USD
 BTCG,Bitwise Diaman Bitcoin & Gold ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,13.3466,13.3466,13.3466,13.3466,-2.3236071164584495,,1,USD
-BTCN,iShares Bitcoin ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.864,7.867,7.74,7.763,-0.8683437619716575,,443522,USD
-BTCW,WisdomTree Physical Bitcoin,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.79,18.83,18.54,18.64,-0.49113815929958765,,12757,USD
-BTMA,iShares USD Treasury Bond 7-10yr UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,145.41,145.5,145.35,145.5,0.06877579092159168,,508,EUR
+BTCN,iShares Bitcoin ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.864,7.867,7.74,7.766,-0.8300344783552597,,446503,USD
+BTCW,WisdomTree Physical Bitcoin,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.79,18.83,18.54,18.582,-0.8007687379884615,,12964,USD
+BTMA,iShares USD Treasury Bond 7-10yr UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,145.41,145.61,145.35,145.61,0.14442916093535624,,838,EUR
 CABKA,Cabka N.V.,EURONEXT,Finance,Finance/Rental/Leasing,2.06,2.08,2.06,2.08,0.9708737864077678,51601424.0,233,EUR
 CALF,Pacer ETFS ICAV - Pacer US Small Cap Cash Cows 100 UCITS ETF Accum A USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,33.605,33.605,33.44,33.44,-0.2981514609421629,,554,USD
 CANTN,21shares Canton Network ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,23.145,23.43,23.145,23.43,-2.293577981651379,,700,USD
 CBE7,iShares EUR Govt Bond 3-7 UCITS ETF (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,132.76,132.76,132.57,132.73,-0.07528419784688906,,1526,EUR
-CBEU,First Trust Global Funds ICAV - First Trust Nasdaq cyber Security UCTIS ETF Accum C EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,38.85,38.85,37.48,37.48,-1.8591254255040612,,5482,EUR
-CBSE,UBS (Lux) Fd. Sol. - Bloomberg MSCI Euro Ar. Liq. Corp. Sust.,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.707,12.707,12.674,12.698,-0.0786905886056011,,1427,EUR
+CBEU,First Trust Global Funds ICAV - First Trust Nasdaq cyber Security UCTIS ETF Accum C EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,38.85,38.85,37.35,37.35,-2.1995286724273275,,5687,EUR
+CBSE,UBS (Lux) Fd. Sol. - Bloomberg MSCI Euro Ar. Liq. Corp. Sust.,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.707,12.707,12.674,12.7,-0.06295247088448926,,1446,EUR
 CBTC,21Shares Bitcoin Core ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.7758,19.0679,18.7758,19.0679,0.76733235743315,,308,USD
-CBU7,iShares USD Treasury Bond 3-7yr UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,122.71,122.85,122.71,122.79,0.10598402087070738,,1026,EUR
+CBU7,iShares USD Treasury Bond 3-7yr UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,122.71,122.85,122.71,122.83,0.1385944888309161,,1108,EUR
 CBUG,iShares USD Treasury Bond 3-7yr UCITS ETF GBP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.4825,4.4834,4.4825,4.4834,-0.0066909026027653275,,20075,GBP
-CCEP,Coca-Cola Europacific Partners plc,EURONEXT,Consumer Non-Durables,Beverages: Non-Alcoholic,94.2,94.2,92.4,92.6,-0.32292787944027057,41207011159.78827,3853,EUR
+CCEP,Coca-Cola Europacific Partners plc,EURONEXT,Consumer Non-Durables,Beverages: Non-Alcoholic,94.2,94.2,92.4,92.5,-0.43057050592035057,41207011159.78827,8372,EUR
 CEMG,iShares MSCI EM Consumer Growth UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,30.81,30.81,30.74,30.74,-0.8227133408614374,,17,EUR
-CEMU,iShares Core MSCI EMU UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,247.87,248.43,245.37,245.37,-1.1282588548172556,,1949,EUR
-CETH-XAMS,CoinShares Ethereum Staking ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,64.73,64.811,63.769,64.135,-0.7797150327201701,,1501,EUR
-CETH_XAMS,CoinShares Ethereum Staking ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,64.73,64.811,63.769,64.135,-0.7797150327201701,,1501,EUR
-CEU2-USD,Amundi Index Solutions - MSCI Europe UCITS ETF DR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,145.1,145.1,144.52,144.52,-0.7826445146230855,,465,USD
-CEUU,iShares Core MSCI EMU UCITS ETF AccumHedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.746,12.748,12.626,12.626,-0.9725490196078475,,12735,USD
+CEMU,iShares Core MSCI EMU UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,247.87,248.43,245.37,245.77,-0.9670790184147873,,2065,EUR
+CETH-XAMS,CoinShares Ethereum Staking ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,64.73,64.811,63.769,63.989,-1.00558486362722,,1502,EUR
+CETH_XAMS,CoinShares Ethereum Staking ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,64.73,64.811,63.769,63.999,-0.9901143272637162,,1502,EUR
+CEU2-USD,Amundi Index Solutions - MSCI Europe UCITS ETF DR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,145.1,145.1,144.16,144.16,-1.0297954139777565,,736,USD
+CEUU,iShares Core MSCI EMU UCITS ETF AccumHedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.746,12.748,12.626,12.634,-0.9098039215686247,,58519,USD
 CGBI,iShares China CNY Govt Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.4306,5.4311,5.4306,5.4311,-0.10484108298999482,,6,USD
-CITY,iShares Smart City Infrastructure UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.614,10.614,10.476,10.476,-1.6338028169014036,,4361,USD
-CMCOM,CM.com N.V.,EURONEXT,Technology Services,Packaged Software,6.86,6.97,6.86,6.9,0.5830903790087468,227854591.0,7508,EUR
-CMEX,iShares MSCI Mexico Capped UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,192.67,194.63,191.24,194.63,1.975269831289941,,65,EUR
-CNDX,iShares NASDAQ 100 UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1459.8,1460.8,1437.6,1444.0,-0.49614112458655224,,2435,EUR
+CITY,iShares Smart City Infrastructure UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.614,10.614,10.476,10.49,-1.5023474178403768,,7039,USD
+CMCOM,CM.com N.V.,EURONEXT,Technology Services,Packaged Software,6.86,6.97,6.86,6.87,0.14577259475218346,227854591.0,8692,EUR
+CMEX,iShares MSCI Mexico Capped UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,192.67,194.63,191.24,192.69,0.9588179817667316,,66,EUR
+CNDX,iShares NASDAQ 100 UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1459.8,1460.8,1437.6,1446.2,-0.34454244762954794,,2444,EUR
 CNYA,iShares MSCI China A UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.198,5.198,5.169,5.18,-0.6139677666922493,,2715,EUR
-CNYB,iShares China CNY Bond UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.682,5.71,5.682,5.71,-0.31424581005586233,,400,USD
-COGLD,EDR Certified Origin Physical Gold PLC 0 % Notes 2022-08.12.52,EURONEXT,,,240.2617,240.2617,240.2617,240.2617,0.03972247563458475,,0,USD
+CNYB,iShares China CNY Bond UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.682,5.729,5.682,5.729,0.01745810055866505,,2802,USD
+COGLD,EDR Certified Origin Physical Gold PLC 0 % Notes 2022-08.12.52,EURONEXT,,,240.2617,240.2617,236.3934,236.3934,-1.57095312706237,,0,USD
 COIB,Leverage Shares 1x Coinbase Tracker ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.5065,3.5065,3.5065,3.5065,3.86552132701422,,0,EUR
-COIY,IncomeShares Coinbase (COIN) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.8833,0.9693,0.8833,0.9693,0.0,,0,EUR
-COLT,COLT CZ GROUP SE,EURONEXT,Electronic Technology,Aerospace & Defense,41.04,41.04,38.385,39.4,-3.9961013645224184,2453842952.0386486,1361,EUR
-COMF,L&G Longer Dated All Commodities UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,28.461,28.532,28.34,28.45,2.492974998198718,,6902,EUR
-COPM,iShares IV PLC - iShares Copper Miners UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.164,12.232,11.88,11.9,-1.5389707099122947,,84792,USD
-COWZ,Pacer US Cash Cows 100 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,26.9478,26.9478,26.85,26.85,-0.3292660744579335,,450,USD
-CPXJ,iShares Core MSCI Pacific ex Japan UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,218.7,218.9,217.15,217.8,-0.4115226337448456,,3336,EUR
-CRBN,Corbion NV,EURONEXT,Consumer Non-Durables,Food: Specialty/Candy,20.26,20.38,20.06,20.18,-0.0990099009900969,1162620682.0,44710,EUR
+COIY,IncomeShares Coinbase (COIN) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.8802,0.8802,0.8802,0.8802,-9.192200557103071,,709,EUR
+COLT,COLT CZ GROUP SE,EURONEXT,Electronic Technology,Aerospace & Defense,41.04,41.04,38.385,38.9,-5.214424951267058,2453842952.0386486,1366,EUR
+COMF,L&G Longer Dated All Commodities UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,28.461,28.532,28.34,28.524,2.75956481014483,,6972,EUR
+COPM,iShares IV PLC - iShares Copper Miners UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.164,12.232,11.88,11.93,-1.2907496276683814,,88389,USD
+COWZ,Pacer US Cash Cows 100 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,26.9478,26.9478,26.85,26.908,-0.11396244065229394,,1452,USD
+CPXJ,iShares Core MSCI Pacific ex Japan UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,218.7,218.9,217.15,218.1,-0.27434842249656805,,3417,EUR
+CRBN,Corbion NV,EURONEXT,Consumer Non-Durables,Food: Specialty/Candy,20.26,20.38,20.06,20.22,0.0990099009900969,1162620682.0,93334,EUR
 CRON-USD,21Shares Cronos ETP-open end on CRO,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.4312,10.7,10.4312,10.7,-3.310923154774818,,210,USD
 CSCA,iShares MSCI Canada UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,274.99,274.99,272.0,272.0,-0.755281497427662,,430,EUR
-CSG,CSG N.V.,EURONEXT,Electronic Technology,Aerospace & Defense,18.25,18.44,17.1,17.17,-5.2950910093767085,18129999161.0,998578,EUR
+CSG,CSG N.V.,EURONEXT,Electronic Technology,Aerospace & Defense,18.25,18.44,17.05,17.354,-4.280198565912851,18129999161.0,1686216,EUR
 CSJP,iShares MSCI Japan UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,258.8,259.0,255.59,256.25,0.1054769903898782,,743,EUR
-CSPEH,iShares VII PLC - iShares Core S&P 500 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.552,5.552,5.513,5.519,-0.39704024544306515,,660991,EUR
-CSPX,iShares Core S&P 500 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,714.51,715.14,709.34,710.85,-0.1811441570477664,,6931,EUR
+CSPEH,iShares VII PLC - iShares Core S&P 500 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.552,5.552,5.513,5.522,-0.34289839379173664,,778889,EUR
+CSPX,iShares Core S&P 500 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,714.51,715.14,709.34,711.68,-0.06459404049766007,,7068,EUR
 CSUK,iShares MSCI UK UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,275.75,275.75,274.95,274.95,-1.5750850187936403,,24,USD
 CSUS,iShares MSCI USA UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,687.95,687.95,683.35,684.74,-0.28832712022367457,,1097,EUR
-CSX5,iShares Core EURO STOXX 50 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,250.05,250.55,247.7,247.95,-0.9190809190809236,,5103,EUR
+CSX5,iShares Core EURO STOXX 50 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,250.05,250.55,247.7,248.25,-0.7992007992007992,,5140,EUR
 CT2B,iShares Smart City Infrastructure UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.886,9.886,9.825,9.825,-0.8677227323176299,,4145,USD
-CTAC,Ctac NV,EURONEXT,Technology Services,Information Technology Services,2.88,2.88,2.7,2.79,1.4545454545454557,38909813.0,1365,EUR
-CTEC,iShares MSCI China Tech UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.8825,4.8825,4.826,4.862,-1.4492753623188475,,35230,USD
-CTPNV,CTP N.V.,EURONEXT,Finance,Real Estate Development,14.2,14.22,13.94,14.04,-1.4044943820224793,6980238164.0,93464,EUR
+CTAC,Ctac NV,EURONEXT,Technology Services,Information Technology Services,2.88,2.88,2.7,2.79,1.4545454545454557,38909813.0,1377,EUR
+CTEC,iShares MSCI China Tech UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.8825,4.8825,4.826,4.8535,-1.6215668389581446,,35231,USD
+CTPNV,CTP N.V.,EURONEXT,Finance,Real Estate Development,14.2,14.22,13.94,14.02,-1.5449438202247237,6980238164.0,159874,EUR
 CUEB,iShares VII PLC - iShares USD Treasury Bond 3-7yr UCITS ETF AccumHedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.948,4.9495,4.948,4.948,-0.12111425111020063,,4106,EUR
-CVC,CVC Capital Partners plc,EURONEXT,Finance,Investment Managers,14.44,14.45,13.96,14.05,-2.9025570145127846,15127147063.0,679553,EUR
+CVC,CVC Capital Partners plc,EURONEXT,Finance,Investment Managers,14.44,14.45,13.96,14.0,-3.2480995162405017,15127147063.0,1644814,EUR
 CYBA,iShares China CNY Bond UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.5699,6.5785,6.5521,6.5768,0.37238263842257596,,3138,USD
-CYBE,iShares China CNY Bond UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.148,6.165,6.142,6.142,-0.08134049129656569,,20418,EUR
+CYBE,iShares China CNY Bond UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.148,6.165,6.142,6.153,0.09760858955587016,,42214,EUR
 CYBR,Rize Cybersecurity and Data Privacy UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.065,10.065,9.94,9.94,-0.33089341221298757,,10,EUR
-CYBU,iShares China CNY Bond UCITS ETF Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.92,5.946,5.919,5.938,0.1349072512647556,,24944,USD
+CYBU,iShares China CNY Bond UCITS ETF Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.92,5.946,5.919,5.922,-0.1349072512647556,,72150,USD
 DCSH,iShares VI PLC - iShares USD Overnight Rate Swap UCITS ETF Accum- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.019,5.019,5.017,5.017,-0.039848575413424576,,30000,USD
 DDBB,iShares USD Development Bank Bonds UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.483,5.489,5.483,5.489,0.072926162260703,,1,USD
-DFEU,Ishares V Plc - Ishares Europe Defence Ucits ETF Accum Shs EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.454,5.464,5.395,5.408,-1.9757114373753846,,112878,EUR
-DGTL,iShares Digitalisation UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.442,10.464,10.326,10.326,-1.1866028708133853,,5994,EUR
-DHYD,iShares II PLC - iShares USD High Yield Corp Bond ESG SRI UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.5405,4.56,4.5175,4.523,0.1328315253486681,,16463,USD
-DHYE,iShares II PLC - iShares USD High Yield Corp Bond ESG SRI UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.8,5.8,5.76,5.765,0.06943239021002533,,8799,EUR
+DFEU,Ishares V Plc - Ishares Europe Defence Ucits ETF Accum Shs EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.454,5.464,5.395,5.407,-1.9938372303788348,,115534,EUR
+DGTL,iShares Digitalisation UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.442,10.464,10.28,10.28,-1.6267942583732053,,6013,EUR
+DHYD,iShares II PLC - iShares USD High Yield Corp Bond ESG SRI UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.5405,4.56,4.5175,4.5265,0.21031658180208243,,45994,USD
+DHYE,iShares II PLC - iShares USD High Yield Corp Bond ESG SRI UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.8,5.8,5.76,5.77,0.1562228779725647,,11074,EUR
 DI35,iShares V plc - iShares iBonds Dec 2035 Term USD Corp UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,99.76,99.76,99.67,99.67,-0.06016243858417955,,5000,USD
-DJMC,iShares EURO STOXX Mid UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,91.6,91.6,90.83,91.0,-0.5029521102121077,,178,EUR
+DJMC,iShares EURO STOXX Mid UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,91.6,91.6,90.74,91.02,-0.48108462715941147,,294,EUR
 DJSC,iShares EURO STOXX Small UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,54.41,54.41,54.0,54.0,-0.9356081452944377,,16,EUR
-DSFIR,DSM-Firmenich AG,EURONEXT,Consumer Non-Durables,Household/Personal Care,96.42,96.64,94.96,95.2,-0.5640275746814206,22927906315.0,288796,EUR
+DSFIR,DSM-Firmenich AG,EURONEXT,Consumer Non-Durables,Household/Personal Care,96.42,96.64,94.96,95.5,-0.25067892208062975,22927906315.0,706678,EUR
 DTEH,iShares IV PLC - iShares USD Treasury Bond 20+yr UCITS ETF AccumHedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.7945,4.8135,4.7935,4.8135,0.12480499219969271,,7217,EUR
-DTM,VanEck Multi-Asset Conservative Allocation UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,66.43,66.43,66.38,66.38,0.2113526570048318,,5,EUR
+DTM,VanEck Multi-Asset Conservative Allocation UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,66.43,66.43,66.19,66.38,0.2113526570048318,,70,EUR
 DXDC-USD,DX BLOOMBERG DIVERSIFIED COMMODITIES AND STRATEGIC METALS UCITS ETF X Capitalisation X,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.162,8.162,8.12,8.121,0.16033547113961397,,4676,USD
 EARTH,GREEN EARTH GROUP N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,1.03,1.055,1.025,1.055,0.476190476190466,13120019.0,10295,EUR
-EAS2P,Ease2pay N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,0.64,0.7,0.576,0.596,-0.6666666666666673,14125330.0,379912,EUR
-EBUS,Ebusco Holding N.V.,EURONEXT,Producer Manufacturing,Trucks/Construction/Farm Machinery,0.24,0.24,0.2255,0.226,-5.042016806722682,58553278.0,324921,EUR
+EAS2P,Ease2pay N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,0.64,0.7,0.576,0.61,1.6666666666666683,14125330.0,389987,EUR
+EBUS,Ebusco Holding N.V.,EURONEXT,Producer Manufacturing,Trucks/Construction/Farm Machinery,0.24,0.24,0.2255,0.2265,-4.831932773109236,58553278.0,359772,EUR
 ECAR,iShares Electric Vehicles & Driving Technology UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.856,10.868,10.626,10.654,-1.6795865633074971,,17872,EUR
-ECMPA,Eurocommercial Properties NV,EURONEXT,Finance,Real Estate Investment Trusts,27.15,27.3,26.8,26.8,-0.9242144177449167,1487797115.0,24008,EUR
+ECMPA,Eurocommercial Properties NV,EURONEXT,Finance,Real Estate Investment Trusts,27.15,27.3,26.8,27.15,0.3696857670979588,1487797115.0,47371,EUR
 ECOM,L&G Ecommerce Logistics UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,17.3646,17.4058,17.3197,17.3346,1.328672554991142,,1471,EUR
 ECT,Eurocastle Investment Limited,EURONEXT,Finance,Investment Managers,13.5,13.5,13.5,13.5,-3.571428571428571,13601925.0,1,EUR
 EEDV,State Street SPDR S&P Euro Dividend Aristocrats Screened UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.045,27.045,26.885,26.89,-0.3151065801668243,,6048,EUR
 EH1H,iShares Broad EUR High Yield Corp Bond UCITS ETF Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.091,5.091,5.0637,5.0637,-0.6981350381425002,,3887,USD
 EHEB,iShares III PLC - iShares EUR High Yield Corp Bond Enhanced Active UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.108,5.115,5.108,5.115,-0.19512195121950804,,20470,EUR
-EHYA,iShares II PLC - iShares EUR High Yield Corp Bond ESG SRI UCITS ETF Accum EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.9,5.9,5.88,5.888,-0.1695489996608984,,56204,EUR
+EHYA,iShares II PLC - iShares EUR High Yield Corp Bond ESG SRI UCITS ETF Accum EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.9,5.9,5.88,5.892,-0.10172939979653,,75247,EUR
 EHYD,iShares II PLC - iShares EUR High Yield Corp Bond ESG SRI UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.49,4.49,4.478,4.482,-0.16705646508518535,,21862,EUR
-EJP3,WisdomTree Long JPY Short EUR 3x Daily,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.1445,4.1445,4.1445,4.1445,-0.060284543043173155,,0,EUR
-EMEE,iShares Emerging Markets Equity Enhanced Active UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.629,8.652,8.545,8.587,0.6210452308413293,,112219,USD
-EMIM,iShares Core MSCI EM IMI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,47.96,48.025,47.405,47.64,0.5487547488391684,,116491,EUR
+EJP3,WisdomTree Long JPY Short EUR 3x Daily,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.1445,4.147,4.1445,4.147,0.0,,0,EUR
+EMEE,iShares Emerging Markets Equity Enhanced Active UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.629,8.652,8.545,8.578,0.5155847199437392,,112638,USD
+EMIM,iShares Core MSCI EM IMI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,47.96,48.025,47.405,47.64,0.5487547488391684,,119495,EUR
 EMME,Ishares Iii PLC - iShares Emerging Markets Equity Enhanced Active UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.326,6.326,6.259,6.288,0.6080000000000041,,8081,USD
 EMPA,iShares MSCI EMU Paris-AlignedClimate UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.406,7.414,7.329,7.329,-1.0797678499122698,,2761,EUR
-EMSA,iShares II PLC - iShares J.P. Morgan Advanced USD EM Bond UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.476,5.48,5.473,5.48,-0.1457725947521867,,802,EUR
-ENVI,Envipco Holding N.V.,EURONEXT,Producer Manufacturing,Industrial Machinery,3.75,3.775,3.68,3.74,-0.9271523178807868,249010133.89644966,55540,EUR
-EPAD,iShares MSCI Europe Paris-Aligned Climate UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.547,6.554,6.509,6.521,-0.7155907429963415,,123983,EUR
-EPRU,Amundi FTSE EPRA Nareit Global -UCITS ETF DR- Capitalisation,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,81.54,81.54,81.25,81.45,-0.3181985069146872,,242,USD
-ERC,ER Capital N.V.,EURONEXT,Technology Services,Packaged Software,2.24,2.3,2.24,2.3,3.6036036036035863,4715354.0,274,EUR
-ERNE,iShares EUR Ultrashort Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,101.23,101.31,101.23,101.29,-0.009871668311935741,,1510,EUR
+EMSA,iShares II PLC - iShares J.P. Morgan Advanced USD EM Bond UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.476,5.483,5.473,5.483,-0.09110787172013085,,2266,EUR
+ENVI,Envipco Holding N.V.,EURONEXT,Producer Manufacturing,Industrial Machinery,3.75,3.775,3.68,3.725,-1.3245033112582734,249010133.89644966,59523,EUR
+EPAD,iShares MSCI Europe Paris-Aligned Climate UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.547,6.554,6.509,6.518,-0.7612667478684504,,240257,EUR
+EPRU,Amundi FTSE EPRA Nareit Global -UCITS ETF DR- Capitalisation,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,81.54,81.65,81.25,81.65,-0.07343042467260809,,357,USD
+ERC,ER Capital N.V.,EURONEXT,Technology Services,Packaged Software,2.42,2.42,2.42,2.42,5.2173913043478315,4715354.0,5,EUR
+ERNE,iShares EUR Ultrashort Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,101.23,101.31,101.23,101.23,-0.06910167818360631,,1611,EUR
 ESCE,iShares III PLC - iShares MSCI Europe Small Cap UCITS ETF Accum- EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.795,5.795,5.74,5.741,-1.0854583046175157,,8701,EUR
 ESPX,iShares S&P 500 ESG UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.004,10.008,9.925,9.934,-0.36108324974926137,,16487,USD
 ESWP,iShares VI PLC - iShares MSCI EM Swap UCITS ETF Accum- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.546,5.561,5.546,5.561,-0.4831782390837533,,2,USD
 ETHC,21Shares Ethereum Core ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.3027,9.3391,9.3027,9.3391,-0.3574248340908615,,5400,USD
-ETHW,WisdomTree Physical Ethereum,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,24.46,24.46,24.08,24.08,-1.3316943249334268,,601,USD
-EUEA,iShares Core EURO STOXX 50 UCITS ETF (Irl),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,65.26,65.39,64.68,64.7,-0.9643349150466791,,28858,EUR
+ETHW,WisdomTree Physical Ethereum,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,24.46,24.46,24.08,24.15,-1.044867854947767,,601,USD
+EUEA,iShares Core EURO STOXX 50 UCITS ETF (Irl),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,65.26,65.39,64.68,64.79,-0.8265727843257187,,29158,EUR
 EUEE,iShares Europe Equity Enhanced Active UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.863,7.882,7.801,7.81,-0.8505776310778236,,10681,USD
 EUFG,iShares Europe Foreign Focus UCITS ETF Accum Shs EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.29,5.29,5.269,5.269,-0.5849056603773528,,153,EUR
-EUJP,WisdomTree Long JPY Short EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,26.4,26.4,26.063,26.063,-0.042187619851203444,,471,EUR
-EUPB,iShares MSCI Europe Paris-Aligned Climate UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.362,7.369,7.36,7.36,-0.4059539918809116,,5478,EUR
+EUJP,WisdomTree Long JPY Short EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,26.4,26.4,26.063,26.073,-0.0038352381682949382,,471,EUR
+EUPB,iShares MSCI Europe Paris-Aligned Climate UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.362,7.369,7.312,7.312,-1.0554803788903844,,11559,EUR
 EURP,iShares Europe Domestic Focus UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.378,5.387,5.378,5.387,-0.24074074074075533,,1,EUR
-EUS3,WisdomTree Long USD Short EUR 3x Daily,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,86.15,86.15,86.15,86.15,0.2992094815642777,,0,EUR
-EWSA,iShares III PLC - iShares MSCI World Small Cap CTB Enhanced ESG UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.134,7.134,7.071,7.081,-0.49184935356941056,,1636,USD
+EUS3,WisdomTree Long USD Short EUR 3x Daily,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,86.15,86.423,86.15,86.423,0.6170467907745697,,0,EUR
+EWSA,iShares III PLC - iShares MSCI World Small Cap CTB Enhanced ESG UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.134,7.134,7.071,7.073,-0.6042720629567069,,276933,USD
 EWSD,iShares III PLC - iShares S&P 500 Equal Weight UCITS ETF - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.426,6.426,6.4069,6.4081,-0.17913888715807594,,23263,USD
-EWSP,iShares S&P 500 Equal Weight UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.984,7.99,7.932,7.935,-0.5639097744361005,,325719,USD
-EXA1,iShares EURO STOXX Banks 30-15 UCITS ETF (DE) Accumulating Shares,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,21.04,21.085,20.78,20.965,-0.49833887043189573,,50145,EUR
+EWSP,iShares S&P 500 Equal Weight UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.984,7.99,7.93,7.938,-0.526315789473693,,340040,USD
+EXA1,iShares EURO STOXX Banks 30-15 UCITS ETF (DE) Accumulating Shares,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,21.04,21.085,20.78,20.995,-0.3559563360227778,,50333,EUR
 EXCD,iShares IV PLC - iShares MSCI EM ex-China UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.9171,8.9171,8.8048,8.8048,-0.0567549774115077,,3680,USD
-EXCH,iShares MSCI EM ex-China UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.502,9.532,9.366,9.432,0.650944402945256,,183491,USD
-EXO,EXOR N.V.,EURONEXT,Finance,Financial Conglomerates,72.9,73.05,72.15,72.5,-0.8885850991114226,23424814152.0,118473,EUR
+EXCH,iShares MSCI EM ex-China UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.502,9.532,9.366,9.415,0.46953366769820415,,185094,USD
+EXO,EXOR N.V.,EURONEXT,Finance,Financial Conglomerates,72.9,73.05,72.15,72.5,-0.8885850991114226,23424814152.0,220027,EUR
 EXS1,iShares Core DAX UCITS ETF (DE),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,215.35,215.95,213.65,213.65,-1.3163972286374108,,435,EUR
 EXXY,iShares Diversified Commodity Swap UCITS ETF (DE),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,41.505,41.73,41.505,41.73,1.0533962949509508,,39,USD
-FACT,Ishares World Equity Factor Rotation Active Ucits ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.706,6.706,6.649,6.668,-0.4478948939982121,,20803,USD
+FACT,Ishares World Equity Factor Rotation Active Ucits ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.706,6.706,6.649,6.671,-0.40310540459838956,,35283,USD
 FAN3,Leverage Shares 3X Long Faang ETP Securities,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,16.53,16.53,16.53,16.53,1.4857563850687678,,0,EUR
-FAST,Fastned BV Shs Depositary Receipt 1 Shs,EURONEXT,Retail Trade,Specialty Stores,37.5,38.35,37.15,38.15,1.5978695073235725,734179387.0,12829,EUR
+FAST,Fastned BV Shs Depositary Receipt 1 Shs,EURONEXT,Retail Trade,Specialty Stores,37.5,38.35,37.15,38.1,1.464713715046616,734179387.0,14753,EUR
 FCSG,First Trust Global Funds ICAV - First Trust Global Capital Strength ESG Leaders UCITS ETF Accum A USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.92,39.92,39.92,39.92,1.2427085975145877,,1,EUR
 FDNE,First Trust Global Funds ICAV - First Trust Dow Jones Internet UCITS ETF Accum A USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,34.92,34.92,34.22,34.22,-1.9484240687679077,,162,EUR
-FER,Ferrovial N.V.,EURONEXT,Industrial Services,Engineering & Construction,50.38,50.46,50.0,50.04,-0.7930214115781098,36198942844.0,3333,EUR
-FERGR,Ferrari Group PLC,EURONEXT,Transportation,Air Freight/Couriers,8.1,8.1,7.81,7.835,-1.5703517587939697,726748028.0,15252,EUR
+FER,Ferrovial N.V.,EURONEXT,Industrial Services,Engineering & Construction,50.38,50.46,50.0,50.0,-0.8723235527359194,36198942844.0,3344,EUR
+FERGR,Ferrari Group PLC,EURONEXT,Transportation,Air Freight/Couriers,8.1,8.1,7.81,7.91,-0.6281407035175857,726748028.0,20237,EUR
 FEUZ,First Trust Global Funds ICAV - First Trust Eurozone AlphaDEX UCITS ETF Accum A EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,66.24,66.24,65.61,65.67,-0.6505295007564185,,722,EUR
-FFARM,ForFarmers NV,EURONEXT,Process Industries,Agricultural Commodities/Milling,5.77,5.81,5.66,5.67,-1.733102253032923,515003846.99999994,61566,EUR
-FLOW,Flow Traders Ltd,EURONEXT,Finance,Investment Banks/Brokers,29.28,29.28,28.82,28.82,-1.571038251366123,1255205786.0,35689,EUR
-FLPE,Northern Trust Listed Private Equity UCITS ETF Accum - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.706,27.706,27.389,27.389,-1.8069049582332533,,36985,EUR
+FFARM,ForFarmers NV,EURONEXT,Process Industries,Agricultural Commodities/Milling,5.77,5.81,5.66,5.7,-1.2131715771230398,515003846.99999994,83475,EUR
+FLOW,Flow Traders Ltd,EURONEXT,Finance,Investment Banks/Brokers,29.28,29.28,28.8,28.86,-1.4344262295082024,1255205786.0,52546,EUR
+FLPE,Northern Trust Listed Private Equity UCITS ETF Accum - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.706,27.706,27.347,27.376,-1.8535116337432311,,36989,EUR
 FLRG,Franklin Sustainable Euro Green Bond UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,23.835,23.835,23.755,23.755,-0.6274837900021005,,37,EUR
 FLXB,Franklin FTSE Brazil UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,30.17,30.8,30.09,30.79,1.2495889510029563,,7735,EUR
 FLXC,Franklin FTSE China UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,25.64,25.67,25.45,25.63,-0.3886513797124035,,203,EUR
 FLXI,Franklin LibertyShares ICAV - FTSE India UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,35.93,36.01,35.8,35.94,0.3070053028188653,,14980,EUR
 FLXJ,Franklin FTSE Japan UCITS ETF Accum Shs JPY,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6016.48,6016.48,5993.2,5993.2,-3.1688405691730788,,200,JPY
-FLXK,Franklin LibertyShares ICAV - Franklin FTSE Korea UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,87.72,87.9,85.78,85.94,-1.1502185415228894,,10900,EUR
-FOOD,Rize Sustainable Future of Food UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.395,3.395,3.39,3.392,0.325347530316478,,1405,EUR
+FLXK,Franklin LibertyShares ICAV - Franklin FTSE Korea UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,87.72,87.9,85.78,86.04,-1.0351966873705907,,10950,EUR
+FOOD,Rize Sustainable Future of Food UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.395,3.401,3.39,3.401,0.5915409642117723,,2025,EUR
 FSOV,First Trust Global Funds ICAV - First Trust Low Duration Global Government Bond UCITS ETF C EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,17.06,17.09,17.06,17.09,0.11716461628587917,,1,EUR
-FTAW,ISHARES II PLC - iShares FTSE All-World UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.312,5.312,5.28,5.28,-0.5649717514124174,,14618,USD
+FTAW,ISHARES II PLC - iShares FTSE All-World UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.312,5.312,5.28,5.282,-0.5273069679849262,,17697,USD
 FTSA,iShares FTSE All-World UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.07,5.076,5.07,5.076,0.7542675664946281,,45,USD
-FUR,Fugro NV,EURONEXT,Industrial Services,Engineering & Construction,8.95,9.12,8.845,8.86,-0.9502515371716138,992475396.0,179580,EUR
+FUR,Fugro NV,EURONEXT,Industrial Services,Engineering & Construction,8.95,9.12,8.845,8.87,-0.8384572386808392,992475396.0,265974,EUR
 FUTR,21Shares Future of Crypto Index ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,16.2531,16.2531,16.154,16.154,0.3690678861232968,,3100,USD
-FXAC,iShares China Large Cap UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.0625,4.0815,4.0345,4.078,0.4804730811876272,,6613,EUR
-FXC,iShares China Large Cap UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,87.9,88.16,87.3,87.87,-0.0455010806506564,,1578,EUR
+FXAC,iShares China Large Cap UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.0625,4.0815,4.0345,4.0645,0.14783787113463936,,7882,EUR
+FXC,iShares China Large Cap UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,87.9,88.16,87.3,87.97,0.06825162097600078,,1620,EUR
 FXEU,First Trust Global Funds ICAV - First Trust FactorFX UCITS ETF Accum C Hedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,22.849,22.921,22.849,22.921,0.5086603814952846,,22,EUR
 GCOW,Pacer Global Cash Cows Dividend UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,30.71,30.71,30.71,30.71,-0.25982461838258625,,1,USD
 GGOU,Amundi Index Solutions - J.P. Morgan GBI Global Govies,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,52.12,52.13,51.98,51.98,-0.07689350249905084,,383,USD
 GINC,First Trust Global Funds ICAV - First Trust Global Equity Income UCITS ETF B USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,59.235,59.304,59.235,59.304,0.5135506177861466,,1533,EUR
-GLDU,Amundi Index Solutions SICAV - Amundi Gold Miners -Ucits ETF- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,81.472,81.472,79.234,79.77,-1.6278209396966423,,4525,USD
-GLDY,IncomeShares Gold+ Yield ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.538,11.542,11.372,11.372,-3.463497453310692,,1503,EUR
+GLDU,Amundi Index Solutions SICAV - Amundi Gold Miners -Ucits ETF- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,81.472,81.472,79.234,79.536,-1.9163891971883118,,6618,USD
+GLDY,IncomeShares Gold+ Yield ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.538,11.542,11.372,11.472,-2.6146010186757205,,1819,EUR
 GLUH,iShares Core UK Gilts UCITS ETF USD Hedged,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.716,4.724,4.705,4.724,-0.25337837837836924,,90868,USD
 GOAI-USD,Amundi MSCI Robotics & AI -UCITS ETF Acc- Capitalisation,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,166.66,166.66,162.92,162.92,-1.7014601182575246,,64,USD
 GOOG,Leverage Shares 1x Alphabet Tracker ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.018,12.018,12.018,12.018,-2.0378219758721876,,0,EUR
-GOOY,IncomeShares Alphabet (GOOG) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.315,9.315,9.315,9.315,-3.969072164948452,,15,EUR
-GOVT,iShares USD Treasury Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.2255,4.2275,4.2255,4.2255,-0.11818933932159068,,2366,USD
+GOOY,IncomeShares Alphabet (GOOG) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.315,9.315,9.303,9.303,-4.092783505154624,,22,EUR
+GOVT,iShares USD Treasury Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.2255,4.23,4.2255,4.23,-0.011818933932152768,,24436,USD
 GRAM,21Shares Toncoin Staking ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.4938,5.4938,5.4938,5.4938,2.9206242155154634,,0,USD
 GSCE,Easy Energy & Metals Enhanced Roll -UCITS ETF EUR- Capitalisation,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,20.9441,20.9441,20.885,20.885,0.40865384615385025,,4,EUR
 GSDM1,Goldman Sachs Dynamic Mix Fund I (NL) - P,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,29.77,29.77,29.77,29.77,-0.2345844504021457,,52,EUR
@@ -326,192 +326,192 @@ GSEME,Goldman Sachs Enhanced Index Sustainable Emerging Markets Equity Fund (NL)
 GSMIX,Goldman Sachs Wereldwijd Mix Fonds (NL) - P,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.37,15.37,15.37,15.37,-0.06501950585176569,,2526,EUR
 GSSS,Leverage Shares -1x Short Goldman Sachs ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.9387,0.9387,0.9387,0.9387,-0.06387735547748802,,0,EUR
 H2O,First Trust Global Funds ICAV - First Trust Nasdaq Clean Edge Global Water UCITS ETF Accum A USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,20.619,20.653,20.619,20.653,0.19891325441490576,,60,USD
-H2OA,iShares Global Water UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,24.89,24.93,24.725,24.75,-0.6024096385542111,,4004,EUR
-HAL,HAL Trust,EURONEXT,Finance,Financial Conglomerates,161.0,162.2,160.8,160.8,-0.37174721189590726,14578168275.0,7053,EUR
+H2OA,iShares Global Water UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,24.89,24.93,24.725,24.75,-0.6024096385542111,,4171,EUR
+HAL,HAL Trust,EURONEXT,Finance,Financial Conglomerates,161.0,162.2,160.6,160.6,-0.4956629491945547,14578168275.0,9184,EUR
 HAMO,Hashdex Crypto Momentum Factor ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,63.9574,64.0933,63.9574,64.0933,16.5400532394612,,263,USD
 HASH-USD,Hashdex Nasdaq Crypto Index Europe ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,58.674,58.674,57.5633,57.5633,27.371032053352927,,126,USD
-HAVAS,Havas NV,EURONEXT,Commercial Services,Advertising/Marketing Services,18.3,18.35,18.05,18.05,-1.366120218579235,1815014873.0,20945,EUR
-HBAR,1Valour Hedera Physical Staking,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.2313,0.2313,0.2313,0.2313,0.0865426222414564,,0,EUR
+HAVAS,Havas NV,EURONEXT,Commercial Services,Advertising/Marketing Services,18.3,18.35,18.0,18.2,-0.5464480874317017,1815014873.0,67423,EUR
+HBAR,1Valour Hedera Physical Staking,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.2313,0.2318,0.2313,0.2318,0.3028991778450914,,0,EUR
 HDRA,21Shares Hedera ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.5545,8.5545,8.46,8.46,-5.369127516778509,,3083,USD
-HEAL,iShares Healthcare Innovation UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.154,9.184,9.109,9.124,0.26373626373627373,,57595,EUR
-HEIA,Heineken NV,EURONEXT,Consumer Non-Durables,Beverages: Alcoholic,72.92,73.36,72.32,72.36,-0.4676753782668548,39983911194.0,258236,EUR
-HEIJM,Koninklijke Heijmans N.V.,EURONEXT,Industrial Services,Engineering & Construction,88.5,88.7,86.85,87.5,-1.0740531373657465,2430429579.0,18287,EUR
-HEIO,Heineken Holding N.V.,EURONEXT,Consumer Non-Durables,Beverages: Alcoholic,68.15,68.65,67.65,67.7,-0.87847730600292,18959180825.0,73230,EUR
+HEAL,iShares Healthcare Innovation UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.154,9.184,9.109,9.131,0.34065934065934705,,57667,EUR
+HEIA,Heineken NV,EURONEXT,Consumer Non-Durables,Beverages: Alcoholic,72.92,73.36,72.32,72.62,-0.1100412654745506,39983911194.0,522066,EUR
+HEIJM,Koninklijke Heijmans N.V.,EURONEXT,Industrial Services,Engineering & Construction,88.5,88.7,86.85,87.65,-0.9044657998869385,2430429579.0,28535,EUR
+HEIO,Heineken Holding N.V.,EURONEXT,Consumer Non-Durables,Beverages: Alcoholic,68.15,68.65,67.65,67.75,-0.8052708638360134,18959180825.0,154356,EUR
 HIGH,iShares Euro High Yield Corp Bond UCITS ETF Accum EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.317,6.317,6.288,6.288,-0.7888923950773086,,2845,EUR
 HISD,iShares Euro High Yield Corp Bond UCITS ETF -Hedged- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.404,5.404,5.401,5.401,0.2040816326530635,,2005,USD
-HKDE,UBS MSCI Hong Kong UCITS ETF (HKD) A-dis Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.49,15.582,15.454,15.522,-1.3348588863462947,,2794,EUR
+HKDE,UBS MSCI Hong Kong UCITS ETF (HKD) A-dis Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.49,15.582,15.454,15.54,-1.2204424103737617,,4768,EUR
 HODL-USD,21Shares Crypto Basket Index ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,14.6264,14.6264,14.6264,14.6264,-1.4559541856156246,,174,USD
 HODLV-USD,21Shares Crypto Basket Equal Weight ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.9922,28.1664,27.9922,28.1664,-2.4668615039406028,,7200,USD
 HODLX-USD,21Shares Crypto Basket 10 ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,25.6059,25.6059,25.6059,25.6059,-0.016009371339324886,,8,USD
 HOLCO,Holland Colours NV,EURONEXT,Process Industries,Chemicals: Specialty,77.5,77.5,77.5,77.5,0.0,66677121.0,10,EUR
 HWK,Hawick Data N.V,EURONEXT,Technology Services,Internet Software/Services,2.3,2.3,2.3,2.3,1.7699115044247804,8884315.0,200,EUR
-HYCB,iSh Brd USD Hgh Yld Crp Bnd UCTS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.486,5.49,5.483,5.483,-0.45388525780683286,,3793,USD
+HYCB,iSh Brd USD Hgh Yld Crp Bnd UCTS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.496,5.496,5.496,5.496,0.23709648002919553,,1494,USD
 HYDP,iShares USD High Yield Corp Bond ESG Paris-Aligned Climate UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.145,5.145,5.1396,5.1396,0.18518157540788804,,1193,USD
 HYDRA,Hydratec Industries NV,EURONEXT,Producer Manufacturing,Miscellaneous Manufacturing,270.0,270.0,268.0,268.0,1.5151515151515151,343543465.0,388,EUR
 HYLH,iShares PLC - iShares Global High Yield Corp Bond UCITS ETF Accum Shs Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.4515,5.4586,5.4515,5.4585,0.13207858675912343,,3052,USD
 I20T,iShares USD Treasury Bond 10-20YR UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.1038,5.1084,5.1038,5.1084,-0.8077669902912766,,22,USD
-I500,iShares S&P 500 Swap UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.89,12.896,12.792,12.81,-0.3888024883359171,,129788,USD
-I50D,iShares S&P 500 Swap UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.674,8.674,8.628,8.628,-0.30043910330482787,,17365,USD
+I500,iShares S&P 500 Swap UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.89,12.896,12.792,12.826,-0.26438569206842083,,589207,USD
+I50D,iShares S&P 500 Swap UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.674,8.674,8.622,8.628,-0.30043910330482787,,21686,USD
 I50E,iShares S&P 500 Swap UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.106,11.106,11.042,11.042,-0.6120612061206087,,4824,EUR
-IAEA,iShares AEX UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.134,11.144,11.05,11.052,-0.4324324324324329,,34291,EUR
-IAEX,iShares AEX UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,111.3,111.4,110.42,110.46,-0.5044136191677197,,9352,EUR
+IAEA,iShares AEX UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.134,11.144,11.048,11.058,-0.37837837837837673,,34682,EUR
+IAEX,iShares AEX UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,111.3,111.4,110.42,110.6,-0.3783102143757897,,10154,EUR
 IAPU,iShares PLC - iShares Asia Pacific Dividend UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.613,6.613,6.5748,6.5852,-0.06525533044995445,,6453,USD
-IART-USD,iShares III PLC - iShares AI Innovation Active UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.069,8.069,7.852,7.863,-1.0570026425066017,,196472,USD
-IASP,iShares Asia Property Yield UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.822,18.822,18.718,18.802,0.19183629969093768,,3289,EUR
+IART-USD,iShares III PLC - iShares AI Innovation Active UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.069,8.069,7.852,7.902,-0.5662514156285382,,198516,USD
+IASP,iShares Asia Property Yield UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.822,18.822,18.718,18.816,0.26643930512629604,,3301,EUR
 IB7A,iShares USD Treasury Bond 7-10yr UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.164,5.164,5.16,5.1615,-0.24159257827599875,,27572,USD
-IBCI,iShares PLC - iShares Euro Inflation Linked Government Bond UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,235.1,235.38,234.74,235.38,0.09780990856899416,,1101,EUR
-IBCX,iShares EUR Corp Bond Large Cap UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,122.78,122.78,122.62,122.67,-0.2764002926591362,,24,EUR
-IBGL,iShares EUR Govt Bond 15-30 Year UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,154.85,155.22,154.25,155.22,-0.045076952797986465,,1327,EUR
+IBCI,iShares PLC - iShares Euro Inflation Linked Government Bond UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,235.1,235.38,234.74,235.07,-0.034020837763135234,,3901,EUR
+IBCX,iShares EUR Corp Bond Large Cap UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,122.78,122.83,122.62,122.83,-0.1463295667018997,,115,EUR
+IBGL,iShares EUR Govt Bond 15-30 Year UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,154.85,155.22,154.25,154.93,-0.23182432867537203,,1704,EUR
 IBGM,iShares EUR Govt Bond 7-10 Year UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,180.97,181.08,180.57,180.93,-0.12695959372929444,,982,EUR
 IBGS,iShares EUR Govt Bond 1-3 UCITS ETF EUR (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,141.09,141.1,141.0,141.09,-0.00708717221827846,,2399,EUR
-IBGX,iShares EUR Govt Bond 3-5 Year UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,158.23,158.23,158.05,158.17,-0.056868444332113875,,733,EUR
+IBGX,iShares EUR Govt Bond 3-5 Year UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,158.23,158.23,158.05,158.19,-0.04423101225830481,,825,EUR
 IBTS,iShares USD Treasury Bond 1-3yr UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,110.41,110.43,110.41,110.43,-0.009054690329582494,,6,EUR
-IBZL,iShares MSCI Brazil UCITS ETF USD (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,25.0,25.64,24.775,25.555,2.8577178506741836,,18282,EUR
+IBZL,iShares MSCI Brazil UCITS ETF USD (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,25.0,25.64,24.775,25.48,2.5558462467297307,,18777,EUR
 ICEH,iShares III Public Limited Company - iShares USD Intermediate Credit Bond UCITS ETF Accum Shs Hedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.1503,5.1503,5.1432,5.1432,0.062256809338531824,,4575,EUR
 ICHD,iShares MSCI China UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.7475,4.7495,4.72,4.72,-1.0170913285100271,,606,USD
-ICHN,iShares MSCI China UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.632,5.641,5.583,5.619,-0.4958384983176991,,702714,USD
+ICHN,iShares MSCI China UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.632,5.641,5.583,5.62,-0.4781299805206328,,757669,USD
 ICINA,Cardano Investment Funds I - IC North America Equity ESG Index Fund Units -C1-,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,28.55,28.55,28.55,28.55,0.8121468926553688,,6800,EUR
 ICOV,iShares EUR Covered Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,139.15,139.15,138.97,139.08,-0.17943012990741403,,258,EUR
 ICOW,Pacer Developed Markets International Cash Cows 100 Ucits ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,31.14,31.14,30.85,30.85,-1.907790143084254,,1030,USD
 ID36,iShares V PLC - iShares iBonds Dec 2036 Term USD Corp UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,99.86,100.02,99.86,100.02,0.01999999999999602,,1006,USD
 IDCB,iShares USD Intermediate Credit Bond UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.326,5.326,5.319,5.319,0.16949152542373525,,1561,USD
 IDJG,iShares Euro Total Market Growth Large UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,70.64,70.88,69.66,69.66,-1.8873239436619764,,433,EUR
-IDSE,iShares MSCI Europe SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,156.96,156.98,155.5,155.5,-0.9427952605427379,,950,USD
-IDVA,iShares EURO STOXX Select Dividend 30 UCITS ETF (DE) Accumulating Shares,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.565,8.575,8.49,8.505,-0.2930832356389048,,32567,EUR
-IDVY,iShares PLC - iShares Euro Dividend UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.365,27.365,27.115,27.16,-0.45812717610408654,,8208,EUR
+IDSE,iShares MSCI Europe SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,156.96,156.98,155.5,155.6,-0.8790928780736371,,1063,USD
+IDVA,iShares EURO STOXX Select Dividend 30 UCITS ETF (DE) Accumulating Shares,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.565,8.575,8.471,8.471,-0.6916764361078462,,35687,EUR
+IDVY,iShares PLC - iShares Euro Dividend UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.365,27.365,27.115,27.22,-0.23822613157412964,,13719,EUR
 IE1C,iShares EUR Corp Bond 1-5yr UCITS ETF AccumHedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.919,5.919,5.905,5.905,-0.47193662565311956,,37945,USD
 IE1U,iShares EUR Corp Bond 1-5yr UCITS ETF Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.483,5.483,5.482,5.482,0.01824484583105882,,49303,USD
-IEAC,iShares Core EUR Corp Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,117.08,117.08,116.87,117.04,-0.10242403550699074,,6576,EUR
-IEAG,iShares Euro Aggregate Bond ESG SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,105.12,105.12,104.84,104.94,-0.15223596574690448,,2823,EUR
+IEAC,iShares Core EUR Corp Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,117.08,117.08,116.87,117.02,-0.1194947080914993,,7334,EUR
+IEAG,iShares Euro Aggregate Bond ESG SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,105.12,105.12,104.84,104.94,-0.15223596574690448,,2914,EUR
 IEAU,iShares Core EUR Corp Bond UCITS ETF AccumHedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.104,6.105,6.104,6.105,-0.42407437612134724,,605,USD
-IEGA,iShares Core EUR Govt Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,106.39,106.43,106.2,106.38,-0.056369785794816114,,2360,EUR
-IEGE,iShares EUR Govt Bond 0-1yr UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,98.72,98.73,98.69,98.73,0.010129659643441162,,882,EUR
+IEGA,iShares Core EUR Govt Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,106.39,106.43,106.2,106.38,-0.056369785794816114,,3671,EUR
+IEGE,iShares EUR Govt Bond 0-1yr UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,98.72,98.73,98.69,98.73,0.010129659643441162,,975,EUR
 IEGY,iShares EUR Govt Bond 5-7 Year UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,140.26,140.26,140.0,140.0,-0.29910269192421846,,15,EUR
 IEGZ,iShares EUR Govt Bond 10-15 Year UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,141.29,141.29,141.0,141.0,-0.4096623816923382,,1282,EUR
-IEMA,iShares MSCI EM UCITS ETF USD (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,56.26,56.33,55.59,55.89,0.6120612061206182,,19500,EUR
+IEMA,iShares MSCI EM UCITS ETF USD (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,56.26,56.33,55.59,55.92,0.6660666066606743,,19749,EUR
 IEMM,iShares MSCI EM UCITS ETF USD (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,58.3,58.42,57.7,58.06,0.6413589876928489,,7369,EUR
-IESE,iShares MSCI Europe SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,78.4,78.44,77.64,77.69,-0.6140463093258334,,3493,EUR
-IEUX,iShares MSCI Europe ex-UK UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,55.925,56.01,55.515,55.68,-0.5359056806002094,,5382,EUR
-IFFF,iShares MSCI AC Far East ex-Japan UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,83.84,84.01,82.82,82.97,-0.03614457831325438,,6185,EUR
-IFFI,iShares MSCI AC Far East ex-Japan UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.4818,11.489,11.3209,11.3596,-0.08004433224555232,,29500,USD
-IFLX,iShares EUR Flexible Income Bond Active UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.9395,4.947,4.9305,4.9315,-0.08104548677946403,,4081,EUR
-IFRB,iShares France Govt Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,120.86,120.92,120.65,120.92,-0.3379213714662463,,276,EUR
+IESE,iShares MSCI Europe SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,78.4,78.44,77.64,77.82,-0.44774210055009406,,4406,EUR
+IEUX,iShares MSCI Europe ex-UK UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,55.925,56.01,55.515,55.56,-0.7502679528402905,,26521,EUR
+IFFF,iShares MSCI AC Far East ex-Japan UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,83.84,84.01,82.82,83.04,0.04819277108434488,,6245,EUR
+IFFI,iShares MSCI AC Far East ex-Japan UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.4818,11.489,11.3209,11.3531,-0.1372188552780964,,29518,USD
+IFLX,iShares EUR Flexible Income Bond Active UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.9395,4.947,4.93,4.93,-0.1114375443217608,,7174,EUR
+IFRB,iShares France Govt Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,120.86,120.92,120.65,120.82,-0.4203412181653384,,278,EUR
 IFRD,iShares France Govt Bond UCITS ETF USD Hedged,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.8933,4.8933,4.8899,4.8899,-0.48030935178589734,,3,USD
-IFRE,iShares MSCI France UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,65.97,66.07,65.4,65.4,-0.7436636818940581,,3091,EUR
+IFRE,iShares MSCI France UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,65.97,66.07,65.4,65.52,-0.5615419638791995,,3273,EUR
 IG31,iShares iBonds Dec 2031 Term EUR Cor Ucits ETF Accum- EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.213,5.227,5.213,5.222,-0.15296367112810721,,32074,EUR
 IG32,iShares iBonds Dec 2032 Term EUR Corp UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.186,5.19,5.185,5.19,-0.1923076923076882,,6173,EUR
 IG33,Ishares Ibonds Dec 2033 Term Eur Corp Ucits Etf Accum- EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.155,5.155,5.151,5.152,-0.328883729928409,,5900,EUR
 IG34,iShares iBonds Dec 2034 Term EUR Corp UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.154,5.154,5.148,5.148,-0.3291384317521849,,200,EUR
 IGAE,iShares J.P. Morgan Advanced USD EM Investment Grade Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.8394,4.8909,4.8394,4.8909,0.4972568681036522,,3,USD
 IGBG,Ishares Broad Global Govt Bond UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.8145,4.817,4.807,4.813,0.7641578561708219,,300000,USD
-IGBY,iShares EUR Govt Bond 15-30yr UCITS ETF Accum shs - EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.814,4.8235,4.8,4.819,-0.16573441060700245,,16364,EUR
+IGBY,iShares EUR Govt Bond 15-30yr UCITS ETF Accum shs - EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.814,4.8235,4.8,4.8185,-0.17609281126993434,,16723,EUR
 IGLE,iShares Global Govt Bond UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.8305,3.8335,3.8255,3.833,-0.28616024973984594,,39043,EUR
 IGLU,iShares Core UK Gilts UCITS ETF Accum Shs Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.1487,5.1487,5.1324,5.1324,-0.5059610351846555,,47348,USD
 IGSG,iShares Dow Jones Global Leaders Screened UCITS ETF USD (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,89.97,90.12,89.27,89.4,-0.26773761713520183,,1914,EUR
-IJPA,iShares Core MSCI Japan IMI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,72.04,72.16,70.93,71.35,0.2388311323405275,,6685,EUR
+IJPA,iShares Core MSCI Japan IMI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,72.04,72.16,70.93,71.35,0.2388311323405275,,7072,EUR
 IJPE,iShares MSCI Japan EUR Hedged UCITS ETF (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,145.89,145.89,144.06,144.71,-0.07595635961882698,,174,EUR
-IJPN,iShares MSCI Japan UCITS ETF USD (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,21.88,21.88,21.505,21.63,-0.04621072088725306,,34960,EUR
-IKRA,iShares MSCI Korea UCITS ETF USD (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,113.26,113.54,110.67,111.03,-0.795210864903503,,17453,EUR
-IMAE,iShares Core MSCI Europe UCITS ETF EUR (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,105.71,105.905,104.86,104.99,-0.5493985033626961,,58916,EUR
+IJPN,iShares MSCI Japan UCITS ETF USD (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,21.88,21.88,21.505,21.66,0.0924214417744897,,48603,EUR
+IKRA,iShares MSCI Korea UCITS ETF USD (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,113.26,113.54,110.67,111.25,-0.5986418870621888,,17521,EUR
+IMAE,iShares Core MSCI Europe UCITS ETF EUR (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,105.71,105.905,104.86,105.16,-0.38836790754949,,62206,EUR
 IMBE,iShares US Mortgage Backed Securities UCITS ETF Hedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.5365,4.54,4.5365,4.54,-0.21978021978021509,,4,EUR
-IMCD,IMCD N.V.,EURONEXT,Distribution Services,Wholesale Distributors,100.6,101.25,98.26,98.28,-1.8181818181818115,5907699575.0,44348,EUR
-IMEU,iShares Core MSCI Europe UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,40.44,40.485,40.12,40.16,-0.45854504895278786,,93538,EUR
-INAA,iShares MSCI North America UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,123.07,123.07,122.27,122.27,-0.3585689837829009,,1991,EUR
+IMCD,IMCD N.V.,EURONEXT,Distribution Services,Wholesale Distributors,100.6,101.25,98.06,98.12,-1.9780219780219679,5907699575.0,134189,EUR
+IMEU,iShares Core MSCI Europe UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,40.44,40.485,40.12,40.24,-0.2602552980542741,,98829,EUR
+INAA,iShares MSCI North America UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,123.07,123.07,122.27,122.53,-0.14668731154754514,,2020,EUR
 INCI,iShares U.S. Equity High Income Active UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.23,7.23,7.16,7.16,-0.7072528082096818,,2197,USD
-INCU,iShares U.S. Equity High Income Active UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.87,5.88,5.87,5.87,-0.5084745762711906,,482,USD
-INFBN,Horizon Kinetics ICAV - Inflation Beneficiaries UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,46.56,46.56,46.36,46.36,-1.1513859275053286,,2325,USD
+INCU,iShares U.S. Equity High Income Active UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.878,5.878,5.869,5.869,-0.017035775127774003,,170,USD
+INFBN,Horizon Kinetics ICAV - Inflation Beneficiaries UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,46.45,46.45,46.2,46.2,-0.34512510785158884,,193,USD
 INFEA,Horizon Kinetics Full-Cycle Inflation Equity Fund UCITS ETF Accum Shs EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,40.645,40.645,40.645,40.645,1.969392875062729,,327,EUR
 INFR,iShares Global Infrastructure UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,33.23,33.305,33.025,33.025,0.07575757575757146,,1509,EUR
-INGA,ING Groep N.V.,EURONEXT,Finance,Major Banks,30.54,30.74,30.06,30.525,0.13121207151057618,84983310090.0,2341831,EUR
+INGA,ING Groep N.V.,EURONEXT,Finance,Major Banks,30.54,30.74,30.06,30.565,0.262424143021164,84983310090.0,4468392,EUR
 INGB,iShares India INR Govt Bond UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.4739,4.4739,4.4614,4.4614,-0.7673658221935437,,600,USD
-INPST,InPost S.A.,EURONEXT,Technology Services,Packaged Software,15.55,15.55,15.54,15.55,-0.12845215157353612,7784999847.0,76092,EUR
-INRA,iShares Global Clean Energy Transition UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,25.6958,25.717,25.3,25.5123,0.08787794381304394,,5976,USD
-IOGP,iShares Oil & Gas Exploration & Production UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,31.265,31.7,31.255,31.615,2.0497094899935377,,3227,EUR
+INPST,InPost S.A.,EURONEXT,Technology Services,Packaged Software,15.55,15.55,15.54,15.54,-0.1926782273603156,7784999847.0,385628,EUR
+INRA,iShares Global Clean Energy Transition UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,25.6958,25.717,25.3,25.5214,0.12357835848709174,,6136,USD
+IOGP,iShares Oil & Gas Exploration & Production UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,31.265,31.7,31.255,31.6,2.0012911555842514,,3239,EUR
 IPRA,iShares Listed Private Equity UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.15,39.15,38.395,38.6,-1.3544594939943806,,6705,USD
-IPRP,iShares European Property Yield UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,28.965,29.025,28.75,28.875,-0.379506641366222,,7780,EUR
-IPRV,iShares Listed Private Equity UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,28.8,28.8,28.285,28.295,-2.1442158049455213,,21073,EUR
+IPRP,iShares European Property Yield UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,28.965,29.025,28.75,28.935,-0.1725030188028315,,10088,EUR
+IPRV,iShares Listed Private Equity UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,28.8,28.8,28.245,28.245,-2.3171364343766148,,21166,EUR
 IRCP,iShares V PLC - iShares EUR Corp Bond Interest Rate Hedged ESG SRI UCITS ETF Shs EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,98.89,99.2,98.89,99.2,-0.12082158679016346,,44,EUR
-ISAE,iShares Agribusiness UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,50.59,51.19,50.46,51.19,2.2777222777222788,,24520,EUR
-ISDA,iShares V PLC - iShares MSCI ACWI UCITS ETF - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.703,5.703,5.67,5.67,-0.8394543546694656,,2114,USD
+ISAE,iShares Agribusiness UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,50.59,51.3,50.46,51.3,2.4975024975024978,,25323,EUR
+ISDA,iShares V PLC - iShares MSCI ACWI UCITS ETF - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.703,5.703,5.667,5.668,-0.874431619447356,,78222,USD
 ISED,iShares MSCI Europe SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.166,8.166,8.108,8.116,-0.8551184949914523,,9066,EUR
-ISFA,iShares Core FTSE 100 UCITS ETF GBP (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.324,12.352,12.254,12.328,-0.5325157334194024,,243665,EUR
-ISOE,iShares Gold Producers UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.3,39.395,37.99,38.445,-1.5745007680491603,,62848,EUR
+ISFA,iShares Core FTSE 100 UCITS ETF GBP (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.324,12.352,12.254,12.337,-0.4598999515894818,,251562,EUR
+ISOE,iShares Gold Producers UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.3,39.395,37.99,38.57,-1.2544802867383564,,65411,EUR
 ISOV,iShares USD EM Bond Active UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.042,5.042,5.018,5.018,-0.5351833498513406,,9764,USD
-ISPY,Legal & General UCITS ETF PLC - Cyber Security UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,40.615,40.69,39.17,39.17,-2.525818091327611,,11042,EUR
+ISPY,Legal & General UCITS ETF PLC - Cyber Security UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,40.615,40.69,39.1,39.1,-2.700012442453654,,11743,EUR
 ISVO,iShares USD EM Bond Active UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.345,4.345,4.3305,4.3305,-1.4002732240437283,,9764,EUR
-ITKY,iShares MSCI Turkey UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,19.778,19.944,19.768,19.768,0.3451776649746264,,1748,EUR
-ITWN,iShares MSCI Taiwan UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,179.63,180.05,176.82,177.56,2.328261871830332,,9160,EUR
-IU28,iShares II PLC - iShares iBonds Dec 2028 Term USD High Yield Corp UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,104.75,104.75,104.33,104.41,0.0862730061349726,,656,USD
+ITKY,iShares MSCI Turkey UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,19.778,19.944,19.718,19.814,0.5786802030456892,,1818,EUR
+ITWN,iShares MSCI Taiwan UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,179.63,180.05,176.82,178.05,2.6106500691562937,,9404,EUR
+IU28,iShares II PLC - iShares iBonds Dec 2028 Term USD High Yield Corp UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,104.75,104.75,104.33,104.38,0.05751533742331506,,682,USD
 IU29,iShares II PLC - iShares iBonds Dec 2029 Term USD High Yield Corp UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,104.31,104.37,104.31,104.37,0.24010756819054935,,914,USD
-IUES,iShares S&P 500 EUR Hedged UCITS ETF (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,157.88,157.96,156.69,156.91,-0.41254125412541615,,3590,EUR
+IUES,iShares S&P 500 EUR Hedged UCITS ETF (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,157.88,157.96,156.69,157.13,-0.27291190657527725,,3661,EUR
 IUHE,iShares S&P 500 Health Care Sector UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.722,7.804,7.715,7.771,0.7650414937759358,,13569,EUR
-IUSA,iShares Core S&P 500 UCITS ETF USD (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,66.07,66.14,65.51,65.77,-0.1366535074400295,,17080,EUR
+IUSA,iShares Core S&P 500 UCITS ETF USD (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,66.07,66.14,65.51,65.8,-0.09110233829335297,,17611,EUR
 IUSI,iShares II PLC - iShares US Property Yield UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.6789,5.685,5.6635,5.685,-1.1390313885749086,,1176,USD
 IUSP,iShares US Property Yield UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.965,28.065,27.935,27.935,0.21524663677129585,,10213,EUR
-IUVE,iShares MSCI USA Value Factor Advanced UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.616,9.616,9.578,9.578,-0.010439503079666167,,253,USD
-IWDA,iShares Core MSCI World UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,127.21,127.35,126.26,126.42,-0.2839564600094648,,109505,EUR
+IUVE,iShares MSCI USA Value Factor Advanced UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.616,9.616,9.578,9.585,0.06263701847792282,,255,USD
+IWDA,iShares Core MSCI World UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,127.21,127.35,126.26,126.58,-0.1577535888941496,,112085,EUR
 IWDD,iShares III PLC - iShares Core MSCI World UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.184,8.195,8.1245,8.138,-0.2940455770644561,,52306,USD
-IWDE,iShares MSCI World EUR Hedged UCITS ETF (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,120.16,120.28,119.3,119.54,-0.25033377837115917,,1434,EUR
-IWDP,iShares Developed Markets Property Yield UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,21.925,21.95,21.855,21.93,0.34317089910775245,,2467,EUR
-IWDS,Ishares Msci World Swap Ucits Etf,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.672,7.672,7.616,7.62,-0.5092048570309401,,188528,USD
-IWME,iShares MSCI World Momentum Factor ESG UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.036,8.036,7.949,7.964,-0.44999999999999485,,62780,USD
+IWDE,iShares MSCI World EUR Hedged UCITS ETF (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,120.16,120.28,119.3,119.46,-0.31708945260347937,,1655,EUR
+IWDP,iShares Developed Markets Property Yield UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,21.925,21.95,21.855,21.94,0.3889270189887936,,2559,EUR
+IWDS,Ishares Msci World Swap Ucits Etf,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.672,7.672,7.616,7.619,-0.5222613918266097,,259439,USD
+IWME,iShares MSCI World Momentum Factor ESG UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.036,8.036,7.949,7.959,-0.5125000000000046,,62795,USD
 IWQE,iShares MSCI World Quality Factor Advanced UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.255,9.255,9.205,9.205,-0.8829546678152336,,170,USD
-IWRD,iShares MSCI World UCITS ETF USD (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,91.31,91.38,90.61,90.76,-0.2637362637362581,,8126,EUR
+IWRD,iShares MSCI World UCITS ETF USD (Dist),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,91.31,91.38,90.61,90.83,-0.18681318681318868,,8347,EUR
 IWVE,iShares MSCI World Value Factor Advanced UCITS ETF Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.096,10.098,10.028,10.064,0.05965400676078969,,86180,USD
 IX5A,iShares Corp Bond ex-Financials 1-5Yr ESG SRI UCITS ETF Accum EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.215,5.215,5.209,5.21,-0.09587727708532873,,10062,EUR
 JAEE,iShares Japan Equity Enhanced Active UCITS ETF Accum Shs USD,EURONEXT,,,5.022,5.024,5.016,5.016,-0.07968127490038963,,3045,USD
 JGBD,iShares Japan Govt Bond UCITS ETF Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.7097,4.7159,4.7097,4.7152,-0.4917167880130817,,1200,USD
-JPDV,iShares II PLC - iShares Japan Dividend UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.679,5.679,5.595,5.62,0.24973242953978297,,41259,USD
-JPE3,WisdomTree Short JPY Long EUR 3x Daily,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,96.242,96.242,96.242,96.242,0.04365904365904531,,0,EUR
-JPEU,WisdomTree Short JPY Long EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,63.308,63.308,63.308,63.308,0.022119000221194583,,0,EUR
+JPDV,iShares II PLC - iShares Japan Dividend UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.679,5.679,5.595,5.609,0.05351409204424034,,46559,USD
+JPE3,WisdomTree Short JPY Long EUR 3x Daily,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,96.242,96.242,96.22,96.22,0.020790020790016652,,0,EUR
+JPEU,WisdomTree Short JPY Long EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,63.308,63.308,63.299,63.299,0.00789964293614333,,0,EUR
 JPSR,UBS ETF SICAV - MSCI Japan Socially Responsible UCITS ETF -(JPY) A-dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,30.857,30.857,30.458,30.458,-1.36019172226181,,529,EUR
 JPXY,Amundi Index Solutions SICAV - Amundi MSCI Japan SRI Climate Paris Aligned ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9848.244,9848.244,9757.95,9757.95,-0.5375870058490271,,282,JPY
 JSOL,21shares Jito Staked SOL ETP,EURONEXT,,,17.524,17.524,17.24,17.24,9.669211195928739,,2900,USD
 KEHDF,Kempen European High Dividend Fund N.V. N,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.94,8.94,8.94,8.94,-0.11173184357541663,,25251,EUR
-KENDR,Kendrion N.V.,EURONEXT,Producer Manufacturing,Auto Parts: OEM,19.5,19.66,19.2,19.38,-1.122448979591849,295236464.0,32656,EUR
-KPN,Royal KPN NV,EURONEXT,Communications,Major Telecommunications,4.149,4.162,4.053,4.078,-1.3068731848983395,15791907689.0,3084216,EUR
-KWEB,KraneShares CSI China Internet UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,19.5941,19.5941,19.3501,19.5851,-0.16210512364339164,,961,USD
+KENDR,Kendrion N.V.,EURONEXT,Producer Manufacturing,Auto Parts: OEM,19.5,19.66,19.2,19.4,-1.0204081632653206,295236464.0,36351,EUR
+KPN,Royal KPN NV,EURONEXT,Communications,Major Telecommunications,4.149,4.162,4.053,4.091,-0.9922555663117011,15791907689.0,10547458,EUR
+KWEB,KraneShares CSI China Internet UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,19.5941,19.5941,19.3501,19.4992,-0.5999928632964576,,4211,USD
 LAMT,iShares MSCI EM Latin America UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.15,5.15,5.12,5.12,-0.2921129503407922,,2000,USD
-LBUL,WisdomTree Gold 2x Daily Leveraged,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,171.11,171.11,163.8,166.15,-2.8533005905396687,,244,EUR
+LBUL,WisdomTree Gold 2x Daily Leveraged,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,171.11,171.11,163.8,166.13,-2.8649944454189358,,244,EUR
 LCJP,Multi Units Luxembourg SICAV - Amundi Core MSCI Japan UCITS ETF Acc,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4304.45,4308.62,4233.89,4267.67,0.39214302517054983,,39746,JPY
 LESE,Amundi MSCI EMU SRI Climate Paris Aligned UCITS ETF DR (C),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,102.636,103.032,102.636,103.032,0.8318490536493651,,46,CHF
 LGAP,Legal & General UCITS ETF Plc - Asia Pacific (ex-Japan) Equity,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,16.0754,16.0754,16.0292,16.0292,-0.5632754342431857,,6372,EUR
 LGEU,Legal & General UCITS ETF Plc - Europe (ex-UK) Equity,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,22.64,22.665,22.64,22.665,-0.19815059445179084,,95,EUR
 LGGL,Legal & General UCITS ETF Plc - Global Equity,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,24.1289,24.1289,23.9747,23.9747,-0.11623740761418544,,420,EUR
-LGJP,Legal & General UCITS ETF Plc - Japan Equity,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.4303,18.4303,18.1622,18.1622,-1.4503920345099015,,20,EUR
+LGJP,Legal & General UCITS ETF Plc - Japan Equity,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.4303,18.4303,18.1622,18.2679,-0.8768550421877965,,345,EUR
 LIDO-USD,21Shares Lido DAO ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1.5309,1.544,1.5309,1.544,0.9942438513867153,,727,USD
-LIGHT,Signify NV,EURONEXT,Producer Manufacturing,Electrical Products,15.38,15.41,15.19,15.28,-0.7147498375568629,1852869999.0,76948,EUR
-LITM,iShares Lithium & Battery Producers UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.09,8.09,7.923,7.968,-1.6660496112550882,,4236,USD
+LIGHT,Signify NV,EURONEXT,Producer Manufacturing,Electrical Products,15.38,15.41,15.19,15.39,0.0,1852869999.0,456336,EUR
+LITM,iShares Lithium & Battery Producers UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.09,8.09,7.923,7.968,-1.6660496112550882,,11654,USD
 LJPN,Multi Units Luxembourg SICAV - Amundi Core MSCI Japan D,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,16853.32,16872.07,16572.27,16696.55,-0.15404570301592327,,5976,JPY
-LKFT,Lakefront Biotherapeutics,EURONEXT,Health Technology,Biotechnology,24.56,24.78,24.44,24.58,0.0814332247556986,1618432049.0,40092,EUR
-LOCK,iShares Digital Security UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.114,11.146,10.86,10.862,-0.8217677136596043,,24213,EUR
+LKFT,Lakefront Biotherapeutics,EURONEXT,Health Technology,Biotechnology,24.56,24.78,24.44,24.66,0.40716612377850747,1618432049.0,52699,EUR
+LOCK,iShares Digital Security UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.114,11.146,10.808,10.852,-0.9130752373995585,,24841,EUR
 LQDA,iShares USD Corp Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,85.13,85.45,85.13,85.3,-0.0585823081429375,,650,EUR
 LQDH,iShares USD Corp Bond Interest Rate Hedged UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,90.35,90.35,90.27,90.27,-0.055358724534983576,,200,EUR
-LSIL,WisdomTree Silver 2x Daily Leveraged,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.902,12.902,12.156,12.206,-4.700187382885699,,22370,EUR
-LTAM,iShares MSCI EM Latin America UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.172,18.556,18.086,18.488,1.7165492957746546,,60161,EUR
+LSIL,WisdomTree Silver 2x Daily Leveraged,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.902,12.902,12.156,12.296,-3.9975015615240514,,22370,EUR
+LTAM,iShares MSCI EM Latin America UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.172,18.556,18.086,18.492,1.738556338028183,,60162,EUR
 LVIDE,Lavide Holding N.V.,EURONEXT,Miscellaneous,Miscellaneous,0.536,0.536,0.53,0.53,0.7604562737642592,4586539.0,500,EUR
-LVO,Amundi S&P 500 VIX Futures Enhanced Roll UCITS ETF ACC,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.6232,0.6295,0.6212,0.6271,-0.6180665610142654,,72628,EUR
+LVO,Amundi S&P 500 VIX Futures Enhanced Roll UCITS ETF ACC,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.6232,0.6295,0.6212,0.6263,-0.7448494453248871,,80462,EUR
 MACU,iShares Conservative Portfolio UCITS ETF Accum Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.963,5.963,5.9565,5.9565,-0.005036261079777548,,1600,USD
 MAGU,iShares Growth Portfolio UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.779,7.779,7.779,7.779,-0.9334844567833591,,50,USD
-MAGY,IncomeShares Magnificent 7 Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,26.545,27.7,26.545,27.7,0.0,,0,EUR
+MAGY,IncomeShares Magnificent 7 Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,26.545,26.545,26.49,26.49,-4.368231046931411,,0,EUR
 MAXD,iShares US Large Cap Max Buffer Dec UCITS ETF USD (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.148,5.148,5.142,5.142,-0.11655011655010371,,300,USD
 MAXJ-USD,iShares US Large Cap Max Buffer Jun UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.098,5.098,5.098,5.098,0.05888125613346642,,0,USD
 MAXM-USD,iShares VI PLC - iShares S&P 500 Max Buffer Mar UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.32,5.32,5.32,5.32,0.0,,0,USD
 MAXS,iShares VI PLC - iShares S&P 500 Max Buffer Sep UCITS ETF AccumUSD,EURONEXT,,,5.339,5.339,5.339,5.339,0.09373828271467533,,2,USD
-MEGA_USD,WisdomTree Physical Crypto Mega Cap Equal Weight,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.724,7.724,7.724,7.724,0.337750064951933,,0,USD
-METL,iShares Essential Metals Producers UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.048,11.048,10.78,10.874,-0.9834274266982224,,7685,USD
-METY,IncomeShares META Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.1615,4.3605,4.1615,4.3605,0.0,,0,EUR
-MICC,Magnum Ice Cream Co. N.V.,EURONEXT,Consumer Non-Durables,Food: Meat/Fish/Dairy,17.524,17.682,17.118,17.154,-2.9860875466576107,10825976690.0,666625,EUR
+MEGA_USD,WisdomTree Physical Crypto Mega Cap Equal Weight,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.724,7.724,7.632,7.632,-0.8573655494933843,,0,USD
+METL,iShares Essential Metals Producers UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.048,11.048,10.78,10.834,-1.3476598069568357,,22428,USD
+METY,IncomeShares META Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.1615,4.2205,4.1615,4.2205,-3.2106409815388073,,0,EUR
+MICC,Magnum Ice Cream Co. N.V.,EURONEXT,Consumer Non-Durables,Food: Meat/Fish/Dairy,17.524,17.682,17.112,17.122,-3.1670625494853453,10825976690.0,1120982,EUR
 MIVU-USD,Amundi MSCI USA Minimum Volatility Factor UCITS ETF Capitalisation,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,117.245,117.245,117.054,117.054,-0.12968619353958075,,158,USD
 MODU,iShares Moderate Portfolio UCITS ETF Accum Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.717,6.717,6.716,6.716,0.07450454477722983,,94,USD
 MORE,Morefield Group N.V.,EURONEXT,Finance,Financial Conglomerates,0.97,0.97,0.97,0.97,0.0,60140001.0,258,EUR
 MORPH-USD,21shares Morpho ETP 2025-open end Exchange Traded Product,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,34.275,34.275,34.275,34.275,1.2256349675132874,,0,USD
-MPAB,iShares MSCI EMU Paris-AlignedClimate UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.54,6.561,6.48,6.48,-1.4448669201520874,,2038,EUR
+MPAB,iShares MSCI EMU Paris-AlignedClimate UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.54,6.561,6.48,6.484,-1.3840304182509535,,2138,EUR
 MSFT,Leverage Shares 1x Microsoft Tracker ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.946,8.946,8.946,8.946,-1.1054609772275001,,0,EUR
 MSFY,IncomeShares Microsoft (MSFT) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.396,6.396,6.396,6.396,-3.178928247048138,,75,EUR
-MSTI,IncomeShares Microstrategy (MSTR) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.5665,5.12,4.5665,5.12,0.0,,0,EUR
+MSTI,IncomeShares Microstrategy (MSTR) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.5665,4.5665,4.539,4.539,-11.347656250000007,,0,EUR
 MSUD,iShares MSCI USA Swap UCITS ETF Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.7166,6.7166,6.6718,6.6722,-0.4268147086914989,,14480,USD
-MT,ArcelorMittal SA,EURONEXT,Non-Energy Minerals,Steel,64.5,65.24,62.44,63.58,-0.8112324492979658,47678391852.0,696577,EUR
+MT,ArcelorMittal SA,EURONEXT,Non-Energy Minerals,Steel,64.5,65.24,62.44,63.74,-0.561622464898584,47678391852.0,1243867,EUR
 MTAV,iShares Metaverse UCITS ETF USD (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.35,12.35,12.136,12.136,-1.1565401531194106,,37,USD
 MTRK,MotorK PLC,EURONEXT,Technology Services,Internet Software/Services,2.33,2.33,2.14,2.25,-3.433476394849788,110045345.0,21419,EUR
 MUSD,iShares MSCI USA Swap UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.5782,10.5814,10.4968,10.53,-0.20092501326863607,,130869,USD
@@ -519,93 +519,93 @@ MVEA,iShares Edge MSCI USA Minimum Volatility Advanced UCITS ETF AccumUSD,EURONE
 MVEW,iShares Edge MSCI World MinimumVolatility Advanced UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.727,8.727,8.702,8.725,0.14921946740128444,,7302,USD
 MVRS,iShares Metaverse UCITS ETF USD (Acc),EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.56,10.62,10.56,10.62,1.2199771254288823,,332,EUR
 N1UD,ISHARES NASDAQ 100 SWAP UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.944,6.9809,6.944,6.9809,1.7683246836550197,,93,USD
-NAI,New Amsterdam Invest NV,EURONEXT,Finance,Real Estate Development,8.85,8.85,8.85,8.85,0.0,35780940.0,87,EUR
+NAI,New Amsterdam Invest NV,EURONEXT,Finance,Real Estate Development,8.85,8.85,8.65,8.65,-2.2598870056497096,35780940.0,90,EUR
 NAMU,Amundi MSCI North America ESG Broad Transition UCITS ETF Accum- EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,206.96,206.96,205.92,205.92,-0.7231703789412786,,31,USD
 NAQS,ISHARES NASDAQ 100 SWAP UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.391,6.391,6.325,6.325,-0.6752512562814094,,10,EUR
-NASQ,ISHARES NASDAQ 100 SWAP UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.417,7.417,7.298,7.298,-1.511470985155197,,5,USD
-NDIA,iShares MSCI India UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.683,7.69,7.641,7.678,0.4185194873136284,,123026,EUR
+NASQ,ISHARES NASDAQ 100 SWAP UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.417,7.417,7.298,7.338,-0.971659919028341,,473,USD
+NDIA,iShares MSCI India UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.683,7.69,7.641,7.68,0.4446769552707273,,127870,EUR
 NEAR,21Shares Near Protocol Staking Etp,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.7939,5.9919,5.7939,5.9919,8.15703971119134,,2500,USD
-NEDAP,Nedap N.V,EURONEXT,Electronic Technology,Computer Communications,93.2,93.2,90.9,91.2,-1.0845986984815619,598055348.0,2520,EUR
+NEDAP,Nedap N.V,EURONEXT,Electronic Technology,Computer Communications,93.2,93.2,90.9,91.1,-1.1930585683297272,598055348.0,3075,EUR
 NEDSE,MKB NedSense N.V.,EURONEXT,Technology Services,Packaged Software,0.0764,0.0764,0.076,0.0764,0.0,7640000.0,29766,EUR
-NN,NN Group N.V.,EURONEXT,Finance,Life/Health Insurance,78.02,78.3,77.02,77.94,0.17994858611825268,19594645898.0,148733,EUR
+NN,NN Group N.V.,EURONEXT,Finance,Life/Health Insurance,78.02,78.3,77.02,78.1,0.3856041131105362,19594645898.0,466119,EUR
 NOAM,iShares VI PLC - iShares MSCI North America Swap UCITS ETF Accum- USD,EURONEXT,,,5.198,5.198,5.164,5.164,-0.7495675571785622,,95,USD
 NRP,NEPI Rockcastle N.V.,EURONEXT,Finance,Real Estate Development,8.13,8.14,8.12,8.12,-0.36809815950921637,5741173508.2566595,274,EUR
 NSE,New Sources Energy NV,EURONEXT,Utilities,Electric Utilities,0.028,0.031,0.028,0.031,0.0,5044633.0,29111,EUR
-NSI,NSI NV,EURONEXT,Finance,Real Estate Investment Trusts,16.92,16.92,16.5,16.72,-1.1820330969267305,341026324.0,22134,EUR
+NSI,NSI NV,EURONEXT,Finance,Real Estate Investment Trusts,16.92,16.92,16.5,16.78,-0.8274231678487031,341026324.0,39972,EUR
 NTM,VanEck Multi-Asset Balanced Allocation UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,79.06,79.21,79.0,79.21,0.27851626788200895,,686,EUR
-NUUR,iShares IV PLC - iShares Nuclear Energy And Uranium Mining UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.238,6.238,6.147,6.15,-0.24330900243308481,,6772,USD
-NVDY,IncomeShares NVIDIA (NVDA) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.314,5.497,5.314,5.497,0.0,,0,EUR
-NXFIL,NX Filtration N.V.,EURONEXT,Producer Manufacturing,Industrial Machinery,3.24,3.24,3.16,3.17,-1.399688958009329,186643829.0,24056,EUR
-OCI,OCI NV,EURONEXT,Process Industries,Chemicals: Agricultural,4.07,4.07,4.054,4.068,0.0,857518364.0,216405,EUR
+NUUR,iShares IV PLC - iShares Nuclear Energy And Uranium Mining UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.238,6.238,6.145,6.145,-0.32441200324412756,,9275,USD
+NVDY,IncomeShares NVIDIA (NVDA) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.314,5.314,5.284,5.284,-3.8748408222666924,,0,EUR
+NXFIL,NX Filtration N.V.,EURONEXT,Producer Manufacturing,Industrial Machinery,3.24,3.24,3.16,3.17,-1.399688958009329,186643829.0,32757,EUR
+OCI,OCI NV,EURONEXT,Process Industries,Chemicals: Agricultural,4.07,4.07,4.054,4.068,0.0,857518364.0,264954,EUR
 OM3M,iShares USD Treasury Bond 3-7yr UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.7145,4.7145,4.7145,4.7145,-0.5589538072136581,,570,USD
 ONDO,21Shares Ondo ETP (ONDO) ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.3953,6.3953,6.3865,6.3865,0.9547746636948446,,5,USD
 OPERF,Optimix Investment Funds NV - Optimix EuroRente Fonds,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,24.76,24.76,24.76,24.76,-0.20153164046754196,,1930,EUR
 PARI,Franklin LibertyShares ICAV - STX Eur600 Paris Al. Cl. UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,44.045,44.045,43.5,43.5,-0.6168608636052162,,55,EUR
 PBH,PB Holding NV,EURONEXT,Finance,Financial Conglomerates,3.42,3.42,3.42,3.42,0.5882352941176475,17442000.0,509,EUR
-PHAG,WisdomTree Physical Silver,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,52.13,52.18,50.43,50.84,-2.0235112738485204,,31601,EUR
-PHARM,Pharming Group NV,EURONEXT,Health Technology,Pharmaceuticals: Major,0.985,0.985,0.9626,0.97,-1.7622037674701319,698863203.0,5785042,EUR
-PHAU,WisdomTree Physical Gold,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,354.2,354.2,347.1,348.89,-1.4128684054367175,,1814,EUR
-PHIA,Koninklijke Philips N.V.,EURONEXT,Health Services,Medical/Nursing Services,22.95,23.31,22.88,22.93,0.0872981230903517,22268121332.0,550749,EUR
-PHPD,WisdomTree Physical Palladium,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,106.35,106.45,103.52,103.96,-2.986188876446438,,507,EUR
-PHPM,WisdomTree Metal Securities Ltd.,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,239.7,239.89,233.51,235.19,-1.6887514107762371,,33,EUR
-PHPT,WisdomTree Physical Platinum,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,141.96,142.21,137.94,139.3,-1.0231632798067343,,1146,EUR
+PHAG,WisdomTree Physical Silver,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,52.13,52.18,50.43,50.95,-1.8115243784929613,,32847,EUR
+PHARM,Pharming Group NV,EURONEXT,Health Technology,Pharmaceuticals: Major,0.985,0.985,0.9626,0.9736,-1.3976098845452738,698863203.0,6465708,EUR
+PHAU,WisdomTree Physical Gold,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,354.2,354.2,347.1,348.97,-1.3902625109497186,,1856,EUR
+PHIA,Koninklijke Philips N.V.,EURONEXT,Health Services,Medical/Nursing Services,22.95,23.31,22.88,23.05,0.6110868616324774,22268121332.0,1396766,EUR
+PHPD,WisdomTree Physical Palladium,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,106.35,106.45,103.52,103.98,-2.9675251959686384,,507,EUR
+PHPM,WisdomTree Metal Securities Ltd.,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,239.7,239.89,233.51,235.44,-1.5842494670400837,,33,EUR
+PHPT,WisdomTree Physical Platinum,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,141.96,142.21,137.94,139.13,-1.143953389228374,,1146,EUR
 PLAY,iShares Digital Entertainment and Education UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,14.5977,14.5977,14.3826,14.5189,0.6223534385374023,,1906,USD
 PLTY,Leverage Shares Plc Structured Instrument 2025-26.06.75,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.5,18.5,18.5,18.5,-4.66865917757394,,1539,EUR
-PNL,PostNL NV,EURONEXT,Transportation,Air Freight/Couriers,0.904,0.928,0.904,0.908,0.7769145394006666,465438277.0,2040660,EUR
+PNL,PostNL NV,EURONEXT,Transportation,Air Freight/Couriers,0.904,0.928,0.904,0.9045,0.3884572697003271,465438277.0,2656527,EUR
 POLY-USD,21Shares Polygon (POLY) ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1.037,1.037,0.9765,0.984,-16.290940025521056,,170000,USD
 PORF,N.V. Koninklijke Porceleyne Fles,EURONEXT,Consumer Durables,Home Furnishings,13.8,13.8,13.8,13.8,0.0,14944779.0,206,EUR
 PR1R,Amundi Prime Euro Government Bond -UCITS ETF DR- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.69,15.696,15.678,15.694,-0.36820721178262966,,1260,CHF
 PREVA,VALUE8 NV Cumulative Preferent Shares Shs,EURONEXT,Health Services,Medical/Nursing Services,4.67,4.6705,4.67,4.6705,0.0,54669492.0,290,EUR
-PRX,Prosus N.V. Class N,EURONEXT,Technology Services,Packaged Software,37.85,37.88,37.05,37.3475,-2.563266370988786,76347189343.0,1850245,EUR
+PRX,Prosus N.V. Class N,EURONEXT,Technology Services,Packaged Software,37.85,37.88,37.05,37.35,-2.5567440647012702,76347189343.0,2836022,EUR
 PYTH,21Shares Pyth Network ETP (PYTH) ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.0652,2.0652,2.0051,2.0211,35.05512863347813,,20,USD
-QANT,iShares Quantum Computing UCITS ETF Accum- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.126,6.126,5.987,5.997,-1.1374876360039556,,21685,USD
+QANT,iShares Quantum Computing UCITS ETF Accum- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.126,6.126,5.987,5.99,-1.2528849324101488,,21704,USD
 QCLN,First Trust Global Funds ICAv - First Trust Nasdaq Clean Edge Green Energy UCITS ETF Accum A USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,16.07,16.07,15.82,15.82,-1.9218846869187771,,66,EUR
-QDIA,iShares II PLC - iShares MSCI USA Dividend IQ UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.8148,6.8148,6.8148,6.8148,0.39481437831466865,,10,USD
+QDIA,iShares II PLC - iShares MSCI USA Dividend IQ UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.8148,6.8148,6.7657,6.7657,-0.3285209192693051,,2589,USD
 QNXT,iShares Nasdaq 100 ex-Top 30 UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.282,6.282,6.282,6.282,-1.5977443609022604,,500,USD
-QQQY,IncomeShares Nasdaq 100 Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.59,2.59,2.59,2.59,-3.681666046857575,,125,EUR
-QTOP,iShares Nasdaq 100 Top 30 UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.974,6.974,6.822,6.848,-0.6095791001451353,,24256,USD
+QQQY,IncomeShares Nasdaq 100 Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.59,2.595,2.59,2.595,-3.495723317218292,,304,EUR
+QTOP,iShares Nasdaq 100 Top 30 UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.974,6.974,6.822,6.862,-0.40638606676341915,,26735,USD
 R1GR,iShares Russell 1000 Growth UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,45.82,45.82,45.235,45.41,-0.5475251861585633,,214,USD
 R1VL,iShares Russell 1000 Value UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,43.28,43.31,43.165,43.215,-0.15018484288354372,,6298,USD
-RAND,Randstad NV,EURONEXT,Commercial Services,Personnel Services,40.46,40.68,40.01,40.05,-0.9398961167449976,7114559740.0,183787,EUR
-RBOE,iShares Automation & Robotics UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.552,18.578,18.15,18.15,-2.0824341821320824,,15070,EUR
+RAND,Randstad NV,EURONEXT,Commercial Services,Personnel Services,40.46,40.68,40.01,40.17,-0.6430868167202523,7114559740.0,371398,EUR
+RBOE,iShares Automation & Robotics UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.552,18.578,18.15,18.196,-1.834268450582649,,15928,EUR
 RCEG,Robeco UCITS ICAV - Robeco Climate Euro Government Bond UCITS ETF Accum- EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.049,5.067,5.049,5.064,0.2772277227722819,,25990,EUR
 RDVY,First Trust Global Funds ICAV - First Trust Rising Dividend Achievers UCITS ETF Accum A USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,26.148,26.148,26.083,26.086,-1.4320801058001185,,3828,USD
 REINA,Reinet Investments S.C.A.,EURONEXT,Finance,Investment Managers,24.02,24.02,23.21,23.21,-5.994329688132849,4252076534.039334,2761,EUR
-REN,RELX PLC,EURONEXT,Commercial Services,Miscellaneous Commercial Services,31.22,31.32,30.7,30.78,-1.4724711907810413,54297115037.127335,393078,EUR
+REN,RELX PLC,EURONEXT,Commercial Services,Miscellaneous Commercial Services,31.22,31.32,30.7,30.92,-1.0243277848911547,54297115037.127335,633878,EUR
 RNDR,21Shares Render ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.6882,3.6882,3.6144,3.6144,6.619469026548663,,1000,USD
 ROBO,L&G ROBO Global Robotics and Automation UCITS ETF USD Class A,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,28.215,28.235,27.75,27.78,-1.5242821694434587,,5630,EUR
 ROLA,Rolinco N.V. -EUR E-,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,73.53,73.53,73.53,73.53,-0.6888168557536535,4043254802.3999996,175,EUR
-RTWO,L&G Russell 2000 US Small Cap Quality UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,121.82,121.82,120.86,120.86,-0.39558266029339373,,157,EUR
-RU2K,iShares Russell 2000 Swap UCITS ETF Accum- GBP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.791,6.791,6.738,6.738,-1.3036472828475103,,11844,USD
-S2P0,Ishares VII PLC - Ishares S&P 500 Top 20 UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.366,5.366,5.337,5.337,-0.3547423450336096,,5675,USD
+RTWO,L&G Russell 2000 US Small Cap Quality UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,121.82,121.82,120.86,121.08,-0.2142739409922574,,317,EUR
+RU2K,iShares Russell 2000 Swap UCITS ETF Accum- GBP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.791,6.791,6.735,6.735,-1.3475904496850686,,11868,USD
+S2P0,Ishares VII PLC - Ishares S&P 500 Top 20 UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.352,5.352,5.337,5.337,0.0,,360,USD
 SAAI,iShares IV plc - iShares MSCI ACWI Screened UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.912,5.912,5.862,5.877,-0.4910260751777839,,559,USD
 SAOT,iShares STOXX Europe 600 Automobiles & Parts UCITS ETF (DE) Units,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.892,4.892,4.79,4.814,-1.935221022611525,,2555,EUR
 SAPL,Leverage Shares -1x Apple ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.801,2.801,2.801,2.801,0.6829618979151736,,0,EUR
 SARKK,Leverage Shares -3x Short ARK Innovation ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.018,5.018,5.018,5.018,-5.320754716981132,,0,EUR
 SAWI,iShares MSCI ACWI SRI UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.441,8.464,8.425,8.425,-1.0104570555751207,,352,USD
 SBIO,Invesco NASDAQ Biotech UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,63.98,64.29,63.8,64.22,1.3413287044342772,,889,EUR
-SBMO,SBM Offshore NV,EURONEXT,Industrial Services,Oilfield Services/Equipment,35.2,35.88,35.2,35.62,1.5393386545039884,5870443679.0,197541,EUR
+SBMO,SBM Offshore NV,EURONEXT,Industrial Services,Oilfield Services/Equipment,35.2,35.88,35.2,35.66,1.6533637400228003,5870443679.0,356489,EUR
 SBTCU,AMINA Bitcoin ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.404,7.404,7.3,7.3,-1.657011989761555,,600,USD
-SBUL,WisdomTree Gold 1x Daily Short,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.662,6.829,6.662,6.775,1.8643812960457158,,27683,EUR
+SBUL,WisdomTree Gold 1x Daily Short,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.662,6.829,6.662,6.77,1.7892046308825706,,27687,EUR
 SCITY,Amundi Index Solutions SICAV - Amundi MSCI Smart Cities,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,95.28,95.28,93.98,93.98,-2.3685850820693966,,305,USD
 SDHY,iShares USD Short Duration High Yield Corp Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,75.19,75.41,75.13,75.13,-0.13292569453676528,,21,EUR
 SDIS,Leverage Shares -1x Short Disney ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.989,4.989,4.989,4.989,-0.04007212983369625,,0,EUR
-SEMD,iShares MSCI EM SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.682,7.703,7.647,7.649,0.42011290534331136,,66616,USD
-SEMI,iShares MSCI Global Semiconductors UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,19.544,19.588,18.936,19.09,-0.841471015998333,,245261,USD
+SEMD,iShares MSCI EM SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.682,7.703,7.646,7.646,0.3807273204673745,,66960,USD
+SEMI,iShares MSCI Global Semiconductors UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,19.544,19.588,18.936,19.134,-0.612923332640757,,255005,USD
 SETH,Amina Ethereum ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.36,2.361,2.36,2.361,44.757817290006145,,1092,USD
-SGBS,WisdomTree Physical Swiss Gold,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,365.04,365.09,357.18,359.95,-1.318675293343569,,1008,EUR
-SGLD,Invesco Physical Gold ETC,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,367.39,367.65,359.32,361.57,-1.4446534194673895,,6538,EUR
-SGLU,iShares Global Govt Bond UCITS ETF Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.007,5.015,4.9945,5.008,-0.09974067424695578,,25000,USD
-SHELL,Shell Plc,EURONEXT,Energy Minerals,Integrated Oil,39.77,40.145,39.645,40.1,1.944832846065846,214954430767.84094,3012124,EUR
-SIFG,Sif Holding N.V.,EURONEXT,Producer Manufacturing,Building Products,3.87,3.87,3.675,3.73,-1.8421052631578907,113576720.0,100889,EUR
+SGBS,WisdomTree Physical Swiss Gold,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,365.04,365.09,357.18,359.65,-1.4009211536352708,,1008,EUR
+SGLD,Invesco Physical Gold ETC,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,367.39,367.65,359.32,361.97,-1.3356229727151245,,6590,EUR
+SGLU,iShares Global Govt Bond UCITS ETF Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.007,5.015,4.9945,5.008,-0.09974067424695578,,50427,USD
+SHELL,Shell Plc,EURONEXT,Energy Minerals,Integrated Oil,39.77,40.19,39.645,40.155,2.084657429769926,214954430767.84094,4232692,EUR
+SIFG,Sif Holding N.V.,EURONEXT,Producer Manufacturing,Building Products,3.87,3.87,3.575,3.575,-5.921052631578938,113576720.0,201802,EUR
 SJPD,iShares Core MSCI Japan IMI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.012,9.012,8.909,8.91,-0.7021063189568774,,454,USD
-SJPE,iShares Core MSCI Japan IMI UCITS ETF EUR Hedged Accum,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.488,15.488,15.236,15.336,0.3139717425431714,,3632,EUR
-SKUK,Ishares Sukuk Ucits ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.03,5.031,5.016,5.023,-0.09944311853619517,,54111,USD
+SJPE,iShares Core MSCI Japan IMI UCITS ETF EUR Hedged Accum,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.488,15.488,15.236,15.34,0.3401360544217661,,4535,EUR
+SKUK,Ishares Sukuk Ucits ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.03,5.031,5.016,5.031,0.05966587112172064,,54237,USD
 SKYE,First Trust Global Funds ICAV - First Trust Cloud Computing UCITS ETF Accum A USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,60.06,60.06,58.69,58.75,-1.2770962863384272,,602,EUR
-SLIGR,Sligro Food Group N.V.,EURONEXT,Consumer Services,Restaurants,10.46,10.52,10.4,10.42,-1.1385199240986643,445929038.0,25470,EUR
+SLIGR,Sligro Food Group N.V.,EURONEXT,Consumer Services,Restaurants,10.46,10.52,10.4,10.4,-1.3282732447817724,445929038.0,41490,EUR
 SLVY,IncomeShares Silver+ Yield ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,48.945,49.065,48.945,49.065,-2.455268389662027,,96,EUR
-SLXU,iShares Core GBP Corp Bond UCITS ETF Accum-Hedged- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.781,5.781,5.772,5.772,-0.49991380796414264,,85310,USD
-SMUA,iShares MSCI EMU SRI UCITS ETF Accum Hedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.425,9.435,9.32,9.323,-1.029723991507426,,1830,EUR
+SLXU,iShares Core GBP Corp Bond UCITS ETF Accum-Hedged- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.781,5.781,5.77,5.77,-0.5343906223065089,,139084,USD
+SMUA,iShares MSCI EMU SRI UCITS ETF Accum Hedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.425,9.435,9.32,9.338,-0.8704883227176299,,13861,EUR
 SNFL,Leverage Shares -1x Netflix ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.154,3.154,3.154,3.154,0.2542911633820727,,0,EUR
 SNVD,Leverage Shares -1x NVIDIA ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.84,11.84,11.84,11.84,-0.7544006705783727,,0,EUR
 SP20,iShares S&P 500 Top 20 UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.699,6.709,6.615,6.617,-1.1059632341951853,,24429,USD
@@ -613,18 +613,18 @@ SP3C,iShares S&P 500 3% Capped UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investm
 SP4S,iShares S&P Mid Cap 400 Swap UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.2187,6.2293,6.209,6.2113,0.36518170213453116,,37515,USD
 SPC3,iShares S&P 500 3% Capped UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.1745,7.1918,7.1745,7.1825,0.4601656036701313,,19135,USD
 SPLR,Leverage Shares -1x Short Palantir ETP,EURONEXT,,,18.152,18.152,18.152,18.152,-0.9170305676855854,,0,EUR
-SPXS,Invesco S&P 500 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,13.31,13.31,13.212,13.244,-0.2861014907393484,,74921,EUR
-SPYL,State Street SPDR S&P 500 UCITS ETF Accum shs - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,16.402,16.4163,16.2846,16.314,-0.235438006421031,,83890,EUR
+SPXS,Invesco S&P 500 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,13.31,13.31,13.212,13.258,-0.18069567836169936,,74966,EUR
+SPYL,State Street SPDR S&P 500 UCITS ETF Accum shs - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,16.402,16.4163,16.2846,16.3371,-0.0941752025684124,,84059,EUR
 SPYP,Leverage Shares -1x Short Paypal ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.546,8.546,8.546,8.546,1.5326125697992106,,0,EUR
-SPYY,IncomeShares S&P500 Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.898,3.898,3.898,3.898,-2.4280350438047553,,3848,EUR
-SRIL,iShares MSCI USA SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,13.916,13.926,13.906,13.926,-1.1077971878994501,,7298,USD
-SSAC,iShares MSCI ACWI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,107.26,107.33,106.44,106.53,-0.2060889929742378,,25518,EUR
-SSIL,WisdomTree Silver 1x Daily Short,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1.691,1.691,1.691,1.691,-0.15351913084553234,,0,EUR
+SPYY,IncomeShares S&P500 Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.898,3.8995,3.898,3.8995,-2.39048811013767,,3952,EUR
+SRIL,iShares MSCI USA SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,13.952,13.952,13.79,13.79,-0.976590550050273,,4344,USD
+SSAC,iShares MSCI ACWI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,107.26,107.33,106.44,106.62,-0.12177985948477327,,25696,EUR
+SSIL,WisdomTree Silver 1x Daily Short,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1.691,1.7344,1.691,1.7344,2.4090694378837947,,0,EUR
 SSQ,Leverage Shares -1x Short Square ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.091,2.091,2.091,2.091,0.990099009900999,,0,EUR
-STAR-USD,iShares Space Technologies UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.214,4.216,4.1355,4.1355,-1.629400570884856,,1016,USD
-STEC,iShares STOXX Europe 600 Technology UCITS ETF (DE) Units,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.742,7.772,7.591,7.591,-2.3916677382023908,,15653,EUR
-STOR,iShares Energy Storage & Hydrogen UCITS ETF Accum-USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.134,11.134,10.802,10.874,-1.4500634402755133,,753,USD
-STRC,21shares Strategy Yield ETP 2026-open end on STRC,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,20.645,20.785,20.605,20.785,0.751333010179356,,494,USD
+STAR-USD,iShares Space Technologies UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.214,4.216,4.1355,4.1355,-1.629400570884856,,1166,USD
+STEC,iShares STOXX Europe 600 Technology UCITS ETF (DE) Units,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.742,7.772,7.591,7.595,-2.340234023402345,,16975,EUR
+STOR,iShares Energy Storage & Hydrogen UCITS ETF Accum-USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.134,11.134,10.802,10.87,-1.4863150262824132,,4178,USD
+STRC,21shares Strategy Yield ETP 2026-open end on STRC,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,20.645,20.785,20.605,20.61,-0.0969461948618496,,1094,USD
 STSL,Leverage Shares -1x Tesla ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,19.998,20.075,19.998,20.075,-4.902889625769778,,6,EUR
 STSM,Leverage Shares -3x Short Taiwan Semiconductor ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.3978,0.3978,0.3978,0.3978,0.5307050796057596,,0,EUR
 SUAU,iShares MSCI USA SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.166,18.166,18.11,18.11,-0.055187637969103545,,1388,EUR
@@ -633,49 +633,49 @@ SUJD,iShares MSCI Japan SRI UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trus
 SUJP,iShares MSCI Japan SRI UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.229,8.243,8.135,8.154,-0.4517152972775096,,7423,EUR
 SUOA,iShares II PLC - iShares USD Corp Bond ESG SRI UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.2341,5.2341,5.2311,5.2311,-0.0821331703403873,,2868,USD
 SUOD,iShares II PLC - iShares USD Corp Bond ESG UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.613,3.6155,3.613,3.6155,0.6262176454216523,,500,EUR
-SUOU,iShares II PLC - iShares USD Corp Bond ESG UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.1795,4.1795,4.1795,4.1795,-0.5827783063748749,,337,USD
-SUSM,iShares MSCI EM SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.84,9.857,9.748,9.781,0.5344845307842675,,67611,EUR
+SUOU,iShares II PLC - iShares USD Corp Bond ESG UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.1795,4.182,4.1795,4.182,-0.5233111322549799,,4110,USD
+SUSM,iShares MSCI EM SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.84,9.857,9.748,9.796,0.6886627608181743,,67918,EUR
 SUSW,iShares MSCI World SRI UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,14.018,14.03,13.874,13.874,-0.8433390508862229,,40102,EUR
 SUWU,iShares MSCI World SRI UCITS ETF Hedged USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.7955,9.7955,9.6982,9.6982,-1.0387755102040894,,6,USD
-SWICH,SWI Capital Holding Ltd.,EURONEXT,Technology Services,Data Processing Services,11.0,11.0,10.75,11.0,0.0,5292960449.0,4754,EUR
-SWRD,State Street SPDR MSCI World UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,46.515,46.578,46.16,46.235,-0.23950286971906337,,54029,EUR
-SXLB,SSgA SPDR ETFs Europe II Plc - S&P US Materials Select Sector,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,45.671,45.674,45.3,45.301,-1.3608849017985454,,1864,EUR
+SWICH,SWI Capital Holding Ltd.,EURONEXT,Technology Services,Data Processing Services,11.0,11.0,10.75,11.0,0.0,5292960449.0,6328,EUR
+SWRD,State Street SPDR MSCI World UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,46.515,46.578,46.16,46.281,-0.14024942821386469,,54609,EUR
+SXLB,SSgA SPDR ETFs Europe II Plc - S&P US Materials Select Sector,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,45.671,45.674,45.164,45.164,-1.6591908722727877,,1915,EUR
 SXLC,SSgA SPDR ETFs Europe II Plc - S&P US Comm. Ser. Select Sector,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,45.921,45.921,45.636,45.833,-0.23074076492740733,,2528,EUR
 SXLE,SSgA SPDR ETFs Europe II PLC - State Street SPDR S&P U.S. Energy Select Sector UCITS ETF Accum.Ptg.Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,44.3,45.0,44.3,44.667,2.0143884892086446,,5296,EUR
-SXLF,SSgA SPDR ETFs Europe II Plc - S&P US Financials Select Sector,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,59.057,59.088,58.964,59.003,-0.01863964483004505,,1115,EUR
-SXLI,SSgA SPDR ETFs Europe II Plc - S&P US Industrial Select Sector,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,65.697,65.815,65.0,65.126,-0.8329145919936611,,11459,EUR
+SXLF,SSgA SPDR ETFs Europe II Plc - S&P US Financials Select Sector,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,59.057,59.088,58.934,58.936,-0.13217202697665462,,1689,EUR
+SXLI,SSgA SPDR ETFs Europe II Plc - S&P US Industrial Select Sector,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,65.697,65.815,64.933,64.957,-1.0902501789167667,,11519,EUR
 SXLK,SSgA SPDR ETFs Europe II Plc - S&P US Technology Select Sector,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,161.929,162.181,159.87,160.5,-0.38047829784064574,,4840,EUR
 SXLP,SSgA SPDR ETFs Europe II Plc - S&P US Cons. Stap. Sel. Sector,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.473,39.473,39.368,39.368,-0.3896563939071817,,200,EUR
 SXLU,SSgA SPDR ETFs Europe II Plc - S&P US Utilities Select Sector,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,46.026,46.03,46.026,46.03,0.3422492533734519,,588,EUR
 SXLV,SSgA SPDR ETFs Europe II Plc - S&P US Health Care Sel. Sec. UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,45.689,46.085,45.677,46.085,1.114597274941314,,2669,EUR
 SXLY,SSgA SPDR ETFs Europe II Plc - S&P US Cons. Disc. Sel. Sector,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,63.249,63.249,62.764,62.764,-0.014337374348844792,,51,EUR
 SYRUP-USD,21Shares Maple Finance ETP 2025-open end,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.338,10.338,10.21,10.21,24.51219512195124,,7000,USD
-TAT,VanEck iBoxx EUR Sovereign Capped AAA-AA 1-5 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.836,18.836,18.81,18.814,-0.14330449551510546,,1202,EUR
-TCBT,VanEck iBoxx EUR Corporates UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,16.663,16.682,16.643,16.674,-0.09586578789695499,,2831,EUR
-TDIV,VanEck Vectors ETFs NV - Morningstar Dev. Mrkts. Div. Ldrs.,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,55.76,55.96,55.44,55.72,0.34215739240050014,,28886,EUR
-TDT,VanEck AEX UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,112.06,112.16,111.16,111.2,-0.429799426934101,,3425,EUR
-TEET,VanEck European Equal Weight Screened UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,97.49,97.49,96.83,96.89,-0.9000715966042707,,275,EUR
+TAT,VanEck iBoxx EUR Sovereign Capped AAA-AA 1-5 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.836,18.836,18.81,18.811,-0.15922721723900607,,1216,EUR
+TCBT,VanEck iBoxx EUR Corporates UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,16.663,16.682,16.643,16.648,-0.25164769322948827,,4761,EUR
+TDIV,VanEck Vectors ETFs NV - Morningstar Dev. Mrkts. Div. Ldrs.,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,55.76,55.96,55.44,55.76,0.41419052764271,,29790,EUR
+TDT,VanEck AEX UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,112.06,112.16,111.16,111.38,-0.26862464183382107,,3646,EUR
+TEET,VanEck European Equal Weight Screened UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,97.49,97.49,96.79,96.79,-1.0023524598547506,,286,EUR
 TEND,iShares VI PLC - iShares US Large Cap Moderate Buffer UCITS ETF Accum- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.469,5.469,5.449,5.449,0.3314306757503184,,19269,USD
 TENJ-USD,iShares US Large Cap Moderate Buffer Jun UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.159,5.159,5.159,5.159,-0.019379844961246784,,0,USD
 TENM-USD,iShares US Large Cap Moderate Buffer Mar UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.716,5.716,5.716,5.716,0.0,,0,USD
-TFG,Tetragon Financial Group Limited,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,14.05,14.2,14.05,14.2,1.4285714285714235,1003677152.866856,8520,USD
-TGBT,VanEck iBoxx EUR Sovereign Diversified 1-10 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.139,12.141,12.12,12.138,-0.024709661477638693,,4133,EUR
-THEON,Theon International Plc,EURONEXT,Consumer Durables,Electronics/Appliances,33.14,33.14,32.46,32.78,-1.2055455093429734,2608765879.0,81982,EUR
+TFG,Tetragon Financial Group Limited,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,14.05,14.2,14.0,14.0,0.0,1003677152.866856,17781,USD
+TGBT,VanEck iBoxx EUR Sovereign Diversified 1-10 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.139,12.142,12.12,12.142,0.008236553825874687,,4150,EUR
+THEON,Theon International Plc,EURONEXT,Consumer Durables,Electronics/Appliances,33.14,33.14,32.46,32.84,-1.0247136829415198,2608765879.0,112499,EUR
 THRW,iShares World Thematic Rotation Active UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.114,5.114,5.08,5.096,-0.4493065051767863,,2160,USD
-TI5A,iShares USD TIPS 0-5 UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,116.3,116.41,116.2,116.27,-0.09451795841209781,,1281,USD
-TLCO,iShares MSCI Global Telecommunication Services UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.192,7.194,7.153,7.168,0.2097022228435701,,11018,USD
-TLTY,IncomeShares 20+ Year Treasury (TLT) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,30.465,30.91,30.465,30.91,0.0,,0,EUR
+TI5A,iShares USD TIPS 0-5 UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,116.3,116.41,116.2,116.36,-0.017185083347650818,,5275,USD
+TLCO,iShares MSCI Global Telecommunication Services UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.192,7.194,7.153,7.16,0.0978610373270035,,13292,USD
+TLTY,IncomeShares 20+ Year Treasury (TLT) Options ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,30.465,30.635,30.465,30.635,-0.8896797153024865,,0,EUR
 TOF,VanEck Multi-Asset Growth Allocation UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,97.56,97.56,95.25,95.82,0.6089878202435933,,501,EUR
-TOM2,TomTom NV,EURONEXT,Technology Services,Packaged Software,4.148,4.154,4.04,4.058,-2.0280057943022816,515403021.99999994,163725,EUR
+TOM2,TomTom NV,EURONEXT,Technology Services,Packaged Software,4.148,4.154,4.04,4.074,-1.6417189763399442,515403021.99999994,258381,EUR
 TPSA,iShares USD TIPS UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,220.5,220.9,220.45,220.74,0.018124150430457845,,419,EUR
-TRET,VanEck Global Real Estate UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,40.704,40.762,40.55,40.762,0.6891781735543401,,3202,EUR
-TRIO,TRIODOS BANK NV Depositary Receipt,EURONEXT,Finance,Regional Banks,35.2,36.2,35.2,35.8,0.9873060648800968,512857145.99999994,19459,EUR
+TRET,VanEck Global Real Estate UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,40.704,40.814,40.55,40.798,0.7781043894968378,,4230,EUR
+TRIO,TRIODOS BANK NV Depositary Receipt,EURONEXT,Finance,Regional Banks,35.2,36.2,35.2,35.75,0.8462623413258029,512857145.99999994,23864,EUR
 TSLA,Leverage Shares 1x Tesla Tracker ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.75,7.75,7.75,7.75,4.985098889189926,,11,EUR
 TSLQ,Leverage Shares -3x Short Tesla ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.998,9.714,8.998,9.714,-6.578188113098666,,560,EUR
 TSLY,Incomeshares Tesla Tsla Option Etp,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.8715,2.8715,2.8475,2.8475,-2.1981796324918443,,19849,EUR
-TSWE,VanEck World Equal Weight Screened UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,43.13,43.17,42.7,42.74,-0.6046511627906931,,36900,EUR
-TWEKA,TKH Group N.V. Cert,EURONEXT,Producer Manufacturing,Electrical Products,51.65,51.65,50.75,50.85,-1.6441005802707958,2061807130.0000002,36880,EUR
-U13C,Amundi US Treasury Bond 1-3Y UCITS ETF -Acc USD- Capitalisation,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.28,11.284,11.28,11.284,-0.03543586109142062,,6590,USD
+TSWE,VanEck World Equal Weight Screened UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,43.13,43.17,42.7,42.77,-0.5348837209302253,,38507,EUR
+TWEKA,TKH Group N.V. Cert,EURONEXT,Producer Manufacturing,Electrical Products,51.65,51.65,50.75,51.2,-0.9671179883945841,2061807130.0000002,55104,EUR
+U13C,Amundi US Treasury Bond 1-3Y UCITS ETF -Acc USD- Capitalisation,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,11.28,11.284,11.28,11.28,-0.07087172218285698,,11835,USD
 U1FA,UBS MSCI Canada UCITS ETF hEUR acc Capitalisation,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,42.201,42.23,42.201,42.23,-0.04733727810651628,,222,EUR
 U500,Amundi S&P 500 Screened UCITS ETF Accum EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,227.56,227.56,226.1,226.19,-0.41824425464470755,,269,USD
 UBU3,UBS Core MSCI USA UCITS ETF Class -A- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,161.08,161.08,160.33,160.33,-0.7490404853286985,,4,EUR
@@ -695,7 +695,7 @@ UE25,UBS (Lux) Fund Solutions - UBS BBG MSCI US Liquid Corp Sustainable UCITS ET
 UE27,UBS (Lux) Fund Solutions - UBS BBG MSCI US Liquid Corp Sustainable UCITS ETF -(hedged to EUR) A-acc- Capitalisation,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.0,15.011,14.973,14.998,-0.5899118446344562,,81,EUR
 UE28,UBS MSCI Australia UCITS ETF Accum Shs h EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,24.025,24.045,24.025,24.045,0.02079866888520199,,1325,EUR
 UE31,UBS Core MSCI USA hEUR UCITS ETF Class A- EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,49.931,49.931,49.572,49.572,-0.5656517029726731,,2216,EUR
-UEDD,iShares USD UltraShort Bond ESG SRI UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.048,5.048,5.048,5.048,0.1190003966679934,,11,USD
+UEDD,iShares USD UltraShort Bond ESG SRI UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.045,5.045,5.041,5.041,-0.13866877971473204,,1422,USD
 UEF0,UBS (Lux) Fund Sol - UBS Core BBG US Liquid Corp UCITS ETF -hEUR acc- Capitalisation,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,17.4,17.406,17.395,17.406,0.2880848121686861,,1539,EUR
 UEF5,UBS MSCI EM Socially Responsible UCITS ETF USD dis Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,20.512,20.598,20.404,20.42,0.7947085246063545,,11438,EUR
 UEF6,UBS BBG Euro Area Liquid Corp 1-5 UCITS ETF -EUR dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.996,12.999,12.996,12.998,0.23906840441118843,,1818,EUR
@@ -708,25 +708,25 @@ UHEB,iShares III PLC - iShares USD High Yield Corp Bond Enhanced Active UCITS ET
 UIM1,UBS (Lux) Fund Solutions SICAV - UBS Core EURO STOXX 50 UCITS ETF Shs -EUR dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,64.52,64.64,64.13,64.14,-0.8195453842585452,,1584,EUR
 UIM4,UBS Core MSCI EMU UCITS ETF-EUR dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,215.65,215.65,214.35,214.55,-1.3109475620975135,,403,EUR
 UIM5,UBS Core MSCI Japan UCITS ETF JPY dis Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,68.834,68.94,68.096,68.096,-0.7910954413671414,,6005,EUR
-UIM9,UBS MSCI Canada UCITS ETF -CAD dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,58.21,58.21,57.795,57.795,-0.32423296483451236,,37,EUR
-UIMA,UBS (Lux) Fund Solutions SICAV - UBS Core MSCI Europe UCITS ETF EUR dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,106.5,106.5,105.98,106.09,-0.4877591220335766,,680,EUR
+UIM9,UBS MSCI Canada UCITS ETF -CAD dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,58.21,58.21,57.561,57.561,-0.7277995274476952,,201,EUR
+UIMA,UBS (Lux) Fund Solutions SICAV - UBS Core MSCI Europe UCITS ETF EUR dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,106.5,106.5,105.79,105.79,-0.7691586155144856,,933,EUR
 UIMD,UBS MSCI Pacific ex Japan UCITS ETF -USD dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,48.84,48.84,48.7,48.7,0.640628228972933,,208,EUR
-UIMI,UBS ETF SICAV - UBS ETF - MSCI Emerging Markets UCITS ETF A Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,147.3,147.3,145.84,146.43,0.4872357946747241,,281,EUR
-UIMM,UBS ETF SICAV - UBS ETF - MSCI World Socially Responsible UCITS ETF A Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,181.66,181.66,181.09,181.13,-0.6254457672683462,,636,EUR
+UIMI,UBS ETF SICAV - UBS ETF - MSCI Emerging Markets UCITS ETF A Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,147.3,147.3,145.84,146.33,0.4186110348613874,,298,EUR
+UIMM,UBS ETF SICAV - UBS ETF - MSCI World Socially Responsible UCITS ETF A Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,181.51,181.51,179.16,179.16,-1.0876166289405393,,186,EUR
 UIMP,UBS (Lux) Fund Solutions SICAV - UBS MSCI USA Socially Responsible UCITS ETF USD dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,257.8,257.8,254.75,254.8,-1.06775383420695,,224,EUR
 UIMR,UBS ETF SICAV - UBS ETF - MSCI EMU Socially Responsible UCITS ETF A Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,144.46,144.64,144.46,144.64,-0.06908940168579711,,25,EUR
-UIMT,UBS (Lux) Fund Solutions SICAV - UBS MSCI Pacific Socially Responsible UCITS ETF USD dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,87.97,87.97,87.04,87.5,-0.19390897684498884,,1722,EUR
+UIMT,UBS (Lux) Fund Solutions SICAV - UBS MSCI Pacific Socially Responsible UCITS ETF USD dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,87.97,87.97,87.04,87.35,-0.3650051328846896,,2632,EUR
 UIMY,UBS Factor MSCI EMU Low Volatility UCITS ETF-EUR dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,19.132,19.132,19.132,19.132,-0.5406529423996631,,1,EUR
 UIMZ,UBS (Lux) Fund Solutions SICAV - Factor MSCI EMU Prime Value UCITS ETF -(EUR) A-dis- Distribution,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,26.405,26.415,26.405,26.415,0.03787161522438178,,26,EUR
 UKSR,UBS MSCI United Kingdom IMI Socially Responsible UCITS ETF dis GBP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,23.382,23.396,23.382,23.396,-0.1578969828873769,,743,EUR
-UMDV,iShares US Medical Devices UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.832,5.917,5.802,5.812,-0.15461260951725567,,158270,USD
-UMG,Universal Music Group N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,14.72,14.72,14.34,14.34,-2.116040955631403,26934419520.0,1315994,EUR
-UNA,Unilever PLC,EURONEXT,Consumer Non-Durables,Household/Personal Care,56.0,56.6,55.75,55.99,0.0,120013275188.46115,1446590,EUR
-UPAB,iShares S&P 500 Paris-Aligned Climate UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.548,9.549,9.477,9.477,-0.5770037767519903,,82984,USD
+UMDV,iShares US Medical Devices UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.832,5.917,5.783,5.785,-0.6184504380690532,,160174,USD
+UMG,Universal Music Group N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,14.72,14.72,14.34,14.35,-2.047781569965875,26934419520.0,3503848,EUR
+UNA,Unilever PLC,EURONEXT,Consumer Non-Durables,Household/Personal Care,56.0,56.6,55.75,56.16,0.3036256474370327,120013275188.46115,1885130,EUR
+UPAB,iShares S&P 500 Paris-Aligned Climate UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.548,9.549,9.477,9.48,-0.5455308434746077,,158783,USD
 US03,Ishares USD Treasury Bond 0-3 Month UCITS ETF - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.0617,5.0617,5.049,5.049,-0.009901970492122445,,250728,USD
 USCE,SSGA SPDR ETFs Europe I plc - State Street SPDR Bloomberg U.S. Corporate Scored UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.155,27.155,26.98,26.98,0.2601263470828699,,2151,EUR
 USDB-USD,Ishares Iv Plc Us Large Cap Deep Buffer Etf AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.279,5.279,5.271,5.271,0.2472422974515006,,150,USD
-USE3,WisdomTree Short USD Long EUR 3x Daily,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.184,7.184,7.165,7.165,-0.5827667545441906,,1487,EUR
+USE3,WisdomTree Short USD Long EUR 3x Daily,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.184,7.184,7.162,7.162,-0.6243929512973488,,1487,EUR
 USEB,Ishares USD Corp Bond Enhanced Active UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.287,5.287,5.283,5.283,-0.8073601201652134,,13294,USD
 USEC,Ishares USD Corp Bond Enhanced Active UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.558,4.558,4.558,4.558,-0.5020737830168212,,0,EUR
 USEE,iShares US Equity Enhanced Active UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.401,7.401,7.354,7.355,-0.7690232056125134,,24336,USD
@@ -734,134 +734,135 @@ USPA,Franklin LibertyShares ICAV - S&P 500 Paris Al. Cl. UCITS ETF,EURONEXT,Misc
 USRI,Amundi ETF ICAV - Amundi MSCI USA SRI Climate Paris Aligned UCITS ETF Accum- EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,144.7,144.7,143.43,143.43,-0.34739109289237824,,37,USD
 V20A,Vanguard LifeStrategy 20% Equity UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,25.97,25.97,25.96,25.97,-0.3453568687643893,,380,EUR
 V20D,Vanguard LifeStrategy 20% Equity UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,22.375,22.375,22.34,22.345,-0.267797366659238,,931,EUR
-V3AA,Vanguard ESG Global All CapUCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.699,7.705,7.63,7.653,-0.07833920877399435,,3052,EUR
+V3AA,Vanguard ESG Global All CapUCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.699,7.705,7.63,7.647,-0.1566784175479771,,9808,EUR
 V3AL,Vanguard ESG Global All CapUCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.131,7.131,7.071,7.087,-0.6727400140154176,,8588,EUR
 V3EA,Vanguard ESG Developed Europe All Cap UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.871,7.871,7.839,7.84,-0.7594936708860822,,172,EUR
 V3EL,Vanguard ESG Developed Europe All Cap UCITS ETF -EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.068,7.068,7.064,7.064,-0.786516853932585,,30,EUR
 V3GE,Vanguard ESG Global Corporate Bond UCITS ETF Hedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,3.933,3.933,3.9245,3.932,-0.07623888182973605,,2662,EUR
 V3GF,Vanguard ESG Global Corporate Bond UCITS ETF AccumHedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.7575,4.7575,4.757,4.757,-0.4082487176803253,,40,EUR
 V3MA,Vanguard ESG Emerging Markets All Cap UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.382,8.389,8.315,8.315,0.1807228915662505,,3662,EUR
-V3ML,Vanguard ESG Emerging Markets All Cap UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.744,7.744,7.67,7.67,-0.32488628979857515,,8956,EUR
+V3ML,Vanguard ESG Emerging Markets All Cap UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.744,7.744,7.67,7.707,0.1559454191033082,,9293,EUR
 V3NA,Vanguard ESG North America All Cap UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.982,7.982,7.973,7.973,-0.06267234895963768,,13704,EUR
-V3NL,Vanguard ESG North America All Cap UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.66,7.66,7.596,7.596,-0.926046693622013,,20,EUR
+V3NL,Vanguard ESG North America All Cap UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.66,7.66,7.596,7.616,-0.6651884700665209,,22,EUR
 V3PA,Vanguard ESG Developed Asia Pacific All Cap UCITS ETF Accum USD-Acc,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.64,9.64,9.493,9.506,-1.1027881814398655,,58,EUR
 V3PL,Vanguard ESG Developed Asia Pacific All Cap UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.896,8.896,8.852,8.852,0.06782726656116016,,37664,EUR
 V3RE,Vanguard ESG EUR Corporate Bond UCITS ETF Accum Shs- EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.778,5.779,5.778,5.779,-0.1209816799170355,,29,EUR
 V3RF,Vanguard ESG EUR Corporate Bond UCITS ETF Shs- EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.069,5.069,5.069,5.069,-0.21653543307086853,,41,EUR
-V40A,Vanguard LifeStrategy 40% Equity UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,31.07,31.1,30.98,31.0,-0.4815409309791287,,309,EUR
+V40A,Vanguard LifeStrategy 40% Equity UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,31.07,31.1,30.98,31.03,-0.3852327447832984,,3615,EUR
 V40D,Vanguard LifeStrategy 40% Equity UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,27.045,27.045,26.99,27.015,-0.5155588289449478,,337,EUR
 V60A,Vanguard LifeStrategy 60% Equity UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,36.99,37.135,36.85,36.93,-0.2969762419006464,,5585,EUR
-V60D,Vanguard LifeStrategy 60% Equity UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,32.69,32.69,32.48,32.55,-0.3215434083601408,,3446,EUR
-V80A,Vanguard LifeStrategy 80% Equity UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,43.91,44.045,43.67,43.83,-0.170823368636836,,5296,EUR
+V60D,Vanguard LifeStrategy 60% Equity UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,32.69,32.69,32.48,32.575,-0.2449854539886642,,4446,EUR
+V80A,Vanguard LifeStrategy 80% Equity UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,43.91,44.045,43.67,43.83,-0.170823368636836,,5343,EUR
 V80D,Vanguard LifeStrategy 80% Equity UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.375,39.375,39.07,39.12,-0.7987828071510201,,6147,EUR
-VALL,Vanguard FTSE Global All-Cap UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.334,4.334,4.29,4.3,-0.20886516593177862,,173269,EUR
+VALL,Vanguard FTSE Global All-Cap UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.334,4.334,4.29,4.3035,-0.1276398236249827,,173578,EUR
 VALLD,Vanguard FTSE Global All-Cap UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.3335,4.3385,4.298,4.3045,-0.10443258296588931,,48377,EUR
-VALUE,VALUE8 NV,EURONEXT,Health Services,Medical/Nursing Services,6.55,6.55,6.35,6.35,-3.0534351145038197,54669492.0,1370,EUR
-VAPX,Vanguard FTSE Developed Asia Pacific (ex-Japan) UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.804,39.87,39.27,39.35,-1.244792450936092,,9767,EUR
+VALUE,VALUE8 NV,EURONEXT,Health Services,Medical/Nursing Services,6.55,6.6,6.35,6.6,0.7633587786259515,54669492.0,1371,EUR
+VAPX,Vanguard FTSE Developed Asia Pacific (ex-Japan) UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.804,39.87,39.066,39.066,-1.9575365155849875,,10158,EUR
 VBTC-USD,VanEck Bitcoin ETN,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,41.388,41.388,40.911,41.167,0.46857840146430796,,638,USD
 VCASH-XAMS,Vanguard EUR Cash UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.011,15.011,15.011,15.011,0.005995962718434114,,0,EUR
 VCSHA-XAMS,Vanguard EUR Cash UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.2205,15.2226,15.2205,15.2222,0.0013138877939910013,,1921,EUR
 VDOT-USD,VanEck Vectors Polkadot ETN,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.264,0.264,0.264,0.264,5.600000000000005,,115,USD
 VECP,Vanguard EUR Corporate Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,47.53,47.53,47.37,47.42,-0.08428150021070195,,3524,EUR
-VEMT,Vanguard USD Emerging Markets Government Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,37.189,37.252,37.115,37.115,-0.1855636833046351,,232,EUR
-VERX,Vanguard FTSE Developed Europe ex UK UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,50.57,50.67,50.1,50.1,-0.8509796160696611,,16405,EUR
+VEMT,Vanguard USD Emerging Markets Government Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,37.189,37.252,37.115,37.139,-0.12101979345953799,,238,EUR
+VERX,Vanguard FTSE Developed Europe ex UK UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,50.57,50.67,50.1,50.22,-0.613496932515342,,16889,EUR
 VESC,Vanguard Funds PLC - Vanguard FTSE Developed Europe Small Cap UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.297,5.297,5.269,5.269,-0.5849056603773528,,94,EUR
 VESD,Vanguard Funds PLC - FTSE Developed Europe Small Cap UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.28,5.28,5.24,5.24,-0.7951533510034043,,210,EUR
 VETH-USD,VanEck Vectors Ethereum ETN,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,14.864,14.864,14.73,14.73,0.03395585738540429,,699,USD
-VETY,Vanguard EUR Eurozone Government Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,21.537,21.547,21.485,21.542,-0.004641879032621592,,6429,EUR
-VEUR,Vanguard FTSE Developed Europe UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,50.414,50.5,50.02,50.092,-0.536118502045199,,7875,EUR
+VETY,Vanguard EUR Eurozone Government Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,21.537,21.547,21.485,21.532,-0.05106066935895295,,6451,EUR
+VEUR,Vanguard FTSE Developed Europe UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,50.414,50.5,50.02,50.168,-0.38521107183988446,,8488,EUR
 VEVE,Vanguard FTSE Developed World UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,125.67,125.8,124.86,125.04,-0.14374700527071763,,3114,EUR
 VEZI,Vanguard Funds PLC - Vanguard FTSE Eurozone UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.429,5.429,5.397,5.397,-1.1900402782863329,,128,EUR
 VEZU,Vanguard Funds PLC - Vanguard FTSE Eurozone UCITS ETF EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.475,5.478,5.475,5.478,0.14625228519195627,,484,EUR
-VFEM,Vanguard FTSE Emerging Markets UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,72.61,72.88,72.16,72.51,0.8484005563282329,,5406,EUR
+VFEM,Vanguard FTSE Emerging Markets UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,72.61,72.88,72.16,72.45,0.764951321279551,,5986,EUR
 VGGE,Vanguard Global Government Bond UCITS ETF Hedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.755,4.755,4.75,4.75,-0.18911536036983276,,100,EUR
 VGGF,Vanguard Funds PLC - Vanguard Global Government Bond UCITS ETF AccumHedged EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.974,4.974,4.967,4.967,-0.7195682590445828,,3763,EUR
 VGWE,Vanguard Funds PLC - Vanguard FTSE All-World High Dividend Yield UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,94.105,94.105,93.585,93.793,0.2061965811965941,,613,EUR
-VHYL,Vanguard FTSE All-World High Dividend Yield UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,81.788,81.849,81.38,81.56,0.20148410241289677,,8046,EUR
+VHYL,Vanguard FTSE All-World High Dividend Yield UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,81.788,81.849,81.38,81.583,0.2297410192147005,,8446,EUR
 VITD,Vanguard U.S. Treasury 3-7 Year Bond UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,83.77,83.77,83.77,83.77,-0.9459619250325142,,1,EUR
-VJPN,Vanguard FTSE Japan UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,45.335,45.525,44.725,45.0,0.2897258747492814,,522,EUR
+VJPN,Vanguard FTSE Japan UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,45.335,45.525,44.725,45.03,0.35658569199911677,,1479,EUR
 VLDP,Vanguard U.S. Treasury 7-10 Year Bond UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,82.87,82.92,82.87,82.92,0.1691229765643882,,242,EUR
 VLDS-XAMS,Vanguard Funds plc - Vanguard U.S. Treasury 7-10 Year Bond UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,85.07,85.07,85.07,85.07,-0.6191588785046742,,1168,EUR
-VLK,Van Lanschot Kempen NV cert. of shs,EURONEXT,Finance,Investment Managers,66.2,66.3,65.2,65.5,-1.5777610818933092,2827673693.0,37423,EUR
+VLK,Van Lanschot Kempen NV cert. of shs,EURONEXT,Finance,Investment Managers,66.2,66.3,65.2,65.65,-1.3523666416228273,2827673693.0,61146,EUR
 VNRT,Vanguard FTSE North America UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,162.1,162.1,161.54,161.54,-0.4314595660749612,,465,EUR
-VPK,Royal Vopak NV,EURONEXT,Distribution Services,Wholesale Distributors,48.16,48.38,47.88,48.08,0.20842017507295002,5252686517.0,35713,EUR
+VPK,Royal Vopak NV,EURONEXT,Distribution Services,Wholesale Distributors,48.16,48.38,47.88,48.2,0.45852438516049604,5252686517.0,79512,EUR
 VPYT-EUR,VanEck Pyth ETN,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,1.128,1.138,1.128,1.138,1.6071428571428386,,500,EUR
 VRGU-XAMS,VANGUARD RUSSELL 1000 U.S. GROWTH UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,87.16,87.16,87.16,87.16,-0.2289377289377322,,0,EUR
 VRMA,Vanguard Russell U.S. Mid-Cap UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,87.93,87.93,87.86,87.86,-0.419358494843029,,100,EUR
 VRSA-XAMS,Vanguard Russell 2000 U.S. Small-Cap UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,85.6,85.6,85.31,85.31,-0.9980271556226057,,1250,EUR
 VRTS,Virtune Staked Solana ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.9308,0.9341,0.9308,0.9328,-1.2910052910052898,,4604,EUR
 VRVA-XAMS,Vanguard Russell 1000 U.S. Value UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,89.39,89.42,89.23,89.42,0.25787644354748734,,820,EUR
-VSCF,Vanguard EUR Corporate 1-3 year Bond UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.159,5.162,5.157,5.157,-0.11621150493899336,,10372,EUR
+VSCF,Vanguard EUR Corporate 1-3 year Bond UCITS ETF AccumEUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.159,5.162,5.157,5.161,-0.03873716831300925,,10926,EUR
 VSGE,Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF - EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.969,4.969,4.9685,4.9685,0.12090680100754335,,23288,EUR
 VSGF,Vanguard EUR Eurozone Government 1-3 Year Bond UCITS ETF Accum- EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.114,5.114,5.11,5.11,-0.13679890560874874,,50145,EUR
 VSML,Vanguard FTSE Global Small-Cap UCITS ETF Accun USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.304,4.311,4.277,4.277,-0.7656612529002199,,554,EUR
 VSMLD,Vanguard Funds plc - Vanguard FTSE Global Small-Cap UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.3,4.3,4.2765,4.2765,-1.6670498965279323,,5256,EUR
 VSOL-USD,VanEck Vectors Solana ETN,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.837,5.837,5.729,5.729,-2.0181289550196735,,7,USD
-VSUI,VanEck Sui ETN,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.687,2.689,2.65,2.65,0.22692889561269983,,5382,EUR
+VSUI,VanEck Sui ETN,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.687,2.689,2.65,2.674,1.1346444780635325,,5458,EUR
 VTA,Volta Finance Limited,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.06,6.08,6.02,6.06,0.9999999999999934,219483473.0,14952,EUR
 VTIA-EUR,VanEck Celestia ETN linked to MarketVector Celestia VWAP Close Index,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.841,0.841,0.808,0.808,-1.5834348355663705,,21,EUR
 VTRX-USD,VanEck Vectors TRON ETN,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,34.455,34.455,33.943,33.943,-2.8895945984608047,,3742,USD
-VUCP,Vanguard USD Corporate Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.884,39.884,39.858,39.871,-0.23520580507944747,,80,EUR
+VUCP,Vanguard USD Corporate Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,39.884,39.884,39.843,39.843,-0.3052671087201298,,82,EUR
 VUDS-XAMS,Vanguard U.S. Treasury 1-3 Year Bond UCITS ETF Accum Shs - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,87.15,87.37,87.15,87.37,-1.042020613886059,,230,EUR
-VUSA,Vanguard S&P 500 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,125.752,125.843,124.81,125.094,-0.17157586446305007,,44044,EUR
+VUSA,Vanguard S&P 500 UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,125.752,125.843,124.81,125.23,-0.06304415484920758,,49331,EUR
 VUTY,Vanguard USD Treasury Bond UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,18.08,18.103,18.08,18.103,-0.19296504576028303,,2193,EUR
-VVY,Vivoryon Therapeutics N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,1.13,1.13,1.11,1.11,-1.7699115044247606,33464202.0,12710,EUR
-VWCE,Vanguard FTSE All-World UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,167.484,167.669,166.22,166.435,-0.14039803442752333,,14919,EUR
-VWCG,Vanguard FTSE Developed Europe UCITS ETF Accum EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,60.57,60.84,60.11,60.17,-0.5947464067404583,,8666,EUR
-VWRL,Vanguard FTSE All-World UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,162.26,162.44,161.04,161.28,-0.13622291021671756,,37140,EUR
+VVY,Vivoryon Therapeutics N.V.,EURONEXT,Commercial Services,Miscellaneous Commercial Services,1.13,1.14,1.11,1.14,0.8849557522123902,33464202.0,16962,EUR
+VWCE,Vanguard FTSE All-World UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,167.484,167.669,166.22,166.602,-0.04019943720788345,,15076,EUR
+VWCG,Vanguard FTSE Developed Europe UCITS ETF Accum EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,60.57,60.84,60.11,60.2,-0.5451842061787515,,8668,EUR
+VWRL,Vanguard FTSE All-World UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,162.26,162.44,161.04,161.4,-0.06191950464395933,,37456,EUR
 VXUD,Vanguard FTSE All-World Ex-U.S. UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.3515,4.3515,4.3245,4.3245,-0.586206896551726,,4935,EUR
 VXUS,Vanguard FTSE All-World Ex-U.S. UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.3535,4.3535,4.3115,4.3205,-0.21939953810623702,,1407,EUR
-WADA,WisdomTree Physical Cardano,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.49,2.49,2.49,2.49,2.532427424336014,,0,USD
-WCDS,iShares MSCI World Consumer Discretionary Sector UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.904,8.904,8.764,8.77,-1.6705908734163124,,11258,USD
-WCMS,iShares MSCI World Communication Services Sector ESG UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.938,7.938,7.918,7.918,-1.4929086837521783,,1156,USD
+WADA,WisdomTree Physical Cardano,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,2.49,2.49,2.4615,2.4615,1.3588634959851726,,0,USD
+WCDS,iShares MSCI World Consumer Discretionary Sector UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.904,8.904,8.764,8.783,-1.5248346227155625,,12305,USD
+WCMS,iShares MSCI World Communication Services Sector ESG UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.938,7.938,7.907,7.907,-1.6297586464294629,,1157,USD
 WCOD,SSgA SPDR ETFs Europe II PLC - State Street SPDR MSCI World Consumer Discretionary UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,74.32,74.38,73.17,73.39,-1.7405275137233862,,228,EUR
 WCOS,SSgA SPDR ETFs Europe II PLC - State Street SPDR MSCI World Consumer Staples UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,47.065,47.51,47.065,47.455,1.011068539804175,,711,EUR
-WCRP,WisdomTree Physical CoinDesk 20 ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,17.206,17.206,17.12,17.12,0.12867001988537852,,1,USD
+WCRP,WisdomTree Physical CoinDesk 20 ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,17.206,17.206,17.012,17.012,-0.5029828050064249,,1,USD
 WCSS,iShares MSCI World Consumer Staples Sector ESG UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.158,6.188,6.147,6.162,0.24402147388969708,,14503,USD
 WCTA,Ishares Msci World Climate Transition Aware Ucits ETF Accum- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.247,7.247,7.238,7.238,-0.6178772483866528,,1680,USD
 WCTD,Ishares Msci World Climate Transition Aware Ucits ETF - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.071,7.071,7.062,7.062,-0.12728044123885524,,1720,USD
-WDOT,WisdomTree Physical Polkadot,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.488,0.488,0.488,0.488,4.946236559139777,,0,USD
+WDOT,WisdomTree Physical Polkadot,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,0.488,0.488,0.486,0.486,4.516129032258057,,0,USD
 WENE,iShares MSCI World Energy Sector ESG UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.066,8.178,8.066,8.126,1.7913065263685306,,55233,USD
-WENS,iShares MSCI World Energy Sector UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.132,10.242,10.122,10.174,1.7705311593478004,,20449,USD
+WENS,iShares MSCI World Energy Sector UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,10.132,10.242,10.122,10.202,2.050615184555367,,21981,USD
 WEQW,iShares III PLC - iShares MSCI World Sector & Country Neutral Equal Weight UCITS ETF Accum- USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.9778,5.9778,5.9304,5.9304,-0.8476701610071721,,17,USD
-WFIN,State Street SPDR MSCI World Financials UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,90.81,90.98,90.32,90.46,-0.39638846069147704,,437,EUR
+WFIN,State Street SPDR MSCI World Financials UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,90.81,90.98,90.32,90.56,-0.286280554943835,,445,EUR
 WFNS,iShares MSCI World Financials Sector ESG UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.73,8.73,8.662,8.686,-0.526797984425096,,12788,USD
-WHA,Wereldhave N.V.,EURONEXT,Finance,Real Estate Investment Trusts,18.8,18.8,18.42,18.42,-0.9677419354838694,869560661.0,31058,EUR
-WHCA,iShares MSCI World Health Care Sector Advanced UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.154,5.23,5.154,5.18,0.876338851022394,,103023,EUR
-WHCS,iShares MSCI World Health Care Sector Advanced UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.24,8.314,8.24,8.308,1.0459742155193419,,9528,USD
-WHEA,State Street SPDR MSCI World Health Care UCITS ETF Accum.Ptg. USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,62.56,63.44,62.45,62.83,0.8831085420680751,,3628,EUR
+WHA,Wereldhave N.V.,EURONEXT,Finance,Real Estate Investment Trusts,18.8,18.8,18.42,18.54,-0.3225806451613025,869560661.0,44110,EUR
+WHCA,iShares MSCI World Health Care Sector Advanced UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.154,5.23,5.154,5.19,1.0710808179162727,,103505,EUR
+WHCS,iShares MSCI World Health Care Sector Advanced UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.24,8.314,8.24,8.297,0.912186815859901,,21688,USD
+WHEA,State Street SPDR MSCI World Health Care UCITS ETF Accum.Ptg. USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,62.56,63.44,62.45,62.87,0.9473346178548432,,4050,EUR
 WINA,iShares World Equity High Income Active UCITS ETF Accum shs - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.489,7.489,7.461,7.461,-0.21398956800855978,,33,USD
-WINC,iShares World Equity High Income Active UCITS ETF - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.96,5.963,5.912,5.937,0.32105441027374326,,14795,USD
-WIND,State Street SPDR MSCI World Industrials UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,83.6,83.84,82.95,82.98,-0.9075710532600799,,406,EUR
+WINC,iShares World Equity High Income Active UCITS ETF - USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.96,5.963,5.912,5.919,0.01689760054071385,,20597,USD
+WIND,State Street SPDR MSCI World Industrials UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,83.6,83.84,82.87,82.87,-1.0389300214950925,,545,EUR
 WINS,iShares V PLC - iShares MSCI World Industrials Sector Advanced UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.267,8.267,8.182,8.182,-1.052122384810736,,59559,USD
-WITS,iShares MSCI World Information Technology Sector Advanced UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,20.895,20.925,20.56,20.66,-0.8399328053755734,,48356,USD
-WKL,Wolters Kluwer N.V.,EURONEXT,Technology Services,Internet Software/Services,69.96,70.68,68.92,69.78,-1.4963297571993255,16001366823.0,596945,EUR
-WMAT,State Street SPDR MSCI World Materials UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,75.01,75.1,74.27,74.5,-0.37443166622091617,,102,EUR
+WITS,iShares MSCI World Information Technology Sector Advanced UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,20.895,20.925,20.56,20.665,-0.8159347252219904,,52770,USD
+WKL,Wolters Kluwer N.V.,EURONEXT,Technology Services,Internet Software/Services,69.96,70.68,68.92,69.78,-1.4963297571993255,16001366823.0,1097278,EUR
+WMAT,State Street SPDR MSCI World Materials UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,75.01,75.1,74.08,74.08,-0.9360791655522905,,163,EUR
+WMSC,iShares V PLC - iShares MSCI World Communication Services Sector Advanced UCITS ETF AccumUSD,EURONEXT,,,4.9715,4.9715,4.952,4.952,,,1,USD
 WMTS,iShares MSCI World Materials Sector ESG UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.933,5.933,5.856,5.861,-1.0467668411278115,,28032,USD
-WNEN,iShares MSCI World Energy Sector ESG UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.849,5.866,5.849,5.866,1.5230183454482535,,36,USD
-WNRG,State Street SPDR MSCI World Energy UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,67.81,68.6,67.81,68.23,2.033796919395842,,4036,EUR
+WNEN,iShares MSCI World Energy Sector ESG UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.849,5.866,5.849,5.861,1.4364832121841502,,490,USD
+WNRG,State Street SPDR MSCI World Energy UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,67.81,68.6,67.81,68.26,2.0786600867354577,,4066,EUR
 WOEE,iShares World Equity Enhanced Active UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.369,7.38,7.319,7.32,-0.5164446860559848,,15014,USD
 WOOE,iShares Global Timber & Forestry UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,23.71,23.71,23.52,23.58,-0.5063291139240548,,86,EUR
 WPAB,iShares MSCI World Paris Aligned Climate UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,8.528,8.528,8.491,8.492,-1.0717614165889882,,95021,USD
 WPAD,iShares MSCI World Paris Aligned Climate UCITS ETF Dist USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.994,7.994,7.951,7.951,-0.8974199177365083,,29103,USD
-WQDA,iShares MSCI World Quality Dividend ESG UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.71,12.73,12.64,12.65,-0.2837773924010688,,35959,USD
-WRDU,Amundi Core MSCI World UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,185.37,185.49,184.04,184.13,-0.4541276963831991,,1991,USD
-WSDC,iShares V PLC - iShares MSCI World Consumer Discretionary Sector Advanced UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.9265,4.9265,4.856,4.856,-1.879167508587593,,958,USD
+WQDA,iShares MSCI World Quality Dividend ESG UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,12.71,12.73,12.63,12.63,-0.4414314992905499,,36067,USD
+WRDU,Amundi Core MSCI World UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,185.37,185.49,184.04,184.31,-0.35681461858679603,,2635,USD
+WSDC,iShares V PLC - iShares MSCI World Consumer Discretionary Sector Advanced UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.9265,4.9265,4.856,4.859,-1.8185492018589586,,959,USD
 WSMT,iShares MSCI World Materials Sector Advanced UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.396,5.396,5.324,5.324,-1.9340578375391493,,12,USD
 WSNI,iShares MSCI World Industrials Sector Advanced UCITS ETF Accum USD,EURONEXT,,,4.9665,4.9705,4.936,4.936,-1.3194722111155506,,284,USD
-WSOL,WisdomTree Physical Solana,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,14.558,14.558,14.558,14.558,0.19270474879559857,,0,USD
-WSRI,Amundi MSCI World SRI Climate Paris Aligned UCITS ETF Accum EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,140.28,140.28,139.81,139.81,-0.19274700171331396,,38,USD
+WSOL,WisdomTree Physical Solana,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,14.558,14.558,14.302,14.302,-1.569167240192703,,0,USD
+WSRI,Amundi MSCI World SRI Climate Paris Aligned UCITS ETF Accum EUR,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,140.28,140.28,138.38,138.38,-1.2135922330097209,,84,USD
 WSSC,iShares MSCI World Consumer Staples Sector Advanced UCITS ETF Accum USD,EURONEXT,,,5.182,5.204,5.182,5.2,0.03847633705270834,,1790,USD
 WSTI,iShares V PLC - iShares MSCI World Information Technology Sector Advanced UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.015,5.048,5.015,5.044,2.4890785329675835,,42568,USD
-WTCH,State Street SPDR MSCI World Technology UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,234.1,234.35,230.25,231.6,-0.6221840806693915,,4300,EUR
+WTCH,State Street SPDR MSCI World Technology UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,234.1,234.35,230.25,231.95,-0.47200171636988747,,4424,EUR
 WTEL,SSgA SPDR ETFs Europe II PLC - State Street SPDR MSCI World Communication Services UCITS ETF Accum USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,69.81,69.81,69.02,69.57,-0.6568613451378095,,480,EUR
-WUTI,State Street SPDR MSCI World Utilities UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,58.87,59.03,58.7,58.96,0.25505866349260087,,819,EUR
-WUTS,IShares MSCI World Utilities Sector Advanced UCTIS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.998,5.998,5.95,5.95,-0.21801106825423278,,740,USD
+WUTI,State Street SPDR MSCI World Utilities UCITS ETF Accum Ptg USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,58.87,59.03,58.7,58.88,0.11902737629654869,,2800,EUR
+WUTS,IShares MSCI World Utilities Sector Advanced UCTIS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.998,5.998,5.949,5.949,-0.234781150427641,,744,USD
 WVAL,State Street SPDR MSCI World Value UCITS ETF Accum Shs USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,44.113,44.177,43.822,43.856,0.10499885870805607,,268,EUR
 XBTI-XAMS,DDA Physical Bitcoin ETP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,6.4189,6.5189,6.4189,6.4944,18.476357267950952,,2329,EUR
 XDCN-USD,21Shares XDC Network ETP 2025-open end,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,9.2206,9.2206,9.03,9.03,2.7303754266211633,,1358,USD
-XRPW,WisdomTree Physical XRP Exchange Traded Product 2024-Open end on Compass Crypto Reference Index XRP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,54.93,54.93,54.0,54.0,-0.8264462809917408,,44,USD
+XRPW,WisdomTree Physical XRP Exchange Traded Product 2024-Open end on Compass Crypto Reference Index XRP,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,54.93,54.93,54.0,54.38,-0.1285583103764927,,44,USD
 XSUE,iShares III PLC - MSCI World ex-USA UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,4.64,4.64,4.6055,4.609,-1.1686501554626352,,95,EUR
 XUES,iShares III PLC - MSCI World ex-USA UCITS ETF USD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,5.388,5.388,5.388,5.388,0.07429420505199776,,4,USD
-XUSE,iShares MSCI World ex-USA UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.312,7.318,7.243,7.248,-0.6715088392489995,,234092,USD
-YCSH,iShares III PLC - iShares EUR Cash UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.5977,15.5977,15.594,15.5942,0.000641268171946719,,4533,EUR
+XUSE,iShares MSCI World ex-USA UCITS ETF AccumUSD,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,7.312,7.318,7.243,7.26,-0.5070576949431262,,252400,USD
+YCSH,iShares III PLC - iShares EUR Cash UCITS ETF,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,15.5977,15.5977,15.594,15.5955,0.00897775440711737,,5373,EUR
