@@ -1,13 +1,13 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
 AAAK,Wool Industry Tria Alfa SA,ATHEX,Process Industries,Textiles,4.86,4.94,4.86,4.94,0.0,4994340.0,1,EUR
 ACAG,AUSTRIACARD HOLDINGS AG,ATHEX,Finance,Finance/Rental/Leasing,9.9,9.9,9.76,9.8,0.0,356316487.0,511,EUR
-ADMIE,Admie Holdings SA,ATHEX,Utilities,Electric Utilities,4.515,4.54,4.43,4.5,-0.3322259136212554,1634183567.0,377410,EUR
-ADPS,Attica Department Stores Single Member S.A.,ATHEX,Retail Trade,Apparel/Footwear Retail,3.05,3.07,2.995,3.055,0.1639344262295193,184696114.0,80471,EUR
+ADMIE,Admie Holdings SA,ATHEX,Utilities,Electric Utilities,4.515,4.54,4.43,4.5,-0.3322259136212554,1634183567.0,389620,EUR
+ADPS,Attica Department Stores Single Member S.A.,ATHEX,Retail Trade,Apparel/Footwear Retail,3.05,3.07,2.995,3.055,0.1639344262295193,184696114.0,80841,EUR
 AEGN,Aegean Airlines SA,ATHEX,Transportation,Airlines,12.0,12.07,11.8,11.91,-0.9975062344139587,1100038591.0,128996,EUR
-AEM,Alter Ego Media S.A.,ATHEX,Consumer Services,Broadcasting,6.46,6.5,6.3,6.3,-2.4767801857585163,377563809.0,85026,EUR
+AEM,Alter Ego Media S.A.,ATHEX,Consumer Services,Broadcasting,6.46,6.5,6.3,6.3,-2.4767801857585163,377563809.0,87026,EUR
 AETF,ALPHA ETF FTSE Athex Large Cap EQUITY UCITS,ATHEX,Miscellaneous,Investment Trusts/Mutual Funds,68.38,68.4,67.69,68.0,-0.5557180462123361,,2341,EUR
-AIA,Athens International Airport S.A,ATHEX,Transportation,Other Transportation,10.4,10.46,10.34,10.41,-0.19175455417065745,3334712955.0,69304,EUR
-AKTR,Aktor Societe Anonyme Holding Company Technical and Energy Projects,ATHEX,Communications,Specialty Telecommunications,10.18,10.38,10.1,10.24,0.5893909626719106,2690792440.0,355302,EUR
+AIA,Athens International Airport S.A,ATHEX,Transportation,Other Transportation,10.4,10.46,10.34,10.41,-0.19175455417065745,3334712955.0,69904,EUR
+AKTR,Aktor Societe Anonyme Holding Company Technical and Energy Projects,ATHEX,Communications,Specialty Telecommunications,10.18,10.38,10.1,10.24,0.5893909626719106,2690792440.0,356483,EUR
 ALMY,Alumil Aluminium Industry S.A.,ATHEX,Non-Energy Minerals,Aluminum,5.64,5.64,5.57,5.6,-0.7092198581560291,184757976.0,13077,EUR
 ALPHA,Alpha Bank S.A.,ATHEX,Finance,Major Banks,4.495,4.629,4.487,4.624,1.7157941047074219,10122400209.0,5818620,EUR
 ALWN,Allwyn AG,ATHEX,Consumer Services,Movies/Entertainment,13.4,13.48,13.06,13.1,-2.0926756352765405,10439467438.0,890510,EUR
@@ -18,11 +18,11 @@ ATEK,Attica Publications SA,ATHEX,Consumer Services,Publishing: Newspapers,1.04,
 ATTICA,Attica Holdings SA,ATHEX,Transportation,Marine Shipping,1.6,1.6,1.56,1.56,-4.294478527607352,393925980.0,13697,EUR
 AVAX,Avax S.A.,ATHEX,Industrial Services,Engineering & Construction,3.335,3.335,3.285,3.3,-0.3021148036253846,508001192.0,246908,EUR
 AVE,AVE S.A.,ATHEX,Distribution Services,Electronics Distributors,0.467,0.467,0.454,0.462,-0.858369098712447,82130741.0,26350,EUR
-BELA,Jumbo S.A.,ATHEX,Retail Trade,Specialty Stores,25.36,25.66,25.04,25.56,0.07830853563038204,3493504822.0,152864,EUR
-BIOKA,Biokarpet SA Industrial and Commercial Enterprises,ATHEX,Producer Manufacturing,Metal Fabrication,1.602,1.614,1.6,1.606,-1.4723926380367978,39625696.0,18945,EUR
+BELA,Jumbo S.A.,ATHEX,Retail Trade,Specialty Stores,25.36,25.66,25.04,25.56,0.07830853563038204,3493504822.0,152865,EUR
+BIOKA,Biokarpet SA Industrial and Commercial Enterprises,ATHEX,Producer Manufacturing,Metal Fabrication,1.602,1.614,1.6,1.606,-1.4723926380367978,39625696.0,19276,EUR
 BIOSK,Unibios Holdings S.A.,ATHEX,Producer Manufacturing,Building Products,2.65,2.745,2.64,2.745,1.6666666666666639,47901496.0,7566,EUR
 BLEKEDROS,Ble Kedros REIC SA,ATHEX,Finance,Real Estate Investment Trusts,4.51,4.52,4.51,4.51,-0.4415011037527695,182285296.0,400,EUR
-BOCHGR,Bank of Cyprus Holdings Plc,ATHEX,Finance,Regional Banks,10.56,10.6,10.38,10.38,-1.7045454545454517,4612686389.0,509967,EUR
+BOCHGR,Bank of Cyprus Holdings Plc,ATHEX,Finance,Regional Banks,10.56,10.6,10.38,10.38,-1.7045454545454517,4612686389.0,525967,EUR
 BRIQ,BriQ Properties Real Estate Investment Company,ATHEX,Finance,Real Estate Investment Trusts,3.19,3.19,3.17,3.17,-0.3144654088050387,153372671.0,11035,EUR
 BYLOT,Ballys Intralot S.A.,ATHEX,Technology Services,Packaged Software,1.129,1.129,1.102,1.108,-1.8600531443755453,2138634095.0,2450584,EUR
 CAIROMEZ,Cairo Mezz Plc,ATHEX,Finance,Finance/Rental/Leasing,0.241,0.253,0.241,0.25,-2.343750000000002,79746971.0,110684,EUR
@@ -30,25 +30,25 @@ CENER,Cenergy Holdings SA,ATHEX,Producer Manufacturing,Electrical Products,22.54
 CENTR,Centric Holdings SA,ATHEX,Technology Services,Information Technology Services,0.278,0.284,0.278,0.28,-0.7092198581560094,27395694.0,3080,EUR
 CNLCAP,CNL Capital EKES-AIFM,ATHEX,Finance,Investment Managers,7.6,7.6,7.6,7.6,-0.6535947712418394,5600136.0,122,EUR
 CPI,CPI Computer Peripherals International S.A.,ATHEX,Distribution Services,Electronics Distributors,0.491,0.516,0.491,0.516,-1.1494252873563229,5452933.0,110,EUR
-CREDIA,CrediaBank S.A.,ATHEX,Finance,Regional Banks,0.98,0.997,0.98,0.992,-0.7007007007007013,2039536770.0,2796182,EUR
+CREDIA,CrediaBank S.A.,ATHEX,Finance,Regional Banks,0.98,0.997,0.98,0.992,-0.7007007007007013,2039536770.0,2796482,EUR
 DAIOS,Daios Plastics S.A.,ATHEX,Process Industries,Containers/Packaging,7.85,7.85,7.85,7.85,0.0,117749999.0,50,EUR
 DIMAND,DIMAND SOCIETE ANONYME DEVELOPMENT & EXPLOITATION OF REAL ESTATE & CONSTRUCTIONS SERVICES & HOLDING,ATHEX,Finance,Real Estate Development,12.8,12.85,12.7,12.8,0.0,238114364.0,7398,EUR
 DOMIK,DOMIKI KRITIS S.A.,ATHEX,Industrial Services,Engineering & Construction,2.69,2.7,2.65,2.7,0.3717472118959194,42713833.0,5003,EUR
 DOPPLER,DOPPLER S.A.,ATHEX,Producer Manufacturing,Building Products,0.83,0.86,0.83,0.858,-0.6944444444444451,10733909.0,1892,EUR
 DOTSOFT,DOTSOFT S.A.,ATHEX,Technology Services,Packaged Software,32.0,32.0,31.6,31.6,0.0,98591998.0,11,EUR
 DROME,DROMEAS S.A.,ATHEX,Producer Manufacturing,Office Equipment/Supplies,0.306,0.315,0.306,0.31,1.3071895424836615,11075681.0,4500,EUR
-EEE,Coca-Cola HBC AG,ATHEX,Consumer Non-Durables,Beverages: Non-Alcoholic,53.8,53.8,52.6,53.3,-0.5597014925373214,19416398352.73924,17514,EUR
-EIS,European Innovation Solutions S.A.,ATHEX,Commercial Services,Miscellaneous Commercial Services,1.84,1.856,1.788,1.83,-1.6129032258064528,29172276.0,32577,EUR
+EEE,Coca-Cola HBC AG,ATHEX,Consumer Non-Durables,Beverages: Non-Alcoholic,53.8,53.8,52.6,53.3,-0.5597014925373214,19416398352.73924,18514,EUR
+EIS,European Innovation Solutions S.A.,ATHEX,Commercial Services,Miscellaneous Commercial Services,1.84,1.856,1.788,1.83,-1.6129032258064528,29172276.0,32677,EUR
 EKTER,EKTER S.A.,ATHEX,Industrial Services,Engineering & Construction,5.06,5.13,5.05,5.1,0.3937007874015664,143634566.0,78342,EUR
 ELBE,ELVE S.A.,ATHEX,Consumer Non-Durables,Apparel/Footwear,6.7,7.2,6.7,7.2,0.6993006993006968,23152499.0,1003,EUR
-ELHA,ELVALHALCOR Hellenic Copper and Aluminium Industry S.A.,ATHEX,Producer Manufacturing,Metal Fabrication,3.675,3.685,3.64,3.65,-0.6802721088435351,1614154081.0,800562,EUR
+ELHA,ELVALHALCOR Hellenic Copper and Aluminium Industry S.A.,ATHEX,Producer Manufacturing,Metal Fabrication,3.675,3.685,3.64,3.65,-0.6802721088435351,1614154081.0,802221,EUR
 ELIN,ELINOIL HELLENIC PETROLEUM COMPANY S.A.,ATHEX,Distribution Services,Wholesale Distributors,2.05,2.05,2.04,2.04,0.4926108374384351,48373592.0,110,EUR
 ELLAKTOR,Ellaktor SA,ATHEX,Industrial Services,Engineering & Construction,1.28,1.28,1.26,1.26,-1.2539184952978069,449864065.0,155279,EUR
 ELPE,HELLENiQ ENERGY Holdings S.A.,ATHEX,Energy Minerals,Oil Refining/Marketing,15.37,15.9,15.37,15.84,2.061855670103095,4740401911.0,333669,EUR
 ELSTR,Elastron S.A.,ATHEX,Producer Manufacturing,Metal Fabrication,2.64,2.74,2.64,2.68,-0.7407407407407414,48449842.0,2188,EUR
 ELTON,ELTON S.A.,ATHEX,Distribution Services,Wholesale Distributors,1.77,1.785,1.75,1.78,0.56497175141243,47980690.0,22757,EUR
-ETE,National Bank of Greece S.A.,ATHEX,Finance,Major Banks,16.785,17.075,16.7,16.97,0.80190080190079,15437702963.0,2876646,EUR
-EUROB,EUROBANK S.A.,ATHEX,Finance,Major Banks,4.605,4.619,4.548,4.58,-0.5428881650380099,16523785575.000002,9151621,EUR
+ETE,National Bank of Greece S.A.,ATHEX,Finance,Major Banks,16.785,17.075,16.7,16.97,0.80190080190079,15437702963.0,2876746,EUR
+EUROB,EUROBANK S.A.,ATHEX,Finance,Major Banks,4.605,4.619,4.548,4.58,-0.5428881650380099,16523785575.000002,9152121,EUR
 EVR,Evropi Holdings SA,ATHEX,Finance,Property/Casualty Insurance,1.728,1.728,1.68,1.718,0.0,254219521.0,12240,EUR
 EVROF,Evropharma Milk Industry Anonyme Industrial & Commercial Company,ATHEX,Consumer Non-Durables,Food: Meat/Fish/Dairy,3.99,4.07,3.98,4.04,-1.463414634146332,56880512.0,5618,EUR
 EXAE,Euronext Athens Holding S.A.,ATHEX,Finance,Investment Banks/Brokers,8.4,8.4,7.98,8.0,-0.6211180124223691,505716243.0,11426,EUR
@@ -68,7 +68,7 @@ IATR,ATHENS MEDICAL CENTER S.A.,ATHEX,Health Services,Hospital/Nursing Managemen
 IKTIN,Iktinos Hellas S.A.,ATHEX,Non-Energy Minerals,Construction Materials,0.339,0.339,0.32,0.328,-0.6060606060606066,37564061.0,64575,EUR
 ILYDA,ILYDA S.A.,ATHEX,Technology Services,Packaged Software,4.065,4.1,4.025,4.06,-1.2165450121654673,58138136.0,18540,EUR
 INLIF,INTERLIFE General Insurance Company SA,ATHEX,Finance,Multi-Line Insurance,7.06,7.06,6.98,7.04,-0.283286118980164,132203539.0,9335,EUR
-INTEK,IDEAL HOLDINGS S.A.,ATHEX,Distribution Services,Electronics Distributors,5.92,5.98,5.88,5.88,-1.342281879194632,333080406.0,58293,EUR
+INTEK,IDEAL HOLDINGS S.A.,ATHEX,Distribution Services,Electronics Distributors,5.92,5.98,5.88,5.88,-1.342281879194632,333080406.0,60043,EUR
 INTET,INTERTECH S.A. INTERNATIONAL TECHNOLOGIES,ATHEX,Retail Trade,Electronics/Appliance Stores,1.275,1.3,1.25,1.3,1.960784313725501,10910245.0,1840,EUR
 INTRK,Intracom Holdings SA,ATHEX,Industrial Services,Engineering & Construction,2.97,2.995,2.94,2.945,-1.3400335008375222,252145829.0,86542,EUR
 KARE,Karelia Tobacco Company Inc.,ATHEX,Consumer Non-Durables,Tobacco,422.0,422.0,420.0,420.0,0.0,1159199996.0,128,EUR
@@ -77,10 +77,10 @@ KORDE,Kordellos Bros S.A.,ATHEX,Non-Energy Minerals,Steel,0.413,0.422,0.411,0.42
 KRI,Kri-Kri Milk Industry S.A.,ATHEX,Consumer Non-Durables,Food: Meat/Fish/Dairy,31.8,32.3,31.3,31.6,-2.015503875968988,1047183037.9999999,13855,EUR
 KYLO,Loulis Food Ingredients SA,ATHEX,Process Industries,Agricultural Commodities/Milling,3.52,3.62,3.52,3.55,-0.8379888268156493,61290599.0,2737,EUR
 KYSA,Flour Mills C. Sarantopoulos SA,ATHEX,Consumer Non-Durables,Food: Specialty/Candy,1.69,1.69,1.56,1.56,0.0,6523062.0,45,EUR
-LAMDA,LAMDA Development S.A.,ATHEX,Finance,Real Estate Development,6.25,6.25,6.13,6.18,-0.6430868167202578,1125812917.0,228543,EUR
+LAMDA,LAMDA Development S.A.,ATHEX,Finance,Real Estate Development,6.25,6.25,6.13,6.18,-0.6430868167202578,1125812917.0,229043,EUR
 LAMPS,Lampsa Hotel Co.,ATHEX,Consumer Services,Hotels/Resorts/Cruise lines,47.4,48.0,47.4,47.4,0.0,1012653648.0,84,EUR
 LANAC,Lanakam S.A.,ATHEX,Process Industries,Textiles,0.922,0.966,0.918,0.934,0.43010752688172077,5582912.0,2188,EUR
-LAVI,Lavipharm SA,ATHEX,Health Technology,Pharmaceuticals: Major,1.65,1.65,1.59,1.622,-1.0975609756097435,281442949.0,85248,EUR
+LAVI,Lavipharm SA,ATHEX,Health Technology,Pharmaceuticals: Major,1.65,1.65,1.59,1.622,-1.0975609756097435,281442949.0,85748,EUR
 LEBEK,N. LEVENTERIS S.A.,ATHEX,Producer Manufacturing,Metal Fabrication,0.358,0.358,0.358,0.358,2.285714285714288,2979162.0,2500,EUR
 LEBEP,N. LEVENTERIS S.A. Pref Bearer,ATHEX,Producer Manufacturing,Metal Fabrication,0.23,0.246,0.23,0.246,0.0,2979162.0,1000,EUR
 LOGISMOS,Logismos Information Systems S.A.,ATHEX,Technology Services,Information Technology Services,2.3,2.34,2.28,2.3,0.0,10996799.0,8030,EUR
@@ -95,8 +95,8 @@ MODA,N. Varveris-Moda Bagno S.A.,ATHEX,Retail Trade,Specialty Stores,7.0,7.0,7.0
 MOH,MOTOR OIL (HELLAS) CORINTH REFINERIES S.A.,ATHEX,Energy Minerals,Oil Refining/Marketing,61.9,62.3,60.35,61.0,-1.6921837228041858,6640926928.0,281667,EUR
 MOTO,MOTODYNAMICS S.A.,ATHEX,Retail Trade,Specialty Stores,2.48,2.49,2.46,2.47,-0.8032128514056232,75231581.0,14150,EUR
 MOYZK,EL. D. MOUZAKIS S.A.,ATHEX,Process Industries,Textiles,0.53,0.535,0.49,0.49,0.0,20238067.0,400,EUR
-MTLN,Metlen Energy & Metals PLC,ATHEX,Utilities,Electric Utilities,48.26,48.26,47.48,47.52,-2.2222222222222183,7061271868.0,192979,EUR
-NAKAS,Philippos Nakas S.A.,ATHEX,Retail Trade,Electronics/Appliance Stores,3.42,3.48,3.42,3.48,0.0,22950800.0,150,EUR
+MTLN,Metlen Energy & Metals PLC,ATHEX,Utilities,Electric Utilities,48.26,48.26,47.48,47.52,-2.2222222222222183,7061271868.0,194052,EUR
+NAKAS,Philippos Nakas S.A.,ATHEX,Retail Trade,Electronics/Appliance Stores,3.42,3.48,3.42,3.48,0.0,22950800.0,200,EUR
 NAYP,Nafpaktos Textile Industry SA,ATHEX,Process Industries,Textiles,1.2,1.2,1.17,1.18,0.0,13812122.0,465,EUR
 NOVAL,Noval Property Real Estate Investment Company,ATHEX,Finance,Real Estate Development,2.59,2.59,2.55,2.55,-0.390625000000009,326194450.0,36568,EUR
 OLTH,Thessaloniki Port Authority S.A.,ATHEX,Transportation,Other Transportation,39.0,39.0,39.0,39.0,-0.25575447570332843,394127982.0,485,EUR
@@ -105,20 +105,20 @@ ONYX,Onyx Touristiki S.A.,ATHEX,Consumer Non-Durables,Apparel/Footwear,1.45,1.45
 OPTIMA,Optima Bank SA,ATHEX,Finance,Regional Banks,11.97,12.01,11.76,11.9,-0.5847953216374292,2687647177.0,163254,EUR
 OPTRON,Optronics Technologies SA,ATHEX,Producer Manufacturing,Electrical Products,1.95,2.16,1.95,2.16,0.0,7200360.0,1,EUR
 ORILINA,Orilina Properties Real Estate Investment Company,ATHEX,Finance,Real Estate Investment Trusts,0.844,0.844,0.838,0.84,0.23866348448687374,128288975.0,23062,EUR
-OTOEL,Autohellas SA,ATHEX,Finance,Finance/Rental/Leasing,11.64,11.92,11.64,11.8,-0.1692047377326529,565757668.0,28464,EUR
+OTOEL,Autohellas SA,ATHEX,Finance,Finance/Rental/Leasing,11.64,11.92,11.64,11.8,-0.1692047377326529,565757668.0,28466,EUR
 PAIR,E. PAIRIS SA,ATHEX,Process Industries,Containers/Packaging,0.84,0.844,0.816,0.842,-2.5462962962962985,4374890.0,4092,EUR
 PAP,Papoutsanis SA,ATHEX,Consumer Non-Durables,Household/Personal Care,3.45,3.45,3.4,3.44,0.5847953216374274,94425050.0,3436,EUR
 PERF,Performance Technologies AE,ATHEX,Technology Services,Information Technology Services,9.92,9.92,9.64,9.78,-0.204081632653075,140035846.0,9430,EUR
 PETRO,Petros Petropoulos,ATHEX,Consumer Durables,Motor Vehicles,7.9,8.08,7.78,8.0,0.25062656641603476,53042218.0,11655,EUR
 PLAKR,Crete Plastics SA,ATHEX,Process Industries,Chemicals: Major Diversified,15.4,15.4,15.3,15.4,0.6535947712418277,415875019.0,469,EUR
-PLAT,Thrace Plastics Holding and Commercial S.A.,ATHEX,Process Industries,Textiles,4.985,5.03,4.95,5.02,0.19960079840318934,218137691.0,25491,EUR
+PLAT,Thrace Plastics Holding and Commercial S.A.,ATHEX,Process Industries,Textiles,4.985,5.03,4.95,5.02,0.19960079840318934,218137691.0,25494,EUR
 PPA,Piraeus Port Authority S.A.,ATHEX,Transportation,Marine Shipping,42.05,42.35,41.6,42.0,-0.3558718861209931,1053750037.9999999,9310,EUR
-PPC,Public Power Corporation S.A.,ATHEX,Utilities,Electric Utilities,23.44,23.9,23.32,23.8,0.8474576271186409,14325571813.0,915857,EUR
+PPC,Public Power Corporation S.A.,ATHEX,Utilities,Electric Utilities,23.44,23.9,23.32,23.8,0.8474576271186409,14325571813.0,915877,EUR
 PREMIA,PREMIA REAL ESTATE INVESTMENT COMPANY SOCIETE ANOMYME,ATHEX,Finance,Real Estate Development,1.308,1.308,1.292,1.3,0.0,164346815.0,85635,EUR
-PRODEA,Prodea Real Estate Investment Co. SA,ATHEX,Finance,Real Estate Investment Trusts,3.18,3.18,3.12,3.12,-1.8867924528301903,812472646.0,42077,EUR
+PRODEA,Prodea Real Estate Investment Co. SA,ATHEX,Finance,Real Estate Investment Trusts,3.18,3.18,3.12,3.12,-1.8867924528301903,812472646.0,42387,EUR
 PROF,PROFILE Systems & Software S.A.,ATHEX,Technology Services,Information Technology Services,9.7,9.83,9.61,9.66,-1.7293997965411996,243502097.0,39908,EUR
 PROFK,Pipeworks L. Girakian Profil SA,ATHEX,Non-Energy Minerals,Steel,2.08,2.08,1.96,2.05,0.0,6278880.0,19387,EUR
-PVMEZZ,PHOENIX VEGA MEZZ LTD,ATHEX,Finance,Finance/Rental/Leasing,0.0548,0.0548,0.0524,0.0548,1.4814814814814854,68770202.0,309817,EUR
+PVMEZZ,PHOENIX VEGA MEZZ LTD,ATHEX,Finance,Finance/Rental/Leasing,0.0548,0.0548,0.0524,0.0548,1.4814814814814854,68770202.0,319088,EUR
 QLCO,QUALCO GROUP S.A.,ATHEX,Technology Services,Information Technology Services,5.81,5.82,5.77,5.8,-0.34364261168385674,406873181.0,89014,EUR
 QUAL,Quality & Reliability S.A.,ATHEX,Technology Services,Packaged Software,1.284,1.33,1.23,1.278,-0.4672897196261686,44575965.0,513576,EUR
 QUEST,Quest Holdings SA,ATHEX,Technology Services,Information Technology Services,7.35,7.39,7.31,7.32,-0.40816326530611374,787684953.0,16152,EUR
@@ -126,20 +126,20 @@ REALCONS,Real Consulting IT Business Solutions S.A.,ATHEX,Technology Services,Pa
 REVOIL,REVOIL Petroleum Company SA,ATHEX,Distribution Services,Wholesale Distributors,1.825,1.835,1.76,1.8,-1.6393442622950833,39771369.0,12850,EUR
 SAR,GR. SARANTIS S.A.,ATHEX,Consumer Non-Durables,Household/Personal Care,14.12,14.24,14.1,14.1,-0.4237288135593255,875614668.0,26937,EUR
 SB,"Safe Bulkers, Inc.",ATHEX,Transportation,Marine Shipping,7.45,7.78,7.395,7.68,3.783783783783775,758135322.9410192,53153,EUR
-SIDMA,Sidma Steel S.A.,ATHEX,Non-Energy Minerals,Steel,2.68,2.84,2.65,2.7,0.3717472118959194,37622757.0,16327,EUR
+SIDMA,Sidma Steel S.A.,ATHEX,Non-Energy Minerals,Steel,2.68,2.84,2.65,2.7,0.3717472118959194,37622757.0,16446,EUR
 SOFTWEB,SoftWeb Adaptive IT Solutions,ATHEX,Technology Services,Packaged Software,2.92,3.04,2.92,3.01,-1.3114754098360668,18519812.0,576,EUR
 SPACE,Space Hellas S.A.,ATHEX,Technology Services,Information Technology Services,8.74,8.82,8.5,8.7,-1.5837104072398256,57744234.0,10902,EUR
 SPIR,House of Agriculture Spirou SA,ATHEX,Commercial Services,Miscellaneous Commercial Services,0.354,0.354,0.34,0.354,4.117647058823517,10650338.0,588,EUR
 SUNMEZZ,SunriseMezz Plc,ATHEX,Finance,Investment Managers,0.1535,0.1535,0.1465,0.1485,1.020408163265307,27329454.0,27968,EUR
 TELL,Bank of Greece SA,ATHEX,Finance,Major Banks,15.15,15.15,14.8,14.9,-2.2950819672131124,303932779.0,10537,EUR
-TITC,Titan S.A.,ATHEX,Non-Energy Minerals,Construction Materials,52.9,53.2,52.4,52.75,-0.2835538752362922,4135864079.0,58831,EUR
-TPEIR,Piraeus Bank S.A.,ATHEX,Finance,Major Banks,10.2,10.425,10.115,10.25,1.0349926071956672,12701363820.0,4582790,EUR
+TITC,Titan S.A.,ATHEX,Non-Energy Minerals,Construction Materials,52.9,53.2,52.4,52.75,-0.2835538752362922,4135864079.0,58832,EUR
+TPEIR,Piraeus Bank S.A.,ATHEX,Finance,Major Banks,10.2,10.425,10.115,10.25,1.0349926071956672,12701363820.0,4733563,EUR
 TRASTOR,Trastor Real Estate Investment Company S.A.,ATHEX,Finance,Real Estate Investment Trusts,0.926,0.938,0.918,0.926,0.0,367105866.0,381061,EUR
 TREK,Trek Development of Infrastructures & Services S.A.,ATHEX,Commercial Services,Miscellaneous Commercial Services,3.76,3.77,3.71,3.75,-0.5305039787798413,298083500.0,379,EUR
 TRESTATES,Trade Estates Real Estate Investment Company,ATHEX,Finance,Real Estate Development,2.005,2.015,1.984,2.005,0.3503503503503451,244110492.0,64684,EUR
 VIDAVO,Vidavo SA,ATHEX,Technology Services,Information Technology Services,9.9,10.4,9.9,10.4,0.0,10885190.0,1,EUR
 VIO,Viohalco SA/NV,ATHEX,Non-Energy Minerals,Other Metals/Minerals,16.52,16.68,16.26,16.46,-0.8433734939759069,4421777138.0,89758,EUR
 VOSYS,VOYATZOGLOU S.A.,ATHEX,Consumer Durables,Home Furnishings,2.02,2.03,2.01,2.01,-0.4950495049505065,12776499.0,850,EUR
-XYLEK,Interwood-Xylemporia A.T.E.N.E.,ATHEX,Distribution Services,Wholesale Distributors,0.249,0.25,0.244,0.248,0.0,14031247.0,313896,EUR
-XYLEP,Interwood-Xylemporia A.T.E.N.E. Pref.Reg.,ATHEX,Distribution Services,Wholesale Distributors,0.324,0.326,0.324,0.326,0.0,14031247.0,1500,EUR
+XYLEK,Interwood-Xylemporia A.T.E.N.E.,ATHEX,Distribution Services,Wholesale Distributors,0.249,0.25,0.244,0.248,0.0,14031247.0,314536,EUR
+XYLEP,Interwood-Xylemporia A.T.E.N.E. Pref.Reg.,ATHEX,Distribution Services,Wholesale Distributors,0.324,0.326,0.324,0.326,0.0,14031247.0,1650,EUR
 YKNOT,Y/KNOT S.A,ATHEX,Transportation,Other Transportation,1.58,1.58,1.53,1.53,-3.1645569620253196,60761280.0,93262,EUR
