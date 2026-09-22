@@ -15,7 +15,7 @@ AFMC,Alexandria Flour Mills Co.,EGX,Retail Trade,Food Retail,158.98,162.89,158.9
 AIDC,Arabia for Investment and Development,EGX,Finance,Regional Banks,0.725,0.738,0.721,0.722,-0.41379310344827624,,19940600,EGP
 AIFI,Atlas for Investment & Food Industries SAE,EGX,Process Industries,Agricultural Commodities/Milling,2.27,2.34,2.27,2.31,1.7621145374449354,2613417837.0,2002127,EGP
 AIH,Arabia Investments Holding SAE,EGX,Finance,Financial Conglomerates,0.752,0.769,0.745,0.747,-0.6648936170212773,1171712806.0,28348247,EGP
-AJWA,Ajwa for Food Industries Co. Egypt,EGX,Consumer Non-Durables,Food: Specialty/Candy,179.08,180.5,177.03,180.0,0.00555586421467354,3598666482.0,31433,EGP
+AJWA,Ajwa for Food Industries Co. Egypt,EGX,Consumer Non-Durables,Food: Specialty/Candy,179.08,180.5,177.03,179.01,-0.5444746930385123,3598666482.0,31433,EGP
 ALCN,Alexandria Containers & Goods,EGX,Transportation,Other Transportation,33.94,34.34,33.45,34.02,0.2357100766057908,101124457920.0,1248790,EGP
 ALEX,Alexandria Cement Co.,EGX,Non-Energy Minerals,Construction Materials,21.5,22.8,21.1,22.0,3.7735849056603805,5038324280.0,3464,EGP
 ALUM,Arab Aluminum Co. SAE,EGX,Non-Energy Minerals,Aluminum,25.51,26.0,25.46,25.5,-0.03920031360251495,1081376582.0,116731,EGP
@@ -25,10 +25,10 @@ AMES,Alexandria New Medical Center Co.,EGX,Health Services,Hospital/Nursing Mana
 AMIA,Arab Moltaqa Investments Company,EGX,Finance,Finance/Rental/Leasing,18.4,18.74,18.2,18.49,0.489130434782608,9394498047.0,1282891,EGP
 AMII,Arabian Metal Industries and Industrial Investments,EGX,Producer Manufacturing,Building Products,15.39,15.4,14.61,14.88,-3.3138401559454174,1153369403.0,1601361,EGP
 AMOC,Alexandria Mineral Oils Co.,EGX,Energy Minerals,Oil Refining/Marketing,13.74,13.92,13.41,13.5,-1.746724890829696,17745209704.0,4404434,EGP
-AMPI,AL Moasher Pay for Electronic Payment and Collection (S.A.E),EGX,Technology Services,Packaged Software,2.81,2.81,2.67,2.79,-0.7117437722419936,84086513.0,115628,EGP
+AMPI,AL Moasher Pay for Electronic Payment and Collection (S.A.E),EGX,Technology Services,Packaged Software,2.81,2.81,2.67,2.77,-1.4234875444839872,84086513.0,115628,EGP
 ANCC,ALNAHDA Industrial Co.,EGX,,,10.0,10.0,10.0,10.0,0.0,,0,EGP
 APPC,Advanced Pharmaceutical Packaging Co.,EGX,Process Industries,Containers/Packaging,1.74,1.74,1.5,1.65,-2.3668639053254457,19043202.0,55433,EGP
-APSW,Arab Polvara Spinning & Weaving Co.,EGX,Process Industries,Textiles,8.3,8.44,8.21,8.22,-1.6746411483253443,777598479.0,54866,EGP
+APSW,Arab Polvara Spinning & Weaving Co.,EGX,Process Industries,Textiles,8.3,8.44,8.21,8.31,-0.5980861244019012,777598479.0,54866,EGP
 ARAB,Arab Developers Holding,EGX,Finance,Real Estate Development,0.245,0.248,0.241,0.242,-1.2244897959183685,5856226501.0,187941924,EGP
 ARCC,Arabian Cement Company,EGX,Non-Energy Minerals,Construction Materials,70.6,71.2,70.25,70.52,-0.11331444759206558,26465640102.0,158217,EGP
 AREH,Egyptian Real Estate Group,EGX,Industrial Services,Engineering & Construction,1.41,1.43,1.4,1.4,-0.7092198581560291,563999987.0,2463351,EGP
@@ -47,7 +47,7 @@ CAED,Cairo Educational Services,EGX,Consumer Services,Other Consumer Services,12
 CANA,Suez Canal Bank SAE,EGX,Finance,Regional Banks,47.24,47.75,46.0,46.8,-0.9314140558848536,47240001678.0,166196,EGP
 CCAP,QALA For Financial Investments,EGX,Finance,Investment Managers,7.13,7.31,7.12,7.21,1.1220196353436196,22933450407.0,101494363,EGP
 CCRS,Gulf Canadian Real Estate Investment Co.,EGX,Finance,Real Estate Development,2.7,2.74,2.56,2.57,-4.814814814814827,567000010.0,2964313,EGP
-CEFM,Middle Egypt Flour Mills,EGX,Process Industries,Agricultural Commodities/Milling,142.0,145.9,142.0,143.19,0.838028169014083,2090656731.0,6745,EGP
+CEFM,Middle Egypt Flour Mills,EGX,Process Industries,Agricultural Commodities/Milling,142.0,145.9,142.0,145.6,2.5352112676056295,2090656731.0,6745,EGP
 CERA,Arab Ceramic Co. - Ceramica Remas,EGX,Producer Manufacturing,Building Products,1.37,1.43,1.36,1.39,1.4598540145985253,1477031255.0,55241681,EGP
 CFGH,Concrete Fashion Group for Commercial and Industrial Investments S.A.E,EGX,Retail Trade,Apparel/Footwear Retail,0.118,0.118,0.115,0.115,-2.542372881355923,2943740059.821,66921,USD
 CICH,CI Capital Holding for Financial Investments,EGX,Finance,Finance/Rental/Leasing,13.01,13.01,12.4,12.61,-3.074558032282862,13010000229.0,681976,EGP
@@ -59,24 +59,24 @@ CNFN,Contact Financial Holding SAE,EGX,Finance,Finance/Rental/Leasing,4.55,4.62,
 COMI,Commercial International Bank - Egypt (CIB) S.A.E.,EGX,Finance,Regional Banks,133.14,133.45,131.5,131.5,-1.2317860898302437,453360128190.0,7168416,EGP
 COPR,Cooper for Commercial Investment & Real Estate Development,EGX,Finance,Real Estate Development,0.491,0.504,0.487,0.487,-0.8146639511201638,774131381.0,22217033,EGP
 COSG,Cairo Oils & Soap,EGX,Consumer Non-Durables,Household/Personal Care,1.79,1.82,1.77,1.77,-1.1173184357541908,1116959976.0,7538842,EGP
-CPCI,Kahira Pharmaceuticals & Chemical Industries Co.,EGX,Health Technology,Pharmaceuticals: Major,558.97,572.99,558.97,564.43,0.8324847705307481,8347867050.000001,4851,EGP
+CPCI,Kahira Pharmaceuticals & Chemical Industries Co.,EGX,Health Technology,Pharmaceuticals: Major,558.97,572.99,558.97,562.0,0.3983779052110721,8347867050.000001,4851,EGP
 CPME,Catalyst Partners Middle East,EGX,Finance,Financial Conglomerates,36.84,37.25,35.15,35.78,-2.639455782312922,11122067838.0,144075,EGP
 CRST,Creast Mark For Contracting And Real Estate Development,EGX,Industrial Services,Engineering & Construction,3.87,3.99,3.7,3.74,-3.3591731266149845,4344119278.0,71979451,EGP
-CSAG,Canal Shipping Agencies Co.,EGX,Transportation,Other Transportation,38.5,39.2,38.15,38.39,-0.28571428571428426,11550000000.0,93596,EGP
+CSAG,Canal Shipping Agencies Co.,EGX,Transportation,Other Transportation,38.5,39.2,38.15,38.23,-0.7012987012987094,11550000000.0,93596,EGP
 DAPH,Development & Engineering Consultants,EGX,Finance,Real Estate Development,112.5,115.0,110.5,111.0,-1.3333333333333335,2646269989.0,158257,EGP
 DCCC,Damietta Container and Cargo Handling,EGX,Transportation,Marine Shipping,10.0,10.0,10.0,10.0,0.0,,0,EGP
 DCRC,Delta Construction & Rebuilding Co.,EGX,Finance,Real Estate Development,50.0,50.0,50.0,50.0,0.0,425382175.0,0,EGP
 DEIN,Delta Insurance,EGX,Finance,Property/Casualty Insurance,10.35,10.35,10.35,10.35,0.0,1423125052.0,0,EGP
-DGTZ,Digitize for Investment And Technology,EGX,Technology Services,Information Technology Services,2.42,2.45,2.42,2.43,-0.8163265306122455,,380172,EGP
+DGTZ,Digitize for Investment And Technology,EGX,Technology Services,Information Technology Services,2.42,2.45,2.42,2.42,-1.2244897959183774,,380172,EGP
 DOMT,Arabian Food Industries Co.,EGX,Consumer Non-Durables,Food: Meat/Fish/Dairy,25.61,26.6,25.61,26.47,3.358063256540412,7237609072.0,90423,EGP
 DSCW,Dice Sports & Casual Wear Manufacturers SAE,EGX,Consumer Non-Durables,Apparel/Footwear,1.8,1.82,1.79,1.79,-0.555555555555556,4823940985.0,5662313,EGP
 DTPP,Delta for Printing & Packaging,EGX,Process Industries,Containers/Packaging,329.89,349.0,327.0,336.5,2.0036982024311176,1847384051.0,398485,EGP
-EALR,El Arabia for Land Reclamation,EGX,Finance,Real Estate Development,366.02,381.0,354.58,369.73,1.0191256830601143,1903303873.0,20798,EGP
+EALR,El Arabia for Land Reclamation,EGX,Finance,Real Estate Development,366.02,381.0,354.58,371.0,1.366120218579235,1903303873.0,20798,EGP
 EASB,Egyptian Arabian Company for Securities Brokerage EAC,EGX,Finance,Investment Banks/Brokers,7.8,8.0,7.6,7.66,-1.794871794871791,780000019.0,435686,EGP
 EAST,Eastern Company,EGX,Consumer Non-Durables,Tobacco,31.95,32.0,31.51,31.78,-0.5320813771517939,95850002289.0,558377,EGP
 EBSC,Osool ESB Securities Brokerage,EGX,Finance,Investment Banks/Brokers,1.96,2.05,1.96,2.0,2.040816326530614,1024420625.0,1063957,EGP
-ECAP,El Ezz Ceramics & Porcelain Co. (Gemma),EGX,Producer Manufacturing,Building Products,31.56,32.24,31.3,31.89,1.0456273764258612,1683489715.0,355732,EGP
-EDFM,East Delta Flour Mills Co.,EGX,Consumer Non-Durables,Food: Specialty/Candy,397.53,410.0,393.4,400.02,0.6263678212965083,2385179993.0,1677,EGP
+ECAP,El Ezz Ceramics & Porcelain Co. (Gemma),EGX,Producer Manufacturing,Building Products,31.56,32.24,31.3,31.85,0.9188846641318211,1683489715.0,355732,EGP
+EDFM,East Delta Flour Mills Co.,EGX,Consumer Non-Durables,Food: Specialty/Candy,397.53,410.0,393.4,396.0,-0.384876613085798,2385179993.0,1677,EGP
 EEII,El Arabia Engineering Industries,EGX,Electronic Technology,Electronic Components,2.23,2.28,2.23,2.25,0.896860986547086,597640005.0,2718739,EGP
 EEP,Egypt Education Platform - EEP,EGX,,,1.0,1.0,1.0,1.0,0.0,,0,EGP
 EFAC,Egyptian Ferro All Egp10,EGX,,,10.0,10.0,10.0,10.0,0.0,,0,EGP
@@ -85,7 +85,7 @@ EFID,Edita Food Industries SAE,EGX,Consumer Non-Durables,Food: Specialty/Candy,3
 EFIH,e-finance for Digital and Financial Investments S.A.E.,EGX,Technology Services,Packaged Software,22.9,23.29,22.65,22.97,0.3056768558951978,79386667208.0,2741083,EGP
 EGAL,Egypt Aluminum,EGX,Non-Energy Minerals,Aluminum,367.98,370.0,365.0,366.0,-0.5380727213435562,151791754532.0,78756,EGP
 EGAS,Egypt Gas Co.,EGX,Utilities,Gas Distributors,56.31,57.89,56.3,56.55,0.4976008530300231,8121160787.0,108767,EGP
-EGBE,Egyptian Gulf Bank,EGX,Finance,Regional Banks,0.505,0.52,0.503,0.519,2.5691699604743103,13957747989.662502,153731,USD
+EGBE,Egyptian Gulf Bank,EGX,Finance,Regional Banks,0.505,0.52,0.503,0.518,2.3715415019762864,13957747989.662502,153731,USD
 EGCH,Egyptian Chemical Industries,EGX,Process Industries,Chemicals: Agricultural,14.02,14.12,13.91,13.92,-0.713266761768899,27851838202.0,3721794,EGP
 EGOTH,El Masreyah Touris Egp100,EGX,,,100.0,100.0,100.0,100.0,0.0,,0,EGP
 EGREF,Egyptians Real Estate Fund,EGX,Miscellaneous,Investment Trusts/Mutual Funds,23.98,25.87,23.97,24.31,1.3761467889908185,431729227.0,816022,EGP
@@ -105,13 +105,13 @@ EITP,Egyptian International Tourism Projects,EGX,Consumer Services,Other Consume
 ELAB,Egyptian Linear Alkyl Benzene Company,EGX,,,0.1,0.1,0.1,0.1,0.0,,0,USD
 ELEC,Electro Cable Egypt,EGX,Producer Manufacturing,Electrical Products,1.97,1.99,1.96,1.97,0.0,6527674453.0,21604346,EGP
 ELKA,El Kahera Housing,EGX,Finance,Real Estate Development,1.67,1.69,1.66,1.67,0.0,3100796901.0,3764398,EGP
-ELNA,El Nasr for Manufacturing Agricultural Crops,EGX,Process Industries,Agricultural Commodities/Milling,35.22,35.8,34.5,35.22,-1.7299107142857268,277020400.0,8099,EGP
+ELNA,El Nasr for Manufacturing Agricultural Crops,EGX,Process Industries,Agricultural Commodities/Milling,35.22,35.8,34.5,35.21,-1.7578125000000069,277020400.0,8099,EGP
 ELSH,El-Shams Housing & Development SA,EGX,Finance,Real Estate Development,12.79,12.97,12.7,12.7,-0.7036747458952296,2901731241.0,713393,EGP
-ELWA,Elwadi for International Investment & Development,EGX,Consumer Services,Hotels/Resorts/Cruise lines,1.68,1.71,1.64,1.69,1.8072289156626522,305760012.0,486785,EGP
+ELWA,Elwadi for International Investment & Development,EGX,Consumer Services,Hotels/Resorts/Cruise lines,1.68,1.71,1.64,1.71,3.012048192771087,305760012.0,486785,EGP
 EMFD,Emaar Misr for Development SAE,EGX,Finance,Real Estate Development,13.4,13.62,13.24,13.48,0.5970149253731348,72988855735.0,3004215,EGP
 ENGC,Industrial Engineering Co. for Construction & Development,EGX,Producer Manufacturing,Building Products,42.55,43.29,41.2,41.4,-2.7027027027026995,6191024889.0,524264,EGP
 ENPI,Engineering for the Petroleum and Process Industries,EGX,,,0.125,0.125,0.125,0.125,0.0,,0,USD
-EOSB,El Orouba Securities Brokerage,EGX,Finance,Investment Banks/Brokers,1.57,1.64,1.57,1.57,-4.26829268292682,38464998.0,43021,EGP
+EOSB,El Orouba Securities Brokerage,EGX,Finance,Investment Banks/Brokers,1.57,1.64,1.57,1.64,0.0,38464998.0,43021,EGP
 EPCO,Egypt for Poultry Co.,EGX,Process Industries,Agricultural Commodities/Milling,10.82,11.09,10.76,10.77,-0.4621072088724649,460607384.0,519064,EGP
 EPPK,El Ahram Co. for Printing & Packing,EGX,Process Industries,Containers/Packaging,9.78,9.78,9.78,9.78,0.0,81369595.0,0,EGP
 ETEL,Telecom Egypt,EGX,Communications,Major Telecommunications,134.3,140.0,134.3,137.5,2.382725241995524,229259728513.0,3292584,EGP
@@ -131,14 +131,14 @@ GEOS,Geos for trading and contracting,EGX,,,1.0,1.0,1.0,1.0,0.0,,0,EGP
 GGCC,Giza General Contracting & Real Estate Investment,EGX,Industrial Services,Engineering & Construction,0.842,0.853,0.81,0.811,-3.681710213776712,1822147014.0,24038047,EGP
 GGRN,Gogreen for Agricultural Investment and Development Company,EGX,Commercial Services,Miscellaneous Commercial Services,1.39,1.4,1.38,1.39,0.0,,2717649,EGP
 GIHD,Gharbia Islamic Housing Development,EGX,Consumer Durables,Homebuilding,72.1,73.5,72.0,72.44,0.4715672676837773,405562491.0,61906,EGP
-GMCI,GMC Group for Industrial Commercial & Financial Investments,EGX,Distribution Services,Wholesale Distributors,1.76,1.77,1.73,1.76,0.571428571428572,73244746.0,105380,EGP
+GMCI,GMC Group for Industrial Commercial & Financial Investments,EGX,Distribution Services,Wholesale Distributors,1.76,1.77,1.73,1.73,-1.142857142857144,73244746.0,105380,EGP
 GOUR,Gourmet Egypt.Com Foods,EGX,Retail Trade,Food Retail,16.16,16.6,15.97,16.5,2.103960396039603,6464000000.0,4015021,EGP
 GPIM,GPI For Urban Growth,EGX,Finance,Real Estate Development,1.59,1.63,1.57,1.57,-1.2578616352201268,2601818059.0,5470094,EGP
 GPPL,Golden Pyramids Plaza,EGX,Finance,Real Estate Development,1.4,1.4,1.4,1.4,0.0,42898032141.1058,0,USD
 GRCA,Grand Investment Capital,EGX,Finance,Investment Banks/Brokers,39.87,41.0,39.5,39.53,-0.8527715073990376,414647974.0,140788,EGP
 GROV,Grova Special Purpose Acquisition Company,EGX,,,1.0,1.0,1.0,1.0,0.0,,0,EGP
-GSSC,General Silos & Storage Co.,EGX,Retail Trade,Food Retail,305.98,312.0,303.0,304.9,-0.1146601146601221,5354650192.0,10483,EGP
-GTEX,G-TEX for Commercial and Industrial Investments S.A.E,EGX,Finance,Financial Conglomerates,0.044,0.044,0.042,0.042,-2.325581395348823,,156564,USD
+GSSC,General Silos & Storage Co.,EGX,Retail Trade,Food Retail,305.98,312.0,303.0,306.49,0.40622440622440925,5354650192.0,10483,EGP
+GTEX,G-TEX for Commercial and Industrial Investments S.A.E,EGX,Finance,Financial Conglomerates,0.044,0.044,0.042,0.043,0.0,,156564,USD
 GTHE,Global Telecom Holding S.A.E.,EGX,Communications,Specialty Telecommunications,5.0,5.0,4.51,4.99,-0.19999999999999576,8828498294.0,28601,EGP
 GTWL,Golden Textiles & Clothes Wool,EGX,Process Industries,Textiles,227.53,238.97,227.53,237.45,4.359864633235172,3249893644.0,400522,EGP
 HALN,MNT Tech Holding For Financial Investments,EGX,,,0.1,0.1,0.1,0.1,0.0,,0,EGP
@@ -149,10 +149,10 @@ HELI,Heliopolis Housing,EGX,Consumer Durables,Homebuilding,8.03,8.25,8.03,8.2,2.
 HRHO,EFG Holding S.A.E.,EGX,Finance,Investment Banks/Brokers,24.92,25.1,24.4,24.6,-1.2841091492776897,35782452282.0,5818602,EGP
 IBCT,International Business Corp. for Trading & Agencies,EGX,Distribution Services,Wholesale Distributors,12.9,13.09,12.7,12.9,0.0,313985993.0,80522,EGP
 ICFC,International Co. for Fertilizers & Chemicals,EGX,Process Industries,Chemicals: Agricultural,23.0,23.5,22.13,22.89,-0.47826086956521496,2685825035.0,436302,EGP
-ICID,International Company for Investment & Development,EGX,Finance,Financial Conglomerates,17.12,18.0,17.07,17.1,-0.05844535359437762,1712000084.0,158586,EGP
+ICID,International Company for Investment & Development,EGX,Finance,Financial Conglomerates,17.12,18.0,17.07,17.07,-0.23378141437755204,1712000084.0,158586,EGP
 ICLE,International Co. for Leasing SAE,EGX,Finance,Finance/Rental/Leasing,15.76,15.76,15.76,15.76,0.0,788000011.0,0,EGP
 IDRE,Ismailia Development & Real Estate Co.,EGX,Consumer Durables,Homebuilding,54.88,56.19,54.16,54.24,-1.1661807580174937,2021682946.0,109273,EGP
-IEEC,Industrial & Engineering Enterprises Co.,EGX,Industrial Services,Engineering & Construction,0.841,0.938,0.841,0.891,5.945303210463739,1226178000.0,271211344,EGP
+IEEC,Industrial & Engineering Enterprises Co.,EGX,Industrial Services,Engineering & Construction,0.841,0.938,0.841,0.891,5.945303210463739,1226178000.0,271211340,EGP
 IFAP,International Agricultural Products,EGX,Process Industries,Agricultural Commodities/Milling,20.02,20.65,20.02,20.59,2.8471528471528487,9955713207.0,287221,EGP
 INEG,Integrated Engineering Group S.A.E,EGX,Producer Manufacturing,Metal Fabrication,0.691,0.729,0.691,0.701,1.4471780028943573,,37465661,EGP
 INFI,Ismailia National Food Industries,EGX,Consumer Non-Durables,Food: Specialty/Candy,127.26,130.5,126.5,126.94,-0.25145371680025724,2591840942.0,53858,EGP
@@ -183,18 +183,18 @@ MEPA,Medical Packaging Company,EGX,Process Industries,Containers/Packaging,1.89,
 MFPC,Misr Fertilizers Production Company MOPCO,EGX,Process Industries,Chemicals: Agricultural,49.6,50.0,48.56,48.99,-1.2298387096774182,142259746405.0,1427003,EGP
 MFSC,Misr Duty Free Shops Co.,EGX,Retail Trade,Specialty Stores,48.96,50.3,48.96,49.64,1.0792099368764023,4589999914.0,20273,EGP
 MHOT,Misr Hotels Co.,EGX,Consumer Services,Hotels/Resorts/Cruise lines,17.4,18.4,17.4,17.9,2.873563218390805,13780799698.0,453630,EGP
-MICH,Misr Chemical Industries Ltd.,EGX,Process Industries,Chemicals: Specialty,47.74,48.5,47.0,47.53,-0.7724425887265083,5236481434.0,213587,EGP
-MILS,North Cairo Mills Co.,EGX,Process Industries,Agricultural Commodities/Milling,190.09,194.99,185.25,191.26,0.6154979220369233,2033962925.0,38074,EGP
+MICH,Misr Chemical Industries Ltd.,EGX,Process Industries,Chemicals: Specialty,47.74,48.5,47.0,47.5,-0.8350730688935253,5236481434.0,213587,EGP
+MILS,North Cairo Mills Co.,EGX,Process Industries,Agricultural Commodities/Milling,190.09,194.99,185.25,191.0,0.4787206060287214,2033962925.0,38074,EGP
 MIPH,Minapharm Pharmaceuticals,EGX,Health Technology,Pharmaceuticals: Major,941.03,941.03,861.0,879.95,-6.490760124544375,10603940655.0,21364,EGP
 MISR,MISR Intercontinental for Granite & Marble,EGX,Non-Energy Minerals,Construction Materials,5.51,5.51,5.51,5.51,0.0,49997000.0,0,EGP
 MITR,Misr Travel&Touris Egp6,EGX,,,6.0,6.0,6.0,6.0,0.0,,0,EGP
 MLIC,Misr Life Insurance,EGX,,,10.0,10.0,10.0,10.0,0.0,,0,EGP
-MMAT,Marsa Marsa Alam for Tourism Development,EGX,Consumer Services,Hotels/Resorts/Cruise lines,4.07,4.27,4.07,4.07,-4.683840749414504,203500009.0,43,EGP
+MMAT,Marsa Marsa Alam for Tourism Development,EGX,Consumer Services,Hotels/Resorts/Cruise lines,4.07,4.27,4.07,4.27,0.0,203500009.0,43,EGP
 MMHC,El Mamoura Company For Construction & Tourism Development,EGX,,,10.0,10.0,10.0,10.0,0.0,,0,EGP
 MOED,Egyptian Modern Education Systems,EGX,Commercial Services,Miscellaneous Commercial Services,0.736,0.748,0.7,0.715,-2.85326086956522,739680001.0,27276524,EGP
 MOIL,Maridive & Oil Services SAE,EGX,Industrial Services,Oilfield Services/Equipment,0.7,0.705,0.694,0.699,-0.142857142857143,17463077546.79638,406813,USD
 MOIN,Mohandes Insurance Co.,EGX,Finance,Multi-Line Insurance,35.39,37.0,35.39,35.69,0.8476970895733177,9201399841.0,193554,EGP
-MOSC,Misr Oils & Soap Co.,EGX,Process Industries,Agricultural Commodities/Milling,299.2,305.0,298.0,299.38,-0.8675496688741737,1795200073.0,3529,EGP
+MOSC,Misr Oils & Soap Co.,EGX,Process Industries,Agricultural Commodities/Milling,299.2,305.0,298.0,298.15,-1.2748344370861002,1795200073.0,3529,EGP
 MPCI,Memphis Pharmaceutical & Chemical Industries,EGX,Health Technology,Pharmaceuticals: Major,383.5,413.0,383.5,393.11,2.505867014341594,8724625000.0,425245,EGP
 MPCO,Mansourah Poultry Co.,EGX,Process Industries,Agricultural Commodities/Milling,2.86,2.86,2.75,2.75,-3.8461538461538423,2860000134.0,38310288,EGP
 MPRC,Egyptian Media Production City,EGX,Consumer Services,Movies/Entertainment,38.11,38.99,38.07,38.21,0.2623983206507516,7226799602.0,176609,EGP
@@ -207,7 +207,7 @@ NBKE,National Bank of Kuwait - Egypt,EGX,Finance,Regional Banks,34.84,39.9,30.0,
 NCCW,Nasr Co. for Civil Works,EGX,Industrial Services,Engineering & Construction,7.52,7.75,7.14,7.21,-4.12234042553191,1895039995.0,7457605,EGP
 NCGC,Nile Cotton Ginning,EGX,Process Industries,Agricultural Commodities/Milling,50.0,52.0,50.0,50.0,0.0,2649625015.0,1280,EGP
 NDRL,National Drilling Co.,EGX,Industrial Services,Contract Drilling,4.69,4.69,4.69,4.69,0.0,1490716130.749602,0,USD
-NEDA,Northern Upper Egypt Development & Agricultural Production,EGX,Process Industries,Chemicals: Agricultural,2.77,2.77,2.71,2.75,-0.7220216606498201,175885446.0,2681603,EGP
+NEDA,Northern Upper Egypt Development & Agricultural Production,EGX,Process Industries,Chemicals: Agricultural,2.77,2.77,2.71,2.72,-1.8050541516245424,175885446.0,2681603,EGP
 NFCI,ELNASR Co For Fertilizers And Chemical Industries,EGX,,,10.0,10.0,10.0,10.0,0.0,,0,EGP
 NHPS,National Housing for Professional Syndicates,EGX,Finance,Real Estate Development,73.69,74.99,73.0,73.25,-0.5970959424616606,1179040039.0,37864,EGP
 NINH,Nozha International Hospital,EGX,Health Services,Hospital/Nursing Management,20.59,20.96,20.33,20.41,-0.8742107819329757,6177000046.0,375138,EGP
@@ -228,7 +228,7 @@ PACH,Paints & Chemical Industries Co.,EGX,Process Industries,Industrial Specialt
 PHAR,Egyptian International Pharmaceutical Industries Co.,EGX,Health Technology,Pharmaceuticals: Other,114.0,119.88,114.0,115.5,1.3157894736842104,19238155792.0,843440,EGP
 PHDC,Palm Hills Development Co.,EGX,Finance,Real Estate Development,13.2,13.58,13.2,13.44,1.81818181818182,37750868302.0,6665459,EGP
 PHGC,Premium Healthcare Group,EGX,Health Services,Medical/Nursing Services,0.087,0.087,0.085,0.086,-1.1494252873563229,,76835592,EGP
-PHTV,Pyramisa Hotels,EGX,Consumer Services,Hotels/Resorts/Cruise lines,346.85,350.0,320.11,335.17,-5.048301651604859,8792647787.0,2552,EGP
+PHTV,Pyramisa Hotels,EGX,Consumer Services,Hotels/Resorts/Cruise lines,346.85,350.0,320.11,330.0,-6.512932377687755,8792647787.0,2552,EGP
 PMSC,Petroleum Marine Services Company,EGX,,,10.0,10.0,10.0,10.0,0.0,,0,USD
 POCO,Port Said Container And Cargo Handling,EGX,Transportation,Other Transportation,5.0,5.0,5.0,5.0,0.0,,0,EGP
 POUL,Cairo Poultry Co.,EGX,Process Industries,Agricultural Commodities/Milling,38.2,38.2,38.2,38.2,0.0,18297860986.0,0,EGP
@@ -242,23 +242,23 @@ RAYA,Raya Holding for Financial Investments SAE,EGX,Technology Services,Informat
 RKAZ,REKAZ Financial Holding,EGX,Process Industries,Chemicals: Agricultural,5.2,5.38,4.81,5.26,1.1538461538461462,103999996.0,226852,EGP
 RMDA,Tenth of Ramadan Pharmaceutical Industries & Diagnostic-Rameda,EGX,Health Technology,Pharmaceuticals: Major,5.99,6.16,5.99,6.06,1.1686143572620935,12176575658.0,2454586,EGP
 RMTV,Rowad Misr Tourism Investment,EGX,Consumer Services,Hotels/Resorts/Cruise lines,100.0,100.0,100.0,100.0,,,0,EGP
-ROTO,Rowad Tourism (Al Rowad) Co,EGX,Finance,Real Estate Development,40.0,41.0,39.0,40.7,1.750000000000007,692472000.0,164962,EGP
+ROTO,Rowad Tourism (Al Rowad) Co,EGX,Finance,Real Estate Development,40.0,41.0,39.0,40.13,0.3250000000000064,692472000.0,164962,EGP
 RREI,Arab Real Estate Investment Co.,EGX,Consumer Durables,Homebuilding,4.24,4.3,4.2,4.21,-0.7075471698113266,1044735918.0000001,1011381,EGP
 RTVC,Remco for Touristic Villages Construction,EGX,Industrial Services,Engineering & Construction,3.85,3.9,3.84,3.86,0.25974025974025416,950171529.0,272644,EGP
 RUBX,Rubex International for Plastic & Acrylic Manufacturing,EGX,Consumer Durables,Home Furnishings,14.99,15.3,14.07,14.12,-5.8038692461641155,922183763.0,6222944,EGP
 SAIB,Societe Arabe Internationale de Banque,EGX,Finance,Regional Banks,2.53,2.53,2.53,2.53,0.0,4442935076.531748,0,USD
 SAUD,Al Baraka Bank Egypt,EGX,Finance,Regional Banks,25.5,25.8,24.72,25.6,0.3921568627451036,18542047028.0,702391,EGP
 SCEM,Sinai Cement Co.,EGX,Non-Energy Minerals,Construction Materials,89.0,89.98,84.5,86.0,-3.3707865168539324,23212309784.0,500272,EGP
-SCFM,South Cairo & Giza Mills & Bakeries,EGX,Process Industries,Agricultural Commodities/Milling,267.18,273.0,266.05,270.3,0.54307394732928,1603079956.0,3865,EGP
-SCTS,Sues Canal Co. for Technology Settling,EGX,Commercial Services,Miscellaneous Commercial Services,575.7,600.0,575.7,581.8,-0.034364261168392696,52331131988.0,2230,EGP
+SCFM,South Cairo & Giza Mills & Bakeries,EGX,Process Industries,Agricultural Commodities/Milling,267.18,273.0,266.05,266.07,-1.0303526260973002,1603079956.0,3865,EGP
+SCTS,Sues Canal Co. for Technology Settling,EGX,Commercial Services,Miscellaneous Commercial Services,575.7,600.0,575.7,581.0,-0.1718213058419244,52331131988.0,2230,EGP
 SDTI,Sharm Dreams Co. for Tourism Investment,EGX,Consumer Services,Hotels/Resorts/Cruise lines,77.58,80.89,77.58,78.07,0.6316060840422724,4110612253.9999995,431724,EGP
-SEIG,Saudi Egyptian Investment & Finance Co. SAE,EGX,Finance,Investment Managers,229.32,250.0,229.32,239.4,4.541484716157208,573300018.0,17284,EGP
+SEIG,Saudi Egyptian Investment & Finance Co. SAE,EGX,Finance,Investment Managers,229.32,250.0,229.32,238.0,3.9301310043668125,573300018.0,17284,EGP
 SEIGA,Saudi Egyptian Investment & Finance Co. SAE,EGX,Finance,Investment Managers,0.95,0.95,0.95,0.95,0.0,573300019.3185902,0,USD
 SIEG,Egyptian Company for Pipes and Cement Products -Siegwart,EGX,,,10.0,10.0,10.0,10.0,0.0,,0,EGP
 SINA,Sinai Manganese Company,EGX,,,15.0,15.0,15.0,15.0,0.0,,0,EGP
 SIPC,Sabaa International Company for Pharmaceutial and Chemical Industry,EGX,Health Technology,Pharmaceuticals: Major,5.42,5.75,5.4,5.45,0.5535055350553552,1355000019.0,5700963,EGP
 SKPC,Sidi Kerir Petrochemicals,EGX,Process Industries,Chemicals: Specialty,18.0,18.2,17.9,18.0,0.0,20412000000.0,3144419,EGP
-SMFR,Samad Misr-EGYFERT,EGX,Distribution Services,Wholesale Distributors,231.6,238.5,231.0,232.05,0.1943005181347224,2223360147.0,7307,EGP
+SMFR,Samad Misr-EGYFERT,EGX,Distribution Services,Wholesale Distributors,231.6,238.5,231.0,232.0,0.1727115716753047,2223360147.0,7307,EGP
 SMPP,Modern Shorouk Printing & Packaging,EGX,Consumer Services,Publishing: Books/Magazines,106.0,106.0,105.69,106.0,0.0,1206602065.0,785,EGP
 SNFC,Sharkia National Food,EGX,Process Industries,Agricultural Commodities/Milling,11.33,11.6,11.33,11.54,1.7636684303350907,1857294303.0,1189127,EGP
 SNFI,Souhag National Food Industries,EGX,Consumer Non-Durables,Food: Specialty/Candy,10.5,10.99,10.03,10.98,-3.6842105263157885,,10510,EGP
@@ -275,22 +275,22 @@ TAQA,TAQA Arabia,EGX,Utilities,Electric Utilities,15.16,15.25,14.95,15.0,-1.0554
 TMGH,Talaat Moustafa Group Holding,EGX,Finance,Real Estate Development,93.9,95.0,93.84,94.27,0.394036208732684,193495395771.0,1673989,EGP
 TORA,Tourah Cement Co,EGX,Non-Energy Minerals,Construction Materials,61.3,61.99,51.2,61.77,1.0469491248159668,,17017,EGP
 TOUR,Tourism Urbanization,EGX,Consumer Services,Other Consumer Services,10.0,10.0,10.0,10.0,0.0,,0,EGP
-TRTO,TransOceans Tours,EGX,Commercial Services,Miscellaneous Commercial Services,0.058,0.059,0.058,0.058,-1.694915254237278,307692308.40000004,40305,USD
+TRTO,TransOceans Tours,EGX,Commercial Services,Miscellaneous Commercial Services,0.058,0.059,0.058,0.059,0.0,307692308.40000004,40305,USD
 TWSA,Tawasoa Factoring,EGX,Finance,Finance/Rental/Leasing,7.17,7.5,7.17,7.28,1.5341701534170198,,616748,EGP
 TYCN,Tycoon Holding Company For Financial Investments,EGX,Finance,Investment Banks/Brokers,12.94,12.99,12.61,12.7,-1.167315175097279,676114978.0,175327,EGP
 UBEE,United Bank SAE,EGX,Finance,Major Banks,16.01,16.38,15.2,16.0,-0.062460961898823,17611000252.0,101718,EGP
-UEFM,Upper Egypt Flour Mills Co.,EGX,Process Industries,Agricultural Commodities/Milling,488.87,495.0,479.6,480.2,-1.396303901437374,3422089966.0,5335,EGP
+UEFM,Upper Egypt Flour Mills Co.,EGX,Process Industries,Agricultural Commodities/Milling,488.87,495.0,479.6,480.0,-1.4373716632443532,3422089966.0,5335,EGP
 UEGC,El-Saeed Contracting & Real Estate Investment Co. SCCD,EGX,Industrial Services,Engineering & Construction,1.77,1.8,1.69,1.69,-4.51977401129944,1292216337.0,39943407,EGP
 UNIP,Universal Co. for Paper & Packaging Materials-Unipack,EGX,Process Industries,Pulp & Paper,0.373,0.379,0.368,0.371,-0.5361930294906171,854708000.0,21166038,EGP
 UNIT,United Housing Construction SA,EGX,Finance,Real Estate Development,18.24,18.41,17.68,18.13,-0.6030701754385934,4294126675.0000005,110262,EGP
-UPMS,Union Pharmacist Company For Medical Services And Investment,EGX,Health Services,Medical/Nursing Services,10.32,10.48,10.31,10.42,-0.6673021925643497,,14982,EGP
+UPMS,Union Pharmacist Company For Medical Services And Investment,EGX,Health Services,Medical/Nursing Services,10.32,10.48,10.31,10.48,-0.09532888465204754,,14982,EGP
 UTOP,Utopia Real Estate Investment & Tourism SAE,EGX,Finance,Real Estate Development,110.9,113.4,100.0,106.96,-5.720581754076694,332700005.0,8417,EGP
 VALU,U Consumer Finance S.A.E,EGX,Finance,Finance/Rental/Leasing,10.78,10.78,10.48,10.65,-1.2059369202226253,22706521918.0,1233930,EGP
-VERT,Vertika for Industry & Trade,EGX,Technology Services,Packaged Software,5.87,6.07,5.7,5.78,-1.1965811965811863,150828235.0,78441,EGP
+VERT,Vertika for Industry & Trade,EGX,Technology Services,Packaged Software,5.87,6.07,5.7,5.9,0.854700854700867,150828235.0,78441,EGP
 VLMR,Valmore Holding,EGX,Finance,Financial Conglomerates,0.659,0.665,0.658,0.659,0.0,29046353488.557278,193329,USD
 VLMRA,Valmore Holding,EGX,Finance,Financial Conglomerates,31.44,32.9,31.31,31.8,0.8563273073263544,29046353421.750668,559919,EGP
 WATP,Modern Co. for Water Proofing,EGX,Process Industries,Chemicals: Major Diversified,23.0,23.0,23.0,23.0,0.0,,290,EGP
-WCDF,Middle & West Delta Flour Mills Co.,EGX,Process Industries,Agricultural Commodities/Milling,709.59,712.5,691.3,706.22,-0.5323943661971793,5321925201.0,2894,EGP
+WCDF,Middle & West Delta Flour Mills Co.,EGX,Process Industries,Agricultural Commodities/Milling,709.59,712.5,691.3,710.0,0.0,5321925201.0,2894,EGP
 WKOL,Wadi Kom Ombo Land Reclamation,EGX,Industrial Services,Engineering & Construction,334.18,337.79,330.5,334.07,-0.032916392363401055,1871407927.0,11725,EGP
 YAYT,Spring & Transportation Needs Manufacturing Co.,EGX,,,10.0,10.0,10.0,10.0,0.0,,0,EGP
 ZEOT,Extracted Oils & Derivatives Co.,EGX,Process Industries,Agricultural Commodities/Milling,13.15,13.5,13.06,13.06,-0.6844106463878316,2629999924.0,158293,EGP
