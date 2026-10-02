@@ -1,5 +1,5 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
-AB,AMEN BANK SA,BVMT,Finance,Regional Banks,89.5,90.0,89.0,89.3,0.224466891133561,3111371784.0,5913,TND
+AB,AMEN BANK SA,BVMT,Finance,Regional Banks,89.5,90.0,89.0,89.25,0.16835016835017474,3111371784.0,6064,TND
 AL,Air Liquide Tunisie SA,BVMT,Process Industries,Chemicals: Specialty,230.0,230.0,230.0,230.0,0.0,376626163.0,39,TND
 ALKIM,Societe Chimique ALKIMIA SA,BVMT,Process Industries,Chemicals: Specialty,13.4,13.4,13.4,13.4,-0.6671608598962183,52893189.0,1,TND
 AMV,Assurances Maghrebia Vie,BVMT,Finance,Multi-Line Insurance,12.74,12.75,12.37,12.74,0.0,388570000.0,2340,TND
@@ -7,66 +7,66 @@ ARTES,Automobile Reseau Tunisien et Services SA,BVMT,Retail Trade,Specialty Stor
 ASSAD,L'Accumulateur Tunisien Assad,BVMT,Producer Manufacturing,Electrical Products,2.19,2.19,2.19,2.19,4.2857142857142785,52560001.0,14140,TND
 ASSMA,Assurances Maghrebia S.A,BVMT,Finance,Multi-Line Insurance,84.5,88.0,84.5,85.26,0.8994082840236747,464750000.0,200,TND
 AST,Compagnie d'Assurances & de Reassurances SA,BVMT,Finance,Multi-Line Insurance,85.0,91.97,85.0,91.97,-1.0862551086255163,551820007.0,32,TND
-ATB,Arab Tunisian Bank SA,BVMT,Finance,Regional Banks,3.2,3.2,3.19,3.2,0.31347962382445865,319000006.0,5025,TND
-ATL,Arab Tunisian Lease SA,BVMT,Finance,Finance/Rental/Leasing,14.0,14.84,14.0,14.0,0.0,490000000.0,14546,TND
-BH,BH Bank,BVMT,Finance,Regional Banks,12.06,12.54,12.0,12.39,3.250000000000005,571199982.0,1352,TND
+ATB,Arab Tunisian Bank SA,BVMT,Finance,Regional Banks,3.2,3.2,3.19,3.2,0.31347962382445865,319000006.0,5247,TND
+ATL,Arab Tunisian Lease SA,BVMT,Finance,Finance/Rental/Leasing,14.0,14.84,14.0,14.79,5.642857142857137,490000000.0,14548,TND
+BH,BH Bank,BVMT,Finance,Regional Banks,12.06,12.54,12.0,12.39,3.250000000000005,571199982.0,1413,TND
 BHASS,BH Assurance SA,BVMT,Finance,Insurance Brokers/Services,75.98,75.98,75.98,75.98,-4.487743557510991,202106815.0,9,TND
 BHL,BH Leasing SA,BVMT,Finance,Finance/Rental/Leasing,4.67,4.67,4.67,4.67,4.008908685968813,31429998.0,40,TND
 BIAT,Banque Internationale Arabe de Tunisie SA,BVMT,Finance,Regional Banks,160.01,161.95,160.0,161.49,0.9312500000000057,6527999878.0,7890,TND
 BL,Best Lease,BVMT,Finance,Finance/Rental/Leasing,2.63,2.63,2.63,2.63,0.3816793893129689,78674650.0,2,TND
-BNA,Banque Nationale Agricole,BVMT,Finance,Regional Banks,20.44,20.7,20.44,20.47,0.14677103718198425,1297388457.0,80420,TND
-BNASS,BNA Assurances,BVMT,Finance,Multi-Line Insurance,4.01,4.08,4.0,4.03,-0.49382716049381664,353936775.0,9026,TND
+BNA,Banque Nationale Agricole,BVMT,Finance,Regional Banks,20.44,20.7,20.44,20.45,0.048923679060655624,1297388457.0,81441,TND
+BNASS,BNA Assurances,BVMT,Finance,Multi-Line Insurance,4.01,4.08,4.0,4.08,0.7407407407407469,353936775.0,9031,TND
 BT,Banque de Tunisie SA,BVMT,Finance,Regional Banks,8.5,8.5,8.22,8.3,-0.5988023952095681,2254500103.0,21571,TND
 CC,Carthage Cement,BVMT,Non-Energy Minerals,Construction Materials,1.83,1.84,1.83,1.84,0.0,632269858.0,37292,TND
-CELL,Cellcom SA,BVMT,Retail Trade,Electronics/Appliance Stores,1.77,1.79,1.69,1.78,-0.5586592178770954,7986142.0,8005,TND
+CELL,Cellcom SA,BVMT,Retail Trade,Electronics/Appliance Stores,1.77,1.79,1.69,1.78,-0.5586592178770954,7986142.0,8030,TND
 CIL,Compagnie Internationale de Leasing,BVMT,Transportation,Railroads,37.48,38.48,37.48,37.48,0.0,250296690.0,1223,TND
 CITY,City Cars SA,BVMT,Retail Trade,Specialty Stores,18.75,18.75,18.4,18.75,0.05336179295625167,336814365.0,1871,TND
-DH,Delice Holding SA,BVMT,Distribution Services,Food Distributors,19.59,19.7,19.49,19.7,1.0774756285274545,2140285005.0000002,5356,TND
+DH,Delice Holding SA,BVMT,Distribution Services,Food Distributors,19.59,19.7,19.49,19.7,1.0774756285274545,2140285005.0000002,5357,TND
 ECYCL,Eurocycles SA,BVMT,Consumer Durables,Motor Vehicles,10.83,10.83,10.69,10.69,-0.09345794392523166,104870694.0,399,TND
-HL,Hannibal Lease SA,BVMT,Finance,Finance/Rental/Leasing,10.0,10.0,10.0,10.0,0.0,109550037.0,500,TND
-ICF,Industries Chimiques du Fluor,BVMT,Process Industries,Chemicals: Specialty,134.5,137.89,134.5,137.7,-0.14503263234228939,289589974.0,359,TND
+HL,Hannibal Lease SA,BVMT,Finance,Finance/Rental/Leasing,10.0,10.0,10.0,10.0,0.0,109550037.0,806,TND
+ICF,Industries Chimiques du Fluor,BVMT,Process Industries,Chemicals: Specialty,134.5,137.89,134.5,137.7,-0.14503263234228939,289589974.0,360,TND
 LNDOR,Land'Or SA,BVMT,Consumer Non-Durables,Food: Meat/Fish/Dairy,14.75,14.75,14.66,14.75,-0.3378378378378426,204007429.0,1173,TND
 MAG,Magasin General SA,BVMT,Retail Trade,Food Retail,12.99,12.99,12.99,12.99,2.122641509433959,204772312.0,194,TND
-MGR,Societe Tunisienne des Marches de Gros SA,BVMT,Distribution Services,Food Distributors,21.5,22.25,21.25,22.25,0.0,293699996.0,1777,TND
-MNP,La Societe Nouvelle Maison de la Ville de Tunis-Monoprix SA,BVMT,Retail Trade,Department Stores,11.67,11.67,11.51,11.51,1.6784452296819745,286913719.0,30,TND
+MGR,Societe Tunisienne des Marches de Gros SA,BVMT,Distribution Services,Food Distributors,21.5,22.25,21.25,22.25,0.0,293699996.0,1798,TND
+MNP,La Societe Nouvelle Maison de la Ville de Tunis-Monoprix SA,BVMT,Retail Trade,Department Stores,11.67,11.67,11.51,11.51,1.6784452296819745,286913719.0,60,TND
 MPBS,Manufacture de Panneaux Bois du Sud SA,BVMT,Non-Energy Minerals,Forest Products,9.9,9.97,9.9,9.97,-0.10020040080160107,206068535.0,2550,TND
-NAKL,Ennakl,BVMT,Retail Trade,Specialty Stores,18.0,18.0,17.65,17.65,3.8235294117646976,941815094.0,5185,TND
+NAKL,Ennakl,BVMT,Retail Trade,Specialty Stores,18.0,18.0,17.65,17.65,3.8235294117646976,941815094.0,5583,TND
 NBL,NEW BODY LINE,BVMT,Consumer Non-Durables,Apparel/Footwear,2.8,2.8,2.8,2.8,-3.448275862068969,12071831.0,411,TND
 OTH,One Tech Holding SA,BVMT,Electronic Technology,Electronic Production Equipment,10.6,10.6,10.37,10.48,1.158301158301168,832943988.0,17972,TND
-PGH,Poulina Group Holding SA,BVMT,Process Industries,Agricultural Commodities/Milling,26.0,26.49,26.0,26.47,-0.03776435045317811,5004820119.0,1407,TND
-PLAST,Office Plast SA,BVMT,Process Industries,Containers/Packaging,1.32,1.32,1.29,1.3,0.0,28591219.0,2032,TND
+PGH,Poulina Group Holding SA,BVMT,Process Industries,Agricultural Commodities/Milling,26.0,26.49,26.0,26.0,-1.8126888217522674,5004820119.0,2485,TND
+PLAST,Office Plast SA,BVMT,Process Industries,Containers/Packaging,1.32,1.32,1.29,1.3,0.0,28591219.0,3532,TND
 PLTU,Les Placements de Tunisie-SICAF SA,BVMT,Miscellaneous,Investment Trusts/Mutual Funds,38.82,38.82,38.82,38.82,0.28416429863084325,38820000.0,1042,TND
 SAH,Societe d'Articles Hygieniques SA,BVMT,Consumer Non-Durables,Household/Personal Care,12.35,12.35,12.17,12.29,-0.48582995951417407,1037597334.9999999,1095,TND
 SAM,Societe Atelier du Meuble Interieurs SA,BVMT,Producer Manufacturing,Office Equipment/Supplies,5.96,6.0,5.96,6.0,1.0101010101010035,36145375.199999996,130,TND
-SCB,Les Ciments de Bizerte SA,BVMT,Non-Energy Minerals,Construction Materials,0.78,0.78,0.78,0.78,0.0,34356886.0,160,TND
-SFBT,Societe de Fabrication des Boissons de Tunisie SA,BVMT,Consumer Non-Durables,Beverages: Non-Alcoholic,13.7,13.9,13.5,13.5,-1.459854014598535,3673312449.0,217965,TND
+SCB,Les Ciments de Bizerte SA,BVMT,Non-Energy Minerals,Construction Materials,0.78,0.78,0.78,0.78,0.0,34356886.0,210,TND
+SFBT,Societe de Fabrication des Boissons de Tunisie SA,BVMT,Consumer Non-Durables,Beverages: Non-Alcoholic,13.7,13.9,13.5,13.87,1.2408759124087587,3673312449.0,217966,TND
 SIAME,Societe Industrielle d'Appareillage et de Materiels Electriques SA,BVMT,Producer Manufacturing,Electrical Products,4.04,4.04,3.88,4.0,-0.990099009900991,62393760.0,699,TND
 SIPHA,Societe des Industries Pharmaceutiques de Tunisie SA,BVMT,Health Technology,Pharmaceuticals: Major,4.54,4.54,4.54,4.54,-4.421052631578946,8172000.000000001,1,TND
 SITS,Societe Immobiliere Tuniso-Seoudienne SA,BVMT,Finance,Real Estate Development,4.15,4.15,4.15,4.15,0.0,64740003.0,11,TND
-SMART,Smart Tunisie,BVMT,Distribution Services,Electronics Distributors,30.0,30.8,30.0,30.0,-2.8811913240530935,343984454.0,794,TND
+SMART,Smart Tunisie,BVMT,Distribution Services,Electronics Distributors,30.0,30.8,30.0,30.69,-0.6474587245063104,343984454.0,795,TND
 SMD,Sanimed SA,BVMT,Consumer Durables,Home Furnishings,0.33,0.33,0.33,0.33,0.0,6590430.0,72950,TND
 SOKNA,ESSOUKNA Societe Anonyme,BVMT,Finance,Real Estate Development,4.12,4.12,4.06,4.12,-0.24213075060532172,20858565.0,3827,TND
 SOMOC,Societe moderne de ceramique SA,BVMT,Producer Manufacturing,Building Products,0.68,0.68,0.68,0.68,0.0,27646079.0,10999,TND
 SOTEM,SOTEMAIL SA,BVMT,Producer Manufacturing,Building Products,1.44,1.44,1.44,1.44,35.84905660377357,49699464.0,2500,TND
-SOTET,Societe Tunisienne d'Entreprises de Telecommunications,BVMT,Industrial Services,Engineering & Construction,23.5,23.75,23.3,23.5,0.21321961620469387,108732959.0,3518,TND
+SOTET,Societe Tunisienne d'Entreprises de Telecommunications,BVMT,Industrial Services,Engineering & Construction,23.5,23.75,23.3,23.5,0.21321961620469387,108732959.0,3538,TND
 SOTUV,Societe Tunisienne de Verreries SA,BVMT,Process Industries,Containers/Packaging,24.18,25.2,24.1,24.5,2.2110972048393873,940929822.0,9636,TND
 SPDIT,Societe de Placements et de Developpement Industriel et Touristique SA,BVMT,Finance,Investment Banks/Brokers,16.24,16.24,16.24,16.24,-0.06153846153847116,455000000.0,283,TND
 STA,Societe Tunisienne d'Automobiles SA,BVMT,Retail Trade,Specialty Stores,113.0,114.0,113.0,114.0,1.3333333333333335,225000000.0,265,TND
-STAR,Societe Tunisienne d'Assurances et de Reassurances,BVMT,Finance,Life/Health Insurance,89.0,90.73,89.0,90.73,-0.011020498126505296,907400238.0,29,TND
-STB,Societe Tunisienne de Banque,BVMT,Finance,Regional Banks,5.0,5.0,4.97,4.98,0.0,770346337.0,10537,TND
+STAR,Societe Tunisienne d'Assurances et de Reassurances,BVMT,Finance,Life/Health Insurance,89.0,90.73,89.0,90.7,-0.044081992506052506,907400238.0,63,TND
+STB,Societe Tunisienne de Banque,BVMT,Finance,Regional Banks,5.0,5.0,4.97,4.98,0.0,770346337.0,11970,TND
 STIP,Societe Tunisienne des Industries de Pneumatiques,BVMT,Commercial Services,Miscellaneous Commercial Services,5.82,5.82,5.82,5.82,0.0,24298380.0,25,TND
 STPAP,Sotipapier SA,BVMT,Producer Manufacturing,Industrial Machinery,2.46,2.47,2.45,2.46,0.40816326530611374,69051026.0,797,TND
 STPIL,Societe de Transport des Hydrocarbures par Pipelines SA,BVMT,Industrial Services,Oil & Gas Pipelines,29.75,29.75,28.75,29.74,3.44347826086956,118973258.0,117,TND
 TAIR,Societe Tunisienne de l'Air SA,BVMT,Transportation,Airlines,0.29,0.29,0.29,0.29,0.0,30797790.0,111,TND
 TGH,Tawasol Group Holding SA,BVMT,Finance,Financial Conglomerates,0.81,0.81,0.81,0.81,-3.5714285714285614,90719997.0,79622,TND
-TINV,Tuninvest SICAR SA,BVMT,Finance,Investment Managers,42.0,42.0,42.0,42.0,-1.960784313725498,41383441.0,25,TND
+TINV,Tuninvest SICAR SA,BVMT,Finance,Investment Managers,42.0,42.0,42.0,42.0,-1.960784313725498,41383441.0,441,TND
 TJARI,Banque Attijari de Tunisie SA,BVMT,Finance,Regional Banks,79.2,79.2,79.0,79.2,0.25316455696202894,3950000000.0,1396,TND
 TJL,Attijari Leasing SA,BVMT,Transportation,Railroads,41.0,41.0,41.0,41.0,0.0,112750000.0,491,TND
 TLNET,Telnet Holding SA,BVMT,Technology Services,Information Technology Services,11.0,11.45,11.0,11.22,2.0000000000000058,133438803.0,30876,TND
-TLS,Tunisie Leasing & Factoring SA,BVMT,Finance,Finance/Rental/Leasing,35.89,36.6,35.89,36.0,2.857142857142857,378000007.0,3727,TND
+TLS,Tunisie Leasing & Factoring SA,BVMT,Finance,Finance/Rental/Leasing,35.89,36.6,35.89,36.47,4.199999999999997,378000007.0,3728,TND
 TPR,Tunisie Profiles Aluminium,BVMT,Non-Energy Minerals,Aluminum,12.9,13.15,12.67,13.15,1.3097072419106313,648999977.0,10072,TND
-TRE,Societe Tunisienne de Reassurance,BVMT,Finance,Property/Casualty Insurance,8.75,9.0,8.75,9.0,2.739726027397263,349615718.0,2833,TND
+TRE,Societe Tunisienne de Reassurance,BVMT,Finance,Property/Casualty Insurance,8.75,9.0,8.75,9.0,2.739726027397263,349615718.0,4684,TND
 UBCI,Union Bancaire pour le Commerce et l'Industrie SA,BVMT,Finance,Regional Banks,38.97,38.97,38.97,38.97,0.0,779459562.0,208,TND
 UIB,Union Internationale de Banques,BVMT,Finance,Major Banks,34.5,34.5,34.0,34.1,-1.1307625398666297,1122994502.0,1997,TND
-UMED,Unite de Fabrication de Medicaments,BVMT,Health Technology,Pharmaceuticals: Major,8.7,9.0,8.65,9.0,3.4482758620689737,278399994.0,40794,TND
-WIFAK,Wifack International Bank SA,BVMT,Finance,Major Banks,8.0,8.0,8.0,8.0,-2.319902319902314,245699987.0,10,TND
+UMED,Unite de Fabrication de Medicaments,BVMT,Health Technology,Pharmaceuticals: Major,8.7,9.0,8.65,8.8,1.1494252873563382,278399994.0,40939,TND
+WIFAK,Wifack International Bank SA,BVMT,Finance,Major Banks,8.0,8.0,8.0,8.0,-2.319902319902314,245699987.0,199,TND
