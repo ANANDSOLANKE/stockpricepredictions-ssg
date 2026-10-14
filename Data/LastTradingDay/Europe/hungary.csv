@@ -1,16 +1,16 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
 2B7A,iShares S&P 500 Utilities Sector UCITS ETF,BET,Miscellaneous,Investment Trusts/Mutual Funds,3385.0,3385.0,3385.0,3385.0,,,41,HUF
-4IG,4iG Nyrt.,BET,Technology Services,Packaged Software,1580.0,1605.0,1560.0,1560.0,-2.9850746268656714,479534375977.0,62196,HUF
+4IG,4iG Nyrt.,BET,Technology Services,Packaged Software,1580.0,1605.0,1560.0,1579.0,-1.8034825870646767,479534375977.0,63620,HUF
 ADIDAS,adidas AG,BET,Consumer Non-Durables,Apparel/Footwear,54960.0,55200.0,54960.0,55200.0,1.4705882352941175,9683050916769.701,27,HUF
-AKKO,AKKO Invest Nyrt.,BET,Finance,Real Estate Development,229.0,229.0,227.0,228.0,-0.43668122270742354,15084627885.0,6275,HUF
+AKKO,AKKO Invest Nyrt.,BET,Finance,Real Estate Development,229.0,230.0,227.0,230.0,0.43668122270742354,15084627885.0,6775,HUF
 ALAT,Amundi MSCI EM Latin America,BET,Miscellaneous,Investment Trusts/Mutual Funds,8922.0,8922.0,8876.0,8876.0,1.7656500802568218,,39,HUF
 ALLIANZ,Allianz SE,BET,Finance,Multi-Line Insurance,153780.0,153780.0,153780.0,153780.0,0.7468553459119497,58727432305395.7,3,HUF
 ALTEO,ALTEO Energy Services Plc Class A,BET,Utilities,Electric Utilities,3890.0,3900.0,3850.0,3850.0,-0.7731958762886598,74429760971.0,1759,HUF
 AMIXA,Amixa Holding Plc,BET,Finance,Financial Conglomerates,196.0,196.0,196.0,196.0,-2.0,2549195168.0,1500,HUF
-ANY,ANY Security Printing Co. Plc,BET,Commercial Services,Commercial Printing/Forms,6190.0,6210.0,6160.0,6160.0,-0.3236245954692557,88657093620.0,8251,HUF
-APPENINN,Appeninn Vagyonkezelo Holding Nyrt,BET,Finance,Real Estate Development,625.0,625.0,610.0,610.0,-1.929260450160772,29463873589.0,13359,HUF
+ANY,ANY Security Printing Co. Plc,BET,Commercial Services,Commercial Printing/Forms,6190.0,6210.0,6160.0,6200.0,0.3236245954692557,88657093620.0,8708,HUF
+APPENINN,Appeninn Vagyonkezelo Holding Nyrt,BET,Finance,Real Estate Development,625.0,625.0,610.0,610.0,-1.929260450160772,29463873589.0,19055,HUF
 ASTRA,ASTRASUN Solar Plc.,BET,Electronic Technology,Semiconductors,212.0,212.0,212.0,212.0,0.0,5008313187.0,41,HUF
-AUTOWALLIS,AutoWallis Plc Class C,BET,Retail Trade,Specialty Stores,118.0,121.5,118.0,119.5,-1.646090534979424,65227153381.0,41878,HUF
+AUTOWALLIS,AutoWallis Plc Class C,BET,Retail Trade,Specialty Stores,118.0,121.5,118.0,121.5,0.0,65227153381.0,41880,HUF
 BASF,BASF SE,BET,Process Industries,Chemicals: Specialty,18886.0,18886.0,18886.0,18886.0,2.932199694789623,16805451932734.424,14,HUF
 BAYER,Bayer AG,BET,Health Technology,Pharmaceuticals: Major,16520.0,16520.0,16520.0,16520.0,5.089058524173027,15882864179103.693,200,HUF
 BET,Budapest Stock Exchange Plc,BET,Finance,Investment Banks/Brokers,11300.0,11500.0,10800.0,11000.0,-0.9009009009009009,60089636421.0,60,HUF
@@ -22,7 +22,7 @@ CIVTA,CIVITA GROUP Nyrt.,BET,Process Industries,Agricultural Commodities/Milling
 COMMERZBANK,Commerzbank AG,BET,Finance,Regional Banks,13905.0,13905.0,13815.0,13815.0,-2.4708789269325804,15285359242047.377,18,HUF
 CSPXJ,iShares Core MSCI Pacific ex Japan UCITS ETF,BET,Miscellaneous,Investment Trusts/Mutual Funds,78280.0,78280.0,78280.0,78280.0,-0.3437301082113304,,2,HUF
 DAXEX,iShares Core DAX UCITS ETF (DE),BET,Miscellaneous,Investment Trusts/Mutual Funds,76380.0,76380.0,76380.0,76380.0,0.5,,7,HUF
-DELTA,Delta Technologies Pllc,BET,Technology Services,Information Technology Services,43.1,43.3,40.4,41.95,-4.659090909090902,18205846154.0,289359,HUF
+DELTA,Delta Technologies Pllc,BET,Technology Services,Information Technology Services,43.1,43.3,40.4,42.6,-3.1818181818181785,18205846154.0,289609,HUF
 DEUTSCHEBANK,Deutsche Bank Aktiengesellschaft,BET,Finance,Investment Banks/Brokers,12000.0,12000.0,11000.0,11000.0,-0.7399386392347952,20469177949432.31,495,HUF
 DEUTSCHETEL,Deutsche Telekom AG,BET,Communications,Major Telecommunications,9152.0,9152.0,9148.0,9148.0,-1.1881615899762368,43975504095939.22,301,HUF
 DMKER,DM-KER Plc,BET,Distribution Services,Wholesale Distributors,31.0,31.0,29.2,29.2,-5.806451612903228,3913161087.0,8999,HUF
@@ -62,13 +62,13 @@ KERMN,Kermann IT Solutions Nyilvanosan Mukodo Reszvenytarsasag,BET,Technology Se
 LCUJ,Multi Units Luxembourg SICAV - Amundi Core MSCI Japan UCITS ETF Acc,BET,Miscellaneous,Investment Trusts/Mutual Funds,8820.0,8820.0,8820.0,8820.0,-0.8208703474642978,,82,HUF
 LUFTHANSA,Deutsche Lufthansa AG,BET,Transportation,Airlines,2600.0,2600.0,2576.0,2580.0,-2.272727272727273,3167558748594.2935,244,HUF
 LYQ6,Amundi Euro Government Bond 10-15Y UCITS ETF Acc,BET,Miscellaneous,Investment Trusts/Mutual Funds,70210.0,70210.0,70210.0,70210.0,1.7536231884057971,,3,HUF
-MASTERPLAST,Masterplast Nyrt,BET,Process Industries,Industrial Specialties,2830.0,2880.0,2830.0,2850.0,0.7067137809187279,54455050564.0,100818,HUF
+MASTERPLAST,Masterplast Nyrt,BET,Process Industries,Industrial Specialties,2830.0,2880.0,2830.0,2850.0,0.7067137809187279,54455050564.0,100840,HUF
 MEGAKRAN,MEGAKRAN Plc.,BET,Retail Trade,Specialty Stores,5.0,5.18,4.5,4.97,-1.3888888888888946,4890125485.0,3654967,HUF
 MERCEDESBENZ,Mercedes-Benz Group AG,BET,Consumer Durables,Motor Vehicles,14450.0,14450.0,14450.0,14450.0,0.1663662830999584,13994682083015.316,9,HUF
 MEUS,Amundi Core Stoxx Europe 600 -UCITS ETF Acc- Capitalisation,BET,Miscellaneous,Investment Trusts/Mutual Funds,114730.0,114730.0,114730.0,114730.0,-0.30413625304136255,,3,HUF
-MKBBANK,MBH Bank Plc. Class A,BET,Finance,Regional Banks,2490.0,2510.0,2400.0,2470.0,-1.593625498007968,752871390076.0,9326,HUF
-MOL,MOL Hungarian Oil & Gas Plc Class A,BET,Energy Minerals,Oil Refining/Marketing,4900.0,4990.0,4900.0,4966.0,1.4297385620915033,3922981597762.0,359121,HUF
-MTELEKOM,Magyar Telekom Telecommunications PLC,BET,Communications,Major Telecommunications,2610.0,2658.0,2600.0,2646.0,1.7692307692307692,2325949462891.0,416574,HUF
+MKBBANK,MBH Bank Plc. Class A,BET,Finance,Regional Banks,2490.0,2510.0,2400.0,2470.0,-1.593625498007968,752871390076.0,10171,HUF
+MOL,MOL Hungarian Oil & Gas Plc Class A,BET,Energy Minerals,Oil Refining/Marketing,4900.0,4990.0,4900.0,4974.0,1.5931372549019607,3922981597762.0,636629,HUF
+MTELEKOM,Magyar Telekom Telecommunications PLC,BET,Communications,Major Telecommunications,2610.0,2658.0,2600.0,2656.0,2.1538461538461537,2325949462891.0,502261,HUF
 MULTI,MULTIHOME Ingatlanforgalmazo Nyilvanosan Mukodo Reszvenytarsasag,BET,Finance,Real Estate Development,1.38,1.38,1.38,1.38,-1.42857142857143,4284899985.0,30000,HUF
 NAP,NAP Zrt.,BET,Utilities,Alternative Power Generation,1400.0,1400.0,1400.0,1400.0,0.0,13053521729.0,753,HUF
 NATUR,Naturland Holding Vagyonkezelo es Befektetesi Nyilvanosan Mukodo Reszvenytarsasag Class A,BET,Finance,Investment Managers,1840.0,1840.0,1840.0,1840.0,0.0,25421531219.0,100,HUF
@@ -78,27 +78,27 @@ NORD,Nord General Public Limited Company,BET,Communications,Wireless Telecommuni
 NUTEX,Nutex Investments Plc Series E,BET,Health Technology,Pharmaceuticals: Major,12.45,12.5,12.3,12.5,0.4016064257028169,2132009799.9999998,39500,HUF
 O3PNR,O3 Partners NV,BET,Finance,Financial Conglomerates,8.55,8.95,8.55,8.95,0.0,10926083969.60868,508,EUR
 OD7C,WisdomTree Copper,BET,Miscellaneous,Investment Trusts/Mutual Funds,18676.0,18676.0,18676.0,18676.0,0.9513513513513514,,100,HUF
-OPUS,OPUS GLOBAL Nyrt.,BET,Electronic Technology,Electronic Equipment/Instruments,215.0,217.0,207.5,210.0,-2.7777777777777777,115895588379.0,228391,HUF
+OPUS,OPUS GLOBAL Nyrt.,BET,Electronic Technology,Electronic Equipment/Instruments,215.0,217.0,207.5,208.5,-3.4722222222222223,115895588379.0,263116,HUF
 ORMESTER,Ormester Vagyonvedelmi Nyrt,BET,Commercial Services,Miscellaneous Commercial Services,334.0,344.0,330.0,344.0,-2.272727272727273,893815193.0,1379,HUF
-OTP,OTP Bank Nyrt,BET,Finance,Major Banks,42600.0,42830.0,41400.0,41690.0,-1.6745283018867925,11411312768555.0,410431,HUF
-PANNERGY,PannErgy Nyrt,BET,Utilities,Alternative Power Generation,2880.0,2880.0,2790.0,2820.0,-2.083333333333333,40627109070.0,11143,HUF
+OTP,OTP Bank Nyrt,BET,Finance,Major Banks,42600.0,42830.0,41400.0,41470.0,-2.193396226415094,11411312768555.0,567304,HUF
+PANNERGY,PannErgy Nyrt,BET,Utilities,Alternative Power Generation,2880.0,2880.0,2790.0,2820.0,-2.083333333333333,40627109070.0,11430,HUF
 PENSUM,Pensum Group Nyrt,BET,Commercial Services,Personnel Services,1650.0,1700.0,1550.0,1700.0,6.25,,122,HUF
 POLYDUCT,Polyduct Nyrt.,BET,Non-Energy Minerals,Other Metals/Minerals,10000.0,10000.0,10000.0,10000.0,-2.912621359223301,,100,HUF
 PPFB,iShares Physical Gold ETC,BET,Miscellaneous,Investment Trusts/Mutual Funds,26500.0,26510.0,26190.0,26190.0,-1.2070916635231987,,107,HUF
 PRAB,Amundi Prime Euro Government Bond 0-1Y -UCITS ETF DR- Capitalisation,BET,Miscellaneous,Investment Trusts/Mutual Funds,7960.0,7960.0,7960.0,7960.0,0.11319330901773363,,9,HUF
 QDVK,iShares S&P 500 Consumer Discretionary Sector UCITS ETF,BET,Miscellaneous,Investment Trusts/Mutual Funds,5300.0,5300.0,5300.0,5300.0,0.0,,20,HUF
 RABA,Raba Automotive Group Nyrt.,BET,Producer Manufacturing,Trucks/Construction/Farm Machinery,3260.0,3260.0,3195.0,3195.0,-1.6923076923076923,43396486521.0,558,HUF
-RICHTER,Chemical Works of Gedeon Richter Plc,BET,Health Technology,Pharmaceuticals: Major,12430.0,12650.0,12410.0,12600.0,2.857142857142857,2239948463440.0,111728,HUF
+RICHTER,Chemical Works of Gedeon Richter Plc,BET,Health Technology,Pharmaceuticals: Major,12430.0,12650.0,12410.0,12590.0,2.7755102040816326,2239948463440.0,166646,HUF
 SAP,SAP SE,BET,Technology Services,Packaged Software,71920.0,72000.0,71850.0,72000.0,0.20876826722338201,84345318264610.47,42,HUF
 SIEMENS,Siemens AG,BET,Producer Manufacturing,Industrial Machinery,103800.0,103800.0,103800.0,103800.0,0.0,76620847835529.02,1,HUF
-SPPC,Shopper Park Plus Nyrt.,BET,Finance,Real Estate Development,13.0,13.0,12.8,12.8,-1.538461538461533,115666111728.4956,2013,EUR
+SPPC,Shopper Park Plus Nyrt.,BET,Finance,Real Estate Development,13.0,13.0,12.8,13.0,0.0,115666111728.4956,2313,EUR
 STRT,STRT Holding Nyrt.,BET,Finance,Financial Conglomerates,870.0,870.0,850.0,850.0,-2.2988505747126435,,75,HUF
 SUND,SunDell Estate Nyilvanosan Mukodo Reszvenytarsasag,BET,Finance,Real Estate Investment Trusts,3180.0,3180.0,3180.0,3180.0,0.0,91075198059.0,459,HUF
 SWRD,State Street SPDR MSCI World UCITS ETF Accum Shs USD,BET,Miscellaneous,Investment Trusts/Mutual Funds,17656.0,17656.0,17636.0,17636.0,-0.07932011331444759,,72,HUF
 SX5EEX,iShares Core EURO STOXX 50 UCITS ETF (DE),BET,Miscellaneous,Investment Trusts/Mutual Funds,22910.0,22910.0,22910.0,22910.0,0.021829294913774284,,1,HUF
 SXR8,iShares Core S&P 500 UCITS ETF,BET,Miscellaneous,Investment Trusts/Mutual Funds,275020.0,275020.0,274500.0,274500.0,-0.1890771580248709,,12,HUF
 SYB5,SSgA SPDR ETFs Europe I Plc - Blmb. 1-5 Yr Gilt UCITS ETF GBP,BET,Miscellaneous,Investment Trusts/Mutual Funds,20755.0,20755.0,20755.0,20755.0,2.493827160493827,,10,HUF
-TAKAREKJZB,MBH Mortgage Bank Co. Plc.,BET,Finance,Finance/Rental/Leasing,426.0,430.0,405.0,405.0,-3.800475059382423,45674414368.0,7410,HUF
+TAKAREKJZB,MBH Mortgage Bank Co. Plc.,BET,Finance,Finance/Rental/Leasing,426.0,430.0,405.0,405.0,-3.800475059382423,45674414368.0,7874,HUF
 THYSSENKRUPP,thyssenkrupp AG,BET,Non-Energy Minerals,Steel,5138.0,5138.0,5070.0,5070.0,7.369758576874205,3151561130580.6963,129,HUF
 UBM,UBM Holding Nyrt,BET,Process Industries,Agricultural Commodities/Milling,1000.0,1000.0,1000.0,1000.0,6.382978723404255,21906827927.0,59,HUF
 UBSEMUSRI,UBS ETF SICAV - UBS ETF - MSCI EMU Socially Responsible UCITS ETF A Distribution,BET,Miscellaneous,Investment Trusts/Mutual Funds,52970.0,52970.0,52970.0,52970.0,0.0,,2,HUF
@@ -108,7 +108,7 @@ VERTI,VERTIKAL Group Nyilvanosan Mukodo Reszvenytarsasag,BET,Producer Manufactur
 VIG,Vienna Insurance Group AG,BET,Finance,Multi-Line Insurance,23950.0,23950.0,23950.0,23950.0,-1.2371134020618557,3112269256494.1294,1,HUF
 VOLKSWAGEN,Volkswagen AG Pref,BET,Consumer Durables,Motor Vehicles,25000.0,25000.0,24700.0,24700.0,-1.1604641856742697,12666301597246.543,84,HUF
 VVT,ViVeTech Nyrt.,BET,Commercial Services,Miscellaneous Commercial Services,280.0,280.0,280.0,280.0,-6.666666666666667,,500,HUF
-WABERERS,WABERER'S INTERNATIONAL NYRT.,BET,Transportation,Trucking,4220.0,4270.0,4200.0,4200.0,-1.639344262295082,74635476990.0,2469,HUF
+WABERERS,WABERER'S INTERNATIONAL NYRT.,BET,Transportation,Trucking,4220.0,4270.0,4190.0,4200.0,-1.639344262295082,74635476990.0,2647,HUF
 WBIT,WisdomTree Physical Bitcoin,BET,Miscellaneous,Investment Trusts/Mutual Funds,6491.0,6491.0,6445.0,6445.0,-0.6321307431390688,,13,HUF
 WETH,WisdomTree Physical Ethereum,BET,Miscellaneous,Investment Trusts/Mutual Funds,8050.0,8183.0,8050.0,8183.0,1.652173913043478,,10,HUF
 WIZZAIR,Wizz Air Holdings Plc,BET,Transportation,Airlines,4340.0,4518.0,4268.0,4282.0,-5.682819383259912,451733023422.1712,3543,HUF
