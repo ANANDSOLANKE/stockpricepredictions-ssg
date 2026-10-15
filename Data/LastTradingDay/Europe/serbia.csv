@@ -1,20 +1,22 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
-AERO,Aerodrom Nikola Tesla AD,BELEX,Transportation,Other Transportation,2000,2050,2000,2050,0.0,71278175926.0,24,RSD
-AGBC,Agrobacka AD,BELEX,Process Industries,Agricultural Commodities/Milling,130,130,130,130,-0.7633587786259541,,10,RSD
+AERO,Aerodrom Nikola Tesla AD,BELEX,Transportation,Other Transportation,2030,2030,2030,2030,-0.975609756097561,71278175926.0,1,RSD
+AGBC,Agrobacka AD,BELEX,Process Industries,Agricultural Commodities/Milling,130,130,130,130,0.0,,10,RSD
 BASB,BAS Beogradska autobuska stanica a.d. Beograd,BELEX,Transportation,Other Transportation,1515,1515,1515,1515,0.0,471448304.0,160,RSD
-DINNPB,Philip Morris Operations a.d. Pref.Shs,BELEX,Consumer Non-Durables,Tobacco,8990,8990,8990,8990,-0.1111111111111111,67054134861.0,53,RSD
-DNOS,Dunav Osiguranje AD,BELEX,Finance,Multi-Line Insurance,1830,1840,1830,1840,2.2222222222222223,27340564156.0,940,RSD
+DINNPB,Philip Morris Operations a.d. Pref.Shs,BELEX,Consumer Non-Durables,Tobacco,8990,8990,8990,8990,0.0,50428847274.0,2,RSD
+DNOS,Dunav Osiguranje AD,BELEX,Finance,Multi-Line Insurance,1830,1830,1800,1801,-1.5846994535519126,27796240225.0,308,RSD
 DNVG,Dunav a.d.,BELEX,Process Industries,Textiles,60,60,60,60,0.0,,1527,RSD
 FINT,Fintel Energija AD,BELEX,Utilities,Electric Utilities,635,635,620,620,0.0,16701618576.0,150,RSD
-GFOM,Gosa FOM a.d.,BELEX,Producer Manufacturing,Trucks/Construction/Farm Machinery,1300,1300,1300,1300,4.0,1711253822.0,3,RSD
+GFOM,Gosa FOM a.d.,BELEX,Producer Manufacturing,Trucks/Construction/Farm Machinery,1300,1300,1300,1300,4.0,1779703975.0,3,RSD
 IMPL,Impol Seval AD,BELEX,Non-Energy Minerals,Aluminum,5600,5600,5550,5550,-4.310344827586207,5243826978.0,72,RSD
-INFM,Informatika AD,BELEX,Technology Services,Packaged Software,5250,5250,5250,5250,0.0,945057772.0,91,RSD
-INSA,Insa AD,BELEX,Electronic Technology,Electronic Equipment/Instruments,2017,2017,2017,2017,0.0,,64,RSD
-JESV,Jedinstvo AD Sevojno,BELEX,Industrial Services,Engineering & Construction,9000,9000,9000,9000,0.0,1930454895.0,6,RSD
+INFM,Informatika AD,BELEX,Technology Services,Packaged Software,5250,5250,5250,5250,0.0,945057772.0,55,RSD
+INSA,Insa AD,BELEX,Electronic Technology,Electronic Equipment/Instruments,2060,2100,2060,2100,0.0,,314,RSD
+IRTL,Iritel AD,BELEX,Communications,Specialty Telecommunications,1501,1501,1500,1500,0.0,,134,RSD
+JESV,Jedinstvo AD Sevojno,BELEX,Industrial Services,Engineering & Construction,9000,9000,9000,9000,0.0,1930454895.0,4,RSD
 KOPB,Kopaonik AD,BELEX,Distribution Services,Wholesale Distributors,16000,16000,16000,16000,0.0,,10,RSD
-LSTA,"SP Lasta a.d., Beograd",BELEX,Transportation,Other Transportation,665,665,665,665,0.0,1529538654.0,284,RSD
-MTLC,Metalac AD,BELEX,Producer Manufacturing,Miscellaneous Manufacturing,2005,2005,2005,2005,-6.308411214953271,4140621809.9999995,14,RSD
+LSTA,"SP Lasta a.d., Beograd",BELEX,Transportation,Other Transportation,665,665,665,665,0.0,1529538654.0,455,RSD
+MTLC,Metalac AD,BELEX,Producer Manufacturing,Miscellaneous Manufacturing,2021,2021,2021,2021,0.798004987531172,3910372279.0,10,RSD
 PRGS,Progres AD,BELEX,Utilities,Gas Distributors,10,10,10,10,-16.666666666666664,,17790,RSD
 RPID,Rapid AD Apatin,BELEX,Distribution Services,Wholesale Distributors,390,390,390,390,28.71287128712871,,36,RSD
-TGAS,Messer Tehnogas AD,BELEX,Process Industries,Industrial Specialties,59999,60000,59999,60000,6.1571125265392785,62199475765.0,128,RSD
+TGAS,Messer Tehnogas AD,BELEX,Process Industries,Industrial Specialties,60000,60000,60000,60000,0.0,62102029920.0,11,RSD
 TRBG,Termika-Beograd a.d.,BELEX,Process Industries,Industrial Specialties,3100,3100,3100,3100,3.3333333333333335,,10,RSD
+UTSI,Utva Silosi AD,BELEX,Non-Energy Minerals,Steel,4500,4500,4500,4500,-2.1739130434782608,626492956.0,1,RSD
