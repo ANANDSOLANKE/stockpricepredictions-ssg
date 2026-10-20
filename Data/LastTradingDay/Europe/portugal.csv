@@ -1,36 +1,35 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
-ALTR,"Altri, SGPS, S.A.",EURONEXT,Process Industries,Pulp & Paper,4.36,4.375,4.34,4.355,0.0,893348418.0,91260,EUR
-BCP,Banco Comercial Portugues S.A.,EURONEXT,Finance,Major Banks,1.115,1.115,1.1,1.106,-1.2940651494868325,16588584035.0,27725961,EUR
-COR,Corticeira Amorim SGPS SA,EURONEXT,Process Industries,Industrial Specialties,6.8,6.85,6.74,6.85,0.8836524300441769,903069995.0,45501,EUR
-CTT,CTT - Correios de Portugal SA,EURONEXT,Transportation,Air Freight/Couriers,5.545,5.55,5.475,5.5,-1.6979445933869481,748722977.0,518083,EUR
-EDP,EDP S.A.,EURONEXT,Utilities,Electric Utilities,4.919,4.926,4.761,4.761,-3.2317073170731665,20333819788.0,7094111,EUR
-EDPR,EDP Renewables SA,EURONEXT,Utilities,Alternative Power Generation,12.54,12.54,12.11,12.11,-3.429027113237638,13288625101.0,1097384,EUR
-EGL,Mota-Engil SGPS SA,EURONEXT,Industrial Services,Engineering & Construction,4.65,4.674,4.594,4.674,0.4297378599054676,1399385080.0,1025911,EUR
+ALTR,"Altri, SGPS, S.A.",EURONEXT,Process Industries,Pulp & Paper,4.34,4.39,4.33,4.33,-0.5740528128587911,893348418.0,197957,EUR
+BCP,Banco Comercial Portugues S.A.,EURONEXT,Finance,Major Banks,1.0995,1.11,1.092,1.0985,-0.6781193490054305,16373916620.0,29511264,EUR
+COR,Corticeira Amorim SGPS SA,EURONEXT,Process Industries,Industrial Specialties,6.84,6.84,6.79,6.81,-0.5839416058394167,911049987.0,53806,EUR
+CTT,CTT - Correios de Portugal SA,EURONEXT,Transportation,Air Freight/Couriers,5.5,5.555,5.465,5.51,0.18181818181817794,736010040.0,317923,EUR
+EDP,EDP S.A.,EURONEXT,Utilities,Electric Utilities,4.751,4.794,4.684,4.699,-1.302247427011138,19676690587.0,8058040,EUR
+EDPR,EDP Renewables SA,EURONEXT,Utilities,Alternative Power Generation,12.16,12.18,11.95,11.95,-1.3212221304706866,12832954219.0,924565,EUR
+EGL,Mota-Engil SGPS SA,EURONEXT,Industrial Services,Engineering & Construction,4.66,4.7,4.602,4.66,-0.2995293110825895,1405398762.0,867379,EUR
 ESON,"ESTORIL-SOL, SGPS, S.A.",EURONEXT,Consumer Services,Casinos/Gaming,2.7,2.7,2.7,2.7,0.0,32382947.0,405,EUR
-FCP,Futebol Clube do Porto SAD,EURONEXT,Consumer Services,Movies/Entertainment,2.56,2.62,2.56,2.62,4.800000000000004,56249752.0,160,EUR
-FLEXD,Flexdeal - SIMFE SA,EURONEXT,Finance,Investment Managers,5.15,5.15,5.15,5.15,0.0,19065604.0,2,EUR
-GALP,"Galp Energia, SGPS S.A. Class B",EURONEXT,Energy Minerals,Integrated Oil,22.81,22.99,22.68,22.8,0.6622516556291486,16693567801.000002,953676,EUR
-GLINT,"GLINTT GLOBAL, S.A.",EURONEXT,Commercial Services,Miscellaneous Commercial Services,1.215,1.22,1.17,1.21,0.0,105225073.0,3991,EUR
-IBS,"Ibersol, SGPS S.A.",EURONEXT,Consumer Services,Restaurants,10.04,10.36,9.99,10.34,2.5793650793650773,397826309.0,41088,EUR
-IPR,Impresa SGPS SA,EURONEXT,Consumer Services,Broadcasting,0.1914,0.1914,0.1888,0.19,-1.656314699792965,32457600.999999996,6530,EUR
-JMT,"Jeronimo Martins, SGPS S.A.",EURONEXT,Retail Trade,Food Retail,18.09,18.65,18.09,18.65,2.5852585258525793,11440551912.0,1749356,EUR
-MAR,Martifer SGPS,EURONEXT,Industrial Services,Engineering & Construction,2.28,2.3,2.28,2.28,-0.8695652173913052,229999995.0,1991,EUR
+FCP,Futebol Clube do Porto SAD,EURONEXT,Consumer Services,Movies/Entertainment,2.8,2.8,2.8,2.8,6.8702290076335775,58949738.0,65,EUR
+GALP,"Galp Energia, SGPS S.A. Class B",EURONEXT,Energy Minerals,Integrated Oil,22.85,23.03,22.26,22.32,-2.1052631578947385,16804120951.0,1623250,EUR
+GFIBI,Fundiestamo SGOIC SA Units,EURONEXT,Miscellaneous,Investment Trusts/Mutual Funds,682.0,682.0,682.0,682.0,-14.962593516209477,,50,EUR
+GLINT,"GLINTT GLOBAL, S.A.",EURONEXT,Commercial Services,Miscellaneous Commercial Services,1.21,1.21,1.21,1.21,0.0,105225073.0,6229,EUR
+IBS,"Ibersol, SGPS S.A.",EURONEXT,Consumer Services,Restaurants,10.34,10.44,10.3,10.44,0.9671179883945807,408087711.0,19428,EUR
+IPR,Impresa SGPS SA,EURONEXT,Consumer Services,Broadcasting,0.189,0.1958,0.189,0.1958,3.052631578947368,31920000.0,44255,EUR
+JMT,"Jeronimo Martins, SGPS S.A.",EURONEXT,Retail Trade,Food Retail,18.7,18.74,18.3,18.41,-1.2868632707774716,11736319319.0,1200879,EUR
+MAR,Martifer SGPS,EURONEXT,Industrial Services,Engineering & Construction,2.28,2.29,2.25,2.25,-1.3157894736842022,227999997.0,3466,EUR
 MLCIA,"CIAGEST - SIGI, S.A",EURONEXT,Finance,Real Estate Development,2.26,2.26,2.26,2.26,0.0,58754372.6,1061952,EUR
 MLFMV,Farminveste - SGPS SA Class B,EURONEXT,Finance,Financial Conglomerates,5.1,5.1,5.0,5.0,0.0,102777550.0,90,EUR
-MLRZE,Raize-Instituicao De Pagamentos SA,EURONEXT,Commercial Services,Miscellaneous Commercial Services,1.42,1.5,1.42,1.5,-3.2258064516129057,7750000.0,1233,EUR
-MRL,"MERLIN Properties SOCIMI, S.A.",EURONEXT,Finance,Real Estate Investment Trusts,11.41,11.53,11.38,11.53,-3.916666666666672,7213871247.0,1233,EUR
-NBA,Novabase SGPS SA,EURONEXT,Technology Services,Information Technology Services,7.02,7.02,7.02,7.02,1.445086705202307,261302755.0,200,EUR
-NOS,NOS SGPS SA,EURONEXT,Communications,Major Telecommunications,5.32,5.32,5.21,5.23,-1.5065913370997963,2735506882.0,344810,EUR
-NVG,Navigator Company SA,EURONEXT,Process Industries,Pulp & Paper,3.06,3.09,3.05,3.07,-0.38935756002595756,2191866155.0,502600,EUR
-PHR,"Pharol, SA",EURONEXT,Communications,Wireless Telecommunications,0.0897,0.09,0.0892,0.09,0.7838745800671806,73388788.0,372177,EUR
-RAM,"Ramada Investimentos e Industria,S.A.",EURONEXT,Non-Energy Minerals,Steel,6.54,6.54,6.48,6.48,-0.9174311926605444,167695150.0,2687,EUR
-RENE,Redes Energeticas Nacionais SA,EURONEXT,Utilities,Electric Utilities,3.59,3.595,3.54,3.54,-1.392757660167126,2381282396.0,492154,EUR
+MLRZE,Raize-Instituicao De Pagamentos SA,EURONEXT,Commercial Services,Miscellaneous Commercial Services,1.55,1.55,1.55,1.55,3.333333333333336,7500000.0,498,EUR
+MRL,"MERLIN Properties SOCIMI, S.A.",EURONEXT,Finance,Real Estate Investment Trusts,11.37,11.37,11.3,11.33,-1.7346053772766636,7096321288.0,504,EUR
+NBA,Novabase SGPS SA,EURONEXT,Technology Services,Information Technology Services,7.0,7.0,7.0,7.0,-0.28490028490027886,265078803.0,212,EUR
+NOS,NOS SGPS SA,EURONEXT,Communications,Major Telecommunications,5.21,5.335,5.165,5.275,0.8604206500956009,2694294011.0,615026,EUR
+NVG,Navigator Company SA,EURONEXT,Process Industries,Pulp & Paper,3.06,3.084,3.058,3.064,-0.1954397394136737,2183331899.0,259105,EUR
+PHR,"Pharol, SA",EURONEXT,Communications,Wireless Telecommunications,0.0895,0.0899,0.0891,0.0898,-0.22222222222221316,73964067.0,46311,EUR
+RAM,"Ramada Investimentos e Industria,S.A.",EURONEXT,Non-Energy Minerals,Steel,6.5,6.56,6.5,6.5,0.30864197530863535,166156664.0,460,EUR
+RENE,Redes Energeticas Nacionais SA,EURONEXT,Utilities,Electric Utilities,3.54,3.57,3.54,3.55,0.28248587570620864,2348116934.0,415701,EUR
 SCB,Sporting Clube de Braga-Futebol Sad,EURONEXT,Consumer Services,Movies/Entertainment,19.0,19.0,19.0,19.0,-9.523809523809524,22800001.0,30,EUR
 SCP,Sporting Clube de Portugal Futebol SAD,EURONEXT,Consumer Services,Movies/Entertainment,0.95,0.99,0.95,0.99,4.210526315789478,199970530.0,156,EUR
 SCT,TOYOTA CAETANO PORTUGAL,EURONEXT,Retail Trade,Specialty Stores,8.0,8.0,8.0,8.0,6.666666666666667,280000000.0,14,EUR
-SEM,Semapa Sociedade de Investimento e Gestao SGPS SA,EURONEXT,Process Industries,Pulp & Paper,19.4,19.9,19.36,19.9,2.15605749486652,1583139497.0,27304,EUR
-SLBEN,Sport Lisboa e Benfica-Futebol SA,EURONEXT,Consumer Services,Movies/Entertainment,6.52,6.62,6.5,6.6,-1.1976047904191627,153639996.0,1349,EUR
-SNC,Sonaecom SGPS SA,EURONEXT,Technology Services,Information Technology Services,2.9,2.9,2.82,2.9,0.0,886730254.0,879,EUR
-SNG,"Sonagi, S.G.P.S., S.A.",EURONEXT,Finance,Real Estate Development,1.7,1.7,1.7,1.7,0.0,17000000.0,500,EUR
-SON,Sonae SGPS SA,EURONEXT,Technology Services,Information Technology Services,2.11,2.125,2.11,2.125,0.47281323877067544,4230000019.0,2027947,EUR
-TDSA,"Teixeira Duarte, S.A.",EURONEXT,Industrial Services,Engineering & Construction,0.449,0.449,0.442,0.448,-0.22271714922049018,188580000.0,1204296,EUR
+SEM,Semapa Sociedade de Investimento e Gestao SGPS SA,EURONEXT,Process Industries,Pulp & Paper,19.86,19.86,19.6,19.62,-1.4070351758793849,1617272902.0,10186,EUR
+SLBEN,Sport Lisboa e Benfica-Futebol SA,EURONEXT,Consumer Services,Movies/Entertainment,6.66,6.66,6.52,6.62,0.30303030303031003,151799998.0,436,EUR
+SNC,Sonaecom SGPS SA,EURONEXT,Technology Services,Information Technology Services,2.88,2.88,2.82,2.86,-1.3793103448275874,886730254.0,718,EUR
+SON,Sonae SGPS SA,EURONEXT,Technology Services,Information Technology Services,2.125,2.175,2.125,2.15,1.17647058823529,4250000000.0,3821413,EUR
+TDSA,"Teixeira Duarte, S.A.",EURONEXT,Industrial Services,Engineering & Construction,0.45,0.451,0.441,0.444,-0.8928571428571437,188160006.0,2102329,EUR
