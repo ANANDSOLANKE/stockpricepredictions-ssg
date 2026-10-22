@@ -1,186 +1,185 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
-2POINTZERO,Two Point Zero Group PJSC,ADX,Commercial Services,Miscellaneous Commercial Services,2.0,2.04,1.96,2.04,2.0000000000000018,69127257812.0,9931007,AED
-ABNIC,Al Buhaira National Insurance Company,ADX,Finance,Multi-Line Insurance,2.47,2.55,2.47,2.47,-4.63320463320462,647499979.0,194778,AED
-ABTC,21Shares Bitcoin ETP,NASDAQDUBAI,Miscellaneous,Investment Trusts/Mutual Funds,27.22,27.22,27.22,27.22,1.1144130757800785,,0,USD
-ADAVIATION,Abu Dhabi Aviation Co.,ADX,Transportation,Other Transportation,5.75,5.79,5.73,5.75,-0.1736111111111074,6317494704.0,237163,AED
-ADCB,Abu Dhabi Commercial Bank,ADX,Finance,Major Banks,16.74,16.78,16.52,16.7,-0.3579952267303238,132537836302.00002,8309822,AED
-ADIB,Abu Dhabi Islamic Bank,ADX,Finance,Regional Banks,22.78,22.82,22.46,22.62,-0.7894736842105251,82809597229.0,3393027,AED
-ADID,Abu Dhabi National Co. for Building Materials,ADX,Non-Energy Minerals,Construction Materials,2.05,2.12,2.01,2.08,0.9708737864077678,3089999914.0,3762774,AED
-ADNH,Abu Dhabi National Hotels Co.,ADX,Consumer Services,Hotels/Resorts/Cruise lines,0.447,0.451,0.442,0.445,-1.111111111111112,5669999850.0,717362,AED
-ADNHC,A D N H Catering plc,ADX,Consumer Services,Restaurants,0.58,0.584,0.58,0.584,0.0,1288771210.0,16526,AED
-ADNIC,Abu Dhabi National Insurance Company,ADX,Finance,Multi-Line Insurance,6.9,6.9,6.9,6.9,0.0,3933000054.0,14000,AED
-ADNOCDIST,Abu Dhabi National Oil Company For Distribution,ADX,Retail Trade,Specialty Stores,3.8,3.8,3.76,3.79,0.0,47374999523.0,4212618,AED
-ADNOCDRILL,ADNOC Drilling Company PJSC,ADX,Industrial Services,Contract Drilling,5.6,5.73,5.57,5.7,1.9677996422182524,89440002441.0,15905446,AED
-ADNOCGAS,ADNOC Gas plc,ADX,Energy Minerals,Integrated Oil,3.22,3.23,3.18,3.19,-1.2383900928792582,247907094120.0,46411205,AED
-ADNOCLS,ADNOC Logistics & Services plc,ADX,Transportation,Marine Shipping,7.4,7.4,7.33,7.36,-0.540540540540541,54748893479.0,5025686,AED
-ADPORTS,Abu Dhabi Ports Company PJSC,ADX,Transportation,Other Transportation,6.18,6.2,6.16,6.18,0.16207455429497222,31392297595.0,25634,AED
-ADSB,Abu Dhabi Ship Building Co.,ADX,Producer Manufacturing,Trucks/Construction/Farm Machinery,8.0,8.0,7.76,8.0,0.0,1695936035.0,58032,AED
-AGILITY,Agility Global PLC,ADX,Transportation,Other Transportation,1.45,1.5,1.44,1.5,4.1666666666666705,13633587261.0,5229531,AED
+2POINTZERO,Two Point Zero Group PJSC,ADX,Commercial Services,Miscellaneous Commercial Services,2.04,2.05,1.97,2.01,-1.4705882352941297,70509801650.0,9138678,AED
+ABNIC,Al Buhaira National Insurance Company,ADX,Finance,Multi-Line Insurance,2.47,2.55,2.47,2.47,-4.63320463320462,617500007.0,194778,AED
+ABTC,21Shares Bitcoin ETP,NASDAQDUBAI,Miscellaneous,Investment Trusts/Mutual Funds,27.24,27.24,27.24,27.24,0.0734753857457736,,0,USD
+ADAVIATION,Abu Dhabi Aviation Co.,ADX,Transportation,Other Transportation,5.74,5.8,5.74,5.8,0.8695652173913012,6306526581.0,264346,AED
+ADCB,Abu Dhabi Commercial Bank,ADX,Finance,Major Banks,16.74,16.78,16.52,16.7,-0.3579952267303238,132063361404.0,8309822,AED
+ADIB,Abu Dhabi Islamic Bank,ADX,Finance,Regional Banks,22.6,22.7,22.18,22.3,-1.4146772767462434,82155843048.0,2206880,AED
+ADID,Abu Dhabi National Co. for Building Materials,ADX,Non-Energy Minerals,Construction Materials,2.08,2.22,2.06,2.06,-0.9615384615384623,3119999886.0,10991001,AED
+ADNH,Abu Dhabi National Hotels Co.,ADX,Consumer Services,Hotels/Resorts/Cruise lines,0.447,0.452,0.447,0.45,1.1235955056179785,5606999910.0,1278960,AED
+ADNHC,A D N H Catering plc,ADX,Consumer Services,Restaurants,0.588,0.639,0.588,0.6,2.739726027397263,1288771210.0,3855979,AED
+ADNIC,Abu Dhabi National Insurance Company,ADX,Finance,Multi-Line Insurance,6.9,6.9,6.88,6.9,0.0,3933000054.0,12355,AED
+ADNOCDIST,Abu Dhabi National Oil Company For Distribution,ADX,Retail Trade,Specialty Stores,3.79,3.8,3.77,3.77,-0.5277044854881272,47374999523.0,5991406,AED
+ADNOCDRILL,ADNOC Drilling Company PJSC,ADX,Industrial Services,Contract Drilling,5.7,5.71,5.67,5.67,-0.5263157894736885,91199996948.0,6667924,AED
+ADNOCGAS,ADNOC Gas plc,ADX,Energy Minerals,Integrated Oil,3.19,3.23,3.16,3.18,-0.3134796238244447,244837040173.0,99651695,AED
+ADNOCLS,ADNOC Logistics & Services plc,ADX,Transportation,Marine Shipping,7.35,7.36,7.18,7.19,-2.309782608695651,54452953800.0,6181847,AED
+ADPORTS,Abu Dhabi Ports Company PJSC,ADX,Transportation,Other Transportation,6.18,6.2,6.17,6.17,-0.16181229773462438,31443175259.0,51323,AED
+ADSB,Abu Dhabi Ship Building Co.,ADX,Producer Manufacturing,Trucks/Construction/Farm Machinery,7.95,8.0,7.95,7.99,-0.12499999999999734,1695936035.0,86554,AED
+AGILITY,Agility Global PLC,ADX,Transportation,Other Transportation,1.51,1.51,1.47,1.48,-1.3333333333333344,14201652832.0,4230228,AED
 AGIX,KraneShares Public-Private AI & Technology ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,161.1,161.8,161.1,161.8,-3.229665071770321,,146,AED
-AGTHIA,AGTHIA Group,ADX,Process Industries,Agricultural Commodities/Milling,3.15,3.19,3.1,3.17,0.6349206349206356,2618141305.0,369023,AED
-AIPOWR,"Boreas S&P AI Data, Power & Infrastructure UCITS ETF - AED (Dist) AED",ADX,Miscellaneous,Investment Trusts/Mutual Funds,2.2,2.2,2.2,2.2,0.0,,19000,AED
-AIRARABIA,Air Arabia PJSC,DFM,Transportation,Airlines,4.71,4.86,4.71,4.85,2.1052631578947296,22166825928.0,5844966,AED
-AJMANBANK,Ajman Bank PJSC,DFM,Finance,Major Banks,1.38,1.39,1.38,1.38,-0.3610108303249181,3772012646.0,329554,AED
-ALANSARI,Al Ansari Financial Services PJSC,DFM,Commercial Services,Miscellaneous Commercial Services,0.893,0.94,0.893,0.935,-0.5319148936170099,7043745861.0,3624043,AED
-ALDAR,Al Dar Properties,ADX,Finance,Real Estate Development,7.93,7.97,7.89,7.9,-0.8782936010037566,62665158374.0,7128295,AED
-ALEC,ALEC Holdings PJSC,DFM,Consumer Durables,Homebuilding,1.235,1.24,1.225,1.24,0.40485829959513303,6175000072.0,2114810,AED
-ALEFEDT,Alef Education Holding plc,ADX,Consumer Services,Publishing: Books/Magazines,0.97,0.975,0.964,0.964,-1.128205128205129,6825000167.0,991967,AED
-ALFIRDOUS,Al Firdous Holdings PJSC,DFM,Consumer Services,Hotels/Resorts/Cruise lines,0.27,0.274,0.269,0.27,-1.8181818181818195,165000004.0,617160,AED
-ALPHADATA,Alpha Data PJSC,ADX,Technology Services,Information Technology Services,1.38,1.38,1.3,1.3,-4.411764705882357,1356398886.0,974004,AED
-ALPHADHABI,Alpha Dhabi Holding PJSC,ADX,Industrial Services,Engineering & Construction,7.0,7.01,6.96,6.98,-0.42796005706133183,70100002289.0,3360017,AED
+AGTHIA,AGTHIA Group,ADX,Process Industries,Agricultural Commodities/Milling,3.16,3.17,3.12,3.12,-1.5772870662460512,2634764409.0,368316,AED
+AIPOWR,"Boreas S&P AI Data, Power & Infrastructure UCITS ETF - AED (Dist) AED",ADX,Miscellaneous,Investment Trusts/Mutual Funds,2.18,2.18,2.16,2.16,-1.8181818181818195,,26416,AED
+AIRARABIA,Air Arabia PJSC,DFM,Transportation,Airlines,4.83,4.87,4.83,4.85,0.0,22633495502.0,3504344,AED
+AJMANBANK,Ajman Bank PJSC,DFM,Finance,Major Banks,1.375,1.4,1.34,1.37,-0.7246376811594049,3758395285.0,28094318,AED
+ALANSARI,Al Ansari Financial Services PJSC,DFM,Commercial Services,Miscellaneous Commercial Services,0.93,0.938,0.92,0.938,0.32085561497325044,7006279163.0,217164,AED
+ALDAR,Al Dar Properties,ADX,Finance,Real Estate Development,7.89,7.9,7.6,7.69,-2.6582278481012653,62114772967.0,14072573,AED
+ALEC,ALEC Holdings PJSC,DFM,Consumer Durables,Homebuilding,1.24,1.24,1.22,1.22,-1.6129032258064528,6200000048.0,236572,AED
+ALEFEDT,Alef Education Holding plc,ADX,Consumer Services,Publishing: Books/Magazines,0.964,0.968,0.964,0.965,0.10373443983402499,6747999907.0,114024,AED
+ALFIRDOUS,Al Firdous Holdings PJSC,DFM,Consumer Services,Hotels/Resorts/Cruise lines,0.281,0.282,0.269,0.27,0.0,162000006.0,593876,AED
+ALPHADATA,Alpha Data PJSC,ADX,Technology Services,Information Technology Services,1.29,1.29,1.25,1.27,-2.3076923076923097,1296557698.0,152877,AED
+ALPHADHABI,Alpha Dhabi Holding PJSC,ADX,Industrial Services,Engineering & Construction,7.0,7.01,6.86,6.86,-1.7191977077363911,69800000191.0,3931771,AED
 ALRAMZ,Al Ramz Corporation Investment & Development PJSC,DFM,Finance,Investment Banks/Brokers,1.75,1.75,1.75,1.75,0.0,909633957.0,0,AED
-ALSALAMSUDAN,Al Salam Bank Sudan,DFM,Finance,Regional Banks,0.49,0.491,0.485,0.486,-0.8163265306122457,59424752.0,134800,AED
-AMAN,Dubai Islamic Insurance & Reinsurance Co.,DFM,Finance,Multi-Line Insurance,0.564,0.576,0.533,0.542,-3.2142857142857166,126420001.0,8988583,AED
-AMANAT,Amanat Holdings PJSC,DFM,Finance,Financial Conglomerates,1.53,1.54,1.525,1.54,0.3257328990228089,3821106519.0,920095,AED
+ALSALAMSUDAN,Al Salam Bank Sudan,DFM,Finance,Regional Banks,0.495,0.495,0.476,0.49,0.8230452674897127,58939651.0,597845,AED
+AMAN,Dubai Islamic Insurance & Reinsurance Co.,DFM,Finance,Multi-Line Insurance,0.542,0.549,0.515,0.515,-4.981549815498159,122356499.0,8262914,AED
+AMANAT,Amanat Holdings PJSC,DFM,Finance,Financial Conglomerates,1.53,1.53,1.52,1.525,-0.9740259740259821,3833552810.0,719323,AED
 AMCREIT,Al Mal Capital REIT,DFM,Finance,Real Estate Investment Trusts,1.045,1.045,1.045,1.045,0.0,732768971.0,0,AED
-AMLAK,Amlak Finance PJSC,DFM,Finance,Finance/Rental/Leasing,1.145,1.16,1.145,1.16,0.8695652173913052,1724999964.0,842891,AED
-AMR,Americana Restaurants International PLC,ADX,Consumer Services,Restaurants,2.34,2.38,2.32,2.38,1.7094017094017109,20132504586.512524,2228438,AED
-ANAN,ANAN INVESTMENT HOLDING P.J.S.C,ADX,Finance,Real Estate Development,0.95,0.966,0.935,0.96,0.0,2388039790.0,38234011,AED
-APEX,APEX INVESTMENT P.S.C,ADX,Non-Energy Minerals,Construction Materials,3.14,3.21,3.13,3.18,1.2738853503184724,11157034421.0,490312,AED
-ARAM,Aram Group,ADX,Finance,Real Estate Development,2.5,2.5,2.5,2.5,0.0,197252712.0,6027,AED
-ARMX,Aramex PJSC,DFM,Transportation,Air Freight/Couriers,1.7,1.75,1.7,1.71,0.5882352941176475,2488970028.0,156631,AED
-ASM,Al Seer Marine Supplies & Equipment Company P.J.S.C,ADX,Consumer Durables,Recreational Products,2.91,2.98,2.84,2.88,-1.3698630136986314,2920000076.0,971274,AED
+AMLAK,Amlak Finance PJSC,DFM,Finance,Finance/Rental/Leasing,1.15,1.16,1.14,1.145,-1.2931034482758537,1739999950.0,620928,AED
+AMR,Americana Restaurants International PLC,ADX,Consumer Services,Restaurants,2.38,2.4,2.36,2.4,0.8403361344537823,20045476263.331493,10395813,AED
+ANAN,ANAN INVESTMENT HOLDING P.J.S.C,ADX,Finance,Real Estate Development,0.96,0.966,0.917,0.938,-2.2916666666666687,2388039790.0,17146172,AED
+APEX,APEX INVESTMENT P.S.C,ADX,Non-Energy Minerals,Construction Materials,3.18,3.21,3.13,3.15,-0.9433962264151021,11299162107.0,416086,AED
+ARAM,Aram Group,ADX,Finance,Real Estate Development,2.5,2.8,2.5,2.8,11.999999999999993,197252712.0,42959,AED
+ARMX,Aramex PJSC,DFM,Transportation,Air Freight/Couriers,1.72,1.72,1.705,1.705,-0.2923976608187072,2503611014.0,31353,AED
+ASM,Al Seer Marine Supplies & Equipment Company P.J.S.C,ADX,Consumer Durables,Recreational Products,2.86,2.94,2.74,2.79,-3.124999999999995,2880000114.0,1490206,AED
 ASNIC,Al Sagr National Insurance Co. PSC,DFM,Finance,Property/Casualty Insurance,0.657,0.657,0.657,0.657,0.0,167900004.0,0,AED
 AWNIC,Al Wathba National Insurance Co.,ADX,Finance,Property/Casualty Insurance,3.24,3.24,3.24,3.24,-0.6134969325153244,670680002.0,10,AED
-BHMCAPITAL,BHM Capital Financial Services P.S.C,DFM,Finance,Investment Banks/Brokers,0.999,0.999,0.997,0.997,0.20100502512562834,457699759.0,33973,AED
+BHMCAPITAL,BHM Capital Financial Services P.S.C,DFM,Finance,Investment Banks/Brokers,0.997,0.997,0.99,0.99,-0.7021063189568713,458619747.0,47084,AED
 BONDAE,Lunate JP Morgan UAE Bond UCITS ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.52,3.52,3.5,3.5,-0.5681818181818187,,5360,AED
-BOROUGE,Borouge PLC,ADX,Process Industries,Chemicals: Specialty,2.32,2.33,2.31,2.32,0.0,69733842056.0,13710810,AED
-BOS,Bank of Sharjah,ADX,Finance,Regional Banks,1.67,1.67,1.63,1.65,-1.7857142857142874,3696000147.0,1016906,AED
-BURJEEL,BURJEEL HOLDINGS PLC,ADX,Health Services,Medical/Nursing Services,1.2,1.21,1.17,1.17,-1.6806722689075646,6194109507.0,346496,AED
-CBD,Commercial Bank of Dubai(PSC),DFM,Finance,Major Banks,9.67,9.67,9.67,9.67,0.0,28866805848.0,0,AED
+BOROUGE,Borouge PLC,ADX,Process Industries,Chemicals: Specialty,2.31,2.32,2.29,2.3,-0.8620689655172422,69733842056.0,14008773,AED
+BOS,Bank of Sharjah,ADX,Finance,Regional Banks,1.65,1.65,1.63,1.65,0.0,3629999948.0,494839,AED
+BURJEEL,BURJEEL HOLDINGS PLC,ADX,Health Services,Medical/Nursing Services,1.16,1.17,1.14,1.16,-0.8547008547008554,6090006310.0,435476,AED
+CBD,Commercial Bank of Dubai(PSC),DFM,Finance,Major Banks,9.68,9.68,9.68,9.68,0.10341261633919117,28866805848.0,675,AED
 CBI,Commercial Bank International,ADX,Finance,Major Banks,0.89,0.89,0.89,0.89,0.0,1546270896.0,71139,AED
-CHADX15,Lunate FTSE ADX 15 ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.65,3.65,3.62,3.64,-0.2739726027397202,,680,AED
-CHAE,Lunate S&P UAE UCITS ETF Accum Shs -A- AED,DFM,Miscellaneous,Investment Trusts/Mutual Funds,6.93,6.93,6.93,6.93,0.0,,0,AED
-CHAESHIN,Lunate S&P UAE Shariah ETF Units -B-,DFM,Miscellaneous,Investment Trusts/Mutual Funds,7.2,7.2,7.2,7.2,-0.5524861878453043,,412,AED
-CHHK,Lunate S&P China HK Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.68,3.68,3.68,3.68,-0.27100271002709453,,701,AED
-DANA,DANA GAS PJSC,ADX,Energy Minerals,Integrated Oil,0.82,0.827,0.815,0.815,-0.6097560975609762,5736206249.0,3361667,AED
+CHADX15,Lunate FTSE ADX 15 ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.66,3.66,3.61,3.62,-0.5494505494505499,,5200,AED
+CHAE,Lunate S&P UAE UCITS ETF Accum Shs -A- AED,DFM,Miscellaneous,Investment Trusts/Mutual Funds,7.07,7.07,6.92,6.92,-0.1443001443001412,,1352,AED
+CHAESHIN,Lunate S&P UAE Shariah ETF Units -B-,DFM,Miscellaneous,Investment Trusts/Mutual Funds,7.35,7.35,7.34,7.34,1.94444444444444,,311,AED
+CHHK,Lunate S&P China HK Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.6,3.6,3.5,3.51,-4.619565217391314,,64999,AED
+DANA,DANA GAS PJSC,ADX,Energy Minerals,Integrated Oil,0.815,0.816,0.81,0.813,-0.2453987730061352,5701229414.0,6433287,AED
 DEPA,Depa Plc,NASDAQDUBAI,Industrial Services,Engineering & Construction,0.32,0.32,0.32,0.32,0.0,196526636.0,0,AED
 DEPACLA,Depa PLC Class A,NASDAQDUBAI,Industrial Services,Engineering & Construction,0.32,0.32,0.32,0.32,0.0,196526636.0,0,AED
-DEWA,Dubai Electricity & Water Authority PJSC,DFM,Utilities,Electric Utilities,2.63,2.66,2.62,2.66,0.7575757575757582,131999993324.00002,4233797,AED
-DEYAAR,Deyaar Development (P.J.S.C),DFM,Finance,Real Estate Development,0.711,0.711,0.696,0.707,0.0,3093717119.0,3754006,AED
-DFM,Dubai Financial Market (DFM) - PJSC,DFM,Finance,Investment Banks/Brokers,1.3,1.31,1.275,1.295,-1.1450381679389408,10474449313.0,2477658,AED
-DHAFRA,Al Dhafra Insurance Co.,ADX,Finance,Multi-Line Insurance,8.51,8.51,8.51,8.51,-4.916201117318431,894999981.0,1,AED
-DIB,Dubai Islamic Bank PJSC,DFM,Finance,Major Banks,7.05,7.19,7.05,7.19,1.9858156028368874,50951132799.0,3020115,AED
-DIC,Dubai Investment (P.J.S.C),DFM,Non-Energy Minerals,Construction Materials,3.73,3.73,3.7,3.73,0.26881720430106953,15817512778.0,731392,AED
+DEWA,Dubai Electricity & Water Authority PJSC,DFM,Utilities,Electric Utilities,2.66,2.68,2.62,2.68,0.7518796992481209,133000004292.0,6458637,AED
+DEYAAR,Deyaar Development (P.J.S.C),DFM,Finance,Real Estate Development,0.706,0.713,0.702,0.705,-0.28288543140028316,3093717119.0,4120867,AED
+DFM,Dubai Financial Market (DFM) - PJSC,DFM,Finance,Investment Banks/Brokers,1.3,1.31,1.265,1.31,1.158301158301168,10354512980.0,3416865,AED
+DHAFRA,Al Dhafra Insurance Co.,ADX,Finance,Multi-Line Insurance,8.51,8.51,8.51,8.51,-4.916201117318431,851000023.0,1,AED
+DIB,Dubai Islamic Bank PJSC,DFM,Finance,Major Banks,7.18,7.18,7.05,7.13,-0.8344923504867942,51962927352.0,1762139,AED
+DIC,Dubai Investment (P.J.S.C),DFM,Non-Energy Minerals,Construction Materials,3.73,3.73,3.7,3.71,-0.5361930294906171,15860032933.0,1818479,AED
 DIN,Dubai Insurance CompanyPSC,DFM,Finance,Multi-Line Insurance,16.9,16.9,16.9,16.9,0.0,1689999962.0,0,AED
 DNIR,Dubai National Insurance & Reinsurance Co. (P.S.C.),DFM,Finance,Multi-Line Insurance,3.3,3.3,3.3,3.3,0.0,381149994.0,0,AED
 DRC,Dubai Refreshment Company P.J.S.C,DFM,Consumer Non-Durables,Beverages: Non-Alcoholic,31.0,31.0,31.0,31.0,0.0,2790000000.0,0,AED
-DSI,Drake & Scull International (P J S C),DFM,Industrial Services,Engineering & Construction,0.254,0.257,0.249,0.25,-3.4749034749034777,741942627.0,35558065,AED
-DTC,Dubai Taxi Co. PJSC,DFM,Transportation,Other Transportation,2.13,2.16,2.13,2.16,0.4651162790697782,5375000238.0,196342,AED
-DU,Emirates Integrated Telecommunications Company PJSC,DFM,Communications,Specialty Telecommunications,12.06,12.16,11.98,12.08,-0.33003300330032304,54938817313.0,1000511,AED
-DUBAIRESI,Dubai Residential REIT,DFM,Finance,Real Estate Investment Trusts,1.275,1.28,1.265,1.27,-0.3921568627450897,16574999690.0,2762126,AED
-E7,E7 Group PJSC,ADX,Finance,Financial Conglomerates,0.908,0.909,0.906,0.906,0.0,1811320536.0,673859,AED
-EASYLEASE,Easy Lease Motorcycle Rental PJSC,ADX,Consumer Services,Movies/Entertainment,19.54,19.9,19.54,19.9,-2.737047898338232,613799973.0,310,AED
-EIBANK,Emirates Investment Bank PJSC,DFM,Finance,Investment Banks/Brokers,50.6,50.6,50.6,50.6,0.09891196834817856,505499992.0,102,AED
+DSI,Drake & Scull International (P J S C),DFM,Industrial Services,Engineering & Construction,0.252,0.257,0.248,0.253,1.200000000000001,716160828.0,29541200,AED
+DTC,Dubai Taxi Co. PJSC,DFM,Transportation,Other Transportation,2.14,2.14,2.12,2.14,-0.9259259259259267,5400000215.0,319590,AED
+DU,Emirates Integrated Telecommunications Company PJSC,DFM,Communications,Specialty Telecommunications,11.96,12.24,11.96,12.22,1.1589403973509982,54757501256.0,1824330,AED
+DUBAIRESI,Dubai Residential REIT,DFM,Finance,Real Estate Investment Trusts,1.265,1.27,1.245,1.245,-1.968503937007867,16509999752.0,1580247,AED
+E7,E7 Group PJSC,ADX,Finance,Financial Conglomerates,0.911,0.911,0.902,0.902,-0.44150110375275975,1811320536.0,2135089,AED
+EASYLEASE,Easy Lease Motorcycle Rental PJSC,ADX,Consumer Services,Movies/Entertainment,19.54,19.9,19.54,19.9,-2.737047898338232,596999989.0,310,AED
+EIBANK,Emirates Investment Bank PJSC,DFM,Finance,Investment Banks/Brokers,50.6,50.6,48.08,48.08,-4.9802371541502035,505999985.0,157,AED
 EIC,Emirates Insurance Co.,ADX,Finance,Property/Casualty Insurance,7.41,7.41,7.41,7.41,-4.9999999999999964,1111499977.0,283587,AED
-EKTTITAB,Ekttitab Holding Co. (S.A.K.),DFM,Finance,Financial Conglomerates,0.378,0.38,0.376,0.38,0.5291005291005296,106978753.72475442,395601,AED
-EMAAR,Emaar Properties (P.J.S.C),DFM,Finance,Real Estate Development,11.48,11.54,11.38,11.52,0.34843205574912145,101468621735.0,14288233,AED
-EMAARDEV,Emaar Development PJSC,DFM,Finance,Real Estate Development,12.78,12.78,12.66,12.72,-0.4694835680751074,51119998932.0,1587614,AED
-EMIRATESNBD,Emirates NBD Bank (P.J.S.C),DFM,Finance,Major Banks,31.58,32.0,31.52,32.0,1.3299556681444007,199478184342.0,2872550,AED
-EMOBILITY,Emirates Mobility Company,ADX,Consumer Services,Other Consumer Services,3.37,3.42,3.35,3.42,1.1834319526627228,3641736398.0,176672,AED
-EMPOWER,Emirates Central Cooling Systems Corporation PJSC,DFM,Utilities,Electric Utilities,1.54,1.54,1.505,1.52,-0.32786885245900943,15249999762.0,3019617,AED
-EMSTEEL,EMSTEEL BUILDING MATERIALS PJSC,ADX,Non-Energy Minerals,Construction Materials,1.22,1.22,1.2,1.22,0.0,8357000196.000001,599743,AED
-ENBDREIT,ENBD REIT (CEIC) PLC,NASDAQDUBAI,Finance,Real Estate Investment Trusts,0.462,0.462,0.462,0.462,0.0,424897946.03631,3300,USD
-ERC,Emirates Reem Investments PJSC,DFM,Consumer Non-Durables,Beverages: Non-Alcoholic,1.77,1.77,1.77,1.77,0.0,566171776.0,0,AED
-ESG,ESG EMIRATES STALLIONS GROUP P.J.S.C,ADX,Commercial Services,Miscellaneous Commercial Services,12.88,13.04,12.86,12.86,-4.881656804733729,3380000114.0,1361,AED
-ESHRAQ,ESHRAQ INVESTMENTS P.J.S.C,ADX,Finance,Real Estate Development,0.57,0.591,0.556,0.579,1.223776223776225,1515129619.0,14719568,AED
-ETIHADENERGY,Etihad Energy Holding P.J.S.C.,DFM,Transportation,Marine Shipping,2.68,2.72,2.61,2.69,-1.8248175182481847,9147450564.0,30670039,AED
-ETISALAT,Emirates Telecom. Group Company (Etisalat Group) PJSC,ADX,Communications,Specialty Telecommunications,20.96,21.02,20.86,21.02,0.5741626794258421,181762153323.0,1015269,AED
-FAB,First Abu Dhabi Bank,ADX,Finance,Major Banks,19.34,19.4,19.06,19.1,-1.1387163561076545,213299607685.0,4257066,AED
+EKTTITAB,Ekttitab Holding Co. (S.A.K.),DFM,Finance,Financial Conglomerates,0.38,0.38,0.361,0.363,-4.47368421052632,107561077.29831144,5526529,AED
+EMAAR,Emaar Properties (P.J.S.C),DFM,Finance,Real Estate Development,11.48,11.54,11.3,11.38,-1.2152777777777675,101822179046.0,16417427,AED
+EMAARDEV,Emaar Development PJSC,DFM,Finance,Real Estate Development,12.72,12.72,12.32,12.5,-1.7295597484276777,50880001068.0,3108949,AED
+EMIRATESNBD,Emirates NBD Bank (P.J.S.C),DFM,Finance,Major Banks,31.9,31.9,30.94,31.08,-2.8750000000000053,202131156250.0,2361525,AED
+EMOBILITY,Emirates Mobility Company,ADX,Consumer Services,Other Consumer Services,3.41,3.41,3.33,3.35,-2.0467836257309897,3684833827.0,214913,AED
+EMPOWER,Emirates Central Cooling Systems Corporation PJSC,DFM,Utilities,Electric Utilities,1.51,1.52,1.51,1.51,-0.6578947368421059,15199999809.0,1323064,AED
+EMSTEEL,EMSTEEL BUILDING MATERIALS PJSC,ADX,Non-Energy Minerals,Construction Materials,1.22,1.23,1.19,1.2,-1.6393442622950833,8357000196.000001,1451217,AED
+ENBDREIT,ENBD REIT (CEIC) PLC,NASDAQDUBAI,Finance,Real Estate Investment Trusts,0.462,0.462,0.462,0.462,0.0,424897946.03631,0,USD
+ERC,Emirates Reem Investments PJSC,DFM,Consumer Non-Durables,Beverages: Non-Alcoholic,1.7,1.715,1.685,1.685,-4.802259887005648,566171776.0,48034,AED
+ESG,ESG EMIRATES STALLIONS GROUP P.J.S.C,ADX,Commercial Services,Miscellaneous Commercial Services,12.86,12.86,12.86,12.86,0.0,3214999914.0,192,AED
+ESHRAQ,ESHRAQ INVESTMENTS P.J.S.C,ADX,Finance,Real Estate Development,0.578,0.606,0.57,0.6,3.6269430051813503,1533671333.0,37631834,AED
+ETIHADENERGY,Etihad Energy Holding P.J.S.C.,DFM,Transportation,Marine Shipping,2.67,2.67,2.56,2.63,-2.2304832713754665,8980526443.0,45545844,AED
+ETISALAT,Emirates Telecom. Group Company (Etisalat Group) PJSC,ADX,Communications,Specialty Telecommunications,21.02,21.04,20.62,20.9,-0.5708848715509087,182805771090.0,2152760,AED
+FAB,First Abu Dhabi Bank,ADX,Finance,Major Banks,19.1,19.1,18.6,18.62,-2.5130890052356043,210870737708.0,3735904,AED
 FBI,Fujairah Building Industries P.S.C,ADX,Non-Energy Minerals,Construction Materials,3.15,3.15,3.15,3.15,0.0,428360648.0,4,AED
-FCI,Fujairah Cement Industries,ADX,Non-Energy Minerals,Construction Materials,0.414,0.414,0.392,0.4,-2.200488997555001,145548922.0,1472260,AED
-FERTIGLB,Fertiglobe plc,ADX,Process Industries,Chemicals: Agricultural,2.17,2.19,2.12,2.18,0.9259259259259267,17930850478.0,8186741,AED
-FH,Finance House,ADX,Finance,Finance/Rental/Leasing,1.99,1.99,1.99,1.99,-1.9704433497536855,606766545.0,1,AED
-GCCDIV,Lunate Solactive GCC Shariah Dividend ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.43,3.45,3.39,3.39,-0.29411764705881727,,3521,AED
-GCEM,Gulf Cement Co.,ADX,Non-Energy Minerals,Construction Materials,1.17,1.22,1.17,1.2,2.5641025641025665,480341611.0,81807,AED
-GFH,GFH Bank B.S.C.,ADX,Finance,Investment Banks/Brokers,1.74,1.76,1.74,1.74,0.0,7201171062.244784,16000,AED
-GFH,GFH Bank B.S.C.,DFM,Finance,Investment Banks/Brokers,1.72,1.75,1.69,1.71,-1.7241379310344844,7201171062.244784,1091811,AED
-GHITHA,GHITHA HOLDING P.J.S.C.,ADX,Distribution Services,Food Distributors,11.0,11.28,11.0,11.28,2.5454545454545396,2657600067.0,8749,AED
+FCI,Fujairah Cement Industries,ADX,Non-Energy Minerals,Construction Materials,0.4,0.426,0.38,0.38,-5.000000000000004,142346132.0,10030224,AED
+FERTIGLB,Fertiglobe plc,ADX,Process Industries,Chemicals: Agricultural,2.17,2.2,2.14,2.17,-0.45871559633028575,18096876707.0,4486769,AED
+FH,Finance House,ADX,Finance,Finance/Rental/Leasing,1.99,1.99,1.99,1.99,-1.9704433497536855,594810566.0,1,AED
+GCCDIV,Lunate Solactive GCC Shariah Dividend ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.39,3.45,3.39,3.39,0.0,,4711,AED
+GCEM,Gulf Cement Co.,ADX,Non-Energy Minerals,Construction Materials,1.2,1.38,1.2,1.38,14.999999999999996,492658101.0,1021054,AED
+GFH,GFH Bank B.S.C.,ADX,Finance,Investment Banks/Brokers,1.72,1.72,1.66,1.66,-4.5977011494252915,6964886342.614134,64147,AED
+GFH,GFH Bank B.S.C.,DFM,Finance,Investment Banks/Brokers,1.71,1.725,1.625,1.625,-4.970760233918127,6964886342.614134,2490175,AED
+GHITHA,GHITHA HOLDING P.J.S.C.,ADX,Distribution Services,Food Distributors,11.1,11.42,11.0,11.2,-0.7092198581560291,2725248004.0,18338,AED
 GMPC,Gulf Medical Projects Company,ADX,Health Services,Hospital/Nursing Management,2.3,2.3,2.3,2.3,0.0,1607507083.0,50,AED
 GRMNY,Lunate S&P Germany UCITS ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,4.75,4.75,4.71,4.71,0.0,,485,AED
 HAYAH,Hayah Insurance Company P.J.S.C,ADX,Finance,Multi-Line Insurance,1.26,1.28,1.23,1.28,1.5873015873015885,253999996.0,24200,AED
-HIK,Hikma Pharmaceuticals Plc Sponsored GDR RegS,NASDAQDUBAI,Health Technology,Pharmaceuticals: Generic,44.27,44.27,44.27,44.27,0.0,16821991534.212694,0,USD
-ICAP,Investcorp Capital PLC,ADX,Finance,Investment Managers,1.45,1.46,1.41,1.43,-1.3793103448275874,3177677937.0,347409,AED
-IFA,International Financial Advisors Holding K.P.S.C.,DFM,Finance,Investment Managers,5.85,5.85,5.85,5.85,-0.847457627118656,2889629268.56859,1,AED
+HIK,Hikma Pharmaceuticals Plc Sponsored GDR RegS,NASDAQDUBAI,Health Technology,Pharmaceuticals: Generic,44.27,44.27,44.27,44.27,0.0,17043469000.449781,0,USD
+ICAP,Investcorp Capital PLC,ADX,Finance,Investment Managers,1.43,1.45,1.42,1.44,0.6993006993007,3133847939.0,711385,AED
+IFA,International Financial Advisors Holding K.P.S.C.,DFM,Finance,Investment Managers,5.85,5.85,5.85,5.85,0.0,2843951619.5497184,0,AED
 IH,Insurance House,ADX,Finance,Multi-Line Insurance,1.36,1.36,1.32,1.32,1.5384615384615397,149735801.0,451,AED
-IHC,International Holding Company PJSC,ADX,Health Services,Medical/Nursing Services,357.5,357.5,352.0,352.0,-1.2899607403253008,782216391318.0,150955,AED
+IHC,International Holding Company PJSC,ADX,Health Services,Medical/Nursing Services,352.0,352.0,350.1,352.0,0.0,772126093750.0,344875,AED
 INB,Invest Bank,ADX,Finance,Regional Banks,0.024,0.026,0.024,0.025,0.0,6579743848.0,20201843,AED
-INDI,Lunate S&P India Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,2.89,2.89,2.89,2.89,0.6968641114982584,,2000,AED
+INDI,Lunate S&P India Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,2.89,2.92,2.89,2.91,0.6920415224913501,,3645,AED
 INVICTUS,Invictus Investment Company PLC,ADX,Distribution Services,Wholesale Distributors,1.57,1.62,1.56,1.6,-1.234567901234569,1792000027.0,7100,AED
-ITHMR,Ithmaar Holding BSC,DFM,Finance,Major Banks,0.189,0.19,0.188,0.19,0.5291005291005296,550020164.0,633096,AED
-JPANI,Lunate S&P Japan UCITS ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,5.77,5.77,5.77,5.77,0.5226480836236822,,21,AED
-JULPHAR,Gulf Pharmaceutical Industries,ADX,Health Technology,Pharmaceuticals: Major,0.964,0.964,0.933,0.935,-2.7055150884495225,1110173929.0,1235275,AED
-KICO,AL KHALEEJ Investment,ADX,Finance,Real Estate Development,4.48,4.48,4.4,4.4,0.4566210045662206,459900012.0,6,AED
-KRBN,KraneShares Global Carbon Strategy ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,123.0,123.2,123.0,123.2,-1.6759776536312803,,2,AED
+ITHMR,Ithmaar Holding BSC,DFM,Finance,Major Banks,0.19,0.191,0.185,0.188,-1.0526315789473693,552930330.0,3215962,AED
+JPANI,Lunate S&P Japan UCITS ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,5.77,5.77,5.77,5.77,0.0,,32,AED
+JULPHAR,Gulf Pharmaceutical Industries,ADX,Health Technology,Pharmaceuticals: Major,0.935,0.98,0.926,0.938,0.32085561497325044,1080137980.0,2498821,AED
+KICO,AL KHALEEJ Investment,ADX,Finance,Real Estate Development,4.47,4.47,4.47,4.47,1.5909090909090773,462000010.0,10000,AED
 KWEB,KraneShares CSI China Internet ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,87.7,87.7,87.7,87.7,-1.071630005640161,,142,AED
-KWIN,KraneShares Wahed Alternative Income Index ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,95.1,95.1,95.1,95.1,0.0,,52,AED
-KWTI,Lunate S&P Kuwait Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.85,3.9,3.85,3.9,-0.5102040816326535,,118,AED
-LULU,Lulu Retail Holdings PLC,ADX,Retail Trade,Food Retail,0.957,0.964,0.952,0.96,0.10427528675703868,9905420069.0,17352555,AED
-LUXURY,Boreas S&P Absolute Luxury UCITS ETF - AED,ADX,Miscellaneous,Investment Trusts/Mutual Funds,1.64,1.64,1.62,1.62,-1.2195121951219388,,6173,AED
-MAIR,MAIR GROUP - P.J.S.C.,ADX,Finance,Financial Conglomerates,0.984,1.06,0.98,0.994,-0.10050251256281417,2219569539.0,1539223,AED
-MANAZEL,Manazel PJSC,ADX,Finance,Real Estate Development,0.322,0.326,0.31,0.319,-0.6230529595015581,834600025.0,31067299,AED
-MASQ,Mashreqbank PSC,DFM,Finance,Regional Banks,305.0,309.0,302.0,308.0,-0.6451612903225806,62189048157.0,49,AED
-MAZAYA,Al-Mazaya Holding Co. SAKC,DFM,Finance,Real Estate Development,0.86,0.86,0.86,0.86,0.0,434011620.9579516,0,AED
-MKHZN,Agility Public Warehousing Co. K.S.C.,DFM,Transportation,Air Freight/Couriers,1.82,1.82,1.82,1.82,0.0,4206714926.332634,0,AED
-MODON,Modon Holding PSC,ADX,Finance,Financial Conglomerates,2.84,2.84,2.81,2.84,0.3533568904593564,46262235374.0,424240,AED
+KWIN,KraneShares Wahed Alternative Income Index ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,95.4,95.4,95.15,95.15,0.05257623554154718,,72,AED
+KWTI,Lunate S&P Kuwait Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.83,3.85,3.83,3.85,-1.2820512820512775,,3750,AED
+LULU,Lulu Retail Holdings PLC,ADX,Retail Trade,Food Retail,0.954,0.956,0.946,0.949,-1.1458333333333344,9915748841.0,1993869,AED
+LUXURY,Boreas S&P Absolute Luxury UCITS ETF - AED,ADX,Miscellaneous,Investment Trusts/Mutual Funds,1.62,1.62,1.62,1.62,0.0,,1000,AED
+MAIR,MAIR GROUP - P.J.S.C.,ADX,Finance,Financial Conglomerates,0.991,1.01,0.988,0.99,-0.40241448692152954,2217338845.0,1198773,AED
+MANAZEL,Manazel PJSC,ADX,Finance,Real Estate Development,0.321,0.327,0.306,0.307,-3.7617554858934197,829400015.0,21667216,AED
+MASQ,Mashreqbank PSC,DFM,Finance,Regional Banks,302.0,305.0,302.0,305.0,-0.974025974025974,61787828491.0,27,AED
+MAZAYA,Al-Mazaya Holding Co. SAKC,DFM,Finance,Real Estate Development,0.86,0.86,0.86,0.86,0.0,413669914.00875545,0,AED
+MKHZN,Agility Public Warehousing Co. K.S.C.,DFM,Transportation,Air Freight/Couriers,1.8,1.8,1.8,1.8,-1.0989010989010999,4079070855.747342,195,AED
+MODON,Modon Holding PSC,ADX,Finance,Financial Conglomerates,2.83,2.85,2.79,2.8,-1.4084507042253533,46425706019.0,1115524,AED
 NAHO,Naeem Holding Co.,DFM,Finance,Investment Banks/Brokers,1.85,1.85,1.85,1.85,0.0,166936692.0501784,0,AED
-NBF,National Bank of Fujairah,ADX,Finance,Major Banks,4.75,4.75,4.75,4.75,0.0,12256958679.0,11000,AED
-NBQ,National Bank of Umm Al Qaiwain,ADX,Finance,Regional Banks,2.83,2.83,2.83,2.83,-3.4129692832764533,5659999847.0,99,AED
-NCC,National Cement Company PSC,DFM,Non-Energy Minerals,Construction Materials,4.94,4.94,4.94,4.94,0.0,1772471960.0,17,AED
+NBF,National Bank of Fujairah,ADX,Finance,Major Banks,4.84,4.84,4.84,4.84,1.8947368421052602,12256958679.0,99,AED
+NBQ,National Bank of Umm Al Qaiwain,ADX,Finance,Regional Banks,2.83,2.83,2.83,2.83,0.0,5659999847.0,2002,AED
+NCC,National Cement Company PSC,DFM,Non-Energy Minerals,Construction Materials,4.94,4.94,4.94,4.94,0.0,1772471960.0,0,AED
 NCTH,National Corporation for Tourism & Hotels,ADX,Consumer Services,Restaurants,1.42,1.43,1.4,1.43,0.0,3113015184.0,5630,AED
-NDAQ,"Nasdaq, Inc.",NASDAQDUBAI,Finance,Investment Banks/Brokers,93.97,93.97,93.97,93.97,0.0,194941903589.9673,0,USD
-NGI,National General Insurance Co (P.J.S.C),DFM,Finance,Multi-Line Insurance,5.76,5.76,5.76,5.76,0.0,950109208.0,1,AED
-NIH,National International Co. (Holding) (K.S.C.),DFM,Process Industries,Chemicals: Major Diversified,2.04,2.24,2.04,2.24,5.164319248826307,409685418.55203617,610,AED
-NMDC,NMDC Group PJSC,ADX,Industrial Services,Engineering & Construction,25.42,25.54,25.24,25.28,-0.5507474429583027,21464130479.0,271716,AED
-NMDCENR,NMDC Energy P.J.S.C.,ADX,Industrial Services,Engineering & Construction,2.62,2.64,2.6,2.6,-0.7633587786259549,13099999428.0,1145902,AED
-ORAS,Orascom Construction PLC,ADX,Industrial Services,Engineering & Construction,58.15,58.3,58.15,58.2,0.08598452278590588,6858679085.0,319,AED
-ORDS,OOREDOO,ADX,Communications,Wireless Telecommunications,13.0,13.0,13.0,13.0,-3.4175334323922795,36426762336.05429,30,AED
+NDAQ,"Nasdaq, Inc.",NASDAQDUBAI,Finance,Investment Banks/Brokers,93.97,93.97,93.97,93.97,0.0,197656283810.06232,0,USD
+NGI,National General Insurance Co (P.J.S.C),DFM,Finance,Multi-Line Insurance,5.65,5.65,5.65,5.65,-1.9097222222222123,950109208.0,500,AED
+NIH,National International Co. (Holding) (K.S.C.),DFM,Process Industries,Chemicals: Major Diversified,2.24,2.24,2.24,2.24,0.0,394723245.3283302,0,AED
+NMDC,NMDC Group PJSC,ADX,Industrial Services,Engineering & Construction,25.26,25.86,25.26,25.68,1.5822784810126524,21345917845.0,550076,AED
+NMDCENR,NMDC Energy P.J.S.C.,ADX,Industrial Services,Engineering & Construction,2.6,2.61,2.58,2.58,-0.7692307692307698,12999999523.0,802331,AED
+ORAS,Orascom Construction PLC,ADX,Industrial Services,Engineering & Construction,58.0,58.0,57.0,57.0,-2.0618556701030974,6743469714.0,1999,AED
+ORDS,OOREDOO,ADX,Communications,Wireless Telecommunications,13.0,13.0,13.0,13.0,-3.4175334323922795,37234809382.76922,30,AED
 ORIENT,Orient Insurance PJSC,DFM,Finance,Multi-Line Insurance,66.3,66.3,66.3,66.3,0.0,335000000.0,0,AED
 PALMS,PALMS SPORTS PrJSC,ADX,Consumer Services,Movies/Entertainment,7.25,7.63,7.25,7.63,0.0,1144500017.0,358,AED
-PARKIN,Parkin Co. PJSC,DFM,Consumer Services,Other Consumer Services,5.77,5.8,5.7,5.8,0.5199306759098831,17309999943.0,2168747,AED
-PHX,PHOENIX GROUP  PLC,ADX,Technology Services,Data Processing Services,0.488,0.496,0.486,0.494,1.4373716632443545,2945777088.0,1040987,AED
+PARKIN,Parkin Co. PJSC,DFM,Consumer Services,Other Consumer Services,5.8,5.97,5.71,5.92,2.0689655172413812,17400000572.0,3575516,AED
+PHX,PHOENIX GROUP  PLC,ADX,Technology Services,Data Processing Services,0.493,0.495,0.483,0.487,-1.4170040485829971,2988118849.0,2060904,AED
 PKSTN,Lunate S&P Pakistan UCITS ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,11.34,11.34,11.34,11.34,3.467153284671524,,85,AED
-PRESIGHT,Presight AI Holding PLC,ADX,Technology Services,Packaged Software,3.48,3.49,3.4,3.42,-1.7241379310344844,19518207119.0,1233816,AED
-PUREHEALTH,Pure Health Holding PJSC,ADX,Health Services,Medical/Nursing Services,2.64,2.65,2.6,2.64,0.3802281368821381,29222224065.0,1654270,AED
-QIC,Umm Al Qaiwain General Investment Co. P.S.C,ADX,Finance,Financial Conglomerates,1.54,1.54,1.54,1.54,-1.2820512820512833,566279979.0,6001,AED
-QUANTM,Chimera UCITS ICAV - Boreas Solactive Quantum Computing UCITS ETF Unhedged AED,ADX,Miscellaneous,Investment Trusts/Mutual Funds,1.9,1.92,1.89,1.9,0.5291005291005296,,18689,AED
-RAKBANK,The National Bank of Ras Al Khaimah,ADX,Finance,Major Banks,10.12,10.12,10.0,10.0,0.0,20114945068.0,98866,AED
-RAKCEC,RAK Ceramics PJSC,ADX,Producer Manufacturing,Building Products,2.32,2.34,2.28,2.31,-0.4310344827586115,2305393024.0,651880,AED
-RAKPROP,RAK Properties,ADX,Finance,Real Estate Development,0.961,1.01,0.961,1.01,5.208333333333338,2830978530.0,18601423,AED
-RAKWCT,RAK Co. for White Cement & Construction Materials,ADX,Non-Energy Minerals,Construction Materials,0.905,0.943,0.905,0.943,4.1988950276243004,452642082.0,1001,AED
+PRESIGHT,Presight AI Holding PLC,ADX,Technology Services,Packaged Software,3.42,3.43,3.29,3.29,-3.801169590643272,19181686629.0,1201759,AED
+PUREHEALTH,Pure Health Holding PJSC,ADX,Health Services,Medical/Nursing Services,2.64,2.64,2.57,2.59,-1.893939393939404,29333332423.0,1755003,AED
+QIC,Umm Al Qaiwain General Investment Co. P.S.C,ADX,Finance,Financial Conglomerates,1.54,1.54,1.54,1.54,-1.2820512820512833,559019986.0,6001,AED
+QUANTM,Chimera UCITS ICAV - Boreas Solactive Quantum Computing UCITS ETF Unhedged AED,ADX,Miscellaneous,Investment Trusts/Mutual Funds,1.9,1.9,1.88,1.9,0.0,,38163,AED
+RAKBANK,The National Bank of Ras Al Khaimah,ADX,Finance,Major Banks,10.0,10.08,10.0,10.08,0.8000000000000007,20114945068.0,50629,AED
+RAKCEC,RAK Ceramics PJSC,ADX,Producer Manufacturing,Building Products,2.31,2.32,2.29,2.29,-0.8658008658008665,2295455995.0,304631,AED
+RAKPROP,RAK Properties,ADX,Finance,Real Estate Development,1.02,1.02,0.98,0.985,-2.4752475247524774,2978425367.0,9509871,AED
+RAKWCT,RAK Co. for White Cement & Construction Materials,ADX,Non-Energy Minerals,Construction Materials,0.905,0.943,0.905,0.943,4.1988950276243004,471648073.0,1001,AED
 RAPCO,RAPCO Investment PJSC,ADX,Process Industries,Agricultural Commodities/Milling,2.5,2.5,2.5,2.5,0.0,237600002.0,1,AED
-REIT,Emirates REIT (CEIC) PLC,NASDAQDUBAI,Finance,Real Estate Investment Trusts,0.762,0.762,0.755,0.755,-1.5645371577574982,900537023.21059,78000,USD
-RPM,Response Plus Holding PrJSC,ADX,Health Services,Medical/Nursing Services,2.15,2.15,2.15,2.15,0.0,430000019.0,45,AED
-SALAM,Al Salam Bank B.S.C.,DFM,Finance,Regional Banks,2.09,2.09,2.08,2.08,0.0,6617222177.04374,67,AED
-SALAMA,Islamic Arab Insurance Co. (Salama),DFM,Finance,Multi-Line Insurance,1.725,1.725,1.645,1.645,-4.913294797687859,1418561369.0,18601842,AED
-SALIK,Salik Company PJSC,DFM,Transportation,Other Transportation,5.14,5.17,5.12,5.14,-0.1941747572815665,38625000715.0,1142002,AED
-SAUDIA,Lunate S&P KSA Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.19,3.19,3.14,3.14,-1.2578616352201268,,159,AED
-SCIDC,Sharjah Cement and Industrial Development Co.,ADX,Non-Energy Minerals,Construction Materials,1.39,1.43,1.39,1.39,-1.4184397163120581,857637729.0,95497,AED
-SHUAA,Shuaa Capital (P.S.C),DFM,Finance,Investment Managers,0.228,0.237,0.228,0.235,1.2931034482758512,848893300.0,2562775,AED
-SIB,Sharjah Islamic Bank,ADX,Finance,Major Banks,2.86,2.89,2.85,2.85,-0.3496503496503422,12326896630.0,6936244,AED
-SPACE42,SPACE42 PLC,ADX,Technology Services,Data Processing Services,1.91,2.01,1.85,1.95,1.0362694300518145,9190477496.0,19073282,AED
-SPINNEYS,Spinneys 1961 Holding plc,DFM,Retail Trade,Food Retail,1.215,1.235,1.21,1.23,1.6528925619834725,4356000137.0,1029663,AED
-SUDATEL,Sudatel Telecommunications Group Company Limited,ADX,Communications,Major Telecommunications,0.532,0.533,0.513,0.533,2.8957528957528984,719342031.0,37753,AED
+REIT,Emirates REIT (CEIC) PLC,NASDAQDUBAI,Finance,Real Estate Investment Trusts,0.757,0.757,0.75,0.75,-0.6622516556291397,886447757.16914,160000,USD
+RPM,Response Plus Holding PrJSC,ADX,Health Services,Medical/Nursing Services,2.14,2.17,2.14,2.17,0.9302325581395358,430000019.0,32280,AED
+SALAM,Al Salam Bank B.S.C.,DFM,Finance,Regional Banks,2.09,2.09,2.05,2.07,-0.4807692307692419,6615472316.621417,61033,AED
+SALAMA,Islamic Arab Insurance Co. (Salama),DFM,Finance,Multi-Line Insurance,1.63,1.68,1.565,1.565,-4.8632218844984845,1348863237.0,11804005,AED
+SALIK,Salik Company PJSC,DFM,Transportation,Other Transportation,5.14,5.16,5.11,5.14,0.0,38549998999.0,1216046,AED
+SAUDIA,Lunate S&P KSA Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.09,3.11,3.09,3.1,-1.2738853503184724,,15690,AED
+SCIDC,Sharjah Cement and Industrial Development Co.,ADX,Non-Energy Minerals,Construction Materials,1.39,1.43,1.39,1.4,0.7194244604316554,845472666.0,1854033,AED
+SHUAA,Shuaa Capital (P.S.C),DFM,Finance,Investment Managers,0.234,0.24,0.228,0.23,-2.1276595744680753,859870391.0,10758010,AED
+SIB,Sharjah Islamic Bank,ADX,Finance,Major Banks,2.86,2.86,2.84,2.85,0.0,12283794608.0,1802676,AED
+SPACE42,SPACE42 PLC,ADX,Technology Services,Data Processing Services,1.97,1.98,1.91,1.91,-2.051282051282053,9285715510.0,4076437,AED
+SPINNEYS,Spinneys 1961 Holding plc,DFM,Retail Trade,Food Retail,1.23,1.23,1.21,1.215,-1.2195121951219432,4428000069.0,83888,AED
+SUDATEL,Sudatel Telecommunications Group Company Limited,ADX,Communications,Major Telecommunications,0.533,0.533,0.533,0.533,0.0,740172379.0,5,AED
 SUKOON,Sukoon Insurance PJSC,DFM,Finance,Multi-Line Insurance,7.07,7.07,7.07,7.07,0.0,3265436048.0,0,AED
-SUKOONTAKAFL,Sukoon Takaful PJSC,DFM,Finance,Property/Casualty Insurance,1.34,1.34,1.34,1.34,-4.9645390070921875,217139995.0,36100,AED
-SUKUK,Lunate JP Morgan Global Sukuk ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.63,3.64,3.59,3.64,0.0,,78356,AED
-TAALEEM,Taaleem Holdings PJSC,DFM,Consumer Services,Other Consumer Services,3.23,3.26,3.22,3.26,1.2422360248447077,3182850733.0,61781,AED
-TABREED,National Central Cooling Co. (P.S.C.) (Tabreed),DFM,Utilities,Water Utilities,2.3,2.3,2.28,2.3,-0.4329004329004429,6572575838.0,1116017,AED
-TAKAFUL_EM,Takaful Emarat - Insurance (PSC),DFM,Finance,Multi-Line Insurance,1.675,1.79,1.67,1.77,1.142857142857144,368640987.0,937152,AED
-TALABAT,Talabat Holding Plc,DFM,Transportation,Air Freight/Couriers,1.14,1.14,1.125,1.14,0.0,26548593534.0,29766705,AED
-TECOM,TECOM Group PJSC,DFM,Finance,Real Estate Development,3.18,3.19,3.09,3.19,0.3144654088050247,15900000334.0,377979,AED
+SUKOONTAKAFL,Sukoon Takaful PJSC,DFM,Finance,Property/Casualty Insurance,1.34,1.34,1.34,1.34,0.0,206360005.0,72500,AED
+SUKUK,Lunate JP Morgan Global Sukuk ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,3.61,3.63,3.58,3.63,-0.2747252747252811,,3649,AED
+TAALEEM,Taaleem Holdings PJSC,DFM,Consumer Services,Other Consumer Services,3.26,3.26,3.11,3.17,-2.7607361963190145,3222389213.0,233019,AED
+TABREED,National Central Cooling Co. (P.S.C.) (Tabreed),DFM,Utilities,Water Utilities,2.3,2.31,2.29,2.3,0.0,6544123155.0,180970,AED
+TAKAFUL_EM,Takaful Emarat - Insurance (PSC),DFM,Finance,Multi-Line Insurance,1.705,1.79,1.695,1.75,-1.12994350282486,372854023.0,21184787,AED
+TALABAT,Talabat Holding Plc,DFM,Transportation,Air Freight/Couriers,1.135,1.15,1.115,1.115,-2.192982456140343,26548593534.0,29742235,AED
+TECOM,TECOM Group PJSC,DFM,Finance,Real Estate Development,3.12,3.19,3.1,3.1,-2.8213166144200583,15950000286.0,75021,AED
 TKFL,Abu Dhabi National Takaful Co.,ADX,Finance,Multi-Line Insurance,6.0,6.0,6.0,6.0,0.0,630000000.0,1,AED
-TURKI,Lunate S&P Turkey Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,6.0,6.0,5.91,5.91,-1.8272425249169344,,250,AED
-UAB,United Arab Bank,ADX,Finance,Regional Banks,1.5,1.5,1.5,1.5,-4.458598726114653,4857306500.0,5000,AED
-UAEA,Lunate S&P UAE Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,8.77,8.79,8.77,8.77,0.0,,751,AED
-UAED,Lunate S&P UAE UCITS ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,5.85,5.85,5.85,5.85,0.0,,73,AED
+TURKI,Lunate S&P Turkey Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,5.95,5.95,5.84,5.94,0.5076142131979737,,355,AED
+UAB,United Arab Bank,ADX,Finance,Regional Banks,1.5,1.51,1.43,1.43,-4.666666666666671,4640738892.0,1710,AED
+UAEA,Lunate S&P UAE Shariah ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,8.8,8.8,8.71,8.71,-0.6841505131128702,,1985,AED
+UAED,Lunate S&P UAE UCITS ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,5.79,5.79,5.79,5.79,-1.025641025641019,,50,AED
 UFC,United Foods Co. PSC,DFM,Consumer Non-Durables,Food: Specialty/Candy,10.86,10.86,10.86,10.86,0.0,328514990.0,0,AED
 UNIKAI,Unikai Foods PJSC,DFM,Consumer Non-Durables,Food: Meat/Fish/Dairy,4.76,4.76,4.76,4.76,0.0,184883167.0,0,AED
 UNION,Union Insurance Company,ADX,Finance,Multi-Line Insurance,1.32,1.32,1.32,1.32,0.0,329999983.0,271,AED
-UNIONCOOP,Union Coop,DFM,Retail Trade,Internet Retail,2.09,2.1,2.09,2.1,0.4784688995215422,3648241293.0,510510,AED
-UPP,Union Properties (P.J.S.C),DFM,Finance,Real Estate Development,0.569,0.577,0.56,0.572,0.3508771929824565,2445037792.0,20888834,AED
-USGRWTH,Lunate S&P US Shariah Growth ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,9.3,9.3,9.22,9.22,0.0,,14770,AED
-USTBILL,Lunate iBOXX US Treasury Bill ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,9.46,9.46,9.46,9.46,-0.21097046413501658,,744,AED
-USVALUE,Lunate S&P US Shariah Value ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,5.49,5.49,5.44,5.44,-0.3663003663003585,,1556,AED
-WAHA,Waha Capital Company,ADX,Finance,Financial Conglomerates,2.02,2.03,2.0,2.01,-0.4950495049505065,3804697581.0,1180140,AED
-WATANIA,Watania International Holding PJSC,DFM,Finance,Multi-Line Insurance,0.634,0.648,0.631,0.648,1.8867924528301903,165459369.0,55567,AED
+UNIONCOOP,Union Coop,DFM,Retail Trade,Internet Retail,2.1,2.1,2.08,2.09,-0.47619047619048716,3665696977.0,226910,AED
+UPP,Union Properties (P.J.S.C),DFM,Finance,Real Estate Development,0.568,0.569,0.559,0.56,-2.0979020979020806,2453617017.0,2000772,AED
+USGRWTH,Lunate S&P US Shariah Growth ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,9.2,9.2,9.15,9.15,-0.7592190889370962,,10518,AED
+USTBILL,Lunate iBOXX US Treasury Bill ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,9.46,9.46,9.46,9.46,0.0,,1059,AED
+USVALUE,Lunate S&P US Shariah Value ETF,ADX,Miscellaneous,Investment Trusts/Mutual Funds,5.43,5.43,5.43,5.43,-0.1838235294117771,,500,AED
+WAHA,Waha Capital Company,ADX,Finance,Financial Conglomerates,2.02,2.02,2.0,2.02,0.4975124378109568,3785862463.0,511000,AED
+WATANIA,Watania International Holding PJSC,DFM,Finance,Multi-Line Insurance,0.648,0.65,0.623,0.623,-3.858024691358028,168581250.0,217019,AED
