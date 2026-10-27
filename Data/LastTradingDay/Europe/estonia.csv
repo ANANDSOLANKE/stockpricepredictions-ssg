@@ -1,31 +1,31 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
-AIR,Airobot Technologies AS,OMXTSE,Producer Manufacturing,Industrial Machinery,1.85,1.85,1.85,1.85,0.0,,50,EUR
-ARC1T,Arco Vara AS,OMXTSE,Finance,Real Estate Development,1.045,1.045,1.035,1.035,-0.4807692307692419,18063100.0,1621,EUR
-BERCM,Bercman Technologies AS,OMXTSE,Electronic Technology,Electronic Equipment/Instruments,1.035,1.045,1.035,1.045,-0.9478672985782,,40,EUR
-CPA1T,Coop Pank AS,OMXTSE,Finance,Regional Banks,2.375,2.38,2.345,2.35,-1.4675052410901341,248794137.0,20470,EUR
-EFCUPFFT,EfTEN United Property Fund Units EUR,OMXTSE,,,9.4502,9.599,9.45,9.599,1.9002123142250562,,2816,EUR
-EFT1T,EfTEN Real Estate Fund AS,OMXTSE,Miscellaneous,Investment Trusts/Mutual Funds,19.35,19.4,19.35,19.35,0.0,223004880.0,1257,EUR
-GRB2G,Grab2go AS,OMXTSE,Technology Services,Packaged Software,0.034,0.034,0.034,0.034,0.0,,2044,EUR
-HAE1T,Harju Elekter Group AS,OMXTSE,Producer Manufacturing,Electrical Products,5.36,5.36,5.26,5.28,-1.492537313432837,99587565.0,901,EUR
-HPR1T,Hepsor AS,OMXTSE,Finance,Real Estate Development,4.4,4.46,4.35,4.46,1.3636363636363547,17215098.0,118,EUR
-INF1T,Infortar AS,OMXTSE,Finance,Financial Conglomerates,68.0,68.0,67.8,68.0,0.0,1375044258.0,448,EUR
-LHV1T,LHV Group AS,OMXTSE,Finance,Major Banks,3.275,3.28,3.255,3.26,-0.45801526717557633,1073728990.0000001,71630,EUR
-LINDA,Linda Nektar AS,OMXTSE,Consumer Non-Durables,Beverages: Alcoholic,4.06,4.06,4.06,4.06,-5.140186915887865,6415380.0,2,EUR
-LVN1T,Liven AS,OMXTSE,Finance,Real Estate Development,3.33,3.33,3.32,3.32,-0.30030030030030724,,752,EUR
-MAGIC,TextMagic AS,OMXTSE,Technology Services,Packaged Software,1.79,1.79,1.785,1.785,-0.5571030640668528,15454950.0,24,EUR
-MODE,Modera AS,OMXTSE,Technology Services,Packaged Software,5.0,5.0,5.0,5.0,-2.9126213592233077,,103,EUR
-MOLNR,J. Molner AS,OMXTSE,Health Technology,Pharmaceuticals: Major,20.6,20.6,20.6,20.6,-2.830188679245273,38542621.0,1,EUR
-MRK1T,Merko Ehitus AS,OMXTSE,Industrial Services,Engineering & Construction,27.05,27.05,26.9,27.0,0.0,477900021.0,1697,EUR
-NCN1T,Nordecon AS,OMXTSE,Industrial Services,Engineering & Construction,0.528,0.534,0.528,0.534,0.37593984962406046,16484864.000000002,4001,EUR
-NHCBHFFT,Baltic Horizon Fund,OMXTSE,Miscellaneous,Investment Trusts/Mutual Funds,0.1649,0.1651,0.1638,0.1638,-0.7272727272727313,,36416,EUR
-PKG1T,Pro Kapital Grupp AS,OMXTSE,Finance,Real Estate Development,0.6,0.6,0.52,0.53,-11.666666666666659,34012774.0,40133,EUR
-PRF1T,PRFoods AS,OMXTSE,Consumer Non-Durables,Food: Meat/Fish/Dairy,0.052,0.052,0.051,0.052,0.3861003861003838,1951972.0,887,EUR
+AIR,Airobot Technologies AS,OMXTSE,Producer Manufacturing,Industrial Machinery,1.85,1.86,1.85,1.86,0.540540540540541,,53,EUR
+ARC1T,Arco Vara AS,OMXTSE,Finance,Real Estate Development,1.045,1.045,1.025,1.025,-0.966183574879228,17976258.0,301,EUR
+BERCM,Bercman Technologies AS,OMXTSE,Electronic Technology,Electronic Equipment/Instruments,1.045,1.045,1.045,1.045,0.0,,1,EUR
+CPA1T,Coop Pank AS,OMXTSE,Finance,Regional Banks,2.35,2.36,2.34,2.35,0.0,245143061.0,29591,EUR
+EFCUPFFT,EfTEN United Property Fund Units EUR,OMXTSE,,,9.5999,9.6,9.52,9.5999,0.009375976664232512,,1047,EUR
+EFT1T,EfTEN Real Estate Fund AS,OMXTSE,Miscellaneous,Investment Trusts/Mutual Funds,19.35,19.4,19.35,19.4,0.2583979328165228,223004880.0,1290,EUR
+GRB2G,Grab2go AS,OMXTSE,Technology Services,Packaged Software,0.032,0.04,0.032,0.04,17.647058823529406,,3522,EUR
+HAE1T,Harju Elekter Group AS,OMXTSE,Producer Manufacturing,Electrical Products,5.28,5.28,5.24,5.24,-0.7575757575757582,98101185.0,1081,EUR
+HPR1T,Hepsor AS,OMXTSE,Finance,Real Estate Development,4.46,4.46,4.32,4.32,-3.1390134529147913,17449849.0,127,EUR
+INF1T,Infortar AS,OMXTSE,Finance,Financial Conglomerates,68.0,68.0,67.4,67.6,-0.5882352941176554,1375044258.0,718,EUR
+LHV1T,LHV Group AS,OMXTSE,Finance,Major Banks,3.26,3.27,3.25,3.27,0.3067484662576758,1068811113.0,40716,EUR
+LINDA,Linda Nektar AS,OMXTSE,Consumer Non-Durables,Beverages: Alcoholic,4.0,4.0,4.0,4.0,-1.4778325123152616,6415380.0,6,EUR
+LVN1T,Liven AS,OMXTSE,Finance,Real Estate Development,3.32,3.32,3.28,3.28,-1.204819277108435,,1310,EUR
+MAGIC,TextMagic AS,OMXTSE,Technology Services,Packaged Software,1.785,1.785,1.78,1.78,-0.28011204481792124,15368850.0,128,EUR
+MODE,Modera AS,OMXTSE,Technology Services,Packaged Software,4.98,4.98,4.98,4.98,-0.39999999999999153,,96,EUR
+MOLNR,J. Molner AS,OMXTSE,Health Technology,Pharmaceuticals: Major,20.6,20.8,19.6,20.0,-2.9126213592233077,38542621.0,144,EUR
+MRK1T,Merko Ehitus AS,OMXTSE,Industrial Services,Engineering & Construction,27.0,27.0,26.9,26.95,-0.1851851851851878,477900021.0,681,EUR
+NCN1T,Nordecon AS,OMXTSE,Industrial Services,Engineering & Construction,0.532,0.538,0.532,0.538,0.7490636704119856,16546835.999999998,2573,EUR
+NHCBHFFT,Baltic Horizon Fund,OMXTSE,Miscellaneous,Investment Trusts/Mutual Funds,0.164,0.1676,0.1627,0.163,-0.48840048840048544,,64490,EUR
+PKG1T,Pro Kapital Grupp AS,OMXTSE,Finance,Real Estate Development,0.525,0.575,0.525,0.53,0.0,30044614.0,617,EUR
+PRF1T,PRFoods AS,OMXTSE,Consumer Non-Durables,Food: Meat/Fish/Dairy,0.052,0.0522,0.0494,0.05,-3.8461538461538365,1959509.0,10493,EUR
 PRIMO,Primostar Group AS,OMXTSE,Process Industries,Industrial Specialties,3.0,3.0,3.0,3.0,0.0,,56,EUR
-SAUNA,Saunum Group AS,OMXTSE,Producer Manufacturing,Industrial Machinery,2.46,2.47,2.45,2.47,-1.1999999999999922,3595160.0,105,EUR
-SFG1T,Silvano Fashion Group AS,OMXTSE,Consumer Non-Durables,Apparel/Footwear,1.055,1.06,1.05,1.06,0.47393364928911047,37979998.0,2142,EUR
-SKN1T,Nordic Fibreboard AS,OMXTSE,Consumer Durables,Home Furnishings,0.46,0.46,0.46,0.46,2.222222222222224,3824577.0,5,EUR
-TAL1T,Tallink Grupp AS,OMXTSE,Transportation,Marine Shipping,0.65,0.655,0.644,0.649,-0.15384615384615397,486710492.0,254026,EUR
-TKM1T,TKM Grupp AS,OMXTSE,Retail Trade,Food Retail,8.91,8.92,8.9,8.92,0.22471910112359073,362489851.0,7622,EUR
-TPD1T,Trigon Property Development AS,OMXTSE,Consumer Durables,Home Furnishings,0.54,0.54,0.54,0.54,3.8461538461538494,2339512.0,65,EUR
-TSM1T,Tallinna Sadam AS,OMXTSE,Transportation,Other Transportation,1.2,1.202,1.198,1.2,0.0,315600013.0,18386,EUR
-TVE1T,Tallinna Vesi AS Class A,OMXTSE,Utilities,Water Utilities,10.9,10.9,10.85,10.9,0.0,217999992.0,756,EUR
+SAUNA,Saunum Group AS,OMXTSE,Producer Manufacturing,Industrial Machinery,2.44,2.45,2.42,2.42,-2.024291497975719,3552018.0,199,EUR
+SFG1T,Silvano Fashion Group AS,OMXTSE,Consumer Non-Durables,Apparel/Footwear,1.06,1.06,1.045,1.06,0.0,38159998.0,7217,EUR
+SKN1T,Nordic Fibreboard AS,OMXTSE,Consumer Durables,Home Furnishings,0.44,0.47,0.44,0.46,0.0,3909568.0,601,EUR
+TAL1T,Tallink Grupp AS,OMXTSE,Transportation,Marine Shipping,0.649,0.649,0.64,0.645,-0.6163328197226507,485961717.0,203706,EUR
+TKM1T,TKM Grupp AS,OMXTSE,Retail Trade,Food Retail,8.92,8.92,8.89,8.9,-0.22421524663676654,363304453.0,5183,EUR
+TPD1T,Trigon Property Development AS,OMXTSE,Consumer Durables,Home Furnishings,0.53,0.54,0.52,0.52,-3.703703703703707,2429493.0,242,EUR
+TSM1T,Tallinna Sadam AS,OMXTSE,Transportation,Other Transportation,1.2,1.2,1.184,1.198,-0.16666666666666682,315600013.0,42792,EUR
+TVE1T,Tallinna Vesi AS Class A,OMXTSE,Utilities,Water Utilities,10.9,10.9,10.85,10.85,-0.45871559633028175,217999992.0,135,EUR
