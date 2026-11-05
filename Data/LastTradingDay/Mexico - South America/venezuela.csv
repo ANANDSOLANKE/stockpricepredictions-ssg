@@ -1,35 +1,35 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
-ABC.A,Banco del Caribe CA Banco Universal Class A,BVCV,Finance,Major Banks,3000.0,3300.0,3000.0,3000.0,0.0,415999969482.0,215,VES
+ABC.A,Banco del Caribe CA Banco Universal Class A,BVCV,Finance,Major Banks,3000.0,3000.0,2450.0,2750.0,-8.333333333333332,415999969482.0,378,VES
 ALZ.B,Alalza Inversiones CA Class B,BVCV,Finance,Financial Conglomerates,0.34,0.34,0.34,0.34,-4.911063877391197,,1,VES
-ARC.B,Arca Inmuebles Y Valores CA Class B,BVCV,Finance,Financial Conglomerates,1528.0,1528.0,1528.0,1528.0,-0.7792207792207793,,2,VES
-BNC,"Banco Nacional de Credito, C.A.",BVCV,Finance,Major Banks,238.0,238.0,235.0,236.0,-0.42194092827004215,611268768311.0,39658,VES
-BPV,"Banco Provincial, S.A.",BVCV,Finance,Regional Banks,8390.0,8749.97,8000.01,8299.0,1.2073170731707317,1099929051208.0,1329,VES
-BVCC,Caracas Stock Exchange,BVCV,Finance,Investment Banks/Brokers,889.0,989.98,865.02,885.0,0.5681818181818182,,3129,VES
-BVL,Banco de Venezuela SACA,BVCV,Finance,Major Banks,2250.0,2250.0,2030.0,2200.0,-2.2222222222222223,820605082950.0,830,VES
-CCP.B,Clabe Capital C.A. Class B,BVCV,Finance,Financial Conglomerates,1049.99,1049.99,710.0,865.0,1.7647058823529411,,1115,VES
-CCR,"Ceramica Carabobo, S.A.C.A",BVCV,Producer Manufacturing,Building Products,7700.01,7700.01,7700.01,7700.01,-18.947263157894735,25506730556.0,5,VES
-CGQ,Corporacion Grupo Quimico S.A.C.A.,BVCV,Process Industries,Industrial Specialties,2521.0,2699.0,2100.0,2699.0,3.807692307692308,229907094917.0,67,VES
-CRM.A,Corimon CA Class A,BVCV,Process Industries,Industrial Specialties,750.0,750.0,713.0,713.0,0.0,132430177002.00002,273,VES
-DOM,Dominguez & Cia SA,BVCV,Process Industries,Containers/Packaging,1195.98,1195.98,1003.01,1194.98,-0.08110706969355135,57701875000.0,530,VES
-EFE,"Productos EFE, S.A.",BVCV,Consumer Non-Durables,Food: Specialty/Candy,124.99,125.0,118.5,125.0,-1.574803149606299,87500000000.0,10334,VES
-ENV,"Envases Venezolanos, C.A.",BVCV,Process Industries,Containers/Packaging,1148.99,1149.75,1120.0,1120.0,-0.8849557522123894,145834181740.0,202,VES
-FNC,Fabrica Nacional de Cementos CA FNC,BVCV,Non-Energy Minerals,Construction Materials,2200.0,2774.99,2200.0,2501.0,0.04,202783584206.0,165,VES
-GMC.B,Grupo Mantra Corp CA Registered Shs Series -B-,BVCV,,,8000.0,8200.0,8000.0,8200.0,2.5,,3,VES
-GZL,"Grupo Zuliano, C.A.",BVCV,Process Industries,Chemicals: Specialty,1300.0,1450.0,1300.0,1400.0,7.6923076923076925,31526460457.0,93,VES
-ICP.B,Inversiones Crece Pymes CA Class B,BVCV,Finance,Investment Managers,114.0,115.3,93.0,95.0,-15.178571428571427,466113332.0,633,VES
+ARC.B,Arca Inmuebles Y Valores CA Class B,BVCV,Finance,Financial Conglomerates,1284.45,1284.45,1284.45,1284.45,-15.939136125654446,,1,VES
+BNC,"Banco Nacional de Credito, C.A.",BVCV,Finance,Major Banks,236.49,236.49,230.5,235.95,-0.021186440677970916,608689575195.0,92229,VES
+BPV,"Banco Provincial, S.A.",BVCV,Finance,Regional Banks,8420.0,8420.0,8000.0,8200.0,-1.192914809013134,1087998950653.0,384,VES
+BVCC,Caracas Stock Exchange,BVCV,Finance,Investment Banks/Brokers,900.0,914.0,870.0,889.0,0.4519774011299435,,15299,VES
+BVL,Banco de Venezuela SACA,BVCV,Finance,Major Banks,2200.0,2200.0,2050.0,2194.0,-0.27272727272727276,802369414440.0,2029,VES
+CCP.B,Clabe Capital C.A. Class B,BVCV,Finance,Financial Conglomerates,815.0,900.0,710.0,725.0,-16.184971098265898,,1175,VES
+CCR,"Ceramica Carabobo, S.A.C.A",BVCV,Producer Manufacturing,Building Products,9000.0,9000.0,8998.0,8998.0,16.856991094816756,25506730556.0,8,VES
+CGQ,Corporacion Grupo Quimico S.A.C.A.,BVCV,Process Industries,Industrial Specialties,2150.05,2999.99,2150.05,2990.0,10.78177102630604,229907094917.0,147,VES
+CRM.A,Corimon CA Class A,BVCV,Process Industries,Industrial Specialties,720.0,720.0,625.0,717.99,0.6998597475455833,132430177002.00002,180,VES
+DOM,Dominguez & Cia SA,BVCV,Process Industries,Containers/Packaging,1190.0,1190.0,1003.0,1175.0,-1.671994510368376,57508411560.0,317,VES
+EFE,"Productos EFE, S.A.",BVCV,Consumer Non-Durables,Food: Specialty/Candy,125.0,126.0,118.0,118.01,-5.591999999999995,87500000000.0,8241,VES
+ENV,"Envases Venezolanos, C.A.",BVCV,Process Industries,Containers/Packaging,1120.0,1150.0,1005.0,1050.0,-6.25,145834181740.0,514,VES
+FNC,Fabrica Nacional de Cementos CA FNC,BVCV,Non-Energy Minerals,Construction Materials,2501.0,2501.0,2105.0,2500.0,-0.03998400639744103,202783584206.0,364,VES
+GMC.B,Grupo Mantra Corp CA Registered Shs Series -B-,BVCV,,,8000.0,8230.0,8000.0,8230.0,0.3658536585365854,,7,VES
+GZL,"Grupo Zuliano, C.A.",BVCV,Process Industries,Chemicals: Specialty,1300.0,1450.0,1050.0,1399.0,-0.07142857142857142,31526460457.0,1085,VES
+ICP.B,Inversiones Crece Pymes CA Class B,BVCV,Finance,Investment Managers,112.0,112.0,100.0,100.0,5.263157894736842,466113332.0,495,VES
 IMP.B,Impulsa Agronegocios CA Class B,BVCV,Finance,Financial Conglomerates,27.0,38.0,27.0,38.0,89.05472636815918,,25200,VES
-IVC.A,"INVACA Inmuebles, Valores y Capitales S.A.C.A Class A",BVCV,Finance,Real Estate Development,1550.0,1550.0,1350.0,1550.0,-2.8213166144200628,,126,VES
-IVC.B,"INVACA Inmuebles, Valores y Capitales S.A.C.A Registered Shs Series -B-",BVCV,Finance,Real Estate Development,870.0,870.0,869.99,869.99,0.11392405063291244,107226800099.04199,114,VES
-MPA,Manufacturas de Papel CA,BVCV,Process Industries,Pulp & Paper,180.0,180.0,170.0,178.95,2.84482758620689,38999700623.0,1359,VES
-MTC.B,Montesco Fondo Agroindustrial CA Class B,BVCV,Finance,Financial Conglomerates,330.0,380.0,330.0,360.0,10.779456565221397,,13539,VES
-MVZ.A,Mercantil Servicios Financieros C.A. Class A,BVCV,Finance,Major Banks,16000.0,16000.0,15895.0,15895.0,13.535714285714286,1705573038409.0,14,VES
-MVZ.B,Mercantil Servicios Financieros C.A. Class B,BVCV,Finance,Major Banks,9980.0,10000.0,9001.0,9050.0,0.5555555555555556,1705573038409.0,71,VES
-PCP.B,Fondo Petrolia CA Class B,BVCV,Energy Minerals,Integrated Oil,199.5,235.0,199.5,204.0,2.2556390977443606,,2159,VES
-PGR,Proagro Compania Anonima,BVCV,Process Industries,Agricultural Commodities/Milling,190.0,190.0,183.98,183.98,-0.5244660719113268,134746420000.00002,1621,VES
-PIV.B,Pivca Promotora de Inversiones y Valores CA Class B,BVCV,Finance,Financial Conglomerates,51150.0,51150.0,49500.0,49500.0,-3.1633311814073597,,2,VES
-PTN,Protinal CA,BVCV,Consumer Non-Durables,Food: Meat/Fish/Dairy,1450.0,1450.0,1177.0,1387.0,-4.344827586206897,44366203308.0,299,VES
-RST.B,C.A. Ron Santa Teresa Class B,BVCV,Consumer Non-Durables,Beverages: Alcoholic,540.0,595.0,540.0,579.99,-1.5297113752122224,403327018677.0,1827,VES
-SVS,Siderurgica Venezolana SA,BVCV,Producer Manufacturing,Metal Fabrication,1400.0,1500.0,1300.0,1320.0,-5.714285714285714,6854431057.0,803,VES
-TDV.D,C.A. Nacional Telefonos de Venezuela Class D,BVCV,Communications,Major Telecommunications,1249.99,1249.99,1095.0,1095.0,-0.45454545454545453,2889048831.0,719,VES
-TPG,CA Telares de Palo Grande Class C,BVCV,Process Industries,Textiles,12.45,12.45,11.05,11.9,-1.6528925619834651,14349834546.0,54839,VES
-VNA.B,VENEALTERNATIVE S.A. Class B,BVCV,Finance,Financial Conglomerates,56.0,56.0,47.0,51.99,-5.472727272727269,,21947,VES
+IVC.A,"INVACA Inmuebles, Valores y Capitales S.A.C.A Class A",BVCV,Finance,Real Estate Development,1595.0,1595.0,1350.0,1585.0,2.258064516129032,,4048727,VES
+IVC.B,"INVACA Inmuebles, Valores y Capitales S.A.C.A Registered Shs Series -B-",BVCV,Finance,Real Estate Development,868.99,868.99,800.0,867.0,-0.3436821112886365,107226800099.04199,123,VES
+MPA,Manufacturas de Papel CA,BVCV,Process Industries,Pulp & Paper,179.9,180.0,155.0,172.0,-3.8837664151997706,38999700623.0,1965,VES
+MTC.B,Montesco Fondo Agroindustrial CA Class B,BVCV,Finance,Financial Conglomerates,400.0,400.0,360.0,375.0,4.166666666666666,,1283,VES
+MVZ.A,Mercantil Servicios Financieros C.A. Class A,BVCV,Finance,Major Banks,15000.0,15990.0,15000.0,15000.0,-5.630701478452344,1743932605743.0,60,VES
+MVZ.B,Mercantil Servicios Financieros C.A. Class B,BVCV,Finance,Major Banks,9700.0,9700.0,9000.0,9050.0,0.0,1743932605743.0,189,VES
+PCP.B,Fondo Petrolia CA Class B,BVCV,Energy Minerals,Integrated Oil,205.0,205.0,195.0,200.02,-1.9509803921568578,,7044,VES
+PGR,Proagro Compania Anonima,BVCV,Process Industries,Agricultural Commodities/Milling,188.9,188.9,158.5,184.35,0.20110881617567378,134746420000.00002,3134,VES
+PIV.B,Pivca Promotora de Inversiones y Valores CA Class B,BVCV,Finance,Financial Conglomerates,51149.0,51149.0,51149.0,51149.0,3.3313131313131317,,1,VES
+PTN,Protinal CA,BVCV,Consumer Non-Durables,Food: Meat/Fish/Dairy,1387.0,1400.0,1161.0,1400.0,0.9372746935832732,44366203308.0,2573,VES
+RST.B,C.A. Ron Santa Teresa Class B,BVCV,Consumer Non-Durables,Beverages: Alcoholic,595.0,595.0,540.1,578.0,-0.3431093639545525,411325004883.0,2461,VES
+SVS,Siderurgica Venezolana SA,BVCV,Producer Manufacturing,Metal Fabrication,1440.0,1500.0,1335.0,1428.0,8.181818181818182,6906955433.0,535,VES
+TDV.D,C.A. Nacional Telefonos de Venezuela Class D,BVCV,Communications,Major Telecommunications,1095.0,1100.0,1095.0,1095.0,0.0,2860315112.0,2067,VES
+TPG,CA Telares de Palo Grande Class C,BVCV,Process Industries,Textiles,11.9,11.9,11.5,11.8,-0.8403361344537785,14230252135.0,27523,VES
+VNA.B,VENEALTERNATIVE S.A. Class B,BVCV,Finance,Financial Conglomerates,47.0,56.0,47.0,50.0,-3.8276591652240852,,117903,VES
