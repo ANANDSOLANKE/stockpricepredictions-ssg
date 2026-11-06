@@ -1,319 +1,310 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
 AALUS,American Airlines Group Inc.,BVL,Transportation,Airlines,13.36,13.7,13.36,13.7,9.599999999999994,31149506145.64122,1359,USD
-AAPLUS,Apple Inc.,BVL,Electronic Technology,Telecommunications Equipment,346.0,346.0,342.78,342.78,-2.536252487915842,17517908154082.4,610,USD
+AAPLUS,Apple Inc.,BVL,Electronic Technology,Telecommunications Equipment,342.0,343.5,342.0,343.5,0.21004726063365056,17517908154082.4,72,USD
 AAPUUS,Direxion Daily AAPL Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,47.47,47.47,47.47,47.47,6.914414414414416,,50,USD
-ABXUS,Barrick Mining Corporation,BVL,Non-Energy Minerals,Precious Metals,39.72,39.72,39.72,39.72,5.919999999999996,227608496399.12216,87,USD
+ABXUS,Barrick Mining Corporation,BVL,Non-Energy Minerals,Precious Metals,40.5,40.5,40.5,40.5,1.9637462235649576,227608496399.12216,102,USD
 ACNUS,Accenture Plc Class A,BVL,Technology Services,Information Technology Services,265.0,265.0,265.0,265.0,1.727447216890595,538710174715.16016,103,USD
-ACWIUS,iShares MSCI ACWI ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,156.85,156.85,156.6,156.6,-0.6912296277506522,,282,USD
-ADBEUS,Adobe Inc.,BVL,Technology Services,Packaged Software,248.0,248.0,245.3,245.3,-2.052387797476436,333546267716.53894,60,USD
-AENZAC1,Aenza SAA,BVL,Industrial Services,Engineering & Construction,0.39,0.39,0.39,0.39,8.333333333333341,643184894.0,46303,PEN
-AGGUS,iShares Core U.S. Aggregate Bond ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,96.26,96.26,96.26,96.26,-1.0281719103434093,,51,USD
+ACWIUS,iShares MSCI ACWI ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,153.47,153.47,153.47,153.47,-1.9987228607918235,,75,USD
+ADBEUS,Adobe Inc.,BVL,Technology Services,Packaged Software,245.3,245.3,245.3,245.3,0.0,333546267716.53894,1,USD
+AENZAC1,Aenza SAA,BVL,Industrial Services,Engineering & Construction,0.38,0.38,0.36,0.36,-7.692307692307699,643184894.0,91726,PEN
 AGGUUS,iShares Core Global Aggregate Bond UCITS ETF Accum Hedged USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,5.8,5.8,5.8,5.8,0.6071118820468369,,7280,USD
-AGMR,"Silver Mountain Resources, Inc. Class A",BVL,Non-Energy Minerals,Other Metals/Minerals,2.18,2.18,2.18,2.18,0.0,487818737.5808284,30,USD
-AIHC1,Andino Investment Holding SAC,BVL,Transportation,Other Transportation,1.21,1.21,1.21,1.21,0.7493755203996583,389555565.0,37512,PEN
-AIQUS,Global X Artificial Intelligence & Technology ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,57.4,57.4,57.22,57.22,-5.233521033454792,,16693,USD
-ALICORC1,Alicorp SAA,BVL,Consumer Non-Durables,Food: Major Diversified,13.25,13.3,13.25,13.3,0.5291005291005313,7601853180.0,12591,PEN
+AGMR,"Silver Mountain Resources, Inc. Class A",BVL,Non-Energy Minerals,Other Metals/Minerals,1.98,1.98,1.98,1.98,-9.174311926605512,487818737.5808284,53,USD
+AIHC1,Andino Investment Holding SAC,BVL,Transportation,Other Transportation,1.21,1.21,1.21,1.21,0.0,389555565.0,6000,PEN
+AIQUS,Global X Artificial Intelligence & Technology ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,56.9,56.9,56.9,56.9,-0.559245019224048,,1110,USD
+ALICORC1,Alicorp SAA,BVL,Consumer Non-Durables,Food: Major Diversified,13.35,13.35,13.3,13.3,0.0,7601853180.0,37061,PEN
 AMATUS,"Applied Materials, Inc.",BVL,Producer Manufacturing,Industrial Machinery,405.94,405.94,405.94,405.94,-1.7997967971358066,1011087953619.19,30,USD
-AMDUS,"Advanced Micro Devices, Inc.",BVL,Electronic Technology,Semiconductors,436.0,460.0,413.8,422.47,-15.674650698602788,2752021153931.444,300,USD
+AMDUS,"Advanced Micro Devices, Inc.",BVL,Electronic Technology,Semiconductors,445.99,446.5,445.6,445.6,5.474944966506496,2752021153931.444,58,USD
 AMUUUS,Direxion Daily AMD Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,142.09,142.09,142.09,142.09,-40.62264939406603,,200,USD
-AMZNUS,"Amazon.com, Inc.",BVL,Retail Trade,Internet Retail,270.0,272.39,257.73,257.73,-2.82773441918335,9921427315382.83,4371,USD
+AMZNUS,"Amazon.com, Inc.",BVL,Retail Trade,Internet Retail,263.5,265.0,262.5,265.0,2.8207814379389213,9921427315382.83,175,USD
 AMZUUS,Direxion Daily AMZN Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,37.8,39.4,37.8,39.4,17.087667161961367,,1970,USD
-APPUS,AppLovin Corp. Class A,BVL,Technology Services,Packaged Software,356.99,356.99,351.64,351.64,54.41092521846046,313655913739.5267,697,USD
+APPUS,AppLovin Corp. Class A,BVL,Technology Services,Packaged Software,360.0,380.0,360.0,380.0,8.065066545330456,313655913739.5267,164,USD
 ARGTUS,Global X MSCI Argentina ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,83.5,83.5,83.5,83.5,1.0528863608858825,,400,USD
 ARKKUS,ARK Innovation ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,86.0,86.0,86.0,86.0,-6.521739130434782,,500,USD
 ASMLUS,ASML Holding NV Sponsored ADR,BVL,Electronic Technology,Semiconductors,1399.0,1406.0,1388.0,1388.0,-13.358302122347066,1978586537363.3562,21,USD
-ATACOAC1,Nexa Resources Atacocha SAA Class A,BVL,Non-Energy Minerals,Other Metals/Minerals,0.5,0.5,0.5,0.5,0.0,1283187126.0,4000,PEN
-ATACOBC1,Nexa Resources Atacocha SAA Class B,BVL,Non-Energy Minerals,Other Metals/Minerals,0.29,0.29,0.29,0.29,-3.3333333333333366,1283187126.0,40113,PEN
-AUNA,Auna S.A. Class A,BVL,Health Services,Medical/Nursing Services,4.65,4.65,4.529,4.63,0.0,1181899681.581582,26199,USD
-AVGOUS,Broadcom Inc.,BVL,Electronic Technology,Semiconductors,313.8,313.8,294.8,294.8,-8.787128712871281,5358767006083.024,211,USD
+ATACOBC1,Nexa Resources Atacocha SAA Class B,BVL,Non-Energy Minerals,Other Metals/Minerals,0.29,0.29,0.29,0.29,0.0,1283187126.0,44104,PEN
+AUNA,Auna S.A. Class A,BVL,Health Services,Medical/Nursing Services,4.63,4.66,4.63,4.66,0.6479481641468736,1181899681.581582,15760,USD
+AVGOUS,Broadcom Inc.,BVL,Electronic Technology,Semiconductors,298.6,298.6,292.8,292.8,-0.6784260515603798,5358767006083.024,102,USD
 AVLUS,Direxion Daily AVGO Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,31.29,31.29,31.29,31.29,-6.401435836075383,,51,USD
-AXPUS,American Express Company,BVL,Finance,Finance/Rental/Leasing,327.98,327.98,327.98,327.98,4.652201659221456,769189691069.6594,1,USD
-BACKUAC1,Union De Cervecerias Peruanas Backus & Johnston SAA Class A,BVL,Consumer Non-Durables,Beverages: Alcoholic,275.0,275.0,275.0,275.0,9.986801583809942,37951654113.0,134,PEN
-BACKUBC1,Union De Cervecerias Peruanas Backus & Johnston SAA Pref Shs B,BVL,Consumer Non-Durables,Beverages: Alcoholic,315.0,315.0,315.0,315.0,0.0,37951654113.0,105,PEN
-BACKUSI1,Union De Cervecerias Peruanas Backus & Johnston SAA,BVL,Consumer Non-Durables,Beverages: Alcoholic,28.99,28.99,28.99,28.99,0.0,37951654113.0,242,PEN
-BACUS,Bank of America Corp,BVL,Finance,Major Banks,51.44,51.44,51.44,51.44,3.4593724859211563,1228729223820.8474,38,USD
+BABAUS,Alibaba Group Holding Limited Sponsored ADR,BVL,Retail Trade,Internet Retail,101.5,101.5,101.5,101.5,-3.1026252983293556,879879609979.8701,1,USD
+BACKUAC1,Union De Cervecerias Peruanas Backus & Johnston SAA Class A,BVL,Consumer Non-Durables,Beverages: Alcoholic,275.0,275.0,275.0,275.0,0.0,37951654113.0,12,PEN
+BACKUBC1,Union De Cervecerias Peruanas Backus & Johnston SAA Pref Shs B,BVL,Consumer Non-Durables,Beverages: Alcoholic,315.0,315.0,315.0,315.0,0.0,37951654113.0,2,PEN
+BACKUSI1,Union De Cervecerias Peruanas Backus & Johnston SAA,BVL,Consumer Non-Durables,Beverages: Alcoholic,28.14,28.9,28.13,28.49,-1.7247326664367024,37951654113.0,4500,PEN
+BACUS,Bank of America Corp,BVL,Finance,Major Banks,50.3,50.3,50.3,50.3,-2.216174183514776,1228729223820.8474,150,USD
 BAIUS,iShares A.I. Innovation and Tech Active ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,33.48,33.48,33.48,33.48,-13.533057851239674,,150,USD
-BAP,Credicorp Ltd.,BVL,Finance,Major Banks,365.0,365.0,346.0,349.1,-2.7874467433376937,98393095679.02264,2095,USD
+BAP,Credicorp Ltd.,BVL,Finance,Major Banks,357.08,357.08,350.0,350.0,0.2578057863076417,98393095679.02264,1072,USD
 BAUS,Boeing Company,BVL,Electronic Technology,Aerospace & Defense,171.0,171.0,171.0,171.0,0.0,483767756140.2381,30,USD
-BBVAC1,Banco BBVA Peru SA,BVL,Finance,Major Banks,2.27,2.3,2.27,2.277,2.521386762719498,23555491746.0,199153,PEN
+BBVAC1,Banco BBVA Peru SA,BVL,Finance,Major Banks,2.23,2.25,2.23,2.24,-1.3215859030836918,23555491746.0,20961,PEN
 BBVAUS,"Banco Bilbao Vizcaya Argentaria, S.A. Sponsored ADR",BVL,Finance,Major Banks,23.35,23.35,23.35,23.35,-7.157057654075535,477631221239.021,200,USD
 BIDUUS,"Baidu, Inc. Sponsored ADR Class A",BVL,Technology Services,Internet Software/Services,81.34,81.34,81.34,81.34,3.6970933197348366,89153350640.87178,90,USD
 BITXUS,Volatility Shares 2x Bitcoin ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,16.17,16.17,16.17,16.17,36.34064080944353,,245,USD
 BKNGUS,Booking Holdings Inc.,BVL,Consumer Services,Other Consumer Services,168.5,168.5,168.5,168.5,-1.6919486581096883,438541023150.7943,50,USD
 BLKUS,"BlackRock, Inc.",BVL,Finance,Investment Managers,1164.0,1164.0,1164.0,1164.0,-3.8810900082576385,686110732752.5286,46,USD
-BRK/BUS,Berkshire Hathaway Inc. Class B,BVL,Finance,Property/Casualty Insurance,575.9,575.9,575.9,575.9,0.7381752029107241,4276708716523.459,186,USD
-BROCALC1,Sociedad Minera el Brocal SA,BVL,Non-Energy Minerals,Other Metals/Minerals,24.0,24.0,24.0,24.0,0.0,3857523109.0,77,PEN
-BROCALI1,Sociedad Minera el Brocal SA,BVL,Non-Energy Minerals,Other Metals/Minerals,17.5,17.5,17.5,17.5,0.0,3857523109.0,170,PEN
-BTCCUUS,Purpose Bitcoin ETF Non-Currency Hedged,BVL,Miscellaneous,Investment Trusts/Mutual Funds,13.35,13.35,13.35,13.35,-13.703943115707828,,2,USD
-BUENAVC1,Compania de Minas Buenaventura SAA,BVL,Non-Energy Minerals,Precious Metals,95.45,95.45,95.45,95.45,-3.0964467005076113,25008062328.0,67,PEN
+BOILUS,ProShares Ultra Bloomberg Natural Gas,BVL,Miscellaneous,Investment Trusts/Mutual Funds,16.07,16.07,16.07,16.07,-25.601851851851855,,120,USD
+BPICHPC1,Banco Pichincha Pfd Registered,BVL,Finance,Major Banks,0.201,0.201,0.201,0.201,-8.636363636363631,267554723.00000003,63782,PEN
+BRK/BUS,Berkshire Hathaway Inc. Class B,BVL,Finance,Property/Casualty Insurance,570.26,570.74,570.26,570.74,-0.895988886959536,4276708716523.459,1298,USD
+BROCALC1,Sociedad Minera el Brocal SA,BVL,Non-Energy Minerals,Other Metals/Minerals,24.0,24.0,24.0,24.0,0.0,3857523109.0,12,PEN
+BROCALI1,Sociedad Minera el Brocal SA,BVL,Non-Energy Minerals,Other Metals/Minerals,17.5,17.5,17.5,17.5,-1.1299435028248548,3857523109.0,1669,PEN
+BTCOUS,Invesco Galaxy Bitcoin ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,76.15,76.15,76.15,76.15,20.490506329113927,,6,USD
+BUENAVC1,Compania de Minas Buenaventura SAA,BVL,Non-Energy Minerals,Precious Metals,96.0,107.9,96.0,107.9,13.043478260869568,25008062328.0,166,PEN
 BUENAVI1,Compania de Minas Buenaventura SAA,BVL,Non-Energy Minerals,Precious Metals,63.0,63.0,63.0,63.0,1.6129032258064515,25008062328.0,262,PEN
-BVN,Compania de Minas Buenaventura SAA Sponsored ADR,BVL,Non-Energy Minerals,Precious Metals,29.96,29.96,27.05,28.46,-0.836236933797904,25008059093.45722,6479,USD
-CARTAVC1,Cartavio SAA,BVL,Process Industries,Agricultural Commodities/Milling,32.29,32.29,32.29,32.29,0.0,727657321.0,200,PEN
-CASAGRC1,Casa Grande SAA,BVL,Process Industries,Agricultural Commodities/Milling,7.59,7.6,7.59,7.6,5.555555555555548,606909985.0,1628,PEN
-CATUS,Caterpillar Inc.,BVL,Producer Manufacturing,Trucks/Construction/Farm Machinery,570.8,570.8,557.4,557.4,-4.994034429861951,937455015988.2915,103,USD
-CBU0US,iShares USD Treasury Bond 7-10yr UCITS ETF USD (Acc) USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,152.1,152.1,152.1,152.1,0.09871668311945093,,435,USD
+BVN,Compania de Minas Buenaventura SAA Sponsored ADR,BVL,Non-Energy Minerals,Precious Metals,28.0,28.36,27.9,28.21,-0.8784258608573436,25008059093.45722,18889,USD
+CARTAVC1,Cartavio SAA,BVL,Process Industries,Agricultural Commodities/Milling,32.29,32.29,32.29,32.29,0.0,727657321.0,214,PEN
+CASAGRC1,Casa Grande SAA,BVL,Process Industries,Agricultural Commodities/Milling,7.951,7.951,7.951,7.951,4.618421052631579,606909985.0,2440,PEN
+CATUS,Caterpillar Inc.,BVL,Producer Manufacturing,Trucks/Construction/Farm Machinery,562.0,564.5,560.6,563.16,1.033369214208825,937455015988.2915,70,USD
+CBU0US,iShares USD Treasury Bond 7-10yr UCITS ETF USD (Acc) USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,152.0,152.0,152.0,152.0,-0.0657462195923697,,139,USD
 CCLUS,Carnival Corporation Ltd.,BVL,Consumer Services,Hotels/Resorts/Cruise lines,31.0,31.0,31.0,31.0,40.973169622555716,145247922698.07632,647,USD
 CCOUS,Cameco Corporation,BVL,Non-Energy Minerals,Other Metals/Minerals,67.44,67.44,67.44,67.44,-14.067278287461782,107493823702.81139,73,USD
-CDPR,"Cerro de Pasco Resources, Inc.",BVL,Non-Energy Minerals,Other Metals/Minerals,0.442,0.442,0.442,0.442,-0.2257336343115126,999382195.6843613,23776,USD
-CIBRUS,First Trust NASDAQ Cybersecurity ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,97.6,97.6,97.6,97.6,-2.1553884711779507,,30,USD
+CDPR,"Cerro de Pasco Resources, Inc.",BVL,Non-Energy Minerals,Other Metals/Minerals,0.5,0.5,0.5,0.5,13.122171945701355,999382195.6843613,4050,USD
+CIBRUS,First Trust NASDAQ Cybersecurity ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,91.55,91.55,91.55,91.55,-6.198770491803276,,1082,USD
 CJPUUS,iShares MSCI Japan UCITS ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,292.71,292.71,292.71,292.71,-0.04780604404986962,,212,USD
 CMGUS,"Chipotle Mexican Grill, Inc.",BVL,Consumer Services,Restaurants,31.17,31.17,31.17,31.17,-0.8903020667726474,153573547447.27283,417,USD
 CNDXUS,iShares NASDAQ 100 UCITS ETF USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,1632.0,1632.0,1632.0,1632.0,-5.773672055427252,,36,USD
-COCESUC1,Corporacion Cervesur SA,BVL,Consumer Non-Durables,Beverages: Alcoholic,7.8,7.8,7.8,7.8,0.0,190517864.0,290,PEN
-COCESUI1,Corporacion Cervesur SA,BVL,Consumer Non-Durables,Beverages: Alcoholic,0.8,0.8,0.8,0.8,0.0,190517864.0,1258,PEN
 COINUS,"Coinbase Global, Inc. Class A",BVL,Finance,Investment Banks/Brokers,147.0,147.0,140.18,140.18,-10.71337579617834,138344970724.794,49,USD
 CONCESI1,Consorcio Cementero del Sur SA,BVL,Non-Energy Minerals,Construction Materials,4.13,4.13,4.13,4.13,0.48661800486616963,213695499.0,1000,PEN
 COPUS,ConocoPhillips,BVL,Energy Minerals,Oil & Gas Production,151.19,151.19,151.19,151.19,3.7039577474449596,567397193378.3752,350,USD
-COPXUS,Global X Copper Miners ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,70.82,70.82,70.2,70.47,-5.103689738755731,,1678,USD
-CORAREC1,Corporacion Aceros Arequipa SA,BVL,Non-Energy Minerals,Steel,2.3,2.3,2.3,2.3,0.0,2340826164.0,1336,PEN
-CORAREI1,Corporacion Aceros Arequipa SA,BVL,Non-Energy Minerals,Steel,1.55,1.55,1.55,1.55,-3.1250000000000027,2340826164.0,17931,PEN
+COPXUS,Global X Copper Miners ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,70.3,71.2,70.06,71.2,1.0359018021853328,,250,USD
+CORAREC1,Corporacion Aceros Arequipa SA,BVL,Non-Energy Minerals,Steel,2.3,2.3,2.3,2.3,0.0,2340826164.0,372,PEN
+CORAREI1,Corporacion Aceros Arequipa SA,BVL,Non-Energy Minerals,Steel,1.67,1.7,1.65,1.684,8.645161290322575,2340826164.0,54461,PEN
 COWZ1US,Pacer US Cash Cows 100 UCITS ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,26.8,26.8,26.8,26.8,,,7035,USD
 CPAC,Cementos Pacasmayo SAA Sponsored ADR,BVL,Non-Energy Minerals,Construction Materials,12.8,12.8,12.8,12.8,0.3921568627451036,3994723044.322455,400,USD
-CPACASC1,Cementos Pacasmayo SAA,BVL,Non-Energy Minerals,Construction Materials,8.77,8.78,8.75,8.78,0.40022870211549627,3994723561.0,17719,PEN
-CPACASI1,Cementos Pacasmayo SAA,BVL,Non-Energy Minerals,Construction Materials,7.15,7.15,7.15,7.15,0.0,3994723561.0,9,PEN
-CRECAPC1,Credicorp Capital Peru SAA,BVL,Finance,Investment Banks/Brokers,1.9,1.9,1.9,1.9,0.0,253700674.0,188,PEN
-CREDITC1,Banco de Credito del Peru SA,BVL,Finance,Regional Banks,6.55,6.56,6.55,6.559,0.13740458015267695,84974297445.0,17249,PEN
-CRMUS,"Salesforce, Inc.",BVL,Technology Services,Packaged Software,220.3,220.3,220.3,220.3,-4.52871072589382,644655812674.5625,101,USD
+CPACASC1,Cementos Pacasmayo SAA,BVL,Non-Energy Minerals,Construction Materials,8.736,8.781,8.735,8.735,-0.5125284738040995,3994723561.0,155941,PEN
+CPACASI1,Cementos Pacasmayo SAA,BVL,Non-Energy Minerals,Construction Materials,7.15,7.15,7.15,7.15,2.142857142857148,3994723561.0,1079,PEN
+CQQQUS,Invesco China Technology ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,40.25,40.25,40.25,40.25,-12.595005428881645,,123,USD
+CREDITC1,Banco de Credito del Peru SA,BVL,Finance,Regional Banks,6.749,6.75,6.66,6.684,1.890243902439033,84974297445.0,23179,PEN
+CRMUS,"Salesforce, Inc.",BVL,Technology Services,Packaged Software,214.5,216.0,214.5,216.0,-1.9518837948252432,644655812674.5625,27,USD
 CRPUUS,iShares Global Corp Bond UCITS ETF USD Hedged (Acc),BVL,Miscellaneous,Investment Trusts/Mutual Funds,6.125,6.125,6.125,6.125,0.8230452674897091,,2643,USD
 CSPXUS,iShares Core S&P 500 UCITS ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,802.75,802.75,802.75,802.75,-2.919372588857041,,186,USD
-CUMBRAC1,Cumbra Holding SAA,BVL,Finance,Financial Conglomerates,0.059,0.059,0.059,0.059,0.0,105410854.0,28217,PEN
-CUS,Citigroup Inc.,BVL,Finance,Major Banks,123.1,123.1,123.1,123.1,0.0,721678387736.9492,2,USD
-CVERDEC1,Sociedad Minera Cerro Verde SAA,BVL,Non-Energy Minerals,Other Metals/Minerals,65.21,67.5,65.21,65.62,-4.8985507246376745,83306411184.86319,551,USD
+CUMBRAC1,Cumbra Holding SAA,BVL,Finance,Financial Conglomerates,0.057,0.057,0.057,0.057,-3.389830508474568,105410854.0,200000,PEN
+CUS,Citigroup Inc.,BVL,Finance,Major Banks,126.0,126.0,126.0,126.0,2.2727272727272703,721678387736.9492,31,USD
+CVERDEC1,Sociedad Minera Cerro Verde SAA,BVL,Non-Energy Minerals,Other Metals/Minerals,66.0,67.3,63.5,63.5,-2.860639437050642,83306411184.86319,13531,USD
 CVSUS,CVS Health Corporation,BVL,Retail Trade,Drugstore Chains,82.28,82.28,82.28,82.28,-10.272628135223556,352715919644.94434,480,USD
 CVXUS,Chevron Corporation,BVL,Energy Minerals,Integrated Oil,229.21,229.21,229.21,229.21,-1.1599827511858551,1459919012039.7468,42,USD
 D26AUS,iShares iBonds Dec 2026 Term USD Corp UCITS ETF Accum USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,116.65,116.65,116.65,116.65,0.12875536480687183,,7385,USD
 D28AUS,iShares iBonds Dec 2028 Term USD Corp UCITS ETF AccumUSD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,117.49,117.49,117.49,117.49,0.5047048759623517,,1031,USD
 DEFSUS,Amundi Stoxx Europe Defense Capitalisation -UCITS ETF Acc-,BVL,Miscellaneous,Investment Trusts/Mutual Funds,6.39,6.39,6.39,6.39,-15.02659574468085,,2610,USD
 DELLUS,"Dell Technologies, Inc. Class C",BVL,Electronic Technology,Computer Processing Hardware,334.9,334.9,334.9,334.9,-26.225355215332087,816552386751.038,59,USD
-DIAUS,State Street SPDR Dow Jones Industrial Average ETF Trust,BVL,Miscellaneous,Investment Trusts/Mutual Funds,523.62,523.62,523.62,523.62,2.8520919269298726,,50,USD
+DIAUS,State Street SPDR Dow Jones Industrial Average ETF Trust,BVL,Miscellaneous,Investment Trusts/Mutual Funds,514.8,514.8,514.8,514.8,-1.6844276383637085,,20,USD
 DISUS,Walt Disney Company,BVL,Consumer Services,Movies/Entertainment,119.5,119.5,119.5,119.5,0.42016806722689076,708385782192.6432,100,USD
 DRAMUS,Roundhill Memory ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,38.59,38.59,38.59,38.59,-14.906284454244759,,125,USD
-EEMUS,iShares MSCI Emerging Markets ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,58.58,58.58,58.58,58.58,-4.437194127243065,,350,USD
+EEMUS,iShares MSCI Emerging Markets ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,59.38,59.38,59.38,59.38,1.3656538067599937,,206,USD
 EFAUS,iShares MSCI EAFE ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,103.51,103.51,103.0,103.0,-1.359892740854244,,1962,USD
 EGEPIBC1,Enel Generacion Piura SA,BVL,Utilities,Electric Utilities,4.35,4.35,4.35,4.35,-3.333333333333341,1084031559.0,4000,PEN
 EIMIUS,iShares Core MSCI EM IMI UCITS ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,51.35,51.35,50.55,50.55,-2.9191473017092435,,1509,USD
 ELCOMEI1,Empresa Editora El Comercio SA,BVL,Consumer Services,Publishing: Newspapers,0.52,0.52,0.52,0.52,0.0,18613333.0,12000,PEN
-EMBUS,iShares JP Morgan USD Emerging Markets Bond ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,91.28,91.28,91.28,91.28,1.5463344087217716,,131,USD
-EMCAUS,iShares JP Morgan USD EM Corp Bond UCITS ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,6.78,6.78,6.78,6.78,1.4818140996856788,,1610,USD
-ENGIEC1,ENGIE Energia Peru SA,BVL,Utilities,Electric Utilities,5.07,5.08,5.06,5.062,0.03952569169961795,3056763795.0,105974,PEN
-ENPACII1,Energia del Pacifico SA,BVL,Utilities,Electric Utilities,0.25,0.25,0.25,0.25,4.1666666666666705,64106122.0,16400,PEN
-EPUUS,iShares MSCI Peru and Global Exposure ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,82.7,82.7,80.8,80.8,-2.5566811384467014,,95,USD
+EMBUS,iShares JP Morgan USD Emerging Markets Bond ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,91.9,91.9,91.9,91.9,0.6792287467134143,,86,USD
+EMCAUS,iShares JP Morgan USD EM Corp Bond UCITS ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,6.7,6.7,6.7,6.7,-1.1799410029498536,,6696,USD
+ENGIEC1,ENGIE Energia Peru SA,BVL,Utilities,Electric Utilities,5.08,5.08,5.06,5.06,0.0,3056763795.0,59297,PEN
+ENPACII1,Energia del Pacifico SA,BVL,Utilities,Electric Utilities,0.3,0.3,0.3,0.3,19.999999999999996,64106122.0,33600,PEN
+EPUUS,iShares MSCI Peru and Global Exposure ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,80.4,80.7,80.4,80.7,-0.12376237623761674,,268,USD
 EQACUS,Invesco EQQQ Nasdaq-100 UCITS ETF Acc,BVL,Miscellaneous,Investment Trusts/Mutual Funds,489.7,489.7,489.7,489.7,-5.115287734935096,,214,USD
 ESGVUS,Vanguard ESG U.S. Stock ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,133.37,133.37,133.37,133.37,9.950535861500418,,240,USD
-ETFPERUD,Fondo Bursatil Van Eck El Dorado Peru ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,23.06,23.06,23.06,23.06,-3.2718120805369177,,100,USD
-ETFPESOV,Peru Soberano Van Eck Eldorado ID ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,110.0,110.0,110.0,110.0,0.0,,630,PEN
+ETFPERUD,Fondo Bursatil Van Eck El Dorado Peru ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,23.03,23.03,23.0,23.0,-0.2601908065914949,,390,USD
+ETFPESOV,Peru Soberano Van Eck Eldorado ID ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,110.0,110.0,110.0,110.0,0.0,,86,PEN
 ETHAUS,iShares Ethereum Trust ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,50.36,50.36,50.36,50.36,-7.255985267034987,,400,USD
-ETHUUS,2x Ether ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,20.59,20.59,20.59,20.59,-19.60171807887544,,10,USD
 ETNAI1,Fabrica Nacional de Acumuladores ETNA SA,BVL,Producer Manufacturing,Electrical Products,0.68,0.68,0.68,0.68,-5.555555555555546,48989519.0,10000,PEN
 EWJUS,iShares MSCI Japan ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,94.4,94.4,94.4,94.4,0.2123142250530816,,350,USD
 EWYUS,iShares MSCI South Korea ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,156.5,156.5,156.5,156.5,2.354480052321775,,163,USD
-EWZUS,iShares MSCI Brazil ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,32.16,32.16,32.16,32.16,2.649218001915092,,17,USD
-EXALMC1,Pesquera Exalmar SAA,BVL,Consumer Non-Durables,Food: Specialty/Candy,2.35,2.35,2.35,2.35,0.0,694509884.0,10,PEN
+EWZUS,iShares MSCI Brazil ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,32.26,32.26,32.25,32.25,2.9364826045324026,,283,USD
+EXALMC1,Pesquera Exalmar SAA,BVL,Consumer Non-Durables,Food: Specialty/Candy,2.35,2.35,2.35,2.35,0.0,694509884.0,453,PEN
 EXCHUS,iShares MSCI EM ex-China UCITS ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,8.55,8.59,8.55,8.59,-5.417308962783538,,2306,USD
 EZUUS,iShares MSCI Eurozone ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,65.1,65.1,65.1,65.1,-1.438304314912949,,525,USD
 FASUS,Direxion Daily Financial Bull 3X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,185.0,186.6,185.0,186.6,1.5233949945592942,,325,USD
-FCXUS,"Freeport-McMoRan, Inc.",BVL,Non-Energy Minerals,Other Metals/Minerals,59.1,59.1,58.0,58.0,-6.752411575562705,310045798892.94586,745,USD
-FERREYC1,Ferreycorp SAA,BVL,Distribution Services,Wholesale Distributors,4.13,4.2,4.12,4.161,1.4878048780487791,3881697848.0,347209,PEN
+FCXUS,"Freeport-McMoRan, Inc.",BVL,Non-Energy Minerals,Other Metals/Minerals,59.3,59.3,59.3,59.3,2.2413793103448225,310045798892.94586,200,USD
+FERREYC1,Ferreycorp SAA,BVL,Distribution Services,Wholesale Distributors,4.179,4.25,4.179,4.198,0.9134615384615445,3881697848.0,209744,PEN
 FEZUS,State Street SPDR EURO STOXX 50 ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,65.88,65.88,65.88,65.88,1.0429447852760623,,185,USD
-FIBCCAP,Credicorp Capital Sociedad Titulizadora SA,BVL,Miscellaneous,Investment Trusts/Mutual Funds,50.0,50.0,50.0,50.0,0.0,781815239.98506,2,USD
-FIBPRIME,Grupo Coril Sociedad Titulizadora SA,BVL,Finance,Investment Banks/Brokers,6.81,6.84,6.8,6.83,0.0,954446368.9296241,5320,USD
-FICCMP16,Coril Instrumentos de Corto y Mediano Plazo 16 - Fondo de Inversion,BVL,,,109.24,109.24,109.24,109.24,0.01831166453030216,,1444,USD
-FICCMP17,Coril Instrumentos de Corto y Mediano Plazo 17 - Fondo de Inversion,BVL,Miscellaneous,Investment Trusts/Mutual Funds,106.99,106.99,106.99,106.99,0.018696830887160905,,836,USD
-FICCMP18,Coril Instrumentos de Corto y Mediano Plazo 18 - Fondo de Inversion,BVL,Miscellaneous,Investment Trusts/Mutual Funds,102.0,102.0,102.0,102.0,-0.5460218408736371,,11018,USD
-FICOCMP1,Coril Instrumentos de Corto y Mediano Plazo 1 - Fondo de Inversion 2005- Cuotas,BVL,,,466.06,466.06,466.06,466.06,0.03219505913158706,,156,USD
+FIBCCAP,Credicorp Capital Sociedad Titulizadora SA,BVL,Miscellaneous,Investment Trusts/Mutual Funds,50.0,50.0,50.0,50.0,0.0,781815239.98506,7,USD
+FIBPRIME,Grupo Coril Sociedad Titulizadora SA,BVL,Finance,Investment Banks/Brokers,6.83,6.85,6.83,6.85,0.1461988304093536,954446368.9296241,709,USD
+FICCMP16,Coril Instrumentos de Corto y Mediano Plazo 16 - Fondo de Inversion,BVL,,,109.26,109.26,109.26,109.26,0.018308311973645398,,1232,USD
+FICCMP17,Coril Instrumentos de Corto y Mediano Plazo 17 - Fondo de Inversion,BVL,Miscellaneous,Investment Trusts/Mutual Funds,107.01,107.01,107.01,107.01,0.018693335825787676,,19,USD
+FICCMP18,Coril Instrumentos de Corto y Mediano Plazo 18 - Fondo de Inversion,BVL,Miscellaneous,Investment Trusts/Mutual Funds,102.43,102.43,102.43,102.43,0.4215686274509871,,4883,USD
+FICOCMP1,Coril Instrumentos de Corto y Mediano Plazo 1 - Fondo de Inversion 2005- Cuotas,BVL,,,490.89,490.89,490.89,490.89,5.327640217997679,,62,USD
 FICOCMP2,Coril Instrumentos De Corto Y Mediano Plazo 2 - Fondo de Inversion Cuotas 2005-10.5.18,BVL,,,474.47,474.47,474.47,474.47,0.014755480607093176,,979,USD
 FICOIF7,Coril Instrumentos Financieros 7 - Fondo de Inversion Cuotas de Participacion,BVL,,,385.08,385.08,384.7,384.7,0.3416886199431395,,2967,USD
-FICRPS11,Coril Renta Prime Soles 11 - Fondo de Inversion,BVL,Miscellaneous,Investment Trusts/Mutual Funds,126.57,126.57,126.57,126.57,0.023707918444750217,,55,PEN
-FICRPS16,Coril Renta Prime Soles 16 - Fondo de Inversion,BVL,Miscellaneous,Investment Trusts/Mutual Funds,116.89,116.89,116.89,116.89,0.01711303157353985,,55,PEN
-FOSSALC1,Fossal SAA,BVL,Non-Energy Minerals,Other Metals/Minerals,0.9,0.9,0.9,0.9,0.0,7901066.0,1,PEN
+FICRPS11,Coril Renta Prime Soles 11 - Fondo de Inversion,BVL,Miscellaneous,Investment Trusts/Mutual Funds,126.59,126.59,126.59,126.59,0.015801532748684705,,55,PEN
+FICRPS16,Coril Renta Prime Soles 16 - Fondo de Inversion,BVL,Miscellaneous,Investment Trusts/Mutual Funds,116.91,116.91,116.91,116.91,0.017110103516122868,,55,PEN
 FSLRUS,"First Solar, Inc.",BVL,Electronic Technology,Semiconductors,189.0,189.0,189.0,189.0,3.3464566929133883,72105107118.70592,14,USD
 FUS,Ford Motor Company,BVL,Consumer Durables,Motor Vehicles,12.33,12.33,12.33,12.33,3.2663316582914623,174498379582.54608,150,USD
 FXIUS,iShares China Large-Cap ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,34.72,34.72,34.72,34.72,5.4037644201578665,,655,USD
-GDXUS,VanEck Gold Miners ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,85.2,85.4,85.2,85.4,0.9575599952713114,,430,USD
-GEUS,GE Aerospace,BVL,Electronic Technology,Aerospace & Defense,285.51,285.51,285.51,285.51,-6.665576985943114,1174166246450.2112,10,USD
+GDXJUS,VanEck Junior Gold Miners ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,106.35,106.35,106.35,106.35,-3.053783044667282,,4000,USD
+GDXUS,VanEck Gold Miners ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,86.78,86.78,86.78,86.78,1.615925058548004,,73,USD
 GGLLUS,Direxion Daily GOOGL Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,69.41,69.41,69.41,69.41,7.114197530864197,,72,USD
 GLDMUS,SPDR Gold Minishares Trust of beneficial interest,BVL,Miscellaneous,Investment Trusts/Mutual Funds,77.5,77.5,77.5,77.5,-3.125,,113,USD
-GLDUS,SPDR Gold Shares,BVL,Miscellaneous,Investment Trusts/Mutual Funds,373.25,378.51,373.25,376.7,0.9243134628265207,,1027,USD
-GLORIAI1,Leche Gloria SA,BVL,Consumer Non-Durables,Food: Meat/Fish/Dairy,11.2,11.2,11.2,11.2,0.0,438111638.0,84,PEN
-GOAUUS,U.S. Global GO GOLD and Precious Metal Miners ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,40.36,40.36,40.36,40.36,-4.13301662707839,,6,USD
-GOOGLUS,Alphabet Inc. Class A,BVL,Technology Services,Internet Software/Services,290.0,290.0,283.0,285.0,-2.2298456260720414,12149347478368.662,749,USD
-GOOGUS,Alphabet Inc. Class C,BVL,Technology Services,Internet Software/Services,288.0,288.0,282.5,283.55,-2.5601374570446698,12149347478368.662,115,USD
+GLDUS,SPDR Gold Shares,BVL,Miscellaneous,Investment Trusts/Mutual Funds,371.05,371.7,371.05,371.7,-1.3273161667109106,,157,USD
+GLORIAI1,Leche Gloria SA,BVL,Consumer Non-Durables,Food: Meat/Fish/Dairy,11.2,11.2,11.2,11.2,0.44843049327353307,438111638.0,620,PEN
+GOOGLUS,Alphabet Inc. Class A,BVL,Technology Services,Internet Software/Services,290.0,299.98,285.84,286.5,0.5263157894736842,12149347478368.662,279,USD
+GOOGUS,Alphabet Inc. Class C,BVL,Technology Services,Internet Software/Services,286.6,288.0,284.5,287.0,1.216716628460585,12149347478368.662,107,USD
 GRIDUS,First Trust Nasdaq Clean Edge Smart GRID Infrastructure Index,BVL,Miscellaneous,Investment Trusts/Mutual Funds,166.1,166.1,166.1,166.1,-1.0131108462455405,,109,USD
-HBMUS,Hudbay Minerals Inc,BVL,Non-Energy Minerals,Other Metals/Minerals,20.5,21.0,20.5,20.68,-5.441243712848657,33991721996.19342,2766,USD
+HBMUS,Hudbay Minerals Inc,BVL,Non-Energy Minerals,Other Metals/Minerals,21.0,21.29,21.0,21.09,1.9825918762088983,33991721996.19342,1648,USD
+HDUS,"Home Depot, Inc.",BVL,Retail Trade,Home Improvement Chains,336.7,340.9,336.7,340.9,11.551047120418833,1223076363632.4878,61,USD
 HEDJ1US,WisdomTree Europe Equity UCITS ETF USD Hedged,BVL,Miscellaneous,Investment Trusts/Mutual Funds,31.23,31.23,31.23,31.23,,,1836,USD
-HIDRA2C1,Empresa Regional de Servicio Publico de Electricidad Electronorte Medio SA,BVL,Utilities,Electric Utilities,1.04,1.04,1.04,1.04,0.0,836456941.0,12835,PEN
-HODLUS,VanEck Bitcoin ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,21.62,21.62,21.62,21.62,-0.3686635944700382,,10,USD
-HOODUS,"Robinhood Markets, Inc. Class A",BVL,Finance,Investment Banks/Brokers,93.55,93.55,93.55,93.55,-2.5520833333333366,271476622902.66052,213,USD
+HIDRA2C1,Empresa Regional de Servicio Publico de Electricidad Electronorte Medio SA,BVL,Utilities,Electric Utilities,1.04,1.05,1.04,1.05,0.9615384615384623,836456941.0,23034,PEN
+HODLUS,VanEck Bitcoin ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,21.7,21.7,21.7,21.7,-4.824561403508778,,89,USD
+HOODUS,"Robinhood Markets, Inc. Class A",BVL,Finance,Investment Banks/Brokers,79.5,79.5,79.5,79.5,-15.018706574024584,271476622902.66052,100,USD
 IAUUS,iShares Gold Trust,BVL,Miscellaneous,Investment Trusts/Mutual Funds,73.44,73.44,73.07,73.07,-3.6651285431773255,,148,USD
-IB01US,iShares $ Treasury Bond 0-1yr UCITS ETF USD (Accumulating),BVL,Miscellaneous,Investment Trusts/Mutual Funds,122.09,122.09,122.09,122.09,0.4442616207322141,,3386,USD
-IBITUS,iShares Bitcoin Trust ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,43.65,43.65,43.65,43.65,-4.506672500546931,,2052,USD
-IBMUS,International Business Machines Corporation,BVL,Technology Services,Information Technology Services,255.0,255.0,252.99,252.99,-0.7882352941176434,829009777138.1434,1814,USD
+IB01US,iShares $ Treasury Bond 0-1yr UCITS ETF USD (Accumulating),BVL,Miscellaneous,Investment Trusts/Mutual Funds,123.1,123.1,123.1,123.1,0.8272585797362527,,408,USD
+IBITUS,iShares Bitcoin Trust ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,42.92,42.92,42.5,42.5,-2.6345933562428376,,74,USD
+IBMUS,International Business Machines Corporation,BVL,Technology Services,Information Technology Services,245.0,245.0,245.0,245.0,-3.1582275979287755,829009777138.1434,10,USD
 IBTAUS,iShares USD Treasury Bond 1-3yr UCITS ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,5.993,5.993,5.993,5.993,0.7734992433159621,,3180,USD
 ID27US,Ishares Ibonds Dec 2027 Term USD Corp Ucits ETF AccumUSD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,118.18,118.18,118.18,118.18,0.5530502850336133,,550,USD
 ID29US,iShares iBonds Dec 2029 Term USD Corp UCITS ETF AccumUSD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,113.24,113.24,113.24,113.24,0.6577777777777732,,1066,USD
 ID30US,Ishares Ibonds Dec 2030 Term USD Corp Ucits ETF AccumUSD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,112.88,112.88,112.88,112.88,-0.6338028169014075,,600,USD
 IEFUS,iShares 7-10 Year Treasury Bond ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,91.34,91.34,91.34,91.34,2.3188081102274083,,33,USD
 IEMGUS,iShares Core MSCI Emerging Markets ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,76.72,76.72,76.72,76.72,-7.566265060240965,,648,USD
-IFS,Intercorp Financial Services Inc.,BVL,Finance,Regional Banks,51.0,51.0,47.18,47.55,-3.939393939393945,19709803531.302074,909,USD
-IGVUS,iShares Expanded Tech-Software Sector ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,110.41,110.41,110.41,110.41,-0.5494505494505489,,353,USD
+IFS,Intercorp Financial Services Inc.,BVL,Finance,Regional Banks,47.78,47.78,47.22,47.3,-0.5257623554153523,19709803531.302074,1029,USD
+IGVUS,iShares Expanded Tech-Software Sector ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,99.4,99.4,99.4,99.4,-9.971922833076706,,230,USD
 IHYAUS,iShares USD High Yield Corp Bond UCITS ETF Acc,BVL,Miscellaneous,Investment Trusts/Mutual Funds,7.385,7.385,7.385,7.385,0.8604206500955984,,7500,USD
 IJPDUS,iShares MSCI Japan USD Hedged UCITS ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,113.6,113.6,113.6,113.6,-5.016722408026756,,190,USD
-INRETC1,InRetail Peru Corp.,BVL,Retail Trade,Food Retail,39.0,39.25,38.8,39.0,0.0,14627605892.434391,12198,USD
-INTCUS,Intel Corporation,BVL,Electronic Technology,Semiconductors,56.4,56.4,53.4,54.89,-6.9661016949152526,1068169319085.8402,1186,USD
-INTERBC1,Banco Internacional del Peru SAA Interbank,BVL,Finance,Regional Banks,2.02,2.02,2.02,2.02,0.0,13603153309.0,1327,PEN
-INTPEBC1,Integratel Peru S.A.A Class B,BVL,Communications,Major Telecommunications,0.13,0.13,0.13,0.13,0.0,2145508120.0,6526,PEN
+IJRUS,iShares Core S&P Small Cap ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,138.2,138.2,138.2,138.2,1.617647058823521,,109,USD
+INRETC1,InRetail Peru Corp.,BVL,Retail Trade,Food Retail,38.21,38.6,38.21,38.5,-1.282051282051282,14627605892.434391,23109,USD
+INTCUS,Intel Corporation,BVL,Electronic Technology,Semiconductors,58.0,62.0,55.6,57.0,3.8440517398433216,1068169319085.8402,160,USD
+INTERBC1,Banco Internacional del Peru SAA Interbank,BVL,Finance,Regional Banks,2.019,2.02,2.019,2.02,1.0000000000000009,13603153309.0,24345,PEN
 INVCENC1,Inversiones Centenario SAA,BVL,Finance,Real Estate Development,1.4,1.4,1.4,1.4,-3.448275862068969,808143407.0,4952,PEN
-INVFALC1,Inverfal Peru SA,BVL,Finance,Financial Conglomerates,0.15,0.15,0.15,0.15,0.0,5272340249.0,3676,PEN
-IPCHAC1,Inversiones Portuarias Chancay SAA Class A,BVL,Finance,Financial Conglomerates,1.35,1.35,1.35,1.35,0.0,2205109710.0,1668,PEN
-IPCHBC1,Inversiones Portuarias Chancay SAA Preffered Registered Shs B,BVL,Finance,Financial Conglomerates,0.115,0.115,0.11,0.11,-0.9009009009009018,,437261,PEN
+IPCHAC1,Inversiones Portuarias Chancay SAA Class A,BVL,Finance,Financial Conglomerates,1.35,1.35,1.35,1.35,-3.5714285714285587,2205109710.0,5460,PEN
+IPCHBC1,Inversiones Portuarias Chancay SAA Preffered Registered Shs B,BVL,Finance,Financial Conglomerates,0.111,0.112,0.111,0.112,1.81818181818182,,169449,PEN
 IU28US,iShares II PLC - iShares iBonds Dec 2028 Term USD High Yield Corp UCITS ETF Accum USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,104.3,104.3,104.3,104.3,0.9680542110358179,,2660,USD
 IU29US,iShares II PLC - iShares iBonds Dec 2029 Term USD High Yield Corp UCITS ETF Accum USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,103.2,103.2,103.2,103.2,,,4000,USD
+IVEUS,iShares S&P 500 Value ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,236.5,236.5,236.5,236.5,0.5228035873677008,,212,USD
 IVVUS,iShares Core S&P 500 ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,740.28,740.28,740.28,740.28,-3.6758486981640277,,205,USD
 IWFUS,iShares Russell 1000 Growth ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,120.93,120.93,120.93,120.93,-3.603029095257071,,216,USD
 IWMUS,iShares Russell 2000 ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,284.0,284.0,284.0,284.0,3.2539538265769816,,70,USD
 IWQUUS,iShares Edge MSCI World Quality Factor UCITS ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,89.47,89.47,89.47,89.47,-0.9191583610188243,,2931,USD
-IYRUS,iShares U.S. Real Estate ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,97.97,97.97,97.97,97.97,-0.7094354920441905,,2,USD
+IYRUS,iShares U.S. Real Estate ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,98.67,98.67,98.67,98.67,2.888425443169964,,200,USD
 JEPIUS,JPMorgan Equity Premium Income ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,57.45,57.45,57.45,57.45,2.8648164726947205,,122,USD
 JETSUS,U.S. Global Jets ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,28.39,28.39,28.39,28.39,5.77496274217586,,300,USD
 JNUGUS,Direxion Daily Junior Gold Miners Index Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,98.88,98.88,98.88,98.88,-14.817367332873882,,38,USD
 JPEAUS,iShares J.P. Morgan USD EM Bond UCITS ETF Acc,BVL,Miscellaneous,Investment Trusts/Mutual Funds,6.416,6.416,6.416,6.416,2.0843277645186986,,116790,USD
-JPMUS,JPMorgan Chase & Co.,BVL,Finance,Major Banks,338.48,338.48,338.48,338.48,0.37959667852907164,3228163795289.135,40,USD
-KOUS,Coca-Cola Company,BVL,Consumer Non-Durables,Beverages: Non-Alcoholic,95.83,95.83,95.83,95.83,4.732240437158468,1421405133324.5059,2,USD
+JPMUS,JPMorgan Chase & Co.,BVL,Finance,Major Banks,338.0,338.0,335.7,335.7,-0.8213188371543457,3228163795289.135,224,USD
+KOUS,Coca-Cola Company,BVL,Consumer Non-Durables,Beverages: Non-Alcoholic,91.5,91.5,91.5,91.5,0.0,1421405133324.5059,300,USD
 KREUS,State Street SPDR S&P Regional Banking ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,72.2,72.2,72.2,72.2,-3.60480640854473,,305,USD
 LAREDOC1,Agroindustrial Laredo SAA,BVL,Process Industries,Agricultural Commodities/Milling,17.6,17.6,17.6,17.6,0.0,203515295.0,116340,PEN
 LLYUS,Eli Lilly and Company,BVL,Health Technology,Pharmaceuticals: Major,1425.0,1425.0,1425.0,1425.0,0.7779349363507779,4600837462591.261,10,USD
-LQDAUS,iShares USD Corp Bond UCITS ETF Acc,BVL,Miscellaneous,Investment Trusts/Mutual Funds,6.151,6.151,6.151,6.151,0.42448979591836405,,13337,USD
+LQDAUS,iShares USD Corp Bond UCITS ETF Acc,BVL,Miscellaneous,Investment Trusts/Mutual Funds,6.184,6.184,6.184,6.184,0.536498130385309,,16130,USD
 LUISAI1,Compania Minera Santa Luisa SA,BVL,Non-Energy Minerals,Other Metals/Minerals,348.0,348.0,348.0,348.0,-0.5714285714285714,231305509.0,212,PEN
-LUSURC1,Luz del Sur SA,BVL,Utilities,Electric Utilities,13.0,13.0,13.0,13.0,0.0,6330368011.0,661,PEN
-MCDUS,McDonald's Corporation,BVL,Consumer Services,Restaurants,281.0,281.0,277.5,277.5,5.353075170842834,683918295507.6443,85,USD
+LUSURC1,Luz del Sur SA,BVL,Utilities,Electric Utilities,13.0,13.0,13.0,13.0,0.0,6330368011.0,20,PEN
+MAUS,Mastercard Incorporated Class A,BVL,Finance,Finance/Rental/Leasing,644.73,644.73,644.73,644.73,2.500794912559621,2021185980398.7686,20,USD
+MCDUS,McDonald's Corporation,BVL,Consumer Services,Restaurants,273.0,276.79,273.0,276.79,-0.25585585585584847,683918295507.6443,40,USD
 MCHIUS,iShares MSCI China ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,51.62,51.62,51.62,51.62,0.42801556420233244,,478,USD
-MELIUS,"MercadoLibre, Inc.",BVL,Retail Trade,Internet Retail,1513.0,1522.0,1500.0,1507.0,-13.737836290784204,304222727551.8756,27,USD
-METAUS,Meta Platforms Inc Class A,BVL,Technology Services,Internet Software/Services,628.0,628.0,590.0,605.0,-3.968253968253968,5554361784185.496,388,USD
+MELIUS,"MercadoLibre, Inc.",BVL,Retail Trade,Internet Retail,1527.0,1527.0,1515.0,1515.0,0.53085600530856,304222727551.8756,75,USD
+METAUS,Meta Platforms Inc Class A,BVL,Technology Services,Internet Software/Services,621.0,621.0,615.0,615.0,1.6528925619834711,5554361784185.496,48,USD
 METUUS,Direxion Daily META Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,21.51,21.51,21.51,21.51,-10.374999999999995,,70,USD
 MGKUS,Vanguard Morningstar Mega Cap Growth ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,90.95,90.95,90.2,90.2,-0.4964147821290709,,632,USD
-MICHEI1,Michell y Cia SA,BVL,Process Industries,Textiles,4.3,4.3,4.3,4.3,0.0,195340701.0,200,PEN
 MINCORI1,Sociedad Minera Corona SA,BVL,Non-Energy Minerals,Precious Metals,37.5,37.5,37.5,37.5,0.5361930294906243,1460019494.0,985,PEN
-MINSURI1,Minsur SA,BVL,Non-Energy Minerals,Other Metals/Minerals,7.169,7.169,7.0,7.0,-0.8498583569405045,6784665547.0,264534,PEN
+MINSURI1,Minsur SA,BVL,Non-Energy Minerals,Other Metals/Minerals,7.05,7.1,6.85,6.85,-2.142857142857148,6784665547.0,182619,PEN
 MOROCOC1,Compania Minera San Ignacio de Morococha SAA,BVL,Non-Energy Minerals,Other Metals/Minerals,0.87,0.87,0.87,0.87,24.285714285714295,53273445.0,24208,PEN
-MOROCOI1,Compania Minera San Ignacio de Morococha SAA,BVL,Non-Energy Minerals,Other Metals/Minerals,0.69,0.69,0.69,0.69,0.0,53273445.0,4809,PEN
+MOROCOI1,Compania Minera San Ignacio de Morococha SAA,BVL,Non-Energy Minerals,Other Metals/Minerals,0.69,0.69,0.69,0.69,1.4705882352941024,53273445.0,9109,PEN
 MOTUUS,VanEck Morningstar US Wide Moat UCITS ETF Accum A USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,28.38,28.38,28.38,28.38,,,4513,USD
 MRKUS,"Merck & Co., Inc.",BVL,Health Technology,Pharmaceuticals: Major,149.5,149.5,149.5,149.5,6.028368794326241,1279450506799.771,1740,USD
 MRNAUS,"Moderna, Inc.",BVL,Health Technology,Biotechnology,246.0,246.0,246.0,246.0,-3.149606299212598,355778963892.48956,300,USD
 MRVLUS,"Marvell Technology, Inc.",BVL,Electronic Technology,Semiconductors,142.9,142.9,142.9,142.9,-19.128466327108086,483302091649.18066,166,USD
-MSFTUS,Microsoft Corporation,BVL,Technology Services,Packaged Software,552.2,552.2,532.0,538.0,-3.497757847533632,14235628707366.705,1725,USD
+MSFTUS,Microsoft Corporation,BVL,Technology Services,Packaged Software,529.5,533.7,529.5,530.17,-1.4553903345724983,14235628707366.705,149,USD
 MSFUUS,Direxion Daily MSFT Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,40.3,40.3,40.3,40.3,-1.6833373993657106,,144,USD
 MSTRUS,Strategy Inc Class A,BVL,Finance,Financial Conglomerates,135.5,135.5,135.5,135.5,5.120248254460818,207637370512.60007,36,USD
-MUUS,"Micron Technology, Inc.",BVL,Electronic Technology,Semiconductors,759.0,759.0,668.8,673.0,-15.345911949685535,3103199099811.731,692,USD
+MUUS,"Micron Technology, Inc.",BVL,Electronic Technology,Semiconductors,714.99,720.0,684.0,691.0,2.674591381872214,3103199099811.731,707,USD
 MUUUS,Direxion Daily MU Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,15.07,15.07,13.0,13.65,-30.0,,4165,USD
-NEMUS,Newmont Corporation,BVL,Non-Energy Minerals,Precious Metals,117.5,117.5,117.5,117.5,9.200743494423797,423325853683.2552,30,USD
-NEXAPEC1,Nexa Resources Peru SAA,BVL,Non-Energy Minerals,Steel,4.2,4.299,4.16,4.2,0.0,5357522336.0,516950,PEN
+NEMUS,Newmont Corporation,BVL,Non-Energy Minerals,Precious Metals,121.51,122.2,121.51,122.0,3.829787234042553,423325853683.2552,890,USD
+NEXAPEC1,Nexa Resources Peru SAA,BVL,Non-Energy Minerals,Steel,4.19,4.2,4.15,4.2,0.0,5357522336.0,120115,PEN
 NEXAPEI1,Nexa Resources Peru SAA,BVL,Non-Energy Minerals,Steel,3.5,3.5,3.5,3.5,0.0,5357522336.0,5500,PEN
-NFLXUS,"Netflix, Inc.",BVL,Technology Services,Internet Software/Services,65.9,65.9,65.9,65.9,5.710619185113895,940259904750.8435,39,USD
-NKEUS,"NIKE, Inc. Class B",BVL,Consumer Non-Durables,Apparel/Footwear,40.6,40.6,40.6,40.6,8.0937167199148,207422749039.359,35,USD
-NLRUS,VanEck Uranium and Nuclear ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,88.05,88.05,88.05,88.05,0.0,,13,USD
+NFLXUS,"Netflix, Inc.",BVL,Technology Services,Internet Software/Services,64.21,65.0,64.2,64.21,-2.5644916540212623,940259904750.8435,236,USD
+NKEUS,"NIKE, Inc. Class B",BVL,Consumer Non-Durables,Apparel/Footwear,38.5,38.5,38.5,38.5,-5.172413793103452,207422749039.359,275,USD
+NLRUS,VanEck Uranium and Nuclear ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,88.05,88.05,88.05,88.05,0.0,,6,USD
 NOBLUS,ProShares S&P 500 Dividend Aristocrats ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,59.38,59.38,59.38,59.38,8.71475649945076,,166,USD
 NOWUS,"ServiceNow, Inc.",BVL,Technology Services,Packaged Software,104.0,104.0,102.86,102.86,-8.438668328289125,389545295087.6819,295,USD
 NUAMUS,NUAM SA,BVL,Miscellaneous,Miscellaneous,8.1,8.2,8.1,8.1,1.2499999999999956,2507486342.2944045,29000,USD
-NUGTUS,Direxion Daily Gold Miners Index Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,138.0,138.0,132.5,136.4,8.42607313195549,,160,USD
-NVDAUS,NVIDIA Corporation,BVL,Electronic Technology,Semiconductors,200.0,200.0,182.0,183.13,-8.677005934274176,16634933068400.23,2836,USD
-NVDLUS,GraniteShares 2x Long NVDA Daily ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,28.24,28.24,28.24,28.24,-14.93975903614459,,40,USD
-ORCLUS,Oracle Corporation,BVL,Technology Services,Packaged Software,117.8,118.0,116.32,116.35,-8.023715415019767,1290359479314.444,292,USD
-ORCXUS,Defiance Daily Target 2X Long ORCL ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,13.11,13.11,13.11,13.11,-23.734729493891805,,30,USD
-ORYGENC1,Orygen Peru SAA,BVL,Utilities,Electric Utilities,2.35,2.35,2.35,2.35,4.398045313194145,7056629777.0,9005,PEN
+NUGTUS,Direxion Daily Gold Miners Index Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,138.0,138.0,138.0,138.0,1.1730205278592334,,11,USD
+NVDAUS,NVIDIA Corporation,BVL,Electronic Technology,Semiconductors,192.6,195.0,186.0,189.99,3.745972806203251,16634933068400.23,1755,USD
+ORCLUS,Oracle Corporation,BVL,Technology Services,Packaged Software,117.79,117.79,116.17,116.5,0.1289213579716422,1290359479314.444,361,USD
+ORYGENC1,Orygen Peru SAA,BVL,Utilities,Electric Utilities,2.35,2.35,2.3,2.35,0.0,7056629777.0,24401,PEN
 PANWUS,"Palo Alto Networks, Inc.",BVL,Technology Services,Packaged Software,395.56,395.56,395.56,395.56,9.877777777777778,982842105423.8501,255,USD
-PAVEUS,Global X U.S. Infrastructure Development ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,52.5,52.5,52.5,52.5,-1.14855959329693,,120,USD
+PAVEUS,Global X U.S. Infrastructure Development ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,51.48,51.48,51.48,51.48,-1.9428571428571488,,153,USD
 PFEUS,Pfizer Inc.,BVL,Health Technology,Pharmaceuticals: Major,31.19,31.19,31.19,31.19,2.9712776493892443,605292378647.3914,231,USD
-PGUS,Procter & Gamble Company,BVL,Consumer Non-Durables,Household/Personal Care,165.47,165.47,165.47,165.47,1.1677671802396654,1337557606275.2993,242,USD
+PGUS,Procter & Gamble Company,BVL,Consumer Non-Durables,Household/Personal Care,165.47,165.47,165.47,165.47,0.687598880369962,1337557606275.2993,242,USD
 PLTRUS,Palantir Technologies Inc. Class A,BVL,Technology Services,Packaged Software,157.95,157.95,155.38,155.38,-17.731773177317738,1426883594435.6084,146,USD
-PLUZENC1,Pluz Energia Peru SAA,BVL,Utilities,Electric Utilities,1.364,1.38,1.364,1.38,1.0989010989010917,4140108680.0000005,38354,PEN
-PML,Panoro Minerals Ltd.,BVL,Non-Energy Minerals,Other Metals/Minerals,0.94,0.94,0.86,0.88,-7.368421052631574,1014311296.0542521,26788,USD
+PLUZENC1,Pluz Energia Peru SAA,BVL,Utilities,Electric Utilities,1.38,1.38,1.38,1.38,0.0,4140108680.0000005,29973,PEN
+PML,Panoro Minerals Ltd.,BVL,Non-Energy Minerals,Other Metals/Minerals,0.87,0.87,0.87,0.87,-1.1363636363636374,1014311296.0542521,50293,USD
 PODERC1,Compania Minera Poderosa SA,BVL,Non-Energy Minerals,Precious Metals,8.5,8.5,8.5,8.5,0.0,8500000000.0,1029,PEN
-POMALCC1,Empresa Agroindustrial Pomalca SA,BVL,Process Industries,Agricultural Commodities/Milling,0.244,0.244,0.244,0.244,0.0,76886934.0,748,PEN
-PPX,PPX Mining Corp.,BVL,Non-Energy Minerals,Precious Metals,0.165,0.17,0.165,0.165,-2.9411764705882377,514146889.0869059,62928,USD
-PYPLUS,"PayPal Holdings, Inc.",BVL,Commercial Services,Miscellaneous Commercial Services,60.5,60.52,60.35,60.52,3.3646456020495408,172468874050.74008,15057,USD
-QQQMUS,Invesco NASDAQ 100 ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,270.3,270.3,270.3,270.3,-5.815533642287186,,20,USD
-QQQUS,Invesco QQQ Trust Series I,BVL,Miscellaneous,Investment Trusts/Mutual Funds,682.89,682.89,651.0,651.0,-6.118858428392189,,318,USD
-QUALUS,iShares MSCI USA Quality Factor ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,223.08,223.08,223.08,223.08,-0.9853528628495334,,144,USD
+POMALCC1,Empresa Agroindustrial Pomalca SA,BVL,Process Industries,Agricultural Commodities/Milling,0.244,0.244,0.244,0.244,-15.862068965517237,76886934.0,18250,PEN
+PPX,PPX Mining Corp.,BVL,Non-Energy Minerals,Precious Metals,0.165,0.165,0.165,0.165,0.0,514146889.0869059,4814,USD
+PYPLUS,"PayPal Holdings, Inc.",BVL,Commercial Services,Miscellaneous Commercial Services,59.55,59.55,59.55,59.55,-1.6027759418374188,172468874050.74008,211,USD
+QCOMUS,QUALCOMM Incorporated,BVL,Electronic Technology,Semiconductors,166.0,166.0,166.0,166.0,-9.669695815421456,637852996488.8391,161,USD
+QQQMUS,Invesco NASDAQ 100 ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,272.3,272.3,272.3,272.3,0.7399186089530151,,74,USD
+QQQUS,Invesco QQQ Trust Series I,BVL,Miscellaneous,Investment Trusts/Mutual Funds,658.0,664.5,657.63,658.0,1.0752688172043012,,183,USD
+QUALUS,iShares MSCI USA Quality Factor ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,13.9425,13.9425,13.9425,13.9425,-75.24633821571238,,2304,USD
 REG,Regulus Resources Inc,BVL,Non-Energy Minerals,Other Metals/Minerals,3.41,3.44,3.41,3.44,-0.5780346820809253,1432116770.6184442,4000,USD
 REMXUS,VanEck Rare Earth and Strategic Metals ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,54.0,54.0,54.0,54.0,-23.328127218514844,,30,USD
-RIMSEGC1,Rimac Seguros y Reaseguros,BVL,Finance,Multi-Line Insurance,1.36,1.36,1.36,1.36,0.0,3100800033.0,1021,PEN
+RIMSEGC1,Rimac Seguros y Reaseguros,BVL,Finance,Multi-Line Insurance,1.36,1.36,1.36,1.36,-1.449275362318826,3100800033.0,8979,PEN
 RIO,RIO2 Limited,BVL,Non-Energy Minerals,Precious Metals,1.87,1.9,1.87,1.9,2.150537634408592,3696088408.00015,5500,USD
 RSPUS,Invesco S&P 500 Equal Weight ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,224.9,224.9,217.25,217.25,0.25380710659899003,,242,USD
-SAGAC1,Saga Falabella SA,BVL,Retail Trade,Department Stores,8.0,8.0,8.0,8.0,0.0,1253675415.0,143,PEN
-SBUXUS,Starbucks Corporation,BVL,Consumer Services,Restaurants,104.4,104.4,104.4,104.4,0.14388489208633637,431361480532.45575,3,USD
-SCCO,Southern Copper Corporation,BVL,Non-Energy Minerals,Other Metals/Minerals,177.62,177.62,164.2,166.0,-5.66037735849057,520439990042.9775,2615,USD
+SBUXUS,Starbucks Corporation,BVL,Consumer Services,Restaurants,104.25,104.25,104.25,104.25,12.036539494895221,431361480532.45575,250,USD
+SCCO,Southern Copper Corporation,BVL,Non-Energy Minerals,Other Metals/Minerals,166.0,168.0,166.0,167.5,0.9036144578313252,520439990042.9775,482,USD
 SCHDUS,Schwab US Dividend Equity ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,36.24,36.24,36.01,36.01,2.3302074452969603,,420,USD
 SCOTIAC1,Scotiabank Peru SA,BVL,Finance,Major Banks,20.5,20.6,20.0,20.0,-2.4390243902439024,16864896057.000002,2355,PEN
 SDHAUS,iShares USD Short Duration High Yield Corp Bond UCITS ETF USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,7.224,7.224,7.224,7.224,0.6969612489545556,,56053,USD
-SDIAUS,iShares USD Short Duration Corp Bond UCITS ETF Unhedged USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,6.377,6.377,6.377,6.377,0.04706620646376081,,27820,USD
-SHLDUS,Global X Defense Tech ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,63.0,63.0,63.0,63.0,5.7046979865771785,,442,USD
-SHPC1,Shougang Hierro Peru Saa,BVL,Non-Energy Minerals,Steel,29.0,29.0,29.0,29.0,0.0,12935463806.0,80,PEN
+SDIAUS,iShares USD Short Duration Corp Bond UCITS ETF Unhedged USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,6.395,6.395,6.393,6.393,0.2509016779049712,,49455,USD
+SEAUS,U.S. Global Sea to Sky Cargo ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,21.06,21.06,21.06,21.06,4.360753221010897,,74,USD
+SHLDUS,Global X Defense Tech ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,58.03,58.03,58.03,58.03,-7.888888888888887,,925,USD
+SHPC1,Shougang Hierro Peru Saa,BVL,Non-Energy Minerals,Steel,29.0,29.0,29.0,29.0,0.0,12935463806.0,75,PEN
 SHYUS,iShares 1-3 Year Treasury Bond ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,81.66,81.66,81.66,81.66,0.31941031941030823,,122,USD
-SIDERC1,Empresa Siderurgica del Peru SAA,BVL,Non-Energy Minerals,Steel,2.94,2.94,2.79,2.846,-3.197278911564621,2058000040.0,29584,PEN
+SIDERC1,Empresa Siderurgica del Peru SAA,BVL,Non-Energy Minerals,Steel,2.856,2.856,2.856,2.856,2.3655913978494563,2058000040.0,3949,PEN
 SILUS,Global X Silver Miners ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,77.44,77.44,77.44,77.44,2.258021919978864,,32,USD
 SKYDUS,Skydance Corporation Class B,BVL,Consumer Services,Cable/Satellite TV,7.92,7.92,7.92,7.92,13.956834532374096,145905609013.64575,858,USD
-SLVRUS,Sprott Silver Miners & Physical Silver ETF Silver Miners ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,46.94,46.94,46.94,46.94,-19.733242134062927,,106,USD
-SLVUS,iShares Silver Trust,BVL,Miscellaneous,Investment Trusts/Mutual Funds,44.8,44.8,44.8,44.8,0.9009009009008978,,500,USD
-SMCIUS,"Super Micro Computer, Inc.",BVL,Electronic Technology,Computer Processing Hardware,27.6,27.6,27.0,27.0,-11.620294599018004,67069646719.43027,533,USD
-SMHUS,VanEck Semiconductor ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,480.3,480.3,452.5,453.0,-10.147572199301813,,118,USD
-SNDKUS,Sandisk Corporation,BVL,Electronic Technology,Computer Peripherals,886.5,886.5,840.0,880.0,-19.11764705882353,509108638266.52466,96,USD
-SNJACIC1,Agroindustrias San Jacinto SAA,BVL,Process Industries,Agricultural Commodities/Milling,9.0,9.0,9.0,9.0,0.0,256075068.99999997,68,PEN
-SNJUANC1,Cerveceria San Juan SA,BVL,Consumer Non-Durables,Beverages: Alcoholic,67.2,67.2,67.2,67.2,0.0,6656842890.0,1,PEN
-SNJUANI1,Cerveceria San Juan SA,BVL,Consumer Non-Durables,Beverages: Alcoholic,72.0,72.0,72.0,72.0,0.0,6656842890.0,52,PEN
-SOXLUS,Direxion Daily Semiconductor Bull 3X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,48.3,48.5,43.1,44.2,-51.95652173913044,,1684,USD
-SOXXUS,iShares Semiconductor ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,133.5,133.5,133.5,133.5,-71.83544303797468,,78,USD
-SPCCPI1,"Southern Peru Copper Corporation, Sucursal del Peru",BVL,Non-Energy Minerals,Other Metals/Minerals,268.0,268.0,268.0,268.0,0.0,15284962859.0,2,PEN
-SPCXUS,Space Exploration Technologies Corp. Class A,BVL,Communications,Specialty Telecommunications,131.0,131.0,122.5,125.0,-7.4074074074074066,6366620294541.501,973,USD
-SPGIUS,"S&P Global, Inc.",BVL,Commercial Services,Financial Publishing/Services,470.0,480.0,470.0,480.0,0.5593614480548083,481623476259.61554,14,USD
+SLVUS,iShares Silver Trust,BVL,Miscellaneous,Investment Trusts/Mutual Funds,46.58,46.8,46.58,46.8,4.464285714285714,,583,USD
+SMCIUS,"Super Micro Computer, Inc.",BVL,Electronic Technology,Computer Processing Hardware,28.53,28.76,27.9,28.76,6.518518518518525,67069646719.43027,534,USD
+SMHUS,VanEck Semiconductor ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,468.92,475.32,458.96,464.0,2.4282560706401766,,133,USD
+SNDKUS,Sandisk Corporation,BVL,Electronic Technology,Computer Peripherals,857.3,857.3,825.0,825.0,-6.25,509108638266.52466,201,USD
+SNJUANC1,Cerveceria San Juan SA,BVL,Consumer Non-Durables,Beverages: Alcoholic,67.2,67.2,67.2,67.2,0.0,6656842890.0,44,PEN
+SNJUANI1,Cerveceria San Juan SA,BVL,Consumer Non-Durables,Beverages: Alcoholic,72.0,72.0,72.0,72.0,-2.7027027027027026,6656842890.0,120,PEN
+SOXLUS,Direxion Daily Semiconductor Bull 3X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,46.76,46.76,45.79,45.9,3.846153846153836,,1326,USD
+SOXXUS,iShares Semiconductor ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,137.95,140.35,134.75,136.3,2.0973782771535667,,570,USD
+SPCCPI1,"Southern Peru Copper Corporation, Sucursal del Peru",BVL,Non-Energy Minerals,Other Metals/Minerals,268.0,268.0,268.0,268.0,0.0,15284962859.0,32,PEN
+SPCXUS,Space Exploration Technologies Corp. Class A,BVL,Communications,Specialty Telecommunications,132.0,134.0,129.8,134.0,7.199999999999999,6366620294541.501,317,USD
+SPGIUS,"S&P Global, Inc.",BVL,Commercial Services,Financial Publishing/Services,469.5,469.5,469.5,469.5,-2.1875,481623476259.61554,12,USD
 SPMOUS,Invesco S&P 500 Momentum ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,133.74,133.74,133.74,133.74,-12.889988927245485,,14,USD
 SPXLUS,Direxion Daily S&P 500 Bull 3X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,248.3,249.0,248.3,249.0,-6.706631697264885,,215,USD
 SPYGUS,State Street SPDR Portfolio S&P 500 Growth ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,119.0,119.0,119.0,119.0,2.3567865129881254,,12,USD
 SPYLUS,State Street SPDR S&P 500 UCITS ETF Accum shs - USD,BVL,Miscellaneous,Investment Trusts/Mutual Funds,18.36,18.36,18.36,18.36,-4.2253521126760685,,2770,USD
-SPYUS,State Street SPDR S&P 500 ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,753.0,769.99,735.0,736.0,-3.941529626729319,,410,USD
+SPYUS,State Street SPDR S&P 500 ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,737.5,749.99,735.6,738.6,0.35326086956522046,,4600,USD
 SQQQUS,ProShares UltraPro Short QQQ,BVL,Miscellaneous,Investment Trusts/Mutual Funds,41.0,41.0,41.0,41.0,5.128205128205128,,45,USD
 STZUS,"Constellation Brands, Inc. Class A",BVL,Consumer Non-Durables,Beverages: Alcoholic,146.6,146.6,146.6,146.6,8.472068072512014,84914309945.64969,37,USD
 TECLUS,Direxion Daily Technology Bull 3X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,131.0,131.0,131.0,131.0,-20.073215375228802,,40,USD
-TEF,Telefonica SA Sponsored ADR,BVL,Communications,Specialty Telecommunications,3.38,3.38,3.38,3.38,0.0,75399611863.17975,380,USD
+TEF,Telefonica SA Sponsored ADR,BVL,Communications,Specialty Telecommunications,3.38,3.38,3.38,3.38,-0.5882352941176475,75399611863.17975,380,USD
 TLHUS,iShares 10-20 Year Treasury Bond ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,95.73,95.73,95.73,95.73,3.95265501140189,,181,USD
 TLTUS,iShares 20+ Year Treasury Bond ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,81.61,81.61,81.61,81.61,1.8088822355289458,,1031,USD
-TQQQUS,ProShares UltraPro QQQ,BVL,Miscellaneous,Investment Trusts/Mutual Funds,51.22,51.22,51.13,51.13,-15.48760330578512,,710,USD
-TSLAUS,"Tesla, Inc.",BVL,Consumer Durables,Motor Vehicles,348.0,348.0,340.5,343.5,-13.476070528967254,5251302643856.372,208,USD
+TQQQUS,ProShares UltraPro QQQ,BVL,Miscellaneous,Investment Trusts/Mutual Funds,52.0,52.96,52.0,52.48,2.6403285742225586,,8505,USD
+TSLAUS,"Tesla, Inc.",BVL,Consumer Durables,Motor Vehicles,352.0,356.0,352.0,356.0,3.6390101892285296,5251302643856.372,19,USD
 TSLLUS,Direxion Daily TSLA Bull 2X ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,11.51,11.51,11.51,11.51,3.600360036003604,,25000,USD
-TSMUS,"Taiwan Semiconductor Manufacturing Co., Ltd. Sponsored ADR",BVL,Electronic Technology,Semiconductors,373.63,373.63,360.0,360.0,-10.0,6143502134825.006,99,USD
+TSMUS,"Taiwan Semiconductor Manufacturing Co., Ltd. Sponsored ADR",BVL,Electronic Technology,Semiconductors,372.5,372.5,372.5,372.5,3.4722222222222223,6143502134825.006,11,USD
 TUMANC1,Empresa Agroindustrial Tuman SAA,BVL,Process Industries,Agricultural Commodities/Milling,0.656,0.656,0.656,0.656,0.0,22187787.0,49663,PEN
-TUS,AT&T Inc,BVL,Communications,Wireless Telecommunications,21.3,21.3,21.3,21.3,-3.880866425992777,507198730322.2022,750,USD
 UALUS,"United Airlines Holdings, Inc.",BVL,Transportation,Airlines,115.4,115.4,114.0,114.0,5.555555555555555,129715696708.11836,95,USD
-UBERUS,"Uber Technologies, Inc.",BVL,Transportation,Other Transportation,68.62,68.62,68.0,68.5,-5.386740331491721,492217931207.87726,220,USD
-UNACEMC1,UNACEM Corp. Sociedad Anonima Abierta,BVL,Non-Energy Minerals,Construction Materials,2.4,2.4,2.34,2.34,-2.500000000000002,3838399887.0,22855,PEN
+UBERUS,"Uber Technologies, Inc.",BVL,Transportation,Other Transportation,69.8,69.8,69.27,69.27,1.12408759124087,492217931207.87726,183,USD
+UNACEMC1,UNACEM Corp. Sociedad Anonima Abierta,BVL,Non-Energy Minerals,Construction Materials,2.36,2.37,2.36,2.36,0.8547008547008554,3838399887.0,334622,PEN
 UNHUS,UnitedHealth Group Incorporated,BVL,Health Services,Managed Health Care,405.26,405.26,405.26,405.26,-1.8027622970680877,1265136603950.1587,50,USD
 UPROUS,ProShares UltraPro S&P500,BVL,Miscellaneous,Investment Trusts/Mutual Funds,129.27,129.27,129.27,129.27,-12.0313031643416,,20,USD
-URAUS,Global X Uranium ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,34.45,34.45,34.45,34.45,0.9967751392553603,,420,USD
+URAUS,Global X Uranium ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,31.67,31.67,31.67,31.67,-8.069666182873734,,158,USD
 USOUS,United States Oil Fund LP,BVL,Miscellaneous,Investment Trusts/Mutual Funds,156.87,156.87,156.87,156.87,-7.777777777777772,,2,USD
-VEAUS,Vanguard FTSE Developed Markets ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,69.31,69.31,69.31,69.31,-0.43097256141358586,,16248,USD
+VEAUS,Vanguard FTSE Developed Markets ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,69.31,69.31,69.31,69.31,0.0,,11,USD
 VGKUS,Vanguard FTSE Europe ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,88.0,88.0,88.0,88.0,2.3255813953488373,,108,USD
 VGTUS,Vanguard Information Technology ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,109.7,109.7,109.0,109.0,-5.217391304347826,,113,USD
-VOLCABC1,Volcan Compania Minera S.A.A. Class B,BVL,Non-Energy Minerals,Other Metals/Minerals,0.808,0.808,0.796,0.798,-1.4814814814814827,5000774515.0,774178,PEN
-VOOUS,Vanguard S&P 500 ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,687.14,687.14,676.64,676.66,-4.425203745815624,,56,USD
+VOLCABC1,Volcan Compania Minera S.A.A. Class B,BVL,Non-Energy Minerals,Other Metals/Minerals,0.79,0.79,0.77,0.78,-2.2556390977443628,5000774515.0,19436530,PEN
+VOOUS,Vanguard S&P 500 ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,683.74,696.0,678.5,678.5,0.27192386131883545,,65,USD
 VTIUS,Vanguard Morningstar Total Stock Market ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,363.12,363.12,363.12,363.12,-3.8423854037020337,,17,USD
-VTUS,Vanguard Total World Stock ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,153.69,153.69,153.69,153.69,-1.9271265394678134,,194,USD
+VTUS,Vanguard Total World Stock ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,153.69,153.69,153.69,153.69,0.0,,4,USD
 VTVUS,Vanguard Morningstar Value ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,225.79,225.79,225.79,225.79,1.0155690765926904,,560,USD
 VUGUS,Vanguard Morningstar Growth ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,81.41,81.41,81.41,81.41,-9.0391061452514,,40,USD
-VUS,Visa Inc. Class A,BVL,Finance,Finance/Rental/Leasing,424.8,424.8,424.8,424.8,-1.6666666666666639,2884468588945.962,54,USD
-VWOUS,Vanguard FTSE Emerging Markets ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,59.68,59.68,59.68,59.68,-1.9710906701708324,,31,USD
+VUS,Visa Inc. Class A,BVL,Finance,Finance/Rental/Leasing,422.3,422.3,422.3,422.3,-0.588512241054614,2884468588945.962,7,USD
 VXUSUS,Vanguard Total International Stock ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,81.17,81.17,81.17,81.17,-1.6121212121212103,,183,USD
 VZUS,Verizon Communications Inc.,BVL,Communications,Wireless Telecommunications,43.49,43.49,43.49,43.49,-3.61258865248226,659985045161.0798,40,USD
 WFCUS,Wells Fargo & Company,BVL,Finance,Major Banks,84.59,84.59,84.59,84.59,3.6515132949393507,905193289485.7118,89,USD
 WIAUUS,iShares Fallen Angels High Yield Corp Bond UCITS ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,7.351,7.351,7.351,7.351,0.9336811753398271,,48833,USD
-WMTUS,Walmart Inc.,BVL,Retail Trade,Specialty Stores,127.0,130.0,127.0,130.0,2.913236225459157,3534530716200.2944,1519,USD
+WMTUS,Walmart Inc.,BVL,Retail Trade,Specialty Stores,123.0,124.96,123.0,124.96,-3.876923076923082,3534530716200.2944,190,USD
 WPMUS,Wheaton Precious Metals Corp,BVL,Non-Energy Minerals,Precious Metals,129.63,129.63,129.63,129.63,-12.412162162162165,205801012829.05334,40,USD
 XLCUS,State Street Communication Services Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,101.6,101.6,101.6,101.6,-7.720254314259764,,30,USD
 XLEUS,State Street Energy Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,62.89,62.89,62.89,62.89,-5.5705705705705615,,539,USD
 XLFUS,State Street Financial Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,57.74,57.74,57.74,57.74,-1.2991452991452956,,571,USD
 XLIUS,State Street Industrial Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,167.69,167.69,167.69,167.69,-1.561491047842675,,25,USD
-XLKUS,State Street Technology Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,177.3,177.3,175.0,175.0,-8.059262372596407,,53,USD
+XLKUS,State Street Technology Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,165.3,165.79,165.3,165.79,-5.262857142857148,,569,USD
 XLPUS,State Street Consumer Staples Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,91.17,91.17,91.17,91.17,1.0753880266075375,,246,USD
-XLUUS,State Street Utilities Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,42.82,42.82,42.82,42.82,0.4456955195871398,,154,USD
-XLVUS,State Street Health Care Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,184.8,184.8,184.8,184.8,-0.7998282248107687,,83,USD
+XLUUS,State Street Utilities Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,43.44,43.44,43.44,43.44,1.447921531994389,,181,USD
+XLVUS,State Street Health Care Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,185.61,185.61,185.61,185.61,0.4383116883116895,,400,USD
 XLYUS,State Street Consumer Discretionary Select Sector SPDR ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,117.63,117.63,117.63,117.63,3.2294866169372467,,238,USD
 XOMUS,Exxonmobil Holdings Corporation,BVL,Energy Minerals,Integrated Oil,178.12,178.12,178.12,178.12,0.37757114680192505,2381492397799.6274,55,USD
 ZAPUS,Global X U.S. Electrification ETF,BVL,Miscellaneous,Investment Trusts/Mutual Funds,31.14,31.14,31.14,31.14,0.0,,1932,USD
