@@ -26,9 +26,9 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0A18,CGI Inc. Class A,LSE,Technology Services,Information Technology Services,115.34,115.34,115.34,115.34,-1.5113995388950525,12634085826.667656,2.0,CAD
 0A1I,Invesco CurrencyShares Euro Trust,LSE,Miscellaneous,Investment Trusts/Mutual Funds,101.54,101.54,101.54,101.54,-0.2475636592266537,,74.0,USD
 0A1J,"Kayne Anderson Energy Infrastructure Fund, Inc.",LSIN,Miscellaneous,Investment Trusts/Mutual Funds,13.77,13.77,13.656,13.656,-0.8278867102396441,1751172623.3547,435.0,USD
-0A1K,NIO Inc. Sponsored ADR Class A,LSE,Consumer Durables,Motor Vehicles,2.84,2.88,2.7097,2.85,4.779411764705878,5110297579.959666,339717.0,USD
+0A1K,NIO Inc. Sponsored ADR Class A,LSE,Consumer Durables,Motor Vehicles,2.84,2.88,2.7097,2.84,4.41176470588234,5110297579.959666,339784.0,USD
 0A1T,State Street SPDR MSCI ACWI ex-US ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,39.3,39.3,39.3,39.3,-0.6823351023502733,,100.0,USD
-0A1U,"Uber Technologies, Inc.",LSE,Transportation,Other Transportation,69.6,70.04,67.04,68.91,-1.2255428940012958,108406661349.41534,59539.0,USD
+0A1U,"Uber Technologies, Inc.",LSE,Transportation,Other Transportation,69.6,70.04,67.04,69.07,-0.9962015337203576,108406661349.41534,59566.0,USD
 0A1W,Corteva Inc,LSE,Process Industries,Agricultural Commodities/Milling,8.188,8.188,8.0,8.0,-5.593580363464718,4576045667.029784,1438.0,EUR
 0A20,"Beyond Meat, Inc.",LSIN,Consumer Non-Durables,Food: Major Diversified,4.866,4.866,4.2885,4.2885,-6.771739130434776,70424709.34279323,440.0,EUR
 0A22,Anheuser-Busch InBev SA/NV Sponsored ADR,LSE,Consumer Non-Durables,Beverages: Alcoholic,83.55,83.94,83.37,83.65,-1.1463011108484977,127305486509.22836,22.0,USD
@@ -58,23 +58,23 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0A3H,Pexip Holding ASA,LSE,Technology Services,Packaged Software,70.45,71.0,69.6,69.6,-1.5558698727015678,563210740.984452,11749.0,NOK
 0A3L,"Vertex, Inc. Class A",LSE,Technology Services,Packaged Software,18.0,18.0,17.73,17.73,-4.265658747300211,2264837115.762348,182.0,USD
 0A3M,BioNTech SE Sponsored ADR,LSIN,Health Technology,Biotechnology,85.0,85.79,84.5,84.5,-2.312138728323699,16034564235.755268,1492.0,USD
-0A3N,"CrowdStrike Holdings, Inc. Class A",LSE,Technology Services,Packaged Software,222.0576,225.9,213.65,219.07,-2.0939392273613238,173369182111.9574,9473.0,USD
-0A3O,"Datadog, Inc. Class A",LSE,Technology Services,Packaged Software,174.49,176.88,162.12,165.56,-5.072236496044,47351430871.25162,4267.0,USD
+0A3N,"CrowdStrike Holdings, Inc. Class A",LSE,Technology Services,Packaged Software,222.0576,225.9,213.65,220.12,-1.6246765998391997,173369182111.9574,9522.0,USD
+0A3O,"Datadog, Inc. Class A",LSE,Technology Services,Packaged Software,174.49,176.88,162.12,166.57,-4.493128975272106,47351430871.25162,4272.0,USD
 0A3P,"Fastly, Inc. Class A",LSE,Technology Services,Information Technology Services,15.65,16.26,15.325,15.9274,-1.5003092145949364,1939340794.606488,3450.0,USD
 0A3S,"Novavax, Inc.",LSIN,Health Technology,Biotechnology,8.2,8.2,7.885,8.0,-1.2345679012345634,1008854822.464962,26775.0,USD
-0A3T,Sea Limited Sponsored ADR Class A,LSIN,Retail Trade,Internet Retail,71.6,71.6,69.27,70.25,-4.09556313993174,32323139323.068382,24412.0,USD
-0A3U,Workhorse Group Inc,LSE,Consumer Durables,Motor Vehicles,2.75,2.75,1.83,1.94,-30.87229190421893,21968264.553303,3203.0,USD
+0A3T,Sea Limited Sponsored ADR Class A,LSIN,Retail Trade,Internet Retail,71.6,71.6,69.27,70.25,-4.09556313993174,32323139323.068382,24417.0,USD
+0A3U,Workhorse Group Inc,LSE,Consumer Durables,Motor Vehicles,2.75,2.75,1.83,1.9008,-32.269099201824396,21968264.553303,3956.0,USD
 0A3Z,Cloudflare Inc Class A,LSIN,Technology Services,Information Technology Services,295.41,296.6,276.97,283.0,-2.5817555938037864,79263937172.01285,2844.0,USD
 0A41,"Gevo, Inc.",LSE,Process Industries,Chemicals: Specialty,1.72,1.77,1.65,1.67,-5.649717514124299,326507497.337109,135665.0,USD
-0A43,"Inovio Pharmaceuticals, Inc.",LSE,Health Technology,Pharmaceuticals: Major,1.38,1.61,1.36,1.61,15.000000000000014,198915075.559602,474805.0,USD
+0A43,"Inovio Pharmaceuticals, Inc.",LSE,Health Technology,Pharmaceuticals: Major,1.38,1.61,1.36,1.61,15.000000000000014,198915075.559602,474986.0,USD
 0A44,Jumia Technologies AG Sponsored ADR,LSE,Technology Services,Internet Software/Services,5.1,5.1,4.805,4.92,-1.9920318725099533,473401603.620816,19207.0,USD
-0A45,"Moderna, Inc.",LSIN,Health Technology,Biotechnology,214.05,222.868,205.7,210.0,-3.225806451612903,66072058618.25701,32491.0,USD
+0A45,"Moderna, Inc.",LSIN,Health Technology,Biotechnology,214.05,222.868,205.7,210.0,-3.225806451612903,66072058618.25701,32816.0,USD
 0A46,"Peloton Interactive, Inc. Class A",LSIN,Consumer Services,Other Consumer Services,5.29,5.35,5.045,5.12,-9.859154929577459,1802612231.5429711,18865.0,USD
 0A4A,"Wayfair, Inc. Class A",LSE,Retail Trade,Specialty Stores,110.4,112.77,106.4005,107.1,-1.923076923076931,11537423532.265968,253.0,USD
 0A4B,"AgEagle Aerial Systems, Inc.",LSE,Electronic Technology,Aerospace & Defense,0.3457,0.3457,0.313,0.313,-9.406657018813307,16013929.958715001,6344.0,USD
 0A4D,"Equillium, Inc.",LSE,Health Technology,Biotechnology,1.17,1.17,1.17,1.17,-0.8474576271186449,71814793.107306,4.0,USD
 0A4H,StoneCo Ltd. Class A,LSE,Commercial Services,Miscellaneous Commercial Services,7.71,8.07,7.52,7.53,-4.92424242424242,1477857067.491162,6745.0,USD
-0A4L,Bloom Energy Corporation Class A,LSE,Electronic Technology,Electronic Production Equipment,180.18,185.4,165.0096,170.9,-4.02650643005559,39758808609.303696,54287.0,USD
+0A4L,Bloom Energy Corporation Class A,LSE,Electronic Technology,Electronic Production Equipment,180.18,185.4,165.0096,171.3597,-3.768349525467507,39758808609.303696,54352.0,USD
 0A4S,Sunrun Inc.,LSE,Electronic Technology,Semiconductors,8.31,8.391,7.82,7.82,-4.866180048661804,1532558958.775731,16684.0,USD
 0A4Y,AIM ImmunoTech Inc.,LSE,Health Technology,Pharmaceuticals: Major,0.1339,0.1393,0.1311,0.1393,4.227459783015351,3966852.9135000003,10432.0,USD
 0A4Z,"Chegg, Inc.",LSE,Commercial Services,Miscellaneous Commercial Services,0.5497,0.5497,0.5244,0.5244,-5.479452054794518,45773239.276308,951.0,USD
@@ -107,14 +107,14 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0A70,"Ameresco, Inc. Class A",LSE,Industrial Services,Engineering & Construction,24.51,24.84,22.78,22.78,-8.071025020177562,994302718.956372,73.0,USD
 0A71,Antero Resources Corporation,LSE,Energy Minerals,Oil & Gas Production,37.66,38.28,37.228,37.34,-1.609452238160981,8785635004.416939,3573.0,USD
 0A74,Kuaishou Technology Class B,LSE,Commercial Services,Advertising/Marketing Services,25.3,25.3,25.3,25.3,-12.213740458015266,10622131491.183226,114800.0,HKD
-0A75,"BILL Holdings, Inc.",LSE,Technology Services,Packaged Software,57.5,64.858,55.12,63.83,11.68853893263342,3754412383.5771513,6299.0,USD
-0A76,British American Tobacco PLC Sponsored ADR,LSE,Consumer Non-Durables,Tobacco,62.17,62.17,59.465,59.5,-4.557805888221952,101143552011.15967,2302.0,USD
+0A75,"BILL Holdings, Inc.",LSE,Technology Services,Packaged Software,57.5,64.858,55.12,64.04,12.055993000874905,3754412383.5771513,6320.0,USD
+0A76,British American Tobacco PLC Sponsored ADR,LSE,Consumer Non-Durables,Tobacco,62.17,62.17,59.4586,59.4586,-4.624214406477884,101143552011.15967,2303.0,USD
 0A77,Cigna Group,LSE,Health Services,Managed Health Care,293.01,298.91,293.0,294.99,-1.2850115450255915,59996179647.36516,816.0,USD
 0A78,"Caesars Entertainment, Inc.",LSE,Consumer Services,Casinos/Gaming,29.25,29.315,29.23,29.23,-0.30695770804911277,4540558000.791747,679.0,USD
 0A79,Carvana Co. Class A,LSE,Retail Trade,Specialty Stores,70.61,71.73,69.11,70.9505,1.090688893638246,59201032114.05935,4914.0,USD
 0A7B,Chimera Investment Corporation,LSE,Finance,Real Estate Investment Trusts,6.41,6.41,6.0479,6.3095,-1.7211838006230538,404497307.829081,1976.0,USD
 0A7D,"Dell Technologies, Inc. Class C",LSE,Electronic Technology,Computer Processing Hardware,323.5,329.8,305.92,319.49,-0.6097371286358624,154600514088.3891,15654.0,USD
-0A7F,Equinor ASA Sponsored ADR,LSE,Energy Minerals,Integrated Oil,41.16,41.8,41.15,41.51,0.8993680116674707,74289307528.54123,10741.0,USD
+0A7F,Equinor ASA Sponsored ADR,LSE,Energy Minerals,Integrated Oil,41.16,41.8,41.15,41.5086,0.8959649975692773,74289307528.54123,10743.0,USD
 0A7G,"Gaotu Techedu, Inc. Sponsored ADR Class A",LSE,Commercial Services,Miscellaneous Commercial Services,2.34,2.405,2.34,2.375,-0.2100840336134409,427923373.191738,346.0,USD
 0A7I,HDFC Bank Limited Sponsored ADR,LSE,Finance,Major Banks,26.4,26.4,26.4,26.4,19.026149684400355,101722100736.8491,248.0,USD
 0A7K,Abundia Global Impact Group Inc.,LSE,Energy Minerals,Oil & Gas Production,0.6399,0.6399,0.5537,0.5537,-19.997110244184377,20886743.201046,5400.0,USD
@@ -122,7 +122,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0A7M,ICICI Bank Limited Sponsored ADR,LSE,Finance,Regional Banks,34.59,35.0,34.59,34.85,1.4851485148514791,91850537141.80315,6385.0,USD
 0A7N,Keysight Technologies Inc,LSE,Electronic Technology,Electronic Equipment/Instruments,289.5,292.33,278.71,284.62,-0.2733006306937536,36886163598.18031,90.0,USD
 0A7O,Strategy Inc Class A,LSE,Finance,Financial Conglomerates,100.0,100.0,97.3465,97.3465,-7.575124614289101,33008561784.130585,185.0,USD
-0A7R,Palantir Technologies Inc. Class A,LSE,Technology Services,Packaged Software,159.64,162.58,153.9242,156.74,-2.775796296870635,293149841706.93256,55318.0,USD
+0A7R,Palantir Technologies Inc. Class A,LSE,Technology Services,Packaged Software,159.64,162.58,153.9242,157.37,-2.385013801445274,293149841706.93256,55688.0,USD
 0A7S,Quantum Corporation,LSE,Electronic Technology,Computer Peripherals,14.05,14.92,13.5,14.4,2.4182076813655753,423690101.293578,6360.0,USD
 0A7X,"Virtu Financial, Inc. Class A",LSE,Finance,Investment Banks/Brokers,58.45,58.45,57.0781,57.2464,-0.8720346320346298,6867113429.657649,370.0,USD
 0A88,10x Genomics Inc Class A,LSE,Health Technology,Biotechnology,56.99,56.99,52.77,55.01,-2.2218272307145397,5486663582.010339,2030.0,USD
@@ -136,7 +136,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0A8H,Future FinTech Group Inc.,LSE,Finance,Finance/Rental/Leasing,3.8,3.8,3.45,3.69,0.27173913043477677,24017886.137598,34.0,USD
 0A8I,Genprex Inc,LSE,Health Technology,Pharmaceuticals: Major,1.85,1.97,1.67,1.67,-13.020833333333334,1923713.923143,507.0,USD
 0A8L,CapForce Inc.,LSE,Commercial Services,Miscellaneous Commercial Services,6.48,6.48,6.48,6.48,-7.428571428571422,53411428.784121,3.0,USD
-0A8O,Vistra Corp.,LSE,Utilities,Electric Utilities,129.89,133.85,127.0,127.64,-0.33575388459435673,33509543988.727924,10304.0,USD
+0A8O,Vistra Corp.,LSE,Utilities,Electric Utilities,129.89,133.85,127.0,127.91,-0.12493167798859732,33509543988.727924,10307.0,USD
 0A8P,"Walker & Dunlop, Inc.",LSE,Finance,Finance/Rental/Leasing,39.01,39.01,39.01,39.01,1.6944734098018732,1016923874.628093,1.0,USD
 0A8Q,ZW Data Action Technologies Inc,LSE,Commercial Services,Advertising/Marketing Services,0.71,0.71,0.71,0.71,-8.974358974358982,2160764.769855,10.0,USD
 0A8S,"SINTX Technologies, Inc.",LSE,Health Technology,Medical Specialties,1.38,1.38,1.29,1.29,2.9857895577199507,7682658.160332,50.0,USD
@@ -263,7 +263,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0BJP,Webuild SpA,LSIN,Industrial Services,Engineering & Construction,2.275,2.275,2.22,2.235,-2.059596844872925,1891440154.0852401,154031.0,EUR
 0BNS,Kesko Oyj Class A,LSE,Retail Trade,Food Retail,24.0,24.225,23.9,24.0,-1.1328527291452053,9076646310.945684,776.0,EUR
 0BNT,Kesko Oyj Class B,LSIN,Retail Trade,Food Retail,25.41,25.41,24.64,24.76,-2.787593246957194,9076646310.945684,2107333.0,EUR
-0BOE,Boeing Company,LSE,Electronic Technology,Aerospace & Defense,165.0,168.2495,163.66,163.77,-1.248191027496378,99316268585.9907,6319.0,USD
+0BOE,Boeing Company,LSE,Electronic Technology,Aerospace & Defense,165.0,168.2495,163.66,163.8,-1.2301013024601979,99316268585.9907,6330.0,USD
 0BQD,KSB SE & Co. KGaA,LSE,Producer Manufacturing,Industrial Machinery,874.0,874.0,874.0,874.0,-2.0179372197309418,1256736073.818804,3.0,EUR
 0BQE,KSB SE & Co. KGaA Vorz.Akt. ohne Stimmrecht,LSE,Producer Manufacturing,Industrial Machinery,820.0,820.0,820.0,820.0,-1.4423076923076923,1256736073.818804,2.0,EUR
 0CDX,Smartbroker Holding AG,LSE,Technology Services,Data Processing Services,8.06,8.06,8.06,8.06,0.0,111690494.327204,65.0,EUR
@@ -377,7 +377,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0E2F,Ctac NV,LSE,Technology Services,Information Technology Services,2.52,2.52,2.52,2.52,-1.5625000000000013,29738287.535672,1.0,EUR
 0E2J,Componenta Oyj,LSIN,Producer Manufacturing,Metal Fabrication,6.94,6.94,6.72,6.8,-1.4492753623188481,56734685.446928,438.0,EUR
 0E3F,DATA MODUL AG,LSE,Electronic Technology,Electronic Equipment/Instruments,24.0,24.0,24.0,24.0,-5.511811023622042,69407386.01738,1.0,EUR
-0E3R,iShares J.P. Morgan EM Corporate Bond ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,43.665,43.665,43.645,43.655,-0.13725265927027855,,7436.0,USD
+0E3R,iShares J.P. Morgan EM Corporate Bond ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,43.665,43.665,43.645,43.655,-0.13725265927027855,,7736.0,USD
 0E41,Amundi USD Corporate Bond Climate Paris Aligned UCITS ETF EUR Hedged Dist Monthly Hedged D-EUR- Distribution,LSIN,Miscellaneous,Investment Trusts/Mutual Funds,71.86,71.86,71.86,71.86,-0.5397923875432533,,2.0,EUR
 0E43,Amundi Euro Government Bond 5-7Y UCITS ETF Acc,LSIN,Miscellaneous,Investment Trusts/Mutual Funds,156.86,157.04,156.71,156.895,0.12444160816848858,,712.0,EUR
 0E44,Amundi Euro Government Bond 7-10Y UCITS ETF Acc,LSIN,Miscellaneous,Investment Trusts/Mutual Funds,164.44,164.6614,164.13,164.39,0.09754624313003779,,3605.0,EUR
@@ -642,7 +642,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0H59,Accor SA,LSIN,Consumer Services,Hotels/Resorts/Cruise lines,52.44,53.0,52.32,52.5,-0.057110222729870805,10180554057.152456,10587.0,EUR
 0H65,Juventus Football Club S.p.A.,LSIN,Consumer Services,Movies/Entertainment,1.135,1.157,1.11,1.136,-2.489270386266106,599997628.657216,73081.0,EUR
 0H68,Aflac Incorporated,LSE,Finance,Multi-Line Insurance,126.83,129.01,126.5,127.93,0.0938893670291875,48053780774.755035,382.0,USD
-0H6E,AGNC Investment Corp.,LSE,Finance,Real Estate Investment Trusts,8.15,8.15,7.9,7.91,-2.46609124537607,7836279933.098394,174398.0,USD
+0H6E,AGNC Investment Corp.,LSE,Finance,Real Estate Investment Trusts,8.15,8.15,7.9,7.92,-2.342786683107269,7836279933.098394,174523.0,USD
 0H6G,AES Corporation,LSE,Utilities,Electric Utilities,14.83,14.94,14.83,14.92,-0.0669792364367032,8086672801.645735,322.0,USD
 0H6I,Telecom Italia S.p.A.,LSIN,Communications,Wireless Telecommunications,5.749,5.749,5.62,5.6405,-1.9043478260869515,10187273857.081572,70509.0,EUR
 0H6L,Xtrackers SLI UCITS ETF Distribution 1D,LSE,Miscellaneous,Investment Trusts/Mutual Funds,274.5,274.5,274.5,274.5,-0.8130081300813009,,3.0,EUR
@@ -672,7 +672,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0HAG,Sampo Oyj,LSIN,Finance,Property/Casualty Insurance,10.102,10.102,9.918,9.9325,-2.3401012732904114,22085091821.547535,1148730.0,EUR
 0HAH,Fortum Oyj,LSIN,Utilities,Electric Utilities,23.43,23.49,23.09,23.09,-2.305902263592137,17623831358.724857,1355932.0,EUR
 0HAI,Credit Agricole SA,LSIN,Finance,Regional Banks,15.7775,15.8,15.65,15.69,-1.1809163911195086,39985403713.63384,5131496.0,EUR
-0HAL,"AeroVironment, Inc.",LSE,Electronic Technology,Aerospace & Defense,108.81,111.0,103.5005,105.5876,-3.757542612341627,4221246424.704225,3110.0,USD
+0HAL,"AeroVironment, Inc.",LSE,Electronic Technology,Aerospace & Defense,108.81,111.0,103.5005,106.17,-3.2266885425211855,4221246424.704225,3111.0,USD
 0HAN,Bouygues SA,LSIN,Industrial Services,Engineering & Construction,44.42,44.6,43.55,43.67,-2.2714557457759885,14377168156.02742,426672.0,EUR
 0HAQ,"Affiliated Managers Group, Inc.",LSE,Finance,Investment Managers,398.59,398.59,383.5011,383.5011,-0.42757600391952927,7258904402.787768,4.0,USD
 0HAR,AXA SA,LSIN,Finance,Multi-Line Insurance,46.6,46.64,46.095,46.145,-1.3468733297701667,80306143922.72603,2358744.0,EUR
@@ -691,7 +691,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0HBH,"Air Products and Chemicals, Inc.",LSE,Process Industries,Chemicals: Specialty,310.002,314.8,310.0,311.81,-1.147639729892529,53023603403.1893,82.0,USD
 0HBL,Xtrackers II Global Inflation-Linked Bond UCITS ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,185.315,185.315,185.04,185.04,-2.201316032874406,,39.0,EUR
 0HBP,H&M Hennes & Mauritz AB Class B,LSIN,Retail Trade,Apparel/Footwear Retail,179.525,179.525,178.05,179.525,-0.5677097756854088,21491554944.4081,14353.0,SEK
-0HBQ,"Akamai Technologies, Inc.",LSE,Technology Services,Data Processing Services,83.93,86.0,82.8504,83.94,-0.8498750878519203,9206470544.851719,1274.0,USD
+0HBQ,"Akamai Technologies, Inc.",LSE,Technology Services,Data Processing Services,83.93,86.0,82.8504,84.89,0.27226714072254904,9206470544.851719,1288.0,USD
 0HBT,Skanska AB Class B,LSIN,Industrial Services,Engineering & Construction,305.1,305.4,302.9,305.1,-0.4567699836867789,9449368060.104177,41487.0,SEK
 0HBY,Skandinaviska Enskilda Banken AB Class A,LSIN,Finance,Major Banks,220.1,221.65,218.75,220.2,-1.2777404169468831,32541712959.43505,83096.0,SEK
 0HC0,Sandvik AB,LSIN,Producer Manufacturing,Trucks/Construction/Farm Machinery,349.5,351.8,345.7,346.15,-3.485292067475255,33343372230.77529,2565244.0,SEK
@@ -701,7 +701,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0HCB,Alcoa Corporation,LSE,Non-Energy Minerals,Aluminum,38.66,38.66,37.147,37.44,-3.8767650834403207,7741090626.648865,2897.0,USD
 0HCC,3U HOLDING AG,LSE,Producer Manufacturing,Industrial Conglomerates,0.798,0.798,0.798,0.798,-7.638888888888882,25486127.716936,1.0,EUR
 0HCH,"Alexandria Real Estate Equities, Inc.",LSE,Finance,Real Estate Investment Trusts,43.1,43.62,42.15,42.15,-2.565880721220526,5750751594.744132,454.0,USD
-0HCI,Alibaba Group Holding Limited Sponsored ADR,LSE,Retail Trade,Internet Retail,87.52,88.5129,86.64,87.0058,-4.248233662756153,173400782869.29877,345769.0,USD
+0HCI,Alibaba Group Holding Limited Sponsored ADR,LSE,Retail Trade,Internet Retail,87.52,88.5129,86.64,87.16,-4.078533224748535,173400782869.29877,346140.0,USD
 0HCJ,UBS ETF SICAV - UBS ETF - MSCI United Kingdom UCITS ETF -(GBP) A-UKdis- Distribution,LSE,Miscellaneous,Investment Trusts/Mutual Funds,17.8204,17.8204,17.8204,17.8204,-1.294442813543732,,20000.0,GBP
 0HCK,"Align Technology, Inc.",LSE,Health Technology,Medical Specialties,164.29,168.0,162.34,164.2007,-1.0660360306079335,8874645873.166327,212.0,USD
 0HCP,UBS ETF SICAV - UBS ETF - MSCI Emerging Markets UCITS ETF -(USD) A-UKdis- Distribution,LSE,Miscellaneous,Investment Trusts/Mutual Funds,21.055,21.055,20.7595,20.895,-4.8713862963806065,,4240.0,USD
@@ -713,7 +713,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0HCZ,Allstate Corporation,LSE,Finance,Multi-Line Insurance,267.04,272.9395,267.04,271.68,0.580239285305722,50760671158.89357,736.0,USD
 0HD0,Ally Financial Inc,LSE,Finance,Finance/Rental/Leasing,37.9,38.13,37.2,37.56,-1.2111887008324356,8673048273.534115,351.0,USD
 0HD2,"Alnylam Pharmaceuticals, Inc",LSE,Health Technology,Pharmaceuticals: Major,159.76,162.49,155.85,157.0,-1.9424145899694045,16228367952.876417,893.0,USD
-0HD6,Alphabet Inc. Class C,LSE,Technology Services,Internet Software/Services,280.99,282.08,276.05,278.27,-1.4973451327433693,2620279642428.972,50852.0,USD
+0HD6,Alphabet Inc. Class C,LSE,Technology Services,Internet Software/Services,280.99,282.08,276.05,278.27,-1.4973451327433693,2620279642428.972,50912.0,USD
 0HD8,UBS (Lux) Fund Solutions - UBS BBG MSCI US Liquid Corp Sustainable UCITS ETF -(hedged to EUR) A-acc- Capitalisation,LSE,Miscellaneous,Investment Trusts/Mutual Funds,14.6925,14.6925,14.6925,14.6925,-0.0476206673696362,,17.0,EUR
 0HD9,UBS (Lux) Fund Solutions - UBS BBG MSCI US Liquid Corp Sustainable UCITS ETF -(hedged to CHF) A-dis- Distribution,LSE,Miscellaneous,Investment Trusts/Mutual Funds,9.5387,9.5387,9.5387,9.5387,-0.0932171435753362,,8313.0,CHF
 0HDC,Xtrackers DAX ESG Screened UCITS ETF 2C USD Hedged,LSE,Miscellaneous,Investment Trusts/Mutual Funds,46.0391,46.0391,46.0391,46.0391,-1.942028800299887,,160.0,USD
@@ -761,34 +761,34 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0HGM,Appian Corporation Class A,LSE,Technology Services,Packaged Software,54.5,55.58,51.61,53.81,-4.388770433546551,3009580326.909687,2413.0,USD
 0HGR,"Applied Industrial Technologies, Inc.",LSE,Distribution Services,Wholesale Distributors,296.71,296.71,291.2787,291.2787,-4.498786885245896,8116782702.781632,7.0,USD
 0HGS,BNP PARIBAS EASY SICAV - Dividend Europe -UCITS ETF- Capitalisation,LSE,Miscellaneous,Investment Trusts/Mutual Funds,206.7,206.7,206.7,206.7,-1.1004784688995268,,2744.0,EUR
-0HGV,"Applied Optoelectronics, Inc.",LSE,Electronic Technology,Semiconductors,45.24,49.86,42.67,44.6,-2.4923480542195025,3109465354.0596147,111857.0,USD
+0HGV,"Applied Optoelectronics, Inc.",LSE,Electronic Technology,Semiconductors,45.24,49.86,42.67,44.74,-2.1862702229995628,3109465354.0596147,111862.0,USD
 0HGY,Amundi Euro Government Bond 1-3Y UCITS ETF Acc,LSIN,Miscellaneous,Investment Trusts/Mutual Funds,127.76,128.01,127.76,127.91,0.04692999608916877,,4199.0,EUR
 0HGZ,Multi Units LU Amundi Euro Government Bond 3-5Y Acc- Capitalisation,LSIN,Miscellaneous,Investment Trusts/Mutual Funds,150.42,150.52,150.3,150.33,0.07988815658078992,,3012.0,EUR
 0HH0,Amundi Euro Government Bond 10-15Y UCITS ETF Acc,LSE,Miscellaneous,Investment Trusts/Mutual Funds,192.5556,192.953,192.5556,192.68,0.13720272742392006,,163.0,EUR
 0HH6,"Aqua Metals, Inc.",LSE,Non-Energy Minerals,Other Metals/Minerals,1.12,1.12,0.9999,0.9999,-19.36290322580645,2851798.967325,556.0,USD
-0HHB,Aramark,LSE,Consumer Services,Restaurants,55.57,56.91,54.8,56.88,3.814564701587887,11072535680.228874,100.0,USD
+0HHB,Aramark,LSE,Consumer Services,Restaurants,55.57,56.91,54.8,56.07,2.3361927359007137,11072535680.228874,101.0,USD
 0HHI,SURTECO GROUP SE,LSE,Non-Energy Minerals,Forest Products,6.2,6.2,6.2,6.2,-38.0,79534645.185044,14.0,EUR
 0HHO,"Argan, Inc.",LSE,Industrial Services,Engineering & Construction,293.0,300.98,285.76,291.0305,-0.6620131754104548,3132690320.9535484,57.0,USD
 0HHP,Ares Capital Corporation,LSE,Finance,Financial Conglomerates,19.1,19.1,18.872,18.93,-0.7944826429649607,10452466412.048805,52486.0,USD
 0HHR,Arista Networks Inc,LSE,Electronic Technology,Computer Peripherals,187.9,192.0,182.01,185.26,-0.7234338995766693,179232049564.29248,10547.0,USD
-0HHU,"ARMOUR Residential REIT, Inc.",LSE,Finance,Real Estate Investment Trusts,11.44,11.44,10.93,11.14,-3.130434782608691,1289051999.210961,44472.0,USD
+0HHU,"ARMOUR Residential REIT, Inc.",LSE,Finance,Real Estate Investment Trusts,11.44,11.44,10.93,11.14,-3.130434782608691,1289051999.210961,45599.0,USD
 0HI1,"Arrow Electronics, Inc.",LSE,Distribution Services,Electronics Distributors,189.9348,189.9348,183.32,185.47,-0.7863485610356259,7163115900.152478,43.0,USD
 0HI3,"Arrowhead Pharmaceuticals, Inc.",LSE,Health Technology,Biotechnology,44.1,45.0,42.40603,42.83,-6.13631382862153,4740864452.191599,1397.0,USD
 0HIN,"Assurant, Inc.",LSE,Finance,Property/Casualty Insurance,322.51,324.15,321.93,324.15,-0.329008056085127,12051773446.337439,29.0,USD
 0HIT,Iberdrola SA,LSIN,Utilities,Electric Utilities,23.18,23.18,22.7328,22.775,-2.000860585197934,127275408733.29356,1151603.0,EUR
 0HIY,Atara Biotherapeutics Inc,LSE,Health Technology,Pharmaceuticals: Major,6.368,6.8,6.12,6.4,-2.587519025875189,49462212.227871,688.0,USD
-0HJF,"Autodesk, Inc.",LSE,Technology Services,Packaged Software,260.69,262.46,256.045,258.04,-3.788432986354239,42096482627.37899,1290.0,USD
+0HJF,"Autodesk, Inc.",LSE,Technology Services,Packaged Software,260.69,262.46,256.045,257.9995,-3.8035336237129957,42096482627.37899,1374.0,USD
 0HJH,Autoliv Inc.,LSE,Producer Manufacturing,Auto Parts: OEM,119.9083,119.9083,119.9083,119.9083,1.2910119952694727,6410854859.860389,13.0,USD
 0HJI,"Automatic Data Processing, Inc.",LSE,Technology Services,Packaged Software,314.57,314.57,308.66,309.74,-1.400649391990825,93855341869.0693,328.0,USD
 0HJL,"AutoZone, Inc.",LSE,Retail Trade,Specialty Stores,3249.205,3275.0114,3239.19,3239.19,-1.6047897643392182,39918818018.06789,11.0,USD
 0HJR,Avery Dennison Corporation,LSE,Process Industries,Pulp & Paper,185.9097,187.52,185.25,185.25,-1.9633784928027136,10731873414.754446,21.0,USD
 0HK4,"Avis Budget Group, Inc.",LSE,Finance,Finance/Rental/Leasing,122.5,126.4,122.5,125.7,-0.49869389693659105,3293337722.0966883,39.0,USD
 0HKD,"Axogen, Inc.",LSE,Health Technology,Medical Specialties,53.6,56.8695,53.6,55.6705,-1.0653989692553867,2509207725.086715,2695.0,USD
-0HKE,Axon Enterprise Inc,LSE,Electronic Technology,Aerospace & Defense,307.92,310.73,291.0,307.26,-0.09429361079499933,18929113208.894146,1775.0,USD
+0HKE,Axon Enterprise Inc,LSE,Electronic Technology,Aerospace & Defense,307.92,310.73,291.0,307.515,-0.011380263371817594,18929113208.894146,1800.0,USD
 0HKF,"Axsome Therapeutics, Inc.",LSE,Health Technology,Biotechnology,136.36,137.29,135.626,136.37,-1.073271937874277,5466681663.584283,1024.0,USD
-0HKP,BP PLC Sponsored ADR,LSE,Energy Minerals,Integrated Oil,44.75,45.455,44.75,44.9421,-0.16194601799399552,88179851049.70392,33597.0,USD
+0HKP,BP PLC Sponsored ADR,LSE,Energy Minerals,Integrated Oil,44.75,45.455,44.75,44.89,-0.27768521603909807,88179851049.70392,33600.0,USD
 0HKY,BYD Company Ltd Unsponsored ADR Class H,LSE,Producer Manufacturing,Electrical Products,8.2,8.2,8.04,8.06,-1.5873015873015754,67342941085.93948,20214.0,USD
-0HL1,"Baidu, Inc. Sponsored ADR Class A",LSE,Technology Services,Internet Software/Services,72.8,73.62,70.96,71.6287,-2.7840662323561505,19273429419.83389,19807.0,USD
+0HL1,"Baidu, Inc. Sponsored ADR Class A",LSE,Technology Services,Internet Software/Services,72.8,73.62,70.96,71.88,-2.442996742671025,19273429419.83389,19808.0,USD
 0HL5,Ball Corporation,LSE,Process Industries,Containers/Packaging,64.88,65.54,64.63581716,65.18,-0.5318296619028167,12910923480.15818,512.0,USD
 0HL8,Banco Bradesco SA Sponsored ADR Pfd,LSE,Finance,Major Banks,2.45,2.49,2.44,2.47,1.2295081967213217,19893993413.84426,34642.0,USD
 0HLE,Banco Santander S.A. Sponsored ADR,LSE,Finance,Major Banks,12.2,12.2,11.85,11.8795,-0.9083780988288697,132288195720.14148,4083.0,USD
@@ -798,7 +798,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0HMZ,W. R. Berkley Corporation,LSE,Finance,Multi-Line Insurance,77.74,78.1229,77.74,78.1229,-0.11775234929361639,22128066341.559776,11.0,USD
 0HN3,BHP Group Ltd Sponsored American Depositary Receipt Repr 2 Shs,LSE,Non-Energy Minerals,Steel,73.9,75.3505,73.2,73.91,-3.005249343832029,148587564654.22925,5769.0,USD
 0HN5,"Former BL Stores, Inc.",LSE,Retail Trade,Discount Stores,0.0001,0.0001,0.0001,0.0001,0.0,2252.143857,600.0,USD
-0HNC,BioMarin Pharmaceutical Inc.,LSE,Health Technology,Biotechnology,57.0,58.85,57.0,58.48,-0.06835269993165799,8520338760.879216,3251.0,USD
+0HNC,BioMarin Pharmaceutical Inc.,LSE,Health Technology,Biotechnology,57.0,58.85,57.0,58.46,-0.10252904989747483,8520338760.879216,3285.0,USD
 0HNZ,Fagron SA,LSIN,Distribution Services,Medical Distributors,24.25,24.375,24.25,24.25,-0.410677618069821,1493969310.604708,1650.0,EUR
 0HO8,Blackstone Inc.,LSE,Finance,Investment Managers,109.25,109.25,109.25,109.25,1.722532588454371,109560849371.36925,100.0,EUR
 0HOB,"H&R Block, Inc.",LSE,Consumer Services,Other Consumer Services,49.11577225,49.86,47.83,48.39,-2.732886294563173,4571497460.039763,220.0,USD
@@ -812,7 +812,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0HPH,"Brighthouse Financial, Inc.",LSE,Finance,Life/Health Insurance,42.395,43.84,41.39,42.35,-2.2165781574694083,1870686867.576486,316.0,USD
 0HPW,"Broadridge Financial Solutions, Inc.",LSE,Technology Services,Information Technology Services,191.98,191.98,190.0,190.45,-2.662782377593789,16751020684.664688,169.0,USD
 0HQ1,"Azenta, Inc.",LSE,Health Services,Medical/Nursing Services,46.0,47.93,46.0,46.41,0.5198180636777017,1569167376.6356523,326.0,USD
-0HQ3,Brown-Forman Corporation Class B,LSE,Consumer Non-Durables,Beverages: Alcoholic,30.3,31.0,30.3,30.41,-1.9348597226701107,10865007035.096281,647.0,USD
+0HQ3,Brown-Forman Corporation Class B,LSE,Consumer Non-Durables,Beverages: Alcoholic,30.3,31.0,30.3,30.305,-2.273460174137381,10865007035.096281,746.0,USD
 0HQ7,"Buckle, Inc.",LSE,Retail Trade,Apparel/Footwear Retail,42.4,43.5727,42.4,42.59,-0.12897174346347687,1662246703.438677,147.0,USD
 0HQ8,Arjo AB Class B,LSIN,Distribution Services,Medical Distributors,36.61,36.61,36.32,36.58,-0.8134490238611829,747628104.263319,4050.0,SEK
 0HQK,"CBL & Associates Properties, Inc.",LSE,Finance,Real Estate Investment Trusts,52.6703,53.75,50.99,50.99,-7.4927431059506455,1266218805.977703,22.0,USD
@@ -900,7 +900,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0I8Y,Elisa Oyj Class A,LSIN,Communications,Wireless Telecommunications,34.29,34.49,33.88,33.92,-0.9924109748978293,4601296015.051712,70067.0,EUR
 0I9F,"Digital Realty Trust, Inc.",LSE,Finance,Real Estate Investment Trusts,178.49,180.12,175.07,176.95,-0.9626686069289746,51303455363.14172,518.0,USD
 0I9L,Direxion Daily Technology Bull 3X ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,126.2327,126.2327,119.7,120.9214,-5.179765853505529,,8381.0,USD
-0I9N,Direxion Daily Semiconductor Bull 3X ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,50.88,51.85,43.63,47.572,-5.26336751966544,,235686.0,USD
+0I9N,Direxion Daily Semiconductor Bull 3X ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,50.88,51.85,43.63,47.7704,-4.868266454246741,,240122.0,USD
 0I9S,Direxion Daily Mid Cap Bull 3X ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,61.355,61.355,61.355,61.355,-4.1477894079050275,,145.0,USD
 0I9U,Direxion Daily FTSE China Bull 3X ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,22.25,22.36,21.9905,22.115,-3.301268036729351,,1621.0,USD
 0IA2,Direxion Daily S&P 500 Bull 3X ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,248.92,248.92,238.495,242.52,-3.222330852570877,,1616.0,USD
@@ -943,7 +943,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0IHQ,ENBW Energie Baden-Wuerttemberg AG,LSE,Utilities,Electric Utilities,65.0,66.0,65.0,66.0,0.6097560975609843,17794529920.587284,3.0,EUR
 0II2,KONE Oyj Class B,LSIN,Producer Manufacturing,Building Products,58.29,58.29,57.63,57.64,-0.8088108759249679,25282373847.026447,32378.0,EUR
 0II3,Equifax Inc.,LSE,Commercial Services,Financial Publishing/Services,185.99,191.31,183.99,185.0783,-2.462286001881405,16820726496.381237,78.0,USD
-0II4,"Equinix, Inc.",LSE,Finance,Real Estate Investment Trusts,1020.4,1053.785,1020.4,1034.81,-0.9467306658702638,78321175441.8532,296.0,USD
+0II4,"Equinix, Inc.",LSE,Finance,Real Estate Investment Trusts,1020.4,1053.785,1020.4,1037.655,-0.6744038123845014,78321175441.8532,300.0,USD
 0IIB,Vivmark Residential,LSE,Finance,Real Estate Investment Trusts,63.7,64.92,63.7,64.71,-0.26202219482121103,38005172308.9682,18.0,USD
 0IID,Telefonaktiebolaget LM Ericsson Sponsored ADR Class B,LSE,Electronic Technology,Telecommunications Equipment,10.46,10.46,10.25,10.34,-2.268431001890361,26492389726.25415,2743.0,USD
 0IIF,Vivendi SE,LSIN,Consumer Services,Media Conglomerates,1.6585,1.6585,1.63,1.6365,-1.6821868428957658,1331069875.003268,18923.0,EUR
@@ -962,10 +962,10 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0IK3,FMC Corporation,LSE,Process Industries,Chemicals: Agricultural,5.28,5.3,4.95,5.02,-3.0888030888030915,617136336.659523,4115.0,USD
 0IKJ,Wartsila Oyj Abp,LSIN,Producer Manufacturing,Trucks/Construction/Farm Machinery,25.535,25.655,25.13,25.265,-1.9976726144297927,12755373483.004372,211633.0,EUR
 0IKK,Digia Oyj,LSE,Technology Services,Packaged Software,4.97,4.97,4.97,4.97,-0.40080160320642205,111128566.35668801,692.0,EUR
-0IKW,Fastenal Company,LSE,Distribution Services,Wholesale Distributors,55.88,55.88,54.47,54.515,-0.5382229520160585,47961627602.478806,2018.0,USD
+0IKW,Fastenal Company,LSE,Distribution Services,Wholesale Distributors,55.88,55.88,54.47,54.47,-0.6203247582557989,47961627602.478806,2019.0,USD
 0IKZ,Freddie Mac,LSE,Finance,Finance/Rental/Leasing,3.75,3.76,3.35,3.5,-9.560723514211888,1854073431.183834,502808.0,USD
 0IL0,Federal National Mortgage Association,LSE,Finance,Finance/Rental/Leasing,4.14,4.15,3.78,3.92,-9.624735156669667,3619299836.514963,533231.0,USD
-0IL1,Federal Realty Investment Trust,LSE,Finance,Real Estate Investment Trusts,114.19,114.19,113.2,113.27,-0.4219780219780255,7483582573.440493,39.0,USD
+0IL1,Federal Realty Investment Trust,LSE,Finance,Real Estate Investment Trusts,114.19,114.19,112.9,112.9,-0.7472527472527423,7483582573.440493,41.0,USD
 0IL6,"F5, Inc.",LSE,Technology Services,Packaged Software,308.5,312.8,300.3,303.515,0.788669721724115,13129926862.719196,480.0,USD
 0IL8,"Kyntra Bio, Inc.",LSE,Health Technology,Pharmaceuticals: Major,3.0,3.08,2.015,2.105,-34.84384189185007,9828721.414494,30300.0,USD
 0ILI,"Fluidra, S.A.",LSIN,Consumer Durables,Recreational Products,19.125,19.16,18.98,19.055,-2.2569889715311686,3017238064.817872,3985.0,EUR
@@ -992,7 +992,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0IQE,Flowserve Corporation,LSE,Producer Manufacturing,Industrial Machinery,81.98,81.98,81.98,81.98,-1.073971280318572,7752844149.751503,4.0,USD
 0IQP,Caisse Regionale de Credit Agricole Mutuel de la Touraine et du Poitou Cert.Coop.d'Invt.,LSE,Finance,Major Banks,106.5,106.5,106.5,106.5,-20.522388059701495,89501627.785316,1.0,EUR
 0IQU,Mercialys SA,LSIN,Finance,Real Estate Development,9.995,10.0,9.87,9.89,-0.6529382219989905,780345815.207696,6280.0,EUR
-0IR9,"Fortinet, Inc.",LSE,Technology Services,Information Technology Services,123.88,126.6,120.64,123.8195,-0.7777065469989592,68700379182.557396,2023.0,USD
+0IR9,"Fortinet, Inc.",LSE,Technology Services,Information Technology Services,123.88,126.6,120.64,124.09064478,-0.5604256911611516,68700379182.557396,2144.0,USD
 0IRE,Fortive Corp.,LSE,Electronic Technology,Electronic Equipment/Instruments,66.03,67.215,66.03,66.88,-1.7164354573242508,15246862739.86263,1066.0,USD
 0IRF,Evotec SE,LSIN,Commercial Services,Miscellaneous Commercial Services,2.834,2.912,2.696,2.709,-8.910558170813722,435045592.422808,25937.0,EUR
 0IRK,Altarea SCA,LSE,Finance,Real Estate Development,72.8,72.82,72.8,72.82,-1.594594594594604,1512074027.985264,270.0,EUR
@@ -1013,10 +1013,10 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0IV3,Geron Corporation,LSE,Health Technology,Biotechnology,0.9505,1.015,0.9505,1.0,4.004160166406654,460296500.643966,50215.0,USD
 0IVJ,Lectra SA,LSIN,Technology Services,Packaged Software,20.65,21.1,20.41,20.41,-1.400966183574875,655940375.147396,8578.0,EUR
 0IVM,SpareBank 1 SMN,LSIN,Finance,Savings Banks,223.775,224.8,222.9,223.775,0.02234886579506598,2534114101.889684,3376.0,NOK
-0IVQ,Gladstone Commercial Corporation,LSE,Finance,Real Estate Investment Trusts,9.77,9.82,9.54,9.66,-0.8213552361396311,360177376.452708,9127.0,USD
-0IVR,Gladstone Investment Corporation,LSE,Miscellaneous,Investment Trusts/Mutual Funds,14.2,14.82,14.2,14.4,-1.8404907975460092,441325331.33382004,1659.0,USD
+0IVQ,Gladstone Commercial Corporation,LSE,Finance,Real Estate Investment Trusts,9.77,9.82,9.54,9.66,-0.8213552361396311,360177376.452708,9134.0,USD
+0IVR,Gladstone Investment Corporation,LSE,Miscellaneous,Investment Trusts/Mutual Funds,14.2,14.82,14.2,14.44,-1.5678254942058651,441325331.33382004,1679.0,USD
 0IVW,Glencore plc Unsponsored ADR,LSE,Distribution Services,Wholesale Distributors,13.5,13.5,13.5,13.5,-0.2954209748892109,58634156215.47186,108.0,USD
-0IW3,Global Net Lease Inc,LSE,Finance,Real Estate Investment Trusts,6.4,6.53,6.2486,6.265,-3.3179012345679126,1090281457.5814261,1552.0,USD
+0IW3,Global Net Lease Inc,LSE,Finance,Real Estate Investment Trusts,6.4,6.53,6.2486,6.26,-3.3950617283950715,1090281457.5814261,1553.0,USD
 0IW5,Thales SA,LSIN,Electronic Technology,Aerospace & Defense,228.4,228.8,225.48031,226.15,-1.3091861226271002,39339022109.09349,268615.0,EUR
 0IW6,Financiere Moncey,LSE,Finance,Financial Conglomerates,104.0,104.0,104.0,104.0,-1.8867924528301887,1648193922.953756,5.0,EUR
 0IW7,Global Payments Inc.,LSE,Finance,Finance/Rental/Leasing,89.26311225,89.26311225,87.57,87.74,-3.017574886702779,18030492107.904045,294.0,USD
@@ -1053,7 +1053,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0J1Z,NOS SGPS SA,LSIN,Communications,Major Telecommunications,5.74,5.795,5.67,5.6725,-1.604509973980908,2474883489.770556,107042.0,EUR
 0J22,"HCI Group, Inc.",LSE,Finance,Property/Casualty Insurance,191.78,193.095,191.78,193.095,0.5493647156842361,1820426530.914264,18.0,USD
 0J2E,HP Inc.,LSE,Technology Services,Information Technology Services,28.56,28.605,28.14,28.4676,-2.076955358187083,19509285426.262436,3727.0,USD
-0J2I,"Hain Celestial Group, Inc.",LSE,Consumer Non-Durables,Food: Major Diversified,0.124,0.1286,0.113,0.113,-12.4031007751938,8565774.665568,118778.0,USD
+0J2I,"Hain Celestial Group, Inc.",LSE,Consumer Non-Durables,Food: Major Diversified,0.124,0.1286,0.1123,0.1123,-12.945736434108532,8565774.665568,118978.0,USD
 0J2O,"Halozyme Therapeutics, Inc.",LSE,Health Technology,Biotechnology,96.4,97.45,94.95,95.8,-1.9748286094341623,8345573712.906919,253.0,USD
 0J2R,Alstom SA,LSIN,Producer Manufacturing,Trucks/Construction/Farm Machinery,9.81,10.295,9.54,10.0595,1.6213758965552154,3803631565.597284,428017.0,EUR
 0J2Z,"HA Sustainable Infrastructure Capital, Inc.",LSE,Finance,Investment Managers,37.77,38.92,37.77,38.4063,0.4874411302982805,3725336613.953388,178.0,USD
@@ -1102,12 +1102,12 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0JAX,Innospec Inc.,LSE,Process Industries,Chemicals: Major Diversified,78.27,78.38,78.27,78.38,-1.8655314886690983,1479241597.390587,7.0,USD
 0JBD,Innovative Industrial Properties Inc,LSE,Finance,Real Estate Investment Trusts,52.77,52.77,50.28,50.52,-3.3110047846889894,1093590984.87567,1404.0,USD
 0JBJ,SRV Yhtiot Oyj,LSE,Industrial Services,Engineering & Construction,7.4,7.4,7.34,7.39,-3.018372703412079,101103445.051308,256.0,EUR
-0JBU,"Intellia Therapeutics, Inc.",LSE,Health Technology,Biotechnology,9.92,10.23,9.71,9.93,-0.4012036108325068,1049788018.747092,16499.0,USD
+0JBU,"Intellia Therapeutics, Inc.",LSE,Health Technology,Biotechnology,9.92,10.23,9.71,9.93,-0.4012036108325068,1049788018.747092,16524.0,USD
 0JC3,"Intercontinental Exchange, Inc.",LSE,Finance,Investment Banks/Brokers,177.01,177.68,174.39,174.42,-1.9120458891013417,75581364503.80182,487.0,USD
 0JCO,All for One Group SE,LSE,Commercial Services,Miscellaneous Commercial Services,78.0,78.0,78.0,78.0,0.5154639175257806,322444065.162052,68.0,EUR
 0JCT,Intuit Inc.,LSE,Technology Services,Packaged Software,344.68,345.0,320.94,326.86,-6.177162868132494,70049387596.23328,1872.0,USD
-0JD3,Invesco Mortgage Capital Inc.,LSE,Finance,Real Estate Investment Trusts,4.99,4.99,4.8,4.88,-1.214574898785435,409666569.65223604,21737.0,USD
-0JDI,"Ionis Pharmaceuticals, Inc.",LSE,Health Technology,Pharmaceuticals: Major,28.23,28.46,26.7987,26.7987,-6.134150612959721,3538595129.942553,5006.0,USD
+0JD3,Invesco Mortgage Capital Inc.,LSE,Finance,Real Estate Investment Trusts,4.99,4.99,4.8,4.8673,-1.4716599190283441,409666569.65223604,22237.0,USD
+0JDI,"Ionis Pharmaceuticals, Inc.",LSE,Health Technology,Pharmaceuticals: Major,28.23,28.46,26.7987,26.83,-6.024518388791602,3538595129.942553,5009.0,USD
 0JDK,Iovance Biotherapeutics Inc,LSE,Health Technology,Biotechnology,7.53,7.7,7.25,7.4,-3.0144167758846594,2649660887.301993,35079.0,USD
 0JDM,IQVIA Holdings Inc,LSE,Health Technology,Biotechnology,262.0,264.07331046,258.415,259.06,-2.5155694368661696,33093776027.603756,759.0,USD
 0JDO,Iridium Communications Inc.,LSE,Communications,Specialty Telecommunications,44.0,45.72,44.0,44.6749,-0.6341192170818504,3626123137.5671253,949.0,USD
@@ -1130,7 +1130,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0JFU,iShares 20+ Year Treasury Bond ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,79.64,79.7355,79.23,79.68,0.24532930741650297,,24608.0,USD
 0JG5,Bittium Corporation,LSE,Technology Services,Information Technology Services,31.2,31.5,30.5,31.1,-2.3547880690737832,944939187.500784,15666.0,EUR
 0JG6,iShares Core S&P Mid-Cap ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,72.535,72.535,71.905,71.905,-2.6706191288340224,,1637.0,USD
-0JG8,iShares Semiconductor ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,142.8,143.84,136.465,140.0,-1.8404907975460123,,24090.0,USD
+0JG8,iShares Semiconductor ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,142.8,143.84,136.465,140.28,-1.6441717791411035,,24104.0,USD
 0JGB,iShares Biotechnology ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,207.3779,207.6466,204.7625,206.6137,-1.1417703349282322,,258.0,USD
 0JGH,iShares Russell 1000 Growth ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,109.1558,109.78,109.0411,109.78,-3.556242752222653,,15.0,USD
 0JGK,iShares Russell 2000 Growth ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,361.95,372.0,361.95,372.0,5.3078556263269645,,100.0,USD
@@ -1148,13 +1148,13 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0JI3,Hunter Group ASA,LSE,Energy Minerals,Oil & Gas Production,16.74,17.03,16.74,16.78,1.0843373493975885,160167641.37634403,43948.0,NOK
 0JI9,Ensurge Micropower ASA,LSE,Producer Manufacturing,Electrical Products,0.484,0.484,0.484,0.484,-0.41152263374485637,36402579.43935601,14725.0,NOK
 0JJ4,iShares Global Materials ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,106.17,106.17,106.17,106.17,-3.361723159599242,,4.0,USD
-0JJC,iShares U.S. Home Construction ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,93.3739,93.3739,92.6805,92.6805,-1.0070142795650285,,600.0,USD
+0JJC,iShares U.S. Home Construction ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,93.3739,93.3739,92.2191,92.2191,-1.4998403175277981,,606.0,USD
 0JJE,iShares U.S. Regional Banks ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,62.48,62.48,62.48,62.48,3.0948247981994683,,100.0,USD
 0JJJ,iShares U.S. Medical Devices ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,57.16,57.8119,57.16,57.172,-1.2225378198881927,,3599.0,USD
 0JJP,iShares U.S. Oil & Gas Exploration & Production ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,130.8775,130.8775,130.8775,130.8775,-4.909724997275398,,7.0,USD
 0JK4,TAG Immobilien AG,LSIN,Finance,Real Estate Development,11.23,11.405,11.23,11.405,-0.6100217864923773,1805354382.693464,35885.0,EUR
 0JK5,iShares India 50 ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,46.28351,46.3491,46.2483,46.3491,0.5185426154847117,,22.0,USD
-0JKC,iShares Silver Trust,LSE,Miscellaneous,Investment Trusts/Mutual Funds,42.8,43.13,42.67,42.7824,0.7581163669763649,,14997.0,USD
+0JKC,iShares Silver Trust,LSE,Miscellaneous,Investment Trusts/Mutual Funds,42.8,43.13,42.67,42.7801,0.7526995678336197,,15297.0,USD
 0JKF,Jackson Financial Incorporation Class A,LSE,Finance,Life/Health Insurance,136.605,136.605,133.54,133.54,-2.553998832457677,6894550002.658957,63.0,USD
 0JKH,iShares MSCI Indonesia ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,10.5526,10.5693,10.5305,10.54,-0.01992012976542088,,19463.0,USD
 0JKV,iShares MSCI India Small Cap ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,70.7009,70.77,70.7009,70.77,-0.4361283061339368,,9101.0,USD
@@ -1169,7 +1169,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0JNB,iShares MSCI United Kingdom ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,47.2444,47.3317,47.01,47.18,-1.2970711297071078,,12.0,USD
 0JOI,Jacobs Solutions Inc.,LSE,Technology Services,Data Processing Services,157.56,160.54,157.56,159.75,-0.19991253826450503,14188818736.460958,82.0,USD
 0JOP,"Ramada Investimentos e Industria,S.A.",LSE,Non-Energy Minerals,Steel,6.5,6.7,6.5,6.7,-0.2976190476190413,142003742.604936,3.0,EUR
-0JOQ,"JD.com, Inc. Sponsored ADR Class A",LSE,Retail Trade,Internet Retail,26.9,27.07,25.21,25.925,-6.000725163161703,25177333820.81676,135843.0,USD
+0JOQ,"JD.com, Inc. Sponsored ADR Class A",LSE,Retail Trade,Internet Retail,26.9,27.07,25.21,25.9,-6.091370558375634,25177333820.81676,135873.0,USD
 0JOT,JetBlue Airways Corporation,LSE,Transportation,Airlines,3.78,3.78,3.608,3.66,0.5494505494505499,1064817897.6212851,9574.0,USD
 0JOX,Jinko Holdings Limited Sponsored ADR,LSIN,Electronic Technology,Semiconductors,8.725,9.14,8.39,8.525,-5.801104972375694,339685110.39522904,2861.0,USD
 0JPB,Jones Lang LaSalle Incorporated,LSE,Finance,Real Estate Development,365.4,365.4,358.73,362.995,-0.12263348601298314,12716271495.973724,84.0,USD
@@ -1192,12 +1192,12 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0JSC,"Bath & Body Works, Inc.",LSE,Retail Trade,Specialty Stores,19.3,19.3,18.36,18.42,-5.295629820051402,2947513340.3683653,11396.0,USD
 0JSI,"LGI Homes, Inc.",LSE,Consumer Durables,Homebuilding,42.95,42.95,40.35,40.35,-3.928571428571425,732902711.599167,3.0,USD
 0JSJ,LKQ Corporation,LSE,Consumer Durables,Automotive Aftermarket,19.0,19.55,19.0,19.14,-0.9316770186335388,3689382531.496797,103.0,USD
-0JSP,"LTC Properties, Inc.",LSE,Finance,Real Estate Investment Trusts,43.33,43.42,41.81,41.81,-2.5635050104870527,1820486352.679503,1238.0,USD
+0JSP,"LTC Properties, Inc.",LSE,Finance,Real Estate Investment Trusts,43.33,43.42,41.81,42.12,-1.8410626893498,1820486352.679503,1245.0,USD
 0JSU,SIPEF SA,LSE,Process Industries,Agricultural Commodities/Milling,108.8,109.8,108.8,109.4,-0.3642987249544549,955919556.0802441,79.0,EUR
 0JSY,Labcorp Holdings Inc.,LSE,Health Services,Medical/Nursing Services,372.399528,375.54,368.0,369.65,-0.23211249358992025,22941487421.945457,56.0,USD
 0JSZ,Ladder Capital Corp. Class A,LSE,Finance,Real Estate Investment Trusts,8.38,8.5,8.36,8.368,-1.2042502951593899,805668677.069763,44.0,USD
 0JT4,Gek Terna S.A.,LSE,Industrial Services,Engineering & Construction,42.2409,42.2409,42.2409,42.2409,9.319099378881996,3345994362.631824,841.0,EUR
-0JT5,Lam Research Corporation,LSE,Producer Manufacturing,Industrial Machinery,214.68,216.99,202.01,207.92,-1.748416973821008,199774587822.96118,12127.0,USD
+0JT5,Lam Research Corporation,LSE,Producer Manufacturing,Industrial Machinery,214.68,216.99,202.01,207.98,-1.7200642661374232,199774587822.96118,12128.0,USD
 0JTM,Estee Lauder Companies Inc. Class A,LSE,Consumer Non-Durables,Household/Personal Care,107.99,108.51,104.7905,104.97,-2.994177987247015,29851116434.956417,1856.0,USD
 0JTQ,Lear Corporation,LSE,Producer Manufacturing,Auto Parts: OEM,106.48,107.7359,106.48,107.7359,0.9803168056987563,3903107073.9439354,7.0,USD
 0JTZ,"LendingTree, Inc.",LSE,Finance,Finance/Rental/Leasing,34.74,34.84009018,34.6359,34.6359,-0.6998279816513849,375207825.758757,10.0,USD
@@ -1209,7 +1209,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0JVQ,"Lowe's Companies, Inc.",LSE,Retail Trade,Home Improvement Chains,221.0,225.45,220.38,222.37,-1.7800353356890464,95727777232.41145,1548.0,USD
 0JVS,Hypoport SE,LSIN,Technology Services,Packaged Software,87.925,87.925,85.65,86.7,-2.720897615708272,491109968.383552,2068.0,EUR
 0JVT,lululemon athletica inc.,LSE,Consumer Non-Durables,Apparel/Footwear,105.33,108.17,103.0,104.1206,-1.350781600112942,9265737393.677782,3389.0,USD
-0JVV,"Lumentum Holdings, Inc.",LSE,Producer Manufacturing,Electrical Products,554.69,593.99,534.55,556.6,1.4268272682544676,37565212112.8507,9653.0,USD
+0JVV,"Lumentum Holdings, Inc.",LSE,Producer Manufacturing,Electrical Products,554.69,593.99,534.55,557.925,1.66827632705869,37565212112.8507,9678.0,USD
 0JW2,M&T Bank Corporation,LSE,Finance,Regional Banks,217.5,219.8,216.76,216.89,-1.490742246296316,23912639568.33482,254.0,USD
 0JW9,Lite Strategy Inc,LSE,Health Technology,Pharmaceuticals: Major,0.8248,0.8248,0.7571,0.7889,-11.746280344557555,19416078.849918,4628.0,USD
 0JWC,MGM Resorts International,LSE,Consumer Services,Casinos/Gaming,33.0,33.78,33.0,33.54,1.2681159420289907,6377564883.051015,7586.0,USD
@@ -1220,7 +1220,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0JXD,"Macy's, Inc.",LSE,Retail Trade,Department Stores,24.08,24.08,23.46,23.46,-2.168473728106754,4732998777.190404,823.0,USD
 0JXF,Protector Forsikring ASA,LSIN,Finance,Property/Casualty Insurance,481.4,482.0,476.4,480.0,0.0,3114453216.2812324,290.0,NOK
 0JXI,"Madrigal Pharmaceuticals, Inc.",LSE,Health Technology,Pharmaceuticals: Major,420.33288025,423.41,420.33288025,422.35,-0.44784914555096694,7470536718.00426,80.0,USD
-0JXQ,Main Street Capital Corporation,LSE,Finance,Financial Conglomerates,55.62,57.0,55.4786,55.73,-0.8715759516186447,3999320656.026471,7441.0,USD
+0JXQ,Main Street Capital Corporation,LSE,Finance,Financial Conglomerates,55.62,57.0,55.4786,55.71,-0.9071504802561331,3999320656.026471,7448.0,USD
 0JXZ,Lakefront Biotherapeutics,LSIN,Health Technology,Biotechnology,31.5,32.08,31.4,31.67,0.1264622194119592,1715884174.1796718,3543.0,EUR
 0JYA,Marathon Petroleum Corporation,LSE,Energy Minerals,Oil Refining/Marketing,393.01,409.88,392.98,393.095,-1.8292311365377658,83068542742.10645,4048.0,USD
 0JYM,Markel Group Inc.,LSE,Finance,Property/Casualty Insurance,1972.59,1972.59,1965.6506,1967.65464,-1.1097136050780596,18473650539.453842,413.0,USD
@@ -1252,7 +1252,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0K2P,Hello Group Inc. Sponsored ADR,LSE,Technology Services,Packaged Software,4.2,4.2716,4.2,4.2386,-2.0791941967379723,463059935.77232105,1452.0,USD
 0K34,Monster Beverage Corporation,LSE,Consumer Non-Durables,Beverages: Non-Alcoholic,45.8,46.22,44.9,44.9088,-1.9458515283842748,68007341623.09925,5344.0,USD
 0K36,Moody's Corporation,LSE,Commercial Services,Financial Publishing/Services,499.78,499.78,483.22,483.58,-4.388711944451426,66208530189.63255,800.0,USD
-0K3B,Mosaic Company,LSE,Process Industries,Chemicals: Agricultural,21.21,21.26,20.5795,20.8075,-1.6658790170132287,5119545858.260463,6610.0,USD
+0K3B,Mosaic Company,LSE,Process Industries,Chemicals: Agricultural,21.21,21.26,20.5795,20.815,-1.6304347826086905,5119545858.260463,6612.0,USD
 0K3H,"Motorola Solutions, Inc.",LSE,Electronic Technology,Telecommunications Equipment,540.45,540.45,522.9505,524.93,-1.7475728882223176,66992690768.46527,756.0,USD
 0K3S,Murphy Oil Corporation,LSE,Energy Minerals,Oil & Gas Production,35.51,36.16,34.8395,34.8795,-2.9507512520868047,3841480086.0702634,292.0,USD
 0K3W,"Myriad Genetics, Inc.",LSE,Health Technology,Medical Specialties,5.7,5.7,5.42,5.44,-2.333931777378813,405284737.424685,242.0,USD
@@ -1267,7 +1267,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0K6F,"NetApp, Inc.",LSE,Electronic Technology,Computer Peripherals,176.23,177.85,171.0902,172.5705,-2.3535902223731004,26498624096.501335,540.0,USD
 0K6G,Netease Inc Sponsored ADR,LSE,Technology Services,Packaged Software,119.39,120.8,119.0,120.11,-1.5572494057864155,59432902089.15015,306.0,USD
 0K6M,"Netlist, Inc.",LSE,Electronic Technology,Semiconductors,4.51,4.78,4.19,4.62,0.0,1327519091.901252,25451.0,USD
-0K6R,"Neurocrine Biosciences, Inc.",LSE,Health Technology,Biotechnology,164.0,166.39,161.42,165.77,0.169194513263642,12692452919.636873,327.0,USD
+0K6R,"Neurocrine Biosciences, Inc.",LSE,Health Technology,Biotechnology,164.0,166.39,161.42,165.06,-0.2598344310834532,12692452919.636873,328.0,USD
 0K75,"New Oriental Education & Technology Group, Inc. Sponsored ADR",LSE,Consumer Services,Other Consumer Services,54.09,55.4,53.508,53.508,-0.9886699862885087,6316913770.941759,79.0,USD
 0K76,Rithm Capital Corp.,LSE,Finance,Real Estate Investment Trusts,8.85,8.93,8.56,8.58,-3.160270880361167,3744458683.72893,11973.0,USD
 0K78,Assicurazioni Generali S.p.A.,LSIN,Finance,Insurance Brokers/Services,44.485,44.62,44.19,44.48,0.10127152019802992,55977017426.53161,306152.0,EUR
@@ -1299,8 +1299,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0K9V,HAL Trust,LSIN,Finance,Financial Conglomerates,172.75,172.75,170.8,172.25,-0.5772005772005772,13017636888.997116,271.0,EUR
 0K9W,Huhtamaki Oyj,LSIN,Process Industries,Containers/Packaging,26.75,26.8,26.46,26.7,-0.5586592178771029,2324094267.959572,7724.0,EUR
 0KA3,Ipsos SA,LSIN,Commercial Services,Miscellaneous Commercial Services,35.83,35.83,34.92,35.2,-2.923331494760053,1306191912.154076,9594.0,EUR
-0KAB,"O'Reilly Automotive, Inc.",LSE,Retail Trade,Specialty Stores,92.67,93.6,92.16,92.88567,-0.27306205711831216,56398353547.39489,6497.0,USD
-0KAK,Occidental Petroleum Corporation,LSE,Energy Minerals,Integrated Oil,56.8,58.08,56.8,56.8987,-1.6869114470842366,43506022157.27063,18108.0,USD
+0KAB,"O'Reilly Automotive, Inc.",LSE,Retail Trade,Specialty Stores,92.67,93.6,92.16,92.88487,-0.2739209791711339,56398353547.39489,6597.0,USD
+0KAK,Occidental Petroleum Corporation,LSE,Energy Minerals,Integrated Oil,56.8,58.08,56.8,56.93,-1.6328293736501087,43506022157.27063,18138.0,USD
 0KAN,"Oceaneering International, Inc.",LSE,Producer Manufacturing,Industrial Machinery,33.69,34.185,33.69,34.13,-0.6404657933042179,2580182162.838501,51.0,USD
 0KAS,Onity Group Inc.,LSE,Finance,Finance/Rental/Leasing,27.345,27.66,27.345,27.495,0.25524156791248964,173351687.749002,180.0,USD
 0KAV,Arnoldo Mondadori Editore S.p.A.,LSE,Consumer Services,Publishing: Books/Magazines,2.005,2.005,2.005,2.005,4.101765316718586,432212388.325096,5000.0,EUR
@@ -1327,7 +1327,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0KDI,Oshkosh Corp,LSE,Consumer Durables,Motor Vehicles,140.1863,140.1863,138.84,138.84,-1.2377294067434976,6463045848.171493,7.0,USD
 0KDK,Barco NV,LSIN,Electronic Technology,Electronic Production Equipment,6.095,6.095,6.0,6.01,-2.117263843648207,431096555.0533001,1133.0,EUR
 0KDU,Neighborhood Intelligence Inc,LSE,Retail Trade,Internet Retail,1.17,1.22,1.13,1.17,0.0,96806505.034986,116988.0,USD
-0KE0,"PBF Energy, Inc. Class A",LSE,Energy Minerals,Oil Refining/Marketing,68.5,69.4963,66.621,66.621,-2.0999265246142573,6316125016.54849,675.0,USD
+0KE0,"PBF Energy, Inc. Class A",LSE,Energy Minerals,Oil Refining/Marketing,68.5,69.4963,66.621,66.63,-2.0867009551800173,6316125016.54849,689.0,USD
 0KEC,"PJT Partners, Inc. Class A",LSE,Finance,Investment Banks/Brokers,147.9,147.9,147.9,147.9,-2.3794594237813866,2869024828.3091793,1.0,USD
 0KED,Infineon Technologies AG,LSIN,Electronic Technology,Semiconductors,48.77,49.415,48.08,48.455,-1.5292384291012646,53445315351.49199,482503.0,EUR
 0KEF,"PNC Financial Services Group, Inc.",LSE,Finance,Major Banks,227.04,227.04,225.13,225.3995,-1.6326227794737351,69107364448.6488,472.0,USD
@@ -1339,7 +1339,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0KET,PACCAR Inc,LSE,Producer Manufacturing,Trucks/Construction/Farm Machinery,105.44,105.96,104.93,104.93,-0.5414156426656668,42146801227.73859,304.0,USD
 0KEZ,Packaging Corporation of America,LSE,Process Industries,Containers/Packaging,252.9805,253.8597,252.9805,253.2,2.6722355135639164,16927520559.2776,16.0,USD
 0KF3,"Palatin Technologies, Inc.",LSE,Health Technology,Pharmaceuticals: Major,5.91,5.91,5.5,5.5,-9.688013136288996,8274486.520803001,39.0,USD
-0KF5,"Palo Alto Networks, Inc.",LSE,Technology Services,Packaged Software,315.0,318.9,301.32,308.44,-2.6603970082368185,196317699124.2019,8676.0,USD
+0KF5,"Palo Alto Networks, Inc.",LSE,Technology Services,Packaged Software,315.0,318.9,301.32,309.43,-2.3479660428566915,196317699124.2019,8677.0,USD
 0KFE,Munchener Ruckversicherungs-Gesellschaft AG,LSIN,Finance,Life/Health Insurance,592.2,594.0,584.0,584.2,-1.2174501183631945,62079426578.418655,97582.0,EUR
 0KFF,NORDWEST Handel AG,LSE,Non-Energy Minerals,Steel,15.6,15.6,15.6,15.6,-3.105590062111812,41700531.912,3.0,EUR
 0KFH,Revenio Group Oyj,LSE,Health Technology,Medical Specialties,9.3,9.3,9.3,9.3,-6.999999999999992,329520234.577444,3.0,EUR
@@ -1353,7 +1353,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0KGH,"Paycom Software, Inc.",LSE,Technology Services,Packaged Software,249.0,251.965,246.82,250.46,-2.0032866421472746,8702584828.453386,281.0,USD
 0KGP,Kingspan Group Plc,LSIN,Non-Energy Minerals,Construction Materials,95.75,95.9,94.95,95.1,-1.654601861427103,14905120759.538576,6263.0,EUR
 0KGQ,UIE PLC,LSE,Process Industries,Agricultural Commodities/Milling,411.0,411.0,402.0,402.0,0.24937655860349126,1367667591.11944,6950.0,DKK
-0KGS,Pegasystems Inc.,LSE,Technology Services,Information Technology Services,31.5,32.27,30.32,30.92,-3.825816485225496,4009963253.228361,1751.0,USD
+0KGS,Pegasystems Inc.,LSE,Technology Services,Information Technology Services,31.5,32.27,30.32,31.0,-3.576982892690509,4009963253.228361,1752.0,USD
 0KGY,BTS Group AB Class B,LSE,Commercial Services,Miscellaneous Commercial Services,271.5,271.5,269.25,269.25,0.46641791044776115,389525402.203941,693.0,SEK
 0KH0,PennantPark Floating Rate Capital Ltd.,LSE,Miscellaneous,Investment Trusts/Mutual Funds,6.52,6.56,6.31,6.37,-2.748091603053431,489955847.088666,2781.0,USD
 0KHE,"Revvity, Inc.",LSE,Health Technology,Medical Specialties,150.66,150.66,148.85,148.99,-0.7606639490581594,12605200985.859547,7.0,USD
@@ -1368,16 +1368,16 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0KJD,"Planet Fitness, Inc. Class A",LSE,Consumer Services,Other Consumer Services,59.15,61.37,59.15,61.29,-0.4575153845029465,3513340798.62219,46.0,USD
 0KJQ,Polaris Inc.,LSE,Consumer Durables,Recreational Products,64.37,64.37,63.73,63.73,0.3780122853992674,2803334067.2051973,2.0,USD
 0KJZ,"Post Holdings, Inc.",LSE,Consumer Non-Durables,Food: Specialty/Candy,81.45,81.45,81.45,81.45,0.46265860334086545,2722168805.9373903,1.0,USD
-0KKZ,"MongoDB, Inc. Class A",LSE,Technology Services,Packaged Software,315.0,317.76,291.46,302.3395,-5.249459400169227,19365795380.423492,1971.0,USD
+0KKZ,"MongoDB, Inc. Class A",LSE,Technology Services,Packaged Software,315.0,317.76,291.46,303.45,-4.901438465636651,19365795380.423492,1976.0,USD
 0KLO,Navigator Company SA,LSIN,Process Industries,Pulp & Paper,3.04,3.056,3.036,3.044,-0.6851549755301765,1818622268.7389321,7108.0,EUR
 0KNY,"T. Rowe Price Group, Inc.",LSE,Finance,Investment Managers,107.95,108.6,106.28,106.83,-0.9549415909512341,17469981516.78454,629.0,USD
 0KO0,Elon AB,LSE,Retail Trade,Electronics/Appliance Stores,50.4,51.0,50.4,51.0,-0.7782101167315147,57350799.334275,4.0,SEK
 0KO5,"Principal Financial Group, Inc.",LSE,Finance,Investment Managers,113.55,113.55,111.78,111.78,-1.0110545625862877,18086562244.472237,6.0,USD
-0KOC,Progressive Corporation,LSE,Finance,Multi-Line Insurance,239.54,240.0,235.23,236.07,-0.6355753851334368,104301058634.04514,1191.0,USD
+0KOC,Progressive Corporation,LSE,Finance,Multi-Line Insurance,239.54,240.0,235.23,236.195,-0.5829615287482193,104301058634.04514,1331.0,USD
 0KOD,"Prologis, Inc.",LSE,Finance,Real Estate Investment Trusts,127.89,127.89,125.68,125.68,-1.5587060390068104,93847065260.1172,942.0,USD
 0KOI,ProShares UltraShort 20+ Year Treasury,LSE,Miscellaneous,Investment Trusts/Mutual Funds,40.5108,40.67,40.2869,40.2869,3.3262374967940516,,207.0,USD
 0KOJ,ProShares UltraShort S&P 500,LSE,Miscellaneous,Investment Trusts/Mutual Funds,58.15,59.3582,58.15,59.335,2.0237972419959416,,1346.0,USD
-0KOK,ProShares Short S&P500,LSE,Miscellaneous,Investment Trusts/Mutual Funds,33.635,33.96,33.635,33.9,2.1355057967171915,,1321.0,USD
+0KOK,ProShares Short S&P500,LSE,Miscellaneous,Investment Trusts/Mutual Funds,33.635,33.96,33.635,33.9013,2.139422497529457,,1441.0,USD
 0KP1,ProShares Short High Yield,LSE,Miscellaneous,Investment Trusts/Mutual Funds,15.385,15.385,15.385,15.385,-0.14279223729473772,,15.0,USD
 0KPA,ProShares Ultra Dow30,LSE,Miscellaneous,Investment Trusts/Mutual Funds,60.2808,60.2808,60.2808,60.2808,-8.251055144523972,,40.0,USD
 0KPF,ProShares Ultra Semiconductors,LSE,Miscellaneous,Investment Trusts/Mutual Funds,46.8142,48.885,46.8142,48.885,-3.3702312710021847,,127.0,USD
@@ -1385,7 +1385,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0KQ0,ProShares Ultra Silver,LSE,Miscellaneous,Investment Trusts/Mutual Funds,40.44,40.4995,40.3276,40.34,2.8635540709386356,,684.0,USD
 0KQK,ProShares Ultra Financials,LSE,Miscellaneous,Investment Trusts/Mutual Funds,93.56,93.56,93.56,93.56,1.7730882192972863,,900.0,USD
 0KQQ,ProShares UltraPro Dow30,LSE,Miscellaneous,Investment Trusts/Mutual Funds,62.5023,63.1767,60.8,61.21,-6.620900076277645,,1353.0,USD
-0KQR,ProShares UltraPro QQQ,LSE,Miscellaneous,Investment Trusts/Mutual Funds,52.59,53.92,49.38,51.395,-4.024276377217543,,376986.0,USD
+0KQR,ProShares UltraPro QQQ,LSE,Miscellaneous,Investment Trusts/Mutual Funds,52.59,53.92,49.38,51.458,-3.906629318394022,,377180.0,USD
 0KQS,Proshares Short 20+ Year Treasury,LSE,Miscellaneous,Investment Trusts/Mutual Funds,26.253,26.253,26.253,26.253,0.7792706333973105,,56.0,USD
 0KR4,ProShares UltraShort Russell2000,LSE,Miscellaneous,Investment Trusts/Mutual Funds,23.4505,23.4505,23.4505,23.4505,0.365931949497125,,3.0,USD
 0KRR,"Proto Labs, Inc.",LSE,Process Industries,Chemicals: Specialty,66.0,66.0,63.97,64.88,-0.41442824251728355,1179741633.202326,9.0,USD
@@ -1394,7 +1394,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0KS3,Public Storage,LSE,Finance,Real Estate Investment Trusts,330.54,334.0283,330.54,334.0283,-0.03941225760115617,47296939732.5398,176.0,USD
 0KS6,"PulteGroup, Inc.",LSE,Consumer Durables,Homebuilding,126.09,126.9,125.0,125.0,-2.0452942559360547,17732826613.87848,1274.0,USD
 0KSA,"Everpure, Inc. Class A",LSE,Electronic Technology,Computer Peripherals,102.0,106.05,98.65,102.38,-1.586080938190912,26207249777.839874,570.0,USD
-0KSR,"Quanta Services, Inc.",LSE,Industrial Services,Engineering & Construction,597.52,602.39,575.0,588.9305,0.204260459734918,66966378406.66196,2400.0,USD
+0KSR,"Quanta Services, Inc.",LSE,Industrial Services,Engineering & Construction,597.52,602.39,575.0,592.5895,0.8268252428836412,66966378406.66196,2410.0,USD
 0KSX,Quest Diagnostics Incorporated,LSE,Health Services,Services to the Health Industry,258.02,260.315,258.02,258.4069,-1.5180075460192763,21882813041.278408,28.0,USD
 0KT6,"RCI Hospitality Holdings, Inc.",LSE,Consumer Services,Restaurants,26.0,26.77,26.0,26.77,-1.2541497602360747,158103140.042946,9.0,USD
 0KTF,RH,LSE,Retail Trade,Specialty Stores,124.99,129.08,117.12,118.26,-5.9188544152744615,1811885303.782329,1224.0,USD
@@ -1403,17 +1403,17 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0KTW,Range Resources Corporation,LSE,Energy Minerals,Oil & Gas Production,50.3,50.96,49.69,49.69,-2.2042904939972536,8943113518.543354,851.0,USD
 0KTX,Rapid7 Inc.,LSE,Technology Services,Information Technology Services,14.81,14.98,13.432,14.05,-2.430555555555553,763703865.395799,8048.0,USD
 0KU1,"Raymond James Financial, Inc.",LSE,Finance,Investment Managers,167.905,167.905,167.32774363,167.32774363,-0.6370233565343929,24336808498.62412,355.0,USD
-0KUE,Realty Income Corporation,LSE,Finance,Real Estate Investment Trusts,58.34,58.66,57.5033,58.17,-0.7845812723861518,42236896853.06877,15923.0,USD
+0KUE,Realty Income Corporation,LSE,Finance,Real Estate Investment Trusts,58.34,58.66,57.5033,58.17,-0.7845812723861518,42236896853.06877,15986.0,USD
 0KUR,PSI Software SE,LSE,Technology Services,Packaged Software,45.0,45.0,45.0,45.0,0.671140939597309,605665416.361416,110.0,EUR
 0KUT,Regency Centers Corporation,LSE,Finance,Real Estate Investment Trusts,76.305,76.305,76.29,76.29,0.4476629361422033,10637470618.534285,991.0,USD
 0KUY,PNE AG,LSIN,Utilities,Alternative Power Generation,5.0775,5.08,4.665,4.7175,-7.951219512195117,325343626.634448,28930.0,EUR
-0KV3,Regions Financial Corporation,LSE,Finance,Major Banks,28.57,28.6,28.145,28.17332,-1.9792500226148313,18415416075.95091,3972.0,USD
+0KV3,Regions Financial Corporation,LSE,Finance,Major Banks,28.57,28.6,28.145,28.232,-1.7750902853643806,18415416075.95091,3989.0,USD
 0KV7,TOMRA Systems ASA,LSIN,Producer Manufacturing,Miscellaneous Manufacturing,95.65,96.1,92.35,92.55,-4.587628865979385,2241752183.41474,89020.0,NOK
 0KVR,Kloeckner & Co SE,LSIN,Non-Energy Minerals,Steel,12.94,12.94,12.36,12.36,0.0,1048268233.093672,75274.0,EUR
 0KVV,Airbus SE,LSIN,Electronic Technology,Aerospace & Defense,202.78,204.9,200.725,201.015,-2.1586760769043574,134765451153.8443,162313.0,EUR
 0KW1,"Republic Services, Inc.",LSE,Industrial Services,Environmental Services,249.84,256.71,249.84,254.3287,-0.5285122027534453,59056163621.157486,678.0,USD
 0KW4,ResMed Inc.,LSE,Health Technology,Medical Specialties,237.147888,240.0305,235.0,239.1899,-0.5902082207722119,25413883684.25653,20.0,USD
-0KWZ,Rio Tinto plc Sponsored ADR,LSE,Non-Energy Minerals,Other Metals/Minerals,79.6,80.54,79.39,79.65,-1.0804769001490193,104993781478.87033,7452.0,USD
+0KWZ,Rio Tinto plc Sponsored ADR,LSE,Non-Energy Minerals,Other Metals/Minerals,79.6,80.54,79.39,79.66,-1.0680576254346739,104993781478.87033,7503.0,USD
 0KX0,"Riot Platforms, Inc.",LSE,Technology Services,Information Technology Services,15.4,15.4,15.4,15.4,-6.0402684563758395,4855222143.314272,400.0,EUR
 0KX9,Robert Half Inc.,LSE,Commercial Services,Personnel Services,42.8,42.8,41.65,42.192,-1.6961789375582514,3291886516.905669,204.0,USD
 0KXA,"Rockwell Automation, Inc.",LSE,Producer Manufacturing,Electrical Products,387.44,392.76,375.9,388.41,0.06956252898439703,32045915900.131176,550.0,USD
@@ -1421,7 +1421,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0KXM,"Roper Technologies, Inc.",LSE,Technology Services,Packaged Software,475.292,483.78,473.41,477.19,-1.6245078029975046,36339165842.136345,116.0,USD
 0KXO,"Ross Stores, Inc.",LSE,Retail Trade,Apparel/Footwear Retail,222.84,226.06,219.48,220.1503,-2.016067295709462,54035412281.35875,716.0,USD
 0KXS,"Royal Gold, Inc.",LSE,Non-Energy Minerals,Precious Metals,248.29,254.67,247.84308927,250.45,0.14394817865567805,15938579394.57133,1210.0,USD
-0KYY,"S&P Global, Inc.",LSE,Commercial Services,Financial Publishing/Services,470.0,471.5,454.71,455.1053,-3.261706876394939,103704767098.67418,818.0,USD
+0KYY,"S&P Global, Inc.",LSE,Commercial Services,Financial Publishing/Services,470.0,471.5,454.71,454.98,-3.2883409501541014,103704767098.67418,821.0,USD
 0KYZ,SBA Communications Corp. Class A,LSE,Finance,Real Estate Investment Trusts,184.6595,184.6595,184.6595,184.6595,-2.5749182230663625,14782155931.670046,2.0,USD
 0KZ6,SL Green Realty Corp.,LSE,Finance,Real Estate Investment Trusts,48.6,48.6,47.25,47.25,-3.1007751937984507,2806654161.901284,17.0,USD
 0KZA,SM Energy Company,LSE,Energy Minerals,Integrated Oil,31.0,31.74,30.9915,30.9915,-1.9876660341556056,5553253624.383987,978.0,USD
@@ -1439,7 +1439,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0L35,"Sarepta Therapeutics, Inc.",LSE,Health Technology,Pharmaceuticals: Major,15.44,15.52,14.6,14.9,-1.5032325449184882,1230735933.6105,8627.0,USD
 0L3C,"Henry Schein, Inc.",LSE,Distribution Services,Medical Distributors,84.605,85.39,84.605,85.3,1.2763431285247884,7123839692.353419,18.0,USD
 0L3H,L3Harris Technologies Inc,LSE,Electronic Technology,Aerospace & Defense,261.75,264.03,254.99,262.02,-0.038150465435686995,36970387148.678894,566.0,USD
-0L3I,Charles Schwab Corp,LSE,Finance,Investment Banks/Brokers,93.49,93.49,90.33,91.05,-2.1704093692919266,121683400076.10199,1298.0,USD
+0L3I,Charles Schwab Corp,LSE,Finance,Investment Banks/Brokers,93.49,93.49,90.33,91.39,-1.8050929407972416,121683400076.10199,1300.0,USD
 0L45,Scotts Miracle-Gro Company Class A,LSE,Process Industries,Chemicals: Agricultural,61.95,63.77,61.95,63.77,-0.4655968708393863,2815843137.1622972,7.0,USD
 0L49,"SCYNEXIS, Inc.",LSE,Health Technology,Pharmaceuticals: Major,2.9,3.08,2.9,3.08,5.841924398625427,21970488.630699,7.0,USD
 0L4P,State Street Consumer Discretionary Select Sector SPDR ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,117.63764,118.25,117.5688,117.5688,-0.5424244987733676,,740.0,USD
@@ -1447,7 +1447,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0L4R,State Street Financial Select Sector SPDR ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,57.765,57.8988,57.182,57.327,-1.3610241233352902,,10586.0,USD
 0L4T,State Street Technology Select Sector SPDR ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,165.43,165.44,159.9234,162.06,-1.5175868831100143,,2427.0,USD
 0L5A,Sempra,LSE,Utilities,Gas Distributors,78.98,78.98,78.0,78.0,-0.4683093649112565,38952301024.19753,171.0,USD
-0L5N,"ServiceNow, Inc.",LSE,Technology Services,Packaged Software,98.61,98.89,92.04,93.26,-7.27778882481606,78241755413.8146,100615.0,USD
+0L5N,"ServiceNow, Inc.",LSE,Technology Services,Packaged Software,98.61,98.89,92.04,93.61,-6.929807118711473,78241755413.8146,100926.0,USD
 0L5R,"Shake Shack, Inc. Class A",LSE,Consumer Services,Restaurants,71.78,73.15,71.78,73.15,1.0638297872340567,2375278208.1806912,54.0,USD
 0L5V,Sherwin-Williams Company,LSE,Process Industries,Industrial Specialties,336.3,353.48,336.3,346.17,-1.1084130838451636,64239035871.78279,850.0,USD
 0L6P,"Simon Property Group, Inc.",LSE,Finance,Real Estate Investment Trusts,230.01,233.26,230.01,231.79,0.30291228525682146,57131421211.65378,420.0,USD
@@ -1460,13 +1460,13 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0L7R,"SolarWindow Technologies, Inc.",LSE,Producer Manufacturing,Electrical Products,1.62,1.62,1.62,1.62,14.084507042253536,69855647.932086,351.0,USD
 0L7S,"SolarEdge Technologies, Inc.",LSE,Producer Manufacturing,Electrical Products,22.94,23.85,21.97,22.08,-3.7489102005231167,1093353505.446513,6614.0,USD
 0L83,Sony Group Corporation Sponsored ADR,LSE,Electronic Technology,Computer Processing Hardware,26.9,27.18,26.62,26.72,-0.9063802643485573,121748800101.21667,10397.0,USD
-0L8A,Southern Company,LSE,Utilities,Electric Utilities,93.8,95.09,92.7,93.57,-0.8582326764144971,83581662217.97636,1560.0,USD
+0L8A,Southern Company,LSE,Utilities,Electric Utilities,93.8,95.09,92.7,93.5601,-0.8687221869039944,83581662217.97636,1597.0,USD
 0L8B,Southern Copper Corporation,LSE,Non-Energy Minerals,Other Metals/Minerals,152.62,159.37,152.0,154.3905,-1.5637910983708525,99595157714.70204,1949.0,USD
 0L8F,Southwest Airlines Co.,LSE,Transportation,Airlines,45.65,46.695,45.02,46.1196,0.9181619256017407,17247321325.436268,976.0,USD
 0L8Z,ContextVision AB,LSE,Technology Services,Packaged Software,4.32,4.32,4.32,4.32,-7.889125799573563,26009828.443064,19800.0,NOK
 0L91,"Grupo Empresarial San Jose, S.A.",LSIN,Producer Manufacturing,Industrial Conglomerates,7.22,7.22,7.22,7.22,-0.2762430939226583,392116274.32818,1.0,EUR
 0L95,"Block, Inc. Class A",LSIN,Commercial Services,Miscellaneous Commercial Services,83.08,83.185,79.75,80.5,-3.4193161367726392,38042302455.030205,5004.0,USD
-0L98,"STAG Industrial, Inc.",LSE,Finance,Real Estate Investment Trusts,36.1,36.84,36.1,36.16,-0.9857612267250999,5347474605.261036,374.0,USD
+0L98,"STAG Industrial, Inc.",LSE,Finance,Real Estate Investment Trusts,36.1,36.84,36.1,36.17,-0.9583789704271669,5347474605.261036,375.0,USD
 0L9E,"Stanley Black & Decker, Inc.",LSE,Consumer Durables,Tools & Hardware,112.0,112.48,108.6,109.51,-2.8477643718949555,12736693563.260923,1600.0,USD
 0L9F,"Starwood Property Trust, Inc.",LSE,Finance,Real Estate Investment Trusts,11.77,11.865,11.53,11.53,-1.8723404255319203,3244375517.664297,2677.0,USD
 0L9G,State Street Corporation,LSE,Finance,Investment Banks/Brokers,171.0,171.0,165.55,165.79,-2.8251567903405554,35091744762.32534,1308.0,USD
@@ -1475,8 +1475,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0L9X,"Stitch Fix, Inc. Class A",LSE,Retail Trade,Apparel/Footwear Retail,2.77,2.8324,2.77,2.8324,4.903703703703689,266668223.17776302,1001.0,USD
 0L9Y,STMicroelectronics NV Sponsored ADR RegS,LSE,Electronic Technology,Semiconductors,44.55,44.87,43.13,43.87,-2.380952380952382,30562265704.622593,9475.0,USD
 0L9Z,KABE Group AB Class B,LSE,Consumer Durables,Recreational Products,286.0,286.0,286.0,286.0,-2.3890784982935154,183766393.221528,2.0,SEK
-0LAF,Sumitomo Mitsui Financial Group Inc Sponsored ADR,LSE,Finance,Major Banks,23.68,23.71,23.12,23.32,-3.95387149917628,117510638603.68005,9169.0,USD
-0LBF,Vale S.A. Sponsored ADR,LSIN,Non-Energy Minerals,Steel,10.4,10.608,10.4,10.6,-0.9345794392523332,31655577356.36956,58753.0,USD
+0LAF,Sumitomo Mitsui Financial Group Inc Sponsored ADR,LSE,Finance,Major Banks,23.68,23.71,23.12,23.33,-3.9126853377265354,117510638603.68005,9180.0,USD
+0LBF,Vale S.A. Sponsored ADR,LSIN,Non-Energy Minerals,Steel,10.4,10.608,10.4,10.6,-0.9345794392523332,31655577356.36956,59068.0,USD
 0LBM,Terna S.p.A.,LSIN,Utilities,Electric Utilities,9.911,9.911,9.619,9.697,-2.060397939602067,16553344154.271116,1259307.0,EUR
 0LBP,"Synopsys, Inc.",LSE,Technology Services,Packaged Software,438.99,445.17,429.64,434.69,-1.7628627055270112,64154617579.48963,282.0,USD
 0LBY,MONTEA NV,LSIN,Finance,Real Estate Investment Trusts,70.2,70.4,69.6,69.8,-0.8522727272727394,1366674739.626276,9944.0,EUR
@@ -1485,8 +1485,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0LC7,"Syros Pharmaceuticals, Inc.",LSE,Health Technology,Pharmaceuticals: Major,0.0001,0.0001,0.0001,0.0001,0.0,2035.197699,1873.0,USD
 0LCE,TJX Companies Inc,LSE,Retail Trade,Apparel/Footwear Retail,130.78,133.14,130.0,130.93,-0.39922467646673915,109379995487.92172,5456.0,USD
 0LCR,FUCHS SE Pref Registered Shs,LSIN,Process Industries,Industrial Specialties,44.06,44.41318,43.88,44.19416,0.21351473922901393,4504233604.0912,6391.0,EUR
-0LCV,"Taiwan Semiconductor Manufacturing Co., Ltd. Sponsored ADR",LSIN,Electronic Technology,Semiconductors,376.0,376.0,353.52,360.0,-4.25531914893617,1321783029266.4333,32822.0,USD
-0LCX,"Take-Two Interactive Software, Inc.",LSE,Technology Services,Packaged Software,215.54,221.5167,201.59,205.29,-4.958333333333337,30315163321.002827,82121.0,USD
+0LCV,"Taiwan Semiconductor Manufacturing Co., Ltd. Sponsored ADR",LSIN,Electronic Technology,Semiconductors,376.0,376.0,353.52,360.0,-4.25531914893617,1321783029266.4333,32857.0,USD
+0LCX,"Take-Two Interactive Software, Inc.",LSE,Technology Services,Packaged Software,215.54,221.5167,201.59,205.28,-4.962962962962963,30315163321.002827,82335.0,USD
 0LD0,ENGIE S.A.,LSIN,Utilities,Electric Utilities,25.0,25.03,24.635,24.67,-1.6935644550707198,53129438879.06736,3262099.0,EUR
 0LD4,Tanger Inc.,LSE,Finance,Real Estate Investment Trusts,39.93,39.941,39.751,39.8,2.274187331363222,3441992619.5316453,1192.0,USD
 0LD5,"Tapestry, Inc.",LSE,Retail Trade,Apparel/Footwear Retail,131.75861391,133.3395,129.85,129.85,-2.7559349958810806,19818613629.425484,185.0,USD
@@ -1496,7 +1496,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0LEA,Tencent Holdings Ltd Unsponsored ADR,LSE,Technology Services,Packaged Software,48.98,48.98,47.43,47.59,-3.8585858585858515,339953465853.7407,103917.0,USD
 0LEC,"Cardlytics, Inc.",LSE,Technology Services,Internet Software/Services,1.29,1.29,1.221,1.221,-5.348837209302322,5970387.851727,46.0,USD
 0LEE,Teradata Corporation,LSE,Technology Services,Packaged Software,34.29,34.76,34.16,34.6012,-1.9273720848497211,2434930822.927668,381.0,USD
-0LEF,"Teradyne, Inc.",LSE,Electronic Technology,Electronic Production Equipment,227.79,240.16,223.69,233.6934,-0.2503841557111167,27463661635.149845,2031.0,USD
+0LEF,"Teradyne, Inc.",LSE,Electronic Technology,Electronic Production Equipment,227.79,240.16,223.69,234.43,0.06402595185248663,27463661635.149845,2032.0,USD
 0LF0,Textron Inc.,LSE,Electronic Technology,Aerospace & Defense,81.46,82.9,81.46,82.43,-0.5453536352887215,10626855494.604948,96.0,USD
 0LF5,"Trade Desk, Inc. Class A",LSE,Technology Services,Packaged Software,14.6,15.01,14.28,14.85,-0.1344989912575627,5319679619.7599945,25614.0,USD
 0LF8,"Thor Industries, Inc.",LSE,Consumer Durables,Recreational Products,77.6,77.6,77.6,77.6,-1.4728288471305366,3035681309.57547,2.0,USD
@@ -1504,8 +1504,8 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0LG5,Toyota Motor Corp. Sponsored ADR,LSE,Consumer Durables,Motor Vehicles,211.0,216.45,211.0,213.674,0.1486711461739274,193069313606.52737,424.0,USD
 0LGI,Havila Shipping ASA,LSE,Industrial Services,Oilfield Services/Equipment,0.738,0.738,0.738,0.738,-12.351543942992873,16642753.067728002,136.0,NOK
 0LH0,"Trupanion, Inc.",LSE,Finance,Multi-Line Insurance,34.93,36.09,34.93,36.09,0.27785495971103474,1186753260.207798,55.0,USD
-0LH4,Tucows Inc.,LSE,Technology Services,Data Processing Services,14.88,15.77,13.23,14.91,28.3132530120482,97458522.300348,6813.0,USD
-0LHL,"Twilio, Inc. Class A",LSE,Technology Services,Packaged Software,200.0,205.0,190.8667,194.11,-4.388824363289946,23406714517.847977,601.0,USD
+0LH4,Tucows Inc.,LSE,Technology Services,Data Processing Services,14.88,15.77,13.23,15.3597,32.18330464716008,97458522.300348,6822.0,USD
+0LHL,"Twilio, Inc. Class A",LSE,Technology Services,Packaged Software,200.0,205.0,190.8667,195.58,-3.664758482160877,23406714517.847977,629.0,USD
 0LHO,Coherent Corp.,LSE,Electronic Technology,Semiconductors,235.18,235.18,235.18,235.18,0.6758095952376968,30393172639.960854,5.0,USD
 0LHR,"Tyson Foods, Inc. Class A",LSE,Consumer Non-Durables,Food: Meat/Fish/Dairy,62.82,64.73,62.45,64.51013768,2.952661474624965,16726093364.02552,11378.0,USD
 0LHS,"UDR, Inc.",LSE,Finance,Real Estate Investment Trusts,37.5,37.5,36.09468936,36.41,0.2754062241806508,8742509244.064642,46.0,USD
@@ -1523,7 +1523,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0LJE,Universal Display Corporation,LSE,Electronic Technology,Electronic Production Equipment,84.3,85.81,84.3,85.81,-2.3123545671051833,3005117493.358584,29.0,USD
 0LJL,"Universal Health Services, Inc. Class B",LSE,Health Services,Hospital/Nursing Management,195.01,198.22,195.01,195.34,-0.5169208830943884,8648393830.9584,22.0,USD
 0LJN,Unum Group,LSE,Finance,Multi-Line Insurance,77.63,77.63,76.46,76.6732,-2.1526288922919923,9249784499.927658,31.0,USD
-0LJQ,Uranium Energy Corp.,LSE,Non-Energy Minerals,Other Metals/Minerals,6.12,6.26,5.8525,6.09,-0.24570024570025498,2304433947.2263412,119114.0,USD
+0LJQ,Uranium Energy Corp.,LSE,Non-Energy Minerals,Other Metals/Minerals,6.12,6.26,5.8525,6.1077,0.04422604422604299,2304433947.2263412,119314.0,USD
 0LK3,"Vail Resorts, Inc.",LSE,Consumer Services,Hotels/Resorts/Cruise lines,156.0,156.0,153.27,153.27,-2.038859772465804,4217940224.423439,4.0,USD
 0LK6,Valero Energy Corporation,LSE,Energy Minerals,Oil Refining/Marketing,366.29,374.51,362.3905,362.74,-1.5274992208852705,78215865399.15063,1637.0,USD
 0LKB,Vanda Pharmaceuticals Inc.,LSE,Health Technology,Pharmaceuticals: Major,3.80627763,3.888,3.76,3.805,0.13157894736842993,174762653.220477,3857.0,USD
@@ -1537,7 +1537,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0LLR,VanEck Brazil Small-Cap ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,13.0686,13.08017,13.03108,13.03108,0.15048226568804127,,684.0,USD
 0LLW,Vanguard Dividend Appreciation ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,248.95,248.95,246.2606,246.2606,-1.6254176994720897,,162.0,USD
 0LMD,Vanguard Total Bond Market ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,70.565,70.7453,70.565,70.7453,0.22000283326249734,,2314.0,USD
-0LME,Vanguard FTSE Developed Markets ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,67.75,67.7713,67.2148,67.335,-1.6230336660048317,,4908.0,USD
+0LME,Vanguard FTSE Developed Markets ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,67.75,67.7713,67.2148,67.339,-1.6171896344412098,,5014.0,USD
 0LMF,Vanguard High Dividend Yield Index ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,162.32,162.9949,161.5155,161.5155,-1.1262566932324796,,383.0,USD
 0LMN,Vanguard Total World Stock ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,152.6,152.6,149.855,150.61,-1.3232033629125652,,26713.0,USD
 0LMO,Vanguard FTSE All-World ex-US Index Fund,LSE,Miscellaneous,Investment Trusts/Mutual Funds,78.8368,79.05,78.215,78.3668,-1.332326093799181,,2769.0,USD
@@ -1565,7 +1565,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0LP3,"Verisk Analytics, Inc.",LSE,Technology Services,Data Processing Services,208.09,209.35,205.98,205.98,-3.4363133467723093,20704108935.629997,1384.0,USD
 0LP5,"Veritone, Inc.",LSE,Commercial Services,Advertising/Marketing Services,0.3798,0.3798,0.32,0.3644,-3.3678069477592123,34136711.595624,23676.0,USD
 0LPE,"ViaSat, Inc.",LSE,Electronic Technology,Telecommunications Equipment,66.08,66.08,63.0,64.53,0.8438818565400831,6746732763.165051,597.0,USD
-0LQ0,Vipshop Holdings Ltd Sponsored ADR,LSE,Retail Trade,Internet Retail,13.27,13.27,12.965,12.965,-2.1509433962264164,4797202951.915789,483.0,USD
+0LQ0,Vipshop Holdings Ltd Sponsored ADR,LSE,Retail Trade,Internet Retail,13.27,13.27,12.955,12.955,-2.226415094339622,4797202951.915789,503.0,USD
 0LQ1,Continental AG,LSIN,Consumer Durables,Automotive Aftermarket,72.14,72.4,70.74,71.06,-2.644197835319897,12107345096.118,12438.0,EUR
 0LQ4,Krones AG,LSIN,Producer Manufacturing,Industrial Machinery,107.4,107.4,105.4,106.3,-1.2999071494893275,2840531469.503576,19689.0,EUR
 0LQQ,Vodafone Group Public Limited Company Sponsored ADR,LSE,Communications,Wireless Telecommunications,15.49,15.49,15.2,15.27,-0.7152145643693186,27269502526.459305,197942.0,USD
@@ -1576,11 +1576,11 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0LS8,W. P. Carey Inc.,LSE,Finance,Real Estate Investment Trusts,65.09,66.04,65.09,65.7195,-0.7558139534883758,11534731291.887981,535.0,USD
 0LSL,WEC Energy Group Inc,LSE,Utilities,Electric Utilities,116.0,118.05,116.0,117.048,-0.5623991164726803,29313097316.529198,233.0,USD
 0LSO,Wabash National Corporation,LSE,Producer Manufacturing,Trucks/Construction/Farm Machinery,10.6933,10.82,10.552,10.725,-5.1724137931034555,347343653.397138,658.0,USD
-0LTG,"Waste Management, Inc.",LSE,Industrial Services,Environmental Services,246.6,246.6,241.0,242.87,-0.7155982429927125,73696564583.19315,1237.0,USD
+0LTG,"Waste Management, Inc.",LSE,Industrial Services,Environmental Services,246.6,246.6,241.0,243.05,-0.6420148761039984,73696564583.19315,1238.0,USD
 0LTI,Waters Corporation,LSE,Health Technology,Medical Specialties,453.42,457.4563,445.05,451.49,-0.81502636203866,33804665142.005234,201.0,USD
 0LUG,Weibo Corp. Sponsored ADR Class A,LSE,Technology Services,Internet Software/Services,5.84,5.9805,5.6805,5.8786,-2.833057851239673,1141591115.6676078,40879.0,USD
 0LUS,Welltower Inc.,LSE,Finance,Real Estate Investment Trusts,240.0,243.0,240.0,242.3337,-1.1367085509138426,136143308758.75343,391.0,USD
-0LVJ,Western Union Company,LSE,Finance,Regional Banks,6.5,6.5,6.175,6.175,-5.581039755351686,1526784656.115951,14296.0,USD
+0LVJ,Western Union Company,LSE,Finance,Regional Banks,6.5,6.5,6.175,6.175,-5.581039755351686,1526784656.115951,14696.0,USD
 0LVK,Westlake Corporation,LSE,Process Industries,Chemicals: Specialty,61.55,62.54,61.01,62.08,0.5018617451837383,5978666486.015607,135.0,USD
 0LWG,Weyerhaeuser Company,LSE,Finance,Real Estate Investment Trusts,20.65,20.7,20.3514,20.38,-2.183825293976491,11299947109.254507,859.0,USD
 0LWH,Whirlpool Corporation,LSE,Consumer Durables,Electronics/Appliances,28.42,28.7,27.02,27.05,-4.582172210659986,1410175963.444176,3191.0,USD
@@ -1606,7 +1606,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0M3L,Zions Bancorporation NA,LSE,Finance,Major Banks,65.9773,65.9773,65.75,65.75,-0.4835816829248064,7225861514.756955,91.0,USD
 0M3Q,"Zoetis, Inc. Class A",LSE,Health Technology,Pharmaceuticals: Major,83.57,85.5095,82.4458,83.16,-0.24309569995726926,26010039497.807617,14962.0,USD
 0M3T,Arribatec Group ASA,LSE,Technology Services,Information Technology Services,5.48,5.48,5.48,5.48,1.4814814814814827,28514846.069560003,151.0,NOK
-0M42,ASML Holding NV Sponsored ADR,LSE,Electronic Technology,Semiconductors,1423.22,1423.22,1354.8905,1363.07,-4.175424065243416,416272669297.7149,4107.0,USD
+0M42,ASML Holding NV Sponsored ADR,LSE,Electronic Technology,Semiconductors,1423.22,1423.22,1354.8905,1363.59,-4.138867777242012,416272669297.7149,4108.0,USD
 0M5J,Aker BP ASA,LSIN,Energy Minerals,Integrated Oil,323.05,328.4,322.0,327.75,-0.03050175385085336,16179005722.621157,185607.0,NOK
 0M5U,Impresa SGPS SA,LSE,Consumer Services,Broadcasting,0.1904,0.1908,0.1904,0.1908,-0.9345794392523344,26678733.070844002,153.0,EUR
 0M69,OTP Bank Nyrt,LSIN,Finance,Major Banks,41457.9969,41457.9969,41457.9969,41457.9969,-2.2851345865398267,25623981711.159653,644.0,HUF
@@ -2139,7 +2139,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0P3O,Alerion Clean Power S.p.A.,LSE,Utilities,Alternative Power Generation,16.9,16.9,16.9,16.9,-7.44797371303397,772379735.857096,9.0,EUR
 0P47,PostNL NV,LSIN,Transportation,Air Freight/Couriers,0.809,0.81,0.794,0.8015,-2.5531914893617045,349419473.522004,173545.0,EUR
 0P49,Bulten AB,LSE,Producer Manufacturing,Metal Fabrication,85.8,85.9,85.1,85.4,0.0,133743107.252814,4656.0,SEK
-0P4F,Ford Motor Company,LSE,Consumer Durables,Motor Vehicles,11.66,11.66,11.35,11.41,-1.3828867761452044,35046306066.161514,9671.0,USD
+0P4F,Ford Motor Company,LSE,Consumer Durables,Motor Vehicles,11.66,11.66,11.35,11.38,-1.6421780466724243,35046306066.161514,9765.0,USD
 0P4G,SIG Group AG,LSIN,Process Industries,Containers/Packaging,15.47,15.47,15.17,15.19,-1.363636363636369,5320853494.7716255,23274.0,CHF
 0P52,Salvatore Ferragamo S.p.A.,LSIN,Consumer Non-Durables,Apparel/Footwear,6.3775,6.3775,6.105,6.16,-4.124513618677038,883671680.590812,53007.0,EUR
 0P59,Colgate-Palmolive Company,LSE,Consumer Non-Durables,Household/Personal Care,100.76,101.6,99.34,100.0658,-1.4712485230405734,60895888944.973915,1900.0,USD
@@ -2159,12 +2159,12 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0Q0Y,Aegon Ltd.,LSIN,Finance,Multi-Line Insurance,7.775,7.8,7.728,7.8,-0.8894536213468905,9807986105.262232,2443.0,EUR
 0Q11,Norsk Hydro ASA,LSIN,Non-Energy Minerals,Aluminum,68.04,68.25,67.3,67.93,0.3397341211226056,10483021250.657743,673248.0,NOK
 0Q15,Abbott Laboratories,LSE,Health Technology,Medical Specialties,107.31,108.25,105.24,105.2772,-2.647309043832076,141164532497.2941,8053.0,USD
-0Q16,Bank of America Corp,LSE,Finance,Major Banks,49.9,50.25,49.08,49.17,-1.4629258517034005,262127454808.22632,247030.0,USD
+0Q16,Bank of America Corp,LSE,Finance,Major Banks,49.9,50.25,49.08,49.18,-1.4428857715430838,262127454808.22632,247036.0,USD
 0Q18,Caterpillar Inc.,LSE,Producer Manufacturing,Trucks/Construction/Farm Machinery,518.4,523.6,515.6,515.8,-2.3845571536714654,198022412521.80148,16.0,EUR
 0Q19,"CEVA, Inc.",LSE,Electronic Technology,Semiconductors,25.74,26.0,24.2,24.57,-2.0334928229664992,539038662.965163,84.0,USD
-0Q1F,JPMorgan Chase & Co.,LSE,Finance,Major Banks,336.24,338.64,328.9,329.57,-2.4334645785843354,681297188601.0327,14169.0,USD
-0Q1N,Pfizer Inc.,LSE,Health Technology,Pharmaceuticals: Major,28.78,28.92,28.42,28.44,-1.7955801104972362,124780281432.61482,124641.0,USD
-0Q1S,Verizon Communications Inc.,LSE,Communications,Wireless Telecommunications,45.91,46.71,45.91,46.18,-0.3022452504317802,145688203971.99347,28595.0,USD
+0Q1F,JPMorgan Chase & Co.,LSE,Finance,Major Banks,336.24,338.64,328.9,330.1,-2.2765623612303494,681297188601.0327,14274.0,USD
+0Q1N,Pfizer Inc.,LSE,Health Technology,Pharmaceuticals: Major,28.78,28.92,28.42,28.43,-1.830110497237573,124780281432.61482,124642.0,USD
+0Q1S,Verizon Communications Inc.,LSE,Communications,Wireless Telecommunications,45.91,46.71,45.91,46.17,-0.32383419689118864,145688203971.99347,28609.0,USD
 0Q2F,Distribuidora Internacional de Alimentacion SA,LSIN,Retail Trade,Food Retail,49.575,49.75,48.25,48.75,-1.6641452344931977,2403254148.81792,522.0,EUR
 0Q2N,K+S AG,LSIN,Process Industries,Chemicals: Specialty,12.82,13.11,12.82,13.035,-0.11494252873563654,1937423432.711588,164090.0,EUR
 0Q3C,SUSS MicroTec SE,LSE,Producer Manufacturing,Industrial Machinery,47.1,48.66,46.62,47.36,-0.9851310441720114,757620846.867752,4743.0,EUR
@@ -2189,7 +2189,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0QA8,Talanx AG,LSIN,Finance,Life/Health Insurance,127.55,134.4,127.55,134.05,-0.4455997029335272,29021830347.427494,9234.0,EUR
 0QAB,Petrolia SE,LSE,Energy Minerals,Oil & Gas Production,6.1,6.1,6.1,6.1,-2.788844621513955,27869043.343628004,14.0,NOK
 0QAG,ID Logistics Group,LSE,Transportation,Air Freight/Couriers,385.0,385.0,385.0,385.0,-1.282051282051282,2123526012.42714,14.0,EUR
-0QAH,"Merck & Co., Inc.",LSE,Health Technology,Pharmaceuticals: Major,143.18,144.95,139.0,143.1929,-2.01629265188398,270143049021.27628,22031.0,USD
+0QAH,"Merck & Co., Inc.",LSE,Health Technology,Pharmaceuticals: Major,143.18,144.95,139.0,143.37,-1.8951070723520975,270143049021.27628,22071.0,USD
 0QAI,Adocia SA,LSE,Health Technology,Pharmaceuticals: Major,3.904,3.904,3.802,3.812,-10.263653483992476,79813004.867912,2162.0,EUR
 0QAJ,DBV Technologies SA,LSIN,Health Technology,Pharmaceuticals: Major,1.8275,1.86,1.8025,1.807,-3.8829787234042534,490771375.711092,2480.0,EUR
 0QAP,Carmila SA,LSIN,Retail Trade,Discount Stores,14.89,15.26,14.84,15.26,3.0384875084402383,1730343673.900732,368045.0,EUR
@@ -2202,7 +2202,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0QC9,LEG Immobilien SE,LSE,Finance,Real Estate Development,48.96,49.28,48.46,48.8,-1.2145748987854281,3135527336.78766,8691.0,EUR
 0QCO,Pharming Group NV,LSIN,Health Technology,Pharmaceuticals: Major,1.1305,1.145,1.11275,1.11475,-3.0230535015224063,675326918.070672,429128.0,EUR
 0QCR,ER Capital N.V.,LSE,Technology Services,Packaged Software,2.26,2.26,2.26,2.26,1.8018018018017834,28904848.217572,4.0,EUR
-0QCV,"AbbVie, Inc.",LSIN,Health Technology,Pharmaceuticals: Major,293.84,296.47,290.93,293.5,-1.675041876046901,394941630869.67676,7836.0,USD
+0QCV,"AbbVie, Inc.",LSIN,Health Technology,Pharmaceuticals: Major,293.84,296.47,290.93,293.5,-1.675041876046901,394941630869.67676,7838.0,USD
 0QDS,Evonik Industries AG,LSIN,Process Industries,Chemicals: Major Diversified,20.9,22.22,20.9,22.11,3.9492242595204505,8239687781.719664,346663.0,EUR
 0QDX,AB Sagax Class B,LSIN,Finance,Real Estate Development,186.2,186.2,184.5,186.2,-0.9574468085106443,5090290068.898824,892.0,SEK
 0QE6,Tele2 AB Class B,LSIN,Communications,Major Telecommunications,167.45,167.45,165.3,165.3,-0.5265533323303746,8679281288.592098,32647.0,SEK
@@ -2258,7 +2258,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0QKP,Phoenix Mecano AG,LSE,Producer Manufacturing,Industrial Machinery,458.0,458.0,458.0,458.0,5.287356321839081,373442225.065112,27.0,CHF
 0QKQ,MindMaze Therapeutics Holding SA,LSE,Health Technology,Biotechnology,0.138,0.138,0.138,0.138,-1.4285714285714297,22714644.369004,7000.0,CHF
 0QKR,Arbonia AG,LSE,Producer Manufacturing,Building Products,3.555,3.62,3.555,3.62,1.6853932584269677,223064588.837398,43953.0,CHF
-0QKU,Royal Bank of Canada,LSE,Finance,Major Banks,198.002,198.87,195.0,195.57,-2.0681021532298427,210043469846.45135,381.0,USD
+0QKU,Royal Bank of Canada,LSE,Finance,Major Banks,198.002,198.87,195.0,195.94,-1.8828242363545273,210043469846.45135,397.0,USD
 0QKY,Holcim Ltd,LSIN,Non-Energy Minerals,Construction Materials,74.92,74.98,74.26,74.54,-1.0092961487383678,36591663264.61797,27042.0,CHF
 0QL5,Carlo Gavazzi Holding AG,LSE,Electronic Technology,Electronic Production Equipment,173.5,173.5,173.5,173.5,-2.801120448179272,111949127.198132,16.0,CHF
 0QL6,Swiss Re AG,LSIN,Finance,Multi-Line Insurance,153.05,153.525,151.55,153.525,-0.06509357200976033,37495715043.04475,290158.0,CHF
@@ -2326,7 +2326,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0QOQ,Partners Group Holding AG,LSE,Finance,Investment Managers,647.6,653.6,641.0,643.8,-1.9792935444579784,15348603751.952562,3652.0,CHF
 0QOS,"PepsiCo, Inc.",LSE,Consumer Non-Durables,Food: Specialty/Candy,144.7896,144.7896,142.45,142.9553,-2.8666029779676183,151366344118.5131,8682.0,USD
 0QOT,Schindler Holding Ltd.,LSE,Producer Manufacturing,Industrial Machinery,297.0,297.0,294.5,294.5,-1.5050167224080269,29149364850.633396,1050.0,CHF
-0QOW,Transocean Ltd.,LSE,Industrial Services,Contract Drilling,5.25,5.29,5.07,5.0905,-3.5798844587555654,4422616277.14227,35040.0,USD
+0QOW,Transocean Ltd.,LSE,Industrial Services,Contract Drilling,5.25,5.29,5.07,5.0706,-3.9568140922435817,4422616277.14227,35044.0,USD
 0QP1,Chocoladefabriken Lindt & Spruengli AG Partizipsch.,LSIN,Consumer Non-Durables,Food: Specialty/Candy,8582.5,8655.0,8500.0,8517.5,-1.0168506682161536,18084231915.2264,1388.0,CHF
 0QP2,Zurich Insurance Group Ltd,LSIN,Finance,Multi-Line Insurance,658.6,661.0,652.2,658.6,-0.0303582270795282,87484056466.21443,4231.0,CHF
 0QP3,CALIDA Holding AG,LSE,Consumer Non-Durables,Apparel/Footwear,13.92,13.92,13.64,13.64,-1.7291066282420764,97546930.399184,3850.0,CHF
@@ -2359,7 +2359,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0QQY,Mobimo Holding AG,LSIN,Finance,Real Estate Development,349.0,351.0,348.5,348.5,-0.6414825374198148,2362631970.3647637,16709.0,CHF
 0QQZ,St.Galler Kantonalbank AG,LSE,Finance,Major Banks,720.5,721.0,719.5,721.0,-0.8253094910591471,3911852185.186764,209.0,CHF
 0QR1,Schweiter Technologies AG,LSE,Producer Manufacturing,Industrial Machinery,329.0,329.0,329.0,329.0,-1.6442451420029895,428451012.5693,1.0,CHF
-0QR3,PG&E Corporation,LSE,Utilities,Electric Utilities,13.77,13.8283,13.4,13.58,-1.2363636363636359,22854624477.18074,6694.0,USD
+0QR3,PG&E Corporation,LSE,Utilities,Electric Utilities,13.77,13.8283,13.4,13.58,-1.2363636363636359,22854624477.18074,6695.0,USD
 0QR4,Nestle S.A.,LSIN,Consumer Non-Durables,Food: Major Diversified,88.37,88.41,86.62,88.335,0.574974382329495,204605022468.27844,1366094.0,CHF
 0QRA,Bufab AB,LSE,Distribution Services,Wholesale Distributors,136.2,136.6,136.2,136.3,-1.5173410404624235,1964574150.08706,9937.0,SEK
 0QRS,ISS A/S,LSIN,Commercial Services,Miscellaneous Commercial Services,319.4,319.4,315.1,319.3,-0.21874999999999648,5609904069.73464,10778.0,DKK
@@ -2424,107 +2424,107 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0QYE,"Enphase Energy, Inc.",LSE,Producer Manufacturing,Electrical Products,24.74,25.38,23.48,23.63,-4.985926819461206,2504166657.962007,18711.0,USD
 0QYF,Comcast Corporation Class A,LSE,Consumer Services,Cable/Satellite TV,25.43,25.818,24.9291,25.6,0.1956947162426642,68956840648.05482,7690.0,USD
 0QYH,3D Systems Corporation,LSE,Technology Services,Information Technology Services,1.44,1.468,1.4,1.4,-0.7092198581560291,177922879.07904902,74020.0,USD
-0QYI,"Netflix, Inc.",LSE,Technology Services,Internet Software/Services,60.66,60.97,59.42,59.43,-1.9976451730995617,189228111726.44037,148037.0,USD
-0QYJ,"Salesforce, Inc.",LSE,Technology Services,Packaged Software,212.84,215.49,193.46,196.99,-9.01364864552781,134116032577.90938,31699.0,USD
+0QYI,"Netflix, Inc.",LSE,Technology Services,Internet Software/Services,60.66,60.97,59.4,59.54,-1.8162509440745072,189228111726.44037,148930.0,USD
+0QYJ,"Salesforce, Inc.",LSE,Technology Services,Packaged Software,212.84,215.49,193.46,196.94,-9.036742800397219,134116032577.90938,31700.0,USD
 0QYK,"Wynn Resorts, Limited",LSE,Consumer Services,Casinos/Gaming,80.2,83.21,80.2,82.15,-0.060827250608269046,6395962432.306903,552.0,USD
 0QYL,Rambus Inc.,LSE,Electronic Technology,Semiconductors,80.5,80.5,75.8305,77.87,-0.37103377686795297,6331688439.604845,919.0,USD
 0QYM,Fortuna Mining Corp.,LSE,Non-Energy Minerals,Precious Metals,12.48,12.53,12.48,12.52,-0.07980845969672616,1961561034.6058362,33.0,CAD
 0QYN,B2Gold Corp.,LSE,Non-Energy Minerals,Precious Metals,6.8,6.87,6.8,6.87,0.8810572687224744,4728351924.265896,135.0,CAD
-0QYP,Microsoft Corporation,LSE,Technology Services,Packaged Software,516.38,518.48,496.51,506.2,-2.7249317806218545,2917921525281.006,65722.0,USD
+0QYP,Microsoft Corporation,LSE,Technology Services,Packaged Software,516.38,518.48,496.51,506.345,-2.697067527575996,2917921525281.006,65787.0,USD
 0QYQ,"Gilead Sciences, Inc.",LSIN,Health Technology,Biotechnology,166.47,171.22,165.19,171.0,0.0,157669753470.1607,3425.0,USD
 0QYR,Panasonic Holdings Corporation,LSE,Consumer Durables,Electronics/Appliances,3250.0,3250.0,3250.0,3250.0,7.43801652892562,33676974527.984978,135000.0,JPY
-0QYU,Morgan Stanley,LSE,Finance,Investment Managers,185.45,186.84,181.3942,183.09,-0.8126117341134406,220021372616.77704,7261.0,USD
+0QYU,Morgan Stanley,LSE,Finance,Investment Managers,185.45,186.84,181.3942,183.05,-0.8342813803564614,220021372616.77704,7262.0,USD
 0QYY,"Harley-Davidson, Inc.",LSE,Consumer Durables,Motor Vehicles,33.04423038,33.91,32.58,33.265,0.5811422074937703,2544919651.634904,677.0,USD
 0QYZ,Franco-Nevada Corporation,LSE,Non-Energy Minerals,Precious Metals,347.7,352.39,347.7,352.39,0.7577057242522952,35169653150.40011,54.0,CAD
-0QZ0,Visa Inc. Class A,LSE,Finance,Finance/Rental/Leasing,424.65,426.4,417.99,419.09,-1.7995641680530514,599880393213.3458,4573.0,USD
+0QZ0,Visa Inc. Class A,LSE,Finance,Finance/Rental/Leasing,424.65,426.4,417.99,419.2105,-1.7713288188016867,599880393213.3458,4596.0,USD
 0QZ1,AT&T Inc,LSE,Communications,Wireless Telecommunications,22.3,22.685,22.21,22.41,0.4932735426008943,114258983379.73918,26642.0,USD
 0QZ2,Silvercorp Metals Inc.,LSE,Non-Energy Minerals,Precious Metals,11.66,11.72,11.66,11.72,0.4284490145672726,1355858129.7377481,14.0,CAD
-0QZ3,QUALCOMM Incorporated,LSIN,Electronic Technology,Semiconductors,168.96,171.36,162.6,165.0,-4.3478260869565215,136779549637.30432,20334.0,USD
+0QZ3,QUALCOMM Incorporated,LSIN,Electronic Technology,Semiconductors,168.96,171.36,162.6,165.0,-4.3478260869565215,136779549637.30432,20335.0,USD
 0QZ4,"Delta Air Lines, Inc.",LSE,Transportation,Airlines,85.55,87.01,84.45,84.9528,-1.2406417112299462,43218715569.21049,8995.0,USD
 0QZ5,Cognizant Technology Solutions Corporation Class A,LSE,Technology Services,Information Technology Services,61.28,62.26,59.955,60.4405,-3.015885750962773,21122307015.35024,866.0,USD
-0QZ6,"NIKE, Inc. Class B",LSE,Consumer Non-Durables,Apparel/Footwear,38.14,41.06,35.7931,36.0,-5.00968373501924,43106986024.457146,202631.0,USD
-0QZA,ConocoPhillips,LSE,Energy Minerals,Oil & Gas Production,141.58,143.475,139.0,140.61,-0.014221716561176002,126027295399.3064,4902.0,USD
-0QZD,"Advanced Micro Devices, Inc.",LSIN,Electronic Technology,Semiconductors,514.4,520.86,480.5,498.1,-3.1875607385811424,627371280420.1188,169289.0,USD
-0QZF,Western Digital Corporation,LSE,Electronic Technology,Computer Peripherals,281.94,288.82,271.45,280.82,-1.1997326109137054,79768397493.06723,9809.0,USD
+0QZ6,"NIKE, Inc. Class B",LSE,Consumer Non-Durables,Apparel/Footwear,38.14,41.06,35.772,35.97,-5.0888423319067275,43106986024.457146,205774.0,USD
+0QZA,ConocoPhillips,LSE,Energy Minerals,Oil & Gas Production,141.58,143.475,139.0,140.73,0.07110858280594064,126027295399.3064,4903.0,USD
+0QZD,"Advanced Micro Devices, Inc.",LSIN,Electronic Technology,Semiconductors,514.4,520.86,480.5,498.1,-3.1875607385811424,627371280420.1188,169932.0,USD
+0QZF,Western Digital Corporation,LSE,Electronic Technology,Computer Peripherals,281.94,288.82,271.45,281.15,-1.083629455018837,79768397493.06723,9812.0,USD
 0QZH,Starbucks Corporation,LSIN,Consumer Services,Restaurants,108.0,110.1,107.03,108.2,-0.5514705882352889,94023911692.56357,6267.0,USD
-0QZI,Meta Platforms Inc Class A,LSE,Technology Services,Internet Software/Services,622.21,627.5,613.5,620.9,-0.7829977628635311,1214636700549.8962,30832.0,USD
-0QZK,Coca-Cola Company,LSE,Consumer Non-Durables,Beverages: Non-Alcoholic,99.31,99.6,98.54,99.09,-0.2416188462700039,324625228927.0831,73870.0,USD
-0QZO,Walt Disney Company,LSE,Consumer Services,Movies/Entertainment,117.16,122.705,113.92,117.35,-0.7145002517037684,155471299851.13422,42472.0,USD
+0QZI,Meta Platforms Inc Class A,LSE,Technology Services,Internet Software/Services,622.21,627.5,613.5,621.99,-0.6088207094918417,1214636700549.8962,30856.0,USD
+0QZK,Coca-Cola Company,LSE,Consumer Non-Durables,Beverages: Non-Alcoholic,99.31,99.6,98.54,99.04,-0.2919561059095863,324625228927.0831,73886.0,USD
+0QZO,Walt Disney Company,LSE,Consumer Services,Movies/Entertainment,117.16,122.705,113.92,117.5952,-0.5070455901078302,155471299851.13422,42483.0,USD
 0QZS,"TripAdvisor, Inc.",LSE,Consumer Services,Other Consumer Services,7.0,7.19,6.88,7.1786,3.1408045977011545,623855721.260556,5270.0,USD
 0QZU,Vertex Pharmaceuticals Incorporated,LSE,Health Technology,Pharmaceuticals: Major,536.99,537.86,529.95,532.5105,-0.3591677113934418,103428716799.19095,669.0,USD
 0QZX,FedEx Corporation,LSE,Transportation,Air Freight/Couriers,320.8,329.25,319.675,320.1895,-2.2499729056858384,58207881219.14727,701.0,USD
 0QZZ,"BlackRock, Inc.",LSE,Finance,Investment Managers,1193.2,1207.13,1173.77,1182.46,-1.291394321871898,147240815389.31436,450.0,USD
 0R01,Citigroup Inc.,LSIN,Finance,Major Banks,121.06,121.8549,118.38,121.0,-2.4193548387096775,152324576989.20532,5237.0,USD
 0R03,"Travelers Companies, Inc.",LSE,Finance,Property/Casualty Insurance,400.0,403.19,399.69,399.69,-0.6751277172637634,62660782868.93961,962.0,USD
-0R06,"First Solar, Inc.",LSE,Electronic Technology,Semiconductors,162.12,168.6,152.80916872,153.64,-6.935610878914542,13244572144.872232,7400.0,USD
+0R06,"First Solar, Inc.",LSE,Electronic Technology,Semiconductors,162.12,168.6,152.80916872,153.57,-6.978011993458119,13244572144.872232,7406.0,USD
 0R07,Pan American Silver Corp.,LSE,Non-Energy Minerals,Precious Metals,51.04,51.98,50.9,51.15,0.4122497055359263,11134554236.260729,603.0,CAD
 0R08,"United Parcel Service, Inc. Class B",LSE,Transportation,Air Freight/Couriers,112.0,112.0,110.07,110.81,-0.6281028495996803,72222816958.3742,2954.0,USD
 0R0A,Hecla Mining Company,LSE,Non-Energy Minerals,Precious Metals,12.39,12.87,12.2,12.49,0.725806451612902,6227051521.663423,67769.0,USD
 0R0E,General Motors Company,LSE,Consumer Durables,Motor Vehicles,83.15,85.44,82.34,83.82,0.2032277346084728,53538503837.85907,1571.0,USD
 0R0G,"Mondelez International, Inc. Class A",LSE,Consumer Non-Durables,Food: Specialty/Candy,67.88,67.88,66.88,67.32,-0.8249852681202156,64852280337.734314,2510.0,USD
 0R0H,Thermo Fisher Scientific Inc.,LSE,Health Technology,Medical Specialties,687.94,694.205,671.99,689.855,-0.7588508624286072,194302396800.3162,595.0,USD
-0R0K,"Cisco Systems, Inc.",LSE,Electronic Technology,Telecommunications Equipment,95.34,96.98,93.65,94.78,0.005275652862036879,282275271783.8035,10406.0,USD
+0R0K,"Cisco Systems, Inc.",LSE,Electronic Technology,Telecommunications Equipment,95.34,96.98,93.65,94.99,0.22685307306778071,282275271783.8035,10407.0,USD
 0R0O,UnitedHealth Group Incorporated,LSE,Health Services,Managed Health Care,409.49,410.08,389.0,392.03,-4.322253136135119,280042020005.58514,7412.0,USD
 0R0P,BlackBerry Limited,LSE,Technology Services,Packaged Software,11.745,11.745,11.68057,11.685,-7.847003154574127,3906324648.1885405,2400.0,CAD
 0R0T,Amgen Inc.,LSE,Health Technology,Biotechnology,460.8,462.4,450.0,457.7405,-1.6373345367027712,189694540845.14908,1537.0,USD
 0R0U,"Coeur Mining, Inc.",LSE,Non-Energy Minerals,Precious Metals,13.26,13.655,13.07,13.08,-1.0590015128593084,10170203654.521944,53530.0,USD
-0R0X,"Tesla, Inc.",LSE,Consumer Durables,Motor Vehicles,378.07,382.7995,374.1205,378.95,0.32563803875885877,1138603456046.7468,80142.0,USD
+0R0X,"Tesla, Inc.",LSE,Consumer Durables,Motor Vehicles,378.07,382.7995,374.1205,380.0,0.6036217303822865,1138603456046.7468,80171.0,USD
 0R13,"Church & Dwight Co., Inc.",LSE,Consumer Non-Durables,Household/Personal Care,113.79,116.43,112.76,112.76,-2.1520305449496613,20543372171.633587,650.0,USD
-0R16,McDonald's Corporation,LSE,Consumer Services,Restaurants,273.73,279.1095,270.7,276.51,0.4723665564478076,147051492371.94315,8620.0,USD
+0R16,McDonald's Corporation,LSE,Consumer Services,Restaurants,273.73,279.1095,270.7,275.8005,0.21456342429418263,147051492371.94315,8628.0,USD
 0R18,"Best Buy Co., Inc.",LSE,Retail Trade,Electronics/Appliance Stores,102.57,102.69,98.34,99.74,-3.8279818725291666,16441907980.340517,1478.0,USD
 0R19,"Becton, Dickinson and Company",LSE,Health Technology,Medical Specialties,211.62,216.1709,211.62,216.1709,-0.20271455611468753,44726995310.47893,748.0,USD
 0R1A,"Applied Materials, Inc.",LSIN,Producer Manufacturing,Industrial Machinery,357.98,359.0,338.0,346.5,-3.076923076923077,210845490635.93384,7074.0,USD
 0R1B,Biogen Inc.,LSE,Health Technology,Pharmaceuticals: Major,249.32,251.5,244.08,249.1307,-1.4319683481701324,28217380959.449547,160.0,USD
 0R1C,"GoPro, Inc. Class A",LSE,Consumer Durables,Electronics/Appliances,0.6132,0.6549,0.596,0.63,1.0101010101010057,100876154.01683402,138333.0,USD
 0R1D,"Sangamo Therapeutics, Inc.",LSE,Health Technology,Biotechnology,0.106,0.106,0.106,0.106,-1.3953488372093035,34222920.385521,1780.0,USD
-0R1F,Bristol-Myers Squibb Company,LSIN,Health Technology,Pharmaceuticals: Major,63.0,63.66,60.82,62.8,-1.3354281225451712,97575950089.16891,7703.0,USD
+0R1F,Bristol-Myers Squibb Company,LSIN,Health Technology,Pharmaceuticals: Major,63.0,63.66,60.82,62.8,-1.3354281225451712,97575950089.16891,7718.0,USD
 0R1G,"Home Depot, Inc.",LSE,Retail Trade,Home Improvement Chains,338.11,348.14,334.0,340.405,-2.1177789918624406,262995737550.1222,4702.0,USD
 0R1H,"Groupon, Inc.",LSE,Retail Trade,Internet Retail,11.87,12.24,11.45,11.73,0.08532423208190944,357789100.398669,2852.0,USD
-0R1I,NVIDIA Corporation,LSIN,Electronic Technology,Semiconductors,159.575,159.575,150.34,154.55,-3.148989503368308,2854415205464.444,2874186.0,USD
+0R1I,NVIDIA Corporation,LSIN,Electronic Technology,Semiconductors,159.575,159.575,150.34,154.55,-3.148989503368308,2854415205464.444,2880822.0,USD
 0R1J,Plug Power Inc.,LSIN,Electronic Technology,Electronic Production Equipment,1.09,1.1,1.0,1.02,-6.422018348623859,1135396765.1546311,578791.0,USD
-0R1M,Exxonmobil Holdings Corporation,LSE,Energy Minerals,Integrated Oil,166.25,169.41,164.98,167.16,-0.07770936696753869,516346893587.84503,10938.0,USD
-0R1O,"Amazon.com, Inc.",LSE,Retail Trade,Internet Retail,257.4,260.24,254.02,256.9048,-0.5362964110108783,2114152629344.2407,94687.0,USD
+0R1M,Exxonmobil Holdings Corporation,LSE,Energy Minerals,Integrated Oil,166.25,169.41,164.98,167.046,-0.1458545041544622,516346893587.84503,10943.0,USD
+0R1O,"Amazon.com, Inc.",LSE,Retail Trade,Internet Retail,257.4,260.24,254.02,257.22,-0.41426303767083245,2114152629344.2407,94892.0,USD
 0R1T,"Expedia Group, Inc.",LSE,Consumer Services,Other Consumer Services,251.0,252.84,244.2005,244.2005,-3.3405240658644644,22728088451.20447,423.0,USD
-0R1W,Walmart Inc.,LSE,Retail Trade,Specialty Stores,128.0,128.99,126.23,127.39,-0.709275136399073,772792833752.193,20313.0,USD
+0R1W,Walmart Inc.,LSE,Retail Trade,Specialty Stores,128.0,128.99,126.23,127.35,-0.7404520654715643,772792833752.193,20314.0,USD
 0R1X,"General Mills, Inc.",LSE,Consumer Non-Durables,Food: Major Diversified,35.28,35.505,34.68,35.17,-0.6814209023673105,14292940456.583076,3545.0,USD
-0R1Z,Oracle Corporation,LSE,Technology Services,Packaged Software,119.26,120.79,113.0,114.58,-3.844055837248221,273152446615.0439,82211.0,USD
+0R1Z,Oracle Corporation,LSE,Technology Services,Packaged Software,119.26,120.79,113.0,114.97,-3.516766447970221,273152446615.0439,82227.0,USD
 0R20,Santacruz Silver Mining Ltd.,LSE,Non-Energy Minerals,Precious Metals,10.84,10.84,10.67,10.78,18.07228915662649,453143548.80104005,1000.0,CAD
 0R22,Barrick Mining Corporation,LSIN,Non-Energy Minerals,Precious Metals,2767.67,2814.45,2767.67,2780.87,-2.0499670666802956,45111706260.27307,3684.0,GBX
-0R23,Halliburton Company,LSE,Industrial Services,Oilfield Services/Equipment,32.13,32.985,32.04,32.195,-1.3935681470137775,20391122982.315422,6878.0,USD
-0R24,Intel Corporation,LSE,Electronic Technology,Semiconductors,54.52,55.7,52.42,53.9686,-3.247400501972031,223638913968.14188,845843.0,USD
+0R23,Halliburton Company,LSE,Industrial Services,Oilfield Services/Equipment,32.13,32.985,32.04,32.19,-1.4088820826952553,20391122982.315422,6879.0,USD
+0R24,Intel Corporation,LSE,Electronic Technology,Semiconductors,54.52,55.7,52.42,54.07,-3.0656149157404102,223638913968.14188,846090.0,USD
 0R25,Prospect Capital Corporation,LSE,Miscellaneous,Investment Trusts/Mutual Funds,1.3,1.41,1.3,1.36,-0.7299270072992706,570382937.675583,22334.0,USD
-0R28,Newmont Corporation,LSIN,Non-Energy Minerals,Precious Metals,110.41,114.5,109.5,114.5,2.690582959641256,86955512102.3789,21456.0,USD
-0R29,"Intuitive Surgical, Inc.",LSE,Health Technology,Medical Specialties,439.0,440.95,428.909,431.1,-1.9625679394173687,115105322443.30159,16266.0,USD
+0R28,Newmont Corporation,LSIN,Non-Energy Minerals,Precious Metals,110.41,114.5,109.5,114.5,2.690582959641256,86955512102.3789,21458.0,USD
+0R29,"Intuitive Surgical, Inc.",LSE,Health Technology,Medical Specialties,439.0,440.95,428.909,431.86,-1.789734609874242,115105322443.30159,16270.0,USD
 0R2B,Danaher Corporation,LSE,Health Technology,Medical Specialties,228.0,231.1,225.2205,226.86,-2.141701714655441,122695017791.32991,994.0,USD
 0R2C,Endeavour Silver Corp.,LSE,Non-Energy Minerals,Precious Metals,10.29,10.43,10.13,10.13,-1.650485436893203,1609946896.9168801,63.0,CAD
 0R2D,Kinross Gold Corporation,LSIN,Non-Energy Minerals,Precious Metals,28.875,29.21,28.6,29.125,-1.0195412064570968,17826905902.46563,105.0,CAD
 0R2E,Union Pacific Corporation,LSE,Transportation,Railroads,304.0,308.0,296.09,299.57,-1.952313155612297,136903487798.2741,479.0,USD
 0R2F,Wells Fargo & Company,LSIN,Finance,Major Banks,84.4,86.1,82.48,82.95,-3.8260869565217357,193185981145.30878,4584.0,USD
 0R2H,Texas Instruments Incorporated,LSE,Electronic Technology,Semiconductors,286.6667,299.0,286.6667,293.04,-1.096898309089068,203929661162.1535,2297.0,USD
-0R2I,"Under Armour, Inc. Class A",LSE,Consumer Non-Durables,Apparel/Footwear,4.82,4.91,4.69,4.69,-1.8828451882845159,1552128150.790146,3084.0,USD
+0R2I,"Under Armour, Inc. Class A",LSE,Consumer Non-Durables,Apparel/Footwear,4.82,4.91,4.68,4.681,-2.071129707112975,1552128150.790146,12084.0,USD
 0R2J,Agnico Eagle Mines Limited,LSE,Non-Energy Minerals,Precious Metals,246.9,248.2055,246.11,247.37,-0.040408938457184435,65992257882.931564,752.0,CAD
 0R2L,"T-Mobile US, Inc.",LSE,Communications,Wireless Telecommunications,169.26,173.63,169.14,169.72,-0.6788389513108595,136605477991.73196,1237.0,USD
 0R2M,"Regeneron Pharmaceuticals, Inc.",LSE,Health Technology,Pharmaceuticals: Major,952.4,965.6398,945.0,962.57,0.5016888276351782,74723095121.18906,184.0,USD
-0R2N,RTX Corporation,LSIN,Electronic Technology,Aerospace & Defense,194.91,197.51,192.69,196.5,0.0,199493725812.43832,13902.0,USD
+0R2N,RTX Corporation,LSIN,Electronic Technology,Aerospace & Defense,194.91,197.51,192.69,196.5,0.0,199493725812.43832,13906.0,USD
 0R2O,"Freeport-McMoRan, Inc.",LSIN,Non-Energy Minerals,Other Metals/Minerals,55.09,56.98,54.6,55.25,-2.2123893805309733,60072935647.12893,30816.0,USD
 0R2P,Deere & Company,LSE,Producer Manufacturing,Trucks/Construction/Farm Machinery,649.8311,660.82,648.77,649.62,-1.2960571298336205,133757403182.08087,328.0,USD
 0R2Q,Chevron Corporation,LSE,Energy Minerals,Integrated Oil,217.0,219.405,215.1,216.25,-0.41904586480014583,323728916730.9539,8697.0,USD
 0R2S,Stryker Corporation,LSE,Health Technology,Medical Specialties,311.96,319.29,305.0,317.31,2.1143077814249835,89727953130.74548,622.0,USD
-0R2T,"Micron Technology, Inc.",LSIN,Electronic Technology,Semiconductors,727.0,737.8,672.94,691.5,-5.597269624573379,617094959976.7466,104614.0,USD
+0R2T,"Micron Technology, Inc.",LSIN,Electronic Technology,Semiconductors,727.0,737.8,672.94,691.5,-5.597269624573379,617094959976.7466,104940.0,USD
 0R2X,Corning Inc,LSE,Electronic Technology,Electronic Components,106.58,110.6,103.8,107.255,0.5531336427131572,69373430978.48433,2572.0,USD
-0R2Y,Adobe Inc.,LSE,Technology Services,Packaged Software,245.1,246.68,233.81,237.62,-4.222172957939497,72626293867.53467,10264.0,USD
-0R2Z,Mastercard Incorporated Class A,LSE,Finance,Finance/Rental/Leasing,660.01,664.2,645.07,649.1895,-1.9069672564633342,437279985293.22437,4475.0,USD
-0R30,V.F. Corporation,LSE,Consumer Non-Durables,Apparel/Footwear,20.07,20.75,20.04,20.63,1.6686872271011344,6016711228.532347,12752.0,USD
+0R2Y,Adobe Inc.,LSE,Technology Services,Packaged Software,245.1,246.68,233.81,237.675,-4.200004030714036,72626293867.53467,10315.0,USD
+0R2Z,Mastercard Incorporated Class A,LSE,Finance,Finance/Rental/Leasing,660.01,664.2,645.07,650.01,-1.782989075414387,437279985293.22437,4485.0,USD
+0R30,V.F. Corporation,LSE,Consumer Non-Durables,Apparel/Footwear,20.07,20.75,20.04,20.5214,1.1334851217757298,6016711228.532347,12755.0,USD
 0R31,"Altria Group, Inc.",LSIN,Consumer Non-Durables,Tobacco,78.5,78.94,77.99,78.53,-0.2540327702273629,99556419814.03943,1612.0,USD
 0R32,Abercrombie & Fitch Co. Class A,LSE,Retail Trade,Apparel/Footwear Retail,146.15,147.8595,142.3272,142.3272,-2.267939298221514,4692150716.345676,743.0,USD
 0R33,Emerson Electric Co.,LSE,Electronic Technology,Electronic Equipment/Instruments,161.0,162.84,158.76,159.61,-0.8695112104838069,66853235026.83114,1875.0,USD
-0R34,Johnson & Johnson,LSE,Health Technology,Pharmaceuticals: Major,281.51,283.75,277.61,278.635,-1.7954443885225775,515956749041.106,4896.0,USD
+0R34,Johnson & Johnson,LSE,Health Technology,Pharmaceuticals: Major,281.51,283.75,277.61,278.66,-1.786633169938084,515956749041.106,4897.0,USD
 0R35,Cameco Corporation,LSE,Non-Energy Minerals,Other Metals/Minerals,94.0,94.0,91.97,93.33,-1.8457169900615193,21799959419.424404,739.0,CAD
-0R37,Berkshire Hathaway Inc. Class B,LSE,Finance,Property/Casualty Insurance,590.72,592.5,585.25,590.86,0.016927347823146918,954781438632.3484,4927.0,USD
+0R37,Berkshire Hathaway Inc. Class B,LSE,Finance,Property/Casualty Insurance,590.72,592.5,585.25,591.34,0.09817861737423673,954781438632.3484,4940.0,USD
 0R3C,American Express Company,LSIN,Finance,Finance/Rental/Leasing,317.12,322.0,313.22,313.5,-1.5698587127158554,162284531496.049,2806.0,USD
-0R3D,eBay Inc.,LSE,Retail Trade,Internet Retail,119.95,120.96,117.6087,117.6093,-1.6233375156838081,40256946079.3378,18310.0,USD
+0R3D,eBay Inc.,LSE,Retail Trade,Internet Retail,119.95,120.96,117.6087,117.79,-1.47218736930154,40256946079.3378,18326.0,USD
 0R3E,Lockheed Martin Corporation,LSE,Electronic Technology,Aerospace & Defense,583.75,593.6712,580.0,588.06,0.9215878082685288,102545920077.14317,3807.0,USD
-0R3G,"Goldman Sachs Group, Inc.",LSE,Finance,Investment Banks/Brokers,886.0,895.5,865.995,874.34,-1.7153776978417257,195062645576.64838,4039.0,USD
+0R3G,"Goldman Sachs Group, Inc.",LSE,Finance,Investment Banks/Brokers,886.0,895.5,865.995,874.0,-1.753597122302161,195062645576.64838,4042.0,USD
 0R3I,Scatec ASA,LSIN,Utilities,Alternative Power Generation,86.3,86.95,84.85,86.0,-1.7984584641735686,1099103484.0288322,8834.0,NOK
 0R3M,Vivoryon Therapeutics N.V.,LSE,Commercial Services,Miscellaneous Commercial Services,0.74,0.74,0.724,0.73,-1.8817204301075288,18030752.690548,406.0,EUR
 0R3Q,Infomaniak SA Class B,LSE,Technology Services,Data Processing Services,75.9,75.9,73.8,73.8,-4.7741935483871005,322656786.28738797,7.0,CHF
@@ -2583,7 +2583,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0R9Q,Jacques Bogart SA,LSE,Consumer Non-Durables,Household/Personal Care,2.8,3.55,2.8,3.55,39.21568627450981,33665683.965512,1555.0,EUR
 0R9S,Avio SpA,LSIN,Electronic Technology,Aerospace & Defense,34.145,40.0,34.145,39.04,15.264245645113675,1406057800.216052,1088104.0,EUR
 0R9T,Equasens SA,LSE,Technology Services,Packaged Software,27.7,27.7,27.55,27.55,-1.2544802867383438,349524045.12468,21.0,EUR
-0R9U,"PayPal Holdings, Inc.",LSE,Commercial Services,Miscellaneous Commercial Services,58.95,59.18,57.96,58.63,-0.20510463740734095,37068687940.16398,56818.0,USD
+0R9U,"PayPal Holdings, Inc.",LSE,Commercial Services,Miscellaneous Commercial Services,58.95,59.18,57.96,58.62,-0.2221257691423987,37068687940.16398,56820.0,USD
 0R9X,Granges AB,LSIN,Non-Energy Minerals,Aluminum,166.65,171.1,166.65,169.0,0.3562945368170988,1340977356.819555,19702.0,SEK
 0RA1,ADLER Group SA,LSIN,Finance,Real Estate Development,0.08755,0.09,0.08755,0.09,1.63749294184076,11836922.592976,0.0,EUR
 0RA2,Poxel SA,LSIN,Health Technology,Pharmaceuticals: Major,0.1486,0.1486,0.144,0.1456,-2.8037383177569972,6658041.473048,40484.0,EUR
@@ -2687,7 +2687,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0RIC,ING Groep N.V.,LSIN,Finance,Major Banks,29.7,29.76,29.23,29.5875,-1.629124761034002,69519650482.43904,594300.0,EUR
 0RID,Colonial SFL SOCIMI SA,LSIN,Finance,Real Estate Investment Trusts,5.11,5.125,5.08,5.084,-0.28439737177601176,2581371967.431316,57841.0,EUR
 0RIE,ENAV S.p.A.,LSIN,Transportation,Other Transportation,5.825,5.825,5.46,5.5375,-3.821102909248817,2595584227.319236,37744.0,EUR
-0RIH,Alphabet Inc. Class A,LSE,Technology Services,Internet Software/Services,283.76,284.8,278.46,281.09,-1.4756396775324347,2620279642428.972,110707.0,USD
+0RIH,Alphabet Inc. Class A,LSE,Technology Services,Internet Software/Services,283.76,284.8,278.46,281.2,-1.4370837714686373,2620279642428.972,110981.0,USD
 0RIL,La Francaise de l'Energie SA,LSE,Utilities,Electric Utilities,19.48,19.76,19.48,19.5,-2.5,89013147.39752801,261.0,EUR
 0RIM,Gensight Biologics SA,LSE,Health Technology,Pharmaceuticals: Major,0.0773,0.0778,0.0756,0.0756,-6.66666666666667,15868949.842616,3910.0,EUR
 0RIP,bet-at-home.com AG,LSIN,Consumer Services,Movies/Entertainment,2.54,2.54,2.54,2.54,0.0,15335700.47504,0.0,EUR
@@ -2815,7 +2815,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0S9E,Extendicare Inc.,LSE,Health Services,Hospital/Nursing Management,30.06,30.06,30.06,30.06,-2.370899642741151,1519951303.2489321,2.0,CAD
 0SAN,Sandoz Group Ltd,LSE,Health Technology,Pharmaceuticals: Major,84.5,84.63,82.98,83.0,-1.8912529550827357,33601285266.303062,98567.0,CHF
 0SAY,DWS Group GmbH & Co. KGaA,LSE,Finance,Investment Managers,66.25,66.65,65.45,65.5,-2.6022304832713754,11201211174.38342,476.0,EUR
-0SCL,SLB Limited,LSIN,Industrial Services,Contract Drilling,49.5,50.59,48.9,49.0,-3.9215686274509802,56071910239.57119,16500.0,USD
+0SCL,SLB Limited,LSIN,Industrial Services,Contract Drilling,49.5,50.59,48.9,49.0,-3.9215686274509802,56071910239.57119,16501.0,USD
 0SE5,Sensirion Holding AG,LSE,Electronic Technology,Semiconductors,77.6,78.7,77.0,77.0,-1.155327342747119,1105366692.898594,513.0,CHF
 0SE9,Air Canada,LSE,Transportation,Airlines,22.57,22.67,22.57,22.67,-0.526546731022367,3047447659.2084203,8.0,CAD
 0SEA,Siemens Energy AG,LSE,Producer Manufacturing,Electrical Products,126.84,129.42,124.18,125.0,-2.95031055900622,90450883461.6152,110503.0,EUR
@@ -2824,16 +2824,16 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0SGO,"Dropbox, Inc. Class A",LSE,Technology Services,Packaged Software,33.73903125,34.4428,33.16067291,34.4428,-0.19472616632859957,5639963527.288188,593.0,USD
 0SKN,SKAN Group AG,LSIN,Health Technology,Medical Specialties,68.8,68.85,68.15,68.6,0.14598540145984573,1390233719.552048,667.0,CHF
 0SOM,BHG Group AB,LSE,Retail Trade,Specialty Stores,24.51,24.72,24.34,24.44,-1.0926750303520825,331381877.322555,33972.0,SEK
-0SPC,Space Exploration Technologies Corp. Class A,LSE,Communications,Specialty Telecommunications,137.64,142.09,135.91,140.79,1.620412140459782,1415076746476.7542,545908.0,USD
+0SPC,Space Exploration Technologies Corp. Class A,LSE,Communications,Specialty Telecommunications,137.64,142.09,135.91,141.25,1.9524342271464237,1415076746476.7542,549411.0,USD
 0SPT,Spotify Technology SA,LSE,Technology Services,Internet Software/Services,553.0,554.0,544.0,544.0,-2.333931777378815,95535479793.37921,3.0,EUR
 0STP,Immobiliare Grande Distribuzione SIIQ S.p.A.,LSIN,Finance,Real Estate Development,4.3475,4.5775,4.3475,4.5775,1.9487750556792753,415055333.422484,765647.0,EUR
-0SZI,Corbus Pharmaceuticals Holdings Inc,LSE,Health Technology,Pharmaceuticals: Major,3.12,3.3478,2.97,2.99,-2.351404310907891,52755703.711695,7342.0,USD
+0SZI,Corbus Pharmaceuticals Holdings Inc,LSE,Health Technology,Pharmaceuticals: Major,3.12,3.3478,2.97,2.97,-3.004572175048976,52755703.711695,7480.0,USD
 0T3W,Bilibili Inc. Sponsored ADR Class Z,LSE,Technology Services,Packaged Software,12.29,12.33,11.948,12.035,-5.976562500000004,4060796541.791933,14527.0,USD
 0T6G,Q32 Bio Inc,LSE,Health Technology,Biotechnology,8.36,8.58,8.17,8.57,2.5733093955715125,188173478.84712902,431.0,USD
 0TCU,Howmet Aerospace Inc.,LSE,Electronic Technology,Aerospace & Defense,213.21,217.03,208.59,213.811304,0.27732107682206547,64205471954.93576,1638.0,USD
 0TCZ,Webstep AS,LSE,Commercial Services,Miscellaneous Commercial Services,11.45,11.45,11.45,11.45,-2.553191489361708,24524415.226960003,82.0,NOK
 0TD7,Fomento Economico Mexicano SAB de CV Sponsored ADR Class B,LSE,Consumer Non-Durables,Beverages: Non-Alcoholic,130.1,134.6406,130.1,134.6406,2.6615325962638203,20107693591.89218,35.0,USD
-0TDD,Novo Nordisk A/S Sponsored ADR Class B,LSE,Health Technology,Pharmaceuticals: Major,41.6,41.62,40.25,40.66,-2.4694467431847484,140709957330.5771,63312.0,USD
+0TDD,Novo Nordisk A/S Sponsored ADR Class B,LSE,Health Technology,Pharmaceuticals: Major,41.6,41.62,40.25,40.75,-2.2535650463546038,140709957330.5771,63313.0,USD
 0TDE,Telefonica SA,LSIN,Communications,Specialty Telecommunications,3.498,3.528,3.426,3.4975,-0.5968452465539266,16460905222.854317,123097.0,EUR
 0TDF,Roche Holding Ltd Sponsored ADR,LSE,Health Technology,Pharmaceuticals: Major,59.35,60.45,59.35,60.37,-1.049008359285364,294425673719.81415,9.0,USD
 0TDG,Sociedad Quimica y Minera de Chile S.A. Sponsored ADR Pfd Series B,LSE,Process Industries,Chemicals: Specialty,53.2,53.2,51.76,51.99,1.319551223961232,10952501458.688412,677.0,USD
@@ -2868,11 +2868,11 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0UNV,CanAlaska Uranium Ltd,LSE,Non-Energy Minerals,Other Metals/Minerals,0.2525,0.2525,0.2525,0.2525,3.061224489795921,26396048.8986,4000.0,CAD
 0UP5,Centerra Gold Inc.,LSE,Non-Energy Minerals,Precious Metals,28.3,28.65,28.3,28.65,0.06985679357317351,2882514404.1190524,101.0,CAD
 0URG,Hemlo Mining Corp,LSE,Non-Energy Minerals,Precious Metals,4.8,4.89,4.8,4.85,-1.2219959266802545,754289567.4122361,161.0,CAD
-0URY,Denison Mines Corp.,LSE,Non-Energy Minerals,Other Metals/Minerals,2.77,2.78,2.7,2.7,-1.0989010989010917,1320254435.13746,3284.0,CAD
+0URY,Denison Mines Corp.,LSE,Non-Energy Minerals,Other Metals/Minerals,2.77,2.78,2.695,2.695,-1.2820512820512873,1320254435.13746,3384.0,CAD
 0UTK,Mutares SE & Co. KGaA,LSIN,Finance,Investment Managers,28.1,28.3,27.7,27.7,-2.1201413427561886,606807491.993628,2827.0,EUR
 0UU0,Energy Fuels Inc.,LSE,Non-Energy Minerals,Other Metals/Minerals,8.66,8.66,8.33,8.54,-0.11695906432750366,1213350360.6910617,431.0,CAD
 0UV1,Excellon Resources Inc.,LSE,Non-Energy Minerals,Precious Metals,0.225,0.225,0.2225,0.2225,-6.315789473684205,50248714.973184004,8000.0,CAD
-0UVO,Finning International Inc.,LSE,Distribution Services,Wholesale Distributors,88.73,88.73,87.02,87.02,-2.9877369007803867,5954672074.143464,4.0,CAD
+0UVO,Finning International Inc.,LSE,Distribution Services,Wholesale Distributors,85.52,85.52,85.52,85.52,-1.7237416685819351,5954672074.143464,3.0,CAD
 0UWG,Fortune Minerals Limited,LSE,Non-Energy Minerals,Other Metals/Minerals,0.0825,0.0825,0.0825,0.0825,-35.29411764705882,28425045.8748,2000.0,CAD
 0UWL,Freehold Royalties Ltd.,LSE,Miscellaneous,Investment Trusts/Mutual Funds,17.14,17.27,17.0,17.0,-1.1627906976744147,1490958478.096944,164.0,CAD
 0UYN,GoldMining Inc.,LSE,Non-Energy Minerals,Precious Metals,1.02,1.02,1.0,1.0,0.0,114255703.37480001,795.0,CAD
@@ -2937,14 +2937,14 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0VRF,UBS MSCI Switzerland ETF -CHF dis-,LSE,Miscellaneous,Investment Trusts/Mutual Funds,26.1715,26.1715,25.98,25.98,-1.7546513386779559,,2200.0,CHF
 0VRG,iShares Core CHF Corporate Bond ETF (CH),LSE,Miscellaneous,Investment Trusts/Mutual Funds,96.466,96.466,95.732,95.732,-0.3227754524062413,,3004.0,CHF
 0VRH,iShares Swiss Dividend ETF (CH),LSE,Miscellaneous,Investment Trusts/Mutual Funds,210.15,210.26,207.85,208.0,-1.2111137497031637,,54913.0,CHF
-0VRQ,CRISPR Therapeutics AG,LSE,Health Technology,Biotechnology,40.56,41.04,39.83,40.5,0.24752475247525105,2970434793.518832,6201.0,USD
+0VRQ,CRISPR Therapeutics AG,LSE,Health Technology,Biotechnology,40.56,41.04,39.83,40.67,0.6683168316831761,2970434793.518832,6240.0,USD
 0VSO,BYD Company Limited Class H,LSIN,Producer Manufacturing,Electrical Products,7.458,7.458,7.216,7.321,-2.685099029642429,67342925376.64889,15493.0,EUR
 0VVY,"JOYY, Inc. Sponsored ADR Class A",LSE,Technology Services,Data Processing Services,79.0,79.0,78.63,78.63,-0.8698940998487112,2967647757.530988,24.0,USD
 0W0W,iShares STOXX Europe 600 Retail UCITS ETF (DE),LSE,Miscellaneous,Investment Trusts/Mutual Funds,49.88,49.88,49.735,49.735,-1.0051751592356737,,166.0,EUR
 0W1Q,MPH Health Care AG,LSE,Finance,Financial Conglomerates,33.3,33.8,32.4,33.8,1.807228915662633,119623898.336016,228.0,EUR
 0W1V,Steico SE,LSE,Non-Energy Minerals,Forest Products,16.26,16.26,16.18,16.18,-1.2210012210012167,190288921.78607202,865.0,EUR
 0W2J,Deutsche Rohstoff AG,LSE,Energy Minerals,Integrated Oil,71.8,72.3,69.5,71.0,0.0,284341433.091296,40382.0,EUR
-0W2Y,Booking Holdings Inc.,LSE,Consumer Services,Other Consumer Services,159.9,159.9,153.66,153.785,-1.621673490276354,88868469624.13054,4715.0,USD
+0W2Y,Booking Holdings Inc.,LSE,Consumer Services,Other Consumer Services,159.9,159.9,153.66,153.8606,-1.5733111566018347,88868469624.13054,4745.0,USD
 0W3X,Naga Group AG,LSE,Commercial Services,Miscellaneous Commercial Services,2.49,2.49,2.32,2.32,-3.7344398340249088,42104109.956764,10.0,EUR
 0W4N,Formycon AG,LSE,Health Technology,Pharmaceuticals: Major,15.22,15.22,15.2,15.2,0.39630118890355825,227290792.594156,737.0,EUR
 0W73,Amundi Multi-Asset Portfolio UCITS ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,190.3501,190.543,190.3501,190.543,-1.5586898119446146,,637.0,EUR
@@ -3001,7 +3001,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0XEL,BNP Paribas Easy S&P 500 UCITS ETF Act. EUR HDG,LSIN,Miscellaneous,Investment Trusts/Mutual Funds,23.5649,23.6251,23.2134,23.3473,-1.8167061267573,,98378.0,EUR
 0XFV,Thermador Groupe,LSIN,Distribution Services,Wholesale Distributors,65.15,66.0,65.15,66.0,1.3046815042210196,507080202.86144,126.0,EUR
 0XGF,Avino Silver & Gold Mines Ltd.,LSE,Non-Energy Minerals,Precious Metals,5.83,5.98,5.78,5.84,1.0380622837370175,517270884.64250004,6249.0,CAD
-0XHL,Aon Plc Class A,LSE,Finance,Insurance Brokers/Services,338.05352068,338.82842,334.87,337.14962,-1.71711170708955,55219142961.9768,596.0,USD
+0XHL,Aon Plc Class A,LSE,Finance,Insurance Brokers/Services,338.05352068,338.82842,334.87,337.27878,-1.6794601212686673,55219142961.9768,632.0,USD
 0XNH,"DocuSign, Inc.",LSE,Technology Services,Packaged Software,77.01,79.0,74.84,76.7905,-5.120775931302907,11316513548.737492,5084.0,USD
 0XOD,UroGen Pharma Ltd.,LSE,Health Technology,Biotechnology,28.81,29.5,27.33,28.62,2.949640287769785,1045471042.801041,15817.0,USD
 0XPX,Fabege AB,LSIN,Finance,Real Estate Development,65.825,65.925,65.25,65.825,-1.015037593984958,1473976288.980141,4487.0,SEK
@@ -3023,7 +3023,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0Y36,UBS Solactive Global Pure Gold Miners UCITS ETF USD,LSE,Miscellaneous,Investment Trusts/Mutual Funds,42.845,43.775,42.835,43.77,0.6669733210671718,,15462.0,EUR
 0Y37,UBS Core MSCI World UCITS ETF Class -A- USD,LSE,Miscellaneous,Investment Trusts/Mutual Funds,108.515,108.865,106.92,107.175,-2.2081299329348982,,7597.0,EUR
 0Y3F,iShares MSCI World CHF Hedged UCITS ETF (Acc),LSE,Miscellaneous,Investment Trusts/Mutual Funds,91.0,91.05,89.98,90.241,-1.8159068654118125,,3466.0,CHF
-0Y3K,Eaton Corp. Plc,LSE,Producer Manufacturing,Electrical Products,341.37,345.5,330.51,334.33,-1.2464923940333856,99277809946.61505,744.0,USD
+0Y3K,Eaton Corp. Plc,LSE,Producer Manufacturing,Electrical Products,341.37,345.5,330.51,334.93,-1.0692659872987755,99277809946.61505,746.0,USD
 0Y3M,Prothena Corp. Plc,LSE,Health Technology,Biotechnology,7.88,8.13,7.88,8.13,-0.36764705882352156,310443782.027898,118.0,USD
 0Y3O,iShares Global High Yield Corp Bond CHF Hedged UCITS ETF Dist,LSE,Miscellaneous,Investment Trusts/Mutual Funds,65.28,65.28,64.58,64.68,-0.20243414718442593,,504.0,CHF
 0Y3P,iShares J.P. Morgan $ EM Bond CHF Hedged UCITS ETF (Dist),LSE,Miscellaneous,Investment Trusts/Mutual Funds,2.7314,2.7314,2.7314,2.7314,-0.4228946409041216,,500.0,CHF
@@ -3037,13 +3037,13 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0Y5B,PIMCO Advantage Covered Bond UCITS ETF EUR,LSE,Miscellaneous,Investment Trusts/Mutual Funds,102.695,102.695,102.695,102.695,0.024349858770810823,,70.0,EUR
 0Y5C,Allegion Public Limited Company,LSE,Consumer Durables,Tools & Hardware,188.71,191.945,187.42,188.562,-1.3899188263976745,12214874962.142254,441.0,USD
 0Y5E,Perrigo Co. Plc,LSE,Health Technology,Pharmaceuticals: Major,15.9,16.29,15.82,15.8401,-2.8810545677498416,1703569295.317827,1201.0,USD
-0Y5X,Pentair plc,LSE,Producer Manufacturing,Industrial Machinery,68.4,68.71,67.4,67.49,-0.7500000000000075,8288532358.45386,1256.0,USD
+0Y5X,Pentair plc,LSE,Producer Manufacturing,Industrial Machinery,68.4,68.71,67.4,67.528,-0.6941176470588151,8288532358.45386,1304.0,USD
 0Y5Y,Xtrackers S&P 500 UCITS ETF,LSIN,Miscellaneous,Investment Trusts/Mutual Funds,104.0,104.0,101.66,102.92,-1.779834900033397,,2532.0,EUR
 0Y5Z,UBS S&P Dividend Aristocrats ESG Elite UCITS ETF Shs USD,LSE,Miscellaneous,Investment Trusts/Mutual Funds,11.96,11.96,11.838,11.838,-1.5305273664947683,,12135.0,EUR
 0Y6D,Xtrackers FTSE Developed Europe ex UK Real Estate UCITS ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,53.49,53.49,53.49,53.49,-1.509850856195913,,17.0,EUR
 0Y6F,PIMCO ETFs PLC - PIMCO Advantage Euro Low Duration Corporate Bond UCITS ETF Shs EUR,LSIN,Miscellaneous,Investment Trusts/Mutual Funds,104.51,104.51,104.51,104.51,0.0,,0.0,EUR
 0Y6S,Invesco S&P 500 UCITS ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,56.01,56.168,55.1552,55.46,-1.9274977895667487,,498557.0,EUR
-0Y6X,Medtronic Plc,LSE,Health Technology,Medical Specialties,103.45,104.7,102.0,103.18,-0.22241562711535612,99826331873.0631,4833.0,USD
+0Y6X,Medtronic Plc,LSE,Health Technology,Medical Specialties,103.45,104.7,102.0,102.92,-0.47384198820229656,99826331873.0631,4834.0,USD
 0Y72,Invesco JPX-Nikkei 400 UCITS ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,44.535,44.535,44.0,44.0,-3.2329008137233313,,2.0,EUR
 0Y73,PIMCO Euro Short Maturity UCITS ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,108.075,108.092,108.055,108.085,0.00925283368030618,,5469.0,EUR
 0Y7G,UBS Factor MSCI USA Prime Value Screened UCITS ETF Accum Shs h EUR,LSE,Miscellaneous,Investment Trusts/Mutual Funds,35.3785,35.3785,35.3785,35.3785,1.9406425587091318,,4200.0,EUR
@@ -3077,7 +3077,7 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0YG7,Beijer Alma AB Class B,LSE,Producer Manufacturing,Metal Fabrication,305.0,305.5,303.0,303.0,-2.258064516129032,1394975555.516043,595.0,SEK
 0YH9,Netcompany Group A/S,LSIN,Technology Services,Information Technology Services,364.1,364.1,356.5,356.5,-2.940375714674656,1827981142.26728,980.0,DKK
 0YI6,Allot Ltd.,LSE,Electronic Technology,Computer Communications,7.71,7.81,7.582,7.79,-0.7643312101910779,292460257.06783503,4246.0,USD
-0YIK,Invesco QQQ Trust Series I,LSE,Miscellaneous,Investment Trusts/Mutual Funds,663.0,666.13,646.715,655.1237,-1.2802215727536683,,98301.0,USD
+0YIK,Invesco QQQ Trust Series I,LSE,Miscellaneous,Investment Trusts/Mutual Funds,663.0,666.13,646.715,655.84,-1.172283213498094,,98754.0,USD
 0YLL,Invesco Preferred ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,9.7276,9.7276,9.7276,9.7276,-1.0417090539165756,,180.0,USD
 0YO9,Unibail-Rodamco-Westfield SE Stapled Secs Cons of 1 Sh Unibail Rodamco + 1 Sh WFD Unib Rod,LSIN,Finance,Real Estate Investment Trusts,93.81,93.82,92.38,93.26,-0.8505209440782449,11320277872.110312,26989.0,EUR
 0YP5,Adyen NV,LSIN,Commercial Services,Miscellaneous Commercial Services,856.2,863.2,840.15,856.0,-1.5016397215350044,22921726183.72612,7744.0,EUR
@@ -3086,11 +3086,11 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 0YSV,Epiroc AB Class B,LSE,Producer Manufacturing,Trucks/Construction/Farm Machinery,201.8,203.1,201.4,203.1,-0.9751340809361287,20789340010.497803,3612.0,SEK
 0YTR,"Wyndham Hotels & Resorts, Inc.",LSE,Consumer Services,Hotels/Resorts/Cruise lines,78.98,81.25,78.98,80.5,0.75093867334167,4443837519.459726,94.0,USD
 0YU1,"Ambarella, Inc.",LSE,Electronic Technology,Semiconductors,54.8,56.82,51.42654,53.77,-3.672518810462195,1842584133.330579,3216.0,USD
-0YXG,Broadcom Inc.,LSE,Electronic Technology,Semiconductors,337.45,341.5,329.02,337.78,1.3836780022210753,1207258470815.9602,66350.0,USD
+0YXG,Broadcom Inc.,LSE,Electronic Technology,Semiconductors,337.45,341.5,329.02,338.83,1.6988324278896565,1207258470815.9602,67936.0,USD
 0YZ2,Geely Automobile Holdings Limited,LSIN,Consumer Durables,Motor Vehicles,15.0,15.0,15.0,15.0,0.0,14239532114.104366,0.0,HKD
 0Z0F,"Ichor Holdings, Ltd.",LSE,Producer Manufacturing,Industrial Machinery,33.38,34.66,31.79,33.05,-1.1958146487294639,959146829.203902,1205.0,USD
 0Z1Q,Manchester United Plc Class A,LSE,Consumer Services,Movies/Entertainment,21.51,22.48,21.51,21.97,0.2281021897810089,2906042074.376874,775.0,USD
-0Z1W,KKR & Co Inc,LSE,Finance,Investment Managers,94.52,96.84,93.97,95.62,0.44645201953885333,64607906593.310394,2222.0,USD
+0Z1W,KKR & Co Inc,LSE,Finance,Investment Managers,94.52,96.84,93.97,95.33,0.14181417091234322,64607906593.310394,2231.0,USD
 0Z4C,Sika AG,LSIN,Process Industries,Chemicals: Major Diversified,189.475,190.35,187.5,189.475,-0.8114121188326195,27563157101.46159,12242.0,CHF
 0Z4I,"Sunny Optical Technology (Group) Co., Ltd.",LSE,Electronic Technology,Electronic Components,63.8,63.8,63.8,63.8,0.9493670886075859,6719518668.056817,67800.0,HKD
 0Z4S,Tencent Holdings Ltd,LSIN,Technology Services,Packaged Software,390.4,390.4,390.4,390.4,0.9829280910501692,339952629646.3194,12300.0,HKD
@@ -4505,7 +4505,7 @@ DFNS,VanEck Defense UCITS ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,5
 DFNX,Invesco Defence Innovation UCITS ETF AccumUSD,LSE,Miscellaneous,Investment Trusts/Mutual Funds,666.0,671.2,663.2,663.55,-2.1240504461981105,,8878.0,GBX
 DFS,DFS Furniture PLC,LSE,Consumer Durables,Home Furnishings,126.5,127.185,122.0,123.0,-2.766798418972332,292321526.0,220943.0,GBX
 DGE,Diageo plc,LSE,Consumer Non-Durables,Beverages: Alcoholic,1939.0,1942.0,1905.0,1916.0,-1.2625611955681526,43187610347.0,3960101.0,GBX
-DGED,Diageo plc Sponsored ADR,LSE,Consumer Non-Durables,Beverages: Alcoholic,102.24,102.24,100.65,101.2271,-1.1067799921844534,43187628481.47759,842.0,USD
+DGED,Diageo plc Sponsored ADR,LSE,Consumer Non-Durables,Beverages: Alcoholic,102.24,102.24,100.65,100.96,-1.3677217663149723,43187628481.47759,846.0,USD
 DGI9,Digital 9 Infrastructure Plc,LSE,Miscellaneous,Investment Trusts/Mutual Funds,4.1,4.205,4.1,4.205,-0.3554502369668171,22862801.4440329,514061.0,GBX
 DGIT,iShares Digitalisation UCITS ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,886.0,886.0,866.103,866.625,-2.352112676056338,,3600.0,GBX
 DGQ,Delta Gold Technologies Plc,AQUIS,Commercial Services,Miscellaneous Commercial Services,102.0,105.0,100.0,105.0,6.5773447015834385,66051788.0,48940.0,GBX
@@ -5117,7 +5117,7 @@ FRGD,Franklin Global Quality Dividend UCITS ETF,LSE,Miscellaneous,Investment Tru
 FRGP,iShares France Govt Bond UCITS ETF Hedged GBP,LSE,Miscellaneous,Investment Trusts/Mutual Funds,4.71,4.71,4.69725,4.69725,-0.15941335883945792,,4.0,GBP
 FRHW,Franklin Future Of Health And Wellness Ucits ETF AccumUSD,LSE,Miscellaneous,Investment Trusts/Mutual Funds,23.825,23.825,23.55,23.55,-2.038269550748746,,5.0,GBP
 FRIN,Franklin LibertyShares ICAV - FTSE India UCITS ETF,LSE,Miscellaneous,Investment Trusts/Mutual Funds,32.765,32.855,32.535,32.535,-0.09212344541686208,,35568.0,GBP
-FRMI,Fermi Inc.,LSE,Finance,Real Estate Development,2.5167,2.6311,2.26,2.35,-5.2419354838709635,1217056203.221007,121439.0,USD
+FRMI,Fermi Inc.,LSE,Finance,Real Estate Development,2.5167,2.6311,2.26,2.35,-5.2419354838709635,1217056203.221007,122753.0,USD
 FRP,FRP Advisory Group Plc,LSE,Commercial Services,Miscellaneous Commercial Services,121.0,123.0,120.0,121.5,-2.8000000000000003,308863869.0,92124.0,GBX
 FRP2,Fidelity Global Equity Research Enhanced PAB UCITS ETF AccumUSD,LSE,Miscellaneous,Investment Trusts/Mutual Funds,4.191,4.191,4.15225,4.15225,-2.3918664786083483,,1500.0,GBP
 FRPG,Fidelity Global Equity Research Enhanced PAB UCITS ETF AccumUSD,LSE,Miscellaneous,Investment Trusts/Mutual Funds,5.532,5.532,5.4885,5.4885,-2.165775401069521,,13925.0,USD
