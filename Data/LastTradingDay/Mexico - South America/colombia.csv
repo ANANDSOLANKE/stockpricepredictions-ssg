@@ -1,11 +1,11 @@
 symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCap,Volume,Currency
-4BRZ,iShares MSCI Brazil UCITS ETF (DE),BVC,Miscellaneous,Investment Trusts/Mutual Funds,149000.0,149000.0,145000.0,145000.0,-0.725729152403122,,578,COP
-AAPL,Apple Inc.,BVC,Electronic Technology,Telecommunications Equipment,1104020.0,1200000.0,1104020.0,1180020.0,3.508710373502219,1.7187475156486578e+16,273,COP
-AGUASACO,Aguas Andinas SA Class A,BVC,Utilities,Water Utilities,1080.0,1080.0,1080.0,1080.0,0.0,6259568515773.3955,0,COP
-ALICORC1CO,Alicorp SAA,BVC,Consumer Non-Durables,Food: Major Diversified,12800.0,12800.0,12800.0,12800.0,0.0,7476601169551.008,0,COP
-AMZN,"Amazon.com, Inc.",BVC,Retail Trade,Internet Retail,893020.0,926860.0,893020.0,893160.0,-0.26576144002501284,9715132150825504.0,607,COP
-ANDINABCO,Embotelladora Andina S.A. Pfd B,BVC,Consumer Non-Durables,Beverages: Non-Alcoholic,15880.0,15880.0,15880.0,15880.0,0.0,13708687207115.275,0,COP
-ARACO,"Aclara Resources, Inc.",BVC,Non-Energy Minerals,Other Metals/Minerals,5430.0,5430.0,5430.0,5430.0,0.0,1283990960644.2954,0,COP
+4BRZ,iShares MSCI Brazil UCITS ETF (DE),BVC,Miscellaneous,Investment Trusts/Mutual Funds,145000.0,145000.0,145000.0,145000.0,0.0,,204,COP
+AAPL,Apple Inc.,BVC,Electronic Technology,Telecommunications Equipment,1102020.0,1208980.0,1040040.0,1040040.0,-11.862510804901612,1.7379393926527398e+16,69,COP
+AGUASACO,Aguas Andinas SA Class A,BVC,Utilities,Water Utilities,1080.0,1080.0,1080.0,1080.0,0.0,6289656923391.781,0,COP
+ALICORC1CO,Alicorp SAA,BVC,Consumer Non-Durables,Food: Major Diversified,12800.0,12800.0,12800.0,12800.0,0.0,7606353089486.301,0,COP
+AMZN,"Amazon.com, Inc.",BVC,Retail Trade,Internet Retail,885260.0,885260.0,880340.0,882000.0,-1.2494961708988312,9530743821383562.0,147,COP
+ANDINABCO,Embotelladora Andina S.A. Pfd B,BVC,Consumer Non-Durables,Beverages: Non-Alcoholic,15880.0,15880.0,15880.0,15880.0,0.0,13882173633671.096,0,COP
+ARACO,"Aclara Resources, Inc.",BVC,Non-Energy Minerals,Other Metals/Minerals,5430.0,5430.0,5430.0,5430.0,0.0,1255929441568.4932,0,COP
 ARKFCO,ARK Blockchain & Fintech Innovation ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,129540.0,129540.0,129540.0,129540.0,0.0,,0,COP
 ARKGCO,ARK Genomic Revolution ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,134040.0,134040.0,134040.0,134040.0,0.0,,0,COP
 ARKICO,ARK Artificial Intelligence & Robotics UCITS ETF AccumUSD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,31800.0,31800.0,31800.0,31800.0,0.0,,0,COP
@@ -14,109 +14,109 @@ ARKKUCO,ARK Innovation UCITS ETF Accum Shs USD,BVC,Miscellaneous,Investment Trus
 ARKQCO,ARK Autonomous Technology & Robotics ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,338500.0,338500.0,338500.0,338500.0,0.0,,0,COP
 ARKWCO,ARK Next Generation Technology ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,446820.0,446820.0,446820.0,446820.0,0.0,,0,COP
 ARKXCO,ARK Space & Defense Innovation ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,91640.0,91640.0,91640.0,91640.0,0.0,,0,COP
-BAC,Bank of America Corp,BVC,Finance,Major Banks,163620.0,163620.0,163620.0,163620.0,0.0,1132514162325503.2,0,COP
-BAPCO,Credicorp Ltd.,BVC,Finance,Major Banks,1188500.0,1188500.0,1188500.0,1188500.0,0.0,92347241681208.06,0,COP
+BAC,Bank of America Corp,BVC,Finance,Major Banks,163620.0,163620.0,163620.0,163620.0,0.0,1147750507756849.2,0,COP
+BAPCO,Credicorp Ltd.,BVC,Finance,Major Banks,1188500.0,1188500.0,1188500.0,1188500.0,0.0,93222129489726.03,0,COP
 BBVACOL,Banco Bilbao Vizcaya Argentaria Colombia SA Class B,BVC,Finance,Major Banks,251.0,251.0,251.0,251.0,0.0,3658806109863.0,0,COP
-BCICO,Banco de Credito e Inversiones,BVC,Finance,Major Banks,202560.0,202560.0,202560.0,202560.0,0.0,43485385059557.3,0,COP
-BHI,BAC Holding International Corp,BVC,Finance,Regional Banks,333.0,345.0,331.0,344.0,2.0771513353115725,14565201871094.0,1048103,COP
+BCICO,Banco de Credito e Inversiones,BVC,Finance,Major Banks,202560.0,202560.0,202560.0,202560.0,0.0,43873576187552.81,0,COP
+BHI,BAC Holding International Corp,BVC,Finance,Regional Banks,344.0,344.0,332.0,335.0,-2.616279069767442,14867743156250.0,1094817,COP
 BMC,Bolsa Mercantil de Colombia SA,BVC,Finance,Investment Banks/Brokers,7000.0,7000.0,7000.0,7000.0,0.0,414393222809.0,0,COP
-BOGOTA,Banco de Bogota SA,BVC,Finance,Major Banks,36020.0,37100.0,36020.0,37100.0,1.2554585152838427,13016399135742.0,25982,COP
-BRKB,Berkshire Hathaway Inc. Class B,BVC,Finance,Property/Casualty Insurance,1910020.0,1955000.0,1910020.0,1944360.0,5.043760129659644,4099066526251678.0,75,COP
-BSANTANDCO,Banco Santander-Chile,BVC,Finance,Regional Banks,259.0,259.0,259.0,259.0,0.0,48164373668142.01,0,COP
-BVC,Bolsa de Valores de Colombia S.A.,BVC,Finance,Investment Banks/Brokers,16000.0,16000.0,16000.0,16000.0,0.0,968215515137.0,0,COP
-BVNCO,Compania de Minas Buenaventura SAA Sponsored ADR,BVC,Non-Energy Minerals,Precious Metals,77940.0,77940.0,77940.0,77940.0,0.0,22224425608770.473,0,COP
-C,Citigroup Inc.,BVC,Finance,Major Banks,396940.0,396940.0,396940.0,396940.0,0.0,651750624788590.6,0,COP
-CAPCO,CAP S.A.,BVC,Non-Energy Minerals,Steel,11460.0,11460.0,11460.0,11460.0,0.0,1710763324747.7717,0,COP
-CBU0,iShares USD Treasury Bond 7-10yr UCITS ETF USD (Acc) USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,498080.0,498080.0,498080.0,498080.0,0.0,,0,COP
-CBU7,iShares USD Treasury Bond 3-7yr UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,475000.0,475000.0,475000.0,475000.0,1.0638297872340425,,37,COP
-CCUCO,Compania Cervecerias Unidas S.A.,BVC,Consumer Non-Durables,Beverages: Alcoholic,17740.0,17740.0,17740.0,17740.0,0.0,6423618900260.577,0,COP
-CELSIA,Celsia SA ESP,BVC,Utilities,Electric Utilities,4190.0,4215.0,4160.0,4160.0,-1.187648456057007,4384818297119.0,103049,COP
+BOGOTA,Banco de Bogota SA,BVC,Finance,Major Banks,36120.0,36900.0,36020.0,36580.0,-1.4016172506738545,13179814627075.0,8995,COP
+BRKB,Berkshire Hathaway Inc. Class B,BVC,Finance,Property/Casualty Insurance,1950000.0,2002000.0,1925000.0,1950000.0,0.29006974017157316,4163568027133561.5,238,COP
+BSANTANDCO,Banco Santander-Chile,BVC,Finance,Regional Banks,259.0,259.0,259.0,259.0,0.0,49072272142695.89,0,COP
+BVC,Bolsa de Valores de Colombia S.A.,BVC,Finance,Investment Banks/Brokers,16000.0,16000.0,15820.0,15820.0,-1.125,968215515137.0,2695,COP
+BVNCO,Compania de Minas Buenaventura SAA Sponsored ADR,BVC,Non-Energy Minerals,Precious Metals,77940.0,77940.0,77940.0,77940.0,0.0,22441968841095.887,0,COP
+C,Citigroup Inc.,BVC,Finance,Major Banks,396940.0,396940.0,396940.0,396940.0,0.0,653465647342465.8,0,COP
+CAPCO,CAP S.A.,BVC,Non-Energy Minerals,Steel,11460.0,11460.0,11460.0,11460.0,0.0,1719891782629.5205,0,COP
+CBU0,iShares USD Treasury Bond 7-10yr UCITS ETF USD (Acc) USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,517700.0,517700.0,517700.0,517700.0,3.939126244779955,,900,COP
+CBU7,iShares USD Treasury Bond 3-7yr UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,475000.0,475000.0,475000.0,475000.0,0.0,,0,COP
+CCUCO,Compania Cervecerias Unidas S.A.,BVC,Consumer Non-Durables,Beverages: Alcoholic,17740.0,17740.0,17740.0,17740.0,0.0,6398359759574.5205,0,COP
+CELSIA,Celsia SA ESP,BVC,Utilities,Electric Utilities,4110.0,4195.0,3910.0,3910.0,-6.009615384615385,4332742070312.0,274085,COP
 CEMA,iShares MSCI EM Asia UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,846840.0,846840.0,846840.0,846840.0,0.0,,0,COP
-CEMARGOS,Cementos Argos SA,BVC,Non-Energy Minerals,Construction Materials,10120.0,10180.0,9500.0,9700.0,-3.9603960396039604,12330952160645.0,35709829,COP
-CENCOMALCO,Cencosud Shopping SA,BVC,Finance,Real Estate Development,7110.0,7110.0,7110.0,7110.0,0.0,11791872843951.408,0,COP
-CENCOSUDCO,Cencosud S.A.,BVC,Retail Trade,Specialty Stores,5790.0,5790.0,5790.0,5790.0,0.0,15864871756475.047,0,COP
+CEMARGOS,Cementos Argos SA,BVC,Non-Energy Minerals,Construction Materials,9720.0,9800.0,9470.0,9500.0,-2.0618556701030926,11842597619629.0,1432399,COP
+CENCOMALCO,Cencosud Shopping SA,BVC,Finance,Real Estate Development,7110.0,7110.0,7110.0,7110.0,0.0,11908103666790.686,0,COP
+CENCOSUDCO,Cencosud S.A.,BVC,Retail Trade,Specialty Stores,5790.0,5790.0,5790.0,5790.0,0.0,16135694854318.7,0,COP
 CEUU,iShares Core MSCI EMU UCITS ETF AccumHedged USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,41360.0,41360.0,41360.0,41360.0,0.0,,0,COP
 CFMITNIPCO,Fondo Mutuo ETF IT NOW MSCI IPSA,BVC,Miscellaneous,Investment Trusts/Mutual Funds,15960.0,15960.0,15960.0,15960.0,0.0,,0,COP
-CHILECO,Banco de Chile,BVC,Finance,Major Banks,634.0,634.0,634.0,634.0,0.0,63466521708160.21,0,COP
-CIBEST,Grupo Cibest S.A.,BVC,Finance,Regional Banks,82000.0,82000.0,80000.0,80000.0,-0.5469915464942815,72397393687134.0,110632,COP
+CHILECO,Banco de Chile,BVC,Finance,Major Banks,634.0,634.0,634.0,634.0,0.0,64144459779145.89,0,COP
+CIBEST,Grupo Cibest S.A.,BVC,Finance,Regional Banks,81800.0,82260.0,78040.0,80500.0,0.625,71745660186768.0,179749,COP
 CIBRCO,First Trust Global Funds ICAV - First Trust Nasdaq cyber Security UCTIS ETF Accum A USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,187120.0,187120.0,187120.0,187120.0,0.0,,0,COP
-CMPCCO,Empresas CMPC S.A.,BVC,Process Industries,Pulp & Paper,3020.0,3020.0,3020.0,3020.0,0.0,7543197711715.664,0,COP
-COLBUNCO,Colbun SA,BVC,Utilities,Electric Utilities,501.0,501.0,501.0,501.0,0.0,8721007023383.409,0,COP
-CONCHATOCO,Vina Concha Y Toro S.A.,BVC,Consumer Non-Durables,Beverages: Alcoholic,2820.0,2820.0,2820.0,2820.0,0.0,2045867375356.2146,0,COP
-CONCONCRET,Constructora Conconcreto S.A.,BVC,Industrial Services,Engineering & Construction,462.0,462.0,449.0,450.0,-1.5317286652078774,518354537231.0,373808,COP
-COPECCO,Empresas Copec S.A.,BVC,Energy Minerals,Oil Refining/Marketing,20640.0,20640.0,20640.0,20640.0,0.0,27559781165935.934,0,COP
+CMPCCO,Empresas CMPC S.A.,BVC,Process Industries,Pulp & Paper,3020.0,3020.0,3020.0,3020.0,0.0,7869366643199.658,0,COP
+COLBUNCO,Colbun SA,BVC,Utilities,Electric Utilities,501.0,501.0,501.0,501.0,0.0,8922306533127.055,0,COP
+CONCHATOCO,Vina Concha Y Toro S.A.,BVC,Consumer Non-Durables,Beverages: Alcoholic,2820.0,2820.0,2820.0,2820.0,0.0,2082656780604.726,0,COP
+CONCONCRET,Constructora Conconcreto S.A.,BVC,Industrial Services,Engineering & Construction,450.0,450.0,435.0,437.0,-2.888888888888889,510414752197.0,394671,COP
+COPECCO,Empresas Copec S.A.,BVC,Energy Minerals,Oil Refining/Marketing,20640.0,20640.0,20640.0,20640.0,0.0,27549334652459.316,0,COP
 COPX,Global X Copper Miners ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,216140.0,216140.0,216140.0,216140.0,0.0,,0,COP
 CORFERIAS,Corporacion de Ferias y Exposiciones SA,BVC,Commercial Services,Miscellaneous Commercial Services,1800.0,1800.0,1800.0,1800.0,0.0,301305487061.0,0,COP
-CORFICOLCF,Corporacion Financiera Colombiana SA,BVC,Finance,Investment Banks/Brokers,18500.0,18500.0,17740.0,17860.0,-3.8751345532831003,6751506204834.0,14923,COP
-CPACASC1CO,Cementos Pacasmayo SAA,BVC,Non-Energy Minerals,Construction Materials,8500.0,8500.0,8500.0,8500.0,0.0,3883378914222.853,0,COP
-CSPX,iShares Core S&P 500 UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,2652000.0,2750000.0,2652000.0,2737000.0,4.068441064638783,,515,COP
-CVERDEC1CO,Sociedad Minera Cerro Verde SAA,BVC,Non-Energy Minerals,Other Metals/Minerals,202280.0,202280.0,202280.0,202280.0,0.0,71326848093959.73,0,COP
+CORFICOLCF,Corporacion Financiera Colombiana SA,BVC,Finance,Investment Banks/Brokers,17680.0,17680.0,16820.0,17000.0,-4.8152295632698765,6496711903992.0,56868,COP
+CPACASC1CO,Cementos Pacasmayo SAA,BVC,Non-Energy Minerals,Construction Materials,8500.0,8500.0,8500.0,8500.0,0.0,3921391271267.123,0,COP
+CSPX,iShares Core S&P 500 UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,2650000.0,2719000.0,2620000.0,2650000.0,-3.178662769455608,,630,COP
+CVERDEC1CO,Sociedad Minera Cerro Verde SAA,BVC,Non-Energy Minerals,Other Metals/Minerals,202280.0,202280.0,202280.0,202280.0,0.0,69771436482876.71,0,COP
 D26ACO,iShares iBonds Dec 2026 Term USD Corp UCITS ETF Accum USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,388500.0,388500.0,388500.0,388500.0,0.0,,0,COP
 D28ACO,iShares iBonds Dec 2028 Term USD Corp UCITS ETF AccumUSD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,389540.0,389540.0,389540.0,389540.0,0.0,,0,COP
 DPYACO,iShares Developed Markets Property Yield UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,21020.0,21020.0,21020.0,21020.0,0.0,,0,COP
-ECLCO,Engie Energia Chile S.A.,BVC,Utilities,Electric Utilities,6590.0,6590.0,6590.0,6590.0,0.0,6906836005012.376,0,COP
-ECOPETROL,Ecopetrol SA,BVC,Energy Minerals,Integrated Oil,2400.0,2415.0,2275.0,2275.0,-4.2105263157894735,97652151367188.0,29335040,COP
-EIMI,iShares Core MSCI EM IMI UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,162600.0,162600.0,160240.0,160240.0,1.2895069532237675,,1472,COP
-ELCONDOR,Construcciones el Condor SA,BVC,Industrial Services,Engineering & Construction,450.0,450.0,450.0,450.0,0.0,258464602661.0,0,COP
-EMCA,iShares JP Morgan USD EM Corp Bond UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,21980.0,21980.0,21980.0,21980.0,0.0,,0,COP
-EMGA,iShares J.P. Morgan EM Local Govt Bond UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,18480.0,18480.0,18480.0,18480.0,0.0,,0,COP
-ENELAMCO,Enel Americas S.A.,BVC,Utilities,Electric Utilities,264.0,264.0,264.0,264.0,0.0,28098691352558.723,0,COP
-ENELCHILCO,Enel Chile SA,BVC,Utilities,Electric Utilities,272.0,272.0,272.0,272.0,0.0,18391249007392.484,0,COP
-ENKA,Enka de Colombia S. A.,BVC,Process Industries,Textiles,19.8,19.8,19.8,19.8,1.538461538461542,229587629883.0,450406,COP
-ENTELCO,Empresa Nacional de Telecomunicaciones S.A.,BVC,Communications,Wireless Telecommunications,19060.0,19060.0,19060.0,19060.0,0.0,5607383636022.563,0,COP
-EQAC,Invesco EQQQ Nasdaq-100 UCITS ETF Acc,BVC,Miscellaneous,Investment Trusts/Mutual Funds,1595000.0,1608000.0,1595000.0,1608000.0,5.783906110204726,,46,COP
-ETB,Empresa de Telecomunicaciones de Bogota SA ESP,BVC,Communications,Major Telecommunications,101.0,101.0,101.0,101.0,1.0,355055322266.0,96029,COP
-EXITO,Almacenes Exito SA,BVC,Retail Trade,Food Retail,4800.0,4960.0,4750.0,4870.0,1.4583333333333333,6229749023438.0,41185,COP
-F,Ford Motor Company,BVC,Consumer Durables,Motor Vehicles,37540.0,37540.0,37540.0,37540.0,0.0,151152660902684.56,0,COP
-FABRICATO,Fabricato S.A.,BVC,Process Industries,Textiles,4.99,5.0,4.99,5.0,0.0,46009238281.0,5500000,COP
-FALABELLCO,Falabella S.A.,BVC,Retail Trade,Department Stores,22300.0,22300.0,22300.0,22300.0,0.0,56188346611805.75,250,COP
-FERREYC1CO,Ferreycorp S.A.A.,BVC,Distribution Services,Wholesale Distributors,4105.0,4105.0,4105.0,4105.0,0.0,3907996805183.49,0,COP
+ECLCO,Engie Energia Chile S.A.,BVC,Utilities,Electric Utilities,6590.0,6590.0,6590.0,6590.0,0.0,6946433132264.932,0,COP
+ECOPETROL,Ecopetrol SA,BVC,Energy Minerals,Integrated Oil,2275.0,2375.0,2245.0,2315.0,1.7582417582417582,93540481835938.0,42468665,COP
+EIMI,iShares Core MSCI EM IMI UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,163000.0,163000.0,156260.0,156260.0,-2.4837743384922617,,4462,COP
+ELCONDOR,Construcciones el Condor SA,BVC,Industrial Services,Engineering & Construction,440.0,440.0,440.0,440.0,-2.2222222222222223,258464602661.0,80629,COP
+EMCA,iShares JP Morgan USD EM Corp Bond UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,23200.0,23200.0,23200.0,23200.0,5.550500454959054,,20000,COP
+EMGA,iShares J.P. Morgan EM Local Govt Bond UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,19120.0,19120.0,19120.0,19120.0,3.463203463203463,,62000,COP
+ENELAMCO,Enel Americas S.A.,BVC,Utilities,Electric Utilities,264.0,264.0,264.0,264.0,0.0,28731907148224.863,0,COP
+ENELCHILCO,Enel Chile SA,BVC,Utilities,Electric Utilities,272.0,272.0,272.0,272.0,0.0,18779669560117.125,0,COP
+ENKA,Enka de Colombia S. A.,BVC,Process Industries,Textiles,19.5,19.8,19.5,19.7,-0.5050505050505122,233119738283.0,6408802,COP
+ENTELCO,Empresa Nacional de Telecomunicaciones S.A.,BVC,Communications,Wireless Telecommunications,19060.0,19060.0,19060.0,19060.0,0.0,5676266974460.754,0,COP
+EQAC,Invesco EQQQ Nasdaq-100 UCITS ETF Acc,BVC,Miscellaneous,Investment Trusts/Mutual Funds,1588000.0,1588000.0,1530000.0,1530000.0,-4.850746268656716,,23,COP
+ETB,Empresa de Telecomunicaciones de Bogota SA ESP,BVC,Communications,Major Telecommunications,100.0,100.0,100.0,100.0,-0.9900990099009901,358605875488.0,96684,COP
+EXITO,Almacenes Exito SA,BVC,Retail Trade,Food Retail,4755.0,4930.0,4530.0,4840.0,-0.6160164271047228,6320599530029.0,102184,COP
+F,Ford Motor Company,BVC,Consumer Durables,Motor Vehicles,37540.0,37540.0,37540.0,37540.0,0.0,153711521914383.56,0,COP
+FABRICATO,Fabricato S.A.,BVC,Process Industries,Textiles,4.99,5.0,4.99,5.0,0.0,46009238281.0,0,COP
+FALABELLCO,Falabella S.A.,BVC,Retail Trade,Department Stores,22300.0,22300.0,22300.0,22300.0,0.0,57004045283737.805,0,COP
+FERREYC1CO,Ferreycorp S.A.A.,BVC,Distribution Services,Wholesale Distributors,4105.0,4105.0,4105.0,4105.0,0.0,3938733563253.4243,0,COP
 FJANCO,First Trust Global Funds ICAV - First Trust Vest U.S. Equity Buffer Ucits ETF - January Accum A USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,95960.0,95960.0,95960.0,95960.0,0.0,,0,COP
 FJULCO,First Trust Global Funds ICAV - First Trust Vest U.S. Equity BUffer UCITS ETF - July Accum A USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,94560.0,94560.0,94560.0,94560.0,0.0,,0,COP
 FLOA,iShares USD Floating Rate Bond UCITS ETF USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,22100.0,22100.0,22100.0,22100.0,0.0,,0,COP
 FOCTCO,First Trust Vest U.S. Equity Buffer UCITS ETF Accum Shs A USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,98060.0,98060.0,98060.0,98060.0,0.0,,0,COP
-GDXCO,VanEck Gold Miners ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,252720.0,252720.0,250500.0,250500.0,1.9536019536019535,,87,COP
-GE,GE Aerospace,BVC,Electronic Technology,Aerospace & Defense,1070000.0,1070000.0,1070000.0,1070000.0,0.0,1137727429922818.8,0,COP
-GEB,GRUPO ENERGIA BOGOTA S.A. E.S.P,BVC,Utilities,Gas Distributors,2970.0,2975.0,2845.0,2845.0,-4.369747899159663,27314000854492.0,314446,COP
-GEHC,GE Healthcare Technologies Inc.,BVC,Health Technology,Medical Specialties,270860.0,270860.0,270860.0,270860.0,0.0,126932396010067.11,0,COP
-GEV,GE Vernova Inc.,BVC,Producer Manufacturing,Electrical Products,2581160.0,2581160.0,2581160.0,2581160.0,0.0,685868838345637.6,0,COP
+GDXCO,VanEck Gold Miners ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,243180.0,243400.0,243180.0,243400.0,-2.834331337325349,,80,COP
+GE,GE Aerospace,BVC,Electronic Technology,Aerospace & Defense,1070000.0,1070000.0,1070000.0,1070000.0,0.0,1128476945455479.5,0,COP
+GEB,GRUPO ENERGIA BOGOTA S.A. E.S.P,BVC,Utilities,Gas Distributors,2860.0,2860.0,2680.0,2700.0,-5.0966608084358525,26120447875977.0,1366611,COP
+GEHC,GE Healthcare Technologies Inc.,BVC,Health Technology,Medical Specialties,270860.0,270860.0,270860.0,270860.0,0.0,126799890715753.42,0,COP
+GEV,GE Vernova Inc.,BVC,Producer Manufacturing,Electrical Products,2581160.0,2581160.0,2581160.0,2581160.0,0.0,685513619695205.5,0,COP
 GNOVCO,First Trust Global Funds ICAV - First Trust Vest U.S. Equity Moderate Buffer UCITS ETF - November Accum A USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,124280.0,124280.0,124280.0,124280.0,0.0,,0,COP
-GOAUCO,U.S. Global GO GOLD and Precious Metal Miners ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,125000.0,126180.0,124680.0,124680.0,0.241196333815726,,494,COP
-GOOGL,Alphabet Inc. Class A,BVC,Technology Services,Internet Software/Services,989000.0,995380.0,938000.0,938580.0,-1.004113490138171,1.1524686992671142e+16,428,COP
+GOAUCO,U.S. Global GO GOLD and Precious Metal Miners ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,121840.0,121840.0,116000.0,121420.0,-2.6146936156560794,,254,COP
+GOOGL,Alphabet Inc. Class A,BVC,Technology Services,Internet Software/Services,960020.0,965000.0,939000.0,939000.0,0.04474844978584671,1.1382393369178082e+16,534,COP
 GRDUCO,First Trust Global Funds ICAV - First Trust Nasdaq Clean Edge Smart Grid Infrastructure UCITS ETF Accum A USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,177680.0,177680.0,177680.0,177680.0,0.0,,0,COP
-GRUBOLIVAR,Grupo Bolivar SA,BVC,Finance,Major Banks,71100.0,73000.0,71100.0,72620.0,1.6517357222844344,5651381349487.0,2338,COP
-GRUPOARGOS,Grupo Argos S.A.,BVC,Non-Energy Minerals,Construction Materials,19460.0,19860.0,19400.0,19680.0,1.1305241521068858,11994923954468.0,465780,COP
-GRUPOAVAL,Grupo Aval Acciones y Valores SA,BVC,Finance,Major Banks,680.0,680.0,655.0,655.0,0.0,15332566501953.0,0,COP
-GRUPOSURA,Grupo de Inversiones Suramericana S.A.,BVC,Finance,Multi-Line Insurance,75000.0,76500.0,75000.0,76480.0,0.6580679126085812,21503022568054.0,447361,COP
-GXTESCOL,TES Colombia Local GBI-EM ID ETF,BVC,,,59600.0,59600.0,59600.0,59600.0,-0.5838198498748958,,786,COP
-HCOLSEL,Fondo Bursatil Horizons Colombia Select de S&P,BVC,Miscellaneous,Investment Trusts/Mutual Funds,26399.0,26410.0,26399.0,26410.0,0.8015267175572519,,3709,COP
-HIVECO,HIVE Digital Technologies Ltd,BVC,Technology Services,Data Processing Services,4830.0,4830.0,4830.0,4830.0,2.0063357972544877,1309273393889.933,3395,COP
+GRUBOLIVAR,Grupo Bolivar SA,BVC,Finance,Major Banks,72960.0,72960.0,71000.0,71480.0,-1.569815477829799,5744727234039.0,4054,COP
+GRUPOARGOS,Grupo Argos S.A.,BVC,Non-Energy Minerals,Construction Materials,19400.0,19500.0,18420.0,18420.0,-6.402439024390244,12249290635376.0,406862,COP
+GRUPOAVAL,Grupo Aval Acciones y Valores SA,BVC,Finance,Major Banks,655.0,655.0,655.0,655.0,0.0,15377961675781.0,0,COP
+GRUPOSURA,Grupo de Inversiones Suramericana S.A.,BVC,Finance,Multi-Line Insurance,76480.0,81840.0,76300.0,81840.0,7.00836820083682,21763998642273.0,411563,COP
+GXTESCOL,TES Colombia Local GBI-EM ID ETF,BVC,,,59620.0,59620.0,59600.0,59600.0,0.0,,5408,COP
+HCOLSEL,Fondo Bursatil Horizons Colombia Select de S&P,BVC,Miscellaneous,Investment Trusts/Mutual Funds,26060.0,26060.0,26031.5,26031.5,-1.4331692540704277,,2765,COP
+HIVECO,HIVE Digital Technologies Ltd,BVC,Technology Services,Data Processing Services,4830.0,4830.0,4830.0,4830.0,0.0,1288763770082.1917,0,COP
 I500CO,iShares S&P 500 Swap UCITS ETF AccumUSD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,40720.0,40720.0,40720.0,40720.0,0.0,,0,COP
-IAMCO,Inversiones Aguas Metropolitanas S.A.,BVC,Utilities,Water Utilities,2920.0,2920.0,2920.0,2920.0,0.0,2901139256008.98,0,COP
+IAMCO,Inversiones Aguas Metropolitanas S.A.,BVC,Utilities,Water Utilities,2920.0,2920.0,2920.0,2920.0,0.0,2969165076685.548,0,COP
 IAUP,iShares Gold Producers UCITS ETF USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,123900.0,123900.0,123900.0,123900.0,0.0,,0,COP
-IB01,iShares $ Treasury Bond 0-1yr UCITS ETF USD (Accumulating),BVC,Miscellaneous,Investment Trusts/Mutual Funds,408100.0,424980.0,408100.0,423120.0,2.4503631961259082,,16723,COP
-IBIT,iShares Bitcoin Trust ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,122680.0,123340.0,120000.0,120480.0,1.2436974789915967,,2889,COP
-IBTA,iShares USD Treasury Bond 1-3yr UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,19580.0,19900.0,19580.0,19900.0,0.0,,0,COP
-ICHN,iShares MSCI China UCITS ETF AccumUSD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,16500.0,16500.0,16500.0,16500.0,0.0,,0,COP
-ICOLCAP,Fondo BursAtil iShares COLCAP,BVC,Miscellaneous,Investment Trusts/Mutual Funds,22346.5,23442.0,22346.5,23006.0,-0.9237527185030469,,297631,COP
+IB01,iShares $ Treasury Bond 0-1yr UCITS ETF USD (Accumulating),BVC,Miscellaneous,Investment Trusts/Mutual Funds,419000.0,429980.0,419000.0,428000.0,1.1533371147664964,,15345,COP
+IBIT,iShares Bitcoin Trust ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,127360.0,127360.0,116000.0,116520.0,-3.286852589641434,,5581,COP
+IBTA,iShares USD Treasury Bond 1-3yr UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,20340.0,20340.0,20340.0,20340.0,2.21105527638191,,10000,COP
+ICHN,iShares MSCI China UCITS ETF AccumUSD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,16240.0,16500.0,16240.0,16500.0,0.0,,3018,COP
+ICOLCAP,Fondo BursAtil iShares COLCAP,BVC,Miscellaneous,Investment Trusts/Mutual Funds,22606.0,23105.0,22606.0,22924.0,-0.3564287577153786,,358087,COP
 ID27CO,Ishares Ibonds Dec 2027 Term USD Corp Ucits ETF AccumUSD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,392340.0,392340.0,392340.0,392340.0,0.0,,0,COP
 ID29CO,iShares iBonds Dec 2029 Term USD Corp UCITS ETF AccumUSD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,375080.0,375080.0,375080.0,375080.0,0.0,,0,COP
 ID30CO,Ishares Ibonds Dec 2030 Term USD Corp Ucits ETF AccumUSD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,373720.0,373720.0,373720.0,373720.0,0.0,,0,COP
 IDSE,iShares MSCI Europe SRI UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,500800.0,500800.0,500800.0,500800.0,0.0,,0,COP
 IDTP,iShares USD TIPS UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,833340.0,833340.0,833340.0,833340.0,0.0,,0,COP
-IFSCO,Intercorp Financial Services Inc.,BVC,Finance,Regional Banks,165520.0,165520.0,165520.0,165520.0,0.0,19374292979865.773,0,COP
-IHYA,iShares USD High Yield Corp Bond UCITS ETF Acc,BVC,Miscellaneous,Investment Trusts/Mutual Funds,24040.0,24400.0,24040.0,24400.0,0.0,,0,COP
-IJPA,iShares Core MSCI Japan IMI UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,253880.0,253880.0,253880.0,253880.0,0.0,,0,COP
+IFSCO,Intercorp Financial Services Inc.,BVC,Finance,Regional Banks,165520.0,165520.0,165520.0,165520.0,0.0,19491683380136.984,0,COP
+IHYA,iShares USD High Yield Corp Bond UCITS ETF Acc,BVC,Miscellaneous,Investment Trusts/Mutual Funds,24400.0,24400.0,24400.0,24400.0,0.0,,0,COP
+IJPA,iShares Core MSCI Japan IMI UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,258000.0,258000.0,256500.0,256500.0,1.0319836143059713,,1136,COP
 INRA,iShares Global Clean Energy Transition UCITS ETF Accum Shs USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,73300.0,73300.0,73300.0,73300.0,0.0,,0,COP
-INRETC1CO,InRetail Peru Corp.,BVC,Retail Trade,Food Retail,124100.0,124100.0,124100.0,124100.0,0.0,13469287214765.102,0,COP
+INRETC1CO,InRetail Peru Corp.,BVC,Retail Trade,Food Retail,124100.0,124100.0,124100.0,124100.0,0.0,13705086869863.014,0,COP
 IPCHBC1CO,Inversiones Portuarias Chancay SAA Preffered Registered Shs B,BVC,Finance,Financial Conglomerates,107.0,107.0,107.0,107.0,0.0,,0,COP
-ISA,Interconexion Electrica SA ESP,BVC,Utilities,Electric Utilities,25000.0,25700.0,24500.0,24500.0,-0.08156606851549755,27160264033203.0,342309,COP
-ISAC,iShares V PLC - iShares MSCI All Country World UCITS ETF Accum.Shs USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,403000.0,406000.0,403000.0,406000.0,4.075877980005127,,68,COP
-ITAUCLCO,Banco Itau Chile,BVC,Finance,Major Banks,75380.0,75380.0,75380.0,75380.0,0.0,16174301920424.777,0,COP
+ISA,Interconexion Electrica SA ESP,BVC,Utilities,Electric Utilities,24840.0,25080.0,23200.0,23200.0,-5.3061224489795915,27138110473633.0,410633,COP
+ISAC,iShares V PLC - iShares MSCI All Country World UCITS ETF Accum.Shs USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,404880.0,404900.0,388900.0,388900.0,-4.211822660098522,,3367,COP
+ITAUCLCO,Banco Itau Chile,BVC,Finance,Major Banks,75380.0,75380.0,75380.0,75380.0,0.0,16663423540142.055,0,COP
 IUES,iShares S&P 500 Energy Sector UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,44660.0,44660.0,44660.0,44660.0,0.0,,0,COP
 IUFS,iShares S&P 500 Financials Sector UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,56120.0,56120.0,56120.0,56120.0,0.0,,0,COP
-IUHC,iShares S&P 500 Health Care Sector UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,40020.0,40020.0,40020.0,40020.0,-19.606267577340297,,289,COP
-IUIT,iShares S&P 500 Information Technology Sector UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,156900.0,157000.0,155600.0,155680.0,2.691292875989446,,4135,COP
+IUHC,iShares S&P 500 Health Care Sector UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,40020.0,40020.0,40020.0,40020.0,0.0,,0,COP
+IUIT,iShares S&P 500 Information Technology Sector UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,154000.0,154000.0,149100.0,151500.0,-2.684994861253854,,1944,COP
 IWVL,iShares Edge MSCI World Value Factor UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,247020.0,247020.0,247020.0,247020.0,0.0,,0,COP
 JEIACO,Jpm Us Equity Premium Income Active Ucits Etf Accum Shs USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,93700.0,93700.0,93700.0,93700.0,0.0,,0,COP
 JEPICO,US Equity Premium Income Active UCITS ETF USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,80840.0,80840.0,80840.0,80840.0,0.0,,0,COP
@@ -124,73 +124,73 @@ JEPQCO,JPMORGAN ETFS (IRELAND) ICAV - NASDAQ Equity Premium Income Active Ucits 
 JEQACO,JPMORGAN ETFS (IRELAND) ICAV - NASDAQ Equity Premium Income Active Ucits ETF Accum USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,101640.0,101640.0,101640.0,101640.0,0.0,,0,COP
 JETS,U.S. Global Jets ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,93820.0,93820.0,93820.0,93820.0,0.0,,0,COP
 JMBACO,JPMorgan ETFs (IE) ICAV - USD EM Sov. Bd. UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,383580.0,383580.0,383580.0,383580.0,0.0,,0,COP
-JNJ,Johnson & Johnson,BVC,Health Technology,Pharmaceuticals: Major,922380.0,922380.0,922380.0,922380.0,0.0,2202931372288590.8,0,COP
+JNJ,Johnson & Johnson,BVC,Health Technology,Pharmaceuticals: Major,934900.0,934900.0,934900.0,934900.0,1.3573581387280729,2202359279232876.8,91,COP
 JPEA,iShares J.P. Morgan USD EM Bond UCITS ETF Acc,BVC,Miscellaneous,Investment Trusts/Mutual Funds,21000.0,21000.0,21000.0,21000.0,0.0,,0,COP
 JPHYCO,USD High Yield Bond Active UCITS ETF AccumUnhedged USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,36220.0,36220.0,36220.0,36220.0,0.0,,0,COP
-JPM,JPMorgan Chase & Co.,BVC,Finance,Major Banks,1092020.0,1092020.0,1092020.0,1092020.0,0.0,2888287230734899.5,0,COP
+JPM,JPMorgan Chase & Co.,BVC,Finance,Major Banks,1092020.0,1092020.0,1092020.0,1092020.0,0.0,2912257929736301.5,0,COP
 JPSACO,JPM USD Ultra-Short Income Active UCITS ETF Accum Shs USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,420020.0,420020.0,420020.0,420020.0,0.0,,0,COP
 JPSTCO,JPM USD Ultra-Short Income Active UCITS ETF USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,334260.0,334260.0,334260.0,334260.0,0.0,,0,COP
 JRAWCO,All Country Research Enhanced Index Equity Active UCITS ETF Accum USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,103700.0,103700.0,103700.0,103700.0,0.0,,0,COP
 JREACO,JPMorgan ETFs (IE) ICAV - AC APAC ex-Japan REI Eq. Active,BVC,Miscellaneous,Investment Trusts/Mutual Funds,111400.0,111400.0,111400.0,111400.0,0.0,,0,COP
 JREECO,JPMorgan ETFs (IE) ICAV - Europe Res. Enh. In. Eq. Active,BVC,Miscellaneous,Investment Trusts/Mutual Funds,206320.0,206320.0,206320.0,206320.0,0.0,,0,COP
-JREGCO,JPMorgan ETFs IE ICAV - Global REI Equity Active UCITS,BVC,Miscellaneous,Investment Trusts/Mutual Funds,214640.0,214640.0,214640.0,214640.0,0.0,,0,COP
+JREGCO,JPMorgan ETFs IE ICAV - Global REI Equity Active UCITS,BVC,Miscellaneous,Investment Trusts/Mutual Funds,218300.0,218300.0,218300.0,218300.0,1.705180767797242,,120,COP
 JREJCO,JPMorgan ETFs (IE) ICAV - Japan Res. Enh. In. Eq. Active UCITS,BVC,Miscellaneous,Investment Trusts/Mutual Funds,130620.0,130620.0,130620.0,130620.0,0.0,,0,COP
 JREMCO,JPMorgan ETFs (IE) ICAV - Glb. EM REI Eq. Ind. Active,BVC,Miscellaneous,Investment Trusts/Mutual Funds,148660.0,148660.0,148660.0,148660.0,0.0,,0,COP
 JREUCO,US Research Enhanced Index Equity Active UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,241100.0,241100.0,241100.0,241100.0,0.0,,0,COP
-KOCO,Coca-Cola Company,BVC,Consumer Non-Durables,Beverages: Non-Alcoholic,326960.0,326960.0,326960.0,326960.0,0.0,1416018742093959.8,0,COP
+KOCO,Coca-Cola Company,BVC,Consumer Non-Durables,Beverages: Non-Alcoholic,325000.0,325000.0,325000.0,325000.0,-0.5994617078541717,1415649933071917.8,48,COP
 LIT,Global X Lithium & Battery Tech ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,186720.0,186720.0,186720.0,186720.0,0.0,,0,COP
-LQDA,iShares USD Corp Bond UCITS ETF Acc,BVC,Miscellaneous,Investment Trusts/Mutual Funds,20040.0,20220.0,20040.0,20220.0,0.0,,0,COP
-LTMCO,LATAM Airlines Group SA,BVC,Transportation,Airlines,78.0,78.5,78.0,78.5,1.948051948051948,44795863220777.195,126786,COP
-MALLPLAZCO,Plaza SA,BVC,Finance,Real Estate Development,10760.0,10760.0,10760.0,10760.0,0.0,23089361073825.504,0,COP
-META,Meta Platforms Inc Class A,BVC,Technology Services,Internet Software/Services,2093960.0,2128800.0,2063000.0,2063000.0,0.31119323154721384,5287301588345638.0,53,COP
-MINEROS,Mineros SA,BVC,Non-Energy Minerals,Precious Metals,18940.0,19180.0,18000.0,18100.0,-4.435058078141499,5602083002930.0,64968,COP
-MSFTCO,Microsoft Corporation,BVC,Technology Services,Packaged Software,1751660.0,1778000.0,1586000.0,1640000.0,-3.4135079742750123,1.266664557875839e+16,419,COP
+LQDA,iShares USD Corp Bond UCITS ETF Acc,BVC,Miscellaneous,Investment Trusts/Mutual Funds,20800.0,21420.0,20800.0,21420.0,5.934718100890208,,102054,COP
+LTMCO,LATAM Airlines Group SA,BVC,Transportation,Airlines,78.5,78.5,78.5,78.5,0.0,44228398922363.56,140793,COP
+MALLPLAZCO,Plaza SA,BVC,Finance,Real Estate Development,10760.0,10760.0,10760.0,10760.0,0.0,23750789282227.19,0,COP
+META,Meta Platforms Inc Class A,BVC,Technology Services,Internet Software/Services,2000000.0,2179900.0,1971200.0,1971240.0,-4.4478914202617545,5219458788722603.0,55,COP
+MINEROS,Mineros SA,BVC,Non-Energy Minerals,Precious Metals,17480.0,17900.0,16320.0,16320.0,-9.83425414364641,5353627368164.0,85807,COP
+MSFTCO,Microsoft Corporation,BVC,Technology Services,Packaged Software,1670000.0,1713000.0,1592000.0,1690000.0,3.048780487804878,1.2672851188171232e+16,148,COP
 MVOL,iShares Edge MSCI World Minimum Volatility UCITS ETF USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,264340.0,264340.0,264340.0,264340.0,0.0,,0,COP
 MXWOCO,Invesco MSCI World UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,498480.0,498480.0,498480.0,498480.0,0.0,,0,COP
-NKE,"NIKE, Inc. Class B",BVC,Consumer Non-Durables,Apparel/Footwear,123000.0,123000.0,110080.0,113020.0,-8.083929733246583,180978416114093.97,1980,COP
-NU,Nu Holdings Ltd. Class A,BVC,Finance,Regional Banks,41200.0,41600.0,40400.0,40980.0,0.935960591133005,196139241191275.16,113793,COP
-NUAMCO,NUAM S.A.,BVC,Miscellaneous,Miscellaneous,25480.0,25480.0,25480.0,25480.0,0.0,2236740674256.4697,0,COP
-NUTRESA,Grupo Nutresa S.A.,BVC,Consumer Non-Durables,Food: Specialty/Candy,312520.0,319980.0,312520.0,315420.0,-1.4127648934175159,143571083186035.0,700,COP
-NVDA,NVIDIA Corporation,BVC,Electronic Technology,Semiconductors,518500.0,563000.0,502540.0,502540.0,-0.5894920082291502,1.2208510610080538e+16,8823,COP
+NKE,"NIKE, Inc. Class B",BVC,Consumer Non-Durables,Apparel/Footwear,117000.0,117500.0,111120.0,117500.0,3.963900194655813,174625537914383.56,758,COP
+NU,Nu Holdings Ltd. Class A,BVC,Finance,Regional Banks,41500.0,41500.0,39520.0,39600.0,-3.3674963396778916,195861211821917.8,96841,COP
+NUAMCO,NUAM S.A.,BVC,Miscellaneous,Miscellaneous,25860.0,25900.0,21620.0,25000.0,-1.8838304552590266,2264217689360.8906,4714,COP
+NUTRESA,Grupo Nutresa S.A.,BVC,Consumer Non-Durables,Food: Specialty/Candy,319960.0,319980.0,319960.0,319980.0,1.4456914590070382,141542761325684.0,836,COP
+NVDA,NVIDIA Corporation,BVC,Electronic Technology,Semiconductors,500000.0,500000.0,441000.0,441000.0,-12.245791379790663,1.2048348962445206e+16,13603,COP
 OCCIDENTE,Banco de Occidente SA,BVC,Finance,Major Banks,18000.0,18000.0,18000.0,18000.0,0.0,2806195495605.0,0,COP
-PARAUCOCO,Parque Arauco S.A.,BVC,Finance,Real Estate Development,11360.0,11360.0,11360.0,11360.0,0.0,10246001772579.396,0,COP
+PARAUCOCO,Parque Arauco S.A.,BVC,Finance,Real Estate Development,11360.0,11360.0,11360.0,11360.0,0.0,10520510315195.617,0,COP
 PAZRIO,Acerias Paz del Rio SA,BVC,Non-Energy Minerals,Steel,3.8,3.8,3.8,3.8,0.0,94508462877.0,0,COP
-PBR,Petroleo Brasileiro SA Sponsored ADR,BVC,Energy Minerals,Integrated Oil,56060.0,56060.0,53000.0,53000.0,-5.6939501779359425,339307623309326.2,654,COP
-PEI,Patrimonio Autonomo Estrategias Immobilarias,BVC,Miscellaneous,Investment Trusts/Mutual Funds,65000.0,65820.0,64500.0,65000.0,-1.24582193862048,2839619604000.0,8862,COP
-PFAVAL,Grupo Aval Acciones y Valores SA Pfd,BVC,Finance,Major Banks,628.0,641.0,628.0,632.0,0.9584664536741214,15332566501953.0,2573831,COP
-PFCEMARGOS,Cementos Argos SA Pfd Registered Shs,BVC,Non-Energy Minerals,Construction Materials,11560.0,11560.0,11560.0,11560.0,0.0,12330952160645.0,0,COP
-PFCIBEST,Grupo Cibest S.A. Non-Cum Perp Pfd Registered Shs,BVC,Finance,Regional Banks,72000.0,73440.0,71000.0,71000.0,-1.361489302584051,72397393687134.0,460522,COP
-PFCORFICOL,Corporacion Financiera Colombiana SA Pref,BVC,Finance,Investment Banks/Brokers,16300.0,16480.0,16120.0,16120.0,-1.707317073170732,6751506204834.0,2526,COP
-PFDAVIGRP,Davivienda Group SA Pfd Registered Shs,BVC,Finance,Regional Banks,35560.0,37180.0,35560.0,36040.0,-2.330623306233062,20212736694250.0,16161,COP
-PFDAVVNDA,Banco Davivienda SA Pfd,BVC,Finance,Major Banks,27500.0,28000.0,26460.0,27160.0,0.0,13245128449226.0,0,COP
-PFE,Pfizer Inc.,BVC,Health Technology,Pharmaceuticals: Major,94220.0,94220.0,94220.0,94220.0,0.0,536704317463087.25,0,COP
-PFGRUPOARG,Grupo Argos SA Pfd,BVC,Non-Energy Minerals,Construction Materials,15000.0,15380.0,14660.0,15380.0,3.9189189189189193,11994923954468.0,316235,COP
-PFGRUPSURA,Grupo de Inversiones Suramericana SA Pfd,BVC,Finance,Multi-Line Insurance,55000.0,56100.0,55000.0,56100.0,2.0,21503022568054.0,470377,COP
-PROMIGAS,Promigas SA ESP,BVC,Utilities,Gas Distributors,5890.0,5890.0,5820.0,5870.0,-0.17006802721088435,6672906372070.0,22193,COP
+PBR,Petroleo Brasileiro SA Sponsored ADR,BVC,Energy Minerals,Integrated Oil,54040.0,54040.0,54040.0,54040.0,1.9622641509433962,338817761874347.25,737,COP
+PEI,Patrimonio Autonomo Estrategias Immobilarias,BVC,Miscellaneous,Investment Trusts/Mutual Funds,64980.0,64980.0,63500.0,64800.0,-0.3076923076923077,2804243000000.0,22918,COP
+PFAVAL,Grupo Aval Acciones y Valores SA Pfd,BVC,Finance,Major Banks,621.0,633.0,601.0,603.0,-4.588607594936709,15377961675781.0,1906030,COP
+PFCEMARGOS,Cementos Argos SA Pfd Registered Shs,BVC,Non-Energy Minerals,Construction Materials,11560.0,11560.0,11560.0,11560.0,0.0,11842597619629.0,0,COP
+PFCIBEST,Grupo Cibest S.A. Non-Cum Perp Pfd Registered Shs,BVC,Finance,Regional Banks,71000.0,72320.0,71000.0,71000.0,0.0,71745660186768.0,685168,COP
+PFCORFICOL,Corporacion Financiera Colombiana SA Pref,BVC,Finance,Investment Banks/Brokers,16120.0,16380.0,16020.0,16040.0,-0.49627791563275436,6496711903992.0,5821,COP
+PFDAVIGRP,Davivienda Group SA Pfd Registered Shs,BVC,Finance,Regional Banks,36040.0,36100.0,34320.0,34780.0,-3.4961154273029966,19741653942027.0,112148,COP
+PFDAVVNDA,Banco Davivienda SA Pfd,BVC,Finance,Major Banks,26060.0,26980.0,25300.0,25300.0,-6.848306332842416,13245128449226.0,21435,COP
+PFE,Pfizer Inc.,BVC,Health Technology,Pharmaceuticals: Major,94000.0,95200.0,87440.0,94400.0,0.19104224156230099,537582092599315.06,896,COP
+PFGRUPOARG,Grupo Argos SA Pfd,BVC,Non-Energy Minerals,Construction Materials,15220.0,15600.0,14640.0,14640.0,-4.811443433029909,12249290635376.0,334566,COP
+PFGRUPSURA,Grupo de Inversiones Suramericana SA Pfd,BVC,Finance,Multi-Line Insurance,55560.0,55940.0,55060.0,55800.0,-0.53475935828877,21763998642273.0,124024,COP
+PROMIGAS,Promigas SA ESP,BVC,Utilities,Gas Distributors,5760.0,5880.0,5720.0,5880.0,0.17035775127768313,6661557891846.0,59936,COP
 PROTECCION,Administradora de Fondos de Pensiones y Cesantias Proteccion SA,BVC,Finance,Life/Health Insurance,85000.0,85000.0,85000.0,85000.0,0.0,2449093141556.0,0,COP
-QUINENCOCO,Quinenco S.A.,BVC,Finance,Major Banks,15180.0,15180.0,15180.0,15180.0,0.0,25110683672064.75,0,COP
-RBOT,iShares Automation & Robotics UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,61500.0,61500.0,61500.0,61500.0,0.0,,0,COP
-RIPLEYCO,Ripley Corp S.A.,BVC,Retail Trade,Department Stores,1430.0,1430.0,1430.0,1430.0,0.0,2759146056920.805,0,COP
-SCCOCO,Southern Copper Corporation,BVC,Non-Energy Minerals,Other Metals/Minerals,514380.0,514380.0,514380.0,514380.0,0.0,418657799442953.0,0,COP
-SDHA,iShares USD Short Duration High Yield Corp Bond UCITS ETF USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,23760.0,23760.0,23760.0,23760.0,0.0,,0,COP
+QUINENCOCO,Quinenco S.A.,BVC,Finance,Major Banks,15180.0,15180.0,15180.0,15180.0,0.0,25240577501513.836,0,COP
+RBOT,iShares Automation & Robotics UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,61100.0,61100.0,61100.0,61100.0,-0.6504065040650406,,2148,COP
+RIPLEYCO,Ripley Corp S.A.,BVC,Retail Trade,Department Stores,1430.0,1430.0,1430.0,1430.0,0.0,2787192609257.192,0,COP
+SCCOCO,Southern Copper Corporation,BVC,Non-Energy Minerals,Other Metals/Minerals,514380.0,514380.0,514380.0,514380.0,0.0,413379729082191.75,0,COP
+SDHA,iShares USD Short Duration High Yield Corp Bond UCITS ETF USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,24460.0,24460.0,24460.0,24460.0,2.9461279461279464,,7245,COP
 SDIA,iShares USD Short Duration Corp Bond UCITS ETF Unhedged USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,21100.0,21100.0,21100.0,21100.0,0.0,,0,COP
 SDVYCO,First Trust Global Funds ICAV - First Trust Smid Rising Dividend Achievers Ucits ETF Accum A USD,BVC,Miscellaneous,Investment Trusts/Mutual Funds,83400.0,83400.0,83400.0,83400.0,0.0,,0,COP
-SGLD,Invesco Physical Gold ETC,BVC,Miscellaneous,Investment Trusts/Mutual Funds,1314960.0,1314960.0,1314960.0,1314960.0,6.79791433166025,,8,COP
-SMHCO,VanEck Semiconductor ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,1608820.0,1608820.0,1536680.0,1536680.0,1.1719161487411776,,250,COP
-SMUCO,SMU SA,BVC,Retail Trade,Food Retail,327.0,327.0,327.0,327.0,0.0,1884004961348.926,0,COP
+SGLD,Invesco Physical Gold ETC,BVC,Miscellaneous,Investment Trusts/Mutual Funds,1190000.0,1250000.0,1190000.0,1250000.0,-4.940074222790047,,62,COP
+SMHCO,VanEck Semiconductor ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,1458620.0,1458620.0,1410000.0,1415000.0,-7.918369471848401,,78,COP
+SMUCO,SMU SA,BVC,Retail Trade,Food Retail,327.0,327.0,327.0,327.0,0.0,1878281884200.3425,0,COP
 SPMV,iShares Edge S&P 500 Minimum Volatility UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,393800.0,393800.0,393800.0,393800.0,0.0,,0,COP
 SPXS,Invesco S&P 500 UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,48780.0,48780.0,48780.0,48780.0,0.0,,0,COP
-SQMBCO,Sociedad Quimica y Minera de Chile SA Pfd Series B,BVC,Process Industries,Chemicals: Specialty,171340.0,171340.0,171340.0,171340.0,0.0,46982310151278.02,0,COP
+SQMBCO,Sociedad Quimica y Minera de Chile SA Pfd Series B,BVC,Process Industries,Chemicals: Specialty,171340.0,171340.0,171340.0,171340.0,0.0,46308424651931.92,0,COP
 SUAS,iShares MSCI USA SRI UCITS ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,64860.0,64860.0,64860.0,64860.0,0.0,,0,COP
-TERPEL,Organizacion Terpel SA,BVC,Retail Trade,Specialty Stores,18680.0,19380.0,18680.0,19000.0,1.7130620985010707,3389009935913.0,28541,COP
-TEVAICOL,Fondo Bursatil BTG Pactual Teva Equity Colombia,BVC,Miscellaneous,Investment Trusts/Mutual Funds,24520.5,24530.5,24520.5,24530.5,-0.9588985788113695,,80000,COP
-TIN,Titulos Particpativos Titularizacion TIN,BVC,,,13600.0,13700.0,13500.0,13520.0,-0.7342143906020557,,3852,COP
+TERPEL,Organizacion Terpel SA,BVC,Retail Trade,Specialty Stores,18680.0,18700.0,18060.0,18140.0,-4.526315789473685,3447065780640.0,19027,COP
+TEVAICOL,Fondo Bursatil BTG Pactual Teva Equity Colombia,BVC,Miscellaneous,Investment Trusts/Mutual Funds,24520.5,24530.5,24520.5,24530.5,0.0,,0,COP
+TIN,Titulos Particpativos Titularizacion TIN,BVC,,,13540.0,13540.0,13540.0,13540.0,0.14792899408284024,,4315,COP
 TITAN,Manufacturas de Cemento SA,BVC,Non-Energy Minerals,Construction Materials,28000.0,28000.0,28000.0,28000.0,0.0,39156937599.0,0,COP
-TSLACO,"Tesla, Inc.",BVC,Consumer Durables,Motor Vehicles,1321020.0,1324920.0,1202840.0,1290000.0,-2.7735905939101597,5089772907110738.0,87,COP
-UBER,"Uber Technologies, Inc.",BVC,Transportation,Other Transportation,222460.0,222460.0,222460.0,222460.0,-4.112068965517241,471144012563758.4,49,COP
+TSLACO,"Tesla, Inc.",BVC,Consumer Durables,Motor Vehicles,1260300.0,1260300.0,1210640.0,1215340.0,-5.787596899224806,5068329309801370.0,142,COP
+UBER,"Uber Technologies, Inc.",BVC,Transportation,Other Transportation,227000.0,231400.0,223020.0,231400.0,4.018699991009619,458727775208904.1,778,COP
 URA,Global X Uranium ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,99420.0,99420.0,99420.0,99420.0,0.0,,0,COP
 VALSIMESA,Valores Simesa S.A.,BVC,Finance,Financial Conglomerates,9950.0,9950.0,9950.0,9950.0,0.0,157767171001.0,0,COP
-VAPORESCO,Compania Sud Americana de Vapores S.A.,BVC,Transportation,Marine Shipping,159.0,159.0,159.0,159.0,0.0,8085422274127.839,0,COP
+VAPORESCO,Compania Sud Americana de Vapores S.A.,BVC,Transportation,Marine Shipping,159.0,159.0,159.0,159.0,0.0,8248474680748.151,0,COP
 VILLAS,Banco Comercial AV Villas SA,BVC,Finance,Regional Banks,2200.0,2200.0,2200.0,2200.0,0.0,490544308472.0,0,COP
-VOLCABC1CO,Volcan Compania Minera S.A.A. Class B,BVC,Non-Energy Minerals,Other Metals/Minerals,688.0,688.0,688.0,688.0,0.0,4606001855301.847,0,COP
-VOO,Vanguard S&P 500 ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,2190120.0,2329980.0,2190120.0,2190160.0,-3.5146303426522287,,33,COP
+VOLCABC1CO,Volcan Compania Minera S.A.A. Class B,BVC,Non-Energy Minerals,Other Metals/Minerals,688.0,688.0,688.0,688.0,0.0,4578294809041.096,0,COP
+VOO,Vanguard S&P 500 ETF,BVC,Miscellaneous,Investment Trusts/Mutual Funds,2329980.0,2329980.0,2260020.0,2279000.0,4.056324652080214,,36,COP
