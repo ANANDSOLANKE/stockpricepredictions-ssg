@@ -9,12 +9,12 @@ symbol,description,exchange,sector,industry,open,high,low,Close,Change%,MarketCa
 7FT,7FIT Spolka Akcyjna,GPW,Retail Trade,Food Retail,22.0,22.8,22.0,22.8,5.555555555555552,38718001.0,1066,PLN
 7LV,7LEVELS SA,GPW,Technology Services,Packaged Software,5.85,5.85,5.85,5.85,-0.847457627118656,4559137.0,2,PLN
 AAPL,Apple Inc.,GPW,Electronic Technology,Telecommunications Equipment,1468.4,1468.4,1468.4,1468.4,1.3248688931824486,21082631385716.035,1,PLN
-AAPL_C,Apple Inc. (CROSS MARKET),GPW,Electronic Technology,Telecommunications Equipment,1400.0,1449.2,1400.0,1449.2,3.514285714285718,21082631385716.035,0,PLN
+AAPL_C,Apple Inc. (CROSS MARKET),GPW,Electronic Technology,Telecommunications Equipment,1449.2,1449.2,1449.2,1449.2,3.514285714285718,21082631385716.035,0,PLN
 AAT,Alta SA,GPW,Finance,Real Estate Development,1.53,1.55,1.53,1.55,0.0,24241759.0,1085,PLN
 ABE,AB S.A.,GPW,Distribution Services,Electronics Distributors,124.0,127.0,123.6,126.2,4.2975206611570265,1953326729.0,2555,PLN
 ABK,Abak S.A.,GPW,Commercial Services,Miscellaneous Commercial Services,4.78,4.78,4.72,4.76,0.8474576271186449,12719268.0,6,PLN
 ABS,Asseco Business Solutions SA,GPW,Technology Services,Packaged Software,82.8,83.0,80.4,82.8,0.9756097560975575,2740291580.0,548,PLN
-ABS_C,Asseco Business Solutions SA (CROSS MARKET),GPW,Technology Services,Packaged Software,81.0,82.0,81.0,82.0,1.2345679012345678,2740291580.0,0,PLN
+ABS_C,Asseco Business Solutions SA (CROSS MARKET),GPW,Technology Services,Packaged Software,82.0,82.0,82.0,82.0,1.2345679012345678,2740291580.0,0,PLN
 ACG,AC Spolka Akcyjna,GPW,Producer Manufacturing,Auto Parts: OEM,19.45,19.75,19.4,19.45,0.0,161020385.0,808,PLN
 ACP,Asseco Poland S.A.,GPW,Technology Services,Packaged Software,213.2,222.6,213.2,222.4,4.5112781954887184,17662465195.0,81423,PLN
 ACT,Action S.A.,GPW,Distribution Services,Electronics Distributors,59.5,61.8,59.4,61.6,4.054054054054052,755906182.0,20304,PLN
@@ -60,7 +60,7 @@ ARL,Arlen SA,GPW,Consumer Non-Durables,Apparel/Footwear,22.7,22.8,22.4,22.5,-0.2
 ART,Artifex Mundi SA,GPW,Technology Services,Packaged Software,18.18,18.94,18.18,18.9,3.960396039603954,219800905.0,10797,PLN
 ART_C,Artifex Mundi SA (CROSS MARKET),GPW,Technology Services,Packaged Software,18.18,18.18,18.18,18.18,-2.047413793103443,219800905.0,0,PLN
 ASB,ASBISc Enterprises Plc,GPW,Distribution Services,Electronics Distributors,142.5,146.4,140.5,144.8,6.7846607669616645,7525800339.0,216821,PLN
-ASB_C,ASBISc Enterprises Plc (CROSS MARKET),GPW,Distribution Services,Electronics Distributors,149.9,149.9,135.6,135.6,-9.539693128752509,7525800339.0,0,PLN
+ASB_C,ASBISc Enterprises Plc (CROSS MARKET),GPW,Distribution Services,Electronics Distributors,135.6,135.6,135.6,135.6,-9.539693128752509,7525800339.0,0,PLN
 ASE,Asseco South Eastern Europe S.A.,GPW,Technology Services,Information Technology Services,69.9,71.7,69.0,71.7,6.065088757396462,3508051409.0,18525,PLN
 ASM,ASM Group SA,GPW,Commercial Services,Advertising/Marketing Services,0.0896,0.098,0.0786,0.0802,-12.44541484716158,8925369.0,4719512,PLN
 ASML,ASML Holding NV,GPW,Electronic Technology,Semiconductors,5188.0,5188.0,5188.0,5188.0,0.0,1935143920865.8838,0,PLN
@@ -143,7 +143,7 @@ CCR,Constance Care SA,GPW,Health Services,Hospital/Nursing Management,4.96,4.96,
 CCS,Cyfrowe Centrum Serwisowe SA,GPW,Distribution Services,Electronics Distributors,0.47,0.47,0.47,0.47,0.0,7468770.0,10,PLN
 CDL,CDRL S.A.,GPW,Retail Trade,Apparel/Footwear Retail,8.3,8.3,7.5,7.9,-2.469135802469127,48361052.0,13268,PLN
 CDR,CD PROJEKT RED Spolka Akcyjna,GPW,Technology Services,Packaged Software,274.0,279.4,273.2,277.6,2.058823529411773,27175657959.0,188480,PLN
-CDR_C,CD PROJEKT RED Spolka Akcyjna (CROSS MARKET),GPW,Technology Services,Packaged Software,273.2,273.2,272.0,272.0,-0.43923865300146,27175657959.0,0,PLN
+CDR_C,CD PROJEKT RED Spolka Akcyjna (CROSS MARKET),GPW,Technology Services,Packaged Software,272.0,272.0,272.0,272.0,-0.43923865300146,27175657959.0,0,PLN
 CEN,Centoro S.A.,GPW,Technology Services,Packaged Software,3.8,3.94,3.6,3.92,0.0,,949,PLN
 CEZ,CEZ as,GPW,Utilities,Electric Utilities,246.8,247.2,244.4,245.2,0.49180327868852,131335734355.64285,59,PLN
 CFG,Creativeforge Games SA,GPW,Technology Services,Packaged Software,1.36,1.36,1.33,1.36,0.0,3627120.0,9,PLN
@@ -151,7 +151,7 @@ CFI,CFI HOLDING S.A.,GPW,Consumer Services,Hotels/Resorts/Cruise lines,0.128,0.1
 CFS,Centrum Finansowe SA,GPW,Commercial Services,Miscellaneous Commercial Services,4.72,4.96,4.7,4.96,-0.4016064257028205,50396806.0,1185,PLN
 CHP,Cherrypick Games SA,GPW,Technology Services,Packaged Software,0.42,0.42,0.42,0.42,0.0,570906.0,0,PLN
 CIG,CI Games S.A.,GPW,Technology Services,Packaged Software,2.38,2.45,2.38,2.42,3.4188034188034218,512050188.00000006,526906,PLN
-CIG_C,CI Games S.A. (CROSS MARKET),GPW,Technology Services,Packaged Software,2.37,2.37,2.34,2.34,-1.2658227848101369,512050188.00000006,0,PLN
+CIG_C,CI Games S.A. (CROSS MARKET),GPW,Technology Services,Packaged Software,2.34,2.34,2.34,2.34,-1.2658227848101369,512050188.00000006,0,PLN
 CLA,CONSOLE LABS Spolka Akcyjna,GPW,Technology Services,Packaged Software,7.8,8.35,7.5,8.35,7.05128205128205,7800000.0,655,PLN
 CLC,Columbus Energy SA,GPW,Utilities,Alternative Power Generation,2.5,2.525,2.46,2.49,-0.20040080160320214,171590252.0,22694,PLN
 CLD,Cloud Technologies SA,GPW,Technology Services,Information Technology Services,106.5,109.5,104.0,107.0,3.3816425120772946,488053843.0,1776,PLN
@@ -161,7 +161,7 @@ CMC,COMECO S.A. Class D,GPW,Process Industries,Chemicals: Agricultural,0.168,0.1
 CMI,CM International SA Class BC,GPW,Producer Manufacturing,Industrial Machinery,2.78,2.8,2.7,2.8,0.7194244604316554,3344340.0,1917,PLN
 CMP,Comp S.A.,GPW,Technology Services,Information Technology Services,95.9,96.0,94.3,95.7,1.2698412698412729,1661797554.0,3724,PLN
 COG,Cognor Holding SA,GPW,Miscellaneous,Miscellaneous,3.82,4.138,3.82,4.138,6.102564102564102,902540574.0,621467,PLN
-COG_C,Cognor Holding SA (CROSS MARKET),GPW,Miscellaneous,Miscellaneous,3.8,3.9,3.8,3.9,2.631578947368424,902540574.0,0,PLN
+COG_C,Cognor Holding SA (CROSS MARKET),GPW,Miscellaneous,Miscellaneous,3.9,3.9,3.9,3.9,2.631578947368424,902540574.0,0,PLN
 COLA,Coca-Cola Company,GPW,Consumer Non-Durables,Beverages: Non-Alcoholic,401.8,409.3,401.8,408.3,1.9730269730269816,1712862643708.6902,28,PLN
 COLA_C,Coca-Cola Company (CROSS MARKET),GPW,Consumer Non-Durables,Beverages: Non-Alcoholic,400.4,400.4,400.4,400.4,1.444134785913349,1712862643708.6902,0,PLN
 COS,Cosma S.A.,GPW,Distribution Services,Medical Distributors,0.384,0.414,0.384,0.414,0.0,64284177.0,7284,PLN
@@ -173,12 +173,12 @@ CPS,Cyfrowy Polsat SA,GPW,Consumer Services,Cable/Satellite TV,12.99,13.21,12.97
 CRB,Carbon Studio S.A.,GPW,Technology Services,Packaged Software,1.87,1.9,1.87,1.88,-1.0526315789473695,4015745.0,1160,PLN
 CRC,CARPATHIA CAPITAL S.A.,GPW,Finance,Investment Managers,1.21,1.21,1.21,1.21,-0.8196721311475417,5127371.0,10,PLN
 CRI,Creotech Instruments SA,GPW,Electronic Technology,Telecommunications Equipment,627.0,651.0,610.0,641.0,5.427631578947369,2130642883.0,18599,PLN
-CRI_C,Creotech Instruments SA (CROSS MARKET),GPW,Electronic Technology,Telecommunications Equipment,638.0,638.0,608.0,608.0,-4.702194357366771,2130642883.0,0,PLN
+CRI_C,Creotech Instruments SA (CROSS MARKET),GPW,Electronic Technology,Telecommunications Equipment,608.0,608.0,608.0,608.0,-4.702194357366771,2130642883.0,0,PLN
 CRJ,Creepy Jar S.A.,GPW,Technology Services,Packaged Software,345.0,359.0,345.0,349.0,1.1594202898550725,247746211.0,2474,PLN
 CRJ_C,Creepy Jar S.A. (CROSS MARKET),GPW,Technology Services,Packaged Software,345.0,345.0,345.0,345.0,-0.5763688760806917,247746211.0,0,PLN
 CRM,PZ Cormay S.A.,GPW,Health Technology,Medical Specialties,0.45,0.469,0.431,0.457,-1.720430107526883,39155330.0,86472,PLN
 CRQ,CREOTECH QUANTUM S.A,GPW,Electronic Technology,Computer Processing Hardware,142.0,155.2,139.6,148.0,9.22509225092251,434189018.5,19995,PLN
-CRQ_C,CREOTECH QUANTUM S.A (CROSS MARKET),GPW,Electronic Technology,Computer Processing Hardware,141.15,141.15,135.5,135.5,-4.002833864682966,434189018.5,0,PLN
+CRQ_C,CREOTECH QUANTUM S.A (CROSS MARKET),GPW,Electronic Technology,Computer Processing Hardware,135.5,135.5,135.5,135.5,-4.002833864682966,434189018.5,0,PLN
 CSR,Caspar Asset Management SA,GPW,Finance,Investment Managers,8.5,9.2,8.5,9.2,4.545454545454529,86784414.0,15,PLN
 CTF,Centurion Finance ASI SA,GPW,Technology Services,Packaged Software,0.083,0.084,0.081,0.0835,0.6024096385542174,10541000.0,132222,PLN
 CTS,City Service SE,GPW,Commercial Services,Miscellaneous Commercial Services,6.25,6.25,5.95,6.25,0.0,197562504.0,589,PLN
@@ -187,25 +187,25 @@ CWA,Consoleway SA,GPW,Technology Services,Packaged Software,2.6,2.6,2.6,2.6,0.77
 CZT,Czerwona Torebka SA,GPW,Finance,Real Estate Development,0.72,0.72,0.72,0.72,0.0,45279093.0,0,PLN
 DAD,Dadelo SA,GPW,Retail Trade,Specialty Stores,74.2,77.0,74.2,75.4,1.0723860589812486,879796999.0,5200,PLN
 DAT,DataWalk Spolka Akcyjna,GPW,Technology Services,Packaged Software,87.2,88.9,85.8,85.8,0.5861664712778429,608443896.0,15225,PLN
-DAT_C,DataWalk Spolka Akcyjna (CROSS MARKET),GPW,Technology Services,Packaged Software,91.8,91.8,85.3,85.3,-7.080610021786493,608443896.0,0,PLN
+DAT_C,DataWalk Spolka Akcyjna (CROSS MARKET),GPW,Technology Services,Packaged Software,85.3,85.3,85.3,85.3,-7.080610021786493,608443896.0,0,PLN
 DBC,Firma Oponiarska Debica S.A.,GPW,Consumer Durables,Automotive Aftermarket,88.4,88.4,87.0,88.4,0.0,1220163089.0,327,PLN
 DBE,DB Energy SA,GPW,Commercial Services,Miscellaneous Commercial Services,6.28,6.28,6.22,6.24,-0.9523809523809462,21901699.0,137,PLN
 DCR,Decora S.A.,GPW,Non-Energy Minerals,Forest Products,64.6,64.6,62.0,63.8,-1.2383900928792526,681340307.0,5433,PLN
 DDI,Draw Distance SA,GPW,Technology Services,Packaged Software,0.0516,0.055,0.0516,0.055,-8.33333333333333,786720.0,7579,PLN
 DEK,Dekpol SA,GPW,Industrial Services,Engineering & Construction,50.0,50.8,49.4,49.6,1.6393442622950907,408092376.0,3490,PLN
 DEL,Delko Spolka Akcyjna,GPW,Distribution Services,Wholesale Distributors,6.38,6.4,6.35,6.39,0.15673981191222236,76304802.0,4539,PLN
-DEL_C,Delko Spolka Akcyjna (CROSS MARKET),GPW,Distribution Services,Wholesale Distributors,6.37,6.38,6.37,6.38,0.1569858712715822,76304802.0,0,PLN
+DEL_C,Delko Spolka Akcyjna (CROSS MARKET),GPW,Distribution Services,Wholesale Distributors,6.38,6.38,6.38,6.38,0.1569858712715822,76304802.0,0,PLN
 DFH,Defence.Hub S.A.,GPW,Technology Services,Packaged Software,0.396,0.438,0.392,0.436,8.999999999999995,35600001.0,33487,PLN
 DGA,DGA Spolka Akcyjna,GPW,Commercial Services,Miscellaneous Commercial Services,20.0,21.9,20.0,21.9,4.2857142857142785,21279594.0,379,PLN
 DGE,DRAGO entertainment S.A.,GPW,Technology Services,Packaged Software,19.0,19.0,19.0,19.0,0.0,20627445.0,0,PLN
 DIA,Diagnostyka S.A.,GPW,Health Services,Medical/Nursing Services,152.0,156.0,152.0,156.0,2.631578947368421,5130988037.0,21917,PLN
 DIG,Digital Network S.A,GPW,Consumer Services,Broadcasting,276.0,283.8,276.0,281.0,3.46097201767304,1220196653.0,6631,PLN
-DIG_C,Digital Network S.A (CROSS MARKET),GPW,Consumer Services,Broadcasting,282.0,282.0,271.6,271.6,-3.6879432624113395,1220196653.0,0,PLN
+DIG_C,Digital Network S.A (CROSS MARKET),GPW,Consumer Services,Broadcasting,271.6,271.6,271.6,271.6,-3.6879432624113395,1220196653.0,0,PLN
 DIV,DI VOLIO S.A.,GPW,Finance,Investment Banks/Brokers,3.12,3.14,3.12,3.14,0.6410256410256416,74335856.0,500,PLN
 DKR,Dektra S.A.,GPW,Distribution Services,Wholesale Distributors,4.9,4.95,4.9,4.95,1.226993865030685,5398560.0,4,PLN
 DMG,Dr. Miele Cosmed Group S.A.,GPW,Consumer Non-Durables,Household/Personal Care,1.6,1.66,1.6,1.645,2.8124999999999956,139741836.0,10256,PLN
 DNP,Dino Polska SA,GPW,Retail Trade,Food Retail,37.1,37.69,36.66,37.55,1.816702819956601,36157153948.0,1681981,PLN
-DNP_C,Dino Polska SA (CROSS MARKET),GPW,Retail Trade,Food Retail,36.52,36.88,36.52,36.88,0.9857612267250805,36157153948.0,0,PLN
+DNP_C,Dino Polska SA (CROSS MARKET),GPW,Retail Trade,Food Retail,36.88,36.88,36.88,36.88,0.9857612267250805,36157153948.0,0,PLN
 DNS,DANKS Europejskie Centrum Doradztwa Podatkowego S.A.,GPW,Commercial Services,Miscellaneous Commercial Services,0.86,0.86,0.86,0.86,0.0,16400403.0,0,PLN
 DOM,Dom Development S.A.,GPW,Finance,Real Estate Development,245.5,246.0,242.0,243.0,-0.8163265306122449,6320613356.0,8681,PLN
 DPG,Dark Point Games SA,GPW,Technology Services,Packaged Software,8.15,8.2,8.15,8.2,0.6134969325153243,12381080.0,101,PLN
@@ -222,7 +222,7 @@ EAMFIZ,EQUES Akumulacji Majatku Fundusz Inwestycyjny Zamkniety Units,GPW,,,1530.
 EASPFIZ,EQUES Akcji Sektora Prywatnego Fundusz Inwestycyjny Zamkniety Units,GPW,,,3240.0,3240.0,3240.0,3240.0,0.0,,0,PLN
 EAT,AmRest Holdings SE,GPW,Consumer Services,Restaurants,8.41,8.41,8.23,8.26,-1.7835909631391242,1819307821.0,62539,PLN
 EBP,Erste Bank Polska S.A.,GPW,Finance,Regional Banks,780.0,780.0,738.0,746.0,-3.116883116883117,78685773163.0,110161,PLN
-EBP_C,Erste Bank Polska S.A. (CROSS MARKET),GPW,Finance,Regional Banks,782.2,782.2,770.0,770.0,-1.5597034006647974,78685773163.0,0,PLN
+EBP_C,Erste Bank Polska S.A. (CROSS MARKET),GPW,Finance,Regional Banks,770.0,770.0,770.0,770.0,-1.5597034006647974,78685773163.0,0,PLN
 EBX,Ekobox SA,GPW,Utilities,Electric Utilities,1.02,1.02,0.9,1.01,-0.980392156862746,45012600.0,78162,PLN
 EBX_C,Ekobox SA (CROSS MARKET),GPW,Utilities,Electric Utilities,1.02,1.02,1.02,1.02,-2.392344497607647,45012600.0,0,PLN
 ECB,ECB Spolka Akcyjna,GPW,Utilities,Electric Utilities,19.16,19.16,18.5,19.0,2.260495156081818,58512135.0,2255,PLN
@@ -245,11 +245,11 @@ EKP,Elkop Estonia SE,GPW,Finance,Real Estate Development,2.06,2.15,2.05,2.05,-6.
 EKS,e-Kiosk S.A.,GPW,Technology Services,Internet Software/Services,0.43,0.444,0.43,0.444,3.2558139534883748,7778700.0,109,PLN
 ELQ,ELQ Spolka Akcyjna,GPW,Producer Manufacturing,Electrical Products,1.435,1.44,1.42,1.44,0.6993006993007,143000007.0,501,PLN
 ELT,ELEKTROTIM S.A.,GPW,Industrial Services,Engineering & Construction,53.95,56.0,52.2,55.3,5.736137667304016,522111330.99999994,28931,PLN
-ELT_C,ELEKTROTIM S.A. (CROSS MARKET),GPW,Industrial Services,Engineering & Construction,54.1,54.1,52.3,52.3,-3.3271719038817085,522111330.99999994,0,PLN
+ELT_C,ELEKTROTIM S.A. (CROSS MARKET),GPW,Industrial Services,Engineering & Construction,52.3,52.3,52.3,52.3,-3.3271719038817085,522111330.99999994,0,PLN
 EMP,Emplocity SA,GPW,Technology Services,Packaged Software,0.438,0.438,0.38,0.418,-4.128440366972481,6917502.0,9542,PLN
 EMS,Enimso Europe SA,GPW,Utilities,Electric Utilities,0.284,0.313,0.284,0.313,-0.3184713375796181,12024996.0,465,PLN
 ENA,Enea SA,GPW,Utilities,Electric Utilities,20.52,20.8,20.42,20.44,0.788954635108482,10742946648.0,115604,PLN
-ENA_C,Enea SA (CROSS MARKET),GPW,Utilities,Electric Utilities,20.12,20.28,20.12,20.28,0.7952286282306169,10742946648.0,0,PLN
+ENA_C,Enea SA (CROSS MARKET),GPW,Utilities,Electric Utilities,20.28,20.28,20.28,20.28,0.7952286282306169,10742946648.0,0,PLN
 ENE,Centrum Medyczne ENEL-MED S.A.,GPW,Finance,Life/Health Insurance,19.5,19.5,18.7,19.4,-0.5128205128205201,551465444.0,451,PLN
 ENI,Energoinstal SA,GPW,Producer Manufacturing,Industrial Machinery,1.28,1.395,1.28,1.385,2.592592592592587,24300000.0,8405,PLN
 ENP,Energoaparatura SA,GPW,Industrial Services,Engineering & Construction,2.96,2.96,2.96,2.96,15.624999999999996,50372411.0,1,PLN
@@ -269,7 +269,7 @@ ETFBM40TR,BETA ETF WIG40TR PORTFELOWY FUNDUSZ INWESTYCYJNY ZAMKNIETY A,GPW,Misce
 ETFBNDXPL,Beta ETF Nasdaq-100 PLN-Hedged Portfelowy Fundusz Inwestycyjny Zamkniety Series A Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,245.75,247.05,244.7,246.75,4.843849585723394,,6064,PLN
 ETFBNQ2ST,Beta ETF Nasdaq-100 2x Short Portfelowy Fundusz Inwestycyjny Zamkniety Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,89.03,89.7,88.37,88.58,-7.805995004163198,,11612,PLN
 ETFBNQ3LV,Beta Etf Nasdaq-100 3X Leveraged Pcif,GPW,Miscellaneous,Investment Trusts/Mutual Funds,1096.0,1116.4,1091.6,1109.4,15.226422933111772,,3193,PLN
-ETFBNQ3LV_C,Beta Etf Nasdaq-100 3X Leveraged Pcif (CROSS MARKET),GPW,Miscellaneous,Investment Trusts/Mutual Funds,1087.4,1087.4,962.8,962.8,-11.458524921831904,,0,PLN
+ETFBNQ3LV_C,Beta Etf Nasdaq-100 3X Leveraged Pcif (CROSS MARKET),GPW,Miscellaneous,Investment Trusts/Mutual Funds,962.8,962.8,962.8,962.8,-11.458524921831904,,0,PLN
 ETFBS80TR,Beta ETF sWIG80TR Portfelowy Fundusz Inwestycyjny Zamkniety Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,446.65,450.4,445.1,449.25,1.8014955812372508,,888,PLN
 ETFBSPXPL,Beta ETF S&P 500 PLN-Hedged Portfelowy Fundusz Inwestycyjny Zamkniety Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,123.94,124.56,123.66,124.52,3.2846715328467098,,4083,PLN
 ETFBTBSP,Beta ETF TBSP Portfelowy Fundusz Inwestycyjny Zamkniety Series B Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,228.8,229.0,228.5,229.0,0.08741258741258244,,1189,PLN
@@ -289,14 +289,14 @@ ETFHANURNM,Sprott Uranium Miners UCITS ETF,GPW,Miscellaneous,Investment Trusts/M
 ETFHANYMAG,YieldMax Big Tech Option Income UCITS ETF USD,GPW,Miscellaneous,Investment Trusts/Mutual Funds,139.74,141.66,139.74,141.66,4.933333333333331,,169,PLN
 ETFISIJPA,iShares Core MSCI Japan IMI UCITS ETF,GPW,Miscellaneous,Investment Trusts/Mutual Funds,306.45,306.45,306.45,306.45,0.0,,0,PLN
 ETFIWDA,iShares Core MSCI World UCITS ETF,GPW,Miscellaneous,Investment Trusts/Mutual Funds,560.7,575.9,560.0,570.0,1.658640984483673,,221,PLN
-ETFIWDA_C,iShares Core MSCI World UCITS ETF (CROSS MARKET),GPW,Miscellaneous,Investment Trusts/Mutual Funds,558.0,560.7,558.0,560.7,0.48387096774194366,,0,PLN
+ETFIWDA_C,iShares Core MSCI World UCITS ETF (CROSS MARKET),GPW,Miscellaneous,Investment Trusts/Mutual Funds,560.7,560.7,560.7,560.7,0.48387096774194366,,0,PLN
 ETFNATO,Future of Defence UCITS ETF Accum USD,GPW,Miscellaneous,Investment Trusts/Mutual Funds,78.07,79.8,78.07,79.59,2.327076369246596,,933,PLN
 ETFPZUCASH,PZU ETF Floating-Rate Treasury Bonds Portfolio Closed-End Investment Fund ETF Units -A,GPW,Miscellaneous,Investment Trusts/Mutual Funds,101.3,101.3,101.04,101.3,0.0592651126037162,,2210,PLN
 ETFPZUGOLD,PZU ETF Gold Portfolio FIZ Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,75.5,75.84,74.56,75.13,3.81373497305512,,8900,PLN
-ETFPZUGOLD_C,PZU ETF Gold Portfolio FIZ Units (CROSS MARKET),GPW,Miscellaneous,Investment Trusts/Mutual Funds,74.99,74.99,72.37,72.37,-3.493799173223084,,0,PLN
+ETFPZUGOLD_C,PZU ETF Gold Portfolio FIZ Units (CROSS MARKET),GPW,Miscellaneous,Investment Trusts/Mutual Funds,72.37,72.37,72.37,72.37,-3.493799173223084,,0,PLN
 ETFPZULONGDUR,PZU ETF Long-Term Treasury Bonds Portfolio Closed-End Investment Fund Units A,GPW,,,99.66,99.66,99.43,99.65,0.2212611887760222,,240,PLN
 ETFPZUW20M40,PZU ETF WIG20 TR + mWIG40 TR Portfelowy FIZ Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,134.5,134.5,127.58,128.8,1.769911504424786,,3917,PLN
-ETFPZUW20M40_C,PZU ETF WIG20 TR + mWIG40 TR Portfelowy FIZ Units (CROSS MARKET),GPW,Miscellaneous,Investment Trusts/Mutual Funds,128.22,128.22,126.56,126.56,-1.2946498206208052,,0,PLN
+ETFPZUW20M40_C,PZU ETF WIG20 TR + mWIG40 TR Portfelowy FIZ Units (CROSS MARKET),GPW,Miscellaneous,Investment Trusts/Mutual Funds,126.56,126.56,126.56,126.56,-1.2946498206208052,,0,PLN
 ETFPZUWORLD,PZU ETF MSCI World Portfelowy FIZ Units,GPW,Miscellaneous,Investment Trusts/Mutual Funds,100.38,101.14,100.0,101.0,2.663142915226677,,4225,PLN
 ETFSLVR,Global X Silver Miners UCITS ETF AccumUSD,GPW,Miscellaneous,Investment Trusts/Mutual Funds,122.52,124.0,122.52,124.0,7.882373412215071,,291,PLN
 ETFSP500,Amundi Core S&P 500 Swap UCITS ETF EUR Dist,GPW,Miscellaneous,Investment Trusts/Mutual Funds,303.05,307.5,303.05,306.5,3.233411923206474,,2060,PLN
@@ -310,7 +310,7 @@ ETNVCOIN50,Virtune Coinbase 50 Index ETP,GPW,Miscellaneous,Investment Trusts/Mut
 ETNVIRALT,Virtune Crypto Altcoin Index ETP,GPW,Miscellaneous,Investment Trusts/Mutual Funds,2.7035,2.7165,2.7035,2.7165,6.320939334637956,,117,PLN
 ETNVIRALT_C,Virtune Crypto Altcoin Index ETP (CROSS MARKET),GPW,Miscellaneous,Investment Trusts/Mutual Funds,2.555,2.555,2.555,2.555,-2.555301296720051,,0,PLN
 ETNVIRBTCP,Virtune Bitcoin Prime ETP,GPW,Miscellaneous,Investment Trusts/Mutual Funds,24.71,25.15,24.48,24.675,1.3347022587268964,,12907,PLN
-ETNVIRBTCP_C,Virtune Bitcoin Prime ETP (CROSS MARKET),GPW,Miscellaneous,Investment Trusts/Mutual Funds,24.8,24.8,24.35,24.35,-1.8145161290322551,,0,PLN
+ETNVIRBTCP_C,Virtune Bitcoin Prime ETP (CROSS MARKET),GPW,Miscellaneous,Investment Trusts/Mutual Funds,24.35,24.35,24.35,24.35,-1.8145161290322551,,0,PLN
 ETNVIRETH,Virtune Staked Ethereum ETP,GPW,,,16.474,16.612,16.256,16.33,-0.9702850212249857,,10492,PLN
 ETNVIRHYPE,Virtune Hyperliquid ETP,GPW,Miscellaneous,Investment Trusts/Mutual Funds,24.73,25.025,24.73,25.025,8.80434782608695,,8,PLN
 ETNVIRLINK,Virtune Chainlink ETP,GPW,,,3.8,3.8,3.8,3.8,12.094395280235979,,2,PLN
@@ -444,7 +444,7 @@ JPM,JPMorgan Chase & Co.,GPW,Finance,Major Banks,1280.6,1280.6,1280.6,1280.6,0.0
 JRC,JRC Group Spolka Akcyjna,GPW,Consumer Durables,Electronics/Appliances,1.0,1.0,1.0,1.0,0.0,12819781.0,10,PLN
 JRH,JR Holding ASI SA,GPW,Finance,Real Estate Development,6.2,6.2,5.4,5.42,-11.147540983606554,276815559.0,219168,PLN
 JSW,Jastrzebska Spolka Weglowa S.A.,GPW,Energy Minerals,Coal,24.85,26.6,24.85,26.27,7.180742554059559,2877758299.0,625542,PLN
-JSW_C,Jastrzebska Spolka Weglowa S.A. (CROSS MARKET),GPW,Energy Minerals,Coal,22.82,24.51,22.82,24.51,7.405784399649436,2877758299.0,0,PLN
+JSW_C,Jastrzebska Spolka Weglowa S.A. (CROSS MARKET),GPW,Energy Minerals,Coal,24.51,24.51,24.51,24.51,7.405784399649436,2877758299.0,0,PLN
 JWW,JWW Invest S.A.,GPW,Industrial Services,Engineering & Construction,2.48,2.51,2.48,2.51,1.209677419354831,27280000.0,1484,PLN
 K2P,Kool2Play Spolka Akcyjna,GPW,Technology Services,Packaged Software,0.67,0.67,0.67,0.67,0.0,5410237.0,0,PLN
 KBJ,KBJ SA,GPW,Technology Services,Information Technology Services,32.0,32.0,31.0,32.0,0.6289308176100606,65427190.99999999,77,PLN
@@ -467,7 +467,7 @@ KOR,Korbank S.A.,GPW,Communications,Specialty Telecommunications,9.2,9.45,9.0,9.
 KPC,Kupiec SA,GPW,Transportation,Other Transportation,0.73,0.73,0.73,0.73,0.0,3043450.0,0,PLN
 KPD,KPPD SA,GPW,Producer Manufacturing,Building Products,20.2,20.2,20.2,20.2,0.0,32772481.999999996,0,PLN
 KPI,Kancelaria Prawna - Inkaso WEC S.A.,GPW,Commercial Services,Miscellaneous Commercial Services,2.06,2.1,2.02,2.1,0.9615384615384623,19514559.0,3723,PLN
-KPI_C,Kancelaria Prawna - Inkaso WEC S.A. (CROSS MARKET),GPW,Commercial Services,Miscellaneous Commercial Services,2.04,2.08,2.04,2.08,1.960784313725492,19514559.0,0,PLN
+KPI_C,Kancelaria Prawna - Inkaso WEC S.A. (CROSS MARKET),GPW,Commercial Services,Miscellaneous Commercial Services,2.08,2.08,2.08,2.08,1.960784313725492,19514559.0,0,PLN
 KPL,Kino Polska TV S.A.,GPW,Consumer Services,Broadcasting,15.15,15.35,15.15,15.35,0.32679738562090804,303267477.0,6604,PLN
 KRK,"Krka, d. d., Novo mesto",GPW,Health Technology,Pharmaceuticals: Major,1120.0,1128.0,1116.0,1128.0,0.7142857142857143,34935209763.854095,5,PLN
 KRU,Kruk S.A,GPW,Commercial Services,Miscellaneous Commercial Services,311.0,316.0,310.8,311.1,1.0064935064935139,6019364204.0,85612,PLN
@@ -518,7 +518,7 @@ MCD,Mycodern Spolka Akcyjna,GPW,Producer Manufacturing,Metal Fabrication,0.76,0.
 MCDL,McDonald's Corporation,GPW,Consumer Services,Restaurants,1167.5,1167.5,1167.5,1167.5,1.5217391304347827,816360549461.4442,3,PLN
 MCI,MCI Capital Alternatywna Spolka Inwestycyjna S.A.,GPW,Miscellaneous,Investment Trusts/Mutual Funds,26.5,27.0,26.3,26.9,0.7490636704119823,1400709618.0,2725,PLN
 MCR,mcr Spolka Akcyjna,GPW,Producer Manufacturing,Building Products,11.65,12.2,11.65,12.15,2.966101694915251,32597242.0,1342,PLN
-MCRN,"Micron Technology, Inc.",GPW,Electronic Technology,Semiconductors,2487.5,2487.5,2448.0,2448.0,4.21455938697318,2778724399600.163,17,PLN
+MCRN,"Micron Technology, Inc.",GPW,Electronic Technology,Semiconductors,2487.5,2487.5,2448.0,2448.0,4.21455938697318,3142234857654.0186,17,PLN
 MDA,MedApp SA,GPW,Technology Services,Packaged Software,0.16,0.16,0.16,0.16,0.0,40021191.0,60886,PLN
 MDB,Medicofarma Biotech Spolka Akcyjna,GPW,Health Technology,Pharmaceuticals: Major,0.358,0.36,0.338,0.354,-2.2099447513812174,24608142.0,1999,PLN
 MDG,Medicalgorithmics SA,GPW,Health Technology,Medical Specialties,19.2,19.96,19.2,19.6,1.5544041450777237,201750385.0,30893,PLN
@@ -546,7 +546,7 @@ MLK,Milkiland Foods PLC,GPW,Consumer Non-Durables,Food: Meat/Fish/Dairy,1.248,1.
 MLM,Milisystem S.A.,GPW,Technology Services,Packaged Software,0.273,0.314,0.273,0.302,5.226480836236939,24931084.0,44415,PLN
 MLP,MILKPOL S.A.,GPW,Process Industries,Agricultural Commodities/Milling,0.5,0.5,0.5,0.5,0.0,6353580.0,0,PLN
 MLS,ML System Spolka Akcyjna,GPW,Electronic Technology,Semiconductors,12.78,13.1,12.04,12.8,0.15649452269171635,94330336.0,19555,PLN
-MLS_C,ML System Spolka Akcyjna (CROSS MARKET),GPW,Electronic Technology,Semiconductors,12.3,12.78,12.3,12.78,3.9024390243902327,94330336.0,0,PLN
+MLS_C,ML System Spolka Akcyjna (CROSS MARKET),GPW,Electronic Technology,Semiconductors,12.78,12.78,12.78,12.78,3.9024390243902327,94330336.0,0,PLN
 MLT,Moonlit S.A.,GPW,Technology Services,Packaged Software,0.3,0.348,0.3,0.348,15.999999999999998,2856001.0,12065,PLN
 MMC,MM Conferences SA,GPW,Commercial Services,Miscellaneous Commercial Services,7.85,7.85,7.85,7.85,0.0,8427076.0,0,PLN
 MMS,Madmind Studio SA,GPW,Technology Services,Packaged Software,0.268,0.268,0.268,0.268,0.0,3215464.0,0,PLN
@@ -555,7 +555,7 @@ MND,MINERAL MIDRANGE S.A.,GPW,Technology Services,Information Technology Service
 MNS,Mennica Skarbowa SA,GPW,Retail Trade,Specialty Stores,40.3,40.3,38.7,40.0,-0.7444168734491244,41916028.0,277,PLN
 MO2,Moliera2 Spolka Akcyjna,GPW,Commercial Services,Miscellaneous Commercial Services,0.067,0.067,0.067,0.067,0.0,45514176.0,0,PLN
 MOC,Molecure SA,GPW,Health Technology,Pharmaceuticals: Major,5.64,6.49,5.6,6.1,13.805970149253719,132519493.00000001,369245,PLN
-MOC_C,Molecure SA (CROSS MARKET),GPW,Health Technology,Pharmaceuticals: Major,5.3,5.36,5.3,5.36,1.1320754716981227,132519493.00000001,0,PLN
+MOC_C,Molecure SA (CROSS MARKET),GPW,Health Technology,Pharmaceuticals: Major,5.36,5.36,5.36,5.36,1.1320754716981227,132519493.00000001,0,PLN
 MOL,MOL Hungarian Oil & Gas Plc Class A,GPW,Energy Minerals,Oil Refining/Marketing,52.2,54.85,52.2,53.9,0.9363295880149813,43079799317.795654,4210,PLN
 MON,MONNARI TRADE S.A.,GPW,Retail Trade,Apparel/Footwear Retail,4.47,4.47,4.15,4.36,-3.5398230088495417,117632541.0,9519,PLN
 MOV,Movie Games SA,GPW,Technology Services,Packaged Software,7.15,7.15,6.83,7.14,0.0,18372162.0,2065,PLN
@@ -563,7 +563,7 @@ MPY,mPay SA,GPW,Commercial Services,Miscellaneous Commercial Services,0.234,0.24
 MQR,MultiQure S.A.,GPW,Health Technology,Biotechnology,1.154,1.214,1.14,1.152,1.7667844522968217,255548216.0,280587,PLN
 MRB,Mirbud S.A.,GPW,Industrial Services,Engineering & Construction,11.15,11.71,11.15,11.53,3.4080717488789145,1227536934.0,136200,PLN
 MRC,Mercator Medical SA,GPW,Distribution Services,Medical Distributors,58.4,58.6,57.9,58.6,0.3424657534246624,504762387.0,3518,PLN
-MRC_C,Mercator Medical SA (CROSS MARKET),GPW,Distribution Services,Medical Distributors,56.3,58.4,56.3,58.4,3.730017761989345,504762387.0,0,PLN
+MRC_C,Mercator Medical SA (CROSS MARKET),GPW,Distribution Services,Medical Distributors,58.4,58.4,58.4,58.4,3.730017761989345,504762387.0,0,PLN
 MRD,MEDARD Spolka Akcyjna,GPW,Commercial Services,Miscellaneous Commercial Services,1.2,1.2,1.2,1.2,0.0,2678400.0,0,PLN
 MRH,Mr Hamburger SA,GPW,Consumer Services,Restaurants,0.22,0.22,0.22,0.22,0.0,6336587.0,0,PLN
 MRK,Marka SA,GPW,Finance,Finance/Rental/Leasing,0.14,0.14,0.14,0.14,0.0,564520.0,826,PLN
@@ -576,7 +576,7 @@ MSZ,Mostostal Zabrze SA,GPW,Industrial Services,Engineering & Construction,5.99,
 MTN,MILTON ESSEX S.A.,GPW,Health Technology,Medical Specialties,0.282,0.35,0.28,0.336,12.00000000000001,22533608.0,361648,PLN
 MUN,Munar SA,GPW,Technology Services,Packaged Software,0.227,0.227,0.2,0.2,-19.354838709677413,11649974.0,171217,PLN
 MUR,Murapol S.A.,GPW,Finance,Real Estate Development,36.4,36.9,35.6,36.45,0.1373626373626491,1485120034.0,22866,PLN
-MUR_C,Murapol S.A. (CROSS MARKET),GPW,Finance,Real Estate Development,34.9,36.4,34.9,36.4,4.2979942693409745,1485120034.0,0,PLN
+MUR_C,Murapol S.A. (CROSS MARKET),GPW,Finance,Real Estate Development,36.4,36.4,36.4,36.4,4.2979942693409745,1485120034.0,0,PLN
 MVP,Marvipol Development SA,GPW,Consumer Durables,Homebuilding,7.88,7.88,7.7,7.78,-0.5115089514066501,325725303.0,5346,PLN
 MWT,M.W. Trade Spolke Akcyjna,GPW,Finance,Finance/Rental/Leasing,2.58,2.58,2.44,2.44,-6.153846153846159,6636601.0,6481,PLN
 MXC,MaxCom SA,GPW,Electronic Technology,Telecommunications Equipment,4.8,5.04,4.8,5.04,5.000000000000004,12960001.0,2609,PLN
@@ -587,7 +587,7 @@ NCL_C,Noctiluca Spolka Akcyjna (CROSS MARKET),GPW,Process Industries,Chemicals: 
 NEU,NEUCA S.A.,GPW,Distribution Services,Medical Distributors,733.0,735.0,728.0,730.0,0.0,3365419145.0,2946,PLN
 NFLX,"Netflix, Inc.",GPW,Technology Services,Internet Software/Services,243.0,243.0,243.0,243.0,1.524963442657199,995335933272.1338,110,PLN
 NIKE,"NIKE, Inc. Class B",GPW,Consumer Non-Durables,Apparel/Footwear,149.64,151.2,149.64,151.2,4.4776119402985,222160032023.6638,319,PLN
-NIKE_C,"NIKE, Inc. Class B (CROSS MARKET)",GPW,Consumer Non-Durables,Apparel/Footwear,144.54,144.72,144.54,144.72,0.12453300124533474,222160032023.6638,0,PLN
+NIKE_C,"NIKE, Inc. Class B (CROSS MARKET)",GPW,Consumer Non-Durables,Apparel/Footwear,144.72,144.72,144.72,144.72,0.12453300124533474,222160032023.6638,0,PLN
 NNG,NanoGroup SA,GPW,Health Technology,Medical Specialties,2.075,2.075,2.02,2.07,0.9756097560975618,87389428.0,9029,PLN
 NOB,Noobz from Poland S.A.,GPW,Technology Services,Packaged Software,11.1,11.5,11.1,11.5,-0.8620689655172384,21048282.0,162,PLN
 NOV,Novina Spolka Akcyjna,GPW,Finance,Finance/Rental/Leasing,0.616,0.628,0.602,0.61,-1.2944983818770237,17548741.0,15556,PLN
@@ -601,7 +601,7 @@ NTU,Novaturas AB,GPW,Consumer Services,Other Consumer Services,4.64,4.64,4.44,4.
 NTV,New Tech Venture S.A.,GPW,Finance,Financial Conglomerates,0.19,0.19,0.172,0.19,0.0,7874455.0,590,PLN
 NVA,P.A. NOVA Spolka Akcyjna,GPW,Industrial Services,Engineering & Construction,17.15,17.2,17.15,17.2,1.17647058823529,169488789.0,691,PLN
 NVDA,NVIDIA Corporation,GPW,Electronic Technology,Semiconductors,628.0,630.1,609.0,630.0,5.175292153589315,14680253258045.695,1770,PLN
-NVDA_C,NVIDIA Corporation (CROSS MARKET),GPW,Electronic Technology,Semiconductors,629.9,629.9,599.0,599.0,-4.905540561993964,14680253258045.695,0,PLN
+NVDA_C,NVIDIA Corporation (CROSS MARKET),GPW,Electronic Technology,Semiconductors,599.0,599.0,599.0,599.0,-4.905540561993964,14680253258045.695,0,PLN
 NVG,Novavis Group S.A.,GPW,Industrial Services,Engineering & Construction,0.36,0.364,0.332,0.3485,-3.1944444444444478,12605503.0,93015,PLN
 NVO,Novo Nordisk A/S Class B,GPW,Health Technology,Pharmaceuticals: Major,160.08,160.08,160.08,160.08,0.0,726780448886.536,0,PLN
 NVT,NOVITA S.A.,GPW,Process Industries,Textiles,104.5,104.5,102.5,104.0,1.4634146341463417,256250000.0,33,PLN
@@ -641,12 +641,12 @@ PAT,Patentus SA,GPW,Producer Manufacturing,Trucks/Construction/Farm Machinery,1.
 PBF,PBS Finanse S.A.,GPW,Consumer Non-Durables,Food: Meat/Fish/Dairy,0.6,0.6,0.6,0.6,-8.396946564885504,6846059.0,146,PLN
 PBX,Poznanska Korporacja Budowlana Pekabex SA,GPW,Industrial Services,Engineering & Construction,8.03,8.09,7.96,8.0,-0.990099009900991,200598210.0,13829,PLN
 PCE,Grupa Azoty Zaklady Chemiczne Police S.A.,GPW,Process Industries,Chemicals: Agricultural,6.5,6.6,6.34,6.56,2.4999999999999885,794724914.0,4793,PLN
-PCE_C,Grupa Azoty Zaklady Chemiczne Police S.A. (CROSS MARKET),GPW,Process Industries,Chemicals: Agricultural,6.36,6.4,6.36,6.4,0.6289308176100634,794724914.0,0,PLN
+PCE_C,Grupa Azoty Zaklady Chemiczne Police S.A. (CROSS MARKET),GPW,Process Industries,Chemicals: Agricultural,6.4,6.4,6.4,6.4,0.6289308176100634,794724914.0,0,PLN
 PCF,PCF Group SA,GPW,Technology Services,Packaged Software,2.945,2.97,2.82,2.86,-2.555366269165253,135265896.0,19511,PLN
 PCGL,Procter & Gamble Company,GPW,Consumer Non-Durables,Household/Personal Care,702.5,702.5,702.5,702.5,0.0,1638145958282.3337,0,PLN
 PCO,Pepco Group BV,GPW,Retail Trade,Specialty Stores,50.74,50.96,49.24,50.14,0.28000000000000114,26314920044.0,519266,PLN
 PCR,PCC Rokita Spolka Akcyjna,GPW,Process Industries,Chemicals: Specialty,60.4,61.0,59.2,60.0,-0.6622516556291367,1223611536.0,7710,PLN
-PCR_C,PCC Rokita Spolka Akcyjna (CROSS MARKET),GPW,Process Industries,Chemicals: Specialty,60.9,60.9,60.4,60.4,-0.8210180623973727,1223611536.0,0,PLN
+PCR_C,PCC Rokita Spolka Akcyjna (CROSS MARKET),GPW,Process Industries,Chemicals: Specialty,60.4,60.4,60.4,60.4,-0.8210180623973727,1223611536.0,0,PLN
 PCX,PCC Exol SA,GPW,Consumer Non-Durables,Household/Personal Care,1.915,1.935,1.885,1.935,1.3089005235602165,332601002.0,33617,PLN
 PDG,Pyramid Games Spolka Akcyjna,GPW,Technology Services,Packaged Software,3.58,3.58,3.58,3.58,-0.555555555555556,4664232.0,2,PLN
 PEN,Photon Energy NV,GPW,Utilities,Electric Utilities,1.0,1.01,1.0,1.0,0.0,55954962.59707874,7390,PLN
@@ -767,13 +767,13 @@ SNK,Sanok Rubber Company SA,GPW,Producer Manufacturing,Miscellaneous Manufacturi
 SNK_C,Sanok Rubber Company SA (CROSS MARKET),GPW,Producer Manufacturing,Miscellaneous Manufacturing,18.2,18.2,18.2,18.2,-0.27397260273972995,335572234.0,0,PLN
 SNN,Sunway Network Spolka Akcyjna,GPW,Technology Services,Information Technology Services,1.84,1.84,1.84,1.84,-0.540540540540541,35150000.0,54,PLN
 SNT,Synektik SA,GPW,Health Technology,Medical Specialties,304.2,310.2,304.2,308.6,1.848184818481856,2584326096.0,10576,PLN
-SNT_C,Synektik SA (CROSS MARKET),GPW,Health Technology,Medical Specialties,301.0,303.0,301.0,303.0,0.6644518272425249,2584326096.0,0,PLN
+SNT_C,Synektik SA (CROSS MARKET),GPW,Health Technology,Medical Specialties,303.0,303.0,303.0,303.0,0.6644518272425249,2584326096.0,0,PLN
 SNW,Sanwil Holding S.A.,GPW,Consumer Non-Durables,Apparel/Footwear,1.73,1.73,1.73,1.73,0.0,27686557.0,0,PLN
 SNX,Sunex SA,GPW,Producer Manufacturing,Electrical Products,3.575,3.63,3.54,3.585,0.27972027972027375,91938225.0,6050,PLN
 SOK,Sonka Spolka Akcyjna,GPW,Technology Services,Packaged Software,10.5,10.5,10.1,10.5,0.0,37884000.0,486,PLN
 SON,Sonel S.A.,GPW,Electronic Technology,Electronic Equipment/Instruments,12.4,12.4,12.4,12.4,0.4048582995951474,172900005.0,229,PLN
 SPCX,Space Exploration Technologies Corp. Class A,GPW,Communications,Specialty Telecommunications,531.4,533.0,529.9,531.4,10.374909128673796,7061488235173.398,301,PLN
-SPCX_C,Space Exploration Technologies Corp. Class A (CROSS MARKET),GPW,Communications,Specialty Telecommunications,514.7,514.7,481.45,481.45,-6.4600738294152045,7061488235173.398,0,PLN
+SPCX_C,Space Exploration Technologies Corp. Class A (CROSS MARKET),GPW,Communications,Specialty Telecommunications,481.45,481.45,481.45,481.45,-6.4600738294152045,7061488235173.398,0,PLN
 SPH,Sopharma AD,GPW,Health Technology,Pharmaceuticals: Major,12.8,12.8,12.5,12.5,0.0,7295785060.758874,500,PLN
 SPR,SpyroSoft SA,GPW,Technology Services,Packaged Software,299.0,305.0,296.0,303.0,3.061224489795918,322094031.0,498,PLN
 STA,Starward Industries SA,GPW,Technology Services,Packaged Software,6.88,7.0,6.58,6.9,-1.4285714285714235,14687366.0,217,PLN
@@ -791,7 +791,7 @@ SWG,SECO/WARWICK S.A.,GPW,Producer Manufacturing,Metal Fabrication,32.2,33.0,32.
 SWM,Software Mansion SA Series A-E,GPW,Technology Services,Packaged Software,22.3,24.2,22.3,24.2,2.542372881355923,255135347.0,971,PLN
 SYG,Sygnis S.A.,GPW,Consumer Durables,Electronics/Appliances,0.828,0.838,0.8,0.82,0.0,26757323.0,18247,PLN
 SZR,SZAR S.A.,GPW,Non-Energy Minerals,Other Metals/Minerals,0.258,0.308,0.21,0.304,20.634920634920633,27720000.0,4578432,PLN
-SZR_C,SZAR S.A. (CROSS MARKET),GPW,Non-Energy Minerals,Other Metals/Minerals,0.21,0.252,0.21,0.252,20.000000000000007,27720000.0,0,PLN
+SZR_C,SZAR S.A. (CROSS MARKET),GPW,Non-Energy Minerals,Other Metals/Minerals,0.252,0.252,0.252,0.252,20.000000000000007,27720000.0,0,PLN
 TAR,Tarczynski SA Class F,GPW,Distribution Services,Food Distributors,105.5,109.0,105.5,105.5,0.0,1197101671.0,508,PLN
 TBL,T-Bull SA,GPW,Technology Services,Packaged Software,1.57,1.57,1.57,1.57,0.0,1861638.0,0,PLN
 TCR,Tech Robotics S.A.,GPW,Technology Services,Packaged Software,14.3,14.8,14.0,14.8,0.0,91730401.0,524,PLN
@@ -824,7 +824,7 @@ TRX,Trex SA,GPW,Commercial Services,Miscellaneous Commercial Services,5.15,5.5,5
 TSG,TESGAS S.A.,GPW,Industrial Services,Oilfield Services/Equipment,1.47,1.47,1.45,1.47,1.3793103448275874,16457501.0,15450,PLN
 TSLA,"Tesla, Inc.",GPW,Consumer Durables,Motor Vehicles,1566.4,1566.4,1539.4,1566.4,4.649919828968476,6130565098135.455,154,PLN
 TTWO,"Take-Two Interactive Software, Inc.",GPW,Technology Services,Packaged Software,914.0,915.0,907.5,911.0,0.9977827050997782,173647952496.94,45,PLN
-TTWO_C,"Take-Two Interactive Software, Inc. (CROSS MARKET)",GPW,Technology Services,Packaged Software,891.0,902.0,891.0,902.0,1.2345679012345678,173647952496.94,0,PLN
+TTWO_C,"Take-Two Interactive Software, Inc. (CROSS MARKET)",GPW,Technology Services,Packaged Software,902.0,902.0,902.0,902.0,1.2345679012345678,173647952496.94,0,PLN
 TXN,Tax-Net SA,GPW,Commercial Services,Miscellaneous Commercial Services,1.3,1.3,1.3,1.3,0.0,3048844.0,0,PLN
 TXT,Text S.A.,GPW,Technology Services,Packaged Software,39.0,43.24,38.72,42.9,16.512764801738182,948114992.0,348447,PLN
 TXT_C,Text S.A. (CROSS MARKET),GPW,Technology Services,Packaged Software,36.82,36.82,36.82,36.82,1.1538461538461586,948114992.0,0,PLN
@@ -857,7 +857,7 @@ VOLV,Volvo AB Class B,GPW,Producer Manufacturing,Trucks/Construction/Farm Machin
 VOT,Votum S.A.,GPW,Finance,Insurance Brokers/Services,34.9,37.45,34.9,37.25,7.503607503607508,415800018.0,28530,PLN
 VOW,Volkswagen AG Pref,GPW,Consumer Durables,Motor Vehicles,301.7,305.2,301.7,305.2,2.4161073825503316,145039768051.11774,6,PLN
 VOX,Voxel S.A.,GPW,Health Services,Hospital/Nursing Management,142.4,149.8,142.4,144.0,6.194690265486731,1424152586.0,23467,PLN
-VOX_C,Voxel S.A. (CROSS MARKET),GPW,Health Services,Hospital/Nursing Management,136.0,136.0,135.6,135.6,-0.2941176470588277,1424152586.0,0,PLN
+VOX_C,Voxel S.A. (CROSS MARKET),GPW,Health Services,Hospital/Nursing Management,135.6,135.6,135.6,135.6,-0.2941176470588277,1424152586.0,0,PLN
 VRB,Verbicom SA,GPW,Technology Services,Information Technology Services,1.64,1.64,1.64,1.64,0.0,12995903.0,10,PLN
 VRC,Vercom SA,GPW,Technology Services,Information Technology Services,129.6,134.8,129.6,132.2,2.799377916018658,2841666011.0,30614,PLN
 VRG,VRG S.A.,GPW,Consumer Non-Durables,Apparel/Footwear,5.04,5.18,5.02,5.16,1.976284584980248,1186346542.0,31448,PLN
@@ -881,13 +881,13 @@ XBS,XBS PRO-LOG SA,GPW,Commercial Services,Miscellaneous Commercial Services,60.
 XDD,Mentzen Spolka Akcyjna,GPW,Consumer Services,Other Consumer Services,22.8,22.8,22.4,22.8,0.8849557522123862,23696099.0,56,PLN
 XPL,XPLUS S.A.,GPW,Technology Services,Information Technology Services,2.8,2.85,2.8,2.85,1.7857142857142954,195011050.0,4528,PLN
 XTB,XTB Spolka Akcyjna,GPW,Finance,Investment Banks/Brokers,109.48,110.68,108.3,110.08,2.115027829313545,12673965726.0,394922,PLN
-XTB_C,XTB Spolka Akcyjna (CROSS MARKET),GPW,Finance,Investment Banks/Brokers,106.62,107.8,106.62,107.8,1.1067341962108352,12673965726.0,0,PLN
+XTB_C,XTB Spolka Akcyjna (CROSS MARKET),GPW,Finance,Investment Banks/Brokers,107.8,107.8,107.8,107.8,1.1067341962108352,12673965726.0,0,PLN
 XTP,XTPL SA,GPW,Electronic Technology,Semiconductors,63.3,65.8,63.3,64.5,1.8957345971564028,186727213.0,2542,PLN
-XTP_C,XTPL SA (CROSS MARKET),GPW,Electronic Technology,Semiconductors,64.9,64.9,63.3,63.3,-2.4653312788906137,186727213.0,0,PLN
+XTP_C,XTPL SA (CROSS MARKET),GPW,Electronic Technology,Semiconductors,63.3,63.3,63.3,63.3,-2.4653312788906137,186727213.0,0,PLN
 YAN,Yanosik Spolka Akcyjna,GPW,Technology Services,Packaged Software,21.0,21.6,19.6,20.6,-4.62962962962963,,1497,PLN
 YBS,YBS S.A.,GPW,Commercial Services,Miscellaneous Commercial Services,0.193,0.193,0.193,0.193,0.0,14475000.0,60,PLN
 YOS,Yoshi Innovation Spolka Akcyjna,GPW,Technology Services,Information Technology Services,0.47,0.47,0.424,0.46,-2.1276595744680753,11591375.0,38626,PLN
-YOS_C,Yoshi Innovation Spolka Akcyjna (CROSS MARKET),GPW,Technology Services,Information Technology Services,0.49,0.49,0.47,0.47,-4.081632653061228,11591375.0,0,PLN
+YOS_C,Yoshi Innovation Spolka Akcyjna (CROSS MARKET),GPW,Technology Services,Information Technology Services,0.47,0.47,0.47,0.47,-4.081632653061228,11591375.0,0,PLN
 YRL,Yarrl S.A.,GPW,Technology Services,Information Technology Services,5.6,5.68,5.48,5.56,2.583025830258297,38578005.0,24575,PLN
 ZAB,Zabka Group S.A.,GPW,Retail Trade,Food Retail,31.8,31.85,31.75,31.75,-0.15723270440251794,31795802973.0,5842295,PLN
 ZAL,Zalando SE,GPW,Retail Trade,Internet Retail,130.5,130.5,130.5,130.5,0.0,31326057554.479313,0,PLN
